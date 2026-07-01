@@ -1,0 +1,123 @@
+import type { MatterType } from '@/features/matters/types'
+import {
+  MATTER_ATTRIBUTE_FIELDS,
+  type AttributeFieldConfig,
+} from '@/features/matters/utils'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { parseTagsInput, tagsToInput } from '@/features/matters/utils'
+
+type MatterAttributeFieldsProps = {
+  matterType: MatterType
+  values: Record<string, unknown>
+  onChange: (key: string, value: unknown) => void
+}
+
+function FieldControl({
+  field,
+  value,
+  onChange,
+}: {
+  field: AttributeFieldConfig
+  value: unknown
+  onChange: (value: unknown) => void
+}) {
+  switch (field.type) {
+    case 'textarea':
+      return (
+        <Textarea
+          value={typeof value === 'string' ? value : ''}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={field.placeholder}
+          rows={3}
+        />
+      )
+    case 'number':
+      return (
+        <Input
+          type="number"
+          value={typeof value === 'number' ? value : typeof value === 'string' ? value : ''}
+          onChange={(e) => onChange(e.target.value ? Number(e.target.value) : '')}
+          placeholder={field.placeholder}
+        />
+      )
+    case 'date':
+      return (
+        <Input
+          type="date"
+          value={typeof value === 'string' ? value : ''}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )
+    case 'select':
+      return (
+        <Select
+          value={typeof value === 'string' ? value : ''}
+          onValueChange={(v) => onChange(v)}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select…" />
+          </SelectTrigger>
+          <SelectContent>
+            {field.options?.map((opt) => (
+              <SelectItem key={opt.value} value={opt.value}>
+                {opt.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )
+    case 'tags':
+      return (
+        <Input
+          value={tagsToInput(value)}
+          onChange={(e) => onChange(parseTagsInput(e.target.value))}
+          placeholder={field.placeholder}
+        />
+      )
+    default:
+      return (
+        <Input
+          value={typeof value === 'string' ? value : ''}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={field.placeholder}
+        />
+      )
+  }
+}
+
+export function MatterAttributeFields({
+  matterType,
+  values,
+  onChange,
+}: MatterAttributeFieldsProps) {
+  const fields = MATTER_ATTRIBUTE_FIELDS[matterType] ?? []
+
+  if (fields.length === 0) return null
+
+  return (
+    <div className="space-y-4">
+      <p className="text-sm font-medium">Type-specific details</p>
+      {fields.map((field) => (
+        <div key={field.key} className="space-y-1.5">
+          <label className="text-sm text-muted-foreground">{field.label}</label>
+          <FieldControl
+            field={field}
+            value={values[field.key]}
+            onChange={(v) => onChange(field.key, v)}
+          />
+          {field.helpText ? (
+            <p className="text-xs text-muted-foreground">{field.helpText}</p>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  )
+}

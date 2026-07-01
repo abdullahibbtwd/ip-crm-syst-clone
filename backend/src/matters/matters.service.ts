@@ -1,0 +1,464 @@
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import {
+  IpRightStatus,
+  MatterJurisdictionStatus,
+  MatterStatus,
+  MatterTimelineEventType,
+  Prisma,
+  type IntakeLead,
+  type Counterparty,
+} from '../../generated/prisma/client';
+import type { AuthenticatedUser } from '../auth/auth.types';
+import { parseLimit } from '../crm/dto/pagination.dto';
+import { PrismaService } from '../prisma/prisma.service';
+import {
+  buildMatterAttributesFromIntake,
+  buildMatterTitle,
+  mapIntakeMatterType,
+} from '../intake/intake-matter.mapper';
+import { DeadlinesService } from '../deadlines/deadlines.service';
+import { MATTER_CLOSE_ROLES } from './matters.constants';
+import { CreateIpRightDto } from './dto/ip-right.dto';
+import { FileIpRightDto } from './dto/file-ip-right.dto';
+import {
+  CreateMatterDto,
+  MatterQueryDto,
+  UpdateMatterDto,
+} from './dto/matter.dto';
+import {
+  filingAuthorityForJurisdiction,
+  filingTimelineTitle,
+} from './ip-right-filing.utils';
+
+const userSelect = { id: true, fullName: true, email: true } as const;
+
+const matterListInclude = {
+  assignedTo: { select: userSelect },
+  jurisdictions: {
+    orderBy: { countryCode: 'asc' as const },
+    select: {
+      id: true,
+      countryCode: true,
+      localRefNumber: true,
+      status: true,
+    },
+  },
+  client: {
+    select: {
+      id: true,
+      internalCode: true,
+      companyName: true,
+      firstName: true,
+      lastName: true,
+      type: true,
+    },
+  },
+} satisfies Prisma.MatterInclude;
+
+const matterDetailInclude = {
+  ...matterListInclude,
+  filedBy: { select: userSelect },
+  attributes: true,
+  ipRights: { orderBy: { createdAt: 'desc' as const } },
+} satisfies Prisma.MatterInclude;
+
+export type IntakeLeadForMatter = IntakeLead & {
+  counterparties: Counterparty[];
+};
+
+const ipRightInclude = {
+  filingDocumentVersion: {
+    select: {
+      id: true,
+      version: true,
+      fileName: true,
+      document: { select: { id: true, displayName: true, category: true } },
+    },
+  },
+} satisfies Prisma.IpRightInclude;
+
+@Injectable()
+export class MattersService {
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly deadlinesService: DeadlinesService,
+  ) {}
+
+  async create(dto: CreateMatterDto, userId: string) {
+    await this.assertClientExists(dto.clientId);
+
+    if (dto.assignedToId) {
+      await this.assertUserExists(dto.assignedToId);
+    }
+
+    const matter = await this.prisma.$transaction(async (tx) => {
+      const created = await tx.matter.create({
+        data: {
+          clientId: dto.clientId,
+          matterType: dto.matterType,
+          title: dto.title,
+          status: dto.status ?? MatterStatus.draft,
+          assignedToId: dto.assignedToId,
+          filedById: userId,
+          description: dto.description,
+          jurisdictions: dto.jurisdictions?.length
+            ? {
+                create: dto.jurisdictions.map((j) => ({
+                  countryCode: j.countryCode.toUpperCase(),
+                  localRefNumber: j.localRefNumber,
+                  status: j.status,
+                })),
+              }
+            : undefined,
+          attributes: dto.attributes
+            ? { create: { attributes: dto.attributes as Prisma.InputJsonValue } }
+            : { create: { attributes: {} } },
+        },
+        include: matterDetailInclude,
+      });
+
+      return created;
+    });
+
+    await this.deadlinesService.generateInitialDeadlines(matter.id);
+
+    return matter;
+  }
+
+  async createFromIntake(
+    tx: Prisma.TransactionClient,
+    lead: IntakeLeadForMatter,
+    clientId: string,
+    userId: string,
+  ) {
+    const matterType = mapIntakeMatterType(lead.matterType);
+    const title = buildMatterTitle(lead);
+    const attributes = buildMatterAttributesFromIntake(lead);
+    const jurisdiction = lead.country?.trim().toUpperCase();
+
+    return tx.matter.create({
+      data: {
+        clientId,
+        matterType,
+        title,
+        status: MatterStatus.active,
+        assignedToId: lead.assignedUserId,
+        filedById: userId,
+        description: lead.description,
+        sourceIntakeId: lead.id,
+        jurisdictions: jurisdiction
+          ? {
+              create: [{ countryCode: jurisdiction }],
+            }
+          : undefined,
+        attributes: {
+          create: { attributes: attributes as Prisma.InputJsonValue },
+        },
+        ipRights: jurisdiction
+          ? {
+              create: [
+                {
+                  clientId,
+                  rightType: matterType,
+                  title,
+                  jurisdiction,
+                  status: IpRightStatus.pending,
+                },
+              ],
+            }
+          : undefined,
+      },
+      include: matterDetailInclude,
+    });
+  }
+
+  async findAll(query: MatterQueryDto) {
+    const take = parseLimit(query.limit);
+    const search = query.search?.trim();
+
+    const where: Prisma.MatterWhereInput = {
+      clientId: query.clientId,
+      status: query.status,
+      matterType: query.matterType,
+      assignedToId: query.assignedToId,
+      ...(search
+        ? {
+            OR: [
+              { title: { contains: search, mode: 'insensitive' } },
+              { description: { contains: search, mode: 'insensitive' } },
+              {
+                client: {
+                  OR: [
+                    { companyName: { contains: search, mode: 'insensitive' } },
+                    { firstName: { contains: search, mode: 'insensitive' } },
+                    { lastName: { contains: search, mode: 'insensitive' } },
+                    { internalCode: { contains: search, mode: 'insensitive' } },
+                  ],
+                },
+              },
+              {
+                jurisdictions: {
+                  some: {
+                    localRefNumber: { contains: search, mode: 'insensitive' },
+                  },
+                },
+              },
+            ],
+          }
+        : {}),
+    };
+
+    const rows = await this.prisma.matter.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+      take: take + 1,
+      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
+      include: matterListInclude,
+    });
+
+    const hasMore = rows.length > take;
+    const items = hasMore ? rows.slice(0, take) : rows;
+
+    const upcomingCounts = await this.deadlinesService.countUpcomingByMatterIds(
+      items.map((m) => m.id),
+    );
+
+    return {
+      items: items.map((m) => ({
+        ...m,
+        upcomingDeadlineCount: upcomingCounts.get(m.id) ?? 0,
+      })),
+      nextCursor: hasMore ? items[items.length - 1]?.id : null,
+    };
+  }
+
+  async listDeadlines(matterId: string) {
+    return this.deadlinesService.listForMatter(matterId);
+  }
+
+  async findOne(id: string) {
+    const matter = await this.prisma.matter.findUnique({
+      where: { id },
+      include: matterDetailInclude,
+    });
+    if (!matter) throw new NotFoundException('Matter not found');
+    return matter;
+  }
+
+  async update(id: string, dto: UpdateMatterDto, user: AuthenticatedUser) {
+    await this.findOne(id);
+
+    if (
+      dto.status &&
+      (dto.status === MatterStatus.closed || dto.status === MatterStatus.abandoned)
+    ) {
+      const canClose = user.roles.some((r) =>
+        (MATTER_CLOSE_ROLES as readonly string[]).includes(r),
+      );
+      if (!canClose) {
+        throw new ForbiddenException(
+          'Only managing partners and IP attorneys can close or abandon matters',
+        );
+      }
+    }
+
+    if (dto.assignedToId) {
+      await this.assertUserExists(dto.assignedToId);
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      if (dto.jurisdictions) {
+        await tx.matterJurisdiction.deleteMany({ where: { matterId: id } });
+        if (dto.jurisdictions.length > 0) {
+          await tx.matterJurisdiction.createMany({
+            data: dto.jurisdictions.map((j) => ({
+              matterId: id,
+              countryCode: j.countryCode.toUpperCase(),
+              localRefNumber: j.localRefNumber,
+              status: j.status,
+            })),
+          });
+        }
+      }
+
+      if (dto.attributes !== undefined) {
+        await tx.matterAttributes.upsert({
+          where: { matterId: id },
+          create: {
+            matterId: id,
+            attributes: dto.attributes as Prisma.InputJsonValue,
+          },
+          update: { attributes: dto.attributes as Prisma.InputJsonValue },
+        });
+      }
+
+      return tx.matter.update({
+        where: { id },
+        data: {
+          matterType: dto.matterType,
+          title: dto.title,
+          status: dto.status,
+          assignedToId: dto.assignedToId,
+          description: dto.description,
+        },
+        include: matterDetailInclude,
+      });
+    });
+  }
+
+  async remove(id: string) {
+    await this.findOne(id);
+    await this.prisma.matter.delete({ where: { id } });
+    return { deleted: true };
+  }
+
+  async listIpRights(matterId: string) {
+    await this.findOne(matterId);
+    return this.prisma.ipRight.findMany({
+      where: { matterId },
+      orderBy: { createdAt: 'desc' },
+      include: ipRightInclude,
+    });
+  }
+
+  async createIpRight(matterId: string, dto: CreateIpRightDto) {
+    const matter = await this.findOne(matterId);
+
+    return this.prisma.ipRight.create({
+      data: {
+        matterId,
+        clientId: matter.clientId,
+        rightType: dto.rightType,
+        title: dto.title,
+        registrationNumber: dto.registrationNumber,
+        filingDate: dto.filingDate ? new Date(dto.filingDate) : null,
+        registrationDate: dto.registrationDate
+          ? new Date(dto.registrationDate)
+          : null,
+        expiryDate: dto.expiryDate ? new Date(dto.expiryDate) : null,
+        jurisdiction: dto.jurisdiction.toUpperCase(),
+        status: dto.status,
+        attributes: dto.attributes as Prisma.InputJsonValue | undefined,
+      },
+      include: ipRightInclude,
+    });
+  }
+
+  async fileIpRight(
+    matterId: string,
+    ipRightId: string,
+    dto: FileIpRightDto,
+    userId: string,
+  ) {
+    await this.findOne(matterId);
+
+    const existing = await this.prisma.ipRight.findFirst({
+      where: { id: ipRightId, matterId },
+    });
+    if (!existing) {
+      throw new NotFoundException('IP right not found on this matter');
+    }
+    if (existing.status !== IpRightStatus.pending) {
+      throw new BadRequestException(
+        'Only IP rights pending filing can be filed',
+      );
+    }
+
+    await this.assertDocumentVersionOnMatter(matterId, dto.documentVersionId);
+
+    const jurisdiction = (
+      dto.jurisdiction ?? existing.jurisdiction
+    ).toUpperCase();
+    const filingDate = new Date(dto.filingDate);
+    const applicationNumber = dto.applicationNumber.trim();
+    const authority = filingAuthorityForJurisdiction(jurisdiction);
+
+    return this.prisma.$transaction(async (tx) => {
+      const updated = await tx.ipRight.update({
+        where: { id: ipRightId },
+        data: {
+          status: IpRightStatus.filed,
+          applicationNumber,
+          filingDate,
+          jurisdiction,
+          filingDocumentVersionId: dto.documentVersionId,
+        },
+        include: ipRightInclude,
+      });
+
+      await tx.matterJurisdiction.updateMany({
+        where: { matterId, countryCode: jurisdiction },
+        data: {
+          status: MatterJurisdictionStatus.filed,
+          localRefNumber: applicationNumber,
+        },
+      });
+
+      await tx.matter.update({
+        where: { id: matterId },
+        data: { filedById: userId },
+      });
+
+      await tx.matterTimelineEvent.create({
+        data: {
+          matterId,
+          eventType: MatterTimelineEventType.filing,
+          title: filingTimelineTitle(jurisdiction, applicationNumber),
+          description: `Filing package linked. Authority: ${authority}.`,
+          occurredAt: filingDate,
+          sourceIpRightId: updated.id,
+          createdById: userId,
+          metadata: {
+            ipRightId: updated.id,
+            applicationNumber,
+            jurisdiction,
+            authority,
+            documentVersionId: dto.documentVersionId,
+            filingDate: dto.filingDate,
+          } as Prisma.InputJsonValue,
+        },
+      });
+
+      return updated;
+    });
+  }
+
+  private async assertClientExists(clientId: string) {
+    const client = await this.prisma.client.findUnique({
+      where: { id: clientId },
+      select: { id: true },
+    });
+    if (!client) throw new NotFoundException('Client not found');
+  }
+
+  private async assertUserExists(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true },
+    });
+    if (!user) throw new NotFoundException('Assigned user not found');
+  }
+
+  private async assertDocumentVersionOnMatter(
+    matterId: string,
+    documentVersionId: string,
+  ) {
+    const version = await this.prisma.matterDocumentVersion.findFirst({
+      where: {
+        id: documentVersionId,
+        document: { matterId },
+      },
+      select: { id: true },
+    });
+    if (!version) {
+      throw new BadRequestException(
+        'Document version not found on this matter',
+      );
+    }
+  }
+}

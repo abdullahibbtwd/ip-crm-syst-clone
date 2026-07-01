@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ─── IP Consulting design system ─────────────────────────────────────────── */
+
+@theme inline {
+  --font-sans: "DM Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-xs: 0 1px 2px rgba(26, 60, 52, 0.05);
+  --shadow-sm: 0 1px 3px rgba(26, 60, 52, 0.07), 0 1px 2px rgba(26, 60, 52, 0.04);
+  --shadow-md: 0 4px 12px rgba(26, 60, 52, 0.08), 0 2px 4px rgba(26, 60, 52, 0.04);
+  --shadow-lg: 0 12px 32px rgba(26, 60, 52, 0.1), 0 4px 8px rgba(26, 60, 52, 0.04);
+
+  --color-brand-light: #f4f6f3;
+  --color-brand-green: #1a3c34;
+  --color-brand-orange: #e8621a;
+  --color-white: #ffffff;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: #f4f6f3;
+  --foreground: #1a3c34;
+  --card: #ffffff;
+  --card-foreground: #1a3c34;
+  --popover: #ffffff;
+  --popover-foreground: #1a3c34;
+  --primary: #e8621a;
+  --primary-foreground: #ffffff;
+  --secondary: #eef1ee;
+  --secondary-foreground: #1a3c34;
+  --muted: #eef1ee;
+  --muted-foreground: #5a726c;
+  --accent: rgba(26, 60, 52, 0.05);
+  --accent-foreground: #1a3c34;
+  --destructive: #c53030;
+  --border: rgba(26, 60, 52, 0.1);
+  --input: rgba(26, 60, 52, 0.14);
+  --ring: #e8621a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/40;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .shadow-xs {
+    box-shadow: var(--shadow-xs);
+  }
+
+  .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-150;
+    @apply hover:bg-primary/92 hover:shadow-md active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground shadow-xs transition-all duration-150;
+    @apply hover:bg-muted/70;
+  }
+
+  .nav-link {
+    @apply relative text-foreground/80 transition-colors duration-150;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .card {
+    @apply rounded-lg border border-border/80 bg-card p-6 shadow-sm;
+  }
+
+  .section-inverted {
+    @apply bg-brand-green text-white;
+  }
+
+  .section-inverted .btn-inverted {
+    @apply inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-medium text-brand-green transition-colors duration-150;
+    @apply hover:text-primary;
+  }
+
+  .auth-input {
+    @apply h-10 w-full rounded-md border border-input bg-card px-3 text-sm text-foreground shadow-xs outline-none transition-all duration-150;
+    @apply placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .auth-label {
+    @apply mb-1.5 block text-[13px] font-medium text-foreground/90;
+  }
+
+  .auth-error {
+    @apply mt-1 text-sm text-destructive;
+  }
+
+  .shell-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26, 60, 52, 0.12) transparent;
+  }
+
+  .shell-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .shell-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(26, 60, 52, 0.12);
+    border-radius: 999px;
+  }
+
+  .shell-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 60, 52, 0.2);
+  }
+}

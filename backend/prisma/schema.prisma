@@ -1,0 +1,989 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AuditStatus {
+  success
+  failure
+  denied
+
+  @@map("audit_status")
+}
+
+model User {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email        String    @unique
+  fullName     String    @map("full_name")
+  passwordHash String?   @map("password_hash")
+  isActive     Boolean   @default(true) @map("is_active")
+  mfaEnabled   Boolean   @default(false) @map("mfa_enabled")
+  mfaSecret    String?   @map("mfa_secret")
+  clientId     String?   @map("client_id") @db.Uuid
+  lastLoginAt  DateTime? @map("last_login_at") @db.Timestamptz(6)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  userRoles            UserRole[]
+  refreshTokens        RefreshToken[]
+  passwordResetTokens  PasswordResetToken[]
+  auditLogs            AuditLog[]
+  portalClient         Client?                @relation("PortalClient", fields: [clientId], references: [id], onDelete: SetNull)
+  assignedClients      Client[]               @relation("AssignedUser")
+  relationshipHistory  RelationshipHistory[]
+  intakeLeadsCreated   IntakeLead[]           @relation("IntakeCreatedBy")
+  intakeLeadsAssigned  IntakeLead[]           @relation("IntakeAssignedTo")
+  conflictResolutions  IntakeConflictCheck[]  @relation("ConflictResolvedBy")
+  mattersAssigned      Matter[]               @relation("MatterAssignedTo")
+  mattersFiled         Matter[]               @relation("MatterFiledBy")
+  deadlinesAssigned    Deadline[]             @relation("DeadlineAssignedTo")
+  documentsCreated     MatterDocument[]       @relation("DocumentCreatedBy")
+  documentVersions     MatterDocumentVersion[] @relation("DocumentVersionUploadedBy")
+  correspondenceCreated Correspondence[]      @relation("CorrespondenceCreatedBy")
+  timelineEvents       MatterTimelineEvent[]  @relation("TimelineEventCreatedBy")
+  timeEntriesLogged      TimeEntry[]            @relation("TimeEntryLoggedBy")
+  tasksAssigned          Task[]                 @relation("TaskAssignedTo")
+  tasksCreated           Task[]                 @relation("TaskCreatedBy")
+  tasksCompleted         Task[]                 @relation("TaskCompletedBy")
+  notifications          Notification[]
+
+  @@map("users")
+}
+
+model Role {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String   @unique
+  description String?
+  isSystem    Boolean  @default(false) @map("is_system")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  rolePermissions RolePermission[]
+  userRoles       UserRole[]
+  accessPolicies  AccessPolicy[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id          String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  resource    String
+  action      String
+  description String?
+
+  rolePermissions RolePermission[]
+
+  @@unique([resource, action])
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       String @map("role_id") @db.Uuid
+  permissionId String @map("permission_id") @db.Uuid
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model UserRole {
+  userId String @map("user_id") @db.Uuid
+  roleId String @map("role_id") @db.Uuid
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model AccessPolicy {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  roleId    String   @map("role_id") @db.Uuid
+  resource  String
+  condition Json
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@map("access_policies")
+}
+
+model RefreshToken {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  tokenHash String   @unique @map("token_hash")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  tokenHash String   @unique @map("token_hash")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "idx_password_reset_user")
+  @@map("password_reset_tokens")
+}
+
+model AuditLog {
+  id         String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String?     @map("user_id") @db.Uuid
+  userEmail  String?     @map("user_email")
+  ipAddress  String?     @map("ip_address") @db.Inet
+  userAgent  String?     @map("user_agent")
+  action     String
+  resource   String
+  resourceId String?     @map("resource_id") @db.Uuid
+  module     String?
+  oldValue   Json?       @map("old_value")
+  newValue   Json?       @map("new_value")
+  metadata   Json?
+  status     AuditStatus @default(success)
+  createdAt  DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId], map: "idx_audit_user")
+  @@index([resource, resourceId], map: "idx_audit_resource")
+  @@index([createdAt(sort: Desc)], map: "idx_audit_time")
+  @@index([module], map: "idx_audit_module")
+  @@map("audit_logs")
+}
+
+enum ClientType {
+  company
+  individual
+
+  @@map("client_type")
+}
+
+enum ClientStatus {
+  active
+  inactive
+  prospect
+  archived
+
+  @@map("client_status")
+}
+
+enum ContactRole {
+  primary
+  billing
+  conflict
+  general
+
+  @@map("contact_role")
+}
+
+enum RelationshipEventType {
+  created
+  status_changed
+  contact_added
+  office_added
+  note_added
+  related_company_linked
+  holding_changed
+
+  @@map("relationship_event_type")
+}
+
+model HoldingGroup {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  description String?
+  country     String?
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  clients Client[]
+
+  @@map("holding_groups")
+}
+
+model Client {
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type           ClientType
+  status         ClientStatus @default(active)
+  companyName    String?      @map("company_name")
+  registrationNo String?      @map("registration_no")
+  vatNo          String?      @map("vat_no")
+  legalForm      String?      @map("legal_form")
+  firstName      String?      @map("first_name")
+  lastName       String?      @map("last_name")
+  country        String?
+  website        String?
+  internalCode   String?      @unique @map("internal_code")
+  assignedUserId String?      @map("assigned_user_id") @db.Uuid
+  holdingGroupId String?      @map("holding_group_id") @db.Uuid
+  notes          String?
+  gdprConsent    Boolean      @default(false) @map("gdpr_consent")
+  gdprConsentDate DateTime?   @map("gdpr_consent_date") @db.Timestamptz(6)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  assignedUser        User?                 @relation("AssignedUser", fields: [assignedUserId], references: [id], onDelete: SetNull)
+  holdingGroup        HoldingGroup?         @relation(fields: [holdingGroupId], references: [id], onDelete: SetNull)
+  portalUsers         User[]                @relation("PortalClient")
+  offices             ClientOffice[]
+  contacts            Contact[]
+  relatedCompanies    RelatedCompany[]      @relation("ClientRelations")
+  relatedTo           RelatedCompany[]      @relation("RelatedTo")
+  relationshipHistory RelationshipHistory[]
+  convertedFromIntake IntakeLead?           @relation("IntakeConversion")
+  matters             Matter[]
+  ipRights            IpRight[]
+  rateCards           RateCard[]
+
+  @@index([status])
+  @@index([type])
+  @@index([holdingGroupId])
+  @@index([assignedUserId])
+  @@map("clients")
+}
+
+model ClientOffice {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId     String   @map("client_id") @db.Uuid
+  label        String
+  isPrimary    Boolean  @default(false) @map("is_primary")
+  addressLine1 String?  @map("address_line_1")
+  addressLine2 String?  @map("address_line_2")
+  city         String?
+  region       String?
+  postalCode   String?  @map("postal_code")
+  country      String?
+  phone        String?
+  fax          String?
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client   Client    @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  contacts Contact[]
+
+  @@index([clientId])
+  @@map("client_offices")
+}
+
+model Contact {
+  id        String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId  String      @map("client_id") @db.Uuid
+  role      ContactRole @default(primary)
+  firstName String      @map("first_name")
+  lastName  String      @map("last_name")
+  title     String?
+  position  String?
+  email     String?
+  phone     String?
+  mobile    String?
+  officeId  String?     @map("office_id") @db.Uuid
+  notes     String?
+  isActive  Boolean     @default(true) @map("is_active")
+  createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client Client        @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  office ClientOffice? @relation(fields: [officeId], references: [id], onDelete: SetNull)
+
+  @@index([clientId])
+  @@index([role])
+  @@index([email])
+  @@map("contacts")
+}
+
+model RelatedCompany {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId         String   @map("client_id") @db.Uuid
+  relatedClientId  String?  @map("related_client_id") @db.Uuid
+  externalName     String?  @map("external_name")
+  relationshipType String   @map("relationship_type")
+  notes            String?
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  client        Client  @relation("ClientRelations", fields: [clientId], references: [id], onDelete: Cascade)
+  relatedClient Client? @relation("RelatedTo", fields: [relatedClientId], references: [id], onDelete: SetNull)
+
+  @@index([clientId])
+  @@map("related_companies")
+}
+
+model RelationshipHistory {
+  id          String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId    String                @map("client_id") @db.Uuid
+  userId      String?               @map("user_id") @db.Uuid
+  eventType   RelationshipEventType @map("event_type")
+  description String?
+  metadata    Json?
+  createdAt   DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  user   User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([clientId])
+  @@index([createdAt(sort: Desc)])
+  @@map("relationship_history")
+}
+
+enum IntakeStatus {
+  new
+  reviewing
+  conflict_check
+  conflict_flagged
+  approved
+  rejected
+  converted
+
+  @@map("intake_status")
+}
+
+enum IntakeEnquirerType {
+  company
+  individual
+
+  @@map("intake_enquirer_type")
+}
+
+enum IntakeUrgency {
+  normal
+  urgent
+
+  @@map("intake_urgency")
+}
+
+enum IntakeReferralSource {
+  email
+  phone
+  referral
+  walk_in
+  website
+  other
+
+  @@map("intake_referral_source")
+}
+
+enum IntakeMatterType {
+  trademark
+  patent
+  utility_model
+  design
+  other
+
+  @@map("intake_matter_type")
+}
+
+enum ConflictCheckResult {
+  pending
+  clear
+  flagged
+
+  @@map("conflict_check_result")
+}
+
+enum ConflictResolution {
+  pending
+  approved
+  rejected
+  overridden
+
+  @@map("conflict_resolution")
+}
+
+model IntakeLead {
+  id                String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  status            IntakeStatus         @default(new)
+  enquirerType      IntakeEnquirerType   @map("enquirer_type")
+  companyName       String?              @map("company_name")
+  fullName          String?              @map("full_name")
+  country           String?
+  email             String?
+  phone             String?
+  matterType        IntakeMatterType     @map("matter_type")
+  description       String
+  urgency           IntakeUrgency        @default(normal)
+  referralSource    IntakeReferralSource @map("referral_source")
+  referredBy        String?              @map("referred_by")
+  assignedUserId    String?              @map("assigned_user_id") @db.Uuid
+  notes             String?
+  createdById       String               @map("created_by_id") @db.Uuid
+  convertedClientId String?              @unique @map("converted_client_id") @db.Uuid
+  convertedMatterId String?              @unique @map("converted_matter_id") @db.Uuid
+  createdAt         DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  assignedUser    User?                 @relation("IntakeAssignedTo", fields: [assignedUserId], references: [id], onDelete: SetNull)
+  createdBy       User                  @relation("IntakeCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  convertedClient Client?               @relation("IntakeConversion", fields: [convertedClientId], references: [id], onDelete: SetNull)
+  convertedMatter Matter?               @relation("IntakeConvertedMatter", fields: [convertedMatterId], references: [id], onDelete: SetNull)
+  matterFromSource Matter?              @relation("MatterSourceIntake")
+  conflictChecks  IntakeConflictCheck[]
+  counterparties  Counterparty[]
+
+  @@index([status])
+  @@index([createdById])
+  @@index([assignedUserId])
+  @@index([createdAt(sort: Desc)])
+  @@map("intake_leads")
+}
+
+model IntakeConflictCheck {
+  id             String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  intakeLeadId   String              @map("intake_lead_id") @db.Uuid
+  result         ConflictCheckResult @default(pending)
+  hits           Json                @default("[]")
+  resolution     ConflictResolution  @default(pending)
+  resolvedById   String?             @map("resolved_by_id") @db.Uuid
+  resolvedAt     DateTime?           @map("resolved_at") @db.Timestamptz(6)
+  resolutionNote String?             @map("resolution_note")
+  createdAt      DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  intakeLead IntakeLead @relation(fields: [intakeLeadId], references: [id], onDelete: Cascade)
+  resolvedBy User?      @relation("ConflictResolvedBy", fields: [resolvedById], references: [id], onDelete: SetNull)
+
+  @@index([intakeLeadId])
+  @@index([createdAt(sort: Desc)])
+  @@map("intake_conflict_checks")
+}
+
+enum CounterpartyRelationship {
+  competitor
+  adverse_party
+  licensor
+  licensee
+
+  @@map("counterparty_relationship")
+}
+
+model Counterparty {
+  id           String                   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  intakeLeadId String                   @map("intake_lead_id") @db.Uuid
+  name         String?
+  company      String?
+  relationship CounterpartyRelationship
+  notes        String?
+  createdAt    DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  intakeLead IntakeLead @relation(fields: [intakeLeadId], references: [id], onDelete: Cascade)
+
+  @@index([intakeLeadId])
+  @@map("counterparties")
+}
+
+enum MatterType {
+  trademark
+  patent
+  utility_model
+  industrial_design
+  copyright
+  geographical_indication
+  border_measures
+  fto_analysis
+  valuation
+  dispute_opposition
+
+  @@map("matter_type")
+}
+
+enum MatterStatus {
+  draft
+  active
+  on_hold
+  closed
+  abandoned
+
+  @@map("matter_status")
+}
+
+enum MatterJurisdictionStatus {
+  pending
+  filed
+  approved
+  rejected
+
+  @@map("matter_jurisdiction_status")
+}
+
+enum IpRightStatus {
+  pending
+  filed
+  registered
+  expired
+  cancelled
+
+  @@map("ip_right_status")
+}
+
+model Matter {
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId       String       @map("client_id") @db.Uuid
+  matterType     MatterType   @map("matter_type")
+  title          String
+  status         MatterStatus @default(draft)
+  assignedToId   String?      @map("assigned_to") @db.Uuid
+  filedById      String?      @map("filed_by") @db.Uuid
+  description    String?
+  sourceIntakeId String?      @unique @map("source_intake_id") @db.Uuid
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client         Client               @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  assignedTo     User?                @relation("MatterAssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
+  filedBy        User?                @relation("MatterFiledBy", fields: [filedById], references: [id], onDelete: SetNull)
+  sourceIntake   IntakeLead?          @relation("MatterSourceIntake", fields: [sourceIntakeId], references: [id], onDelete: SetNull)
+  intakeConversion IntakeLead?        @relation("IntakeConvertedMatter")
+  jurisdictions MatterJurisdiction[]
+  attributes    MatterAttributes?
+  ipRights      IpRight[]
+  deadlines     Deadline[]
+  documents     MatterDocument[]
+  correspondence Correspondence[]
+  timelineEvents MatterTimelineEvent[]
+  timeEntries    TimeEntry[]
+  fixedFees      FixedFee[]
+  tasks          Task[]
+
+  @@index([clientId])
+  @@index([status])
+  @@index([matterType])
+  @@index([assignedToId])
+  @@map("matters")
+}
+
+model MatterJurisdiction {
+  id             String                   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId       String                   @map("matter_id") @db.Uuid
+  countryCode    String                   @map("country_code")
+  localRefNumber String?                  @map("local_ref_number")
+  status         MatterJurisdictionStatus @default(pending)
+  createdAt      DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
+
+  @@unique([matterId, countryCode])
+  @@index([matterId])
+  @@map("matter_jurisdictions")
+}
+
+model MatterAttributes {
+  matterId   String   @id @map("matter_id") @db.Uuid
+  attributes Json     @default("{}")
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
+
+  @@map("matter_attributes")
+}
+
+model IpRight {
+  id                      String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId                String        @map("matter_id") @db.Uuid
+  clientId                String        @map("client_id") @db.Uuid
+  rightType               MatterType    @map("right_type")
+  title                   String
+  applicationNumber       String?       @map("application_number")
+  registrationNumber      String?       @map("registration_number")
+  filingDate              DateTime?     @map("filing_date") @db.Date
+  registrationDate        DateTime?     @map("registration_date") @db.Date
+  expiryDate              DateTime?     @map("expiry_date") @db.Date
+  jurisdiction            String
+  status                  IpRightStatus @default(pending)
+  filingDocumentVersionId String?       @map("filing_document_version_id") @db.Uuid
+  attributes              Json?
+  createdAt               DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter                Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  client                Client                 @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  filingDocumentVersion MatterDocumentVersion? @relation("IpRightFilingDocument", fields: [filingDocumentVersionId], references: [id], onDelete: SetNull)
+  timelineEvent         MatterTimelineEvent?
+
+  @@index([matterId])
+  @@index([clientId])
+  @@index([status])
+  @@index([filingDocumentVersionId])
+  @@map("ip_rights")
+}
+
+enum DeadlineEventType {
+  filing
+  examination_response
+  renewal
+  opposition
+  grace_period
+
+  @@map("deadline_event_type")
+}
+
+enum DeadlineStatus {
+  pending
+  in_progress
+  completed
+  missed
+  escalated
+  superseded
+
+  @@map("deadline_status")
+}
+
+enum DeadlineRuleTriggerType {
+  matter_created
+  office_action
+
+  @@map("deadline_rule_trigger_type")
+}
+
+model DeadlineRule {
+  id               String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  jurisdiction     String
+  matterType       MatterType              @map("matter_type")
+  eventType        DeadlineEventType       @map("event_type")
+  triggerType      DeadlineRuleTriggerType @default(matter_created) @map("trigger_type")
+  daysOffset       Int                     @map("days_offset")
+  isBusinessDays   Boolean                 @default(true) @map("is_business_days")
+  gracePeriodDays  Int                     @default(0) @map("grace_period_days")
+  priority         Int                     @default(2)
+  description      String?
+  createdAt        DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  deadlines Deadline[]
+
+  @@unique([jurisdiction, matterType, eventType, triggerType])
+  @@index([jurisdiction, matterType])
+  @@index([triggerType])
+  @@map("deadline_rules")
+}
+
+model Deadline {
+  id                     String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId               String         @map("matter_id") @db.Uuid
+  ruleId                 String?        @map("rule_id") @db.Uuid
+  sourceCorrespondenceId String?        @map("source_correspondence_id") @db.Uuid
+  title                  String
+  jurisdiction           String?
+  notes                  String?
+  dueDate                DateTime       @map("due_date") @db.Timestamptz(6)
+  graceDate              DateTime?      @map("grace_date") @db.Timestamptz(6)
+  assignedToId           String         @map("assigned_to_id") @db.Uuid
+  status                 DeadlineStatus @default(pending)
+  escalationLevel        Int            @default(0) @map("escalation_level")
+  reminderSentAt         DateTime?      @map("reminder_sent_at") @db.Timestamptz(6)
+  remindersSent          Json           @default("[]") @map("reminders_sent")
+  completedAt            DateTime?      @map("completed_at") @db.Timestamptz(6)
+  createdAt              DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter               Matter         @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  rule                 DeadlineRule?  @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+  sourceCorrespondence Correspondence? @relation(fields: [sourceCorrespondenceId], references: [id], onDelete: SetNull)
+  assignedTo           User           @relation("DeadlineAssignedTo", fields: [assignedToId], references: [id], onDelete: Restrict)
+
+  @@index([matterId])
+  @@index([assignedToId])
+  @@index([dueDate])
+  @@index([status])
+  @@index([sourceCorrespondenceId])
+  @@map("deadlines")
+}
+
+enum DocumentCategory {
+  application
+  office_action
+  evidence
+  certificate
+  correspondence
+
+  @@map("document_category")
+}
+
+model MatterDocument {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId    String           @map("matter_id") @db.Uuid
+  displayName String           @map("display_name")
+  category    DocumentCategory
+  tags        String[]         @default([])
+  createdById String?          @map("created_by_id") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter    Matter                  @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  createdBy User?                   @relation("DocumentCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  versions  MatterDocumentVersion[]
+
+  @@index([matterId])
+  @@index([category])
+  @@map("matter_documents")
+}
+
+model MatterDocumentVersion {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  documentId   String   @map("document_id") @db.Uuid
+  version      Int
+  fileName     String   @map("file_name")
+  mimeType     String?  @map("mime_type")
+  sizeBytes    Int      @map("size_bytes")
+  storageKey   String   @map("storage_key")
+  uploadedById String   @map("uploaded_by_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  document   MatterDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  uploadedBy User           @relation("DocumentVersionUploadedBy", fields: [uploadedById], references: [id], onDelete: Restrict)
+  correspondence Correspondence[]
+  filingIpRights IpRight[] @relation("IpRightFilingDocument")
+
+  @@unique([documentId, version])
+  @@index([documentId])
+  @@map("matter_document_versions")
+}
+
+enum CorrespondenceDirection {
+  incoming
+  outgoing
+
+  @@map("correspondence_direction")
+}
+
+enum CorrespondenceStatus {
+  draft
+  sent
+  received
+  replied
+
+  @@map("correspondence_status")
+}
+
+enum MatterTimelineEventType {
+  correspondence
+  filing
+  deadline
+  note
+  task
+
+  @@map("matter_timeline_event_type")
+}
+
+model Correspondence {
+  id                 String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId           String                  @map("matter_id") @db.Uuid
+  direction          CorrespondenceDirection
+  category           DocumentCategory        @default(correspondence)
+  correspondenceDate DateTime                @map("correspondence_date") @db.Date
+  sender             String
+  recipient          String
+  subject            String
+  status             CorrespondenceStatus    @default(received)
+  isClientVisible    Boolean                 @default(false) @map("is_client_visible")
+  documentVersionId  String?                 @map("document_version_id") @db.Uuid
+  createdById        String?                 @map("created_by_id") @db.Uuid
+  createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter          Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  documentVersion MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
+  createdBy       User?                  @relation("CorrespondenceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  timelineEvent   MatterTimelineEvent?
+  deadlines       Deadline[]
+
+  @@index([matterId])
+  @@index([correspondenceDate])
+  @@index([status])
+  @@index([category])
+  @@map("correspondence")
+}
+
+model MatterTimelineEvent {
+  id                     String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId               String                  @map("matter_id") @db.Uuid
+  eventType              MatterTimelineEventType @map("event_type")
+  title                  String
+  description            String?
+  occurredAt             DateTime                @map("occurred_at") @db.Timestamptz(6)
+  metadata               Json?
+  sourceCorrespondenceId String?                 @unique @map("source_correspondence_id") @db.Uuid
+  sourceIpRightId        String?                 @unique @map("source_ip_right_id") @db.Uuid
+  sourceTaskId           String?                 @map("source_task_id") @db.Uuid
+  createdById            String?                 @map("created_by_id") @db.Uuid
+  createdAt              DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  matter         Matter          @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  correspondence Correspondence? @relation(fields: [sourceCorrespondenceId], references: [id], onDelete: SetNull)
+  ipRight        IpRight?        @relation(fields: [sourceIpRightId], references: [id], onDelete: SetNull)
+  task           Task?           @relation(fields: [sourceTaskId], references: [id], onDelete: SetNull)
+  createdBy      User?           @relation("TimelineEventCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([matterId])
+  @@index([occurredAt])
+  @@index([sourceTaskId])
+  @@map("matter_timeline_events")
+}
+
+enum TaskStatus {
+  pending
+  completed
+
+  @@map("task_status")
+}
+
+enum TaskPriority {
+  high
+  normal
+
+  @@map("task_priority")
+}
+
+model Task {
+  id            String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId      String       @map("matter_id") @db.Uuid
+  title         String
+  notes         String?
+  assignedToId  String       @map("assigned_to_id") @db.Uuid
+  createdById   String?      @map("created_by_id") @db.Uuid
+  dueDate       DateTime?    @map("due_date") @db.Date
+  priority      TaskPriority @default(normal)
+  status        TaskStatus   @default(pending)
+  completedAt   DateTime?    @map("completed_at") @db.Timestamptz(6)
+  completedById String?      @map("completed_by_id") @db.Uuid
+  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter        Matter                @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  assignedTo    User                  @relation("TaskAssignedTo", fields: [assignedToId], references: [id], onDelete: Restrict)
+  createdBy     User?                 @relation("TaskCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  completedBy   User?                 @relation("TaskCompletedBy", fields: [completedById], references: [id], onDelete: SetNull)
+  timelineEvents MatterTimelineEvent[]
+
+  @@index([matterId])
+  @@index([assignedToId])
+  @@index([status])
+  @@index([dueDate])
+  @@map("tasks")
+}
+
+enum BillingRateRole {
+  ip_attorney
+  trademark_attorney
+  paralegal
+  coordinator
+  managing_partner
+
+  @@map("billing_rate_role")
+}
+
+enum FixedFeeCategory {
+  professional_fee
+  disbursement
+  expense
+
+  @@map("fixed_fee_category")
+}
+
+model RateCard {
+  id            String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  role          BillingRateRole
+  matterType    MatterType?      @map("matter_type")
+  clientId      String?          @map("client_id") @db.Uuid
+  hourlyRate    Decimal          @map("hourly_rate") @db.Decimal(10, 2)
+  currency      String           @default("EUR")
+  effectiveFrom DateTime         @map("effective_from") @db.Date
+  effectiveTo   DateTime?        @map("effective_to") @db.Date
+  createdAt     DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client Client? @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([role, matterType, clientId])
+  @@index([effectiveFrom])
+  @@map("rate_cards")
+}
+
+model TimeEntry {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId     String   @map("matter_id") @db.Uuid
+  loggedById   String   @map("logged_by_id") @db.Uuid
+  date         DateTime @db.Date
+  hours        Decimal  @db.Decimal(6, 2)
+  description  String
+  isBillable   Boolean  @default(true) @map("is_billable")
+  rateSnapshot Decimal  @map("rate_snapshot") @db.Decimal(10, 2)
+  amount       Decimal  @db.Decimal(12, 2)
+  invoiceId    String?  @map("invoice_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter   Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  loggedBy User   @relation("TimeEntryLoggedBy", fields: [loggedById], references: [id], onDelete: Restrict)
+
+  @@index([matterId])
+  @@index([loggedById])
+  @@index([date])
+  @@index([invoiceId])
+  @@map("time_entries")
+}
+
+model FixedFee {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId    String           @map("matter_id") @db.Uuid
+  description String
+  amount      Decimal          @db.Decimal(12, 2)
+  currency    String           @default("EUR")
+  category    FixedFeeCategory
+  date        DateTime         @db.Date
+  isBillable  Boolean          @default(true) @map("is_billable")
+  invoiceId   String?          @map("invoice_id") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
+
+  @@index([matterId])
+  @@index([date])
+  @@index([invoiceId])
+  @@map("fixed_fees")
+}
+
+enum NotificationType {
+  deadline_reminder
+  deadline_escalation
+  task_assigned
+  general
+
+  @@map("notification_type")
+}
+
+model Notification {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId      String           @map("user_id") @db.Uuid
+  type        NotificationType
+  title       String
+  body        String?
+  resource    String?
+  resourceId  String?          @map("resource_id") @db.Uuid
+  linkUrl     String?          @map("link_url")
+  readAt      DateTime?        @map("read_at") @db.Timestamptz(6)
+  emailSentAt DateTime?        @map("email_sent_at") @db.Timestamptz(6)
+  metadata    Json?
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+  @@index([userId, createdAt])
+  @@map("notifications")
+}

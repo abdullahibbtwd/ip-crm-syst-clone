@@ -1,0 +1,58 @@
+import { Link, Navigate, Outlet, useParams } from 'react-router-dom'
+import { MatterTabNav } from '@/components/matters/MatterTabNav'
+import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
+import { useMatter } from '@/features/matters/hooks/useMatters'
+import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { clientDisplayName } from '@/features/crm/utils'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+export function MatterLayout() {
+  const { id = '' } = useParams()
+  const { data: matter, isLoading, isError } = useMatter(id)
+
+  if (!id) return <Navigate to="/matters" replace />
+
+  return (
+    <div className="space-y-6">
+      <Link
+        to="/matters"
+        className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
+      >
+        ← Back to matters
+      </Link>
+
+      {isLoading ? (
+        <p className="text-sm text-muted-foreground">Loading matter…</p>
+      ) : isError || !matter ? (
+        <p className="text-sm text-destructive">Matter not found.</p>
+      ) : (
+        <>
+          <div className="space-y-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="font-serif text-2xl">{matter.title}</h1>
+              <MatterStatusBadge status={matter.status} />
+            </div>
+            <p className="text-sm text-muted-foreground">
+              {MATTER_TYPE_LABELS[matter.matterType]} ·{' '}
+              <Link
+                to={`/clients/${matter.clientId}/overview`}
+                className="text-primary hover:underline"
+              >
+                {clientDisplayName(matter.client)}
+              </Link>
+            </p>
+          </div>
+
+          <MatterTabNav matterId={id} />
+          <Outlet context={{ matterId: id, matter }} />
+        </>
+      )}
+    </div>
+  )
+}
+
+export type MatterTabContext = {
+  matterId: string
+  matter: NonNullable<ReturnType<typeof useMatter>['data']>
+}
