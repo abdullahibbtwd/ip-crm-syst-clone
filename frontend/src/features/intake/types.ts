@@ -24,6 +24,8 @@ export type IntakeMatterType =
   | 'design'
   | 'other'
 
+export type IntakeSource = 'internal' | 'portal'
+
 export type CounterpartyRelationship =
   | 'competitor'
   | 'adverse_party'
@@ -82,10 +84,19 @@ export type IntakeLead = {
   referralSource: IntakeReferralSource
   referredBy: string | null
   notes: string | null
+  source: IntakeSource
   createdAt: string
   updatedAt: string
   assignedUser: { id: string; fullName: string; email: string } | null
   createdBy: { id: string; fullName: string; email: string }
+  submittedClient: {
+    id: string
+    internalCode: string | null
+    companyName: string | null
+    firstName: string | null
+    lastName: string | null
+    type: string
+  } | null
   convertedClient: {
     id: string
     internalCode: string | null

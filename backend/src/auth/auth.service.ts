@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  ConflictException,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -8,7 +9,15 @@ import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
 import { verify, generateSecret, generateURI } from 'otplib';
 import { createHash, randomBytes } from 'node:crypto';
+import {
+  ClientType,
+  ContactRole,
+  RelationshipEventType,
+} from '../../generated/prisma/client';
+import { ClientsService } from '../crm/clients/clients.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import type { RegisterDto } from './dto/auth.dto';
 import {
   AuthenticatedUser,
   JwtPayload,
@@ -25,12 +34,24 @@ import {
 
 const MFA_ISSUER = 'IP Consulting CRM';
 
+function splitFullName(fullName: string) {
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) {
+    return { firstName: 'Client', lastName: 'User' };
+  }
+  if (parts.length === 1) {
+    return { firstName: parts[0], lastName: parts[0] };
+  }
+  return { firstName: parts[0], lastName: parts.slice(1).join(' ') };
+}
+
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
     private readonly config: ConfigService,
+    private readonly clientsService: ClientsService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<UserWithAccess> {
@@ -52,18 +73,163 @@ export class AuthService {
   }
 
   async validateSsoUser(email: string): Promise<UserWithAccess> {
-    const user = await this.prisma.user.findUnique({
-      where: { email: email.toLowerCase() },
-      include: userAccessInclude,
-    });
-
+    const user = await this.findUserByEmail(email);
     if (!user?.isActive) {
       throw new UnauthorizedException(
         'SSO account not provisioned. Contact your administrator.',
       );
     }
-
     return user;
+  }
+
+  async findUserByEmail(email: string): Promise<UserWithAccess | null> {
+    return this.prisma.user.findUnique({
+      where: { email: email.toLowerCase() },
+      include: userAccessInclude,
+    });
+  }
+
+  async registerPortalClient(dto: RegisterDto): Promise<UserWithAccess> {
+    const email = dto.email.toLowerCase().trim();
+    const existing = await this.prisma.user.findUnique({ where: { email } });
+    if (existing) {
+      throw new ConflictException('An account with this email already exists');
+    }
+
+    const passwordHash = await bcrypt.hash(dto.password, 12);
+    const companyName = dto.companyName?.trim();
+
+    return this.prisma.$transaction(async (tx) => {
+      const client = await this.clientsService.createInTransaction(tx, {
+        type: companyName ? ClientType.company : ClientType.individual,
+        companyName: companyName || undefined,
+        ...(companyName
+          ? {}
+          : splitFullName(dto.fullName.trim())),
+        gdprConsent: true,
+      });
+
+      const portalRole = await tx.role.findUniqueOrThrow({
+        where: { name: SYSTEM_ROLES.PORTAL_CLIENT },
+      });
+
+      const user = await tx.user.create({
+        data: {
+          email,
+          fullName: dto.fullName.trim(),
+          passwordHash,
+          isActive: true,
+          clientId: client.id,
+        },
+        include: userAccessInclude,
+      });
+
+      await tx.userRole.create({
+        data: { userId: user.id, roleId: portalRole.id },
+      });
+
+      const { firstName, lastName } = companyName
+        ? splitFullName(dto.fullName.trim())
+        : splitFullName(dto.fullName.trim());
+
+      await tx.contact.create({
+        data: {
+          clientId: client.id,
+          role: ContactRole.primary,
+          firstName,
+          lastName,
+          email,
+        },
+      });
+
+      await tx.relationshipHistory.create({
+        data: {
+          clientId: client.id,
+          userId: user.id,
+          eventType: RelationshipEventType.created,
+          description: `Client self-registered via portal (${client.internalCode})`,
+          metadata: { source: 'portal_signup', email },
+        },
+      });
+
+      const withRoles = await tx.user.findUniqueOrThrow({
+        where: { id: user.id },
+        include: userAccessInclude,
+      });
+
+      return withRoles;
+    });
+  }
+
+  async registerPortalFromSso(
+    email: string,
+    fullName: string,
+  ): Promise<UserWithAccess> {
+    const normalizedEmail = email.toLowerCase().trim();
+    const existing = await this.prisma.user.findUnique({
+      where: { email: normalizedEmail },
+      include: userAccessInclude,
+    });
+    if (existing) {
+      if (!existing.isActive) {
+        throw new UnauthorizedException('Account is inactive');
+      }
+      return existing;
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      const { firstName, lastName } = splitFullName(fullName.trim());
+
+      const client = await this.clientsService.createInTransaction(tx, {
+        type: ClientType.individual,
+        firstName,
+        lastName,
+        gdprConsent: true,
+      });
+
+      const portalRole = await tx.role.findUniqueOrThrow({
+        where: { name: SYSTEM_ROLES.PORTAL_CLIENT },
+      });
+
+      const user = await tx.user.create({
+        data: {
+          email: normalizedEmail,
+          fullName: fullName.trim(),
+          passwordHash: null,
+          isActive: true,
+          clientId: client.id,
+        },
+      });
+
+      await tx.userRole.create({
+        data: { userId: user.id, roleId: portalRole.id },
+      });
+
+      await tx.contact.create({
+        data: {
+          clientId: client.id,
+          role: ContactRole.primary,
+          firstName,
+          lastName,
+          email: normalizedEmail,
+        },
+      });
+
+      await tx.relationshipHistory.create({
+        data: {
+          clientId: client.id,
+          userId: user.id,
+          eventType: RelationshipEventType.created,
+          description: `Client self-registered via SSO (${client.internalCode})`,
+          metadata: { source: 'portal_sso_signup', email: normalizedEmail },
+        },
+      });
+
+      return tx.user.findUniqueOrThrow({
+        where: { id: user.id },
+        include: userAccessInclude,
+      });
+    });
   }
 
   async login(

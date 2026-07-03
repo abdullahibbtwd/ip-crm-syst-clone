@@ -138,6 +138,22 @@ export class DeadlinesService {
     return { matterId, created };
   }
 
+  async countDueToday(assignedToId?: string) {
+    const today = startOfDay(new Date());
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const count = await this.prisma.deadline.count({
+      where: {
+        ...(assignedToId ? { assignedToId } : {}),
+        status: { in: [...ACTIVE_DEADLINE_STATUSES] },
+        dueDate: { gte: today, lt: tomorrow },
+      },
+    });
+
+    return { count };
+  }
+
   async listForMatter(matterId: string) {
     await this.assertMatterExists(matterId);
     return this.prisma.deadline.findMany({

@@ -3,13 +3,15 @@ import { Eye, EyeOff, KeyRound, Loader2, Lock } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { loginRequest, verifyMfaRequest } from '../features/auth/api'
+import { loginRequest, registerRequest, verifyMfaRequest } from '../features/auth/api'
 import { useAuth } from '../features/auth/AuthProvider'
 import {
   loginSchema,
   mfaVerifySchema,
+  registerSchema,
   type LoginFormData,
   type MfaVerifyFormData,
+  type RegisterFormData,
 } from '../features/auth/schemas'
 import { AuthFooterLink, AuthLayout } from '../layouts/AuthLayout'
 import { SsoButtons } from '../components/auth/SsoButtons'
@@ -93,6 +95,212 @@ function MfaStep({
   )
 }
 
+function SignupForm({
+  onSuccess,
+  errorMessage,
+}: {
+  onSuccess: (user: import('../features/auth/types').AuthUser) => void
+  errorMessage: string | null
+}) {
+  const [showPassword, setShowPassword] = useState(false)
+
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<RegisterFormData>({
+    defaultValues: {
+      fullName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      companyName: '',
+      gdprConsent: false,
+    },
+  })
+
+  const registerMutation = useMutation({
+    mutationFn: registerRequest,
+    onSuccess: (data) => onSuccess(data.user),
+  })
+
+  const onSubmit = handleSubmit((data) => {
+    const parsed = registerSchema.safeParse(data)
+    if (!parsed.success) {
+      for (const issue of parsed.error.issues) {
+        const field = issue.path[0] as keyof RegisterFormData
+        if (field) setError(field, { message: issue.message })
+      }
+      return
+    }
+    registerMutation.mutate(parsed.data)
+  })
+
+  const apiError =
+    registerMutation.error &&
+    (registerMutation.error as { response?: { data?: { message?: string | string[] } } })
+      .response?.data?.message
+
+  const displayError =
+    errorMessage ??
+    (Array.isArray(apiError)
+      ? apiError.join(', ')
+      : apiError ?? (registerMutation.isError ? 'Could not create account' : null))
+
+  return (
+    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+      {displayError && (
+        <div
+          role="alert"
+          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+        >
+          {displayError}
+        </div>
+      )}
+
+      <div>
+        <label htmlFor="fullName" className="auth-label">
+          Full name
+        </label>
+        <input
+          id="fullName"
+          type="text"
+          autoComplete="name"
+          className="auth-input"
+          placeholder="Maria Petrova"
+          {...register('fullName')}
+        />
+        {errors.fullName && <p className="auth-error">{errors.fullName.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="signup-email" className="auth-label">
+          Email address
+        </label>
+        <input
+          id="signup-email"
+          type="email"
+          autoComplete="email"
+          className="auth-input"
+          placeholder="you@company.bg"
+          {...register('email')}
+        />
+        {errors.email && <p className="auth-error">{errors.email.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="companyName" className="auth-label">
+          Company name <span className="text-brand-green/50">(optional)</span>
+        </label>
+        <input
+          id="companyName"
+          type="text"
+          autoComplete="organization"
+          className="auth-input"
+          placeholder="Leave blank for individual clients"
+          {...register('companyName')}
+        />
+        {errors.companyName && (
+          <p className="auth-error">{errors.companyName.message}</p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="signup-password" className="auth-label">
+          Password
+        </label>
+        <div className="relative">
+          <Lock
+            className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-brand-green/30"
+            aria-hidden
+          />
+          <input
+            id="signup-password"
+            type={showPassword ? 'text' : 'password'}
+            autoComplete="new-password"
+            className="auth-input pr-11 pl-10"
+            placeholder="••••••••"
+            {...register('password')}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((v) => !v)}
+            className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 transition-colors hover:text-brand-orange"
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+          </button>
+        </div>
+        {errors.password && <p className="auth-error">{errors.password.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="confirmPassword" className="auth-label">
+          Confirm password
+        </label>
+        <div className="relative">
+          <Lock
+            className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-brand-green/30"
+            aria-hidden
+          />
+          <input
+            id="confirmPassword"
+            type={showPassword ? 'text' : 'password'}
+            autoComplete="new-password"
+            className="auth-input pr-11 pl-10"
+            placeholder="••••••••"
+            {...register('confirmPassword')}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((v) => !v)}
+            className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 transition-colors hover:text-brand-orange"
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+          </button>
+        </div>
+        {errors.confirmPassword && (
+          <p className="auth-error">{errors.confirmPassword.message}</p>
+        )}
+      </div>
+
+      <label className="flex items-start gap-3 text-sm text-brand-green/80">
+        <input
+          type="checkbox"
+          className="mt-1 size-4 rounded border-brand-green/20"
+          {...register('gdprConsent')}
+        />
+        <span>
+          I agree to the processing of my personal data in accordance with GDPR for
+          client portal access.
+        </span>
+      </label>
+      {errors.gdprConsent && (
+        <p className="auth-error">{errors.gdprConsent.message}</p>
+      )}
+
+      <button
+        type="submit"
+        disabled={registerMutation.isPending}
+        className="btn-primary w-full py-3 disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {registerMutation.isPending ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Creating account…
+          </>
+        ) : (
+          'Create client account'
+        )}
+      </button>
+
+      <SsoButtons signup />
+    </form>
+  )
+}
+
 export function LoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -101,6 +309,7 @@ export function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [mfaStep, setMfaStep] = useState(false)
   const [ssoMfaPending, setSsoMfaPending] = useState(false)
+  const [signupMode, setSignupMode] = useState(false)
 
   const from =
     (location.state as { from?: { pathname: string } } | null)?.from
@@ -115,8 +324,15 @@ export function LoginPage() {
       window.history.replaceState({}, '', '/login')
       return
     }
-    if (ssoError) {
-      window.history.replaceState({}, '', '/login')
+    if (searchParams.get('signup') === '1') {
+      setSignupMode(true)
+    }
+    if (ssoError || searchParams.get('signup') === '1') {
+      const params = new URLSearchParams()
+      if (searchParams.get('signup') === '1') params.set('signup', '1')
+      if (ssoError) params.set('error', ssoError)
+      const qs = params.toString()
+      window.history.replaceState({}, '', qs ? `/login?${qs}` : '/login')
     }
   }, [searchParams, ssoError])
 
@@ -160,11 +376,17 @@ export function LoginPage() {
     (loginMutation.error as { response?: { data?: { message?: string | string[] } } })
       .response?.data?.message
 
-  const errorMessage =
-    ssoError ??
-    (Array.isArray(apiError)
-      ? apiError.join(', ')
-      : apiError ?? (loginMutation.isError ? 'Invalid email or password' : null))
+  const loginErrorMessage =
+    !signupMode && ssoError
+      ? ssoError
+      : Array.isArray(apiError)
+        ? apiError.join(', ')
+        : apiError ?? (loginMutation.isError ? 'Invalid email or password' : null)
+
+  const handleAuthSuccess = (user: import('../features/auth/types').AuthUser) => {
+    setUser(user)
+    navigate(from, { replace: true })
+  }
 
   if (mfaStep) {
     return (
@@ -175,14 +397,43 @@ export function LoginPage() {
             ? 'SSO sign-in succeeded. Enter the code from your authenticator app to finish.'
             : 'Enter the code from your authenticator app to continue.'
         }
-        footer={<AuthFooterLink to="/login">Back to sign in</AuthFooterLink>}
+        footer={
+          <button
+            type="button"
+            className="nav-link font-medium text-brand-green"
+            onClick={() => {
+              setMfaStep(false)
+              setSsoMfaPending(false)
+            }}
+          >
+            Back to sign in
+          </button>
+        }
       >
-        <MfaStep
-          onSuccess={(user) => {
-            setUser(user)
-            navigate(from, { replace: true })
-          }}
-        />
+        <MfaStep onSuccess={handleAuthSuccess} />
+      </AuthLayout>
+    )
+  }
+
+  if (signupMode) {
+    return (
+      <AuthLayout
+        title="Create client account"
+        subtitle="Register for portal access to your IP matters and deadlines."
+        footer={
+          <button
+            type="button"
+            className="nav-link font-medium text-brand-green"
+            onClick={() => {
+              setSignupMode(false)
+              window.history.replaceState({}, '', '/login')
+            }}
+          >
+            Already have an account? Sign in
+          </button>
+        }
+      >
+        <SignupForm onSuccess={handleAuthSuccess} errorMessage={ssoError} />
       </AuthLayout>
     )
   }
@@ -192,16 +443,28 @@ export function LoginPage() {
       title="Welcome back"
       subtitle="Sign in to access your IP matters, deadlines, and client workspace."
       footer={
-        <AuthFooterLink to="/reset-password">Forgot your password?</AuthFooterLink>
+        <div className="space-y-3">
+          <AuthFooterLink to="/reset-password">Forgot your password?</AuthFooterLink>
+          <p className="text-brand-green/60">
+            New client?{' '}
+            <button
+              type="button"
+              className="font-medium text-brand-green hover:text-brand-orange"
+              onClick={() => setSignupMode(true)}
+            >
+              Create an account
+            </button>
+          </p>
+        </div>
       }
     >
       <form onSubmit={onSubmit} className="space-y-5" noValidate>
-        {errorMessage && (
+        {loginErrorMessage && (
           <div
             role="alert"
             className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
           >
-            {errorMessage}
+            {loginErrorMessage}
           </div>
         )}
 

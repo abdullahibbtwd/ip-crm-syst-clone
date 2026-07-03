@@ -1,4 +1,12 @@
-import { IsEmail, IsString, Length, MinLength } from 'class-validator';
+import {
+  IsBoolean,
+  IsEmail,
+  IsOptional,
+  IsString,
+  Length,
+  MinLength,
+  Equals,
+} from 'class-validator';
 
 export class LoginDto {
   @IsEmail()
@@ -27,4 +35,26 @@ export class ResetPasswordDto {
   @IsString()
   @MinLength(8)
   password!: string;
+}
+
+export class RegisterDto {
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  @MinLength(2)
+  fullName!: string;
+
+  @IsString()
+  @MinLength(8)
+  password!: string;
+
+  @IsOptional()
+  @IsString()
+  @MinLength(2)
+  companyName?: string;
+
+  @IsBoolean()
+  @Equals(true, { message: 'GDPR consent is required to create an account' })
+  gdprConsent!: boolean;
 }

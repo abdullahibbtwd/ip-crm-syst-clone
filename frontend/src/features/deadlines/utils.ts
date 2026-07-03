@@ -37,6 +37,10 @@ export function daysUntilDue(dueDate: string, from = new Date()) {
   return Math.ceil((due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
 }
 
+export function isDueToday(dueDate: string, from = new Date()) {
+  return daysUntilDue(dueDate, from) === 0
+}
+
 export function deadlineUrgency(
   dueDate: string,
   status: DeadlineStatus,
@@ -45,6 +49,7 @@ export function deadlineUrgency(
   if (status === 'missed' || status === 'escalated') return 'overdue'
   const days = daysUntilDue(dueDate)
   if (days < 0) return 'overdue'
+  if (days === 0) return 'today'
   if (days <= 7) return 'urgent'
   if (days <= 30) return 'soon'
   return 'ok'
@@ -52,6 +57,7 @@ export function deadlineUrgency(
 
 export const URGENCY_ROW_CLASS: Record<DeadlineUrgency, string> = {
   overdue: 'border-l-2 border-l-destructive bg-destructive/5',
+  today: 'border-l-2 border-l-orange-500 bg-orange-500/10 ring-1 ring-orange-500/20',
   urgent: 'border-l-2 border-l-amber-500 bg-amber-500/5',
   soon: 'border-l-2 border-l-yellow-400/80',
   ok: '',
@@ -60,6 +66,7 @@ export const URGENCY_ROW_CLASS: Record<DeadlineUrgency, string> = {
 
 export const URGENCY_DOT_CLASS: Record<DeadlineUrgency, string> = {
   overdue: 'bg-destructive',
+  today: 'bg-orange-500 animate-pulse',
   urgent: 'bg-amber-500',
   soon: 'bg-yellow-400',
   ok: 'bg-emerald-500',

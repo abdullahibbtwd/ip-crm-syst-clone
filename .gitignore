@@ -10,6 +10,7 @@ backend/generated/
 .env
 .env.local
 .env.*.local
+.tmp-cookies.txt
 
 # IDE
 .idea/

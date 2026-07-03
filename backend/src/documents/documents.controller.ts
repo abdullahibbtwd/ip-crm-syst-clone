@@ -13,6 +13,7 @@ import type { Request } from 'express';
 import { memoryStorage } from 'multer';
 import { Audit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
+import { PortalAccessService } from '../common/portal-access.service';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { DOCUMENTS_MODULE } from './documents.constants';
 import { DocumentsService } from './documents.service';
@@ -22,15 +23,26 @@ import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 @RequirePermissions('document:read')
 @Audit({ action: 'document', resource: 'document', module: DOCUMENTS_MODULE })
 export class DocumentsController {
-  constructor(private readonly documentsService: DocumentsService) {}
+  constructor(
+    private readonly documentsService: DocumentsService,
+    private readonly portalAccess: PortalAccessService,
+  ) {}
 
   @Get(':id/versions')
-  listVersions(@Param('id') id: string) {
+  async listVersions(@Param('id') id: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertDocumentAccess(id, user);
     return this.documentsService.listVersions(id);
   }
 
   @Get(':id/download')
-  download(@Param('id') id: string, @Query('versionId') versionId?: string) {
+  async download(
+    @Param('id') id: string,
+    @Req() req: Request,
+    @Query('versionId') versionId?: string,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertDocumentAccess(id, user);
     return this.documentsService.getDownloadUrl(id, versionId);
   }
 

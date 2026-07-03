@@ -38,6 +38,7 @@ model User {
   relationshipHistory  RelationshipHistory[]
   intakeLeadsCreated   IntakeLead[]           @relation("IntakeCreatedBy")
   intakeLeadsAssigned  IntakeLead[]           @relation("IntakeAssignedTo")
+  intakeLeadsSubmitted IntakeLead[]           @relation("IntakePortalUser")
   conflictResolutions  IntakeConflictCheck[]  @relation("ConflictResolvedBy")
   mattersAssigned      Matter[]               @relation("MatterAssignedTo")
   mattersFiled         Matter[]               @relation("MatterFiledBy")
@@ -246,7 +247,8 @@ model Client {
   relatedCompanies    RelatedCompany[]      @relation("ClientRelations")
   relatedTo           RelatedCompany[]      @relation("RelatedTo")
   relationshipHistory RelationshipHistory[]
-  convertedFromIntake IntakeLead?           @relation("IntakeConversion")
+  convertedFromIntake IntakeLead[]          @relation("IntakeConversion")
+  intakeSubmissions   IntakeLead[]          @relation("IntakeSubmittedBy")
   matters             Matter[]
   ipRights            IpRight[]
   rateCards           RateCard[]
@@ -359,6 +361,13 @@ enum IntakeEnquirerType {
   @@map("intake_enquirer_type")
 }
 
+enum IntakeSource {
+  internal
+  portal
+
+  @@map("intake_source")
+}
+
 enum IntakeUrgency {
   normal
   urgent
@@ -421,13 +430,18 @@ model IntakeLead {
   assignedUserId    String?              @map("assigned_user_id") @db.Uuid
   notes             String?
   createdById       String               @map("created_by_id") @db.Uuid
-  convertedClientId String?              @unique @map("converted_client_id") @db.Uuid
+  source            IntakeSource         @default(internal)
+  submittedClientId String?              @map("submitted_client_id") @db.Uuid
+  portalUserId      String?              @map("portal_user_id") @db.Uuid
+  convertedClientId String?              @map("converted_client_id") @db.Uuid
   convertedMatterId String?              @unique @map("converted_matter_id") @db.Uuid
   createdAt         DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   assignedUser    User?                 @relation("IntakeAssignedTo", fields: [assignedUserId], references: [id], onDelete: SetNull)
   createdBy       User                  @relation("IntakeCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  submittedClient Client?               @relation("IntakeSubmittedBy", fields: [submittedClientId], references: [id], onDelete: SetNull)
+  portalUser      User?                 @relation("IntakePortalUser", fields: [portalUserId], references: [id], onDelete: SetNull)
   convertedClient Client?               @relation("IntakeConversion", fields: [convertedClientId], references: [id], onDelete: SetNull)
   convertedMatter Matter?               @relation("IntakeConvertedMatter", fields: [convertedMatterId], references: [id], onDelete: SetNull)
   matterFromSource Matter?              @relation("MatterSourceIntake")
@@ -437,6 +451,9 @@ model IntakeLead {
   @@index([status])
   @@index([createdById])
   @@index([assignedUserId])
+  @@index([submittedClientId])
+  @@index([convertedClientId])
+  @@index([source])
   @@index([createdAt(sort: Desc)])
   @@map("intake_leads")
 }

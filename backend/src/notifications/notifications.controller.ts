@@ -3,12 +3,16 @@ import {
   Get,
   Param,
   Patch,
+  Post,
   Query,
   Req,
 } from '@nestjs/common';
 import type { Request } from 'express';
 import { Audit } from '../common/decorators/audit.decorator';
+import { Roles } from '../common/decorators/roles.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import { DeadlineNotificationScanService } from './deadline-notification-scan.service';
 import { ListNotificationsQueryDto } from './dto/notification.dto';
 import { NOTIFICATIONS_MODULE } from './notifications.constants';
 import { NotificationsService } from './notifications.service';
@@ -16,7 +20,10 @@ import { NotificationsService } from './notifications.service';
 @Controller('notifications')
 @Audit({ action: 'notification', resource: 'notification', module: NOTIFICATIONS_MODULE })
 export class NotificationsController {
-  constructor(private readonly notifications: NotificationsService) {}
+  constructor(
+    private readonly notifications: NotificationsService,
+    private readonly deadlineScan: DeadlineNotificationScanService,
+  ) {}
 
   @Get()
   list(@Query() query: ListNotificationsQueryDto, @Req() req: Request) {
@@ -33,6 +40,16 @@ export class NotificationsController {
     const user = req.user as AuthenticatedUser;
     const count = await this.notifications.getUnreadCount(user.userId);
     return { count };
+  }
+
+  @Post('deadline-scan')
+  @Roles(
+    SYSTEM_ROLES.MANAGING_PARTNER,
+    SYSTEM_ROLES.IT_ADMIN,
+    SYSTEM_ROLES.DOCKETING_ADMIN,
+  )
+  runDeadlineScan() {
+    return this.deadlineScan.run();
   }
 
   @Patch('read-all')

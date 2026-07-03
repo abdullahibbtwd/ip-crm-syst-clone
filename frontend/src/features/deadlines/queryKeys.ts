@@ -5,4 +5,6 @@ export const deadlineKeys = {
     [...deadlineKeys.all, 'my', filters ?? {}] as const,
   firm: (filters?: Record<string, unknown>) =>
     [...deadlineKeys.all, 'firm', filters ?? {}] as const,
+  myTodayCount: () => [...deadlineKeys.all, 'today-count', 'my'] as const,
+  firmTodayCount: () => [...deadlineKeys.all, 'today-count', 'firm'] as const,
 }

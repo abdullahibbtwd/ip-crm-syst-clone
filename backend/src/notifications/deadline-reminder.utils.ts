@@ -7,12 +7,13 @@ export type ReminderMilestone = {
   label: string;
 };
 
-/** Reminder schedule: 30d, 7d, 3d, 1d before due; 3d after due. */
+/** Reminder schedule: 30d, 7d, 3d, 1d before due; due today; 3d after due. */
 export const DEADLINE_REMINDER_MILESTONES: ReminderMilestone[] = [
   { key: 'before_30', offsetDays: 30, direction: 'before', label: '30 days' },
   { key: 'before_7', offsetDays: 7, direction: 'before', label: '7 days' },
   { key: 'before_3', offsetDays: 3, direction: 'before', label: '3 days' },
   { key: 'before_1', offsetDays: 1, direction: 'before', label: '1 day' },
+  { key: 'due_today', offsetDays: 0, direction: 'before', label: 'today' },
   { key: 'after_3', offsetDays: 3, direction: 'after', label: '3 days overdue' },
 ];
 
@@ -80,6 +81,9 @@ export function reminderTitle(
   if (milestone.direction === 'after') {
     return `Deadline overdue: ${deadlineTitle}`;
   }
+  if (milestone.offsetDays === 0) {
+    return `Deadline due today: ${deadlineTitle}`;
+  }
   if (milestone.offsetDays === 1) {
     return `Deadline tomorrow: ${deadlineTitle}`;
   }
@@ -94,6 +98,9 @@ export function reminderBody(
   if (milestone.direction === 'after') {
     return `${matterTitle} was due ${dueLabel} (${milestone.label}).`;
   }
+  if (milestone.offsetDays === 0) {
+    return `${matterTitle} — due today (${dueLabel}).`;
+  }
   if (milestone.offsetDays === 1) {
     return `${matterTitle} — due ${dueLabel} (tomorrow).`;
   }
@@ -107,6 +114,9 @@ export function reminderEmailSubject(
 ): string {
   if (milestone.direction === 'after') {
     return `Overdue (${milestone.label}): ${deadlineTitle}`;
+  }
+  if (milestone.offsetDays === 0) {
+    return `Due today: ${deadlineTitle} (${dueLabel})`;
   }
   if (milestone.offsetDays === 1) {
     return `Reminder: ${deadlineTitle} due tomorrow (${dueLabel})`;

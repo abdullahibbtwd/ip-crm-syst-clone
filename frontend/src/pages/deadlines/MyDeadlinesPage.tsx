@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AlertTriangle } from 'lucide-react'
+import { DueTodayAlert } from '@/components/deadlines/DueTodayAlert'
+import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,7 +14,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { DeadlineStatusButton } from '@/features/deadlines/components/DeadlineStatusButton'
-import { useMyDeadlines } from '@/features/deadlines/hooks/useDeadlines'
+import { useMyDeadlines, useMyTodayDeadlineCount } from '@/features/deadlines/hooks/useDeadlines'
 import type { MyDeadlinesTab } from '@/features/deadlines/types'
 import {
   DEADLINE_STATUS_LABELS,
@@ -51,8 +53,10 @@ export function MyDeadlinesPage() {
     limit: PAGE_SIZE,
     cursor: cursors[pageIndex],
   })
+  const { data: todayData } = useMyTodayDeadlineCount()
 
   const deadlines = data?.items ?? []
+  const todayCount = todayData?.count ?? 0
 
   const handleNextPage = () => {
     if (!data?.nextCursor) return
@@ -77,6 +81,8 @@ export function MyDeadlinesPage() {
           each matter.
         </p>
       </div>
+
+      <DueTodayAlert count={todayCount} />
 
       <div className="flex flex-wrap gap-2">
         {TABS.map((t) => (
@@ -141,11 +147,12 @@ export function MyDeadlinesPage() {
                         {jurisdictionLabel(deadlineJurisdiction(d))}
                       </TableCell>
                       <TableCell>
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {urgency === 'today' && <DueTodayBadge />}
                           {urgency === 'overdue' && (
                             <AlertTriangle className="size-3.5 shrink-0 text-destructive" />
                           )}
-                          {formatDeadlineDate(d.dueDate)}
+                          <span>{formatDeadlineDate(d.dueDate)}</span>
                         </div>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
@@ -153,9 +160,11 @@ export function MyDeadlinesPage() {
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="normal-case">
-                          {urgency === 'overdue' && d.status !== 'completed'
-                            ? 'Overdue'
-                            : DEADLINE_STATUS_LABELS[d.status]}
+                          {urgency === 'today'
+                            ? 'Due today'
+                            : urgency === 'overdue' && d.status !== 'completed'
+                              ? 'Overdue'
+                              : DEADLINE_STATUS_LABELS[d.status]}
                         </Badge>
                       </TableCell>
                       <TableCell>

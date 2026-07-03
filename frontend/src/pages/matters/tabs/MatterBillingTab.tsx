@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Check, Pencil, Plus, Trash2, X } from 'lucide-react'
+import { Check, FileText, Pencil, Plus, Trash2, X } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { Card, CardContent } from '@/components/ui/card'
+import { useAuth } from '@/features/auth/AuthProvider'
 import { Drawer } from '@/components/crm/Drawer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -82,6 +84,51 @@ function SummaryBar({
 }
 
 export function MatterBillingTab() {
+  const { user } = useAuth()
+  const isPortalClient = user?.roles.includes('portal_client') ?? false
+
+  if (isPortalClient) {
+    return <PortalBillingView />
+  }
+
+  return <InternalBillingView />
+}
+
+/**
+ * Client-facing billing view. Portal clients must not see internal time
+ * entries, hourly rates, or attorney workload (spec: "protected"). They see
+ * invoices and payment status — which arrive with Wave 2 invoicing. Until then
+ * this is a friendly empty state and it never calls `billing:read` endpoints.
+ */
+function PortalBillingView() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="font-medium">Billing</h2>
+        <p className="text-sm text-muted-foreground">
+          Invoices and payment status for this matter.
+        </p>
+      </div>
+
+      <Card className="border-dashed shadow-none">
+        <CardContent className="flex flex-col items-center gap-3 px-6 py-12 text-center">
+          <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <FileText className="size-6" aria-hidden />
+          </span>
+          <div>
+            <p className="font-medium text-foreground">No invoices yet</p>
+            <p className="mt-1 max-w-sm text-sm text-muted-foreground">
+              When your matter is invoiced, your invoices and their payment status will
+              appear here.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+function InternalBillingView() {
   const { matterId } = useOutletContext<MatterTabContext>()
   const { data: summary, isLoading: summaryLoading } = useBillingSummary(matterId)
   const {

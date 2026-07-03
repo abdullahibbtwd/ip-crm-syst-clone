@@ -1,40 +1,70 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, path.resolve(__dirname, '..'), '')
+  const backendTarget =
+    env.API_URL?.replace(/\/$/, '') ??
+    `http://127.0.0.1:${env.BACKEND_PORT ?? env.PORT ?? '3002'}`
+
+  return {
+    plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
       },
-      '/socket.io': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        ws: true,
-        configure: (proxy) => {
-          proxy.on('error', (err, _req, res) => {
-            const code = (err as NodeJS.ErrnoException).code
-            // Benign when the client navigates away, HMR reloads, or the socket is closed mid-handshake.
-            if (code === 'ECONNABORTED' || code === 'ECONNRESET') return
-            if (res && 'writeHead' in res && !res.headersSent) {
-              res.writeHead(502, { 'Content-Type': 'text/plain' })
-            }
-            res?.end?.('Socket proxy error')
-            console.error('[vite] socket.io proxy error:', err)
-          })
+    },
+    server: {
+      proxy: {
+        '/api': {
+          target: backendTarget,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          configure: (proxy) => {
+            proxy.on('error', (err, _req, res) => {
+              const code = (err as NodeJS.ErrnoException).code
+              if (
+                code === 'ECONNREFUSED' ||
+                code === 'ECONNRESET' ||
+                code === 'ECONNABORTED'
+              ) {
+                return
+              }
+              if (res && 'writeHead' in res && !res.headersSent) {
+                res.writeHead(502, { 'Content-Type': 'text/plain' })
+              }
+              res?.end?.('API proxy error')
+              console.error('[vite] api proxy error:', err)
+            })
+          },
+        },
+        '/socket.io': {
+          target: backendTarget,
+          changeOrigin: true,
+          ws: true,
+          configure: (proxy) => {
+            proxy.on('error', (err, _req, res) => {
+              const code = (err as NodeJS.ErrnoException).code
+              // Benign during backend restarts, HMR, or mid-handshake disconnects.
+              if (
+                code === 'ECONNABORTED' ||
+                code === 'ECONNRESET' ||
+                code === 'ECONNREFUSED'
+              ) {
+                return
+              }
+              if (res && 'writeHead' in res && !res.headersSent) {
+                res.writeHead(502, { 'Content-Type': 'text/plain' })
+              }
+              res?.end?.('Socket proxy error')
+              console.error('[vite] socket.io proxy error:', err)
+            })
+          },
         },
       },
     },
-  },
+  }
 })

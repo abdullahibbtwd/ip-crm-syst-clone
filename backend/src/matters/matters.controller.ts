@@ -39,24 +39,28 @@ export class MattersController {
   }
 
   @Get()
-  findAll(@Query() query: MatterQueryDto) {
-    return this.mattersService.findAll(query);
+  findAll(@Query() query: MatterQueryDto, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.findAll(query, user);
   }
 
   @Get(':matterId/deadlines')
   @RequirePermissions('deadline:read')
-  listDeadlines(@Param('matterId') matterId: string) {
-    return this.mattersService.listDeadlines(matterId);
+  listDeadlines(@Param('matterId') matterId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.listDeadlines(matterId, user);
   }
 
   @Get(':matterId/ip-rights')
-  listIpRights(@Param('matterId') matterId: string) {
-    return this.mattersService.listIpRights(matterId);
+  listIpRights(@Param('matterId') matterId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.listIpRights(matterId, user);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.mattersService.findOne(id);
+  findOne(@Param('id') id: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.findOne(id, user);
   }
 
   @Patch(':id')

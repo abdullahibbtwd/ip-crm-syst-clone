@@ -80,6 +80,15 @@
     @apply bg-background text-foreground;
   }
 
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
   h1,
   h2,
   h3,
@@ -108,17 +117,18 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-150;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-150;
     @apply hover:bg-primary/92 hover:shadow-md active:scale-[0.98];
+    @apply disabled:cursor-not-allowed;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground shadow-xs transition-all duration-150;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground shadow-xs transition-all duration-150;
     @apply hover:bg-muted/70;
   }
 
   .nav-link {
-    @apply relative text-foreground/80 transition-colors duration-150;
+    @apply relative cursor-pointer text-foreground/80 transition-colors duration-150;
   }
 
   .nav-link::after {
@@ -139,7 +149,7 @@
   }
 
   .section-inverted .btn-inverted {
-    @apply inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-medium text-brand-green transition-colors duration-150;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-medium text-brand-green transition-colors duration-150;
     @apply hover:text-primary;
   }
 

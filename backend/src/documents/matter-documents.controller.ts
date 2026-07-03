@@ -14,6 +14,7 @@ import type { Request } from 'express';
 import { memoryStorage } from 'multer';
 import { Audit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
+import { PortalAccessService } from '../common/portal-access.service';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { DOCUMENTS_MODULE } from './documents.constants';
 import { DocumentsService } from './documents.service';
@@ -24,13 +25,19 @@ import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 @RequirePermissions('document:read')
 @Audit({ action: 'document', resource: 'document', module: DOCUMENTS_MODULE })
 export class MatterDocumentsController {
-  constructor(private readonly documentsService: DocumentsService) {}
+  constructor(
+    private readonly documentsService: DocumentsService,
+    private readonly portalAccess: PortalAccessService,
+  ) {}
 
   @Get()
-  list(
+  async list(
     @Param('matterId') matterId: string,
     @Query() query: DocumentQueryDto,
+    @Req() req: Request,
   ) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertMatterAccess(matterId, user);
     return this.documentsService.listForMatter(matterId, query);
   }
 

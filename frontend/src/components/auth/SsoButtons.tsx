@@ -41,7 +41,7 @@ const PROVIDER_ICONS = {
   google: GoogleIcon,
 } as const
 
-export function SsoButtons() {
+export function SsoButtons({ signup = false }: { signup?: boolean }) {
   const { data, isLoading } = useQuery({
     queryKey: ['sso-providers'],
     queryFn: fetchSsoProviders,
@@ -74,10 +74,13 @@ export function SsoButtons() {
       <div className="grid gap-3">
         {providers.map((provider: SsoProvider) => {
           const Icon = PROVIDER_ICONS[provider.id as keyof typeof PROVIDER_ICONS]
+          const href = signup
+            ? `/api/auth/sso/${provider.id}?signup=1`
+            : `/api/auth/sso/${provider.id}`
           return (
             <a
               key={provider.id}
-              href={`/api/auth/sso/${provider.id}`}
+              href={href}
               className="btn-secondary w-full gap-3 py-3"
             >
               {Icon && <Icon />}

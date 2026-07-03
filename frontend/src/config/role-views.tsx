@@ -123,7 +123,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
     ],
     footer: [
-      { icon: UsersRound, label: 'Team' },
+      { icon: UsersRound, label: 'Team', path: '/users/team' },
       { icon: Settings, label: 'Settings', path: '/settings' },
     ],
     topbar: { breadcrumb: 'Dashboard', showLanguage: true, showTasks: true },
@@ -373,7 +373,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         section: 'Users & access',
         items: [
-          { icon: Users, label: 'Users' },
+          { icon: Users, label: 'Users', path: '/users' },
           { icon: ShieldCheck, label: 'Roles & permissions' },
           { icon: KeyRound, label: 'SSO / MFA config' },
         ],
@@ -399,8 +399,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         section: 'My portfolio',
         items: [
-          { icon: LayoutDashboard, label: 'Overview', isHome: true },
-          { icon: Calendar, label: 'My deadlines' },
+          { icon: LayoutDashboard, label: 'Overview', isHome: true, path: '/dashboard' },
+          { icon: Inbox, label: 'Enquiries', path: '/portal/intake' },
+          { icon: Calendar, label: 'My deadlines', path: '/deadlines/my' },
         ],
       },
       {
@@ -418,7 +419,10 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     ],
     footer: [{ icon: HelpCircle, label: 'Help' }],
     topbar: { breadcrumb: 'My portfolio' },
-    home: home('My portfolio'),
+    home: {
+      title: 'My portfolio',
+      description: 'Submit filing enquiries and track matters for your organisation.',
+    },
   },
 }
 

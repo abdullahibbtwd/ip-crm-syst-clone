@@ -1,17 +1,27 @@
-import { Link, Navigate, Outlet, useParams } from 'react-router-dom'
+import { Link, Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
 import { MatterTabNav } from '@/components/matters/MatterTabNav'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
 import { useMatter } from '@/features/matters/hooks/useMatters'
 import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
 import { clientDisplayName } from '@/features/crm/utils'
+import { useAuth } from '@/features/auth/AuthProvider'
+import { getMatterTabFromPath, isPortalMatterTab } from '@/config/matter-tabs'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function MatterLayout() {
   const { id = '' } = useParams()
+  const location = useLocation()
+  const { user } = useAuth()
+  const isPortalClient = user?.roles.includes('portal_client') ?? false
   const { data: matter, isLoading, isError } = useMatter(id)
 
   if (!id) return <Navigate to="/matters" replace />
+
+  const activeTab = getMatterTabFromPath(location.pathname)
+  if (isPortalClient && activeTab && !isPortalMatterTab(activeTab)) {
+    return <Navigate to={`/matters/${id}/overview`} replace />
+  }
 
   return (
     <div className="space-y-6">
@@ -35,16 +45,20 @@ export function MatterLayout() {
             </div>
             <p className="text-sm text-muted-foreground">
               {MATTER_TYPE_LABELS[matter.matterType]} ·{' '}
-              <Link
-                to={`/clients/${matter.clientId}/overview`}
-                className="text-primary hover:underline"
-              >
-                {clientDisplayName(matter.client)}
-              </Link>
+              {isPortalClient ? (
+                <span>{clientDisplayName(matter.client)}</span>
+              ) : (
+                <Link
+                  to={`/clients/${matter.clientId}/overview`}
+                  className="text-primary hover:underline"
+                >
+                  {clientDisplayName(matter.client)}
+                </Link>
+              )}
             </p>
           </div>
 
-          <MatterTabNav matterId={id} />
+          <MatterTabNav matterId={id} isPortalClient={isPortalClient} />
           <Outlet context={{ matterId: id, matter }} />
         </>
       )}

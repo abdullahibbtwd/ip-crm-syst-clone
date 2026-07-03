@@ -205,6 +205,8 @@ export const ROLE_DEFINITIONS: Record<
       'document:read',
       'invoice:read',
       'deadline:read',
+      'intake:read',
+      'intake:create',
     ],
   },
 };

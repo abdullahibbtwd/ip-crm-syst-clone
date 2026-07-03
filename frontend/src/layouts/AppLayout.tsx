@@ -109,6 +109,16 @@ function LayoutBody({
         return
       }
     }
+    if (location.pathname.startsWith('/users')) {
+      const usersItem = [
+        ...view.nav.flatMap((s) => s.items),
+        ...view.footer,
+      ].find((i) => i.path?.startsWith('/users'))
+      if (usersItem) {
+        setActiveNavId(navId(usersItem))
+        return
+      }
+    }
     for (const item of view.footer) {
       if (item.path && location.pathname.startsWith(item.path)) {
         setActiveNavId(navId(item))

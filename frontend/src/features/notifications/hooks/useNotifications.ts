@@ -1,20 +1,20 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { io, type Socket } from 'socket.io-client'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { notificationsApi } from '@/features/notifications/api'
+import {
+  disconnectNotificationSocket,
+  subscribeNotificationSocket,
+} from '@/features/notifications/notification-socket'
 import { notificationKeys } from '@/features/notifications/queryKeys'
-import type { Notification } from '@/features/notifications/types'
-
-const SOCKET_PATH = '/socket.io'
-
-function getSocketUrl() {
-  return import.meta.env.DEV ? window.location.origin : window.location.origin
-}
 
 export function useNotifications(limit = 20) {
   return useQuery({
     queryKey: notificationKeys.list(limit),
     queryFn: () => notificationsApi.list({ limit }),
+    refetchOnWindowFocus: true,
+    refetchInterval: 30_000,
+    retry: 3,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10_000),
   })
 }
 
@@ -22,7 +22,10 @@ export function useUnreadNotificationCount() {
   return useQuery({
     queryKey: notificationKeys.unreadCount(),
     queryFn: () => notificationsApi.unreadCount(),
-    refetchInterval: 60_000,
+    refetchOnWindowFocus: true,
+    refetchInterval: 30_000,
+    retry: 3,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10_000),
   })
 }
 
@@ -46,33 +49,16 @@ export function useMarkAllNotificationsRead() {
   })
 }
 
+/** Mount once at app shell level — reuses a single Socket.io connection. */
 export function useNotificationSocket(enabled: boolean) {
   const qc = useQueryClient()
-  const socketRef = useRef<Socket | null>(null)
 
   useEffect(() => {
-    if (!enabled) return
-
-    const socket = io(`${getSocketUrl()}/notifications`, {
-      path: SOCKET_PATH,
-      withCredentials: true,
-      transports: ['websocket', 'polling'],
-      reconnectionAttempts: 5,
-    })
-    socketRef.current = socket
-
-    socket.on('notification', (_notification: Notification) => {
-      qc.invalidateQueries({ queryKey: notificationKeys.all })
-    })
-
-    socket.on('unread_count', () => {
-      qc.invalidateQueries({ queryKey: notificationKeys.unreadCount() })
-      qc.invalidateQueries({ queryKey: notificationKeys.list() })
-    })
-
-    return () => {
-      socket.disconnect()
-      socketRef.current = null
+    if (!enabled) {
+      disconnectNotificationSocket()
+      return
     }
+
+    return subscribeNotificationSocket(qc)
   }, [enabled, qc])
 }

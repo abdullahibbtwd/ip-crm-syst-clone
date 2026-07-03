@@ -9,6 +9,7 @@ import type { Request, Response } from 'express';
 import * as oidc from 'openid-client';
 import { AuthService } from './auth.service';
 import { AuthCookieService } from './auth-cookie.service';
+import type { UserWithAccess } from './user-access';
 import {
   SSO_PROVIDER_LABELS,
   SSO_PROVIDERS,
@@ -20,6 +21,7 @@ type PendingLogin = {
   codeVerifier: string;
   provider: SsoProvider;
   expiresAt: number;
+  signup: boolean;
 };
 
 @Injectable()
@@ -43,7 +45,7 @@ export class SsoService {
     }));
   }
 
-  async startLogin(provider: string, res: Response) {
+  async startLogin(provider: string, res: Response, signup = false) {
     const id = this.parseProvider(provider);
     if (!this.isProviderConfigured(id)) {
       throw new BadRequestException(
@@ -61,6 +63,7 @@ export class SsoService {
       codeVerifier,
       provider: id,
       expiresAt: Date.now() + 10 * 60 * 1000,
+      signup,
     });
 
     const redirectTo = oidc.buildAuthorizationUrl(config, {
@@ -76,6 +79,7 @@ export class SsoService {
 
   async handleCallback(provider: string, req: Request, res: Response) {
     const frontendUrl = this.config.getOrThrow<string>('FRONTEND_URL');
+    let signupFlow = false;
 
     try {
       const id = this.parseProvider(provider);
@@ -98,8 +102,6 @@ export class SsoService {
       }
 
       const pending = this.pendingLogins.get(state);
-      this.pendingLogins.delete(state);
-
       if (
         !pending ||
         pending.provider !== id ||
@@ -107,6 +109,9 @@ export class SsoService {
       ) {
         throw new UnauthorizedException('SSO session expired - try again');
       }
+
+      signupFlow = pending.signup;
+      this.pendingLogins.delete(state);
 
       const config = await this.getOidcConfig(id);
       const tokens = await oidc.authorizationCodeGrant(config, currentUrl, {
@@ -128,7 +133,29 @@ export class SsoService {
         );
       }
 
-      const user = await this.authService.validateSsoUser(email);
+      const fullName =
+        typeof claims?.name === 'string'
+          ? claims.name
+          : [claims?.given_name, claims?.family_name]
+              .filter((part) => typeof part === 'string')
+              .join(' ')
+              .trim() || email.split('@')[0];
+
+      let user: UserWithAccess;
+      const existing = await this.authService.findUserByEmail(email);
+      if (existing) {
+        if (!existing.isActive) {
+          throw new UnauthorizedException('Account is inactive');
+        }
+        user = existing;
+      } else if (pending.signup) {
+        user = await this.authService.registerPortalFromSso(email, fullName);
+      } else {
+        throw new UnauthorizedException(
+          'SSO account not provisioned. Create a client account first or contact your administrator.',
+        );
+      }
+
       const result = await this.authService.login(user);
 
       if (result.mfaRequired) {
@@ -153,8 +180,9 @@ export class SsoService {
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'SSO sign-in failed';
+      const signupQuery = signupFlow ? 'signup=1&' : '';
       return res.redirect(
-        `${frontendUrl}/login?error=${encodeURIComponent(message)}`,
+        `${frontendUrl}/login?${signupQuery}error=${encodeURIComponent(message)}`,
       );
     }
   }

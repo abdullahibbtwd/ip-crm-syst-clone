@@ -22,6 +22,7 @@ import {
   ForgotPasswordDto,
   LoginDto,
   MfaVerifyDto,
+  RegisterDto,
   ResetPasswordDto,
 } from './dto/auth.dto';
 import { SsoService } from './sso.service';
@@ -44,8 +45,13 @@ export class AuthController {
   @Public()
   @Audit({ action: 'auth.sso.start', resource: 'auth', module: 'identity' })
   @Get('sso/:provider')
-  startSso(@Param('provider') provider: string, @Res() res: Response) {
-    return this.ssoService.startLogin(provider, res);
+  startSso(
+    @Param('provider') provider: string,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    const signup = req.query.signup === '1' || req.query.signup === 'true';
+    return this.ssoService.startLogin(provider, res, signup);
   }
 
   @Public()
@@ -76,6 +82,33 @@ export class AuthController {
       );
       this.cookies.setMfaPendingCookie(res, mfaToken);
       return { mfaRequired: true };
+    }
+
+    if (result.tokens) {
+      this.cookies.setAuthCookies(
+        res,
+        result.tokens.accessToken,
+        result.tokens.refreshToken,
+      );
+    }
+
+    return { user: result.user };
+  }
+
+  @Public()
+  @Audit({ action: 'auth.register', resource: 'auth', module: 'identity' })
+  @Post('register')
+  async register(
+    @Body() body: RegisterDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const user = await this.authService.registerPortalClient(body);
+    const result = await this.authService.login(user);
+
+    if (result.mfaRequired) {
+      throw new UnauthorizedException(
+        'MFA is not expected for new portal accounts',
+      );
     }
 
     if (result.tokens) {

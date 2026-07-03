@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useAuth } from '@/features/auth/AuthProvider'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import type { MatterFilters, MatterStatus, MatterType } from '@/features/matters/types'
 import { MATTER_STATUS_LABELS, MATTER_TYPE_LABELS } from '@/features/matters/utils'
@@ -23,6 +24,8 @@ const MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
 const MATTER_STATUSES = Object.keys(MATTER_STATUS_LABELS) as MatterStatus[]
 
 export function MatterListPage() {
+  const { user } = useAuth()
+  const isPortalClient = user?.roles.includes('portal_client') ?? false
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<MatterStatus | undefined>()
@@ -68,9 +71,13 @@ export function MatterListPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Matters</h1>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">
+            {isPortalClient ? 'My matters' : 'Matters'}
+          </h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Portfolio view of all legal matters - search by title, client, or application number.{' '}
+            {isPortalClient
+              ? 'Matters opened for your organisation after intake conversion.'
+              : 'Portfolio view of all legal matters - search by title, client, or application number.'}{' '}
             {MATTER_PAGE_SIZE} per page.
           </p>
         </div>
@@ -136,6 +143,7 @@ export function MatterListPage() {
         hasNextPage={Boolean(data?.nextCursor)}
         onPreviousPage={handlePreviousPage}
         onNextPage={handleNextPage}
+        compact={isPortalClient}
       />
     </div>
   )

@@ -15,6 +15,8 @@ function invalidateDeadlineQueries(qc: ReturnType<typeof useQueryClient>, matter
   }
   qc.invalidateQueries({ queryKey: deadlineKeys.my() })
   qc.invalidateQueries({ queryKey: deadlineKeys.firm() })
+  qc.invalidateQueries({ queryKey: deadlineKeys.myTodayCount() })
+  qc.invalidateQueries({ queryKey: deadlineKeys.firmTodayCount() })
   qc.invalidateQueries({ queryKey: ['matters'] })
 }
 
@@ -30,6 +32,26 @@ export function useMyDeadlines(filters?: MyDeadlinesFilters) {
   return useQuery({
     queryKey: deadlineKeys.my(filters),
     queryFn: () => deadlinesApi.listMy(filters),
+  })
+}
+
+export function useMyTodayDeadlineCount(enabled = true) {
+  return useQuery({
+    queryKey: deadlineKeys.myTodayCount(),
+    queryFn: () => deadlinesApi.myTodayCount(),
+    enabled,
+    refetchInterval: 60_000,
+    staleTime: 30_000,
+  })
+}
+
+export function useFirmTodayDeadlineCount(enabled = true) {
+  return useQuery({
+    queryKey: deadlineKeys.firmTodayCount(),
+    queryFn: () => deadlinesApi.firmTodayCount(),
+    enabled,
+    refetchInterval: 60_000,
+    staleTime: 30_000,
   })
 }
 

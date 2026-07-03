@@ -15,6 +15,10 @@ export const deadlinesApi = {
   listMy: (params?: MyDeadlinesFilters) =>
     apiClient.get<DeadlineListResponse>('/deadlines/my', params as Record<string, unknown>),
 
+  myTodayCount: () => apiClient.get<{ count: number }>('/deadlines/my/today-count'),
+
+  firmTodayCount: () => apiClient.get<{ count: number }>('/deadlines/today-count'),
+
   listAll: (params?: AllDeadlinesFilters) =>
     apiClient.get<DeadlineListResponse>('/deadlines', params as Record<string, unknown>),
 

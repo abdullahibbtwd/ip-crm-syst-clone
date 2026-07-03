@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CalendarClock } from 'lucide-react'
+import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -61,6 +62,7 @@ export function MyDeadlinesWidget() {
                     key={d.id}
                     className={cn(
                       urgency === 'overdue' && 'bg-destructive/5',
+                      urgency === 'today' && 'bg-orange-500/10',
                       urgency === 'urgent' && 'bg-amber-500/5',
                     )}
                   >
@@ -90,11 +92,14 @@ export function MyDeadlinesWidget() {
                       ) : null}
                     </TableCell>
                     <TableCell className="text-muted-foreground">
-                      {formatDeadlineDate(d.dueDate)}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {urgency === 'today' && <DueTodayBadge />}
+                        <span>{formatDeadlineDate(d.dueDate)}</span>
+                      </div>
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline" className="normal-case">
-                        {DEADLINE_STATUS_LABELS[d.status]}
+                        {urgency === 'today' ? 'Due today' : DEADLINE_STATUS_LABELS[d.status]}
                       </Badge>
                     </TableCell>
                   </TableRow>

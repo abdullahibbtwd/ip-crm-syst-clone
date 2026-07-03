@@ -34,17 +34,36 @@ export class IntakeController {
   @RequirePermissions('intake:create')
   create(@Body() dto: CreateIntakeLeadDto, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
-    return this.intakeService.create(dto, user.userId);
+    return this.intakeService.create(dto, user);
   }
 
   @Get()
-  findAll(@Query() query: IntakeQueryDto) {
-    return this.intakeService.findAll(query);
+  findAll(@Query() query: IntakeQueryDto, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.intakeService.findAll(query, user);
+  }
+
+  @Get('pending-count')
+  pendingCount(@Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.intakeService.countPending(user);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.intakeService.findOne(id);
+  findOne(@Param('id') id: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.intakeService.findOneForUser(id, user);
+  }
+
+  @Patch('mine/:id')
+  @RequirePermissions('intake:create')
+  updateOwn(
+    @Param('id') id: string,
+    @Body() dto: CreateIntakeLeadDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.intakeService.updateOwn(id, dto, user);
   }
 
   @Patch(':id')

@@ -1,12 +1,12 @@
-import { ShieldCheck, User } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import { MyDeadlinesWidget } from '@/components/deadlines/MyDeadlinesWidget'
+import { PortalDashboard } from '@/components/portal/PortalDashboard'
 import { MyTasksWidget } from '@/components/tasks/MyTasksWidget'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { useAnyPermission } from '@/hooks/usePermission'
 import { Card, CardContent } from '@/components/ui/card'
 import type { RoleView } from '@/config/role-views'
 import { ROLE_LABELS } from '@/lib/rbac'
-import { cn } from '@/lib/utils'
 import { ComingSoon } from './ComingSoon'
 
 type DashboardHomeProps = {
@@ -19,27 +19,19 @@ export function DashboardHome({ view, userName }: DashboardHomeProps) {
   const firstName = userName.split(' ')[0]
   const hasWorkWidgets = useAnyPermission('deadline:read', 'task:read')
 
+  if (external) {
+    return <PortalDashboard userName={userName} />
+  }
+
   return (
     <div className="space-y-6">
-      <Card
-        className={cn(
-          'border py-3 shadow-none',
-          external
-            ? 'border-primary/20 bg-primary/5'
-            : 'border-border bg-muted/30',
-        )}
-      >
+      <Card className="border border-border bg-muted/30 py-3 shadow-none">
         <CardContent className="flex items-start gap-2.5 px-4 py-0 text-xs">
-          {external ? (
-            <User className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-          ) : (
-            <ShieldCheck className="mt-0.5 size-4 shrink-0 text-foreground" aria-hidden />
-          )}
-          <span className={external ? 'text-primary' : 'text-muted-foreground'}>
+          <ShieldCheck className="mt-0.5 size-4 shrink-0 text-foreground" aria-hidden />
+          <span className="text-muted-foreground">
             <strong className="font-semibold text-foreground">{ROLE_LABELS[role]}</strong>
             {' - '}
-            {external ? 'Client portal access.' : 'Signed in as '}
-            {!external && <span className="text-foreground">{firstName}</span>}
+            Signed in as <span className="text-foreground">{firstName}</span>
           </span>
         </CardContent>
       </Card>

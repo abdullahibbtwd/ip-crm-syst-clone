@@ -32,6 +32,11 @@ import { MatterBillingTab } from './pages/matters/tabs/MatterBillingTab'
 import { MatterTasksTab } from './pages/matters/tabs/MatterTasksTab'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
+import { UsersLayout, UsersIndexRedirect } from './pages/users/UsersLayout'
+import { TeamUsersTab } from './pages/users/TeamUsersTab'
+import { PortalUsersTab } from './pages/users/PortalUsersTab'
+import { PortalIntakePage } from './pages/portal/PortalIntakePage'
+import { PortalIntakeDetailPage } from './pages/portal/PortalIntakeDetailPage'
 
 export default function App() {
   return (
@@ -46,6 +51,12 @@ export default function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/portal/intake" element={<PortalIntakePage />} />
+          <Route
+            path="/portal/intake/new"
+            element={<Navigate to="/portal/intake?tab=new" replace />}
+          />
+          <Route path="/portal/intake/:id" element={<PortalIntakeDetailPage />} />
 
           <Route path="/clients" element={<ClientListPage />} />
           <Route path="/clients/new" element={<Navigate to="/intake/new" replace />} />
@@ -65,6 +76,12 @@ export default function App() {
           <Route path="/holding-groups/:id" element={<HoldingGroupDetailPage />} />
 
           <Route path="/settings" element={<SettingsPage />} />
+
+          <Route path="/users" element={<UsersLayout />}>
+            <Route index element={<UsersIndexRedirect />} />
+            <Route path="team" element={<TeamUsersTab />} />
+            <Route path="portal" element={<PortalUsersTab />} />
+          </Route>
 
           <Route path="/intake" element={<IntakeListPage />} />
           <Route path="/intake/new" element={<CreateIntakePage />} />

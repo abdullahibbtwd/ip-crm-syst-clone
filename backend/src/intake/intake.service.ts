@@ -10,11 +10,16 @@ import {
   ConflictResolution,
   ContactRole,
   IntakeEnquirerType,
+  IntakeMatterType,
+  IntakeSource,
   IntakeStatus,
+  MatterStatus,
   Prisma,
   RelationshipEventType,
 } from '../../generated/prisma/client';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import { PortalAccessService } from '../common/portal-access.service';
 import { ClientsService } from '../crm/clients/clients.service';
 import { HistoryService } from '../crm/history/history.service';
 import { parseLimit } from '../crm/dto/pagination.dto';
@@ -52,6 +57,16 @@ const intakeInclude = {
       status: true,
     },
   },
+  submittedClient: {
+    select: {
+      id: true,
+      internalCode: true,
+      companyName: true,
+      firstName: true,
+      lastName: true,
+      type: true,
+    },
+  },
   conflictChecks: {
     orderBy: { createdAt: 'desc' as const },
     take: 5,
@@ -73,16 +88,37 @@ export class IntakeService {
     private readonly mattersService: MattersService,
     private readonly deadlinesService: DeadlinesService,
     private readonly history: HistoryService,
+    private readonly portalAccess: PortalAccessService,
   ) {}
 
-  async create(dto: CreateIntakeLeadDto, createdById: string) {
+  async create(dto: CreateIntakeLeadDto, user: AuthenticatedUser) {
     this.validateEnquirer(dto.enquirerType, dto);
     if (!dto.email?.trim() && !dto.phone?.trim()) {
       throw new BadRequestException('Provide at least an email or phone number');
     }
     const counterparties = this.normalizeCounterparties(dto.counterparties);
 
-    return this.prisma.intakeLead.create({
+    // Portal-originated submissions are locked to the submitter's own client so
+    // a client can never file an enquiry under someone else's account. Internal
+    // staff submissions stay unscoped (client is chosen at conversion time).
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
+    const isPortal = scopeClientId !== null;
+    const portalFields = isPortal
+      ? {
+          source: IntakeSource.portal,
+          submittedClientId: scopeClientId,
+          portalUserId: user.userId,
+        }
+      : { source: IntakeSource.internal };
+
+    // Portal enquiries have no attorney picker, so route them automatically to
+    // the right specialist based on what the client needs (matter type),
+    // load-balanced across the team. Internal staff choose the attorney.
+    const assignedUserId = isPortal
+      ? (dto.assignedUserId ?? (await this.pickAttorneyForMatterType(dto.matterType)))
+      : dto.assignedUserId;
+
+    const created = await this.prisma.intakeLead.create({
       data: {
         enquirerType: dto.enquirerType,
         companyName: dto.companyName,
@@ -95,16 +131,98 @@ export class IntakeService {
         urgency: dto.urgency,
         referralSource: dto.referralSource,
         referredBy: dto.referredBy,
-        assignedUserId: dto.assignedUserId,
+        assignedUserId,
         notes: dto.notes,
-        createdById,
+        createdById: user.userId,
         status: IntakeStatus.new,
+        ...portalFields,
         ...(counterparties.length
           ? { counterparties: { create: counterparties } }
           : {}),
       },
       include: intakeInclude,
     });
+
+    // Portal submissions are conflict-checked automatically so the enquiry is
+    // triaged the moment it is filed; a coordinator only confirms/converts.
+    if (isPortal) {
+      return this.runConflictCheck(created.id);
+    }
+
+    return created;
+  }
+
+  /**
+   * Portal client edits their own submission. Re-runs the conflict check so the
+   * triage stays accurate after any change. Editable until converted/rejected.
+   */
+  async updateOwn(id: string, dto: CreateIntakeLeadDto, user: AuthenticatedUser) {
+    this.validateEnquirer(dto.enquirerType, dto);
+    if (!dto.email?.trim() && !dto.phone?.trim()) {
+      throw new BadRequestException('Provide at least an email or phone number');
+    }
+
+    const lead = await this.findOne(id);
+    this.assertOwnIfPortal(lead, user);
+
+    if (lead.status === IntakeStatus.converted) {
+      throw new BadRequestException('Converted enquiries can no longer be edited');
+    }
+    if (lead.status === IntakeStatus.rejected) {
+      throw new BadRequestException('Rejected enquiries can no longer be edited');
+    }
+
+    const counterparties = this.normalizeCounterparties(dto.counterparties);
+
+    await this.prisma.$transaction(async (tx) => {
+      await tx.counterparty.deleteMany({ where: { intakeLeadId: id } });
+      await tx.intakeLead.update({
+        where: { id },
+        data: {
+          enquirerType: dto.enquirerType,
+          companyName: dto.enquirerType === IntakeEnquirerType.company ? dto.companyName : null,
+          fullName: dto.enquirerType === IntakeEnquirerType.individual ? dto.fullName : null,
+          country: dto.country,
+          email: dto.email,
+          phone: dto.phone,
+          matterType: dto.matterType,
+          description: dto.description,
+          urgency: dto.urgency,
+          ...(counterparties.length
+            ? { counterparties: { create: counterparties } }
+            : {}),
+        },
+      });
+    });
+
+    return this.runConflictCheck(id);
+  }
+
+  /**
+   * Count of intake enquiries awaiting a coordinator (not yet converted or
+   * rejected). Scoped to the portal client's own submissions for portal users,
+   * firm-wide for internal staff (drives the sidebar badge).
+   */
+  async countPending(user: AuthenticatedUser) {
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
+    const count = await this.prisma.intakeLead.count({
+      where: {
+        status: { notIn: [IntakeStatus.converted, IntakeStatus.rejected] },
+        ...(scopeClientId ? { submittedClientId: scopeClientId } : {}),
+      },
+    });
+    return { count };
+  }
+
+  private assertOwnIfPortal(
+    lead: { submittedClientId: string | null },
+    user: AuthenticatedUser,
+  ) {
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
+    if (!scopeClientId) return;
+    if (lead.submittedClientId !== scopeClientId) {
+      throw new ForbiddenException('You do not have access to this enquiry');
+    }
   }
 
   async addCounterparty(intakeLeadId: string, dto: CreateCounterpartyDto) {
@@ -137,12 +255,14 @@ export class IntakeService {
     return this.findOne(intakeLeadId);
   }
 
-  async findAll(query: IntakeQueryDto) {
+  async findAll(query: IntakeQueryDto, user: AuthenticatedUser) {
     const take = parseLimit(query.limit);
     const search = query.search?.trim();
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
 
     const where: Prisma.IntakeLeadWhereInput = {
       status: query.status,
+      ...(scopeClientId ? { submittedClientId: scopeClientId } : {}),
       ...(search
         ? {
             OR: [
@@ -184,6 +304,13 @@ export class IntakeService {
       },
     });
     if (!lead) throw new NotFoundException('Intake lead not found');
+    return lead;
+  }
+
+  /** findOne that enforces portal ownership before returning. */
+  async findOneForUser(id: string, user: AuthenticatedUser) {
+    const lead = await this.findOne(id);
+    this.assertOwnIfPortal(lead, user);
     return lead;
   }
 
@@ -309,67 +436,96 @@ export class IntakeService {
         'Lead must be approved before conversion. Run conflict check first.',
       );
     }
-    if (!dto.gdprConsent) {
+
+    // Portal submissions already belong to an existing client (created at
+    // signup), so no new client is created and GDPR consent was captured then.
+    const existingClient = lead.submittedClientId
+      ? await this.prisma.client.findUnique({
+          where: { id: lead.submittedClientId },
+        })
+      : null;
+
+    if (!existingClient && !dto.gdprConsent) {
       throw new BadRequestException('GDPR consent is required to create a client');
     }
 
     const isCompany = lead.enquirerType === IntakeEnquirerType.company;
     const nameParts = lead.fullName?.trim().split(/\s+/).filter(Boolean) ?? [];
 
-    const { client, matter } = await this.prisma.$transaction(async (tx) => {
-      const createdClient = await this.clientsService.createInTransaction(tx, {
-        type: isCompany ? ClientType.company : ClientType.individual,
-        companyName: isCompany ? (lead.companyName ?? undefined) : undefined,
-        firstName: isCompany ? undefined : (nameParts[0] ?? lead.fullName ?? undefined),
-        lastName: isCompany
-          ? undefined
-          : (nameParts.length > 1 ? nameParts.slice(1).join(' ') : lead.fullName) ?? undefined,
-        country: lead.country ?? undefined,
-        assignedUserId: lead.assignedUserId ?? undefined,
-        holdingGroupId: dto.holdingGroupId,
-        notes: dto.notes ?? lead.notes ?? undefined,
-        gdprConsent: true,
-      });
+    const { client, matter, clientCreated } = await this.prisma.$transaction(
+      async (tx) => {
+        const targetClient =
+          existingClient ??
+          (await this.clientsService.createInTransaction(tx, {
+            type: isCompany ? ClientType.company : ClientType.individual,
+            companyName: isCompany ? (lead.companyName ?? undefined) : undefined,
+            firstName: isCompany
+              ? undefined
+              : (nameParts[0] ?? lead.fullName ?? undefined),
+            lastName: isCompany
+              ? undefined
+              : (nameParts.length > 1
+                  ? nameParts.slice(1).join(' ')
+                  : lead.fullName) ?? undefined,
+            country: lead.country ?? undefined,
+            assignedUserId: lead.assignedUserId ?? undefined,
+            holdingGroupId: dto.holdingGroupId,
+            notes: dto.notes ?? lead.notes ?? undefined,
+            gdprConsent: true,
+          }));
 
-      const createdMatter = await this.mattersService.createFromIntake(
-        tx,
-        lead,
-        createdClient.id,
-        user.userId,
-      );
+        const createdMatter = await this.mattersService.createFromIntake(
+          tx,
+          lead,
+          targetClient.id,
+          user.userId,
+        );
 
-      await this.createPrimaryContactFromIntake(tx, lead, createdClient.id);
+        // Only synthesize a primary contact for brand-new clients; existing
+        // portal clients already have their own contacts.
+        if (!existingClient) {
+          await this.createPrimaryContactFromIntake(tx, lead, targetClient.id);
+        }
 
-      await tx.intakeLead.update({
-        where: { id },
-        data: {
-          status: IntakeStatus.converted,
-          convertedClientId: createdClient.id,
-          convertedMatterId: createdMatter.id,
+        await tx.intakeLead.update({
+          where: { id },
+          data: {
+            status: IntakeStatus.converted,
+            convertedClientId: targetClient.id,
+            convertedMatterId: createdMatter.id,
+          },
+        });
+
+        return {
+          client: targetClient,
+          matter: createdMatter,
+          clientCreated: !existingClient,
+        };
+      },
+    );
+
+    if (clientCreated) {
+      await this.history.log({
+        clientId: client.id,
+        userId: user.userId,
+        eventType: RelationshipEventType.created,
+        description: `Client created (${client.internalCode}) from intake conversion`,
+        metadata: {
+          internalCode: client.internalCode,
+          intakeLeadId: id,
+          matterId: matter.id,
         },
       });
-
-      return { client: createdClient, matter: createdMatter };
-    });
-
-    await this.history.log({
-      clientId: client.id,
-      userId: user.userId,
-      eventType: RelationshipEventType.created,
-      description: `Client created (${client.internalCode}) from intake conversion`,
-      metadata: {
-        internalCode: client.internalCode,
-        intakeLeadId: id,
-        matterId: matter.id,
-      },
-    });
+    }
 
     await this.history.log({
       clientId: client.id,
       userId: user.userId,
       eventType: RelationshipEventType.note_added,
-      description: `Intake converted to matter: ${matter.title}`,
-      metadata: { intakeLeadId: id, matterId: matter.id },
+      description: existingClient
+        ? `Portal intake converted to matter: ${matter.title}`
+        : `Intake converted to matter: ${matter.title}`,
+      metadata: { intakeLeadId: id, matterId: matter.id, source: lead.source },
     });
 
     await this.deadlinesService.generateInitialDeadlines(matter.id);
@@ -413,6 +569,76 @@ export class IntakeService {
         phone: lead.phone?.trim() || undefined,
       },
     });
+  }
+
+  /** Attorney roles that best match a given matter type. */
+  private matterTypeSpecialistRoles(matterType: IntakeMatterType): string[] {
+    switch (matterType) {
+      case IntakeMatterType.trademark:
+      case IntakeMatterType.design:
+        // Trademarks and designs are handled by the trademark/design practice.
+        return [SYSTEM_ROLES.TRADEMARK_ATTORNEY];
+      case IntakeMatterType.patent:
+      case IntakeMatterType.utility_model:
+        return [SYSTEM_ROLES.IP_ATTORNEY];
+      default:
+        return [SYSTEM_ROLES.IP_ATTORNEY, SYSTEM_ROLES.TRADEMARK_ATTORNEY];
+    }
+  }
+
+  /**
+   * Pick the least-busy active attorney whose specialism matches the matter
+   * type. Falls back to any attorney (incl. managing partner) if no specialist
+   * exists. Returns `undefined` when the firm has no attorneys configured.
+   */
+  private async pickAttorneyForMatterType(
+    matterType: IntakeMatterType,
+  ): Promise<string | undefined> {
+    const findCandidates = (roles: string[]) =>
+      this.prisma.user.findMany({
+        where: {
+          isActive: true,
+          userRoles: { some: { role: { name: { in: roles } } } },
+        },
+        select: { id: true },
+        orderBy: { fullName: 'asc' },
+      });
+
+    let candidates = await findCandidates(this.matterTypeSpecialistRoles(matterType));
+    if (candidates.length === 0) {
+      candidates = await findCandidates([
+        SYSTEM_ROLES.IP_ATTORNEY,
+        SYSTEM_ROLES.TRADEMARK_ATTORNEY,
+        SYSTEM_ROLES.MANAGING_PARTNER,
+      ]);
+    }
+    if (candidates.length === 0) return undefined;
+
+    // Load-balance on current open workload (active matters + open enquiries).
+    const scored = await Promise.all(
+      candidates.map(async (c) => {
+        const [matters, leads] = await Promise.all([
+          this.prisma.matter.count({
+            where: {
+              assignedToId: c.id,
+              status: { notIn: [MatterStatus.closed, MatterStatus.abandoned] },
+            },
+          }),
+          this.prisma.intakeLead.count({
+            where: {
+              assignedUserId: c.id,
+              status: { notIn: [IntakeStatus.converted, IntakeStatus.rejected] },
+            },
+          }),
+        ]);
+        return { id: c.id, workload: matters + leads };
+      }),
+    );
+
+    // Candidates are already ordered by name, so the sort is a stable
+    // least-workload pick with a deterministic name tie-break.
+    scored.sort((a, b) => a.workload - b.workload);
+    return scored[0]?.id;
   }
 
   private validateEnquirer(

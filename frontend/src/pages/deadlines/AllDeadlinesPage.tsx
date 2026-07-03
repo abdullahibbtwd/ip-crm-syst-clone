@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useOutletContext, useSearchParams } from 'react-router-dom'
 import { AlertTriangle, Plus } from 'lucide-react'
+import { DueTodayAlert } from '@/components/deadlines/DueTodayAlert'
+import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -25,6 +27,7 @@ import { DeadlineStatusButton } from '@/features/deadlines/components/DeadlineSt
 import {
   useAllDeadlines,
   useDeadlineAssignees,
+  useFirmTodayDeadlineCount,
 } from '@/features/deadlines/hooks/useDeadlines'
 import type { DeadlineStatus } from '@/features/deadlines/types'
 import {
@@ -69,6 +72,8 @@ export function AllDeadlinesPage() {
   const canCreate = hasAnyRole([activeRole], ['managing_partner', 'docketing_admin'])
 
   const { data: assignees } = useDeadlineAssignees()
+  const { data: todayData } = useFirmTodayDeadlineCount()
+  const firmTodayCount = todayData?.count ?? 0
 
   useEffect(() => {
     setPageIndex(0)
@@ -135,6 +140,16 @@ export function AllDeadlinesPage() {
           </Button>
         )}
       </div>
+
+      <DueTodayAlert
+        count={firmTodayCount}
+        linkTo="/deadlines"
+        label={
+          firmTodayCount === 1
+            ? '1 firm deadline is due today across all matters.'
+            : `${firmTodayCount} firm deadlines are due today across all matters.`
+        }
+      />
 
       <div className="grid gap-3 rounded-xl border border-border/80 bg-muted/15 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         <div className="space-y-1.5">
@@ -304,11 +319,12 @@ export function AllDeadlinesPage() {
                         {jurisdictionLabel(deadlineJurisdiction(d))}
                       </TableCell>
                       <TableCell>
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {urgency === 'today' && <DueTodayBadge />}
                           {urgency === 'overdue' && (
                             <AlertTriangle className="size-3.5 shrink-0 text-destructive" />
                           )}
-                          {formatDeadlineDate(d.dueDate)}
+                          <span>{formatDeadlineDate(d.dueDate)}</span>
                         </div>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
@@ -316,9 +332,11 @@ export function AllDeadlinesPage() {
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="normal-case">
-                          {urgency === 'overdue' && d.status !== 'completed'
-                            ? 'Overdue'
-                            : DEADLINE_STATUS_LABELS[d.status]}
+                          {urgency === 'today'
+                            ? 'Due today'
+                            : urgency === 'overdue' && d.status !== 'completed'
+                              ? 'Overdue'
+                              : DEADLINE_STATUS_LABELS[d.status]}
                         </Badge>
                       </TableCell>
                       <TableCell>

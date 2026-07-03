@@ -42,11 +42,12 @@ services:
         DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
     container_name: crm_backend
     ports:
-      - "${BACKEND_PORT}:3000"
+      - "${BACKEND_PORT}:3002"
     volumes:
       - ./backend:/app
       - /app/node_modules
     environment:
+      PORT: 3002
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
       REDIS_HOST: redis
       REDIS_PORT: ${REDIS_PORT}
@@ -54,7 +55,7 @@ services:
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
       JWT_ACCESS_EXPIRES_IN: ${JWT_ACCESS_EXPIRES_IN}
       JWT_REFRESH_EXPIRES_IN: ${JWT_REFRESH_EXPIRES_IN}
-      API_URL: ${API_URL:-http://localhost:3000}
+      API_URL: ${API_URL:-http://localhost:3002}
       FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
       MICROSOFT_CLIENT_ID: ${MICROSOFT_CLIENT_ID}
       MICROSOFT_CLIENT_SECRET: ${MICROSOFT_CLIENT_SECRET}

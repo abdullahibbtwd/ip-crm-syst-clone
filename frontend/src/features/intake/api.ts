@@ -11,6 +11,11 @@ export const intakeApi = {
   create: (data: CreateIntakeFormValues) =>
     apiClient.post<IntakeLead>('/intake', data),
 
+  updateMine: (id: string, data: CreateIntakeFormValues) =>
+    apiClient.patch<IntakeLead>(`/intake/mine/${id}`, data),
+
+  pendingCount: () => apiClient.get<{ count: number }>('/intake/pending-count'),
+
   addCounterparty: (id: string, data: CounterpartyFormValues) =>
     apiClient.post<Counterparty>(`/intake/${id}/counterparties`, data),
 

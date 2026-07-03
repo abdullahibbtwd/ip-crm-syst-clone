@@ -37,14 +37,16 @@ type MattersTableProps = {
   hasNextPage: boolean
   onPreviousPage: () => void
   onNextPage: () => void
+  /** Portal preview: hide client column and pagination footer */
+  compact?: boolean
 }
 
-function TableSkeleton() {
+function TableSkeleton({ colCount }: { colCount: number }) {
   return (
     <>
       {Array.from({ length: 6 }).map((_, i) => (
         <TableRow key={i} className={cn(i % 2 === 0 ? 'bg-background' : 'bg-muted/25')}>
-          {Array.from({ length: 8 }).map((__, j) => (
+          {Array.from({ length: colCount }).map((__, j) => (
             <TableCell key={j}>
               <div className="h-4 animate-pulse rounded bg-muted/80" />
             </TableCell>
@@ -63,8 +65,10 @@ export function MattersTable({
   hasNextPage,
   onPreviousPage,
   onNextPage,
+  compact = false,
 }: MattersTableProps) {
   const navigate = useNavigate()
+  const colCount = compact ? 7 : 8
 
   const rangeStart = items.length === 0 ? 0 : pageIndex * MATTER_PAGE_SIZE + 1
   const rangeEnd = pageIndex * MATTER_PAGE_SIZE + items.length
@@ -74,7 +78,7 @@ export function MattersTable({
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
           <TableHead className="w-[26%]">Title</TableHead>
-          <TableHead>Client</TableHead>
+          {!compact && <TableHead>Client</TableHead>}
           <TableHead>Type</TableHead>
           <TableHead>Jurisdiction</TableHead>
           <TableHead>Lead attorney</TableHead>
@@ -84,11 +88,11 @@ export function MattersTable({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {isLoading && <TableSkeleton />}
+        {isLoading && <TableSkeleton colCount={colCount} />}
 
         {!isLoading && isError && (
           <TableRow>
-            <TableCell colSpan={8} className="py-16 text-center">
+            <TableCell colSpan={colCount} className="py-16 text-center">
               <p className="text-sm font-medium text-destructive">Failed to load matters.</p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Check your connection and permissions, then try again.
@@ -99,15 +103,17 @@ export function MattersTable({
 
         {!isLoading && !isError && items.length === 0 && (
           <TableRow>
-            <TableCell colSpan={8} className="py-16 text-center">
+            <TableCell colSpan={colCount} className="py-16 text-center">
               <div className="mx-auto flex max-w-sm flex-col items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-full bg-muted">
                   <FolderOpen className="size-5 text-muted-foreground" />
                 </span>
                 <div>
-                  <p className="font-medium text-foreground">No matters found</p>
+                  <p className="font-medium text-foreground">No matters yet</p>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Try adjusting filters or convert an approved intake enquiry.
+                    {compact
+                      ? 'Submit a filing enquiry — your matter will appear here after our team opens it.'
+                      : 'Try adjusting filters or convert an approved intake enquiry.'}
                   </p>
                 </div>
               </div>
@@ -157,20 +163,22 @@ export function MattersTable({
                     </p>
                   ) : null}
                 </TableCell>
-                <TableCell className="whitespace-normal">
-                  <Link
-                    to={`/clients/${matter.clientId}/overview`}
-                    className="text-foreground hover:text-primary hover:underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {clientDisplayName(matter.client)}
-                  </Link>
-                  {matter.client.internalCode ? (
-                    <p className="mt-0.5 font-mono text-xs text-muted-foreground">
-                      {matter.client.internalCode}
-                    </p>
-                  ) : null}
-                </TableCell>
+                {!compact && (
+                  <TableCell className="whitespace-normal">
+                    <Link
+                      to={`/clients/${matter.clientId}/overview`}
+                      className="text-foreground hover:text-primary hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {clientDisplayName(matter.client)}
+                    </Link>
+                    {matter.client.internalCode ? (
+                      <p className="mt-0.5 font-mono text-xs text-muted-foreground">
+                        {matter.client.internalCode}
+                      </p>
+                    ) : null}
+                  </TableCell>
+                )}
                 <TableCell>
                   <Badge variant="outline" className="normal-case font-medium tracking-normal">
                     {MATTER_TYPE_LABELS[matter.matterType]}
@@ -209,7 +217,7 @@ export function MattersTable({
       </TableBody>
       <TableFooter className="bg-muted/20">
         <TableRow className="hover:bg-transparent">
-          <TableCell colSpan={8} className="py-3">
+          <TableCell colSpan={colCount} className="py-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-sm text-muted-foreground">
                 {isLoading ? (

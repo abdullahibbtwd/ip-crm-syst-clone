@@ -23,7 +23,32 @@ export function useCreateIntake() {
   const qc = useQueryClient()
   return useMutation({
     mutationFn: (data: CreateIntakeFormValues) => intakeApi.create(data),
-    onSuccess: () => qc.invalidateQueries({ queryKey: intakeKeys.lists() }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: intakeKeys.lists() })
+      qc.invalidateQueries({ queryKey: intakeKeys.pendingCount() })
+    },
+  })
+}
+
+export function useUpdateMyIntake(id: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (data: CreateIntakeFormValues) => intakeApi.updateMine(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: intakeKeys.detail(id) })
+      qc.invalidateQueries({ queryKey: intakeKeys.lists() })
+      qc.invalidateQueries({ queryKey: intakeKeys.pendingCount() })
+    },
+  })
+}
+
+export function useIntakePendingCount(enabled = true) {
+  return useQuery({
+    queryKey: intakeKeys.pendingCount(),
+    queryFn: () => intakeApi.pendingCount(),
+    enabled,
+    refetchInterval: 60_000,
+    staleTime: 30_000,
   })
 }
 

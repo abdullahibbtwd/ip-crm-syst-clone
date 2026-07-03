@@ -3,6 +3,7 @@ import type { AuthUser } from './types'
 import type {
   LoginFormData,
   MfaVerifyFormData,
+  RegisterFormData,
   ResetPasswordFormData,
   ResetPasswordRequestData,
 } from './schemas'
@@ -24,6 +25,17 @@ export async function fetchSsoProviders() {
 
 export async function loginRequest(data: LoginFormData) {
   const response = await api.post<LoginResponse>('/auth/login', data)
+  return response.data
+}
+
+export async function registerRequest(data: RegisterFormData) {
+  const response = await api.post<{ user: AuthUser }>('/auth/register', {
+    email: data.email,
+    fullName: data.fullName,
+    password: data.password,
+    companyName: data.companyName?.trim() || undefined,
+    gdprConsent: data.gdprConsent,
+  })
   return response.data
 }
 

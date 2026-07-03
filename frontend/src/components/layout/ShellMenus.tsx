@@ -115,13 +115,19 @@ export function UserMenu({
 export function NotificationsMenu() {
   const { notificationsOpen, setNotificationsOpen } = useShell()
   const ref = useRef<HTMLDivElement>(null)
-  const { data, isLoading } = useNotifications(20)
-  const { data: unreadData } = useUnreadNotificationCount()
+  const { data, isLoading, isError, refetch } = useNotifications(20)
+  const { data: unreadData, refetch: refetchUnread } = useUnreadNotificationCount()
   const markRead = useMarkNotificationRead()
   const markAllRead = useMarkAllNotificationsRead()
 
   const notifications = data?.items ?? []
   const unreadCount = unreadData?.count ?? 0
+
+  useEffect(() => {
+    if (!notificationsOpen) return
+    void refetch()
+    void refetchUnread()
+  }, [notificationsOpen, refetch, refetchUnread])
 
   useEffect(() => {
     if (!notificationsOpen) return
@@ -178,6 +184,22 @@ export function NotificationsMenu() {
           <CardContent className="max-h-80 overflow-y-auto p-0 shell-scrollbar">
             {isLoading ? (
               <p className="px-4 py-6 text-sm text-muted-foreground">Loading…</p>
+            ) : isError ? (
+              <div className="px-4 py-6 text-center">
+                <p className="text-sm text-muted-foreground">Could not load notifications.</p>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="mt-2"
+                  onClick={() => {
+                    void refetch()
+                    void refetchUnread()
+                  }}
+                >
+                  Retry
+                </Button>
+              </div>
             ) : notifications.length === 0 ? (
               <p className="px-4 py-6 text-sm text-muted-foreground">No notifications yet.</p>
             ) : (

@@ -1,6 +1,13 @@
 import type { NavItem, NavSection } from '@/config/role-views'
 import { navId } from '@/features/shell/nav-utils'
 import { useShell } from '@/features/shell/ShellProvider'
+import {
+  useFirmTodayDeadlineCount,
+  useMyTodayDeadlineCount,
+} from '@/features/deadlines/hooks/useDeadlines'
+import { useIntakePendingCount } from '@/features/intake/hooks/useIntake'
+import { DueTodayCountBadge } from '@/components/deadlines/DueTodayBadge'
+import { usePermission } from '@/hooks/usePermission'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -35,18 +42,33 @@ function isPathActive(itemPath: string, pathname: string): boolean {
   return pathname === itemPath || pathname.startsWith(`${itemPath}/`)
 }
 
+function badgeForPath(
+  path: string | undefined,
+  myCount: number,
+  firmCount: number,
+  intakeCount: number,
+): number {
+  if (!path) return 0
+  if (path === '/deadlines/my') return myCount
+  if (path === '/deadlines') return firmCount
+  if (path === '/intake') return intakeCount
+  return 0
+}
+
 function SidebarLink({
   item,
   external,
   isActive,
   collapsed,
   onNavigate,
+  badge,
 }: {
   item: NavItem
   external?: boolean
   isActive: boolean
   collapsed: boolean
   onNavigate: (id: string, path?: string) => void
+  badge?: number
 }) {
   const Icon = item.icon
   const id = navId(item)
@@ -82,23 +104,32 @@ function SidebarLink({
 
   const content = (
     <>
-      <Icon
-        className={cn(
-          'size-4 shrink-0 transition-transform duration-300 group-hover:scale-110',
-          routeActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100',
-          external && routeActive && 'text-emerald-400 drop-shadow-[0_0_6px_rgba(52,211,153,0.5)]',
-        )}
-        aria-hidden
-      />
+      <span className="relative shrink-0">
+        <Icon
+          className={cn(
+            'size-4 transition-transform duration-300 group-hover:scale-110',
+            routeActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100',
+            external && routeActive && 'text-emerald-400 drop-shadow-[0_0_6px_rgba(52,211,153,0.5)]',
+          )}
+          aria-hidden
+        />
+        {collapsed && badge ? (
+          <DueTodayCountBadge count={badge} collapsed external={external} />
+        ) : null}
+      </span>
       {!collapsed && (
         <>
           <span className="flex-1 truncate text-left tracking-wide">{item.label}</span>
-          <span
-            className={cn(
-              'ml-auto size-1.5 scale-0 rounded-full transition-transform duration-300 group-hover:scale-100',
-              external ? 'bg-emerald-400/80 shadow-[0_0_6px_#10b981]' : 'bg-primary/80',
-            )}
-          />
+          {badge ? (
+            <DueTodayCountBadge count={badge} external={external} />
+          ) : (
+            <span
+              className={cn(
+                'ml-auto size-1.5 scale-0 rounded-full transition-transform duration-300 group-hover:scale-100',
+                external ? 'bg-emerald-400/80 shadow-[0_0_6px_#10b981]' : 'bg-primary/80',
+              )}
+            />
+          )}
         </>
       )}
     </>
@@ -146,6 +177,17 @@ export function AppSidebar({
   const { sidebarCollapsed, toggleSidebarCollapsed } = useShell()
   const isLgUp = useIsLgUp()
   const collapsed = sidebarCollapsed && isLgUp
+  const canReadDeadlines = usePermission('deadline', 'read')
+  const canReadIntake = usePermission('intake', 'read')
+  const { data: myToday } = useMyTodayDeadlineCount(canReadDeadlines)
+  const { data: firmToday } = useFirmTodayDeadlineCount(canReadDeadlines)
+  const { data: intakePending } = useIntakePendingCount(canReadIntake && !external)
+  const myTodayCount = myToday?.count ?? 0
+  const firmTodayCount = firmToday?.count ?? 0
+  const intakePendingCount = intakePending?.count ?? 0
+
+  const badgeForItem = (item: NavItem) =>
+    badgeForPath(item.path, myTodayCount, firmTodayCount, intakePendingCount)
 
   return (
     <aside
@@ -247,6 +289,7 @@ export function AppSidebar({
                   collapsed={collapsed}
                   isActive={navId(item) === activeNavId}
                   onNavigate={onNavigate}
+                  badge={badgeForItem(item)}
                 />
               ))}
             </div>
@@ -271,6 +314,7 @@ export function AppSidebar({
             collapsed={collapsed}
             isActive={navId(item) === activeNavId}
             onNavigate={onNavigate}
+            badge={badgeForItem(item)}
           />
         ))}
       </div>

@@ -59,6 +59,11 @@ function EnquirerCell({ lead }: { lead: IntakeLead }) {
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2">
           <p className="truncate font-medium text-foreground">{intakeDisplayName(lead)}</p>
+          {lead.source === 'portal' && (
+            <Badge variant="outline" className="border-primary/40 bg-primary/5 text-primary normal-case tracking-normal">
+              Portal
+            </Badge>
+          )}
           {lead.urgency === 'urgent' && (
             <Badge variant="destructive" className="normal-case tracking-normal">
               Urgent

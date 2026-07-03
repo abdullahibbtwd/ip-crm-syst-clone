@@ -1,19 +1,15 @@
 import { NavLink } from 'react-router-dom'
+import { matterTabsForUser } from '@/config/matter-tabs'
 import { cn } from '@/lib/utils'
 
-const tabs = [
-  { to: 'overview', label: 'Overview' },
-  { to: 'timeline', label: 'Timeline' },
-  { to: 'documents', label: 'Documents' },
-  { to: 'correspondence', label: 'Correspondence' },
-  { to: 'deadlines', label: 'Deadlines' },
-  { to: 'tasks', label: 'Tasks' },
-  { to: 'billing', label: 'Billing' },
-  { to: 'ip-rights', label: 'IP rights' },
-] as const
+type MatterTabNavProps = {
+  matterId: string
+  isPortalClient?: boolean
+}
 
-export function MatterTabNav({ matterId }: { matterId: string }) {
+export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavProps) {
   const base = `/matters/${matterId}`
+  const tabs = matterTabsForUser(isPortalClient)
 
   return (
     <nav className="flex flex-wrap gap-1 border-b pb-2">

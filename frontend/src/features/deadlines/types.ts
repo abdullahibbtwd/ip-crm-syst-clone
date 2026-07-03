@@ -96,4 +96,4 @@ export type CreateDeadlineInput = {
   notes?: string
 }
 
-export type DeadlineUrgency = 'overdue' | 'urgent' | 'soon' | 'ok' | 'completed'
+export type DeadlineUrgency = 'overdue' | 'today' | 'urgent' | 'soon' | 'ok' | 'completed'

@@ -4,12 +4,14 @@ import { JwtService } from '@nestjs/jwt';
 import {
   OnGatewayConnection,
   OnGatewayDisconnect,
+  OnGatewayInit,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
 import type { Server, Socket } from 'socket.io';
 import { ACCESS_COOKIE } from '../auth/auth-cookie.service';
 import type { JwtPayload } from '../auth/auth.types';
+import { resolveCorsOrigins } from '../common/cors-origins';
 
 function parseCookie(cookieHeader: string | undefined, name: string): string | null {
   if (!cookieHeader) return null;
@@ -25,12 +27,11 @@ function parseCookie(cookieHeader: string | undefined, name: string): string | n
 @WebSocketGateway({
   namespace: '/notifications',
   cors: {
-    origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
     credentials: true,
   },
 })
 export class NotificationsGateway
-  implements OnGatewayConnection, OnGatewayDisconnect
+  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {
   private readonly logger = new Logger(NotificationsGateway.name);
 
@@ -42,14 +43,44 @@ export class NotificationsGateway
     private readonly config: ConfigService,
   ) {}
 
+  afterInit(server: Server) {
+    const frontendUrl =
+      this.config.get<string>('FRONTEND_URL') ?? 'http://localhost:5173';
+    const allowedOrigins = resolveCorsOrigins(frontendUrl);
+
+    server.use((socket, next) => {
+      void this.authenticate(socket)
+        .then((userId) => {
+          if (!userId) {
+            this.logger.debug(
+              `Socket rejected: missing or invalid ${ACCESS_COOKIE} cookie`,
+            );
+            next(new Error('Unauthorized'));
+            return;
+          }
+          socket.data.userId = userId;
+          next();
+        })
+        .catch((err: unknown) => {
+          this.logger.debug(
+            `Socket auth failed: ${err instanceof Error ? err.message : String(err)}`,
+          );
+          next(new Error('Unauthorized'));
+        });
+    });
+
+    this.logger.log(
+      `Notifications gateway ready (origins: ${allowedOrigins.join(', ')})`,
+    );
+  }
+
   async handleConnection(client: Socket) {
-    const userId = await this.authenticate(client);
+    const userId = client.data.userId as string | undefined;
     if (!userId) {
       client.disconnect(true);
       return;
     }
     await client.join(this.userRoom(userId));
-    client.data.userId = userId;
   }
 
   handleDisconnect(client: Socket) {
@@ -66,20 +97,13 @@ export class NotificationsGateway
   }
 
   private async authenticate(client: Socket): Promise<string | null> {
-    try {
-      const token = parseCookie(client.handshake.headers.cookie, ACCESS_COOKIE);
-      if (!token) return null;
+    const token = parseCookie(client.handshake.headers.cookie, ACCESS_COOKIE);
+    if (!token) return null;
 
-      const payload = this.jwt.verify<JwtPayload>(token, {
-        secret: this.config.getOrThrow<string>('JWT_ACCESS_SECRET'),
-      });
-      if (payload.type === 'mfa_pending') return null;
-      return payload.sub;
-    } catch (err) {
-      this.logger.debug(
-        `Socket auth failed: ${err instanceof Error ? err.message : String(err)}`,
-      );
-      return null;
-    }
+    const payload = this.jwt.verify<JwtPayload>(token, {
+      secret: this.config.getOrThrow<string>('JWT_ACCESS_SECRET'),
+    });
+    if (payload.type === 'mfa_pending') return null;
+    return payload.sub;
   }
 }

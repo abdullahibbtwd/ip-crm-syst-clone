@@ -10,6 +10,7 @@ import {
 import type { Request } from 'express';
 import { Audit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
+import { PortalAccessService } from '../common/portal-access.service';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { CORRESPONDENCE_MODULE } from './correspondence.constants';
 import { CorrespondenceService } from './correspondence.service';
@@ -26,10 +27,15 @@ import {
   module: CORRESPONDENCE_MODULE,
 })
 export class MatterCorrespondenceController {
-  constructor(private readonly correspondenceService: CorrespondenceService) {}
+  constructor(
+    private readonly correspondenceService: CorrespondenceService,
+    private readonly portalAccess: PortalAccessService,
+  ) {}
 
   @Get()
-  list(@Param('matterId') matterId: string) {
+  async list(@Param('matterId') matterId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertMatterAccess(matterId, user);
     return this.correspondenceService.listForMatter(matterId);
   }
 
@@ -53,10 +59,15 @@ export class MatterCorrespondenceController {
   module: CORRESPONDENCE_MODULE,
 })
 export class MatterTimelineController {
-  constructor(private readonly correspondenceService: CorrespondenceService) {}
+  constructor(
+    private readonly correspondenceService: CorrespondenceService,
+    private readonly portalAccess: PortalAccessService,
+  ) {}
 
   @Get()
-  list(@Param('matterId') matterId: string) {
+  async list(@Param('matterId') matterId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertMatterAccess(matterId, user);
     return this.correspondenceService.listTimeline(matterId);
   }
 }

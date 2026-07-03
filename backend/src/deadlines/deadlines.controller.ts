@@ -34,6 +34,17 @@ export class DeadlinesController {
     return this.deadlinesService.listAllDeadlines(query);
   }
 
+  @Get('my/today-count')
+  countMyDueToday(@Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.deadlinesService.countDueToday(user.userId);
+  }
+
+  @Get('today-count')
+  countAllDueToday() {
+    return this.deadlinesService.countDueToday();
+  }
+
   @Get('my')
   listMy(@Query() query: MyDeadlinesQueryDto, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;

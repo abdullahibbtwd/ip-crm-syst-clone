@@ -14,6 +14,7 @@ import {
   type Counterparty,
 } from '../../generated/prisma/client';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { PortalAccessService } from '../common/portal-access.service';
 import { parseLimit } from '../crm/dto/pagination.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import {
@@ -87,6 +88,7 @@ export class MattersService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly deadlinesService: DeadlinesService,
+    private readonly portalAccess: PortalAccessService,
   ) {}
 
   async create(dto: CreateMatterDto, userId: string) {
@@ -177,12 +179,14 @@ export class MattersService {
     });
   }
 
-  async findAll(query: MatterQueryDto) {
+  async findAll(query: MatterQueryDto, user: AuthenticatedUser) {
     const take = parseLimit(query.limit);
     const search = query.search?.trim();
 
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
+
     const where: Prisma.MatterWhereInput = {
-      clientId: query.clientId,
+      clientId: scopeClientId ?? query.clientId,
       status: query.status,
       matterType: query.matterType,
       assignedToId: query.assignedToId,
@@ -237,11 +241,15 @@ export class MattersService {
     };
   }
 
-  async listDeadlines(matterId: string) {
+  async listDeadlines(matterId: string, user: AuthenticatedUser) {
+    await this.portalAccess.assertMatterAccess(matterId, user);
     return this.deadlinesService.listForMatter(matterId);
   }
 
-  async findOne(id: string) {
+  async findOne(id: string, user?: AuthenticatedUser) {
+    if (user) {
+      await this.portalAccess.assertMatterAccess(id, user);
+    }
     const matter = await this.prisma.matter.findUnique({
       where: { id },
       include: matterDetailInclude,
@@ -317,8 +325,8 @@ export class MattersService {
     return { deleted: true };
   }
 
-  async listIpRights(matterId: string) {
-    await this.findOne(matterId);
+  async listIpRights(matterId: string, user: AuthenticatedUser) {
+    await this.findOne(matterId, user);
     return this.prisma.ipRight.findMany({
       where: { matterId },
       orderBy: { createdAt: 'desc' },

@@ -22,27 +22,69 @@ import {
 import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 
+export type IntakeFormInitialValues = {
+  enquirerType?: 'company' | 'individual'
+  companyName?: string
+  fullName?: string
+  country?: string
+  email?: string
+  phone?: string
+  matterType?: CreateIntakeFormValues['matterType']
+  description?: string
+  urgency?: 'normal' | 'urgent'
+  referralSource?: CreateIntakeFormValues['referralSource']
+  referredBy?: string
+  assignedUserId?: string
+  notes?: string
+  counterparties?: CounterpartyFormValues[]
+}
+
 type CreateIntakeFormProps = {
   onSubmit: (data: CreateIntakeFormValues) => Promise<void>
   isSubmitting?: boolean
+  variant?: 'internal' | 'portal'
+  defaultEmail?: string
+  defaultFullName?: string
+  initialMatterType?: CreateIntakeFormValues['matterType']
+  initialValues?: IntakeFormInitialValues
+  submitLabel?: string
 }
 
-export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormProps) {
-  const [enquirerType, setEnquirerType] = useState<'company' | 'individual'>('company')
-  const [companyName, setCompanyName] = useState('')
-  const [fullName, setFullName] = useState('')
-  const [country, setCountry] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [matterType, setMatterType] = useState<CreateIntakeFormValues['matterType']>('trademark')
-  const [description, setDescription] = useState('')
-  const [urgency, setUrgency] = useState<'normal' | 'urgent'>('normal')
-  const [referralSource, setReferralSource] =
-    useState<CreateIntakeFormValues['referralSource']>('email')
-  const [referredBy, setReferredBy] = useState('')
-  const [assignedUserId, setAssignedUserId] = useState<string | undefined>()
-  const [notes, setNotes] = useState('')
-  const [counterparties, setCounterparties] = useState<CounterpartyFormValues[]>([])
+export function CreateIntakeForm({
+  onSubmit,
+  isSubmitting,
+  variant = 'internal',
+  defaultEmail = '',
+  defaultFullName = '',
+  initialMatterType = 'trademark',
+  initialValues,
+  submitLabel,
+}: CreateIntakeFormProps) {
+  const isPortal = variant === 'portal'
+  const [enquirerType, setEnquirerType] = useState<'company' | 'individual'>(
+    initialValues?.enquirerType ?? 'company',
+  )
+  const [companyName, setCompanyName] = useState(initialValues?.companyName ?? '')
+  const [fullName, setFullName] = useState(initialValues?.fullName ?? defaultFullName)
+  const [country, setCountry] = useState(initialValues?.country ?? '')
+  const [email, setEmail] = useState(initialValues?.email ?? defaultEmail)
+  const [phone, setPhone] = useState(initialValues?.phone ?? '')
+  const [matterType, setMatterType] = useState<CreateIntakeFormValues['matterType']>(
+    initialValues?.matterType ?? initialMatterType,
+  )
+  const [description, setDescription] = useState(initialValues?.description ?? '')
+  const [urgency, setUrgency] = useState<'normal' | 'urgent'>(initialValues?.urgency ?? 'normal')
+  const [referralSource, setReferralSource] = useState<CreateIntakeFormValues['referralSource']>(
+    initialValues?.referralSource ?? (isPortal ? 'website' : 'email'),
+  )
+  const [referredBy, setReferredBy] = useState(initialValues?.referredBy ?? '')
+  const [assignedUserId, setAssignedUserId] = useState<string | undefined>(
+    initialValues?.assignedUserId,
+  )
+  const [notes, setNotes] = useState(initialValues?.notes ?? '')
+  const [counterparties, setCounterparties] = useState<CounterpartyFormValues[]>(
+    initialValues?.counterparties ?? [],
+  )
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [formError, setFormError] = useState<string | null>(null)
 
@@ -62,7 +104,7 @@ export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormPro
             matterType,
             description,
             urgency,
-            referralSource,
+            referralSource: isPortal ? 'website' : referralSource,
             referredBy: referredBy || undefined,
             assignedUserId,
             notes: notes || undefined,
@@ -77,7 +119,7 @@ export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormPro
             matterType,
             description,
             urgency,
-            referralSource,
+            referralSource: isPortal ? 'website' : referralSource,
             referredBy: referredBy || undefined,
             assignedUserId,
             notes: notes || undefined,
@@ -196,42 +238,46 @@ export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormPro
           </Select>
         </Field>
 
-        <Field label="Referral source *" error={fieldErrors.referralSource}>
-          <Select
-            value={referralSource}
-            onValueChange={(v) =>
-              setReferralSource(v as CreateIntakeFormValues['referralSource'])
-            }
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="email">Email</SelectItem>
-              <SelectItem value="phone">Phone</SelectItem>
-              <SelectItem value="referral">Referral</SelectItem>
-              <SelectItem value="walk_in">Walk-in</SelectItem>
-              <SelectItem value="website">Website</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-        </Field>
+        {!isPortal && (
+          <>
+            <Field label="Referral source *" error={fieldErrors.referralSource}>
+              <Select
+                value={referralSource}
+                onValueChange={(v) =>
+                  setReferralSource(v as CreateIntakeFormValues['referralSource'])
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="email">Email</SelectItem>
+                  <SelectItem value="phone">Phone</SelectItem>
+                  <SelectItem value="referral">Referral</SelectItem>
+                  <SelectItem value="walk_in">Walk-in</SelectItem>
+                  <SelectItem value="website">Website</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </Field>
 
-        <Field label="Referred by" error={fieldErrors.referredBy}>
-          <Input
-            value={referredBy}
-            onChange={(e) => setReferredBy(e.target.value)}
-            placeholder="If referral"
-          />
-        </Field>
+            <Field label="Referred by" error={fieldErrors.referredBy}>
+              <Input
+                value={referredBy}
+                onChange={(e) => setReferredBy(e.target.value)}
+                placeholder="If referral"
+              />
+            </Field>
 
-        <Field label="Responsible attorney" error={fieldErrors.assignedUserId} className="sm:col-span-2">
-          <AttorneyAssigneeSelect
-            value={assignedUserId}
-            onValueChange={setAssignedUserId}
-            aria-invalid={Boolean(fieldErrors.assignedUserId)}
-          />
-        </Field>
+            <Field label="Responsible attorney" error={fieldErrors.assignedUserId} className="sm:col-span-2">
+              <AttorneyAssigneeSelect
+                value={assignedUserId}
+                onValueChange={setAssignedUserId}
+                aria-invalid={Boolean(fieldErrors.assignedUserId)}
+              />
+            </Field>
+          </>
+        )}
       </div>
 
       <Field label="Description *" error={fieldErrors.description}>
@@ -247,12 +293,16 @@ export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormPro
         />
       </Field>
 
-      <Field label="Internal notes" error={fieldErrors.notes}>
-        <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
-      </Field>
+      {!isPortal && (
+        <Field label="Internal notes" error={fieldErrors.notes}>
+          <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
+        </Field>
+      )}
 
       <div className="space-y-2 border-t pt-6">
-        <p className="text-sm font-medium">Adverse parties / competitors</p>
+        <p className="text-sm font-medium">
+          {isPortal ? 'Competitors / adverse parties (optional)' : 'Adverse parties / competitors'}
+        </p>
         <p className="text-sm text-muted-foreground">
           Optional - record who is on the other side. Included in the conflict check.
         </p>
@@ -269,7 +319,9 @@ export function CreateIntakeForm({ onSubmit, isSubmitting }: CreateIntakeFormPro
       )}
 
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Saving…' : 'Create intake lead'}
+        {isSubmitting
+          ? 'Saving…'
+          : submitLabel ?? (isPortal ? 'Submit enquiry' : 'Create intake lead')}
       </Button>
     </form>
   )

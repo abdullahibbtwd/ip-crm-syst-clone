@@ -1,15 +1,28 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { IoAdapter } from '@nestjs/platform-socket.io';
 import cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
+import { isAllowedCorsOrigin, resolveCorsOrigins } from './common/cors-origins';
+import { SocketIoAdapter } from './common/socket-io.adapter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useWebSocketAdapter(new IoAdapter(app));
+  app.useWebSocketAdapter(new SocketIoAdapter(app));
   app.use(cookieParser());
+
+  const frontendUrl = process.env.FRONTEND_URL ?? 'http://localhost:5173';
+  const allowedOrigins = resolveCorsOrigins(frontendUrl);
   app.enableCors({
-    origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
+    origin: (
+      origin: string | undefined,
+      callback: (err: Error | null, allow?: boolean) => void,
+    ) => {
+      if (isAllowedCorsOrigin(origin, allowedOrigins)) {
+        callback(null, true);
+        return;
+      }
+      callback(new Error(`CORS blocked origin: ${origin}`));
+    },
     credentials: true,
   });
   app.useGlobalPipes(
@@ -19,6 +32,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3002);
 }
 bootstrap();

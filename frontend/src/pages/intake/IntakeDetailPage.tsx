@@ -50,6 +50,7 @@ export function IntakeDetailPage() {
 
   const isManagingPartner = user?.roles.includes('managing_partner')
   const latestCheck = lead?.conflictChecks[0]
+  const isPortalSubmission = lead?.source === 'portal' && Boolean(lead?.submittedClient)
 
   if (isLoading) return <p className="text-sm text-muted-foreground">Loading intake lead…</p>
   if (isError || !lead) {
@@ -58,7 +59,10 @@ export function IntakeDetailPage() {
 
   const handleConvert = async () => {
     setConvertError(null)
-    const parsed = convertIntakeSchema.safeParse({ gdprConsent, holdingGroupId })
+    const parsed = convertIntakeSchema.safeParse({
+      gdprConsent: isPortalSubmission ? true : gdprConsent,
+      holdingGroupId,
+    })
     if (!parsed.success) {
       setConvertError(parsed.error.issues[0]?.message ?? 'Invalid form')
       return
@@ -95,7 +99,14 @@ export function IntakeDetailPage() {
             {MATTER_TYPE_LABELS[lead.matterType]} · {REFERRAL_SOURCE_LABELS[lead.referralSource]}
           </p>
         </div>
-        <Badge variant="secondary">{INTAKE_STATUS_LABELS[lead.status]}</Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          {isPortalSubmission && (
+            <Badge variant="outline" className="border-primary/40 bg-primary/5 text-primary">
+              Portal submission
+            </Badge>
+          )}
+          <Badge variant="secondary">{INTAKE_STATUS_LABELS[lead.status]}</Badge>
+        </div>
       </div>
 
       <Card className="shadow-none">
@@ -278,17 +289,30 @@ export function IntakeDetailPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Creates a client record and opens a matter in one step - no re-entering enquiry
-              details. GDPR consent is required at this step.
+              {isPortalSubmission
+                ? 'Opens a matter under the portal client’s existing account — no duplicate client record.'
+                : 'Creates a client record and opens a matter in one step - no re-entering enquiry details. GDPR consent is required at this step.'}
             </p>
 
             <div className="rounded-md border bg-muted/30 p-3 text-sm">
               <p className="font-medium">Will create</p>
               <ul className="mt-2 space-y-1 text-muted-foreground">
-                <li>
-                  <span className="text-foreground">Client:</span> {intakeDisplayName(lead)}
-                  {lead.country ? ` (${getCountryLabel(lead.country)})` : ''}
-                </li>
+                {!isPortalSubmission && (
+                  <li>
+                    <span className="text-foreground">Client:</span> {intakeDisplayName(lead)}
+                    {lead.country ? ` (${getCountryLabel(lead.country)})` : ''}
+                  </li>
+                )}
+                {isPortalSubmission && lead.submittedClient && (
+                  <li>
+                    <span className="text-foreground">Client:</span>{' '}
+                    {lead.submittedClient.companyName ??
+                      [lead.submittedClient.firstName, lead.submittedClient.lastName]
+                        .filter(Boolean)
+                        .join(' ')}{' '}
+                    <span className="text-xs">(existing portal account)</span>
+                  </li>
+                )}
                 <li>
                   <span className="text-foreground">Matter:</span> {matterPreviewTitle}
                   {lead.country ? ` · ${lead.country}` : ''}
@@ -297,17 +321,19 @@ export function IntakeDetailPage() {
               </ul>
             </div>
 
-            <label className="flex cursor-pointer items-start gap-3 text-sm">
-              <input
-                type="checkbox"
-                checked={gdprConsent}
-                onChange={(e) => setGdprConsent(e.target.checked)}
-                className="mt-0.5 rounded"
-              />
-              <span>
-                I confirm valid GDPR consent has been obtained for this client before conversion.
-              </span>
-            </label>
+            {!isPortalSubmission && (
+              <label className="flex cursor-pointer items-start gap-3 text-sm">
+                <input
+                  type="checkbox"
+                  checked={gdprConsent}
+                  onChange={(e) => setGdprConsent(e.target.checked)}
+                  className="mt-0.5 rounded"
+                />
+                <span>
+                  I confirm valid GDPR consent has been obtained for this client before conversion.
+                </span>
+              </label>
+            )}
 
             <div className="max-w-xs space-y-1.5">
               <p className="text-sm font-medium">Holding group (optional)</p>
@@ -331,7 +357,10 @@ export function IntakeDetailPage() {
 
             {convertError && <p className="text-sm text-destructive">{convertError}</p>}
 
-            <Button onClick={handleConvert} disabled={!gdprConsent || convertIntake.isPending}>
+            <Button
+              onClick={handleConvert}
+              disabled={(!isPortalSubmission && !gdprConsent) || convertIntake.isPending}
+            >
               {convertIntake.isPending ? 'Converting…' : 'Convert to matter'}
             </Button>
           </CardContent>
