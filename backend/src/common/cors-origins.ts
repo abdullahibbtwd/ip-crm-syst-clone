@@ -3,8 +3,10 @@
  * Browsers treat these as different origins, but Socket.IO CORS must echo the
  * request Origin exactly when credentials are enabled.
  */
+const ADDITIONAL_CORS_ORIGINS = ['http://187.127.233.163:5173'];
+
 export function resolveCorsOrigins(frontendUrl: string): string[] {
-  const origins = new Set<string>([frontendUrl]);
+  const origins = new Set<string>([frontendUrl, ...ADDITIONAL_CORS_ORIGINS]);
 
   if (process.env.NODE_ENV === 'production') {
     return [...origins];
