@@ -53,17 +53,44 @@ export class AuthCookieService {
   }
 
   private baseOptions(): CookieOptions {
-    const isProd = this.config.get('NODE_ENV') === 'production';
+    const secure = this.cookieSecure();
     return {
       httpOnly: true,
-      secure: isProd,
-      sameSite: isProd ? 'strict' : 'lax',
+      secure,
+      sameSite: this.cookieSameSite(secure),
       path: '/',
     };
   }
 
   private clearOptions(): CookieOptions {
-    return { path: '/', httpOnly: true };
+    const { httpOnly, secure, sameSite, path } = this.baseOptions();
+    return { path, httpOnly, secure, sameSite };
+  }
+
+  /** Secure cookies require HTTPS; plain HTTP deploys (e.g. Coolify IP) must not set Secure. */
+  private cookieSecure(): boolean {
+    const explicit = this.config.get<string>('COOKIE_SECURE');
+    if (explicit !== undefined && explicit !== '') {
+      return explicit === 'true' || explicit === '1';
+    }
+    const frontendUrl = this.config.get<string>(
+      'FRONTEND_URL',
+      'http://localhost:5173',
+    );
+    return frontendUrl.startsWith('https://');
+  }
+
+  private cookieSameSite(secure: boolean): CookieOptions['sameSite'] {
+    const explicit = this.config.get<string>('COOKIE_SAME_SITE');
+    if (
+      explicit === 'none' ||
+      explicit === 'lax' ||
+      explicit === 'strict'
+    ) {
+      return explicit;
+    }
+    // SameSite=None requires Secure; lax works for same-origin nginx/vite proxy.
+    return secure ? 'lax' : 'lax';
   }
 
   private durationMs(duration: string, fallback: number): number {
