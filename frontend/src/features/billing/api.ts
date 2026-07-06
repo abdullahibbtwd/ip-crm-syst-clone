@@ -1,12 +1,16 @@
 import { apiClient } from '@/lib/api-client'
 import type {
   BillingSummary,
+  ClientBillingSummary,
   CreateFixedFeeInput,
+  CreateRateCardInput,
   CreateTimeEntryInput,
   FixedFee,
+  RateCard,
   ResolvedRate,
   TimeEntry,
   UpdateFixedFeeInput,
+  UpdateRateCardInput,
   UpdateTimeEntryInput,
 } from './types'
 
@@ -38,6 +42,17 @@ export const billingApi = {
   getSummary: (matterId: string) =>
     apiClient.get<BillingSummary>(`/matters/${matterId}/billing-summary`),
 
+  getClientSummary: (clientId: string) =>
+    apiClient.get<ClientBillingSummary>(`/clients/${clientId}/billing-summary`),
+
   resolveRate: (matterId: string) =>
     apiClient.get<ResolvedRate>('/rate-cards/resolve', { matterId }),
+
+  listRateCards: () => apiClient.get<RateCard[]>('/rate-cards'),
+
+  createRateCard: (data: CreateRateCardInput) =>
+    apiClient.post<RateCard>('/rate-cards', data),
+
+  updateRateCard: (id: string, data: UpdateRateCardInput) =>
+    apiClient.patch<RateCard>(`/rate-cards/${id}`, data),
 }

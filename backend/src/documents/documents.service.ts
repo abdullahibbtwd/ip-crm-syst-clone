@@ -93,6 +93,51 @@ export class DocumentsService {
     }));
   }
 
+  async listForPortalClient(clientId: string, query: DocumentQueryDto & { matterId?: string }) {
+    const search = query.search?.trim();
+
+    const documents = await this.prisma.matterDocument.findMany({
+      where: {
+        matter: { clientId },
+        ...(query.matterId ? { matterId: query.matterId } : {}),
+        category: query.category,
+        ...(search
+          ? {
+              OR: [
+                { displayName: { contains: search, mode: 'insensitive' } },
+                { tags: { has: search.toLowerCase() } },
+              ],
+            }
+          : {}),
+      },
+      orderBy: { updatedAt: 'desc' },
+      include: {
+        matter: { select: { id: true, title: true } },
+        createdBy: { select: userSelect },
+        versions: {
+          orderBy: { version: 'desc' },
+          take: 1,
+          include: versionInclude,
+        },
+        _count: { select: { versions: true } },
+      },
+    });
+
+    return documents.map((doc) => ({
+      id: doc.id,
+      matterId: doc.matterId,
+      matterTitle: doc.matter.title,
+      displayName: doc.displayName,
+      category: doc.category,
+      tags: doc.tags,
+      createdAt: doc.createdAt,
+      updatedAt: doc.updatedAt,
+      createdBy: doc.createdBy,
+      versionCount: doc._count.versions,
+      latestVersion: doc.versions[0] ?? null,
+    }));
+  }
+
   async upload(
     matterId: string,
     file: Express.Multer.File,

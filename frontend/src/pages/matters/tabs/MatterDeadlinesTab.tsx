@@ -51,9 +51,6 @@ export function MatterDeadlinesTab() {
     <div className="space-y-4">
       <div>
         <h2 className="font-medium">Deadlines</h2>
-        <p className="text-sm text-muted-foreground">
-          Newest first - from matter opening rules and incoming office actions.
-        </p>
       </div>
 
       <Table>

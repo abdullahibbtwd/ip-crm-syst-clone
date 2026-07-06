@@ -420,7 +420,7 @@ export class IntakeService {
   }
 
   async convert(id: string, dto: ConvertIntakeDto, user: AuthenticatedUser) {
-    const lead = await this.findOne(id);
+    let lead = await this.findOne(id);
 
     if (!user.permissions.includes('matter:create')) {
       throw new ForbiddenException(
@@ -435,6 +435,18 @@ export class IntakeService {
       throw new BadRequestException(
         'Lead must be approved before conversion. Run conflict check first.',
       );
+    }
+
+    const assignedUserId =
+      lead.assignedUserId ??
+      (await this.pickAttorneyForMatterType(lead.matterType));
+
+    if (!lead.assignedUserId && assignedUserId) {
+      await this.prisma.intakeLead.update({
+        where: { id },
+        data: { assignedUserId },
+      });
+      lead = { ...lead, assignedUserId };
     }
 
     // Portal submissions already belong to an existing client (created at

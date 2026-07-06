@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { Check, Plus, Trash2 } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { useAppAlert } from '@/components/feedback/AppAlertProvider'
 import { Drawer } from '@/components/crm/Drawer'
 import { TeamMemberSelect } from '@/components/users/TeamMemberSelect'
 import { Badge } from '@/components/ui/badge'
@@ -45,6 +46,7 @@ function TaskRow({
   currentUserId: string
   canDelete: boolean
 }) {
+  const { confirm } = useAppAlert()
   const updateTask = useUpdateTask(matterId)
   const deleteTask = useDeleteTask(matterId)
 
@@ -110,8 +112,14 @@ function TaskRow({
             size="sm"
             variant="ghost"
             disabled={deleteTask.isPending}
-            onClick={() => {
-              if (window.confirm('Delete this task?')) deleteTask.mutate(task.id)
+            onClick={async () => {
+              const ok = await confirm({
+                title: 'Delete task?',
+                message: 'This task will be permanently removed.',
+                variant: 'danger',
+                confirmLabel: 'Delete',
+              })
+              if (ok) deleteTask.mutate(task.id)
             }}
           >
             <Trash2 className="size-4 text-destructive" />

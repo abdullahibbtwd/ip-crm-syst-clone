@@ -3,8 +3,10 @@ import { billingApi } from '../api'
 import { billingKeys } from '../queryKeys'
 import type {
   CreateFixedFeeInput,
+  CreateRateCardInput,
   CreateTimeEntryInput,
   UpdateFixedFeeInput,
+  UpdateRateCardInput,
   UpdateTimeEntryInput,
 } from '../types'
 
@@ -19,6 +21,14 @@ export function useBillingSummary(matterId: string) {
     queryKey: billingKeys.summary(matterId),
     queryFn: () => billingApi.getSummary(matterId),
     enabled: Boolean(matterId),
+  })
+}
+
+export function useClientBillingSummary(clientId: string) {
+  return useQuery({
+    queryKey: billingKeys.clientSummary(clientId),
+    queryFn: () => billingApi.getClientSummary(clientId),
+    enabled: Boolean(clientId),
   })
 }
 
@@ -96,5 +106,29 @@ export function useDeleteFixedFee(matterId: string) {
   return useMutation({
     mutationFn: (id: string) => billingApi.deleteFixedFee(id),
     onSuccess: () => invalidateMatterBilling(qc, matterId),
+  })
+}
+
+export function useRateCards() {
+  return useQuery({
+    queryKey: billingKeys.rateCards(),
+    queryFn: () => billingApi.listRateCards(),
+  })
+}
+
+export function useCreateRateCard() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (data: CreateRateCardInput) => billingApi.createRateCard(data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: billingKeys.rateCards() }),
+  })
+}
+
+export function useUpdateRateCard() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: UpdateRateCardInput }) =>
+      billingApi.updateRateCard(id, data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: billingKeys.rateCards() }),
   })
 }

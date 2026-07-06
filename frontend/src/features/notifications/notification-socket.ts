@@ -14,27 +14,66 @@ const SOCKET_TARGET = import.meta.env.VITE_SOCKET_URL
   ? `${import.meta.env.VITE_SOCKET_URL}${NOTIFICATIONS_NAMESPACE}`
   : NOTIFICATIONS_NAMESPACE
 
+export type NotificationSocketState = 'connected' | 'disconnected'
+
 let socket: Socket | null = null
 let subscriberCount = 0
 let queryClient: QueryClient | null = null
 let refreshAttempted = false
+let connectionState: NotificationSocketState = 'disconnected'
+const stateListeners = new Set<(state: NotificationSocketState) => void>()
+
+function setConnectionState(state: NotificationSocketState) {
+  if (connectionState === state) return
+  connectionState = state
+  for (const listener of stateListeners) {
+    listener(state)
+  }
+}
+
+export function getNotificationSocketState(): NotificationSocketState {
+  return connectionState
+}
+
+export function onNotificationSocketStateChange(
+  listener: (state: NotificationSocketState) => void,
+): () => void {
+  stateListeners.add(listener)
+  listener(connectionState)
+  return () => {
+    stateListeners.delete(listener)
+  }
+}
 
 function invalidateNotificationQueries() {
   if (!queryClient) return
-  queryClient.invalidateQueries({ queryKey: notificationKeys.all })
-  queryClient.invalidateQueries({ queryKey: deadlineKeys.myTodayCount() })
-  queryClient.invalidateQueries({ queryKey: deadlineKeys.firmTodayCount() })
+  void queryClient.invalidateQueries({ queryKey: notificationKeys.all })
+  void queryClient.invalidateQueries({ queryKey: deadlineKeys.myTodayCount() })
+  void queryClient.invalidateQueries({ queryKey: deadlineKeys.firmTodayCount() })
 }
 
 function attachSocketListeners(instance: Socket) {
   instance.on('connect', () => {
     refreshAttempted = false
+    setConnectionState('connected')
     if (import.meta.env.DEV) {
       console.info(`[notifications] socket connected → ${SOCKET_TARGET}`)
     }
     invalidateNotificationQueries()
   })
+
+  instance.on('disconnect', () => {
+    setConnectionState('disconnected')
+    if (import.meta.env.DEV) {
+      console.warn('[notifications] socket disconnected — using HTTP polling')
+    }
+    invalidateNotificationQueries()
+  })
+
   instance.on('connect_error', (err) => {
+    setConnectionState('disconnected')
+    invalidateNotificationQueries()
+
     if (import.meta.env.DEV) {
       console.warn(`[notifications] socket connect_error: ${err.message}`)
     }
@@ -56,11 +95,12 @@ function attachSocketListeners(instance: Socket) {
         refreshAttempted = false
       })
   })
+
   instance.on('notification', invalidateNotificationQueries)
   instance.on('unread_count', () => {
     if (!queryClient) return
-    queryClient.invalidateQueries({ queryKey: notificationKeys.unreadCount() })
-    queryClient.invalidateQueries({ queryKey: notificationKeys.list() })
+    void queryClient.invalidateQueries({ queryKey: notificationKeys.unreadCount() })
+    void queryClient.invalidateQueries({ queryKey: notificationKeys.list() })
   })
 }
 
@@ -70,7 +110,8 @@ function ensureSocket() {
   socket = io(SOCKET_TARGET, {
     path: SOCKET_PATH,
     withCredentials: true,
-    transports: ['websocket', 'polling'],
+    // Prefer polling first — more reliable through dev proxies; upgrades to WS when possible.
+    transports: ['polling', 'websocket'],
     reconnectionAttempts: 20,
     reconnectionDelay: 2000,
   })
@@ -84,6 +125,7 @@ function teardownSocket() {
   socket.removeAllListeners()
   socket.disconnect()
   socket = null
+  setConnectionState('disconnected')
 }
 
 /** One shared Socket.io connection for the whole app session. */

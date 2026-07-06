@@ -26,3 +26,9 @@ export class DocumentQueryDto {
   @MaxLength(200)
   search?: string;
 }
+
+export class PortalDocumentQueryDto extends DocumentQueryDto {
+  @IsOptional()
+  @IsString()
+  matterId?: string;
+}

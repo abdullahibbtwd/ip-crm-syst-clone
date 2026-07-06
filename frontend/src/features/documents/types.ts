@@ -37,6 +37,10 @@ export type MatterDocument = {
   latestVersion: DocumentVersion | null
 }
 
+export type PortalDocument = MatterDocument & {
+  matterTitle: string
+}
+
 export type DocumentDownloadResponse = {
   url: string
   fileName: string
@@ -47,6 +51,7 @@ export type DocumentDownloadResponse = {
 export type DocumentFilters = {
   category?: DocumentCategory
   search?: string
+  matterId?: string
 }
 
 export type UploadDocumentInput = {

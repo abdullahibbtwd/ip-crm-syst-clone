@@ -6,8 +6,10 @@ import {
   Prisma,
 } from '../../generated/prisma/client';
 import { filingAuthorityForJurisdiction } from '../matters/ip-right-filing.utils';
+import { DeadlineNotifyService } from '../notifications/deadline-notify.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { addDays } from './deadlines.utils';
+import { expandDeadlineRuleJurisdictions } from './deadline-jurisdiction.utils';
 
 function formatDeadlineDate(date: Date): string {
   return new Intl.DateTimeFormat('en-GB', {
@@ -28,7 +30,10 @@ function deadlineTitle(
 
 @Injectable()
 export class OfficeActionDeadlinesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly deadlineNotify: DeadlineNotifyService,
+  ) {}
 
   async generateFromOfficeAction(
     matterId: string,
@@ -52,10 +57,10 @@ export class OfficeActionDeadlinesService {
       };
     }
 
-    const jurisdictions =
-      matter.jurisdictions.length > 0
-        ? matter.jurisdictions.map((j) => j.countryCode.toUpperCase())
-        : [];
+    const jurisdictions = expandDeadlineRuleJurisdictions(
+      matter.jurisdictions.map((j) => j.countryCode),
+      matter.matterType,
+    );
 
     if (jurisdictions.length === 0) {
       return {
@@ -150,6 +155,10 @@ export class OfficeActionDeadlinesService {
         }
       }
     });
+
+    for (const deadlineId of createdDeadlineIds) {
+      void this.deadlineNotify.notifyAssigned(deadlineId).catch(() => undefined);
+    }
 
     return {
       matterId,

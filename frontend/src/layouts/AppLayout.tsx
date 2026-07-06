@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { getRoleView, type NavItem } from '../config/role-views'
 import { useAuth } from '../features/auth/AuthProvider'
-import { useNotificationSocket } from '../features/notifications/hooks/useNotifications'
+import { NotificationSyncProvider } from '../features/notifications/notification-sync-context'
 import { withActiveNav, navId } from '../features/shell/nav-utils'
 import { ShellProvider, useShell } from '../features/shell/ShellProvider'
 import { AppSidebar } from '../components/layout/AppSidebar'
@@ -44,23 +44,18 @@ export function AppLayout() {
 
   return (
     <ShellProvider view={view}>
-      <NotificationSocketBridge />
-      <LayoutBody
-        view={view}
-        user={user}
-        userRoles={userRoles}
-        effectiveRole={effectiveRole}
-        onRoleChange={setActiveRole}
-        onLogout={handleLogout}
-      />
+      <NotificationSyncProvider>
+        <LayoutBody
+          view={view}
+          user={user}
+          userRoles={userRoles}
+          effectiveRole={effectiveRole}
+          onRoleChange={setActiveRole}
+          onLogout={handleLogout}
+        />
+      </NotificationSyncProvider>
     </ShellProvider>
   )
-}
-
-function NotificationSocketBridge() {
-  const { isAuthenticated } = useAuth()
-  useNotificationSocket(isAuthenticated)
-  return null
 }
 
 function LayoutBody({

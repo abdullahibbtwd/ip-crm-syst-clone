@@ -7,6 +7,9 @@ export type ReminderMilestone = {
   label: string;
 };
 
+/** Catch-up key when a deadline became overdue without hitting the after_3 milestone. */
+export const OVERDUE_CATCHUP_MILESTONE = 'overdue';
+
 /** Reminder schedule: 30d, 7d, 3d, 1d before due; due today; 3d after due. */
 export const DEADLINE_REMINDER_MILESTONES: ReminderMilestone[] = [
   { key: 'before_30', offsetDays: 30, direction: 'before', label: '30 days' },

@@ -12,6 +12,14 @@ export function useMatterDocuments(matterId: string, filters?: DocumentFilters) 
   })
 }
 
+export function usePortalDocuments(filters?: DocumentFilters) {
+  return useQuery({
+    queryKey: documentKeys.portal(filters),
+    queryFn: () => documentsApi.listForPortal(filters),
+    placeholderData: keepPreviousData,
+  })
+}
+
 export function useUploadDocument(matterId: string, filters?: DocumentFilters) {
   const qc = useQueryClient()
   return useMutation({

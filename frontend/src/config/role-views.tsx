@@ -110,7 +110,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         section: 'IP Rights',
         items: [
           { icon: Award, label: 'Rights register' },
-          { icon: RefreshCw, label: 'Renewals' },
+          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
           { icon: Eye, label: 'Watch' },
         ],
       },
@@ -153,7 +153,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         section: 'Rights',
         items: [
           { icon: Award, label: 'Rights register' },
-          { icon: RefreshCw, label: 'Renewals' },
+          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
         ],
       },
       {
@@ -185,7 +185,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: ShieldCheck, label: 'My TM matters', path: '/matters' },
           { icon: Upload, label: 'Oppositions' },
-          { icon: RefreshCw, label: 'Renewals' },
+          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
           { icon: Eye, label: 'Watch alerts' },
         ],
       },
@@ -224,6 +224,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: Users, label: 'Clients', path: '/clients' },
           { icon: Building2, label: 'Holding groups', path: '/holding-groups' },
           { icon: FolderOpen, label: 'Matters', path: '/matters' },
+          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
           { icon: Search, label: 'Conflict check' },
         ],
       },
@@ -253,7 +254,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         section: 'Deadlines',
         items: [
           { icon: FolderOpen, label: 'Matters', path: '/matters' },
-          { icon: RefreshCw, label: 'Renewals' },
+          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
           { icon: Clock, label: 'Grace periods' },
           { icon: CalendarPlus, label: 'Add deadline', path: '/deadlines' },
         ],
@@ -313,10 +314,10 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         section: 'Billing',
         items: [
-          { icon: Receipt, label: 'Invoices' },
+          { icon: Receipt, label: 'Invoices', path: '/invoices' },
           { icon: CircleDollarSign, label: 'Time entries' },
-          { icon: Banknote, label: 'Payments' },
-          { icon: CreditCard, label: 'Rate cards' },
+          { icon: Banknote, label: 'Payments', path: '/invoices?paymentStatus=unpaid' },
+          { icon: CreditCard, label: 'Rate cards', path: '/rate-cards' },
         ],
       },
       {
@@ -408,8 +409,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         section: 'My matters',
         items: [
           { icon: FolderOpen, label: 'My matters', path: '/matters' },
-          { icon: FileText, label: 'My documents' },
-          { icon: Receipt, label: 'My invoices' },
+          { icon: FileText, label: 'My documents', path: '/portal/documents' },
+          { icon: Receipt, label: 'My invoices', path: '/portal/invoices' },
+          { icon: RefreshCw, label: 'Renewals', path: '/portal/renewals' },
         ],
       },
       {

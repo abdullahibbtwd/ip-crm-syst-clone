@@ -32,6 +32,7 @@ const RESOURCES = [
   'billing',
   'registry',
   'task',
+  'renewal',
 ] as const;
 
 const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -43,6 +44,15 @@ const ALL_PERMISSIONS = RESOURCES.flatMap((resource) =>
     key: `${resource}:${action}`,
   })),
 );
+
+/** Permissions outside the standard resource × action grid. */
+const EXTRA_PERMISSIONS = [
+  {
+    resource: 'renewal',
+    action: 'instruct',
+    key: 'renewal:instruct',
+  },
+] as const;
 
 const ROLE_DEFINITIONS: Record<
   (typeof SYSTEM_ROLES)[keyof typeof SYSTEM_ROLES],
@@ -64,6 +74,8 @@ const ROLE_DEFINITIONS: Record<
       'deadline:read',
       'deadline:create',
       'deadline:update',
+      'renewal:read',
+      'renewal:update',
       'correspondence:read',
       'correspondence:create',
       'correspondence:update',
@@ -89,6 +101,8 @@ const ROLE_DEFINITIONS: Record<
       'deadline:read',
       'deadline:create',
       'deadline:update',
+      'renewal:read',
+      'renewal:update',
       'correspondence:read',
       'correspondence:create',
       'correspondence:update',
@@ -120,6 +134,8 @@ const ROLE_DEFINITIONS: Record<
       'billing:read',
       'billing:create',
       'deadline:read',
+      'renewal:read',
+      'renewal:update',
       'portal:read',
     ],
   },
@@ -131,6 +147,8 @@ const ROLE_DEFINITIONS: Record<
       'deadline:create',
       'deadline:update',
       'deadline:delete',
+      'renewal:read',
+      'renewal:update',
       'document:read',
       'correspondence:read',
       'registry:read',
@@ -154,6 +172,7 @@ const ROLE_DEFINITIONS: Record<
       'task:update',
       'deadline:read',
       'deadline:update',
+      'renewal:read',
       'client:read',
     ],
   },
@@ -204,6 +223,8 @@ const ROLE_DEFINITIONS: Record<
       'deadline:read',
       'intake:read',
       'intake:create',
+      'renewal:read',
+      'renewal:instruct',
     ],
   },
 };
@@ -223,6 +244,23 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   for (const permission of ALL_PERMISSIONS) {
+    await prisma.permission.upsert({
+      where: {
+        resource_action: {
+          resource: permission.resource,
+          action: permission.action,
+        },
+      },
+      update: { description: permission.key },
+      create: {
+        resource: permission.resource,
+        action: permission.action,
+        description: permission.key,
+      },
+    });
+  }
+
+  for (const permission of EXTRA_PERMISSIONS) {
     await prisma.permission.upsert({
       where: {
         resource_action: {
@@ -468,6 +506,28 @@ async function main() {
       description: 'BPO initial utility model prosecution',
     },
     {
+      jurisdiction: 'BG',
+      matterType: 'industrial_design' as const,
+      eventType: 'examination_response' as const,
+      triggerType: 'matter_created' as const,
+      daysOffset: 120,
+      isBusinessDays: true,
+      gracePeriodDays: 30,
+      priority: 2,
+      description: 'BPO initial design prosecution',
+    },
+    {
+      jurisdiction: 'EU',
+      matterType: 'industrial_design' as const,
+      eventType: 'examination_response' as const,
+      triggerType: 'matter_created' as const,
+      daysOffset: 90,
+      isBusinessDays: true,
+      gracePeriodDays: 0,
+      priority: 1,
+      description: 'EUIPO initial design prosecution',
+    },
+    {
       jurisdiction: 'EU',
       matterType: 'trademark' as const,
       eventType: 'examination_response' as const,
@@ -522,6 +582,50 @@ async function main() {
       priority: 2,
       description: 'BPO utility model examination response',
     },
+    {
+      jurisdiction: 'EU',
+      matterType: 'trademark' as const,
+      eventType: 'renewal' as const,
+      triggerType: 'renewal_due' as const,
+      daysOffset: 0,
+      isBusinessDays: true,
+      gracePeriodDays: 180,
+      priority: 1,
+      description: 'EUIPO trademark renewal due',
+    },
+    {
+      jurisdiction: 'BG',
+      matterType: 'trademark' as const,
+      eventType: 'renewal' as const,
+      triggerType: 'renewal_due' as const,
+      daysOffset: 0,
+      isBusinessDays: true,
+      gracePeriodDays: 180,
+      priority: 2,
+      description: 'BPO trademark renewal due',
+    },
+    {
+      jurisdiction: 'EU',
+      matterType: 'industrial_design' as const,
+      eventType: 'renewal' as const,
+      triggerType: 'renewal_due' as const,
+      daysOffset: 0,
+      isBusinessDays: true,
+      gracePeriodDays: 180,
+      priority: 1,
+      description: 'EUIPO design renewal due',
+    },
+    {
+      jurisdiction: 'BG',
+      matterType: 'industrial_design' as const,
+      eventType: 'renewal' as const,
+      triggerType: 'renewal_due' as const,
+      daysOffset: 0,
+      isBusinessDays: true,
+      gracePeriodDays: 180,
+      priority: 2,
+      description: 'BPO design renewal due',
+    },
   ];
 
   for (const rule of deadlineRuleSeeds) {
@@ -545,7 +649,9 @@ async function main() {
     });
   }
 
-  console.log('Seeded deadline rules (matter_created + office_action for EU, EP, BG)');
+  console.log(
+    'Seeded deadline rules (matter_created + office_action + renewal_due for EU, EP, BG)',
+  );
 
   const holdingGroup = await prisma.holdingGroup.upsert({
     where: { id: '00000000-0000-4000-8000-000000000001' },
@@ -704,6 +810,101 @@ async function main() {
 
   console.log(
     'Seeded CRM sample data (Acme clients, portal@acme.bg / Portal123!)',
+  );
+
+  // Demo matter for portal renewals — Acme TM registered with cycle 1 upcoming
+  const demoMatterId = '00000000-0000-4000-8000-000000000200';
+  const demoIpRightId = '00000000-0000-4000-8000-000000000201';
+  const demoRenewalWindowId = '00000000-0000-4000-8000-000000000202';
+  const registrationDate = new Date('2016-08-01');
+  const renewalDueDate = new Date('2026-08-01');
+  const renewalGraceDate = new Date('2027-02-01');
+
+  await prisma.matter.upsert({
+    where: { id: demoMatterId },
+    update: {
+      title: 'ACME® word mark',
+      status: 'active',
+      assignedToId: ipAttorney.id,
+    },
+    create: {
+      id: demoMatterId,
+      clientId: companyClient.id,
+      matterType: 'trademark',
+      title: 'ACME® word mark',
+      status: 'active',
+      assignedToId: ipAttorney.id,
+      description: 'Seeded demo matter for portal renewals testing',
+    },
+  });
+
+  await prisma.matterJurisdiction.upsert({
+    where: {
+      matterId_countryCode: { matterId: demoMatterId, countryCode: 'BG' },
+    },
+    update: { status: 'approved', localRefNumber: 'BG123456' },
+    create: {
+      matterId: demoMatterId,
+      countryCode: 'BG',
+      status: 'approved',
+      localRefNumber: 'BG123456',
+    },
+  });
+
+  await prisma.matterAttributes.upsert({
+    where: { matterId: demoMatterId },
+    update: {},
+    create: { matterId: demoMatterId, attributes: {} },
+  });
+
+  await prisma.ipRight.upsert({
+    where: { id: demoIpRightId },
+    update: {
+      status: 'registered',
+      registrationNumber: 'BG123456',
+      registrationDate,
+      expiryDate: renewalDueDate,
+    },
+    create: {
+      id: demoIpRightId,
+      matterId: demoMatterId,
+      clientId: companyClient.id,
+      rightType: 'trademark',
+      title: 'ACME® word mark',
+      applicationNumber: 'BG2020160001',
+      registrationNumber: 'BG123456',
+      filingDate: new Date('2016-03-15'),
+      registrationDate,
+      expiryDate: renewalDueDate,
+      jurisdiction: 'BG',
+      status: 'registered',
+    },
+  });
+
+  await prisma.renewalWindow.upsert({
+    where: {
+      ipRightId_cycleNumber: { ipRightId: demoIpRightId, cycleNumber: 1 },
+    },
+    update: {
+      status: 'upcoming',
+      dueDate: renewalDueDate,
+      graceDate: renewalGraceDate,
+    },
+    create: {
+      id: demoRenewalWindowId,
+      ipRightId: demoIpRightId,
+      matterId: demoMatterId,
+      clientId: companyClient.id,
+      cycleNumber: 1,
+      jurisdiction: 'BG',
+      dueDate: renewalDueDate,
+      graceDate: renewalGraceDate,
+      status: 'upcoming',
+    },
+  });
+
+  console.log(
+    'Seeded portal demo: ACME® trademark matter with renewal cycle 1 (upcoming, due Aug 2026)',
   );
 
   const rateEffectiveFrom = new Date('2024-01-01');

@@ -4,6 +4,7 @@ import type {
   DocumentFilters,
   DocumentVersion,
   MatterDocument,
+  PortalDocument,
   UploadDocumentInput,
 } from './types'
 
@@ -12,6 +13,9 @@ export const documentsApi = {
     api
       .get<MatterDocument[]>(`/matters/${matterId}/documents`, { params: filters })
       .then((r) => r.data),
+
+  listForPortal: (filters?: DocumentFilters) =>
+    api.get<PortalDocument[]>('/portal/documents', { params: filters }).then((r) => r.data),
 
   upload: (matterId: string, input: UploadDocumentInput) => {
     const form = new FormData()

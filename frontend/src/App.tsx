@@ -12,7 +12,7 @@ import { ClientLayout } from './pages/crm/clients/ClientLayout'
 import { ClientOverviewTab } from './pages/crm/clients/tabs/ClientOverviewTab'
 import { ContactsTab } from './pages/crm/clients/tabs/ContactsTab'
 import { OfficesTab } from './pages/crm/clients/tabs/OfficesTab'
-import { BillingTab } from './pages/crm/clients/tabs/PlaceholderTabs'
+import { ClientBillingTab } from './pages/crm/clients/tabs/ClientBillingTab'
 import { MattersTab } from './pages/crm/clients/tabs/MattersTab'
 import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTab'
 import { RelationshipHistoryTab } from './pages/crm/clients/tabs/RelationshipHistoryTab'
@@ -32,11 +32,17 @@ import { MatterBillingTab } from './pages/matters/tabs/MatterBillingTab'
 import { MatterTasksTab } from './pages/matters/tabs/MatterTasksTab'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
+import { RenewalsPage } from './pages/renewals/RenewalsPage'
 import { UsersLayout, UsersIndexRedirect } from './pages/users/UsersLayout'
 import { TeamUsersTab } from './pages/users/TeamUsersTab'
 import { PortalUsersTab } from './pages/users/PortalUsersTab'
 import { PortalIntakePage } from './pages/portal/PortalIntakePage'
 import { PortalIntakeDetailPage } from './pages/portal/PortalIntakeDetailPage'
+import { PortalDocumentsPage } from './pages/portal/PortalDocumentsPage'
+import { PortalInvoicesPage } from './pages/portal/PortalInvoicesPage'
+import { PortalRenewalsPage } from './pages/portal/PortalRenewalsPage'
+import { InvoicesListPage } from './pages/finance/InvoicesListPage'
+import { RateCardsPage } from './pages/finance/RateCardsPage'
 
 export default function App() {
   return (
@@ -57,6 +63,9 @@ export default function App() {
             element={<Navigate to="/portal/intake?tab=new" replace />}
           />
           <Route path="/portal/intake/:id" element={<PortalIntakeDetailPage />} />
+          <Route path="/portal/documents" element={<PortalDocumentsPage />} />
+          <Route path="/portal/invoices" element={<PortalInvoicesPage />} />
+          <Route path="/portal/renewals" element={<PortalRenewalsPage />} />
 
           <Route path="/clients" element={<ClientListPage />} />
           <Route path="/clients/new" element={<Navigate to="/intake/new" replace />} />
@@ -68,7 +77,7 @@ export default function App() {
             <Route path="related" element={<RelatedCompaniesTab />} />
             <Route path="history" element={<RelationshipHistoryTab />} />
             <Route path="matters" element={<MattersTab />} />
-            <Route path="billing" element={<BillingTab />} />
+            <Route path="billing" element={<ClientBillingTab />} />
           </Route>
 
           <Route path="/holding-groups" element={<HoldingGroupListPage />} />
@@ -88,8 +97,11 @@ export default function App() {
           <Route path="/intake/:id" element={<IntakeDetailPage />} />
 
           <Route path="/matters" element={<MatterListPage />} />
+          <Route path="/invoices" element={<InvoicesListPage />} />
+          <Route path="/rate-cards" element={<RateCardsPage />} />
           <Route path="/deadlines/my" element={<MyDeadlinesPage />} />
           <Route path="/deadlines" element={<AllDeadlinesPage />} />
+          <Route path="/renewals" element={<RenewalsPage />} />
           <Route path="/matters/:id" element={<MatterLayout />}>
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<MatterOverviewTab />} />

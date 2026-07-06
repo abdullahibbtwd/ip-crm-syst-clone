@@ -48,10 +48,14 @@ model User {
   correspondenceCreated Correspondence[]      @relation("CorrespondenceCreatedBy")
   timelineEvents       MatterTimelineEvent[]  @relation("TimelineEventCreatedBy")
   timeEntriesLogged      TimeEntry[]            @relation("TimeEntryLoggedBy")
+  invoicesCreated        Invoice[]              @relation("InvoiceCreatedBy")
+  invoicePaymentsRecorded InvoicePayment[]      @relation("InvoicePaymentRecordedBy")
   tasksAssigned          Task[]                 @relation("TaskAssignedTo")
   tasksCreated           Task[]                 @relation("TaskCreatedBy")
   tasksCompleted         Task[]                 @relation("TaskCompletedBy")
   notifications          Notification[]
+  renewalInstructions    RenewalInstruction[]   @relation("RenewalInstructionCapturedBy")
+  renewalPaymentsRecorded RenewalPayment[]      @relation("RenewalPaymentRecordedBy")
 
   @@map("users")
 }
@@ -252,6 +256,8 @@ model Client {
   matters             Matter[]
   ipRights            IpRight[]
   rateCards           RateCard[]
+  invoices            Invoice[]
+  renewalWindows      RenewalWindow[]
 
   @@index([status])
   @@index([type])
@@ -573,7 +579,9 @@ model Matter {
   timelineEvents MatterTimelineEvent[]
   timeEntries    TimeEntry[]
   fixedFees      FixedFee[]
+  invoices       Invoice[]
   tasks          Task[]
+  renewalWindows RenewalWindow[]
 
   @@index([clientId])
   @@index([status])
@@ -630,12 +638,92 @@ model IpRight {
   client                Client                 @relation(fields: [clientId], references: [id], onDelete: Cascade)
   filingDocumentVersion MatterDocumentVersion? @relation("IpRightFilingDocument", fields: [filingDocumentVersionId], references: [id], onDelete: SetNull)
   timelineEvent         MatterTimelineEvent?
+  renewalWindows        RenewalWindow[]
 
   @@index([matterId])
   @@index([clientId])
   @@index([status])
   @@index([filingDocumentVersionId])
   @@map("ip_rights")
+}
+
+enum RenewalStatus {
+  upcoming
+  instructed
+  filed
+  completed
+  lapsed
+
+  @@map("renewal_status")
+}
+
+enum RenewalInstructionDecision {
+  proceed
+  abandon
+
+  @@map("renewal_instruction_decision")
+}
+
+model RenewalWindow {
+  id           String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ipRightId    String        @map("ip_right_id") @db.Uuid
+  matterId     String        @map("matter_id") @db.Uuid
+  clientId     String        @map("client_id") @db.Uuid
+  cycleNumber  Int           @map("cycle_number")
+  jurisdiction String
+  dueDate      DateTime      @map("due_date") @db.Date
+  graceDate    DateTime?     @map("grace_date") @db.Date
+  status       RenewalStatus @default(upcoming)
+  completedAt  DateTime?     @map("completed_at") @db.Timestamptz(6)
+  createdAt    DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  ipRight       IpRight                @relation(fields: [ipRightId], references: [id], onDelete: Cascade)
+  matter        Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  client        Client                 @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  instructions  RenewalInstruction[]
+  payments      RenewalPayment[]
+  deadlines     Deadline[]
+  fixedFees     FixedFee[]
+
+  @@unique([ipRightId, cycleNumber])
+  @@index([status, dueDate])
+  @@index([clientId])
+  @@index([matterId])
+  @@map("renewal_windows")
+}
+
+model RenewalInstruction {
+  id              String                     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  renewalWindowId String                     @map("renewal_window_id") @db.Uuid
+  decision        RenewalInstructionDecision
+  notes           String?
+  capturedAt      DateTime                   @default(now()) @map("captured_at") @db.Timestamptz(6)
+  capturedById    String                     @map("captured_by_id") @db.Uuid
+
+  renewalWindow RenewalWindow @relation(fields: [renewalWindowId], references: [id], onDelete: Cascade)
+  capturedBy    User          @relation("RenewalInstructionCapturedBy", fields: [capturedById], references: [id], onDelete: Restrict)
+
+  @@index([renewalWindowId])
+  @@map("renewal_instructions")
+}
+
+model RenewalPayment {
+  id                     String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  renewalWindowId        String   @map("renewal_window_id") @db.Uuid
+  amount                 Decimal  @db.Decimal(12, 2)
+  currency               String   @default("EUR")
+  paidAt                 DateTime @map("paid_at") @db.Date
+  proofDocumentVersionId String?  @map("proof_document_version_id") @db.Uuid
+  recordedById           String   @map("recorded_by_id") @db.Uuid
+  createdAt              DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  renewalWindow        RenewalWindow          @relation(fields: [renewalWindowId], references: [id], onDelete: Cascade)
+  proofDocumentVersion MatterDocumentVersion? @relation("RenewalPaymentProof", fields: [proofDocumentVersionId], references: [id], onDelete: SetNull)
+  recordedBy           User                   @relation("RenewalPaymentRecordedBy", fields: [recordedById], references: [id], onDelete: Restrict)
+
+  @@index([renewalWindowId])
+  @@map("renewal_payments")
 }
 
 enum DeadlineEventType {
@@ -662,6 +750,7 @@ enum DeadlineStatus {
 enum DeadlineRuleTriggerType {
   matter_created
   office_action
+  renewal_due
 
   @@map("deadline_rule_trigger_type")
 }
@@ -693,6 +782,7 @@ model Deadline {
   matterId               String         @map("matter_id") @db.Uuid
   ruleId                 String?        @map("rule_id") @db.Uuid
   sourceCorrespondenceId String?        @map("source_correspondence_id") @db.Uuid
+  sourceRenewalWindowId  String?        @map("source_renewal_window_id") @db.Uuid
   title                  String
   jurisdiction           String?
   notes                  String?
@@ -707,16 +797,18 @@ model Deadline {
   createdAt              DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt              DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  matter               Matter         @relation(fields: [matterId], references: [id], onDelete: Cascade)
-  rule                 DeadlineRule?  @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+  matter               Matter          @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  rule                 DeadlineRule?   @relation(fields: [ruleId], references: [id], onDelete: SetNull)
   sourceCorrespondence Correspondence? @relation(fields: [sourceCorrespondenceId], references: [id], onDelete: SetNull)
-  assignedTo           User           @relation("DeadlineAssignedTo", fields: [assignedToId], references: [id], onDelete: Restrict)
+  sourceRenewalWindow  RenewalWindow?  @relation(fields: [sourceRenewalWindowId], references: [id], onDelete: SetNull)
+  assignedTo           User            @relation("DeadlineAssignedTo", fields: [assignedToId], references: [id], onDelete: Restrict)
 
   @@index([matterId])
   @@index([assignedToId])
   @@index([dueDate])
   @@index([status])
   @@index([sourceCorrespondenceId])
+  @@index([sourceRenewalWindowId])
   @@map("deadlines")
 }
 
@@ -763,7 +855,8 @@ model MatterDocumentVersion {
   document   MatterDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
   uploadedBy User           @relation("DocumentVersionUploadedBy", fields: [uploadedById], references: [id], onDelete: Restrict)
   correspondence Correspondence[]
-  filingIpRights IpRight[] @relation("IpRightFilingDocument")
+  filingIpRights     IpRight[]         @relation("IpRightFilingDocument")
+  renewalPaymentProofs RenewalPayment[] @relation("RenewalPaymentProof")
 
   @@unique([documentId, version])
   @@index([documentId])
@@ -944,8 +1037,9 @@ model TimeEntry {
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  matter   Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
-  loggedBy User   @relation("TimeEntryLoggedBy", fields: [loggedById], references: [id], onDelete: Restrict)
+  matter   Matter   @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  loggedBy User     @relation("TimeEntryLoggedBy", fields: [loggedById], references: [id], onDelete: Restrict)
+  invoice  Invoice? @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
 
   @@index([matterId])
   @@index([loggedById])
@@ -955,30 +1049,111 @@ model TimeEntry {
 }
 
 model FixedFee {
-  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  matterId    String           @map("matter_id") @db.Uuid
-  description String
-  amount      Decimal          @db.Decimal(12, 2)
-  currency    String           @default("EUR")
-  category    FixedFeeCategory
-  date        DateTime         @db.Date
-  isBillable  Boolean          @default(true) @map("is_billable")
-  invoiceId   String?          @map("invoice_id") @db.Uuid
-  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                    String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId              String           @map("matter_id") @db.Uuid
+  sourceRenewalWindowId String?          @map("source_renewal_window_id") @db.Uuid
+  description           String
+  amount                Decimal          @db.Decimal(12, 2)
+  currency              String           @default("EUR")
+  category              FixedFeeCategory
+  date                  DateTime         @db.Date
+  isBillable            Boolean          @default(true) @map("is_billable")
+  invoiceId             String?          @map("invoice_id") @db.Uuid
+  createdAt             DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  matter Matter @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  matter              Matter         @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  sourceRenewalWindow RenewalWindow? @relation(fields: [sourceRenewalWindowId], references: [id], onDelete: SetNull)
+  invoice             Invoice?       @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
 
   @@index([matterId])
   @@index([date])
   @@index([invoiceId])
+  @@index([sourceRenewalWindowId])
   @@map("fixed_fees")
+}
+
+enum InvoiceStatus {
+  draft
+  issued
+  void
+
+  @@map("invoice_status")
+}
+
+enum PaymentStatus {
+  unpaid
+  partial
+  paid
+
+  @@map("payment_status")
+}
+
+model Invoice {
+  id            String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId      String        @map("client_id") @db.Uuid
+  matterId      String        @map("matter_id") @db.Uuid
+  invoiceNumber String?       @unique @map("invoice_number")
+  status        InvoiceStatus @default(draft)
+  issueDate     DateTime?     @map("issue_date") @db.Date
+  dueDate       DateTime?     @map("due_date") @db.Date
+  currency      String        @default("EUR")
+  subtotal      Decimal       @db.Decimal(12, 2)
+  taxRate       Decimal?      @map("tax_rate") @db.Decimal(5, 2)
+  taxAmount     Decimal       @default(0) @map("tax_amount") @db.Decimal(12, 2)
+  totalAmount   Decimal       @map("total_amount") @db.Decimal(12, 2)
+  paymentStatus PaymentStatus @default(unpaid) @map("payment_status")
+  paidAmount    Decimal       @default(0) @map("paid_amount") @db.Decimal(12, 2)
+  paidAt        DateTime?     @map("paid_at") @db.Timestamptz(6)
+  pdfStorageKey String?       @map("pdf_storage_key")
+  notes         String?
+  createdById   String        @map("created_by_id") @db.Uuid
+  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client    Client           @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  matter    Matter           @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  createdBy User             @relation("InvoiceCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  payments  InvoicePayment[]
+  timeEntries TimeEntry[]
+  fixedFees   FixedFee[]
+
+  @@index([clientId])
+  @@index([matterId])
+  @@index([status])
+  @@index([paymentStatus])
+  @@map("invoices")
+}
+
+model InvoicePayment {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  invoiceId    String   @map("invoice_id") @db.Uuid
+  amount       Decimal  @db.Decimal(12, 2)
+  paidAt       DateTime @map("paid_at") @db.Timestamptz(6)
+  method       String?
+  reference    String?
+  recordedById String   @map("recorded_by_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  invoice    Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  recordedBy User    @relation("InvoicePaymentRecordedBy", fields: [recordedById], references: [id], onDelete: Restrict)
+
+  @@index([invoiceId])
+  @@map("invoice_payments")
+}
+
+model InvoiceSequence {
+  year       Int @id
+  lastNumber Int @default(0) @map("last_number")
+
+  @@map("invoice_sequences")
 }
 
 enum NotificationType {
   deadline_reminder
   deadline_escalation
   task_assigned
+  renewal_instruction_received
   general
 
   @@map("notification_type")

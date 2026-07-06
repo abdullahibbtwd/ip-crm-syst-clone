@@ -7,6 +7,41 @@ export type BillingRateRole =
 
 export type FixedFeeCategory = 'professional_fee' | 'disbursement' | 'expense'
 
+export type RateCard = {
+  id: string
+  role: BillingRateRole
+  matterType: string | null
+  clientId: string | null
+  hourlyRate: number
+  currency: string
+  effectiveFrom: string
+  effectiveTo: string | null
+  createdAt: string
+  updatedAt: string
+  client?: {
+    id: string
+    internalCode: string | null
+    companyName: string | null
+    firstName: string | null
+    lastName: string | null
+  } | null
+}
+
+export type CreateRateCardInput = {
+  role: BillingRateRole
+  matterType?: string
+  clientId?: string
+  hourlyRate: number
+  currency?: string
+  effectiveFrom: string
+  effectiveTo?: string
+}
+
+export type UpdateRateCardInput = {
+  hourlyRate?: number
+  effectiveTo?: string
+}
+
 export type ResolvedRate = {
   hourlyRate: number
   currency: string
@@ -63,6 +98,18 @@ export type BillingSummary = {
   totalFixedFees: number
   totalAmount: number
   unbilledAmount: number
+}
+
+export type ClientMatterBillingSummary = BillingSummary & {
+  title: string
+  matterType: string
+  status: string
+}
+
+export type ClientBillingSummary = {
+  clientId: string
+  totals: Omit<BillingSummary, 'matterId'>
+  matters: ClientMatterBillingSummary[]
 }
 
 export type CreateTimeEntryInput = {

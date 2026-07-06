@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Check, FileText, Pencil, Plus, Trash2, X } from 'lucide-react'
+import { Check, Pencil, Plus, Trash2, X } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
-import { Card, CardContent } from '@/components/ui/card'
+import { useAppAlert } from '@/components/feedback/AppAlertProvider'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { Drawer } from '@/components/crm/Drawer'
 import { Badge } from '@/components/ui/badge'
@@ -37,6 +37,11 @@ import {
   useUpdateTimeEntry,
 } from '@/features/billing/hooks/useBilling'
 import type { FixedFee, FixedFeeCategory, TimeEntry } from '@/features/billing/types'
+import { SummaryBar } from '@/features/billing/components/SummaryBar'
+import { MatterInvoicesSection } from '@/features/invoices/components/MatterInvoicesSection'
+import { InvoiceListTable } from '@/features/invoices/components/InvoiceListTable'
+import { usePortalInvoices } from '@/features/invoices/hooks/useInvoices'
+import type { Invoice } from '@/features/invoices/types'
 import {
   FIXED_FEE_CATEGORIES,
   FIXED_FEE_CATEGORY_LABELS,
@@ -47,41 +52,7 @@ import {
 } from '@/features/billing/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { usePermission } from '@/hooks/usePermission'
-import { cn } from '@/lib/utils'
 import type { MatterTabContext } from '../MatterLayout'
-
-function SummaryBar({
-  totalHours,
-  totalBillableHours,
-  totalBillableAmount,
-  totalFixedFees,
-  totalAmount,
-}: {
-  totalHours: number
-  totalBillableHours: number
-  totalBillableAmount: number
-  totalFixedFees: number
-  totalAmount: number
-}) {
-  const items = [
-    { label: 'Total hours', value: formatHours(totalHours) },
-    { label: 'Billable', value: formatHours(totalBillableHours) },
-    { label: 'Billable amount', value: formatMoney(totalBillableAmount) },
-    { label: 'Fixed fees', value: formatMoney(totalFixedFees) },
-    { label: 'Total', value: formatMoney(totalAmount), highlight: true },
-  ]
-
-  return (
-    <div className="flex flex-wrap gap-4 rounded-lg border bg-muted/30 px-4 py-3 text-sm">
-      {items.map((item) => (
-        <div key={item.label} className="min-w-[120px]">
-          <p className="text-muted-foreground">{item.label}</p>
-          <p className={cn('font-medium', item.highlight && 'text-base')}>{item.value}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
 
 export function MatterBillingTab() {
   const { user } = useAuth()
@@ -96,11 +67,15 @@ export function MatterBillingTab() {
 
 /**
  * Client-facing billing view. Portal clients must not see internal time
- * entries, hourly rates, or attorney workload (spec: "protected"). They see
- * invoices and payment status — which arrive with Wave 2 invoicing. Until then
- * this is a friendly empty state and it never calls `billing:read` endpoints.
+ * entries, hourly rates, or attorney workload (spec: "protected").
  */
 function PortalBillingView() {
+  const { matterId } = useOutletContext<MatterTabContext>()
+  const { data: invoices, isLoading, isError } = usePortalInvoices()
+  const matterInvoices = (invoices ?? []).filter(
+    (invoice: Invoice) => invoice.matterId === matterId,
+  )
+
   return (
     <div className="space-y-6">
       <div>
@@ -110,26 +85,18 @@ function PortalBillingView() {
         </p>
       </div>
 
-      <Card className="border-dashed shadow-none">
-        <CardContent className="flex flex-col items-center gap-3 px-6 py-12 text-center">
-          <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <FileText className="size-6" aria-hidden />
-          </span>
-          <div>
-            <p className="font-medium text-foreground">No invoices yet</p>
-            <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-              When your matter is invoiced, your invoices and their payment status will
-              appear here.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+      {isLoading && <p className="text-sm text-muted-foreground">Loading invoices…</p>}
+      {isError && <p className="text-sm text-destructive">Failed to load invoices.</p>}
+      {!isLoading && !isError && (
+        <InvoiceListTable invoices={matterInvoices} portal />
+      )}
     </div>
   )
 }
 
 function InternalBillingView() {
   const { matterId } = useOutletContext<MatterTabContext>()
+  const { confirm } = useAppAlert()
   const { data: summary, isLoading: summaryLoading } = useBillingSummary(matterId)
   const {
     data: timeEntries,
@@ -177,7 +144,7 @@ function InternalBillingView() {
       <div>
         <h2 className="font-medium">Billing</h2>
         <p className="text-sm text-muted-foreground">
-          Time entries and fixed fees for this matter. Invoicing comes in a later release.
+          Time entries, fixed fees, and invoices for this matter.
         </p>
       </div>
 
@@ -187,6 +154,7 @@ function InternalBillingView() {
         totalBillableAmount={summaryData.totalBillableAmount}
         totalFixedFees={summaryData.totalFixedFees}
         totalAmount={summaryData.totalAmount}
+        unbilledAmount={summaryData.unbilledAmount}
       />
 
       <section className="space-y-3">
@@ -286,10 +254,14 @@ function InternalBillingView() {
                               variant="ghost"
                               size="icon-sm"
                               disabled={deleteEntry.isPending}
-                              onClick={() => {
-                                if (window.confirm('Delete this time entry?')) {
-                                  deleteEntry.mutate(entry.id)
-                                }
+                              onClick={async () => {
+                                const ok = await confirm({
+                                  title: 'Delete time entry?',
+                                  message: 'This billable line will be removed from the matter.',
+                                  variant: 'danger',
+                                  confirmLabel: 'Delete',
+                                })
+                                if (ok) deleteEntry.mutate(entry.id)
                               }}
                             >
                               <Trash2 className="size-3.5 text-destructive" />
@@ -389,10 +361,14 @@ function InternalBillingView() {
                               variant="ghost"
                               size="icon-sm"
                               disabled={deleteFee.isPending}
-                              onClick={() => {
-                                if (window.confirm('Delete this fixed fee?')) {
-                                  deleteFee.mutate(fee.id)
-                                }
+                              onClick={async () => {
+                                const ok = await confirm({
+                                  title: 'Delete fixed fee?',
+                                  message: 'This fee will be removed from the matter.',
+                                  variant: 'danger',
+                                  confirmLabel: 'Delete',
+                                })
+                                if (ok) deleteFee.mutate(fee.id)
                               }}
                             >
                               <Trash2 className="size-3.5 text-destructive" />
@@ -408,6 +384,8 @@ function InternalBillingView() {
           </TableBody>
         </Table>
       </section>
+
+      <MatterInvoicesSection matterId={matterId} />
 
       <TimeEntryDrawer
         matterId={matterId}

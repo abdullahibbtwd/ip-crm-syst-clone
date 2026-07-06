@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import {
+  ClientBillingSummaryController,
   FixedFeesController,
   MatterBillingSummaryController,
   MatterFixedFeesController,
@@ -18,6 +19,7 @@ import { RateResolutionService } from './rate-resolution.service';
     MatterFixedFeesController,
     FixedFeesController,
     MatterBillingSummaryController,
+    ClientBillingSummaryController,
   ],
   providers: [BillingService, RateResolutionService],
   exports: [BillingService, RateResolutionService],

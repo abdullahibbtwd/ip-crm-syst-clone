@@ -17,6 +17,9 @@ import type { AuthenticatedUser } from '../auth/auth.types';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import { CreateIpRightDto } from './dto/ip-right.dto';
 import { FileIpRightDto } from './dto/file-ip-right.dto';
+import { RegisterIpRightDto } from '../renewals/dto/register-ip-right.dto';
+import { CreateRenewalWindowDto } from '../renewals/dto/renewal-workflow.dto';
+import { RenewalsService } from '../renewals/renewals.service';
 import {
   CreateMatterDto,
   MatterQueryDto,
@@ -29,7 +32,10 @@ import { MattersService } from './matters.service';
 @RequirePermissions('matter:read')
 @Audit({ action: 'matter', resource: 'matter', module: MATTERS_MODULE })
 export class MattersController {
-  constructor(private readonly mattersService: MattersService) {}
+  constructor(
+    private readonly mattersService: MattersService,
+    private readonly renewalsService: RenewalsService,
+  ) {}
 
   @Post()
   @RequirePermissions('matter:create')
@@ -100,6 +106,49 @@ export class MattersController {
   ) {
     const user = req.user as AuthenticatedUser;
     return this.mattersService.fileIpRight(
+      matterId,
+      ipRightId,
+      dto,
+      user.userId,
+    );
+  }
+
+  @Patch(':matterId/ip-rights/:ipRightId/register')
+  @RequirePermissions('renewal:update')
+  registerIpRight(
+    @Param('matterId') matterId: string,
+    @Param('ipRightId') ipRightId: string,
+    @Body() dto: RegisterIpRightDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewalsService.registerIpRight(
+      matterId,
+      ipRightId,
+      dto,
+      user.userId,
+    );
+  }
+
+  @Get(':matterId/ip-rights/:ipRightId/renewals')
+  @RequirePermissions('renewal:read')
+  listIpRightRenewals(
+    @Param('matterId') matterId: string,
+    @Param('ipRightId') ipRightId: string,
+  ) {
+    return this.renewalsService.listForIpRight(matterId, ipRightId);
+  }
+
+  @Post(':matterId/ip-rights/:ipRightId/renewals')
+  @RequirePermissions('renewal:update')
+  createIpRightRenewal(
+    @Param('matterId') matterId: string,
+    @Param('ipRightId') ipRightId: string,
+    @Body() dto: CreateRenewalWindowDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewalsService.createWindowFromDto(
       matterId,
       ipRightId,
       dto,

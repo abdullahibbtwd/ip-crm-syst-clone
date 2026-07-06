@@ -6,12 +6,14 @@ import {
   FolderOpen,
   AlertTriangle,
   ArrowRight,
+  RefreshCw,
 } from 'lucide-react'
 import { MATTER_PAGE_SIZE } from '@/components/matters/MattersTable'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import { useMyDeadlines } from '@/features/deadlines/hooks/useDeadlines'
+import { usePortalRenewals } from '@/features/renewals/hooks/useRenewals'
 import { deadlineUrgency } from '@/features/deadlines/utils'
 import { cn } from '@/lib/utils'
 
@@ -113,9 +115,14 @@ export function PortalDashboard({ userName }: PortalDashboardProps) {
   const firstName = userName.split(' ')[0]
   const matters = useMatters({ limit: MATTER_PAGE_SIZE })
   const deadlines = useMyDeadlines({ limit: 100 })
+  const renewals = usePortalRenewals()
 
   const matterCount = matters.data?.items.length ?? 0
   const matterHasMore = Boolean(matters.data?.nextCursor)
+
+  const renewalCount = renewals.data?.length ?? 0
+  const renewalsNeedAction =
+    renewals.data?.filter((r) => r.status === 'upcoming').length ?? 0
 
   const deadlineItems = deadlines.data?.items ?? []
   const openDeadlines = deadlineItems.filter(
@@ -168,7 +175,7 @@ export function PortalDashboard({ userName }: PortalDashboardProps) {
       </div>
 
       {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           icon={FolderOpen}
           label="Active matters"
@@ -177,6 +184,19 @@ export function PortalDashboard({ userName }: PortalDashboardProps) {
           to="/matters"
           tone="green"
           loading={matters.isLoading}
+        />
+        <StatCard
+          icon={RefreshCw}
+          label="Renewals"
+          value={renewalCount}
+          hint={
+            renewalsNeedAction > 0
+              ? `${renewalsNeedAction} awaiting your decision`
+              : 'No action required'
+          }
+          to="/portal/renewals"
+          tone={renewalsNeedAction > 0 ? 'brand' : 'green'}
+          loading={renewals.isLoading}
         />
         <StatCard
           icon={CalendarClock}

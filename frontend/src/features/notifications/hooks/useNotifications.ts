@@ -1,31 +1,36 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useEffect } from 'react'
 import { notificationsApi } from '@/features/notifications/api'
-import {
-  disconnectNotificationSocket,
-  subscribeNotificationSocket,
-} from '@/features/notifications/notification-socket'
+import { useNotificationSyncContext } from '@/features/notifications/notification-sync-context'
 import { notificationKeys } from '@/features/notifications/queryKeys'
 
+const notificationQueryOptions = {
+  refetchOnWindowFocus: true,
+  refetchOnMount: 'always' as const,
+  refetchOnReconnect: true,
+  staleTime: 0,
+  retry: 2,
+  retryDelay: (attempt: number) => Math.min(1000 * 2 ** attempt, 8_000),
+}
+
 export function useNotifications(limit = 20) {
+  const { pollIntervalMs } = useNotificationSyncContext()
+
   return useQuery({
     queryKey: notificationKeys.list(limit),
     queryFn: () => notificationsApi.list({ limit }),
-    refetchOnWindowFocus: true,
-    refetchInterval: 30_000,
-    retry: 3,
-    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10_000),
+    ...notificationQueryOptions,
+    refetchInterval: pollIntervalMs,
   })
 }
 
 export function useUnreadNotificationCount() {
+  const { pollIntervalMs } = useNotificationSyncContext()
+
   return useQuery({
     queryKey: notificationKeys.unreadCount(),
     queryFn: () => notificationsApi.unreadCount(),
-    refetchOnWindowFocus: true,
-    refetchInterval: 30_000,
-    retry: 3,
-    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10_000),
+    ...notificationQueryOptions,
+    refetchInterval: pollIntervalMs,
   })
 }
 
@@ -34,7 +39,7 @@ export function useMarkNotificationRead() {
   return useMutation({
     mutationFn: (id: string) => notificationsApi.markRead(id),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: notificationKeys.all })
+      void qc.invalidateQueries({ queryKey: notificationKeys.all })
     },
   })
 }
@@ -44,21 +49,7 @@ export function useMarkAllNotificationsRead() {
   return useMutation({
     mutationFn: () => notificationsApi.markAllRead(),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: notificationKeys.all })
+      void qc.invalidateQueries({ queryKey: notificationKeys.all })
     },
   })
-}
-
-/** Mount once at app shell level — reuses a single Socket.io connection. */
-export function useNotificationSocket(enabled: boolean) {
-  const qc = useQueryClient()
-
-  useEffect(() => {
-    if (!enabled) {
-      disconnectNotificationSocket()
-      return
-    }
-
-    return subscribeNotificationSocket(qc)
-  }, [enabled, qc])
 }

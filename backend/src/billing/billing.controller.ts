@@ -159,3 +159,15 @@ export class MatterBillingSummaryController {
     return this.billing.getBillingSummary(matterId);
   }
 }
+
+@Controller('clients/:clientId/billing-summary')
+@RequirePermissions('billing:read')
+@Audit({ action: 'billing', resource: 'billing', module: BILLING_MODULE })
+export class ClientBillingSummaryController {
+  constructor(private readonly billing: BillingService) {}
+
+  @Get()
+  get(@Param('clientId') clientId: string) {
+    return this.billing.getClientBillingSummary(clientId);
+  }
+}

@@ -1,5 +1,9 @@
 export const billingKeys = {
   all: ['billing'] as const,
+  rateCards: () => [...billingKeys.all, 'rate-cards'] as const,
+  client: (clientId: string) => [...billingKeys.all, 'client', clientId] as const,
+  clientSummary: (clientId: string) =>
+    [...billingKeys.client(clientId), 'summary'] as const,
   matter: (matterId: string) => [...billingKeys.all, 'matter', matterId] as const,
   timeEntries: (matterId: string) =>
     [...billingKeys.matter(matterId), 'time-entries'] as const,

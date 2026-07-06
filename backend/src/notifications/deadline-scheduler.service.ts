@@ -33,7 +33,10 @@ export class DeadlineSchedulerService implements OnModuleInit {
 
     this.logger.log(`Scheduled deadline scan job (${pattern})`);
 
-    if (this.config.get('DEADLINE_SCAN_ON_STARTUP') === 'true') {
+    if (
+      this.config.get('DEADLINE_SCAN_ON_STARTUP') === 'true' ||
+      this.config.get('NODE_ENV') !== 'production'
+    ) {
       await this.scanQueue.add(DEADLINE_SCAN_JOB, {}, { jobId: `startup-${Date.now()}` });
       this.logger.log('Queued initial deadline scan on startup');
     }

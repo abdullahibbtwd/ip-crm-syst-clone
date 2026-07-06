@@ -1,4 +1,4 @@
-import type { FixedFeeCategory } from './types'
+import type { BillingRateRole, FixedFeeCategory } from './types'
 
 const eur = new Intl.NumberFormat('en-GB', {
   style: 'currency',
@@ -6,6 +6,16 @@ const eur = new Intl.NumberFormat('en-GB', {
   minimumFractionDigits: 0,
   maximumFractionDigits: 2,
 })
+
+export const BILLING_RATE_ROLE_LABELS: Record<BillingRateRole, string> = {
+  ip_attorney: 'IP attorney',
+  trademark_attorney: 'Trademark attorney',
+  paralegal: 'Paralegal',
+  coordinator: 'Coordinator',
+  managing_partner: 'Managing partner',
+}
+
+export const BILLING_RATE_ROLES = Object.keys(BILLING_RATE_ROLE_LABELS) as BillingRateRole[]
 
 export function formatMoney(amount: number, currency = 'EUR'): string {
   if (currency === 'EUR') return eur.format(amount)

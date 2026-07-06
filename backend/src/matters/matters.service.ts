@@ -386,8 +386,8 @@ export class MattersService {
     const applicationNumber = dto.applicationNumber.trim();
     const authority = filingAuthorityForJurisdiction(jurisdiction);
 
-    return this.prisma.$transaction(async (tx) => {
-      const updated = await tx.ipRight.update({
+    const updated = await this.prisma.$transaction(async (tx) => {
+      const filed = await tx.ipRight.update({
         where: { id: ipRightId },
         data: {
           status: IpRightStatus.filed,
@@ -399,9 +399,17 @@ export class MattersService {
         include: ipRightInclude,
       });
 
-      await tx.matterJurisdiction.updateMany({
-        where: { matterId, countryCode: jurisdiction },
-        data: {
+      await tx.matterJurisdiction.upsert({
+        where: {
+          matterId_countryCode: { matterId, countryCode: jurisdiction },
+        },
+        create: {
+          matterId,
+          countryCode: jurisdiction,
+          status: MatterJurisdictionStatus.filed,
+          localRefNumber: applicationNumber,
+        },
+        update: {
           status: MatterJurisdictionStatus.filed,
           localRefNumber: applicationNumber,
         },
@@ -419,10 +427,10 @@ export class MattersService {
           title: filingTimelineTitle(jurisdiction, applicationNumber),
           description: `Filing package linked. Authority: ${authority}.`,
           occurredAt: filingDate,
-          sourceIpRightId: updated.id,
+          sourceIpRightId: filed.id,
           createdById: userId,
           metadata: {
-            ipRightId: updated.id,
+            ipRightId: filed.id,
             applicationNumber,
             jurisdiction,
             authority,
@@ -432,8 +440,17 @@ export class MattersService {
         },
       });
 
-      return updated;
+      return filed;
     });
+
+    await this.deadlinesService.generateDeadlinesFromFiling(matterId, {
+      jurisdiction,
+      filingDate,
+      userId,
+      ipRightId: updated.id,
+    });
+
+    return updated;
   }
 
   private async assertClientExists(clientId: string) {

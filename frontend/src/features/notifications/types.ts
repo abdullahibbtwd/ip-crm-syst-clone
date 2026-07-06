@@ -2,6 +2,7 @@ export type NotificationType =
   | 'deadline_reminder'
   | 'deadline_escalation'
   | 'task_assigned'
+  | 'renewal_instruction_received'
   | 'general'
 
 export type Notification = {

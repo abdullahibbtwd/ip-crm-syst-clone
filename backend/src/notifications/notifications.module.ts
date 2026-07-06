@@ -3,8 +3,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { DeadlineNotificationScanService } from './deadline-notification-scan.service';
+import { DeadlineNotifyService } from './deadline-notify.service';
 import { DeadlineSchedulerService } from './deadline-scheduler.service';
 import { EmailService } from './email.service';
+import { ManagingPartnerAudienceService } from './managing-partner-audience.service';
 import { NotificationDispatchService } from './notification-dispatch.service';
 import {
   DEADLINE_SCAN_QUEUE,
@@ -48,10 +50,19 @@ import { NotificationEmailProcessor } from './processors/notification-email.proc
     EmailService,
     NotificationsGateway,
     DeadlineNotificationScanService,
+    DeadlineNotifyService,
     DeadlineSchedulerService,
+    ManagingPartnerAudienceService,
     NotificationEmailProcessor,
     DeadlineScanProcessor,
   ],
-  exports: [NotificationDispatchService, NotificationsService, NotificationsGateway],
+  exports: [
+    NotificationDispatchService,
+    NotificationsService,
+    NotificationsGateway,
+    DeadlineNotifyService,
+    DeadlineNotificationScanService,
+    ManagingPartnerAudienceService,
+  ],
 })
 export class NotificationsModule {}

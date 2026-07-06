@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { FileText, Plus } from 'lucide-react'
+import { ChevronDown, ChevronRight, FileText, Plus, Stamp } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -27,7 +28,21 @@ import {
   useFileIpRight,
   useMatterIpRights,
 } from '@/features/matters/hooks/useMatters'
+import {
+  useCompleteRenewal,
+  useInstructRenewal,
+  useIpRightRenewals,
+  useMarkRenewalFiled,
+  useRegisterIpRight,
+} from '@/features/renewals/hooks/useRenewals'
+import {
+  RENEWAL_STATUS_LABELS,
+  RENEWAL_URGENCY_ROW_CLASS,
+  renewalUrgency,
+} from '@/features/renewals/utils'
 import type { IpRight, IpRightStatus } from '@/features/matters/types'
+import { formatDeadlineDate } from '@/features/deadlines/utils'
+import { cn } from '@/lib/utils'
 import {
   IP_RIGHT_STATUS_LABELS,
   MATTER_TYPE_LABELS,
@@ -47,6 +62,10 @@ export function MatterIpRightsTab() {
   const { data: documents } = useMatterDocuments(matterId)
   const createIpRight = useCreateIpRight(matterId)
   const fileIpRight = useFileIpRight(matterId)
+  const registerIpRight = useRegisterIpRight(matterId)
+  const instructRenewal = useInstructRenewal()
+  const markRenewalFiled = useMarkRenewalFiled()
+  const completeRenewal = useCompleteRenewal()
   const countryOptions = getCountryOptions()
 
   const documentVersionOptions = useMemo(
@@ -88,6 +107,15 @@ export function MatterIpRightsTab() {
   const [fileJurisdiction, setFileJurisdiction] = useState('BG')
   const [fileError, setFileError] = useState<string | null>(null)
 
+  const [registerDrawerOpen, setRegisterDrawerOpen] = useState(false)
+  const [registerTarget, setRegisterTarget] = useState<IpRight | null>(null)
+  const [regNumber, setRegNumber] = useState('')
+  const [regDate, setRegDate] = useState(todayIsoDate())
+  const [regExpiry, setRegExpiry] = useState('')
+  const [registerError, setRegisterError] = useState<string | null>(null)
+
+  const [expandedRightId, setExpandedRightId] = useState<string | null>(null)
+
   const selectedFilingDocument = useMemo(
     () => documentVersionOptions.find((opt) => opt.id === fileDocumentVersionId),
     [documentVersionOptions, fileDocumentVersionId],
@@ -121,6 +149,40 @@ export function MatterIpRightsTab() {
     setFileApplicationNumber('')
     setFileJurisdiction('BG')
     setFileError(null)
+  }
+
+  const openRegisterDrawer = (right: IpRight) => {
+    setRegisterTarget(right)
+    setRegNumber(right.registrationNumber ?? '')
+    setRegDate(todayIsoDate())
+    setRegExpiry('')
+    setRegisterError(null)
+    setRegisterDrawerOpen(true)
+  }
+
+  const handleRegisterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!registerTarget) return
+    setRegisterError(null)
+    if (!regNumber.trim()) {
+      setRegisterError('Enter the registration number')
+      return
+    }
+    try {
+      await registerIpRight.mutateAsync({
+        ipRightId: registerTarget.id,
+        data: {
+          registrationNumber: regNumber.trim(),
+          registrationDate: regDate,
+          expiryDate: regExpiry || undefined,
+        },
+      })
+      setRegisterDrawerOpen(false)
+      setRegisterTarget(null)
+      setExpandedRightId(registerTarget.id)
+    } catch (err) {
+      setRegisterError(getApiErrorMessage(err, 'Failed to register IP right'))
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -224,30 +286,74 @@ export function MatterIpRightsTab() {
             </TableRow>
           ) : (
             ipRights?.map((right) => (
-              <TableRow key={right.id}>
-                <TableCell className="font-medium">{right.title}</TableCell>
-                <TableCell className="text-muted-foreground">
-                  {MATTER_TYPE_LABELS[right.rightType]}
-                </TableCell>
-                <TableCell>{right.applicationNumber ?? right.registrationNumber ?? '-'}</TableCell>
-                <TableCell>{right.jurisdiction}</TableCell>
-                <TableCell>{IP_RIGHT_STATUS_LABELS[right.status]}</TableCell>
-                <TableCell className="text-muted-foreground">
-                  {right.filingDate ? formatMatterDate(right.filingDate) : '-'}
-                </TableCell>
-                <TableCell>
-                  {right.status === 'pending' ? (
-                    <PermissionGate resource="matter" action="update">
-                      <Button size="sm" variant="outline" onClick={() => openFileDrawer(right)}>
-                        <FileText className="size-4" />
-                        File application
-                      </Button>
-                    </PermissionGate>
-                  ) : (
-                    <span className="text-xs text-muted-foreground">-</span>
-                  )}
-                </TableCell>
-              </TableRow>
+              <Fragment key={right.id}>
+                <TableRow>
+                  <TableCell>
+                    <button
+                      type="button"
+                      className="mr-1 inline-flex text-muted-foreground"
+                      onClick={() =>
+                        setExpandedRightId((id) => (id === right.id ? null : right.id))
+                      }
+                    >
+                      {expandedRightId === right.id ? (
+                        <ChevronDown className="size-4" />
+                      ) : (
+                        <ChevronRight className="size-4" />
+                      )}
+                    </button>
+                    <span className="font-medium">{right.title}</span>
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {MATTER_TYPE_LABELS[right.rightType]}
+                  </TableCell>
+                  <TableCell>{right.applicationNumber ?? right.registrationNumber ?? '-'}</TableCell>
+                  <TableCell>{right.jurisdiction}</TableCell>
+                  <TableCell>{IP_RIGHT_STATUS_LABELS[right.status]}</TableCell>
+                  <TableCell className="text-muted-foreground">
+                    {right.filingDate ? formatMatterDate(right.filingDate) : '-'}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-wrap gap-1">
+                      {right.status === 'pending' ? (
+                        <PermissionGate resource="matter" action="update">
+                          <Button size="sm" variant="outline" onClick={() => openFileDrawer(right)}>
+                            <FileText className="size-4" />
+                            File
+                          </Button>
+                        </PermissionGate>
+                      ) : null}
+                      {right.status === 'filed' ? (
+                        <PermissionGate resource="renewal" action="update">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => openRegisterDrawer(right)}
+                          >
+                            <Stamp className="size-4" />
+                            Register
+                          </Button>
+                        </PermissionGate>
+                      ) : null}
+                    </div>
+                  </TableCell>
+                </TableRow>
+                {expandedRightId === right.id ? (
+                  <TableRow key={`${right.id}-renewals`}>
+                    <TableCell colSpan={7} className="bg-muted/20 p-4">
+                      <IpRightRenewalsPanel
+                        matterId={matterId}
+                        ipRightId={right.id}
+                        onInstruct={(id, decision) =>
+                          instructRenewal.mutate({ id, data: { decision } })
+                        }
+                        onFile={(id) => markRenewalFiled.mutate(id)}
+                        onComplete={(id) => completeRenewal.mutate({ id, data: {} })}
+                      />
+                    </TableCell>
+                  </TableRow>
+                ) : null}
+              </Fragment>
             ))
           )}
         </TableBody>
@@ -434,6 +540,136 @@ export function MatterIpRightsTab() {
           </form>
         ) : null}
       </Drawer>
+
+      <Drawer
+        open={registerDrawerOpen}
+        onClose={() => setRegisterDrawerOpen(false)}
+        title="Register IP right"
+      >
+        {registerTarget ? (
+          <form onSubmit={handleRegisterSubmit} className="space-y-4">
+            <div className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
+              <p className="font-medium">{registerTarget.title}</p>
+              <p className="text-muted-foreground">
+                Opens cycle 1 renewal window and generates renewal deadlines.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium">Registration number</label>
+              <Input value={regNumber} onChange={(e) => setRegNumber(e.target.value)} />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium">Registration date</label>
+              <Input type="date" value={regDate} onChange={(e) => setRegDate(e.target.value)} />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium">Expiry date (optional)</label>
+              <Input type="date" value={regExpiry} onChange={(e) => setRegExpiry(e.target.value)} />
+              <p className="text-xs text-muted-foreground">
+                Leave blank to compute from jurisdiction renewal cycle.
+              </p>
+            </div>
+            {registerError ? <p className="text-sm text-destructive">{registerError}</p> : null}
+            <div className="flex justify-end gap-2 border-t pt-4">
+              <Button type="button" variant="outline" onClick={() => setRegisterDrawerOpen(false)}>
+                Cancel
+              </Button>
+              <Button type="submit" disabled={registerIpRight.isPending}>
+                {registerIpRight.isPending ? 'Registering…' : 'Confirm registration'}
+              </Button>
+            </div>
+          </form>
+        ) : null}
+      </Drawer>
+    </div>
+  )
+}
+
+function IpRightRenewalsPanel({
+  matterId,
+  ipRightId,
+  onInstruct,
+  onFile,
+  onComplete,
+}: {
+  matterId: string
+  ipRightId: string
+  onInstruct: (id: string, decision: 'proceed' | 'abandon') => void
+  onFile: (id: string) => void
+  onComplete: (id: string) => void
+}) {
+  const { data: renewals, isLoading } = useIpRightRenewals(matterId, ipRightId)
+
+  if (isLoading) {
+    return <p className="text-sm text-muted-foreground">Loading renewals…</p>
+  }
+
+  if (!renewals?.length) {
+    return (
+      <p className="text-sm text-muted-foreground">
+        No renewal windows yet. Register the IP right to open cycle 1.
+      </p>
+    )
+  }
+
+  return (
+    <div className="space-y-2">
+      <p className="text-sm font-medium">Renewal windows</p>
+      <div className="space-y-2">
+        {renewals.map((w) => {
+          const urgency = renewalUrgency(w.dueDate, w.status)
+          return (
+            <div
+              key={w.id}
+              className={cn(
+                'flex flex-wrap items-center justify-between gap-2 rounded-md border px-3 py-2',
+                RENEWAL_URGENCY_ROW_CLASS[urgency],
+              )}
+            >
+              <div>
+                <p className="text-sm font-medium">
+                  Cycle {w.cycleNumber} · due {formatDeadlineDate(w.dueDate)}
+                </p>
+                <Badge variant="outline" className="mt-1">
+                  {RENEWAL_STATUS_LABELS[w.status]}
+                </Badge>
+              </div>
+              <PermissionGate resource="renewal" action="update">
+                <div className="flex flex-wrap gap-1">
+                  {w.status === 'upcoming' ? (
+                    <>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onInstruct(w.id, 'proceed')}
+                      >
+                        Record proceed
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => onInstruct(w.id, 'abandon')}
+                      >
+                        Abandon
+                      </Button>
+                    </>
+                  ) : null}
+                  {w.status === 'instructed' ? (
+                    <Button size="sm" variant="outline" onClick={() => onFile(w.id)}>
+                      Mark filed
+                    </Button>
+                  ) : null}
+                  {w.status === 'instructed' || w.status === 'filed' ? (
+                    <Button size="sm" onClick={() => onComplete(w.id)}>
+                      Complete
+                    </Button>
+                  ) : null}
+                </div>
+              </PermissionGate>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

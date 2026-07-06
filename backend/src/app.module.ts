@@ -11,6 +11,7 @@ import { DeadlinesModule } from './deadlines/deadlines.module';
 import { DocumentsModule } from './documents/documents.module';
 import { CorrespondenceModule } from './correspondence/correspondence.module';
 import { BillingModule } from './billing/billing.module';
+import { InvoicesModule } from './invoices/invoices.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
@@ -43,6 +44,7 @@ import { PrismaModule } from './prisma/prisma.module';
     DocumentsModule,
     CorrespondenceModule,
     BillingModule,
+    InvoicesModule,
     NotificationsModule,
     TasksModule,
     StorageModule,

@@ -26,6 +26,7 @@ import {
 } from '@/features/deadlines/utils'
 import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
 import type { MatterType } from '@/features/matters/types'
+import { useAuth } from '@/features/auth/AuthProvider'
 import { cn } from '@/lib/utils'
 
 const PAGE_SIZE = 50
@@ -39,6 +40,8 @@ const TABS: { id: MyDeadlinesTab; label: string }[] = [
 ]
 
 export function MyDeadlinesPage() {
+  const { user } = useAuth()
+  const isPortalClient = user?.roles.includes('portal_client') ?? false
   const [tab, setTab] = useState<MyDeadlinesTab>('all')
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
@@ -77,8 +80,9 @@ export function MyDeadlinesPage() {
       <div>
         <h1 className="font-serif text-2xl text-foreground md:text-3xl">My deadlines</h1>
         <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-          Your personal worklist across all assigned matters. Update status here without opening
-          each matter.
+          {isPortalClient
+            ? 'Upcoming and overdue deadlines across your matters.'
+            : 'Your personal worklist across all assigned matters. Update status here without opening each matter.'}
         </p>
       </div>
 

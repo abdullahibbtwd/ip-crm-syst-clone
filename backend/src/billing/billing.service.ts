@@ -88,6 +88,12 @@ type BillingSummaryRow = {
   unbilled_amount: string | number;
 };
 
+type ClientMatterBillingRow = BillingSummaryRow & {
+  title: string;
+  matter_type: string;
+  status: string;
+};
+
 @Injectable()
 export class BillingService {
   constructor(
@@ -354,6 +360,63 @@ export class BillingService {
         unbilledAmount: 0,
       };
     }
+    return this.serializeBillingSummaryRow(row);
+  }
+
+  async getClientBillingSummary(clientId: string) {
+    await this.assertClientExists(clientId);
+    const rows = await this.prisma.$queryRaw<ClientMatterBillingRow[]>`
+      SELECT
+        m.id AS matter_id,
+        m.title,
+        m.matter_type,
+        m.status,
+        COALESCE(bs.total_hours, 0)::decimal(12, 2) AS total_hours,
+        COALESCE(bs.total_billable_hours, 0)::decimal(12, 2) AS total_billable_hours,
+        COALESCE(bs.total_billable_amount, 0)::decimal(12, 2) AS total_billable_amount,
+        COALESCE(bs.total_fixed_fees, 0)::decimal(12, 2) AS total_fixed_fees,
+        COALESCE(bs.total_amount, 0)::decimal(12, 2) AS total_amount,
+        COALESCE(bs.unbilled_amount, 0)::decimal(12, 2) AS unbilled_amount
+      FROM matters m
+      LEFT JOIN billing_summary bs ON bs.matter_id = m.id
+      WHERE m.client_id = ${clientId}::uuid
+      ORDER BY m.title ASC
+    `;
+
+    const matters = rows.map((row) => ({
+      ...this.serializeBillingSummaryRow(row),
+      title: row.title,
+      matterType: row.matter_type,
+      status: row.status,
+    }));
+
+    const totals = matters.reduce(
+      (acc, matter) => ({
+        totalHours: roundMoney(acc.totalHours + matter.totalHours),
+        totalBillableHours: roundMoney(
+          acc.totalBillableHours + matter.totalBillableHours,
+        ),
+        totalBillableAmount: roundMoney(
+          acc.totalBillableAmount + matter.totalBillableAmount,
+        ),
+        totalFixedFees: roundMoney(acc.totalFixedFees + matter.totalFixedFees),
+        totalAmount: roundMoney(acc.totalAmount + matter.totalAmount),
+        unbilledAmount: roundMoney(acc.unbilledAmount + matter.unbilledAmount),
+      }),
+      {
+        totalHours: 0,
+        totalBillableHours: 0,
+        totalBillableAmount: 0,
+        totalFixedFees: 0,
+        totalAmount: 0,
+        unbilledAmount: 0,
+      },
+    );
+
+    return { clientId, totals, matters };
+  }
+
+  private serializeBillingSummaryRow(row: BillingSummaryRow) {
     return {
       matterId: row.matter_id,
       totalHours: roundMoney(Number(row.total_hours)),
@@ -377,6 +440,14 @@ export class BillingService {
       select: { id: true },
     });
     if (!matter) throw new NotFoundException('Matter not found');
+  }
+
+  private async assertClientExists(clientId: string) {
+    const client = await this.prisma.client.findUnique({
+      where: { id: clientId },
+      select: { id: true },
+    });
+    if (!client) throw new NotFoundException('Client not found');
   }
 
   private async assertRateCardExists(id: string) {
