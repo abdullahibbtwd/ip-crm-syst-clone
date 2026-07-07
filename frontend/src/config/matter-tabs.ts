@@ -1,13 +1,13 @@
-/** Matter hub tabs — `portalVisible` controls what portal_client users see. */
+/** Matter hub tabs - `portalVisible` controls what portal_client users see. */
 export const MATTER_TABS = [
-  { to: 'overview', label: 'Overview', portalVisible: true },
-  { to: 'timeline', label: 'Timeline', portalVisible: false },
-  { to: 'documents', label: 'Documents', portalVisible: true },
-  { to: 'correspondence', label: 'Correspondence', portalVisible: false },
-  { to: 'deadlines', label: 'Deadlines', portalVisible: true },
-  { to: 'tasks', label: 'Tasks', portalVisible: false },
-  { to: 'billing', label: 'Billing', portalVisible: true },
-  { to: 'ip-rights', label: 'IP rights', portalVisible: false },
+  { to: 'overview', labelKey: 'tabs.overview', portalVisible: true },
+  { to: 'timeline', labelKey: 'tabs.timeline', portalVisible: false },
+  { to: 'documents', labelKey: 'tabs.documents', portalVisible: true },
+  { to: 'correspondence', labelKey: 'tabs.correspondence', portalVisible: false },
+  { to: 'deadlines', labelKey: 'tabs.deadlines', portalVisible: true },
+  { to: 'tasks', labelKey: 'tabs.tasks', portalVisible: false },
+  { to: 'billing', labelKey: 'tabs.billing', portalVisible: true },
+  { to: 'ip-rights', labelKey: 'tabs.ipRights', portalVisible: false },
 ] as const
 
 export type MatterTabSlug = (typeof MATTER_TABS)[number]['to']

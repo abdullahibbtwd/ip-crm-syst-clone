@@ -1,6 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import type { MatterType } from '@/features/matters/types'
 import {
-  MATTER_ATTRIBUTE_FIELDS,
+  getMatterAttributeFields,
   type AttributeFieldConfig,
 } from '@/features/matters/utils'
 import { Input } from '@/components/ui/input'
@@ -24,10 +25,12 @@ function FieldControl({
   field,
   value,
   onChange,
+  selectPlaceholder,
 }: {
   field: AttributeFieldConfig
   value: unknown
   onChange: (value: unknown) => void
+  selectPlaceholder: string
 }) {
   switch (field.type) {
     case 'textarea':
@@ -63,7 +66,7 @@ function FieldControl({
           onValueChange={(v) => onChange(v)}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select…" />
+            <SelectValue placeholder={selectPlaceholder} />
           </SelectTrigger>
           <SelectContent>
             {field.options?.map((opt) => (
@@ -98,13 +101,14 @@ export function MatterAttributeFields({
   values,
   onChange,
 }: MatterAttributeFieldsProps) {
-  const fields = MATTER_ATTRIBUTE_FIELDS[matterType] ?? []
+  const { t } = useTranslation('matters')
+  const fields = getMatterAttributeFields(matterType)
 
   if (fields.length === 0) return null
 
   return (
     <div className="space-y-4">
-      <p className="text-sm font-medium">Type-specific details</p>
+      <p className="text-sm font-medium">{t('attributeFields.title')}</p>
       {fields.map((field) => (
         <div key={field.key} className="space-y-1.5">
           <label className="text-sm text-muted-foreground">{field.label}</label>
@@ -112,6 +116,7 @@ export function MatterAttributeFields({
             field={field}
             value={values[field.key]}
             onChange={(v) => onChange(field.key, v)}
+            selectPlaceholder={t('attributeFields.selectPlaceholder')}
           />
           {field.helpText ? (
             <p className="text-xs text-muted-foreground">{field.helpText}</p>

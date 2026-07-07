@@ -1,17 +1,19 @@
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 
 const tabs = [
-  { to: 'overview', label: 'Overview' },
-  { to: 'offices', label: 'Offices' },
-  { to: 'contacts', label: 'Contacts' },
-  { to: 'related', label: 'Related' },
-  { to: 'history', label: 'History' },
-  { to: 'matters', label: 'Matters' },
-  { to: 'billing', label: 'Billing' },
+  { to: 'overview', labelKey: 'tabs.overview' },
+  { to: 'offices', labelKey: 'tabs.offices' },
+  { to: 'contacts', labelKey: 'tabs.contacts' },
+  { to: 'related', labelKey: 'tabs.related' },
+  { to: 'history', labelKey: 'tabs.history' },
+  { to: 'matters', labelKey: 'tabs.matters' },
+  { to: 'billing', labelKey: 'tabs.billing' },
 ] as const
 
 export function ClientTabNav({ clientId }: { clientId: string }) {
+  const { t } = useTranslation('crm')
   const base = `/clients/${clientId}`
 
   return (
@@ -30,7 +32,7 @@ export function ClientTabNav({ clientId }: { clientId: string }) {
             )
           }
         >
-          {tab.label}
+          {t(tab.labelKey)}
         </NavLink>
       ))}
     </nav>

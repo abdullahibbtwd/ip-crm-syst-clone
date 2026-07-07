@@ -1,0 +1,342 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Текущи",
+      "overdue30": "1–30 дни",
+      "overdue60": "31–60 дни",
+      "overdue90plus": "90+ дни"
+    },
+    "bucketsShort": {
+      "current": "Текущи",
+      "overdue30": "30д",
+      "overdue60": "60д",
+      "overdue90plus": "90д+"
+    },
+    "legend": "Легенда на възрастта",
+    "noOpenReceivables": "Няма отворени вземания"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} клиентска група",
+    "clientGroups_few": "{{count}} клиентски групи",
+    "clientGroups_other": "{{count}} клиентски групи",
+    "clientMatters": "Дела на клиента",
+    "clientsInWindow": "{{clients}} клиента · хоризонт {{days}} дни",
+    "crossTabTitle": "Клиент × юрисдикция × адвокат",
+    "description": "Предстоящи критични срокове, групирани по клиент, юрисдикция и отговорен адвокат. Цветовете на спешността съответстват на работните списъци и известията за срокове.",
+    "emptyDescription": "Опитайте да разширите прозореца на портфейла или да изчистите филтрите.",
+    "emptyTitle": "Няма срокове в този прозорец",
+    "error": "Неуспешно зареждане на справката за риск по срокове.",
+    "filters": {
+      "allAssignees": "Всички отговорни",
+      "allAttorneys": "Всички адвокати",
+      "allJurisdictions": "Всички юрисдикции",
+      "jurisdiction": "Юрисдикция",
+      "portfolioWindow": "Прозорец на портфейла (дни)",
+      "responsibleAttorney": "Отговорен адвокат"
+    },
+    "generated": "Генерирано {{date}}",
+    "loading": "Зареждане на риска по портфейла…",
+    "openWorklist": "Отвори работен списък",
+    "stats": {
+      "critical": "Критични",
+      "criticalHint": "Просрочени, днес или ≤7 дни",
+      "dueToday": "С падеж днес",
+      "dueTodayHint": "Необходимо действие днес",
+      "inWindow": "В прозореца",
+      "overdue": "Просрочени",
+      "overdueHint": "С изтекъл срок или ескалирани"
+    },
+    "table": {
+      "deadline": "Срок",
+      "due": "Падеж",
+      "matter": "Дело",
+      "status": "Статус"
+    },
+    "title": "Риск по портфейл от срокове"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "По юрисдикция",
+    "byMonth": "Подавания по месец",
+    "description": "Подадени заявления - агрегирани от събития за подаване в хронологията на делата, групирани по месец, тип дело и юрисдикция.",
+    "error": "Неуспешно зареждане на обемите на подаванията.",
+    "filters": {
+      "allJurisdictions": "Всички юрисдикции",
+      "allTypes": "Всички типове",
+      "jurisdiction": "Юрисдикция",
+      "matterType": "Тип дело",
+      "periodFrom": "Период от",
+      "periodTo": "Период до"
+    },
+    "generated": "Генерирано {{date}}",
+    "loading": "Зареждане на обемите на подаванията…",
+    "matterPortfolio": "Портфейл от дела",
+    "noFilings": "Няма подавания в периода.",
+    "stats": {
+      "jurisdictions": "Юрисдикции",
+      "jurisdictionsHint": "Органи за подаване",
+      "matterTypes": "Типове дела",
+      "matterTypesHint": "Различни подадени типове",
+      "totalFilings": "Общо подавания",
+      "totalFilingsHint": "В избрания период"
+    },
+    "table": {
+      "filingDate": "Дата на подаване",
+      "filings": "Подавания",
+      "jurisdiction": "Юрисдикция",
+      "matter": "Дело",
+      "month": "Месец",
+      "type": "Тип"
+    },
+    "title": "Обеми на подавания"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "По месец на падеж",
+    "byJurisdiction": "По юрисдикция",
+    "cycle": "цикъл {{number}}",
+    "description": "Предстоящи прозорци за подновяване по статус, юрисдикция и месец на падеж - с нива на спешност, съгласувани със справките за риск по срокове.",
+    "dueBefore": "Падеж преди",
+    "dueBeforeLabel": "Падеж преди {{date}}",
+    "error": "Неуспешно зареждане на обобщението за подновявания.",
+    "filters": {
+      "allJurisdictions": "Всички юрисдикции",
+      "jurisdiction": "Юрисдикция"
+    },
+    "generated": "Генерирано {{date}}",
+    "loading": "Зареждане на обобщението за подновявания…",
+    "noRenewals": "Няма подновявания в прозореца.",
+    "renewalsWorklist": "Работен списък за подновявания",
+    "stats": {
+      "critical": "Критични",
+      "criticalHint": "Просрочени или с падеж ≤7 дни",
+      "instructed": "Инструктирани",
+      "instructedHint": "Потвърдено продължаване",
+      "pipeline": "Пайплайн",
+      "pipelineHint": "Активни прозорци за подновяване",
+      "upcoming": "Предстоящи",
+      "upcomingHint": "Очакващи инструкция"
+    },
+    "table": {
+      "client": "Клиент",
+      "due": "Падеж",
+      "ipRight": "Право на ИС",
+      "month": "Месец",
+      "status": "Статус",
+      "windows": "Прозорци"
+    },
+    "title": "Обобщение за подновявания"
+  },
+  "renewalUrgency": {
+    "legend": "Спешност на подновяване",
+    "noPipeline": "Няма подновявания в пайплайна",
+    "overdue": "Просрочени",
+    "soon": "≤30 дни",
+    "today": "С падеж днес",
+    "urgent": "≤7 дни"
+  },
+  "revenueSummary": {
+    "agingDetail": "Детайли за отворени вземания",
+    "agingSection": {
+      "description": "Моментна снимка на всички отворени вземания по дни след падежа",
+      "title": "Обобщение по възраст"
+    },
+    "description": "Издадени фактури по месец, събрани плащания и отворени вземания по дни след падежа - съгласувано със сценария за проследяване на плащания на финансите.",
+    "error": "Неуспешно зареждане на обобщението за приходи.",
+    "filters": {
+      "periodFrom": "Период от",
+      "periodTo": "Период до"
+    },
+    "generated": "Генерирано {{date}}",
+    "invoice_one": "{{count}} фактура",
+    "invoice_few": "{{count}} фактури",
+    "invoice_other": "{{count}} фактури",
+    "invoiceRegister": "Регистър на фактури",
+    "issuedInPeriod_one": "",
+    "issuedInPeriod_other": "",
+    "loading": "Зареждане на обобщението за приходи…",
+    "noInvoices": "Няма издадени фактури в този период.",
+    "noReceivables": "Няма непогасени вземания.",
+    "openInvoices_one": "",
+    "openInvoices_other": "",
+    "period": "Период {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Издадени фактури, групирани по месец на издаване",
+      "title": "Приходи по месец"
+    },
+    "stats": {
+      "collected": "Събрани",
+      "collectedHint": "Плащания, записани в периода",
+      "criticalReceivables": "60+ дни просрочие",
+      "criticalReceivablesHint": "Вземания, изискващи проследяване",
+      "outstanding": "Непогасени",
+      "totalInvoiced": "Общо фактурирано"
+    },
+    "table": {
+      "aging": "Възраст",
+      "client": "Клиент",
+      "due": "Падеж",
+      "invoice": "Фактура",
+      "invoiced": "Фактурирано",
+      "month": "Месец",
+      "open": "Отворено",
+      "outstanding": "Непогасено",
+      "paid": "Платено"
+    },
+    "title": "Приходи и вземания"
+  },
+  "urgency": {
+    "legend": "Легенда на спешността",
+    "noActiveRisk": "Няма активен риск",
+    "overdue": "Просрочени",
+    "soon": "Падеж ≤30 дни",
+    "soonShort": "≤30 дни",
+    "today": "С падеж днес",
+    "todayShort": "Днес",
+    "urgent": "Падеж ≤7 дни",
+    "urgentShort": "≤7 дни"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Критични",
+      "criticalHint": "≤ 7 дни",
+      "overdue": "Просрочени",
+      "actionRequired": "Необходимо действие",
+      "dueToday": "С падеж днес",
+      "requiresSignOff": "Изисква одобрение",
+      "nextDays": "Следващите {{days}} дни",
+      "clientsInWindow": "{{count}} клиента в прозореца",
+      "windowSummary": "Обобщение на прозореца",
+      "priorityDeadlines": "Приоритетни срокове",
+      "prioritySubtitle": "Най-спешните елементи, изискващи наблюдение",
+      "openReport": "Отвори справката",
+      "loading": "Сканиране на вектори на риска…",
+      "error": "Неуспешно зареждане на аналитика за риска.",
+      "highestExposure": "Най-висока експозиция на риск",
+      "criticalCount": "{{count}} критични",
+      "portfolioClear": "Портфейлът е чист",
+      "noCriticalInWindow": "Няма критичен риск за следващите {{days}} дни.",
+      "table": {
+        "priorityDeadline": "Приоритетен срок",
+        "clientJurisdiction": "Клиент и юрисдикция",
+        "dueDate": "Падеж"
+      },
+      "showingOf": "Показани {{shown}} от {{total}} приоритетни елемента",
+      "viewCrossTab": "Пълна кръстосана справка"
+    },
+    "filingVolumes": {
+      "title": "Обеми на подавания",
+      "subtitle": "Подадени заявления във фирмата (последните 12 м.)",
+      "fullReport": "Пълна справка",
+      "loading": "Агрегиране на история на подавания…",
+      "error": "Неуспешно зареждане на аналитика за подавания.",
+      "totalFilings": "Общо подавания",
+      "yearToDate": "От началото на годината",
+      "primaryType": "Основен тип",
+      "applications_one": "{{count}} заявление",
+      "applications_few": "{{count}} заявления",
+      "applications_other": "{{count}} заявления",
+      "noData": "Няма данни",
+      "topRegion": "Топ регион",
+      "monthActivity": "Активност {{month}}:",
+      "newFiling_one": "{{count}} ново подаване",
+      "newFiling_few": "{{count}} нови подавания",
+      "newFiling_other": "{{count}} нови подавания",
+      "empty": "Няма открити подавания в скорошната история.",
+      "table": {
+        "matterInfo": "Информация за делото",
+        "type": "Тип",
+        "filingDate": "Дата на подаване"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Фактурирано (12 м.)",
+      "issued_one": "{{count}} издадена",
+      "issued_few": "{{count}} издадени",
+      "issued_other": "{{count}} издадени",
+      "collected": "Събрано",
+      "paidInPeriod": "Платено в периода",
+      "outstanding": "Непогасено",
+      "open_one": "{{count}} отворена",
+      "open_few": "{{count}} отворени",
+      "open_other": "{{count}} отворени",
+      "criticalRisk": "Критичен риск",
+      "overdue60Days": "Просрочени 60+ дни",
+      "receivablesAging": "Възраст на вземанията",
+      "agingSubtitle": "Отворени издадени фактури по дни след падеж",
+      "fullReport": "Пълна справка",
+      "loading": "Анализ на данни за възрастта…",
+      "error": "Неуспешно зареждане на данни за възрастта.",
+      "portfolioHealthy": "Портфейлът е здрав",
+      "noReceivables": "Няма непогасени вземания.",
+      "draftRef": "Чернова",
+      "table": {
+        "invoiceInfo": "Информация за фактура",
+        "client": "Клиент",
+        "outstanding": "Непогасено"
+      },
+      "showingOf": "Показани {{shown}} от {{total}} отворени фактури",
+      "viewPortfolio": "Виж целия портфейл"
+    },
+    "teamWorkload": {
+      "title": "Натоварване на екипа",
+      "subtitle": "Отворени дела, задачи и срокове по член",
+      "viewTeam": "Виж екипа",
+      "loading": "Изчисляване на разпределението на натоварването…",
+      "error": "Неуспешно зареждане на данни за екипа.",
+      "matters": "Дела",
+      "members_one": "{{count}} член",
+      "members_few": "{{count}} члена",
+      "members_other": "{{count}} члена",
+      "tasks": "Задачи",
+      "pendingAction": "Очаква действие",
+      "deadlines": "Срокове",
+      "activeWindow": "Активен прозорец",
+      "busiest": "Най-натоварен",
+      "items_one": "{{count}} елемент",
+      "items_few": "{{count}} елемента",
+      "items_other": "{{count}} елемента",
+      "clear": "Свободен",
+      "empty": "Няма активни данни за екипа",
+      "table": {
+        "teamMember": "Член на екипа",
+        "matters": "Дела",
+        "tasks": "Задачи",
+        "deadlines": "Срокове",
+        "total": "Общо"
+      }
+    },
+    "clientProfitability": {
+      "title": "Рентабилност по клиенти",
+      "subtitle": "Разпределение на фактурираните приходи по клиентски портфейл",
+      "viewAllClients": "Всички клиенти",
+      "loading": "Агрегиране на данни за рентабилност…",
+      "error": "Неуспешно зареждане на клиентска аналитика.",
+      "trueMargin": "Истинска маржа:",
+      "revenueProxy": "Прокси за приходи:",
+      "totalRevenue": "Общи приходи",
+      "clients_one": "{{count}} клиент",
+      "clients_few": "{{count}} клиента",
+      "clients_other": "{{count}} клиента",
+      "totalMargin": "Обща маржа",
+      "topClient": "Топ клиент",
+      "internalCost": "{{amount}} вътрешни разходи",
+      "noBillingData": "Няма данни за фактуриране",
+      "unbilledWip": "Нефактуриран WIP",
+      "pendingAccrual": "Очаква начисляване",
+      "firmBilled": "Фирмено фактурирано",
+      "totalMatters": "Общо дела",
+      "empty": "Няма открити данни за фактуриране по клиенти.",
+      "table": {
+        "clientPortfolio": "Клиентски портфейл",
+        "matters": "Дела",
+        "billable": "Фактурируемо",
+        "unbilled": "Нефактурирано",
+        "margin": "Маржа",
+        "revenue": "Прих. (EUR)"
+      },
+      "showingTop": "Показани топ {{shown}} от {{total}} клиента по {{basis}}",
+      "basisMargin": "маржа",
+      "basisRevenue": "приходи",
+      "viewLeaderboard": "Пълна класация"
+    }
+  }
+}

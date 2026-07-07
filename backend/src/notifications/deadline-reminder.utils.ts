@@ -17,7 +17,12 @@ export const DEADLINE_REMINDER_MILESTONES: ReminderMilestone[] = [
   { key: 'before_3', offsetDays: 3, direction: 'before', label: '3 days' },
   { key: 'before_1', offsetDays: 1, direction: 'before', label: '1 day' },
   { key: 'due_today', offsetDays: 0, direction: 'before', label: 'today' },
-  { key: 'after_3', offsetDays: 3, direction: 'after', label: '3 days overdue' },
+  {
+    key: 'after_3',
+    offsetDays: 3,
+    direction: 'after',
+    label: '3 days overdue',
+  },
 ];
 
 export const MAX_DAYS_BEFORE_REMINDER = Math.max(
@@ -102,12 +107,12 @@ export function reminderBody(
     return `${matterTitle} was due ${dueLabel} (${milestone.label}).`;
   }
   if (milestone.offsetDays === 0) {
-    return `${matterTitle} — due today (${dueLabel}).`;
+    return `${matterTitle} - due today (${dueLabel}).`;
   }
   if (milestone.offsetDays === 1) {
-    return `${matterTitle} — due ${dueLabel} (tomorrow).`;
+    return `${matterTitle} - due ${dueLabel} (tomorrow).`;
   }
-  return `${matterTitle} — due ${dueLabel} (in ${milestone.label}).`;
+  return `${matterTitle} - due ${dueLabel} (in ${milestone.label}).`;
 }
 
 export function reminderEmailSubject(

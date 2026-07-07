@@ -8,7 +8,7 @@ export function slugifyNav(label: string): string {
 }
 
 export function navId(item: NavItem): string {
-  return item.id ?? slugifyNav(item.label)
+  return item.id ?? slugifyNav(item.labelKey)
 }
 
 export function findNavItem(view: RoleView, id: string): NavItem | null {
@@ -28,7 +28,7 @@ export function getHomeNavId(view: RoleView): string {
       if (item.isHome) return navId(item)
     }
   }
-  return navId(view.nav[0]?.items[0] ?? { icon: () => null, label: 'dashboard' })
+  return navId(view.nav[0]?.items[0] ?? { icon: () => null, labelKey: 'dashboard' })
 }
 
 export function isHomeNav(view: RoleView, id: string): boolean {

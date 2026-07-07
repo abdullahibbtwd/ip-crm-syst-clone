@@ -13,7 +13,7 @@ const DEFAULT_GRACE_MONTHS = 6;
 
 /**
  * Renewal term length by matter type and rule jurisdiction.
- * Patent annuities are deferred — use manual renewal windows until schedules ship.
+ * Patent annuities are deferred - use manual renewal windows until schedules ship.
  */
 const RENEWAL_CYCLES: Partial<
   Record<MatterType, Partial<Record<RenewalJurisdiction, RenewalCycleConfig>>>

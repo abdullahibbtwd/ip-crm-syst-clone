@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Pending",
+    "in_progress": "In progress",
+    "completed": "Completed",
+    "missed": "Missed",
+    "escalated": "Escalated",
+    "superseded": "Superseded"
+  },
+  "urgency": {
+    "dueToday": "Due today",
+    "overdue": "Overdue"
+  },
+  "allDeadlines": {
+    "title": "All deadlines",
+    "description": "Firm-wide deadline register across every matter and assignee.",
+    "newDeadline": "New deadline",
+    "firmDueToday_one": "1 firm deadline is due today across all matters.",
+    "firmDueToday_other": "{{count}} firm deadlines are due today across all matters.",
+    "filters": {
+      "attorney": "Attorney",
+      "allAttorneys": "All attorneys",
+      "matterType": "Matter type",
+      "allTypes": "All types",
+      "jurisdiction": "Jurisdiction",
+      "allJurisdictions": "All jurisdictions",
+      "status": "Status",
+      "allStatuses": "All statuses",
+      "overdue": "Overdue",
+      "dueFrom": "Due from",
+      "dueTo": "Due to"
+    },
+    "loading": "Loading deadlines…",
+    "error": "Failed to load deadlines.",
+    "table": {
+      "matter": "Matter",
+      "attorney": "Attorney",
+      "type": "Type",
+      "jurisdiction": "Jurisdiction",
+      "dueDate": "Due date",
+      "grace": "Grace",
+      "status": "Status"
+    },
+    "empty": "No deadlines match your filters.",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "myDeadlines": {
+    "title": "My deadlines",
+    "descriptionStaff": "Your personal worklist across all assigned matters. Update status here without opening each matter.",
+    "descriptionPortal": "Upcoming and overdue deadlines across your matters.",
+    "tabs": {
+      "all": "All",
+      "pending": "Pending",
+      "in_progress": "In progress",
+      "overdue": "Overdue",
+      "completed": "Completed"
+    },
+    "loading": "Loading deadlines…",
+    "error": "Failed to load deadlines.",
+    "table": {
+      "matter": "Matter",
+      "type": "Type",
+      "jurisdiction": "Jurisdiction",
+      "dueDate": "Due date",
+      "grace": "Grace",
+      "status": "Status"
+    },
+    "empty": "No deadlines in this view.",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "widget": {
+    "title": "My deadlines",
+    "viewAll": "View all",
+    "loading": "Crunching deadline data…",
+    "error": "Could not load deadlines.",
+    "empty": "No upcoming deadlines assigned to you.",
+    "table": {
+      "matterClient": "Matter & Client",
+      "deadline": "Deadline",
+      "dueDateStatus": "Due Date & Status"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Due today",
+    "view": "View",
+    "personal_one": "You have 1 deadline due today.",
+    "personal_other": "You have {{count}} deadlines due today."
+  }
+}

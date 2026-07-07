@@ -204,11 +204,11 @@ export function UsersTable({
                           {user.client.displayName}
                         </p>
                         <p className="truncate font-mono text-xs text-muted-foreground">
-                          {user.client.internalCode ?? '—'}
+                          {user.client.internalCode ?? '-'}
                         </p>
                       </Link>
                     ) : (
-                      <span className="text-sm text-muted-foreground">—</span>
+                      <span className="text-sm text-muted-foreground">-</span>
                     )}
                   </TableCell>
                 )}

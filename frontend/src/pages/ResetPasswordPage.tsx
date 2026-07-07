@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { CheckCircle2, Eye, EyeOff, Loader2, Lock, Mail } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import { requestPasswordReset, resetPassword } from '../features/auth/api'
 import {
@@ -13,6 +14,7 @@ import {
 import { AuthFooterLink, AuthLayout } from '../layouts/AuthLayout'
 
 function ForgotPasswordForm() {
+  const { t } = useTranslation(['auth', 'common'])
   const [submitted, setSubmitted] = useState(false)
 
   const {
@@ -33,7 +35,7 @@ function ForgotPasswordForm() {
     const parsed = resetPasswordRequestSchema.safeParse(data)
     if (!parsed.success) {
       for (const issue of parsed.error.issues) {
-        setError('email', { message: issue.message })
+        setError('email', { message: t(issue.message) })
       }
       return
     }
@@ -43,16 +45,13 @@ function ForgotPasswordForm() {
   if (submitted) {
     return (
       <AuthLayout
-        title="Check your inbox"
-        subtitle="If an account exists for that email, we've sent password reset instructions."
-        footer={<AuthFooterLink to="/login">Back to sign in</AuthFooterLink>}
+        title={t('reset.checkInboxTitle')}
+        subtitle={t('reset.checkInboxSubtitle')}
+        footer={<AuthFooterLink to="/login">{t('form.backToSignIn')}</AuthFooterLink>}
       >
         <div className="flex flex-col items-center py-6 text-center">
           <CheckCircle2 className="mb-4 h-12 w-12 text-brand-orange" />
-          <p className="text-sm text-brand-green/70">
-            The link will expire in 1 hour. Check your spam folder if you don't
-            see it shortly.
-          </p>
+          <p className="text-sm text-brand-green/70">{t('reset.checkInboxHint')}</p>
         </div>
       </AuthLayout>
     )
@@ -60,14 +59,14 @@ function ForgotPasswordForm() {
 
   return (
     <AuthLayout
-      title="Reset password"
-      subtitle="Enter your work email and we'll send you a secure link to choose a new password."
-      footer={<AuthFooterLink to="/login">Back to sign in</AuthFooterLink>}
+      title={t('reset.title')}
+      subtitle={t('reset.subtitle')}
+      footer={<AuthFooterLink to="/login">{t('form.backToSignIn')}</AuthFooterLink>}
     >
       <form onSubmit={onSubmit} className="space-y-5" noValidate>
         <div>
           <label htmlFor="email" className="auth-label">
-            Email address
+            {t('form.email')}
           </label>
           <div className="relative">
             <Mail
@@ -79,7 +78,7 @@ function ForgotPasswordForm() {
               type="email"
               autoComplete="email"
               className="auth-input pl-10"
-              placeholder="you@ipconsulting.bg"
+              placeholder={t('reset.emailPlaceholder')}
               {...register('email')}
             />
           </div>
@@ -96,10 +95,10 @@ function ForgotPasswordForm() {
           {mutation.isPending ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending…
+              {t('reset.sending')}
             </>
           ) : (
-            'Send reset link'
+            t('reset.sendResetLink')
           )}
         </button>
       </form>
@@ -108,6 +107,7 @@ function ForgotPasswordForm() {
 }
 
 function NewPasswordForm({ token }: { token: string }) {
+  const { t } = useTranslation(['auth', 'common'])
   const [done, setDone] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
@@ -131,7 +131,7 @@ function NewPasswordForm({ token }: { token: string }) {
     if (!parsed.success) {
       for (const issue of parsed.error.issues) {
         const field = issue.path[0] as keyof ResetPasswordFormData
-        setError(field, { message: issue.message })
+        setError(field, { message: t(issue.message) })
       }
       return
     }
@@ -141,9 +141,9 @@ function NewPasswordForm({ token }: { token: string }) {
   if (done) {
     return (
       <AuthLayout
-        title="Password updated"
-        subtitle="Your new password is active. You can now sign in."
-        footer={<AuthFooterLink to="/login">Continue to sign in</AuthFooterLink>}
+        title={t('reset.updatedTitle')}
+        subtitle={t('reset.updatedSubtitle')}
+        footer={<AuthFooterLink to="/login">{t('reset.continueToSignIn')}</AuthFooterLink>}
       >
         <div className="flex flex-col items-center py-6 text-center">
           <CheckCircle2 className="mb-4 h-12 w-12 text-brand-orange" />
@@ -154,14 +154,14 @@ function NewPasswordForm({ token }: { token: string }) {
 
   return (
     <AuthLayout
-      title="Choose a new password"
-      subtitle="Use at least 8 characters with a mix of letters and numbers."
-      footer={<AuthFooterLink to="/login">Back to sign in</AuthFooterLink>}
+      title={t('reset.newPasswordTitle')}
+      subtitle={t('reset.newPasswordSubtitle')}
+      footer={<AuthFooterLink to="/login">{t('form.backToSignIn')}</AuthFooterLink>}
     >
       <form onSubmit={onSubmit} className="space-y-5" noValidate>
         <div>
           <label htmlFor="password" className="auth-label">
-            New password
+            {t('reset.newPasswordLabel')}
           </label>
           <div className="relative">
             <Lock
@@ -180,7 +180,7 @@ function NewPasswordForm({ token }: { token: string }) {
               type="button"
               onClick={() => setShowPassword((v) => !v)}
               className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 hover:text-brand-orange"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              aria-label={showPassword ? t('password.hide') : t('password.show')}
             >
               {showPassword ? (
                 <EyeOff className="h-4 w-4" />
@@ -196,7 +196,7 @@ function NewPasswordForm({ token }: { token: string }) {
 
         <div>
           <label htmlFor="confirmPassword" className="auth-label">
-            Confirm password
+            {t('form.confirmPassword')}
           </label>
           <div className="relative">
             <Lock
@@ -215,7 +215,7 @@ function NewPasswordForm({ token }: { token: string }) {
               type="button"
               onClick={() => setShowConfirm((v) => !v)}
               className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 hover:text-brand-orange"
-              aria-label={showConfirm ? 'Hide password' : 'Show password'}
+              aria-label={showConfirm ? t('password.hide') : t('password.show')}
             >
               {showConfirm ? (
                 <EyeOff className="h-4 w-4" />
@@ -237,10 +237,10 @@ function NewPasswordForm({ token }: { token: string }) {
           {mutation.isPending ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Updating…
+              {t('reset.updating')}
             </>
           ) : (
-            'Update password'
+            t('reset.updatePassword')
           )}
         </button>
       </form>

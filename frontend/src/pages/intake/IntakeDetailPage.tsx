@@ -290,7 +290,7 @@ export function IntakeDetailPage() {
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
               {isPortalSubmission
-                ? 'Opens a matter under the portal client’s existing account — no duplicate client record.'
+                ? 'Opens a matter under the portal client’s existing account - no duplicate client record.'
                 : 'Creates a client record and opens a matter in one step - no re-entering enquiry details. GDPR consent is required at this step.'}
             </p>
 

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { fetchSsoProviders, type SsoProvider } from '../../features/auth/api'
 
 function MicrosoftIcon() {
@@ -42,6 +43,7 @@ const PROVIDER_ICONS = {
 } as const
 
 export function SsoButtons({ signup = false }: { signup?: boolean }) {
+  const { t } = useTranslation('auth')
   const { data, isLoading } = useQuery({
     queryKey: ['sso-providers'],
     queryFn: fetchSsoProviders,
@@ -67,7 +69,7 @@ export function SsoButtons({ signup = false }: { signup?: boolean }) {
           <div className="w-full border-t border-brand-green/10" />
         </div>
         <div className="relative flex justify-center text-xs uppercase tracking-wide">
-          <span className="bg-white px-3 text-brand-green/50">or continue with</span>
+          <span className="bg-white px-3 text-brand-green/50">{t('sso.orContinueWith')}</span>
         </div>
       </div>
 

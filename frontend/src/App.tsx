@@ -43,6 +43,10 @@ import { PortalInvoicesPage } from './pages/portal/PortalInvoicesPage'
 import { PortalRenewalsPage } from './pages/portal/PortalRenewalsPage'
 import { InvoicesListPage } from './pages/finance/InvoicesListPage'
 import { RateCardsPage } from './pages/finance/RateCardsPage'
+import { DeadlineRiskReportPage } from './pages/reports/DeadlineRiskReportPage'
+import { RevenueSummaryReportPage } from './pages/reports/RevenueSummaryReportPage'
+import { FilingVolumesReportPage } from './pages/reports/FilingVolumesReportPage'
+import { RenewalsSummaryReportPage } from './pages/reports/RenewalsSummaryReportPage'
 
 export default function App() {
   return (
@@ -102,6 +106,10 @@ export default function App() {
           <Route path="/deadlines/my" element={<MyDeadlinesPage />} />
           <Route path="/deadlines" element={<AllDeadlinesPage />} />
           <Route path="/renewals" element={<RenewalsPage />} />
+          <Route path="/reports/deadline-risk" element={<DeadlineRiskReportPage />} />
+          <Route path="/reports/revenue-summary" element={<RevenueSummaryReportPage />} />
+          <Route path="/reports/filing-volumes" element={<FilingVolumesReportPage />} />
+          <Route path="/reports/renewals-summary" element={<RenewalsSummaryReportPage />} />
           <Route path="/matters/:id" element={<MatterLayout />}>
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<MatterOverviewTab />} />

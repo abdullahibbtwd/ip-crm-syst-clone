@@ -91,7 +91,7 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
     <Drawer
       open={open}
       onClose={onClose}
-      title={invoice ? `Record payment — ${invoice.invoiceNumber ?? 'Draft'}` : 'Record payment'}
+      title={invoice ? `Record payment - ${invoice.invoiceNumber ?? 'Draft'}` : 'Record payment'}
     >
       {invoice && (
         <form className="space-y-4" onSubmit={handleSubmit}>

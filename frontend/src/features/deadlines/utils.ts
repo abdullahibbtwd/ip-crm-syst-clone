@@ -1,5 +1,11 @@
+import i18n from '@/i18n'
 import type { DeadlineStatus, DeadlineUrgency } from './types'
 
+export function deadlineStatusLabel(status: DeadlineStatus): string {
+  return i18n.t(`status.${status}`, { ns: 'deadlines' })
+}
+
+/** @deprecated Use deadlineStatusLabel() for translated labels */
 export const DEADLINE_STATUS_LABELS: Record<DeadlineStatus, string> = {
   pending: 'Pending',
   in_progress: 'In progress',
@@ -57,19 +63,19 @@ export function deadlineUrgency(
 
 export const URGENCY_ROW_CLASS: Record<DeadlineUrgency, string> = {
   overdue: 'border-l-2 border-l-destructive bg-destructive/5',
-  today: 'border-l-2 border-l-orange-500 bg-orange-500/10 ring-1 ring-orange-500/20',
-  urgent: 'border-l-2 border-l-amber-500 bg-amber-500/5',
-  soon: 'border-l-2 border-l-yellow-400/80',
+  today: 'border-l-2 border-l-primary bg-primary/10 ring-1 ring-primary/15',
+  urgent: 'border-l-2 border-l-primary/70 bg-primary/5',
+  soon: 'border-l-2 border-l-brand-green/35 bg-brand-green/[0.04]',
   ok: '',
   completed: 'opacity-70',
 }
 
 export const URGENCY_DOT_CLASS: Record<DeadlineUrgency, string> = {
   overdue: 'bg-destructive',
-  today: 'bg-orange-500 animate-pulse',
-  urgent: 'bg-amber-500',
-  soon: 'bg-yellow-400',
-  ok: 'bg-emerald-500',
+  today: 'bg-primary animate-pulse',
+  urgent: 'bg-primary/80',
+  soon: 'bg-brand-green/50',
+  ok: 'bg-brand-green/30',
   completed: 'bg-muted-foreground',
 }
 

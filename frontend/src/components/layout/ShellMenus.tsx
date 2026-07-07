@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Bell, LogOut, Settings, User } from 'lucide-react'
+import { Bell, Check, Languages, LogOut, Settings, User } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -12,7 +13,80 @@ import {
 } from '@/features/notifications/hooks/useNotifications'
 import type { Notification } from '@/features/notifications/types'
 import { useShell } from '@/features/shell/ShellProvider'
+import i18n from '@/i18n'
 import { cn } from '@/lib/utils'
+
+const LANGUAGES = [
+  { code: 'en', labelKey: 'language.en' as const },
+  { code: 'bg', labelKey: 'language.bg' as const },
+] as const
+
+export function LanguageMenu() {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation('common')
+  const activeLanguage = i18n.language?.startsWith('bg') ? 'bg' : 'en'
+
+  useEffect(() => {
+    if (!open) return
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onClick)
+    return () => document.removeEventListener('mousedown', onClick)
+  }, [open])
+
+  return (
+    <div className="relative" ref={ref}>
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon-sm"
+        className="hidden sm:inline-flex"
+        aria-label={t('language.switch')}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        onClick={() => setOpen((value) => !value)}
+      >
+        <Languages className="size-4" />
+      </Button>
+
+      {open ? (
+        <Card
+          className="absolute top-full right-0 z-50 mt-1.5 w-44 gap-0 py-1 shadow-lg"
+          role="listbox"
+          aria-label={t('language.switch')}
+        >
+          <CardContent className="flex flex-col gap-0.5 p-1">
+            {LANGUAGES.map((language) => {
+              const selected = activeLanguage === language.code
+              return (
+                <Button
+                  key={language.code}
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  role="option"
+                  aria-selected={selected}
+                  className={cn('justify-between', selected && 'bg-muted/80')}
+                  onClick={() => {
+                    void i18n.changeLanguage(language.code)
+                    setOpen(false)
+                  }}
+                >
+                  {t(language.labelKey)}
+                  {selected ? <Check className="size-3.5 text-primary" /> : <span className="size-3.5" />}
+                </Button>
+              )
+            })}
+          </CardContent>
+        </Card>
+      ) : null}
+    </div>
+  )
+}
 
 type UserMenuProps = {
   userName: string

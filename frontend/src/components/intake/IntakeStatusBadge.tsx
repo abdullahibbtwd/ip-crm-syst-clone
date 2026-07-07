@@ -1,10 +1,10 @@
 import { Badge } from '@/components/ui/badge'
-import type { IntakeStatus } from '@/features/intake/types'
-import { INTAKE_STATUS_BADGE_VARIANT, INTAKE_STATUS_LABELS } from '@/features/intake/utils'
+import type { IntakeLead } from '@/features/intake/types'
+import { INTAKE_STATUS_BADGE_VARIANT, intakeStatusLabel } from '@/features/intake/utils'
 import { cn } from '@/lib/utils'
 
 type IntakeStatusBadgeProps = {
-  status: IntakeStatus
+  status: IntakeLead['status']
   className?: string
 }
 
@@ -14,7 +14,7 @@ export function IntakeStatusBadge({ status, className }: IntakeStatusBadgeProps)
       variant={INTAKE_STATUS_BADGE_VARIANT[status]}
       className={cn('normal-case tracking-normal', className)}
     >
-      {INTAKE_STATUS_LABELS[status]}
+      {intakeStatusLabel(status)}
     </Badge>
   )
 }

@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Upcoming",
+    "instructed": "Instructed",
+    "filed": "Filed",
+    "completed": "Completed",
+    "lapsed": "Lapsed"
+  },
+  "page": {
+    "title": "Renewals",
+    "descriptionMy": "Renewal windows on matters assigned to you.",
+    "descriptionFirm": "Firm-wide renewal worklist across all IP rights.",
+    "filters": {
+      "status": "Status",
+      "allStatuses": "All statuses",
+      "jurisdiction": "Jurisdiction",
+      "allJurisdictions": "All jurisdictions",
+      "assignee": "Assignee",
+      "allAssignees": "All assignees"
+    },
+    "loading": "Loading renewals…",
+    "empty": "No renewal windows match your filters.",
+    "table": {
+      "ipRight": "IP right",
+      "matter": "Matter",
+      "client": "Client",
+      "cycle": "Cycle",
+      "due": "Due",
+      "status": "Status",
+      "assignee": "Assignee"
+    }
+  },
+  "widget": {
+    "title": "Upcoming renewals",
+    "subtitle": "Next 90 days instruction pipeline",
+    "viewPipeline": "View pipeline",
+    "loading": "Calculating renewal windows…",
+    "error": "Could not load renewals analytics.",
+    "stats": {
+      "totalPipeline": "Total Pipeline",
+      "activeWindows": "Active windows",
+      "awaiting": "Awaiting",
+      "noInstruction": "No instruction yet",
+      "urgent": "Urgent",
+      "due7Days": "Due ≤ 7 days",
+      "instructed": "Instructed",
+      "proceedConfirmed": "Proceed confirmed"
+    },
+    "empty": "No renewals tracked in this window.",
+    "table": {
+      "ipAsset": "IP asset",
+      "client": "Client",
+      "dueStatus": "Due / Status"
+    },
+    "cycle": "Cycle {{number}}"
+  }
+}

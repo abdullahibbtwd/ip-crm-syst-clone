@@ -1,0 +1,52 @@
+{
+  "actions": {
+    "backToDashboard": "Back to dashboard",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "loadMore": "Load more",
+    "next": "Next",
+    "previous": "Previous",
+    "refresh": "Refresh",
+    "remove": "Remove",
+    "save": "Save",
+    "saveChanges": "Save changes",
+    "view": "View"
+  },
+  "errors": {
+    "loadFailed": "Failed to load.",
+    "retryHint": "Check your connection and permissions, then try again."
+  },
+  "filters": {
+    "allStatuses": "All statuses",
+    "allTypes": "All types"
+  },
+  "language": {
+    "bg": "Bulgarian",
+    "en": "English",
+    "switch": "Switch language"
+  },
+  "loading": {
+    "default": "Loading…",
+    "refreshing": "refreshing…",
+    "saving": "Saving…"
+  },
+  "nav": {
+    "breadcrumb": "Breadcrumb",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu"
+  },
+  "pagination": {
+    "noResults": "No results",
+    "page": "Page {{page}}",
+    "showing": "Showing {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Reports"
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "No",
+    "none": "None",
+    "yes": "Yes"
+  }
+}

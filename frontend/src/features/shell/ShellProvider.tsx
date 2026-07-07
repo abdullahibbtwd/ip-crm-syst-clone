@@ -64,7 +64,7 @@ export function ShellProvider({ view, children }: ShellProviderProps) {
     [view, activeNavId],
   )
 
-  const breadcrumb = activeNavItem?.label ?? view.topbar.breadcrumb
+  const breadcrumb = activeNavItem?.labelKey ?? view.topbar.breadcrumbKey
 
   const handleSetActiveNavId = useCallback((id: string) => {
     setActiveNavId(id)

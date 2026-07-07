@@ -1,9 +1,9 @@
 import {
-  Languages,
   ListChecks,
   Menu,
   X,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -13,8 +13,8 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useShell } from '@/features/shell/ShellProvider'
-import { ROLE_LABELS, type SystemRole } from '@/lib/rbac'
-import { NotificationsMenu, UserMenu } from './ShellMenus'
+import { roleLabel as getRoleLabel, type SystemRole } from '@/lib/rbac'
+import { LanguageMenu, NotificationsMenu, UserMenu } from './ShellMenus'
 
 type AppTopbarProps = {
   userName: string
@@ -44,8 +44,11 @@ export function AppTopbar({
   onLogout,
 }: AppTopbarProps) {
   const { breadcrumb, sidebarOpen, setSidebarOpen } = useShell()
+  const { t: tCommon } = useTranslation('common')
+  const { t: tNav } = useTranslation('nav')
 
   const showRoleSwitcher = availableRoles.length > 1 && activeRole && onRoleChange
+  const breadcrumbLabel = tNav(`items.${breadcrumb}`)
 
   return (
     <header className="flex h-14 shrink-0 items-center gap-2 border-b bg-background px-3 md:gap-3 md:px-4">
@@ -54,33 +57,21 @@ export function AppTopbar({
         variant="ghost"
         size="icon-sm"
         className="lg:hidden"
-        aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
+        aria-label={sidebarOpen ? tCommon('nav.closeMenu') : tCommon('nav.openMenu')}
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
         {sidebarOpen ? <X className="size-5" /> : <Menu className="size-5" />}
       </Button>
 
       <nav
-        aria-label="Breadcrumb"
+        aria-label={tCommon('nav.breadcrumb')}
         className="flex min-w-0 flex-1 items-center gap-1.5 text-xs text-muted-foreground"
       >
-        <span className="truncate font-medium text-foreground">{breadcrumb}</span>
+        <span className="truncate font-medium text-foreground">{breadcrumbLabel}</span>
       </nav>
 
       <div className="flex shrink-0 items-center gap-0.5">
-        {showLanguage && (
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon-sm"
-            aria-label="Switch language"
-            className="hidden sm:inline-flex"
-            disabled
-            title="Coming soon"
-          >
-            <Languages className="size-4" />
-          </Button>
-        )}
+        {showLanguage ? <LanguageMenu /> : null}
 
         <NotificationsMenu />
 
@@ -111,7 +102,7 @@ export function AppTopbar({
             <SelectContent>
               {availableRoles.map((role) => (
                 <SelectItem key={role} value={role}>
-                  {ROLE_LABELS[role]}
+                  {getRoleLabel(role)}
                 </SelectItem>
               ))}
             </SelectContent>

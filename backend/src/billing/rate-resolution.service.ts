@@ -13,10 +13,12 @@ import { decimalToNumber } from './billing.utils';
 
 export type ResolvedRate = {
   hourlyRate: number;
+  internalCostPerHour: number;
   currency: string;
   rateCardId: string | null;
   role: BillingRateRole | null;
   isUnrated: boolean;
+  hasInternalCost: boolean;
   resolutionLevel:
     | 'client_matter_type'
     | 'firm_matter_type'
@@ -113,17 +115,25 @@ export class RateResolutionService {
     card: {
       id: string;
       hourlyRate: Prisma.Decimal;
+      internalCostPerHour: Prisma.Decimal | null;
       currency: string;
       role: BillingRateRole;
     },
     resolutionLevel: ResolvedRate['resolutionLevel'],
   ): ResolvedRate {
+    const internalCostPerHour =
+      card.internalCostPerHour == null
+        ? 0
+        : decimalToNumber(card.internalCostPerHour);
+
     return {
       hourlyRate: decimalToNumber(card.hourlyRate),
+      internalCostPerHour,
       currency: card.currency,
       rateCardId: card.id,
       role: card.role,
       isUnrated: false,
+      hasInternalCost: card.internalCostPerHour != null,
       resolutionLevel,
     };
   }
@@ -131,10 +141,12 @@ export class RateResolutionService {
   private unrated(): ResolvedRate {
     return {
       hourlyRate: 0,
+      internalCostPerHour: 0,
       currency: 'EUR',
       rateCardId: null,
       role: null,
       isUnrated: true,
+      hasInternalCost: false,
       resolutionLevel: 'unrated',
     };
   }

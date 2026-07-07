@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import type { BillingRateRole, FixedFeeCategory } from './types'
 
 const eur = new Intl.NumberFormat('en-GB', {
@@ -7,6 +8,15 @@ const eur = new Intl.NumberFormat('en-GB', {
   maximumFractionDigits: 2,
 })
 
+export function billingRateRoleLabel(role: BillingRateRole): string {
+  return i18n.t(`rateRole.${role}`, { ns: 'finance' })
+}
+
+export function fixedFeeCategoryLabel(category: FixedFeeCategory): string {
+  return i18n.t(`fixedFeeCategory.${category}`, { ns: 'finance' })
+}
+
+/** @deprecated Use billingRateRoleLabel() for translated labels */
 export const BILLING_RATE_ROLE_LABELS: Record<BillingRateRole, string> = {
   ip_attorney: 'IP attorney',
   trademark_attorney: 'Trademark attorney',
@@ -39,6 +49,7 @@ export function formatHours(hours: number): string {
   return `${hours.toFixed(1).replace(/\.0$/, '')}h`
 }
 
+/** @deprecated Use fixedFeeCategoryLabel() for translated labels */
 export const FIXED_FEE_CATEGORY_LABELS: Record<FixedFeeCategory, string> = {
   professional_fee: 'Professional fee',
   disbursement: 'Disbursement',

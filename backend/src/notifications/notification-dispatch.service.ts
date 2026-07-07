@@ -31,7 +31,7 @@ export class NotificationDispatchService {
 
   /**
    * Deadline alerts: assignee gets their worklist item; every active managing_partner
-   * user gets a firm-wide copy (role-based — not tied to deadline assignment).
+   * user gets a firm-wide copy (role-based - not tied to deadline assignment).
    */
   async dispatchDeadline(input: DispatchDeadlineNotificationInput) {
     await this.dispatch(input);
@@ -39,22 +39,25 @@ export class NotificationDispatchService {
   }
 
   /**
-   * Fan-out to managing partners only — idempotent per milestone / escalation / create.
+   * Fan-out to managing partners only - idempotent per milestone / escalation / create.
    * Used for backfill when assignee reminders were sent before MP copies existed.
    */
   async ensureManagingPartnerDeadlineCopies(
     input: DispatchDeadlineNotificationInput,
   ): Promise<number> {
-    const partners = await this.managingPartnerAudience.listActiveManagingPartners();
+    const partners =
+      await this.managingPartnerAudience.listActiveManagingPartners();
 
     if (partners.length === 0) {
       this.logger.warn(
-        'No active managing_partner users found — deadline MP fan-out skipped',
+        'No active managing_partner users found - deadline MP fan-out skipped',
       );
       return 0;
     }
 
-    const recipients = partners.filter((partner) => partner.id !== input.userId);
+    const recipients = partners.filter(
+      (partner) => partner.id !== input.userId,
+    );
     if (recipients.length === 0) return 0;
 
     const assigneeNote = input.assigneeName
@@ -184,7 +187,9 @@ export class NotificationDispatchService {
     };
 
     this.gateway.emitToUser(input.userId, 'notification', payload);
-    this.gateway.emitToUser(input.userId, 'unread_count', { count: unreadCount });
+    this.gateway.emitToUser(input.userId, 'unread_count', {
+      count: unreadCount,
+    });
 
     const shouldEmail = input.sendEmail !== false && Boolean(input.emailTo);
     if (shouldEmail && input.emailTo) {

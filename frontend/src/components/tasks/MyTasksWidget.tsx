@@ -10,58 +10,81 @@ import {
 } from '@/features/tasks/utils'
 import { cn } from '@/lib/utils'
 
+import { ReportPanel } from '@/components/reports/report-ui'
+
 export function MyTasksWidget() {
-  const { data, isLoading, isError } = useMyTasks(8)
+  const { data, isLoading, isError } = useMyTasks({ limit: 8 })
   const tasks = data?.items ?? []
 
   return (
-    <Card className="shadow-none">
-      <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2 text-base">
-          <ListChecks className="size-4" />
+    <ReportPanel className="p-0 overflow-hidden">
+      <div className="flex flex-row items-center justify-between gap-3 p-5 md:px-6">
+        <h3 className="flex items-center gap-2.5 font-serif text-lg text-brand-green">
+          <ListChecks className="size-5 text-primary" />
           My tasks
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="pt-0">
+        </h3>
+        <Link to="/tasks" className="text-xs font-semibold text-primary hover:underline">
+          View board
+        </Link>
+      </div>
+      <div className="px-5 pb-5 md:px-6 md:pb-6">
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading tasks…</p>
+          <div className="py-4 text-sm text-muted-foreground italic">Syncing tasks…</div>
         ) : isError ? (
-          <p className="text-sm text-destructive">Could not load tasks.</p>
+          <div className="py-4 text-sm text-destructive font-medium">Error loading task list.</div>
         ) : tasks.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No open tasks assigned to you.</p>
+          <div className="py-8 text-center text-sm text-muted-foreground italic bg-muted/20 rounded-lg border border-dashed">
+            No pending tasks assigned to you.
+          </div>
         ) : (
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {tasks.map((task) => (
               <li key={task.id}>
                 <Link
                   to={`/matters/${task.matterId}/tasks`}
-                  className="flex items-start gap-3 rounded-md border px-3 py-2 transition-colors hover:bg-muted/50"
+                  className="group flex items-start gap-4 rounded-xl border border-border/60 bg-card p-3.5 shadow-xs transition-style duration-200 hover:border-primary/20 hover:bg-muted/40 hover:shadow-sm"
                 >
-                  <span
-                    className={cn(
-                      'mt-1.5 size-2 shrink-0 rounded-full',
-                      PRIORITY_DOT_CLASS[task.priority],
-                    )}
-                    aria-hidden
-                  />
+                  <div className="relative mt-1">
+                    <span
+                      className={cn(
+                        'block size-2 rounded-full',
+                        PRIORITY_DOT_CLASS[task.priority],
+                      )}
+                      aria-hidden
+                    />
+                    <div className={cn(
+                      'absolute -inset-1 rounded-full blur-[4px] opacity-30',
+                      PRIORITY_DOT_CLASS[task.priority]
+                    )} />
+                  </div>
                   <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                      <span className="text-xs text-muted-foreground">
-                        {PRIORITY_PREFIX[task.priority]} {TASK_PRIORITY_LABELS[task.priority]}
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                        {TASK_PRIORITY_LABELS[task.priority]} Priority
                       </span>
-                      <span className="font-medium">{task.title}</span>
+                      <span className="text-sm font-semibold text-brand-green leading-tight group-hover:text-primary transition-colors">
+                        {task.title}
+                      </span>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      {formatTaskDueLabel(task.dueDate)}
-                      {task.matter ? ` · ${task.matter.title}` : ''}
-                    </p>
+                    <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium text-muted-foreground/80 lowercase">
+                      <span className="flex items-center gap-1.5">
+                        <span className="size-1 rounded-full bg-border" />
+                        {formatTaskDueLabel(task.dueDate)}
+                      </span>
+                      {task.matter ? (
+                        <span className="flex items-center gap-1.5 truncate">
+                          <span className="size-1 rounded-full bg-border" />
+                          <span className="truncate">{task.matter.title}</span>
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
                 </Link>
               </li>
             ))}
           </ul>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </ReportPanel>
   )
 }

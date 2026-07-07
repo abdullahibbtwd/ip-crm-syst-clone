@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import type { MatterStatus } from '@/features/matters/types'
-import { MATTER_STATUS_BADGE_VARIANT, MATTER_STATUS_LABELS } from '@/features/matters/utils'
+import { MATTER_STATUS_BADGE_VARIANT, matterStatusLabel } from '@/features/matters/utils'
 import { cn } from '@/lib/utils'
 
 type MatterStatusBadgeProps = {
@@ -14,7 +14,7 @@ export function MatterStatusBadge({ status, className }: MatterStatusBadgeProps)
       variant={MATTER_STATUS_BADGE_VARIANT[status]}
       className={cn('normal-case tracking-normal', className)}
     >
-      {MATTER_STATUS_LABELS[status]}
+      {matterStatusLabel(status)}
     </Badge>
   )
 }

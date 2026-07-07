@@ -1,0 +1,295 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": { "label": "Customs office" },
+      "infringingGoods": { "label": "Infringing goods description" }
+    },
+    "copyright": {
+      "creationDate": { "label": "Creation date" },
+      "workTitle": { "label": "Work title" },
+      "workType": { "label": "Type of work" }
+    },
+    "dispute_opposition": {
+      "basisSummary": { "label": "Basis summary" },
+      "disputeType": { "label": "Dispute type" },
+      "opponentName": { "label": "Opponent / adverse party" }
+    },
+    "fto_analysis": {
+      "scopeSummary": { "label": "Scope summary" },
+      "technologyArea": { "label": "Technology area" }
+    },
+    "geographical_indication": {
+      "productName": { "label": "Product name" },
+      "region": { "label": "Geographical region" }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "List or describe design views filed",
+        "label": "Design views"
+      },
+      "locarnoClass": { "label": "Locarno class" },
+      "productDescription": { "label": "Product description" }
+    },
+    "patent": {
+      "claimsSummary": { "label": "Claims summary" },
+      "pctNumber": { "label": "PCT number" },
+      "priorityDate": { "label": "Priority date" },
+      "technicalField": { "label": "Technical field" }
+    },
+    "trademark": {
+      "colors": { "label": "Colours claimed" },
+      "markDescription": { "label": "Mark description" },
+      "markType": { "label": "Mark type" },
+      "niceClasses": { "label": "Nice classes", "placeholder": "e.g. 12, 35" }
+    },
+    "utility_model": {
+      "claimsSummary": { "label": "Claims summary" },
+      "priorityDate": { "label": "Priority date" },
+      "technicalField": { "label": "Technical field" }
+    },
+    "valuation": {
+      "assetDescription": { "label": "Asset description" },
+      "valuationPurpose": { "label": "Valuation purpose" }
+    }
+  },
+  "billing": {
+    "addFee": "Add fixed fee",
+    "addTime": "Log time",
+    "confirmDeleteFee": "Delete this fixed fee?",
+    "confirmDeleteTime": "Delete this time entry?",
+    "emptyFees": "No fixed fees recorded.",
+    "emptyTime": "No time entries recorded.",
+    "error": "Failed to load billing.",
+    "loading": "Loading billing…",
+    "noPermission": "You do not have permission to view billing for this matter.",
+    "portalDescription": "Billing summary for this matter.",
+    "table": {
+      "amount": "Amount",
+      "category": "Category",
+      "date": "Date",
+      "description": "Description",
+      "hours": "Hours",
+      "rate": "Rate",
+      "user": "User"
+    },
+    "title": "Billing"
+  },
+  "correspondence": {
+    "add": "Log correspondence",
+    "category": {
+      "application": "Application",
+      "certificate": "Certificate",
+      "correspondence": "General correspondence",
+      "evidence": "Evidence",
+      "office_action": "Office action"
+    },
+    "direction": {
+      "incoming": "Incoming",
+      "outgoing": "Outgoing"
+    },
+    "drawerTitle": "Log correspondence",
+    "empty": "No correspondence logged yet.",
+    "error": "Failed to load correspondence.",
+    "errorLog": "Failed to log correspondence",
+    "loading": "Loading correspondence…",
+    "savedUnder": "Saved under the correspondence subject below",
+    "status": {
+      "draft": "Draft",
+      "received": "Received",
+      "replied": "Replied",
+      "sent": "Sent"
+    },
+    "title": "Correspondence"
+  },
+  "createDrawer": {
+    "client": "Client *",
+    "creating": "Creating…",
+    "error": "Failed to create matter",
+    "jurisdictionHelp": "Select one or more filing jurisdictions.",
+    "jurisdictions": "Jurisdictions",
+    "matterType": "Matter type *",
+    "open": "Open matter",
+    "responsibleAttorney": "Responsible attorney",
+    "title": "Open new matter",
+    "titleField": "Title *",
+    "titlePlaceholder": "e.g. ACME word mark – EU"
+  },
+  "deadlines": {
+    "complete": "Complete",
+    "daysLeft": "{{count}} days left",
+    "daysOverdue": "{{count}} days overdue",
+    "dueToday": "Due today",
+    "empty": "No deadlines on this matter.",
+    "error": "Failed to load deadlines.",
+    "loading": "Loading deadlines…",
+    "start": "Start",
+    "table": {
+      "due": "Due",
+      "status": "Status",
+      "title": "Title",
+      "type": "Type"
+    },
+    "title": "Deadlines"
+  },
+  "documents": {
+    "category": "Category",
+    "dragDrop": "Drag and drop files here, or click to browse",
+    "empty": "No documents uploaded yet.",
+    "error": "Failed to load documents.",
+    "errorUpload": "Failed to upload document",
+    "loading": "Loading documents…",
+    "table": {
+      "category": "Category",
+      "name": "Name",
+      "uploaded": "Uploaded"
+    },
+    "title": "Documents",
+    "upload": "Upload document"
+  },
+  "ipRightStatus": {
+    "cancelled": "Cancelled",
+    "expired": "Expired",
+    "filed": "Filed",
+    "pending": "Pending filing",
+    "registered": "Registered"
+  },
+  "ipRights": {
+    "abandon": "Abandon",
+    "add": "Add IP right",
+    "complete": "Complete",
+    "cycleDue": "Cycle {{n}} · due {{date}}",
+    "empty": "No IP rights registered on this matter.",
+    "error": "Failed to load IP rights.",
+    "file": "Mark filed",
+    "loading": "Loading IP rights…",
+    "proceed": "Record proceed",
+    "register": "Register",
+    "table": {
+      "jurisdiction": "Jurisdiction",
+      "localRef": "Local ref.",
+      "status": "Status",
+      "type": "Type"
+    },
+    "title": "IP rights"
+  },
+  "jurisdictionStatus": {
+    "approved": "Approved",
+    "filed": "Filed",
+    "pending": "Pending",
+    "rejected": "Rejected"
+  },
+  "layout": {
+    "backToMatters": "← Back to matters",
+    "loading": "Loading matter…",
+    "notFound": "Matter not found."
+  },
+  "list": {
+    "description": "Browse and manage prosecution matters across your portfolio.",
+    "descriptionPortal": "View matters shared with your organisation.",
+    "intakeQueue": "Intake queue",
+    "searchPlaceholder": "Search title or reference…",
+    "title": "Matters",
+    "titlePortal": "My matters"
+  },
+  "markType": {
+    "combined": "Combined",
+    "figurative": "Figurative",
+    "sound": "Sound",
+    "three_dimensional": "3D",
+    "wordmark": "Word mark"
+  },
+  "overview": {
+    "assignedTo": "Lead attorney",
+    "description": "Description",
+    "jurisdictions": "Jurisdictions",
+    "jurisdictionsEmpty": "No jurisdictions recorded.",
+    "openedBy": "Opened by",
+    "status": "Status",
+    "table": {
+      "country": "Country",
+      "localRef": "Local ref.",
+      "status": "Status"
+    },
+    "title": "Matter details",
+    "type": "Type",
+    "typeSpecific": "Type-specific attributes"
+  },
+  "status": {
+    "abandoned": "Abandoned",
+    "active": "Active",
+    "closed": "Closed",
+    "draft": "Draft",
+    "on_hold": "On hold"
+  },
+  "table": {
+    "assigned": "Assigned",
+    "client": "Client",
+    "empty": "No matters found",
+    "emptyDescription": "Try adjusting filters or open a new matter.",
+    "emptyPortal": "No matters shared with you yet.",
+    "error": "Failed to load matters.",
+    "jurisdictions": "Jurisdictions",
+    "status": "Status",
+    "title": "Title",
+    "type": "Type",
+    "upcoming": "{{count}} upcoming",
+    "viewAria": "View {{title}}"
+  },
+  "tabs": {
+    "billing": "Billing",
+    "correspondence": "Correspondence",
+    "deadlines": "Deadlines",
+    "documents": "Documents",
+    "ipRights": "IP rights",
+    "overview": "Overview",
+    "tasks": "Tasks",
+    "timeline": "Timeline"
+  },
+  "tasks": {
+    "add": "Add task",
+    "completed": "Completed",
+    "confirmComplete": "Mark this task as completed?",
+    "confirmDelete": "Delete this task?",
+    "drawerTitle": "Add task",
+    "empty": "No tasks on this matter.",
+    "error": "Failed to load tasks.",
+    "loading": "Loading tasks…",
+    "open": "Open",
+    "priority": {
+      "high": "High",
+      "normal": "Normal"
+    },
+    "title": "Tasks"
+  },
+  "timeline": {
+    "description": "Chronological history of prosecution and correspondence on this matter.",
+    "empty": "No timeline events yet. Log correspondence or file an application to see activity here.",
+    "error": "Failed to load timeline.",
+    "eventType": {
+      "correspondence": "Correspondence",
+      "deadline": "Deadline",
+      "filing": "Filing",
+      "note": "Note",
+      "task": "Task"
+    },
+    "loading": "Loading timeline…",
+    "loggedBy": "Logged by {{name}}",
+    "title": "Timeline"
+  },
+  "type": {
+    "border_measures": "Border measures",
+    "copyright": "Copyright",
+    "dispute_opposition": "Dispute / opposition",
+    "fto_analysis": "FTO analysis",
+    "geographical_indication": "Geographical indication",
+    "industrial_design": "Industrial design",
+    "patent": "Patent",
+    "trademark": "Trademark",
+    "utility_model": "Utility model",
+    "valuation": "Valuation"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Select…",
+    "title": "Type-specific details"
+  }
+}

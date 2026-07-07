@@ -1,0 +1,37 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Cancel",
+      "confirm": "Confirm & enable 2FA",
+      "enable": "Enable 2FA",
+      "preparing": "Preparing…",
+      "verifying": "Verifying…"
+    },
+    "authCode": "Authentication code",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Active",
+      "description": "Your account requires a code from your authenticator app when signing in.",
+      "title": "Two-factor authentication is enabled"
+    },
+    "errors": {
+      "enableFailed": "Failed to enable 2FA",
+      "invalidCode": "Invalid code",
+      "setupFailed": "Failed to start 2FA setup"
+    },
+    "setup": {
+      "description": "Add an extra layer of security by requiring a 6-digit code from an authenticator app (Google Authenticator, Authy, etc.) when you sign in.",
+      "manualKey": "Or enter this key manually",
+      "scanQr": "1. Scan this QR code",
+      "scanQrHint": "Open your authenticator app and scan the code below.",
+      "verify": "2. Confirm with a 6-digit code",
+      "verifyHint": "Enter the code shown in your app to verify setup."
+    }
+  },
+  "security": {
+    "description": "Two-factor authentication protects your account even if your password is compromised.",
+    "title": "Security"
+  },
+  "subtitle": "Manage your account preferences and security.",
+  "title": "Settings"
+}

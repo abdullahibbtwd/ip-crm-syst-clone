@@ -5,7 +5,7 @@ export function TeamUsersTab() {
     <UsersListPanel
       segment="team"
       title="Team members"
-      description="Internal staff with firm roles — attorneys, coordinators, finance, IT, and administration. Excludes portal client accounts."
+      description="Internal staff with firm roles - attorneys, coordinators, finance, IT, and administration. Excludes portal client accounts."
     />
   )
 }

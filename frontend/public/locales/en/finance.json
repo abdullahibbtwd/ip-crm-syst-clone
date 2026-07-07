@@ -1,0 +1,113 @@
+{
+  "clientFallback": "Client",
+  "fixedFeeCategory": {
+    "disbursement": "Disbursement",
+    "expense": "Expense",
+    "professional_fee": "Professional fee"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Download",
+      "issue": "Issue",
+      "pay": "Pay",
+      "void": "Void"
+    },
+    "confirmIssue": "Issue this invoice?",
+    "confirmVoid": "Void this invoice? This cannot be undone.",
+    "createFromUnbilled": "Create invoice from unbilled",
+    "description": "Track issued invoices, payment status, and outstanding balances.",
+    "draft": "Draft",
+    "empty": "No invoices found",
+    "emptyDescription": "Try adjusting filters or create an invoice from unbilled work.",
+    "error": "Failed to load invoices.",
+    "invoiceStatus": {
+      "draft": "Draft",
+      "issued": "Issued",
+      "void": "Void"
+    },
+    "loading": "Loading invoices…",
+    "noPermission": "You do not have permission to view invoices.",
+    "searchPlaceholder": "Search invoice no. or client…",
+    "sectionTitle": "Invoices",
+    "table": {
+      "amount": "Amount",
+      "client": "Client",
+      "due": "Due",
+      "invoiceNo": "Invoice no.",
+      "issued": "Issued",
+      "payment": "Payment",
+      "status": "Status"
+    },
+    "title": "Invoices"
+  },
+  "payment": {
+    "amount": "Amount *",
+    "balance": "Outstanding balance",
+    "date": "Payment date *",
+    "drawerTitle": "Record payment",
+    "error": "Failed to record payment",
+    "method": "Payment method *",
+    "methods": {
+      "bank_transfer": "Bank transfer",
+      "card": "Card",
+      "cash": "Cash",
+      "other": "Other"
+    },
+    "notes": "Notes",
+    "reference": "Reference",
+    "save": "Record payment",
+    "success": "Payment recorded successfully.",
+    "validation": {
+      "amount": "Amount must be greater than zero",
+      "exceeds": "Amount exceeds outstanding balance"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Paid",
+    "partial": "Partially paid",
+    "unpaid": "Unpaid"
+  },
+  "rateCards": {
+    "any": "Any",
+    "create": "Create rate card",
+    "description": "Configure billing rates by role, matter type, and effective date.",
+    "drawerTitle": "New rate card",
+    "drawerTitleEdit": "Edit rate card",
+    "effectiveFrom": "Effective from *",
+    "effectiveTo": "Effective to",
+    "error": "Failed to save rate card",
+    "firmWide": "Firm-wide",
+    "internalCost": "Internal cost / hr",
+    "matterType": "Matter type",
+    "new": "New rate card",
+    "noPermission": "You do not have permission to manage rate cards.",
+    "rate": "Rate / hr *",
+    "role": "Role *",
+    "save": "Save changes",
+    "scope": "Scope",
+    "table": {
+      "effective": "Effective",
+      "internalCost": "Internal cost",
+      "matterType": "Matter type",
+      "rate": "Rate",
+      "role": "Role",
+      "scope": "Scope"
+    },
+    "title": "Rate cards"
+  },
+  "rateRole": {
+    "coordinator": "Coordinator",
+    "ip_attorney": "IP attorney",
+    "managing_partner": "Managing partner",
+    "paralegal": "Paralegal",
+    "trademark_attorney": "Trademark attorney"
+  },
+  "summary": {
+    "billable": "Billable",
+    "billableAmount": "Billable amount",
+    "fixedFees": "Fixed fees",
+    "total": "Total",
+    "totalHours": "Total hours",
+    "unbilled": "Unbilled"
+  }
+}

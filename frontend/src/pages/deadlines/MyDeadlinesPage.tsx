@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { AlertTriangle } from 'lucide-react'
 import { DueTodayAlert } from '@/components/deadlines/DueTodayAlert'
 import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
@@ -17,8 +18,8 @@ import { DeadlineStatusButton } from '@/features/deadlines/components/DeadlineSt
 import { useMyDeadlines, useMyTodayDeadlineCount } from '@/features/deadlines/hooks/useDeadlines'
 import type { MyDeadlinesTab } from '@/features/deadlines/types'
 import {
-  DEADLINE_STATUS_LABELS,
   deadlineJurisdiction,
+  deadlineStatusLabel,
   deadlineUrgency,
   formatDeadlineDate,
   jurisdictionLabel,
@@ -31,15 +32,10 @@ import { cn } from '@/lib/utils'
 
 const PAGE_SIZE = 50
 
-const TABS: { id: MyDeadlinesTab; label: string }[] = [
-  { id: 'all', label: 'All' },
-  { id: 'pending', label: 'Pending' },
-  { id: 'in_progress', label: 'In progress' },
-  { id: 'overdue', label: 'Overdue' },
-  { id: 'completed', label: 'Completed' },
-]
+const TAB_IDS: MyDeadlinesTab[] = ['all', 'pending', 'in_progress', 'overdue', 'completed']
 
 export function MyDeadlinesPage() {
+  const { t } = useTranslation('deadlines')
   const { user } = useAuth()
   const isPortalClient = user?.roles.includes('portal_client') ?? false
   const [tab, setTab] = useState<MyDeadlinesTab>('all')
@@ -78,45 +74,45 @@ export function MyDeadlinesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-2xl text-foreground md:text-3xl">My deadlines</h1>
+        <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('myDeadlines.title')}</h1>
         <p className="mt-1 max-w-xl text-sm text-muted-foreground">
           {isPortalClient
-            ? 'Upcoming and overdue deadlines across your matters.'
-            : 'Your personal worklist across all assigned matters. Update status here without opening each matter.'}
+            ? t('myDeadlines.descriptionPortal')
+            : t('myDeadlines.descriptionStaff')}
         </p>
       </div>
 
       <DueTodayAlert count={todayCount} />
 
       <div className="flex flex-wrap gap-2">
-        {TABS.map((t) => (
+        {TAB_IDS.map((id) => (
           <Button
-            key={t.id}
+            key={id}
             type="button"
             size="sm"
-            variant={tab === t.id ? 'default' : 'outline'}
-            onClick={() => setTab(t.id)}
+            variant={tab === id ? 'default' : 'outline'}
+            onClick={() => setTab(id)}
           >
-            {t.label}
+            {t(`myDeadlines.tabs.${id}`)}
           </Button>
         ))}
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading deadlines…</p>
+        <p className="text-sm text-muted-foreground">{t('myDeadlines.loading')}</p>
       ) : isError ? (
-        <p className="text-sm text-destructive">Failed to load deadlines.</p>
+        <p className="text-sm text-destructive">{t('myDeadlines.error')}</p>
       ) : (
         <>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Matter</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Jurisdiction</TableHead>
-                <TableHead>Due date</TableHead>
-                <TableHead>Grace</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('myDeadlines.table.matter')}</TableHead>
+                <TableHead>{t('myDeadlines.table.type')}</TableHead>
+                <TableHead>{t('myDeadlines.table.jurisdiction')}</TableHead>
+                <TableHead>{t('myDeadlines.table.dueDate')}</TableHead>
+                <TableHead>{t('myDeadlines.table.grace')}</TableHead>
+                <TableHead>{t('myDeadlines.table.status')}</TableHead>
                 <TableHead className="w-[120px]" />
               </TableRow>
             </TableHeader>
@@ -124,7 +120,7 @@ export function MyDeadlinesPage() {
               {deadlines.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={7} className="py-12 text-center text-muted-foreground">
-                    No deadlines in this view.
+                    {t('myDeadlines.empty')}
                   </TableCell>
                 </TableRow>
               ) : (
@@ -160,15 +156,15 @@ export function MyDeadlinesPage() {
                         </div>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
-                        {d.graceDate ? formatDeadlineDate(d.graceDate) : '—'}
+                        {d.graceDate ? formatDeadlineDate(d.graceDate) : '-'}
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="normal-case">
                           {urgency === 'today'
-                            ? 'Due today'
+                            ? t('urgency.dueToday')
                             : urgency === 'overdue' && d.status !== 'completed'
-                              ? 'Overdue'
-                              : DEADLINE_STATUS_LABELS[d.status]}
+                              ? t('urgency.overdue')
+                              : deadlineStatusLabel(d.status)}
                         </Badge>
                       </TableCell>
                       <TableCell>
@@ -194,7 +190,7 @@ export function MyDeadlinesPage() {
                 disabled={pageIndex === 0 || isFetching}
                 onClick={handlePreviousPage}
               >
-                Previous
+                {t('myDeadlines.previous')}
               </Button>
               <Button
                 type="button"
@@ -203,7 +199,7 @@ export function MyDeadlinesPage() {
                 disabled={!data?.nextCursor || isFetching}
                 onClick={handleNextPage}
               >
-                Next
+                {t('myDeadlines.next')}
               </Button>
             </div>
           )}

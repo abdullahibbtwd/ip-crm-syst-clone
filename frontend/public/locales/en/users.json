@@ -1,0 +1,70 @@
+{
+  "assigneeSelect": {
+    "loading": "Loading attorneys…",
+    "placeholder": "Select responsible attorney",
+    "unassigned": "Unassigned"
+  },
+  "filters": {
+    "activeOnly": "Active only",
+    "allStatuses": "All statuses",
+    "inactiveOnly": "Inactive only",
+    "searchPortal": "Search portal users…",
+    "searchTeam": "Search team members…"
+  },
+  "layout": {
+    "accessRestricted": "Access restricted",
+    "description": "Manage internal team members and external portal client accounts. SSO and password-based sign-in are shown per user.",
+    "noPermission": "You do not have permission to view users and team members.",
+    "title": "Users & team"
+  },
+  "portal": {
+    "description": "External client accounts with portal access to shared matters and documents.",
+    "title": "Portal users"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Password",
+      "sso": "SSO"
+    },
+    "clientRecord": "Client record",
+    "empty": "No users found",
+    "emptyDescription": "Try adjusting search or filters.",
+    "error": "Failed to load users.",
+    "headers": {
+      "lastLogin": "Last login",
+      "mfa": "MFA",
+      "registered": "Registered",
+      "role": "Role",
+      "signIn": "Sign-in",
+      "status": "Status",
+      "user": "User"
+    },
+    "mfa": {
+      "enabled": "Enabled",
+      "off": "Off"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "viewAria": "View {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Client accounts",
+      "label": "Portal users"
+    },
+    "team": {
+      "description": "Internal staff",
+      "label": "Team"
+    }
+  },
+  "team": {
+    "description": "Internal staff with roles, sign-in method, and MFA status.",
+    "title": "Team members"
+  },
+  "teamMemberSelect": {
+    "loading": "Loading…",
+    "placeholder": "Select team member"
+  }
+}

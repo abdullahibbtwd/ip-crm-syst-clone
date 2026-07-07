@@ -1,7 +1,7 @@
 /**
  * Provision an internal or portal user.
  *
- * SSO (default): no password — sign in with Microsoft/Google using this email.
+ * SSO (default): no password - sign in with Microsoft/Google using this email.
  *
  * Dev password login:
  *   npm run invite:user -- user@example.com "Full Name" managing_partner --password "ChangeMe123!"

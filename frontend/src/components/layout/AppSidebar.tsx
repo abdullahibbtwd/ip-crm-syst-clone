@@ -12,6 +12,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 
 function useIsLgUp() {
@@ -70,8 +71,10 @@ function SidebarLink({
   onNavigate: (id: string, path?: string) => void
   badge?: number
 }) {
+  const { t } = useTranslation('nav')
   const Icon = item.icon
   const id = navId(item)
+  const label = t(`items.${item.labelKey}`)
   const location = useLocation()
   const routeActive = item.path ? isPathActive(item.path, location.pathname) : isActive
 
@@ -119,7 +122,7 @@ function SidebarLink({
       </span>
       {!collapsed && (
         <>
-          <span className="flex-1 truncate text-left tracking-wide">{item.label}</span>
+          <span className="flex-1 truncate text-left tracking-wide">{label}</span>
           {badge ? (
             <DueTodayCountBadge count={badge} external={external} />
           ) : (
@@ -135,7 +138,7 @@ function SidebarLink({
     </>
   )
 
-  const title = collapsed ? item.label : undefined
+  const title = collapsed ? label : undefined
 
   if (item.path) {
     return (
@@ -144,7 +147,7 @@ function SidebarLink({
         title={title}
         onClick={() => onNavigate(id, item.path)}
         aria-current={routeActive ? 'page' : undefined}
-        aria-label={collapsed ? item.label : undefined}
+        aria-label={collapsed ? label : undefined}
         className={className}
       >
         {content}
@@ -159,7 +162,7 @@ function SidebarLink({
       title={title}
       onClick={() => onNavigate(id)}
       aria-current={isActive ? 'page' : undefined}
-      aria-label={collapsed ? item.label : undefined}
+      aria-label={collapsed ? label : undefined}
       className={className}
     >
       {content}
@@ -174,6 +177,7 @@ export function AppSidebar({
   activeNavId,
   onNavigate,
 }: AppSidebarProps) {
+  const { t } = useTranslation('nav')
   const { sidebarCollapsed, toggleSidebarCollapsed } = useShell()
   const isLgUp = useIsLgUp()
   const collapsed = sidebarCollapsed && isLgUp
@@ -243,7 +247,7 @@ export function AppSidebar({
           variant="ghost"
           size="icon-sm"
           onClick={toggleSidebarCollapsed}
-          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-label={collapsed ? t('sidebar.expand') : t('sidebar.collapse')}
           aria-expanded={!collapsed}
           className={cn(
             'shrink-0',
@@ -269,7 +273,7 @@ export function AppSidebar({
         )}
       >
         {nav.map((group) => (
-          <div key={group.section} className="space-y-1">
+          <div key={group.sectionKey} className="space-y-1">
             {!collapsed && (
               <p
                 className={cn(
@@ -277,7 +281,7 @@ export function AppSidebar({
                   external ? 'text-white/30' : 'text-muted-foreground/70',
                 )}
               >
-                {group.section}
+                {t(`sections.${group.sectionKey}`)}
               </p>
             )}
             <div className="space-y-1">

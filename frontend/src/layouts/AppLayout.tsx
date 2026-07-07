@@ -11,10 +11,12 @@ import { Button } from '@/components/ui/button'
 import {
   initials,
   resolvePrimaryRole,
+  roleLabel,
   ROLE_LABELS,
   type SystemRole,
 } from '../lib/rbac'
 import { cn } from '../lib/cn'
+import { useTranslation } from 'react-i18next'
 
 export function AppLayout() {
   const { user, logout } = useAuth()
@@ -73,6 +75,7 @@ function LayoutBody({
   onRoleChange: (role: SystemRole) => void
   onLogout: () => void
 }) {
+  const { t } = useTranslation('nav')
   const { activeNavId, setActiveNavId, sidebarOpen, setSidebarOpen } = useShell()
   const location = useLocation()
   const navigate = useNavigate()
@@ -151,7 +154,7 @@ function LayoutBody({
               className="rounded-full"
               onClick={() => onRoleChange(role)}
             >
-              {ROLE_LABELS[role]}
+              {roleLabel(role)}
             </Button>
           ))}
         </div>
@@ -161,7 +164,7 @@ function LayoutBody({
         {sidebarOpen && (
           <button
             type="button"
-            aria-label="Close sidebar"
+            aria-label={t('sidebar.close')}
             className="absolute inset-0 z-40 bg-brand-green/40 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />
@@ -187,7 +190,7 @@ function LayoutBody({
         <div className="flex min-w-0 flex-1 flex-col">
           <AppTopbar
             userName={user.fullName}
-            roleLabel={ROLE_LABELS[effectiveRole]}
+            roleLabel={roleLabel(effectiveRole)}
             avatarInitials={initials(user.fullName)}
             email={user.email}
             external={activeView.external}

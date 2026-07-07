@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -12,13 +13,15 @@ type DrawerProps = {
 }
 
 export function Drawer({ open, onClose, title, children, className }: DrawerProps) {
+  const { t } = useTranslation('crm')
+
   if (!open) return null
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <button
         type="button"
-        aria-label="Close drawer"
+        aria-label={t('drawer.closeAria')}
         className="absolute inset-0 bg-black/40"
         onClick={onClose}
       />

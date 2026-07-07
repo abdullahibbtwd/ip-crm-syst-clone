@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { CalendarClock } from 'lucide-react'
 import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Table,
   TableBody,
@@ -15,43 +15,50 @@ import {
 import { clientDisplayName } from '@/features/crm/utils'
 import { useMyDeadlines } from '@/features/deadlines/hooks/useDeadlines'
 import {
-  DEADLINE_STATUS_LABELS,
+  deadlineStatusLabel,
   deadlineUrgency,
   formatDeadlineDate,
   URGENCY_DOT_CLASS,
 } from '@/features/deadlines/utils'
+import { ReportPanel } from '@/components/reports/report-ui'
 import { cn } from '@/lib/utils'
 
 export function MyDeadlinesWidget() {
+  const { t } = useTranslation('deadlines')
   const { data, isLoading, isError } = useMyDeadlines({ limit: 8 })
   const deadlines = data?.items ?? []
 
   return (
-    <Card className="shadow-none">
-      <CardHeader className="flex flex-row items-center justify-between gap-3 pb-3">
-        <CardTitle className="flex items-center gap-2 text-base">
-          <CalendarClock className="size-4" />
-          My deadlines
-        </CardTitle>
-        <Link to="/deadlines/my" className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
-          View all
+    <ReportPanel className="p-0 overflow-hidden">
+      <div className="flex flex-row items-center justify-between gap-3 p-5 md:px-6">
+        <h3 className="flex items-center gap-2.5 font-serif text-lg text-brand-green">
+          <CalendarClock className="size-5 text-primary" />
+          {t('widget.title')}
+        </h3>
+        <Link to="/deadlines/my" className={buttonVariants({ variant: 'ghost', size: 'sm', className: 'text-xs font-semibold' })}>
+          {t('widget.viewAll')}
         </Link>
-      </CardHeader>
-      <CardContent className="pt-0">
+      </div>
+      <div className="px-0">
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading deadlines…</p>
+          <div className="p-10 text-center text-sm text-muted-foreground italic">{t('widget.loading')}</div>
         ) : isError ? (
-          <p className="text-sm text-destructive">Could not load deadlines.</p>
+          <div className="p-10 text-center text-sm text-destructive font-medium">{t('widget.error')}</div>
         ) : deadlines.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No upcoming deadlines assigned to you.</p>
+          <div className="p-10 text-center text-sm text-muted-foreground italic">{t('widget.empty')}</div>
         ) : (
           <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Deadline</TableHead>
-                <TableHead>Matter</TableHead>
-                <TableHead>Due</TableHead>
-                <TableHead>Status</TableHead>
+            <TableHeader className="bg-muted/30">
+              <TableRow className="hover:bg-transparent">
+                <TableHead className="py-3 px-6 text-[10px] uppercase tracking-widest font-bold">
+                  {t('widget.table.matterClient')}
+                </TableHead>
+                <TableHead className="py-3 px-6 text-[10px] uppercase tracking-widest font-bold">
+                  {t('widget.table.deadline')}
+                </TableHead>
+                <TableHead className="py-3 px-6 text-[10px] uppercase tracking-widest font-bold">
+                  {t('widget.table.dueDateStatus')}
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -61,46 +68,56 @@ export function MyDeadlinesWidget() {
                   <TableRow
                     key={d.id}
                     className={cn(
-                      urgency === 'overdue' && 'bg-destructive/5',
-                      urgency === 'today' && 'bg-orange-500/10',
-                      urgency === 'urgent' && 'bg-amber-500/5',
+                      'group transition-colors',
+                      urgency === 'overdue' && 'bg-destructive/[0.03] hover:bg-destructive/[0.06]',
+                      urgency === 'today' && 'bg-primary/[0.03] hover:bg-primary/[0.06]',
+                      urgency === 'urgent' && 'bg-amber-500/[0.02] hover:bg-amber-500/[0.05]',
                     )}
                   >
-                    <TableCell>
-                      <div className="flex items-center gap-2">
+                    <TableCell className="py-4 px-6">
+                      <div className="flex flex-col gap-0.5">
+                        {d.matter ? (
+                          <Link
+                            to={`/matters/${d.matter.id}/overview`}
+                            className="font-semibold text-brand-green hover:text-primary transition-colors"
+                          >
+                            {d.matter.title}
+                          </Link>
+                        ) : (
+                          <span className="text-muted-foreground">-</span>
+                        )}
+                        {d.matter?.client ? (
+                          <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-tight">
+                            {clientDisplayName(d.matter.client)}
+                          </p>
+                        ) : null}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4 px-6">
+                      <div className="flex items-center gap-2.5">
                         <span
-                          className={cn('size-2 shrink-0 rounded-full', URGENCY_DOT_CLASS[urgency])}
+                          className={cn('size-2 shrink-0 rounded-full shadow-sm', URGENCY_DOT_CLASS[urgency])}
                         />
-                        <span className="font-medium">{d.title}</span>
+                        <span className="text-sm font-medium text-foreground">{d.title}</span>
                       </div>
                     </TableCell>
-                    <TableCell>
-                      {d.matter ? (
-                        <Link
-                          to={`/matters/${d.matter.id}/overview`}
-                          className="text-primary hover:underline"
+                    <TableCell className="py-4 px-6 text-right sm:text-left">
+                      <div className="flex flex-col items-start gap-1.5">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium tabular-nums">{formatDeadlineDate(d.dueDate)}</span>
+                          {urgency === 'today' && <DueTodayBadge />}
+                        </div>
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'h-5 px-2 text-[10px] font-bold uppercase tracking-wide border-transparent bg-muted/40',
+                            urgency === 'today' && 'bg-primary/10 text-primary border-primary/20',
+                            urgency === 'overdue' && 'bg-destructive/10 text-destructive border-destructive/20'
+                          )}
                         >
-                          {d.matter.title}
-                        </Link>
-                      ) : (
-                        '-'
-                      )}
-                      {d.matter?.client ? (
-                        <p className="text-xs text-muted-foreground">
-                          {clientDisplayName(d.matter.client)}
-                        </p>
-                      ) : null}
-                    </TableCell>
-                    <TableCell className="text-muted-foreground">
-                      <div className="flex flex-wrap items-center gap-2">
-                        {urgency === 'today' && <DueTodayBadge />}
-                        <span>{formatDeadlineDate(d.dueDate)}</span>
+                          {urgency === 'today' ? t('urgency.dueToday') : deadlineStatusLabel(d.status)}
+                        </Badge>
                       </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="outline" className="normal-case">
-                        {urgency === 'today' ? 'Due today' : DEADLINE_STATUS_LABELS[d.status]}
-                      </Badge>
                     </TableCell>
                   </TableRow>
                 )
@@ -108,7 +125,7 @@ export function MyDeadlinesWidget() {
             </TableBody>
           </Table>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </ReportPanel>
   )
 }

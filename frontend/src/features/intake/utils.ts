@@ -1,10 +1,36 @@
+import i18n from '@/i18n'
 import type { ConflictHit, CounterpartyRelationship, IntakeLead } from './types'
 
 export function intakeDisplayName(lead: Pick<IntakeLead, 'enquirerType' | 'companyName' | 'fullName'>) {
-  if (lead.enquirerType === 'company') return lead.companyName ?? 'Unknown company'
-  return lead.fullName ?? 'Unknown individual'
+  if (lead.enquirerType === 'company') {
+    return lead.companyName ?? i18n.t('unknownCompany', { ns: 'intake' })
+  }
+  return lead.fullName ?? i18n.t('unknownIndividual', { ns: 'intake' })
 }
 
+export function intakeStatusLabel(status: IntakeLead['status']): string {
+  return i18n.t(`status.${status}`, { ns: 'intake' })
+}
+
+export function intakeMatterTypeLabel(type: IntakeLead['matterType']): string {
+  return i18n.t(`matterType.${type}`, { ns: 'intake' })
+}
+
+export function referralSourceLabel(source: IntakeLead['referralSource']): string {
+  return i18n.t(`referralSource.${source}`, { ns: 'intake' })
+}
+
+export function counterpartyRelationshipLabel(
+  relationship: CounterpartyRelationship,
+): string {
+  return i18n.t(`counterparty.relationship.${relationship}`, { ns: 'intake' })
+}
+
+export function conflictEntityLabel(entityType: ConflictHit['entityType']): string {
+  return i18n.t(`conflict.entityType.${entityType}`, { ns: 'intake' })
+}
+
+/** @deprecated Use intakeStatusLabel() for translated labels */
 export const INTAKE_STATUS_LABELS: Record<IntakeLead['status'], string> = {
   new: 'New',
   reviewing: 'Reviewing',
@@ -46,6 +72,7 @@ export function formatIntakeDateTime(iso: string) {
   }).format(new Date(iso))
 }
 
+/** @deprecated Use intakeMatterTypeLabel() for translated labels */
 export const MATTER_TYPE_LABELS: Record<IntakeLead['matterType'], string> = {
   trademark: 'Trademark',
   patent: 'Patent',
@@ -54,6 +81,7 @@ export const MATTER_TYPE_LABELS: Record<IntakeLead['matterType'], string> = {
   other: 'Other',
 }
 
+/** @deprecated Use referralSourceLabel() for translated labels */
 export const REFERRAL_SOURCE_LABELS: Record<IntakeLead['referralSource'], string> = {
   email: 'Email',
   phone: 'Phone',
@@ -63,6 +91,7 @@ export const REFERRAL_SOURCE_LABELS: Record<IntakeLead['referralSource'], string
   other: 'Other',
 }
 
+/** @deprecated Use counterpartyRelationshipLabel() for translated labels */
 export const COUNTERPARTY_RELATIONSHIP_LABELS: Record<CounterpartyRelationship, string> = {
   competitor: 'Competitor',
   adverse_party: 'Adverse party',
@@ -70,6 +99,7 @@ export const COUNTERPARTY_RELATIONSHIP_LABELS: Record<CounterpartyRelationship, 
   licensee: 'Licensee',
 }
 
+/** @deprecated Use conflictEntityLabel() for translated labels */
 export const CONFLICT_ENTITY_LABELS: Record<ConflictHit['entityType'], string> = {
   client: 'Client',
   contact: 'Contact',

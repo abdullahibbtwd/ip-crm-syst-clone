@@ -27,7 +27,7 @@ export class DeadlineNotifyService {
       where: { id: deadlineId },
       include: deadlineNotifyInclude,
     });
-    if (!deadline) return
+    if (!deadline) return;
 
     const dueLabel = formatDueDate(deadline.dueDate);
     const today = new Date();
@@ -45,7 +45,7 @@ export class DeadlineNotifyService {
         : `New deadline: ${deadline.title}`,
       body: isOverdue
         ? `${deadline.matter.title} was due ${dueLabel} and is now on your worklist.`
-        : `${deadline.matter.title} — due ${dueLabel}.`,
+        : `${deadline.matter.title} - due ${dueLabel}.`,
       resource: 'deadline',
       resourceId: deadline.id,
       linkUrl: `/matters/${deadline.matterId}/deadlines`,

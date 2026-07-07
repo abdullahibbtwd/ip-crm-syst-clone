@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { FilePlus, Inbox, ChevronRight, CheckCircle2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { CreateIntakeForm } from '@/components/intake/CreateIntakeForm'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
@@ -9,20 +10,20 @@ import { useAuth } from '@/features/auth/AuthProvider'
 import { useCreateIntake, useIntakeLeads } from '@/features/intake/hooks/useIntake'
 import type { IntakeLead } from '@/features/intake/types'
 import type { CreateIntakeFormValues } from '@/features/intake/schemas'
-import { formatIntakeDate, MATTER_TYPE_LABELS } from '@/features/intake/utils'
+import { formatIntakeDate } from '@/features/intake/utils'
 import { cn } from '@/lib/utils'
 
-const PORTAL_STATUS: Record<
+const PORTAL_STATUS_VARIANT: Record<
   IntakeLead['status'],
-  { label: string; variant: 'info' | 'warning' | 'success' | 'secondary' | 'destructive' }
+  'info' | 'warning' | 'success' | 'secondary' | 'destructive'
 > = {
-  new: { label: 'Submitted', variant: 'info' },
-  reviewing: { label: 'In review', variant: 'warning' },
-  conflict_check: { label: 'In review', variant: 'warning' },
-  conflict_flagged: { label: 'In review', variant: 'warning' },
-  approved: { label: 'Accepted', variant: 'success' },
-  converted: { label: 'Matter opened', variant: 'success' },
-  rejected: { label: 'Not accepted', variant: 'destructive' },
+  new: 'info',
+  reviewing: 'warning',
+  conflict_check: 'warning',
+  conflict_flagged: 'warning',
+  approved: 'success',
+  converted: 'success',
+  rejected: 'destructive',
 }
 
 const VALID_MATTER_TYPES = new Set<CreateIntakeFormValues['matterType']>([
@@ -33,11 +34,25 @@ const VALID_MATTER_TYPES = new Set<CreateIntakeFormValues['matterType']>([
   'other',
 ])
 
-function enquiryTitle(lead: IntakeLead) {
-  return lead.companyName || lead.fullName || 'Untitled enquiry'
+function portalStatusKey(status: IntakeLead['status']) {
+  switch (status) {
+    case 'new':
+      return 'intake.status.submitted'
+    case 'reviewing':
+    case 'conflict_check':
+    case 'conflict_flagged':
+      return 'intake.status.inReview'
+    case 'approved':
+      return 'intake.status.accepted'
+    case 'converted':
+      return 'intake.status.matterOpened'
+    case 'rejected':
+      return 'intake.status.notAccepted'
+  }
 }
 
 export function PortalIntakePage() {
+  const { t } = useTranslation('portal')
   const { user } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const createIntake = useCreateIntake()
@@ -73,18 +88,19 @@ export function PortalIntakePage() {
     goTo('list')
   }
 
+  const enquiryTitle = (lead: IntakeLead) =>
+    lead.companyName || lead.fullName || t('intake.untitled')
+
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <h1 className="font-serif text-2xl text-foreground">Enquiries</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          File a new filing request or review the enquiries you have already submitted.
-        </p>
+        <h1 className="font-serif text-2xl text-foreground">{t('intake.title')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('intake.description')}</p>
       </div>
 
       <div className="inline-flex rounded-lg border bg-muted/40 p-1">
         <TabButton active={tab === 'list'} onClick={() => goTo('list')} icon={Inbox}>
-          My enquiries
+          {t('intake.myEnquiries')}
         </TabButton>
         <TabButton
           active={tab === 'new'}
@@ -94,7 +110,7 @@ export function PortalIntakePage() {
           }}
           icon={FilePlus}
         >
-          File new enquiry
+          {t('intake.fileNew')}
         </TabButton>
       </div>
 
@@ -104,23 +120,23 @@ export function PortalIntakePage() {
             <CardContent className="flex flex-col items-center gap-4 px-6 py-10 text-center">
               <CheckCircle2 className="size-12 text-primary" aria-hidden />
               <div>
-                <h2 className="font-serif text-2xl text-foreground">Enquiry submitted</h2>
+                <h2 className="font-serif text-2xl text-foreground">
+                  {t('intake.submitted.title')}
+                </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  We ran an initial conflict check automatically. A coordinator will confirm
-                  and open your matter. You can review or edit your enquiry any time until it
-                  is accepted.
+                  {t('intake.submitted.description')}
                 </p>
               </div>
               <div className="flex flex-wrap justify-center gap-3 pt-2">
                 <Link to={`/portal/intake/${submitted.id}`} className={buttonVariants()}>
-                  Review this enquiry
+                  {t('intake.submitted.reviewEnquiry')}
                 </Link>
                 <button
                   type="button"
                   onClick={showList}
                   className={buttonVariants({ variant: 'outline' })}
                 >
-                  My enquiries
+                  {t('intake.myEnquiries')}
                 </button>
               </div>
             </CardContent>
@@ -136,9 +152,9 @@ export function PortalIntakePage() {
           />
         )
       ) : isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading your enquiries…</p>
+        <p className="text-sm text-muted-foreground">{t('intake.loading')}</p>
       ) : isError ? (
-        <p className="text-sm text-destructive">Could not load your enquiries.</p>
+        <p className="text-sm text-destructive">{t('intake.error')}</p>
       ) : items.length === 0 ? (
         <Card className="border-dashed shadow-none">
           <CardContent className="flex flex-col items-center gap-3 px-6 py-12 text-center">
@@ -146,9 +162,9 @@ export function PortalIntakePage() {
               <Inbox className="size-6" aria-hidden />
             </span>
             <div>
-              <p className="font-medium text-foreground">No enquiries yet</p>
+              <p className="font-medium text-foreground">{t('intake.empty.title')}</p>
               <p className="mt-1 text-sm text-muted-foreground">
-                File a trademark or patent enquiry to get started.
+                {t('intake.empty.description')}
               </p>
             </div>
             <button
@@ -157,14 +173,14 @@ export function PortalIntakePage() {
               className={buttonVariants({ variant: 'outline' })}
             >
               <FilePlus className="size-4" />
-              File an enquiry
+              {t('intake.empty.action')}
             </button>
           </CardContent>
         </Card>
       ) : (
         <div className="space-y-3">
           {items.map((lead) => {
-            const status = PORTAL_STATUS[lead.status]
+            const variant = PORTAL_STATUS_VARIANT[lead.status]
             return (
               <Link key={lead.id} to={`/portal/intake/${lead.id}`} className="block">
                 <Card className="group border-border/70 shadow-none transition hover:border-primary/40 hover:shadow-sm">
@@ -174,12 +190,13 @@ export function PortalIntakePage() {
                         <p className="truncate font-medium text-foreground">
                           {enquiryTitle(lead)}
                         </p>
-                        <Badge variant={status.variant} className="normal-case tracking-normal">
-                          {status.label}
+                        <Badge variant={variant} className="normal-case tracking-normal">
+                          {t(portalStatusKey(lead.status))}
                         </Badge>
                       </div>
                       <p className="mt-0.5 text-xs text-muted-foreground">
-                        {MATTER_TYPE_LABELS[lead.matterType]} · Filed {formatIntakeDate(lead.createdAt)}
+                        {t(`matterTypes.${lead.matterType}`)} ·{' '}
+                        {t('intake.filed', { date: formatIntakeDate(lead.createdAt) })}
                       </p>
                     </div>
                     <ChevronRight

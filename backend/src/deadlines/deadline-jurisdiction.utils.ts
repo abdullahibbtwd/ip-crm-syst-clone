@@ -1,6 +1,6 @@
 import { MatterType } from '../../generated/prisma/client';
 
-/** EU member states — EUIPO route for TM / design. */
+/** EU member states - EUIPO route for TM / design. */
 const EU_MEMBER_STATES = new Set([
   'AT',
   'BE',
@@ -31,7 +31,7 @@ const EU_MEMBER_STATES = new Set([
   'SE',
 ]);
 
-/** EPC contracting states — European patent route. */
+/** EPC contracting states - European patent route. */
 const EP_CONTRACTING_STATES = new Set([
   'AL',
   'AT',

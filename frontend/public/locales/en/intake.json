@@ -1,0 +1,136 @@
+{
+  "conflict": {
+    "cleared": "No conflicts detected",
+    "entityType": {
+      "client": "Client",
+      "contact": "Contact",
+      "counterparty": "Counterparty",
+      "ip_right": "IP right / trademark register",
+      "matter": "Existing matter",
+      "related_company": "Related company",
+      "sign": "Sign / mark on file"
+    },
+    "flagged": "Potential conflicts found",
+    "run": "Run conflict check",
+    "running": "Checking…",
+    "similarity": "Similarity"
+  },
+  "convert": {
+    "button": "Convert to matter",
+    "converted": "Converted to matter",
+    "gdprConsent": "I confirm GDPR consent has been obtained from this enquirer.",
+    "holdingGroup": "Holding group (optional)",
+    "openMatter": "Open matter",
+    "preview": "Matter preview",
+    "title": "Convert to client & matter",
+    "viewClient": "View client"
+  },
+  "counterparty": {
+    "add": "Add party",
+    "editor": {
+      "add": "Add adverse party / competitor",
+      "company": "Company",
+      "name": "Name",
+      "notes": "Notes",
+      "party": "Party {{n}}",
+      "relationship": "Relationship *"
+    },
+    "relationship": {
+      "adverse_party": "Adverse party",
+      "competitor": "Competitor",
+      "licensee": "Licensee",
+      "licensor": "Licensor"
+    },
+    "save": "Save party",
+    "section": {
+      "description": "Parties that may create a conflict of interest.",
+      "title": "Adverse parties / competitors",
+      "unnamed": "Unnamed party"
+    }
+  },
+  "create": {
+    "back": "← Back to intake",
+    "description": "Capture a new enquiry before conflict check and conversion.",
+    "title": "New enquiry"
+  },
+  "detail": {
+    "back": "← Back to intake queue",
+    "company": "Company",
+    "converted": "This enquiry has been converted.",
+    "description": "Description",
+    "email": "Email",
+    "enquiryDetails": "Enquiry details",
+    "error": "Failed to load intake lead.",
+    "fullName": "Full name",
+    "loading": "Loading…",
+    "matterType": "Matter type",
+    "notFound": "Intake lead not found.",
+    "phone": "Phone",
+    "portalSubmission": "Portal submission",
+    "referralSource": "Referral source",
+    "urgent": "Urgent"
+  },
+  "form": {
+    "companyName": "Company name *",
+    "description": "Description",
+    "email": "Email",
+    "enquirerType": "Enquirer type",
+    "error": "Failed to create intake lead",
+    "fullName": "Full name *",
+    "matterType": "Matter type *",
+    "phone": "Phone",
+    "referralSource": "Referral source",
+    "submit": "Submit enquiry",
+    "submitInternal": "Create intake lead",
+    "type": {
+      "company": "Company",
+      "individual": "Individual"
+    },
+    "urgent": "Mark as urgent"
+  },
+  "list": {
+    "description": "Review incoming enquiries, run conflict checks, and convert approved leads.",
+    "empty": "No intake leads found",
+    "emptyDescription": "Try adjusting filters or create a new enquiry.",
+    "error": "Failed to load intake leads.",
+    "new": "New enquiry",
+    "searchPlaceholder": "Search name or email…",
+    "title": "Intake queue"
+  },
+  "matterType": {
+    "design": "Design",
+    "other": "Other",
+    "patent": "Patent",
+    "trademark": "Trademark",
+    "utility_model": "Utility model"
+  },
+  "referralSource": {
+    "email": "Email",
+    "other": "Other",
+    "phone": "Phone",
+    "referral": "Referral",
+    "walk_in": "Walk-in",
+    "website": "Website"
+  },
+  "status": {
+    "approved": "Approved",
+    "conflict_check": "Conflict check",
+    "conflict_flagged": "Conflict flagged",
+    "converted": "Converted",
+    "new": "New",
+    "rejected": "Rejected",
+    "reviewing": "Reviewing"
+  },
+  "table": {
+    "date": "Received",
+    "matterType": "Matter type",
+    "name": "Enquirer",
+    "portal": "Portal",
+    "referral": "Source",
+    "status": "Status",
+    "urgent": "Urgent",
+    "viewAria": "View {{name}}"
+  },
+  "unknownCompany": "Unknown company",
+  "unknownIndividual": "Unknown individual"
+}

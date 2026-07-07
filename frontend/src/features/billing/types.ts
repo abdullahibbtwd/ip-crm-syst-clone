@@ -13,6 +13,7 @@ export type RateCard = {
   matterType: string | null
   clientId: string | null
   hourlyRate: number
+  internalCostPerHour: number | null
   currency: string
   effectiveFrom: string
   effectiveTo: string | null
@@ -32,6 +33,7 @@ export type CreateRateCardInput = {
   matterType?: string
   clientId?: string
   hourlyRate: number
+  internalCostPerHour?: number
   currency?: string
   effectiveFrom: string
   effectiveTo?: string
@@ -39,15 +41,18 @@ export type CreateRateCardInput = {
 
 export type UpdateRateCardInput = {
   hourlyRate?: number
+  internalCostPerHour?: number | null
   effectiveTo?: string
 }
 
 export type ResolvedRate = {
   hourlyRate: number
+  internalCostPerHour: number
   currency: string
   rateCardId: string | null
   role: BillingRateRole | null
   isUnrated: boolean
+  hasInternalCost: boolean
   resolutionLevel:
     | 'client_matter_type'
     | 'firm_matter_type'
@@ -64,6 +69,7 @@ export type TimeEntry = {
   description: string
   isBillable: boolean
   rateSnapshot: number
+  costSnapshot: number
   amount: number
   invoiceId: string | null
   createdAt: string
@@ -95,8 +101,10 @@ export type BillingSummary = {
   totalHours: number
   totalBillableHours: number
   totalBillableAmount: number
+  totalInternalCost: number
   totalFixedFees: number
   totalAmount: number
+  totalMargin: number
   unbilledAmount: number
 }
 

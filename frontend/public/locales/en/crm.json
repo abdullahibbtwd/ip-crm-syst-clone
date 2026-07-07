@@ -1,0 +1,209 @@
+{
+  "clients": {
+    "description": "Manage company and individual client records. New clients are created via intake.",
+    "emptyDescription": "Try adjusting filters or create a client via intake.",
+    "emptyTitle": "No clients found",
+    "error": "Failed to load clients.",
+    "newViaIntake": "New client via intake",
+    "perPage": "{{count}} per page",
+    "searchPlaceholder": "Search name or code…",
+    "title": "Clients",
+    "viewAria": "View {{name}}"
+  },
+  "contacts": {
+    "add": "Add contact",
+    "drawerTitle": "Add contact",
+    "email": "Email",
+    "empty": "No contacts found.",
+    "firstName": "First name *",
+    "lastName": "Last name *",
+    "loading": "Loading contacts…",
+    "remove": "Remove",
+    "role": {
+      "all": "All",
+      "billing": "Billing",
+      "conflict": "Conflict",
+      "general": "General",
+      "primary": "Primary"
+    },
+    "save": "Save contact",
+    "table": {
+      "email": "Email",
+      "name": "Name",
+      "phone": "Phone",
+      "role": "Role"
+    }
+  },
+  "countrySelect": {
+    "empty": "No countries found",
+    "none": "None",
+    "placeholder": "Select country",
+    "search": "Search countries…"
+  },
+  "drawer": {
+    "closeAria": "Close drawer"
+  },
+  "holdingGroups": {
+    "back": "← Back to holding groups",
+    "clientsUnder": "Clients under this group",
+    "create": "Create holding group",
+    "creating": "Creating…",
+    "description": "Parent umbrellas for related client entities.",
+    "descriptionField": "Description",
+    "detailDescription": "Create a parent umbrella for related client entities.",
+    "empty": "No holding groups found",
+    "emptyClients": "No clients linked yet.",
+    "emptyDescription": "Try adjusting search or create a new holding group.",
+    "error": "Failed to load holding groups.",
+    "formError": "Failed to create holding group",
+    "name": "Name *",
+    "namePlaceholder": "e.g. Acme Group BV",
+    "new": "New holding group",
+    "notesPlaceholder": "Optional notes about this holding structure",
+    "notFound": "Holding group not found.",
+    "searchPlaceholder": "Search name or country…",
+    "title": "Holding groups",
+    "viewAria": "View {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Back to clients"
+  },
+  "offices": {
+    "add": "Add office",
+    "city": "City",
+    "drawerTitle": "Add office",
+    "empty": "No offices yet.",
+    "errorPrimary": "Failed to set primary office",
+    "label": "Label *",
+    "loading": "Loading offices…",
+    "noAddress": "No address",
+    "primary": "Primary",
+    "remove": "Remove",
+    "save": "Save office",
+    "setPrimary": "Set as primary office",
+    "setPrimaryAction": "Set primary",
+    "title": "Offices"
+  },
+  "overview": {
+    "assignedTo": "Assigned to",
+    "cancel": "Cancel",
+    "companyName": "Company name *",
+    "country": "Country",
+    "edit": "Edit",
+    "error": "Failed to load client profile.",
+    "errorSave": "Failed to save client",
+    "firstName": "First name *",
+    "gdprConsent": "GDPR consent",
+    "holdingGroup": "Holding group",
+    "lastName": "Last name *",
+    "legalForm": "Legal form",
+    "loading": "Loading profile…",
+    "none": "None",
+    "notes": "Notes",
+    "registrationNo": "Registration no.",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "status": "Status",
+    "type": "Type",
+    "validation": {
+      "companyName": "Company name is required",
+      "name": "First and last name are required",
+      "website": "Website must start with http:// or https://"
+    },
+    "vatNo": "VAT no.",
+    "website": "Website",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Add related company",
+    "drawerTitle": "Add related company",
+    "empty": "No related companies linked.",
+    "externalName": "External name",
+    "existingClient": "Existing client",
+    "linkType": "Link type",
+    "loading": "Loading…",
+    "notes": "Notes",
+    "notesPlaceholder": "Optional context",
+    "relationship": "Relationship *",
+    "remove": "Remove",
+    "save": "Save related company",
+    "searchClients": "Search clients *",
+    "searchPlaceholder": "Search by name or code…",
+    "noClients": "No clients found",
+    "companyName": "Company name *",
+    "table": {
+      "name": "Name",
+      "notes": "Notes",
+      "relationship": "Relationship"
+    },
+    "title": "Related companies"
+  },
+  "relationship": {
+    "affiliate": "Affiliate",
+    "parent": "Parent",
+    "subsidiary": "Subsidiary"
+  },
+  "history": {
+    "empty": "No history yet.",
+    "loadMore": "Load more",
+    "loading": "Loading history…",
+    "title": "Relationship history"
+  },
+  "matters": {
+    "empty": "No matters yet. Open a matter to start prosecution work for this client.",
+    "loading": "Loading matters…",
+    "openNew": "Open new matter",
+    "table": {
+      "assigned": "Assigned",
+      "jurisdictions": "Jurisdictions",
+      "status": "Status",
+      "title": "Title",
+      "type": "Type"
+    },
+    "title": "Matters"
+  },
+  "billing": {
+    "byMatter": "By matter",
+    "error": "Failed to load billing data.",
+    "loading": "Loading billing…",
+    "noPermission": "You do not have permission to view billing for this client.",
+    "title": "Billing",
+    "wipDescription": "Work in progress and unbilled amounts for this client."
+  },
+  "sidebar": {
+    "country": "Country:",
+    "loading": "Loading…",
+    "primaryContact": "Primary contact",
+    "primaryOffice": "Primary office",
+    "viewProfile": "View full profile"
+  },
+  "status": {
+    "active": "Active",
+    "archived": "Archived",
+    "inactive": "Inactive",
+    "prospect": "Prospect"
+  },
+  "table": {
+    "action": "Action",
+    "client": "Client",
+    "country": "Country",
+    "created": "Created",
+    "holdingGroup": "Holding group",
+    "status": "Status",
+    "type": "Type"
+  },
+  "tabs": {
+    "billing": "Billing",
+    "contacts": "Contacts",
+    "history": "History",
+    "matters": "Matters",
+    "offices": "Offices",
+    "overview": "Overview",
+    "related": "Related"
+  },
+  "type": {
+    "company": "Company",
+    "individual": "Individual"
+  },
+  "unnamedClient": "Unnamed client"
+}

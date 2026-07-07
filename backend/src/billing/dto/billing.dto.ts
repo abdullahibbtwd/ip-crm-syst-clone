@@ -9,6 +9,7 @@ import {
   MaxLength,
   Min,
   MinLength,
+  ValidateIf,
 } from 'class-validator';
 import {
   BillingRateRole,
@@ -33,6 +34,11 @@ export class CreateRateCardDto {
   hourlyRate!: number;
 
   @IsOptional()
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0)
+  internalCostPerHour?: number;
+
+  @IsOptional()
   @IsString()
   @MaxLength(3)
   currency?: string;
@@ -54,6 +60,12 @@ export class UpdateRateCardDto {
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   hourlyRate?: number;
+
+  @IsOptional()
+  @ValidateIf((_, value) => value !== null)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0)
+  internalCostPerHour?: number | null;
 }
 
 export class ResolveRateQueryDto {

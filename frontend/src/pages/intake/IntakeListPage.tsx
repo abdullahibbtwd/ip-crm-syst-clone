@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Plus, Search } from 'lucide-react'
 import { IntakeLeadsTable, INTAKE_PAGE_SIZE } from '@/components/intake/IntakeLeadsTable'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -14,11 +15,21 @@ import {
 } from '@/components/ui/select'
 import { useIntakeLeads } from '@/features/intake/hooks/useIntake'
 import type { IntakeFilters, IntakeStatus } from '@/features/intake/types'
-import { INTAKE_STATUS_LABELS } from '@/features/intake/utils'
+import { intakeStatusLabel } from '@/features/intake/utils'
 
 const ALL_STATUSES = 'All'
+const INTAKE_STATUSES: IntakeStatus[] = [
+  'new',
+  'reviewing',
+  'conflict_check',
+  'conflict_flagged',
+  'approved',
+  'rejected',
+  'converted',
+]
 
 export function IntakeListPage() {
+  const { t } = useTranslation(['intake', 'common'])
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<IntakeStatus | undefined>()
@@ -62,16 +73,13 @@ export function IntakeListPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Intake queue</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            New enquiries, conflict checks, and conversion to clients. {INTAKE_PAGE_SIZE} leads per
-            page.
-          </p>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('list.title')}</h1>
+          <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t('list.description')}</p>
         </div>
         <PermissionGate resource="intake" action="create">
           <Link to="/intake/new" className={buttonVariants({ variant: 'default' })}>
             <Plus className="size-4" />
-            New enquiry
+            {t('list.new')}
           </Link>
         </PermissionGate>
       </div>
@@ -80,7 +88,7 @@ export function IntakeListPage() {
         <div className="relative min-w-[220px] flex-1 sm:max-w-sm">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search company, name, email…"
+            placeholder={t('list.searchPlaceholder')}
             className="bg-background pl-9"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -93,13 +101,13 @@ export function IntakeListPage() {
           }
         >
           <SelectTrigger className="w-[200px] bg-background">
-            <SelectValue placeholder="All statuses" />
+            <SelectValue placeholder={t('filters.allStatuses', { ns: 'common' })} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_STATUSES}>All statuses</SelectItem>
-            {(Object.keys(INTAKE_STATUS_LABELS) as IntakeStatus[]).map((status) => (
+            <SelectItem value={ALL_STATUSES}>{t('filters.allStatuses', { ns: 'common' })}</SelectItem>
+            {INTAKE_STATUSES.map((status) => (
               <SelectItem key={status} value={status}>
-                {INTAKE_STATUS_LABELS[status]}
+                {intakeStatusLabel(status)}
               </SelectItem>
             ))}
           </SelectContent>

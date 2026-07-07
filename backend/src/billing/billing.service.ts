@@ -36,6 +36,7 @@ function serializeTimeEntry(row: Prisma.TimeEntryGetPayload<{
     ...row,
     hours: decimalToNumber(row.hours),
     rateSnapshot: decimalToNumber(row.rateSnapshot),
+    costSnapshot: decimalToNumber(row.costSnapshot),
     amount: decimalToNumber(row.amount),
     isUnrated: row.isBillable && decimalToNumber(row.rateSnapshot) === 0,
   };
@@ -66,6 +67,7 @@ function serializeRateCard(row: {
   matterType: string | null;
   clientId: string | null;
   hourlyRate: Prisma.Decimal;
+  internalCostPerHour: Prisma.Decimal | null;
   currency: string;
   effectiveFrom: Date;
   effectiveTo: Date | null;
@@ -75,6 +77,10 @@ function serializeRateCard(row: {
   return {
     ...row,
     hourlyRate: decimalToNumber(row.hourlyRate),
+    internalCostPerHour:
+      row.internalCostPerHour == null
+        ? null
+        : decimalToNumber(row.internalCostPerHour),
   };
 }
 
@@ -83,6 +89,7 @@ type BillingSummaryRow = {
   total_hours: string | number;
   total_billable_hours: string | number;
   total_billable_amount: string | number;
+  total_internal_cost: string | number;
   total_fixed_fees: string | number;
   total_amount: string | number;
   unbilled_amount: string | number;
@@ -128,6 +135,7 @@ export class BillingService {
           matterType: dto.matterType,
           clientId: dto.clientId,
           hourlyRate: dto.hourlyRate,
+          internalCostPerHour: dto.internalCostPerHour,
           currency: dto.currency ?? 'EUR',
           effectiveFrom: new Date(dto.effectiveFrom),
           effectiveTo: dto.effectiveTo ? new Date(dto.effectiveTo) : null,
@@ -144,6 +152,9 @@ export class BillingService {
         data: {
           effectiveTo: dto.effectiveTo ? new Date(dto.effectiveTo) : undefined,
           hourlyRate: dto.hourlyRate,
+          ...(dto.internalCostPerHour !== undefined
+            ? { internalCostPerHour: dto.internalCostPerHour }
+            : {}),
         },
       })
       .then(serializeRateCard);
@@ -188,6 +199,7 @@ export class BillingService {
     const entryDate = new Date(dto.date);
 
     let rateSnapshot = dto.rateSnapshot ?? null;
+    let costSnapshot = 0;
     let isUnrated = false;
     let effectiveBillable = isBillable;
 
@@ -198,6 +210,7 @@ export class BillingService {
         asOfDate: entryDate,
       });
       rateSnapshot = resolved.hourlyRate;
+      costSnapshot = resolved.internalCostPerHour;
       isUnrated = resolved.isUnrated;
       if (resolved.isUnrated) {
         effectiveBillable = false;
@@ -211,6 +224,12 @@ export class BillingService {
           err instanceof Error ? err.message : 'Invalid rate',
         );
       }
+      const resolved = await this.rateResolution.resolveForMatter({
+        matterId,
+        userRoles,
+        asOfDate: entryDate,
+      });
+      costSnapshot = resolved.internalCostPerHour;
     }
 
     const amount = computeTimeEntryAmount(
@@ -228,6 +247,7 @@ export class BillingService {
         description: dto.description.trim(),
         isBillable: effectiveBillable,
         rateSnapshot,
+        costSnapshot,
         amount,
       },
       include: timeEntryInclude,
@@ -355,6 +375,7 @@ export class BillingService {
         totalHours: 0,
         totalBillableHours: 0,
         totalBillableAmount: 0,
+        totalInternalCost: 0,
         totalFixedFees: 0,
         totalAmount: 0,
         unbilledAmount: 0,
@@ -374,6 +395,7 @@ export class BillingService {
         COALESCE(bs.total_hours, 0)::decimal(12, 2) AS total_hours,
         COALESCE(bs.total_billable_hours, 0)::decimal(12, 2) AS total_billable_hours,
         COALESCE(bs.total_billable_amount, 0)::decimal(12, 2) AS total_billable_amount,
+        COALESCE(bs.total_internal_cost, 0)::decimal(12, 2) AS total_internal_cost,
         COALESCE(bs.total_fixed_fees, 0)::decimal(12, 2) AS total_fixed_fees,
         COALESCE(bs.total_amount, 0)::decimal(12, 2) AS total_amount,
         COALESCE(bs.unbilled_amount, 0)::decimal(12, 2) AS unbilled_amount
@@ -399,6 +421,9 @@ export class BillingService {
         totalBillableAmount: roundMoney(
           acc.totalBillableAmount + matter.totalBillableAmount,
         ),
+        totalInternalCost: roundMoney(
+          acc.totalInternalCost + matter.totalInternalCost,
+        ),
         totalFixedFees: roundMoney(acc.totalFixedFees + matter.totalFixedFees),
         totalAmount: roundMoney(acc.totalAmount + matter.totalAmount),
         unbilledAmount: roundMoney(acc.unbilledAmount + matter.unbilledAmount),
@@ -407,6 +432,7 @@ export class BillingService {
         totalHours: 0,
         totalBillableHours: 0,
         totalBillableAmount: 0,
+        totalInternalCost: 0,
         totalFixedFees: 0,
         totalAmount: 0,
         unbilledAmount: 0,
@@ -417,13 +443,17 @@ export class BillingService {
   }
 
   private serializeBillingSummaryRow(row: BillingSummaryRow) {
+    const totalInternalCost = roundMoney(Number(row.total_internal_cost));
+    const totalAmount = roundMoney(Number(row.total_amount));
     return {
       matterId: row.matter_id,
       totalHours: roundMoney(Number(row.total_hours)),
       totalBillableHours: roundMoney(Number(row.total_billable_hours)),
       totalBillableAmount: roundMoney(Number(row.total_billable_amount)),
+      totalInternalCost,
       totalFixedFees: roundMoney(Number(row.total_fixed_fees)),
-      totalAmount: roundMoney(Number(row.total_amount)),
+      totalAmount,
+      totalMargin: roundMoney(totalAmount - totalInternalCost),
       unbilledAmount: roundMoney(Number(row.unbilled_amount)),
     };
   }

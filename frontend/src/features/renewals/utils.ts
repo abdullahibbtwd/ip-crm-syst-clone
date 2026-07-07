@@ -1,7 +1,12 @@
-export const RENEWAL_STATUS_LABELS: Record<
-  import('./types').RenewalStatus,
-  string
-> = {
+import i18n from '@/i18n'
+import type { RenewalStatus } from './types'
+
+export function renewalStatusLabel(status: RenewalStatus): string {
+  return i18n.t(`status.${status}`, { ns: 'renewals' })
+}
+
+/** @deprecated Use renewalStatusLabel() for translated labels */
+export const RENEWAL_STATUS_LABELS: Record<RenewalStatus, string> = {
   upcoming: 'Upcoming',
   instructed: 'Instructed',
   filed: 'Filed',

@@ -1,0 +1,295 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": { "label": "Митнически офис" },
+      "infringingGoods": { "label": "Описание на нарушаващи стоки" }
+    },
+    "copyright": {
+      "creationDate": { "label": "Дата на създаване" },
+      "workTitle": { "label": "Заглавие на произведението" },
+      "workType": { "label": "Вид произведение" }
+    },
+    "dispute_opposition": {
+      "basisSummary": { "label": "Обобщение на основанието" },
+      "disputeType": { "label": "Вид спор" },
+      "opponentName": { "label": "Опонент / противна страна" }
+    },
+    "fto_analysis": {
+      "scopeSummary": { "label": "Обобщение на обхвата" },
+      "technologyArea": { "label": "Технологична област" }
+    },
+    "geographical_indication": {
+      "productName": { "label": "Име на продукта" },
+      "region": { "label": "Географски регион" }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Избройте или опишете подадените изгледи на дизайна",
+        "label": "Изгледи на дизайна"
+      },
+      "locarnoClass": { "label": "Клас по Локарно" },
+      "productDescription": { "label": "Описание на продукта" }
+    },
+    "patent": {
+      "claimsSummary": { "label": "Обобщение на претенциите" },
+      "pctNumber": { "label": "PCT номер" },
+      "priorityDate": { "label": "Приоритетна дата" },
+      "technicalField": { "label": "Техническа област" }
+    },
+    "trademark": {
+      "colors": { "label": "Претендирани цветове" },
+      "markDescription": { "label": "Описание на марката" },
+      "markType": { "label": "Вид марка" },
+      "niceClasses": { "label": "Класове по Ница", "placeholder": "напр. 12, 35" }
+    },
+    "utility_model": {
+      "claimsSummary": { "label": "Обобщение на претенциите" },
+      "priorityDate": { "label": "Приоритетна дата" },
+      "technicalField": { "label": "Техническа област" }
+    },
+    "valuation": {
+      "assetDescription": { "label": "Описание на актива" },
+      "valuationPurpose": { "label": "Цел на оценката" }
+    }
+  },
+  "billing": {
+    "addFee": "Добави фиксирана такса",
+    "addTime": "Запиши време",
+    "confirmDeleteFee": "Изтриване на тази фиксирана такса?",
+    "confirmDeleteTime": "Изтриване на този запис за време?",
+    "emptyFees": "Няма записани фиксирани такси.",
+    "emptyTime": "Няма записи за време.",
+    "error": "Неуспешно зареждане на фактуриране.",
+    "loading": "Зареждане на фактуриране…",
+    "noPermission": "Нямате право да преглеждате фактурирането на това дело.",
+    "portalDescription": "Обобщение на фактурирането за това дело.",
+    "table": {
+      "amount": "Сума",
+      "category": "Категория",
+      "date": "Дата",
+      "description": "Описание",
+      "hours": "Часове",
+      "rate": "Ставка",
+      "user": "Потребител"
+    },
+    "title": "Фактуриране"
+  },
+  "correspondence": {
+    "add": "Запиши кореспонденция",
+    "category": {
+      "application": "Заявление",
+      "certificate": "Сертификат",
+      "correspondence": "Обща кореспонденция",
+      "evidence": "Доказателства",
+      "office_action": "Офис действие"
+    },
+    "direction": {
+      "incoming": "Входяща",
+      "outgoing": "Изходяща"
+    },
+    "drawerTitle": "Запиши кореспонденция",
+    "empty": "Все още няма записана кореспонденция.",
+    "error": "Неуспешно зареждане на кореспонденция.",
+    "errorLog": "Неуспешно записване на кореспонденция",
+    "loading": "Зареждане на кореспонденция…",
+    "savedUnder": "Запазено под темата на кореспонденцията по-долу",
+    "status": {
+      "draft": "Чернова",
+      "received": "Получено",
+      "replied": "Отговорено",
+      "sent": "Изпратено"
+    },
+    "title": "Кореспонденция"
+  },
+  "createDrawer": {
+    "client": "Клиент *",
+    "creating": "Създаване…",
+    "error": "Неуспешно създаване на дело",
+    "jurisdictionHelp": "Изберете една или повече юрисдикции за подаване.",
+    "jurisdictions": "Юрисдикции",
+    "matterType": "Тип дело *",
+    "open": "Отвори дело",
+    "responsibleAttorney": "Отговорен адвокат",
+    "title": "Отвори ново дело",
+    "titleField": "Заглавие *",
+    "titlePlaceholder": "напр. ACME думна марка – ЕС"
+  },
+  "deadlines": {
+    "complete": "Завърши",
+    "daysLeft": "Остават {{count}} дни",
+    "daysOverdue": "{{count}} дни просрочие",
+    "dueToday": "С падеж днес",
+    "empty": "Няма срокове по това дело.",
+    "error": "Неуспешно зареждане на срокове.",
+    "loading": "Зареждане на срокове…",
+    "start": "Започни",
+    "table": {
+      "due": "Падеж",
+      "status": "Статус",
+      "title": "Заглавие",
+      "type": "Тип"
+    },
+    "title": "Срокове"
+  },
+  "documents": {
+    "category": "Категория",
+    "dragDrop": "Плъзнете и пуснете файлове тук или кликнете за избор",
+    "empty": "Все още няма качени документи.",
+    "error": "Неуспешно зареждане на документи.",
+    "errorUpload": "Неуспешно качване на документ",
+    "loading": "Зареждане на документи…",
+    "table": {
+      "category": "Категория",
+      "name": "Име",
+      "uploaded": "Качен"
+    },
+    "title": "Документи",
+    "upload": "Качи документ"
+  },
+  "ipRightStatus": {
+    "cancelled": "Анулирано",
+    "expired": "Изтекло",
+    "filed": "Подадено",
+    "pending": "Очаква подаване",
+    "registered": "Регистрирано"
+  },
+  "ipRights": {
+    "abandon": "Откажи",
+    "add": "Добави ИС право",
+    "complete": "Завърши",
+    "cycleDue": "Цикъл {{n}} · падеж {{date}}",
+    "empty": "Няма регистрирани ИС права по това дело.",
+    "error": "Неуспешно зареждане на ИС права.",
+    "file": "Маркирай като подадено",
+    "loading": "Зареждане на ИС права…",
+    "proceed": "Запиши продължение",
+    "register": "Регистрирай",
+    "table": {
+      "jurisdiction": "Юрисдикция",
+      "localRef": "Местен реф.",
+      "status": "Статус",
+      "type": "Тип"
+    },
+    "title": "ИС права"
+  },
+  "jurisdictionStatus": {
+    "approved": "Одобрено",
+    "filed": "Подадено",
+    "pending": "В изчакване",
+    "rejected": "Отхвърлено"
+  },
+  "layout": {
+    "backToMatters": "← Обратно към дела",
+    "loading": "Зареждане на дело…",
+    "notFound": "Делото не е намерено."
+  },
+  "list": {
+    "description": "Преглед и управление на дела в портфейла.",
+    "descriptionPortal": "Преглед на дела, споделени с вашата организация.",
+    "intakeQueue": "Опашка за приемане",
+    "searchPlaceholder": "Търсене по заглавие или референция…",
+    "title": "Дела",
+    "titlePortal": "Моите дела"
+  },
+  "markType": {
+    "combined": "Комбинирана",
+    "figurative": "Фигуративна",
+    "sound": "Звукова",
+    "three_dimensional": "3D",
+    "wordmark": "Думна марка"
+  },
+  "overview": {
+    "assignedTo": "Отговорен адвокат",
+    "description": "Описание",
+    "jurisdictions": "Юрисдикции",
+    "jurisdictionsEmpty": "Няма записани юрисдикции.",
+    "openedBy": "Отворено от",
+    "status": "Статус",
+    "table": {
+      "country": "Държава",
+      "localRef": "Местен реф.",
+      "status": "Статус"
+    },
+    "title": "Детайли за делото",
+    "type": "Тип",
+    "typeSpecific": "Атрибути специфични за типа"
+  },
+  "status": {
+    "abandoned": "Изоставено",
+    "active": "Активно",
+    "closed": "Затворено",
+    "draft": "Чернова",
+    "on_hold": "На изчакване"
+  },
+  "table": {
+    "assigned": "Възложено",
+    "client": "Клиент",
+    "empty": "Няма намерени дела",
+    "emptyDescription": "Опитайте да промените филтрите или отворете ново дело.",
+    "emptyPortal": "Все още няма споделени с вас дела.",
+    "error": "Неуспешно зареждане на дела.",
+    "jurisdictions": "Юрисдикции",
+    "status": "Статус",
+    "title": "Заглавие",
+    "type": "Тип",
+    "upcoming": "{{count}} предстоящи",
+    "viewAria": "Преглед на {{title}}"
+  },
+  "tabs": {
+    "billing": "Фактуриране",
+    "correspondence": "Кореспонденция",
+    "deadlines": "Срокове",
+    "documents": "Документи",
+    "ipRights": "ИС права",
+    "overview": "Преглед",
+    "tasks": "Задачи",
+    "timeline": "Хронология"
+  },
+  "tasks": {
+    "add": "Добави задача",
+    "completed": "Завършени",
+    "confirmComplete": "Маркиране на задачата като завършена?",
+    "confirmDelete": "Изтриване на тази задача?",
+    "drawerTitle": "Добави задача",
+    "empty": "Няма задачи по това дело.",
+    "error": "Неуспешно зареждане на задачи.",
+    "loading": "Зареждане на задачи…",
+    "open": "Отворени",
+    "priority": {
+      "high": "Висок",
+      "normal": "Нормален"
+    },
+    "title": "Задачи"
+  },
+  "timeline": {
+    "description": "Хронологична история на производството и кореспонденцията по това дело.",
+    "empty": "Все още няма събития. Запишете кореспонденция или подайте заявление, за да видите активност.",
+    "error": "Неуспешно зареждане на хронология.",
+    "eventType": {
+      "correspondence": "Кореспонденция",
+      "deadline": "Срок",
+      "filing": "Подаване",
+      "note": "Бележка",
+      "task": "Задача"
+    },
+    "loading": "Зареждане на хронология…",
+    "loggedBy": "Записано от {{name}}",
+    "title": "Хронология"
+  },
+  "type": {
+    "border_measures": "Гранични мерки",
+    "copyright": "Авторско право",
+    "dispute_opposition": "Спор / опозиция",
+    "fto_analysis": "FTO анализ",
+    "geographical_indication": "Географско указание",
+    "industrial_design": "Промишлен дизайн",
+    "patent": "Патент",
+    "trademark": "Търговска марка",
+    "utility_model": "Полезен модел",
+    "valuation": "Оценка"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Изберете…",
+    "title": "Детайли специфични за типа"
+  }
+}

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { AuthProvider } from './features/auth/AuthProvider.tsx'
 import { AppAlertProvider } from './components/feedback/AppAlertProvider.tsx'
+import './i18n/index.ts'
 import './index.css'
 
 const queryClient = new QueryClient({

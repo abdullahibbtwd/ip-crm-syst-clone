@@ -1,0 +1,148 @@
+{
+  "sidebar": {
+    "expand": "Разгъване на страничната лента",
+    "collapse": "Свиване на страничната лента",
+    "close": "Затваряне на страничната лента"
+  },
+  "sections": {
+    "overview": "Преглед",
+    "clients": "Клиенти",
+    "matters": "Дела",
+    "ipRights": "Права на ИС",
+    "finance": "Финанси",
+    "reports": "Справки",
+    "myWork": "Моята работа",
+    "rights": "Права",
+    "communication": "Комуникация",
+    "trademarks": "Търговски марки",
+    "deadlines": "Срокове",
+    "correspondence": "Кореспонденция",
+    "documentsAndMail": "Документи и поща",
+    "billing": "Фактуриране",
+    "gdpr": "GDPR",
+    "audit": "Одит",
+    "usersAndAccess": "Потребители и достъп",
+    "system": "Система",
+    "myPortfolio": "Моето портфолио",
+    "myMatters": "Моите дела"
+  },
+  "items": {
+    "dashboard": "Табло",
+    "deadlines": "Срокове",
+    "alerts": "Известия",
+    "clients": "Клиенти",
+    "holdingGroups": "Холдингови групи",
+    "allMatters": "Всички дела",
+    "intakeQueue": "Опашка за приемане",
+    "rightsRegister": "Регистър на права",
+    "renewals": "Подновявания",
+    "watch": "Наблюдение",
+    "billingOverview": "Преглед на фактуриране",
+    "deadlineRisk": "Риск от срокове",
+    "filingVolumes": "Обеми на подавания",
+    "renewalsSummary": "Обобщение на подновявания",
+    "revenueReceivables": "Приходи и вземания",
+    "team": "Екип",
+    "settings": "Настройки",
+    "myDashboard": "Моето табло",
+    "myDeadlines": "Моите срокове",
+    "myMatters": "Моите дела",
+    "patentFilings": "Патентни подавания",
+    "officeActions": "Действия от патентно ведомство",
+    "documents": "Документи",
+    "correspondence": "Кореспонденция",
+    "myTmMatters": "Моите ТМ дела",
+    "oppositions": "Опозиции",
+    "watchAlerts": "Известия от наблюдение",
+    "conflictCheck": "Проверка за конфликт",
+    "allDeadlines": "Всички срокове",
+    "escalations": "Ескалации",
+    "gracePeriods": "Гратисни периоди",
+    "addDeadline": "Добавяне на срок",
+    "incomingMail": "Входяща поща",
+    "outgoingMail": "Изходяща поща",
+    "myTasks": "Моите задачи",
+    "assignedMatters": "Възложени дела",
+    "financeDashboard": "Финансово табло",
+    "invoices": "Фактури",
+    "timeEntries": "Отчети на време",
+    "payments": "Плащания",
+    "rateCards": "Тарифни карти",
+    "disbursements": "Разходи",
+    "complianceDashboard": "Табло за съответствие",
+    "personalDataRegister": "Регистър на лични данни",
+    "dataExportsLog": "Дневник на експорти на данни",
+    "retentionRules": "Правила за съхранение",
+    "consentRecords": "Записи за съгласие",
+    "auditTrail": "Одитна следа",
+    "accessLog": "Дневник на достъп",
+    "systemDashboard": "Системно табло",
+    "users": "Потребители",
+    "rolesPermissions": "Роли и права",
+    "ssoMfaConfig": "SSO / MFA конфигурация",
+    "integrations": "Интеграции",
+    "systemHealth": "Здраве на системата",
+    "auditLog": "Одитен дневник",
+    "overview": "Преглед",
+    "enquiries": "Запитвания",
+    "myDocuments": "Моите документи",
+    "myInvoices": "Моите фактури",
+    "messages": "Съобщения",
+    "help": "Помощ",
+    "myPortfolio": "Моето портфолио"
+  },
+  "roles": {
+    "managing_partner": "Управляващ партньор",
+    "ip_attorney": "Патентен повереник",
+    "trademark_attorney": "Повереник по търговски марки",
+    "coordinator": "Координатор / приемане",
+    "docketing_admin": "Администратор по срокове",
+    "paralegal": "Паралигал",
+    "finance": "Финанси",
+    "dpo_compliance": "DPO / съответствие",
+    "it_admin": "IT / администратор",
+    "portal_client": "Клиент (портал)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Очаквайте скоро - тази област ще показва реални данни, след като модулът бъде свързан."
+    },
+    "managing_partner": {
+      "eyebrow": "Преглед на кантората",
+      "title": "Преглед на кантората",
+      "description": "Риск от срокове в портфолиото, обеми на подавания, възстановявания, приходи, натовареност на екипа и рентабилност на клиенти - фирмени справки от едно табло."
+    },
+    "coordinator": {
+      "eyebrow": "Координация",
+      "title": "Приемане и координация",
+      "description": "Опашка за приемане, обеми на подавания и предстоящи подновявания - координирайте запитвания до проследяване."
+    },
+    "docketing_admin": {
+      "eyebrow": "Срокове",
+      "title": "Табло за срокове",
+      "description": "Фирмен риск от срокове - групирани по клиент, юрисдикция и отговорник с маркиране на спешност."
+    },
+    "finance": {
+      "eyebrow": "Финанси",
+      "title": "Финансов преглед",
+      "description": "Издадени приходи, събирания и възраст на вземания - издавайте фактури и проследявайте плащания от едно място."
+    },
+    "portal_client": {
+      "eyebrow": "Клиентски портал",
+      "title": "Добре дошли отново",
+      "description": "Подавайте запитвания за регистрация и проследявайте делата на вашата организация."
+    },
+    "myDashboard": {
+      "title": "Моето табло"
+    },
+    "myTasks": {
+      "title": "Моите задачи"
+    },
+    "compliance": {
+      "title": "Съответствие"
+    },
+    "systemDashboard": {
+      "title": "Системно табло"
+    }
+  }
+}

@@ -58,7 +58,7 @@ export function NotificationSyncProvider({ children }: { children: ReactNode }) 
       return
     }
 
-    // Always load from REST on login / refresh — do not wait for the socket.
+    // Always load from REST on login / refresh - do not wait for the socket.
     invalidateNotificationData(qc)
 
     const unsubscribeSocket = subscribeNotificationSocket(qc)

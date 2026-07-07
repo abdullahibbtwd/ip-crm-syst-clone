@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useOutletContext, useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import {
   Select,
@@ -22,7 +23,7 @@ import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
 import { useRenewals } from '@/features/renewals/hooks/useRenewals'
 import type { RenewalStatus } from '@/features/renewals/types'
 import {
-  RENEWAL_STATUS_LABELS,
+  renewalStatusLabel,
   RENEWAL_URGENCY_ROW_CLASS,
   renewalUrgency,
 } from '@/features/renewals/utils'
@@ -31,13 +32,14 @@ import { hasAnyRole, type SystemRole } from '@/lib/rbac'
 import { cn } from '@/lib/utils'
 
 const ALL = 'all'
-const STATUSES = Object.keys(RENEWAL_STATUS_LABELS) as RenewalStatus[]
+const STATUSES: RenewalStatus[] = ['upcoming', 'instructed', 'filed', 'completed', 'lapsed']
 
 type LayoutContext = {
   activeRole: SystemRole
 }
 
 export function RenewalsPage() {
+  const { t } = useTranslation('renewals')
   const { activeRole } = useOutletContext<LayoutContext>()
   const [searchParams] = useSearchParams()
   const myOnly = searchParams.get('scope') === 'my' || activeRole === 'ip_attorney'
@@ -66,11 +68,9 @@ export function RenewalsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Renewals</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">{t('page.title')}</h1>
         <p className="text-sm text-muted-foreground">
-          {scope === 'my'
-            ? 'Renewal windows on matters assigned to you.'
-            : 'Firm-wide renewal worklist across all IP rights.'}
+          {scope === 'my' ? t('page.descriptionMy') : t('page.descriptionFirm')}
         </p>
       </div>
 
@@ -83,13 +83,13 @@ export function RenewalsPage() {
           }}
         >
           <SelectTrigger className="w-[160px]">
-            <SelectValue placeholder="Status" />
+            <SelectValue placeholder={t('page.filters.status')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL}>All statuses</SelectItem>
+            <SelectItem value={ALL}>{t('page.filters.allStatuses')}</SelectItem>
             {STATUSES.map((s) => (
               <SelectItem key={s} value={s}>
-                {RENEWAL_STATUS_LABELS[s]}
+                {renewalStatusLabel(s)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -103,10 +103,10 @@ export function RenewalsPage() {
           }}
         >
           <SelectTrigger className="w-[160px]">
-            <SelectValue placeholder="Jurisdiction" />
+            <SelectValue placeholder={t('page.filters.jurisdiction')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL}>All jurisdictions</SelectItem>
+            <SelectItem value={ALL}>{t('page.filters.allJurisdictions')}</SelectItem>
             {JURISDICTION_OPTIONS.map((j) => (
               <SelectItem key={j.value} value={j.value}>
                 {j.label}
@@ -124,10 +124,10 @@ export function RenewalsPage() {
             }}
           >
             <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Assignee" />
+              <SelectValue placeholder={t('page.filters.assignee')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>All assignees</SelectItem>
+              <SelectItem value={ALL}>{t('page.filters.allAssignees')}</SelectItem>
               {(assignees ?? []).map((a) => (
                 <SelectItem key={a.id} value={a.id}>
                   {a.fullName}
@@ -141,26 +141,26 @@ export function RenewalsPage() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>IP right</TableHead>
-            <TableHead>Matter</TableHead>
-            <TableHead>Client</TableHead>
-            <TableHead>Cycle</TableHead>
-            <TableHead>Due</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Assignee</TableHead>
+            <TableHead>{t('page.table.ipRight')}</TableHead>
+            <TableHead>{t('page.table.matter')}</TableHead>
+            <TableHead>{t('page.table.client')}</TableHead>
+            <TableHead>{t('page.table.cycle')}</TableHead>
+            <TableHead>{t('page.table.due')}</TableHead>
+            <TableHead>{t('page.table.status')}</TableHead>
+            <TableHead>{t('page.table.assignee')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {isLoading ? (
             <TableRow>
               <TableCell colSpan={7} className="text-center text-muted-foreground">
-                Loading renewals…
+                {t('page.loading')}
               </TableCell>
             </TableRow>
           ) : items.length === 0 ? (
             <TableRow>
               <TableCell colSpan={7} className="text-center text-muted-foreground">
-                No renewal windows match your filters.
+                {t('page.empty')}
               </TableCell>
             </TableRow>
           ) : (
@@ -193,10 +193,10 @@ export function RenewalsPage() {
                   <TableCell>{row.cycleNumber}</TableCell>
                   <TableCell>{formatDeadlineDate(row.dueDate)}</TableCell>
                   <TableCell>
-                    <Badge variant="outline">{RENEWAL_STATUS_LABELS[row.status]}</Badge>
+                    <Badge variant="outline">{renewalStatusLabel(row.status)}</Badge>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
-                    {row.matter.assignedTo?.fullName ?? '—'}
+                    {row.matter.assignedTo?.fullName ?? '-'}
                   </TableCell>
                 </TableRow>
               )

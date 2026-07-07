@@ -112,7 +112,7 @@ export function MattersTable({
                   <p className="font-medium text-foreground">No matters yet</p>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {compact
-                      ? 'Submit a filing enquiry — your matter will appear here after our team opens it.'
+                      ? 'Submit a filing enquiry - your matter will appear here after our team opens it.'
                       : 'Try adjusting filters or convert an approved intake enquiry.'}
                   </p>
                 </div>

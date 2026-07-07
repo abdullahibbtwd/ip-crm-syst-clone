@@ -85,7 +85,12 @@ export class DeadlinesService {
 
     const assigneeId = matter.assignedToId ?? matter.filedById;
     if (!assigneeId) {
-      return { matterId, created: 0, updated: 0, skipped: 'no_assignee' as const };
+      return {
+        matterId,
+        created: 0,
+        updated: 0,
+        skipped: 'no_assignee' as const,
+      };
     }
 
     const jurisdictions = expandDeadlineRuleJurisdictions(
@@ -94,7 +99,12 @@ export class DeadlinesService {
     );
 
     if (jurisdictions.length === 0) {
-      return { matterId, created: 0, updated: 0, skipped: 'no_jurisdictions' as const };
+      return {
+        matterId,
+        created: 0,
+        updated: 0,
+        skipped: 'no_jurisdictions' as const,
+      };
     }
 
     const { created, updated } = await this.applyMatterCreatedRules({
@@ -247,7 +257,9 @@ export class DeadlinesService {
         });
         created += 1;
 
-        void this.deadlineNotify.notifyAssigned(deadline.id).catch(() => undefined);
+        void this.deadlineNotify
+          .notifyAssigned(deadline.id)
+          .catch(() => undefined);
 
         if (recordTimeline && userId) {
           const dueLabel = formatTimelineDate(dueDate);
@@ -255,7 +267,7 @@ export class DeadlinesService {
             data: {
               matterId,
               eventType: MatterTimelineEventType.deadline,
-              title: `${title} — due ${dueLabel}`,
+              title: `${title} - due ${dueLabel}`,
               description: `Prosecution deadline set from filing date ${formatTimelineDate(baseDate)}.`,
               occurredAt: new Date(),
               createdById: userId,
@@ -459,7 +471,7 @@ export class DeadlinesService {
         data: {
           matterId: dto.matterId,
           eventType: MatterTimelineEventType.deadline,
-          title: `Deadline added manually — ${dto.title.trim()}, due ${formatTimelineDate(dueDate)}`,
+          title: `Deadline added manually - ${dto.title.trim()}, due ${formatTimelineDate(dueDate)}`,
           occurredAt: new Date(),
           createdById: userId,
         },

@@ -43,7 +43,7 @@ import type { SystemRole } from '../lib/rbac'
 
 export type NavItem = {
   icon: LucideIcon
-  label: string
+  labelKey: string
   id?: string
   path?: string
   isHome?: boolean
@@ -52,7 +52,7 @@ export type NavItem = {
 }
 
 export type NavSection = {
-  section: string
+  sectionKey: string
   items: NavItem[]
 }
 
@@ -62,21 +62,14 @@ export type RoleView = {
   nav: NavSection[]
   footer: NavItem[]
   topbar: {
-    breadcrumb: string
-    showLanguage?: boolean
+    breadcrumbKey: string
+    showLanguage: boolean
     showTasks?: boolean
   }
   home: {
-    title: string
-    description: string
+    homeKey: string
+    comingSoon?: boolean
   }
-}
-
-const COMING_SOON =
-  'Coming soon - this area will show live data once the module is connected.'
-
-function home(title: string): RoleView['home'] {
-  return { title, description: COMING_SOON }
 }
 
 const ROLE_VIEWS: Record<SystemRole, RoleView> = {
@@ -85,49 +78,55 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
+        sectionKey: 'overview',
         items: [
-          { icon: LayoutDashboard, label: 'Dashboard', isHome: true, path: '/dashboard' },
-          { icon: Calendar, label: 'Deadlines', path: '/deadlines' },
-          { icon: Bell, label: 'Alerts' },
+          { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
+          { icon: Calendar, labelKey: 'deadlines', path: '/deadlines' },
+          { icon: Bell, labelKey: 'alerts' },
         ],
       },
       {
-        section: 'Clients',
+        sectionKey: 'clients',
         items: [
-          { icon: Users, label: 'Clients', path: '/clients' },
-          { icon: Building2, label: 'Holding groups', path: '/holding-groups' },
+          { icon: Users, labelKey: 'clients', path: '/clients' },
+          { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
         ],
       },
       {
-        section: 'Matters',
+        sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, label: 'All matters', path: '/matters' },
-          { icon: Inbox, label: 'Intake queue', path: '/intake' },
+          { icon: FolderOpen, labelKey: 'allMatters', path: '/matters' },
+          { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
         ],
       },
       {
-        section: 'IP Rights',
+        sectionKey: 'ipRights',
         items: [
-          { icon: Award, label: 'Rights register' },
-          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
-          { icon: Eye, label: 'Watch' },
+          { icon: Award, labelKey: 'rightsRegister' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
+          { icon: Eye, labelKey: 'watch' },
         ],
       },
       {
-        section: 'Finance',
+        sectionKey: 'finance',
+        items: [{ icon: Receipt, labelKey: 'billingOverview' }],
+      },
+      {
+        sectionKey: 'reports',
         items: [
-          { icon: Receipt, label: 'Billing overview' },
-          { icon: BarChart3, label: 'Reports' },
+          { icon: BarChart3, labelKey: 'deadlineRisk', path: '/reports/deadline-risk' },
+          { icon: FileOutput, labelKey: 'filingVolumes', path: '/reports/filing-volumes' },
+          { icon: RefreshCw, labelKey: 'renewalsSummary', path: '/reports/renewals-summary' },
+          { icon: PieChart, labelKey: 'revenueReceivables', path: '/reports/revenue-summary' },
         ],
       },
     ],
     footer: [
-      { icon: UsersRound, label: 'Team', path: '/users/team' },
-      { icon: Settings, label: 'Settings', path: '/settings' },
+      { icon: UsersRound, labelKey: 'team', path: '/users/team' },
+      { icon: Settings, labelKey: 'settings', path: '/settings' },
     ],
-    topbar: { breadcrumb: 'Dashboard', showLanguage: true, showTasks: true },
-    home: home('Firm overview'),
+    topbar: { breadcrumbKey: 'dashboard', showLanguage: true, showTasks: true },
+    home: { homeKey: 'managing_partner' },
   },
 
   ip_attorney: {
@@ -135,38 +134,38 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'My work',
+        sectionKey: 'myWork',
         items: [
-          { icon: LayoutDashboard, label: 'My dashboard', isHome: true, path: '/dashboard' },
-          { icon: Calendar, label: 'My deadlines', path: '/deadlines/my' },
+          { icon: LayoutDashboard, labelKey: 'myDashboard', isHome: true, path: '/dashboard' },
+          { icon: Calendar, labelKey: 'myDeadlines', path: '/deadlines/my' },
         ],
       },
       {
-        section: 'Matters',
+        sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, label: 'My matters', path: '/matters' },
-          { icon: Atom, label: 'Patent filings' },
-          { icon: Upload, label: 'Office actions' },
+          { icon: FolderOpen, labelKey: 'myMatters', path: '/matters' },
+          { icon: Atom, labelKey: 'patentFilings' },
+          { icon: Upload, labelKey: 'officeActions' },
         ],
       },
       {
-        section: 'Rights',
+        sectionKey: 'rights',
         items: [
-          { icon: Award, label: 'Rights register' },
-          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
+          { icon: Award, labelKey: 'rightsRegister' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
         ],
       },
       {
-        section: 'Communication',
+        sectionKey: 'communication',
         items: [
-          { icon: FileText, label: 'Documents' },
-          { icon: Mail, label: 'Correspondence' },
+          { icon: FileText, labelKey: 'documents' },
+          { icon: Mail, labelKey: 'correspondence' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'My dashboard', showTasks: true },
-    home: home('My dashboard'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'myDashboard', showLanguage: true, showTasks: true },
+    home: { homeKey: 'myDashboard', comingSoon: true },
   },
 
   trademark_attorney: {
@@ -174,36 +173,36 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'My work',
+        sectionKey: 'myWork',
         items: [
-          { icon: LayoutDashboard, label: 'My dashboard', isHome: true, path: '/dashboard' },
-          { icon: Calendar, label: 'My deadlines', path: '/deadlines/my' },
+          { icon: LayoutDashboard, labelKey: 'myDashboard', isHome: true, path: '/dashboard' },
+          { icon: Calendar, labelKey: 'myDeadlines', path: '/deadlines/my' },
         ],
       },
       {
-        section: 'Trademarks',
+        sectionKey: 'trademarks',
         items: [
-          { icon: ShieldCheck, label: 'My TM matters', path: '/matters' },
-          { icon: Upload, label: 'Oppositions' },
-          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
-          { icon: Eye, label: 'Watch alerts' },
+          { icon: ShieldCheck, labelKey: 'myTmMatters', path: '/matters' },
+          { icon: Upload, labelKey: 'oppositions' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
+          { icon: Eye, labelKey: 'watchAlerts' },
         ],
       },
       {
-        section: 'Rights',
-        items: [{ icon: Award, label: 'Rights register' }],
+        sectionKey: 'rights',
+        items: [{ icon: Award, labelKey: 'rightsRegister' }],
       },
       {
-        section: 'Communication',
+        sectionKey: 'communication',
         items: [
-          { icon: FileText, label: 'Documents' },
-          { icon: Mail, label: 'Correspondence' },
+          { icon: FileText, labelKey: 'documents' },
+          { icon: Mail, labelKey: 'correspondence' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'My dashboard', showTasks: true },
-    home: home('My dashboard'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'myDashboard', showLanguage: true, showTasks: true },
+    home: { homeKey: 'myDashboard', comingSoon: true },
   },
 
   coordinator: {
@@ -211,31 +210,38 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
+        sectionKey: 'overview',
         items: [
-          { icon: LayoutDashboard, label: 'Dashboard', isHome: true, path: '/dashboard' },
-          { icon: Inbox, label: 'Intake queue', path: '/intake' },
-          { icon: Calendar, label: 'Deadlines', path: '/deadlines' },
+          { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
+          { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
+          { icon: Calendar, labelKey: 'deadlines', path: '/deadlines' },
         ],
       },
       {
-        section: 'Clients',
+        sectionKey: 'clients',
         items: [
-          { icon: Users, label: 'Clients', path: '/clients' },
-          { icon: Building2, label: 'Holding groups', path: '/holding-groups' },
-          { icon: FolderOpen, label: 'Matters', path: '/matters' },
-          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
-          { icon: Search, label: 'Conflict check' },
+          { icon: Users, labelKey: 'clients', path: '/clients' },
+          { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
+          { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
+          { icon: Search, labelKey: 'conflictCheck' },
         ],
       },
       {
-        section: 'Communication',
-        items: [{ icon: Mail, label: 'Correspondence' }],
+        sectionKey: 'communication',
+        items: [{ icon: Mail, labelKey: 'correspondence' }],
+      },
+      {
+        sectionKey: 'reports',
+        items: [
+          { icon: FileOutput, labelKey: 'filingVolumes', path: '/reports/filing-volumes' },
+          { icon: RefreshCw, labelKey: 'renewalsSummary', path: '/reports/renewals-summary' },
+        ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'Dashboard', showTasks: true },
-    home: home('Intake & coordination'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'dashboard', showLanguage: true, showTasks: true },
+    home: { homeKey: 'coordinator' },
   },
 
   docketing_admin: {
@@ -243,33 +249,33 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
+        sectionKey: 'overview',
         items: [
-          { icon: LayoutDashboard, label: 'Dashboard', isHome: true, path: '/dashboard' },
-          { icon: Calendar, label: 'All deadlines', path: '/deadlines' },
-          { icon: Bell, label: 'Escalations' },
+          { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
+          { icon: Calendar, labelKey: 'allDeadlines', path: '/deadlines' },
+          { icon: Bell, labelKey: 'escalations' },
         ],
       },
       {
-        section: 'Deadlines',
+        sectionKey: 'deadlines',
         items: [
-          { icon: FolderOpen, label: 'Matters', path: '/matters' },
-          { icon: RefreshCw, label: 'Renewals', path: '/renewals' },
-          { icon: Clock, label: 'Grace periods' },
-          { icon: CalendarPlus, label: 'Add deadline', path: '/deadlines' },
+          { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
+          { icon: Clock, labelKey: 'gracePeriods' },
+          { icon: CalendarPlus, labelKey: 'addDeadline', path: '/deadlines' },
         ],
       },
       {
-        section: 'Correspondence',
+        sectionKey: 'correspondence',
         items: [
-          { icon: Mail, label: 'Incoming mail' },
-          { icon: Send, label: 'Outgoing mail' },
+          { icon: Mail, labelKey: 'incomingMail' },
+          { icon: Send, labelKey: 'outgoingMail' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'Dashboard', showTasks: true },
-    home: home('Deadline board'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'dashboard', showLanguage: true, showTasks: true },
+    home: { homeKey: 'docketing_admin' },
   },
 
   paralegal: {
@@ -277,30 +283,30 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
+        sectionKey: 'overview',
         items: [
-          { icon: LayoutDashboard, label: 'My tasks', isHome: true, path: '/dashboard' },
-          { icon: Calendar, label: 'My deadlines', path: '/deadlines/my' },
+          { icon: LayoutDashboard, labelKey: 'myTasks', isHome: true, path: '/dashboard' },
+          { icon: Calendar, labelKey: 'myDeadlines', path: '/deadlines/my' },
         ],
       },
       {
-        section: 'Matters',
+        sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, label: 'Assigned matters', path: '/matters' },
-          { icon: Users, label: 'Clients', path: '/clients' },
+          { icon: FolderOpen, labelKey: 'assignedMatters', path: '/matters' },
+          { icon: Users, labelKey: 'clients', path: '/clients' },
         ],
       },
       {
-        section: 'Documents & mail',
+        sectionKey: 'documentsAndMail',
         items: [
-          { icon: FileText, label: 'Documents' },
-          { icon: Mail, label: 'Correspondence' },
+          { icon: FileText, labelKey: 'documents' },
+          { icon: Mail, labelKey: 'correspondence' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'My tasks', showTasks: true },
-    home: home('My tasks'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'myTasks', showLanguage: true, showTasks: true },
+    home: { homeKey: 'myTasks', comingSoon: true },
   },
 
   finance: {
@@ -308,29 +314,31 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
-        items: [{ icon: LayoutDashboard, label: 'Finance dashboard', isHome: true }],
-      },
-      {
-        section: 'Billing',
+        sectionKey: 'overview',
         items: [
-          { icon: Receipt, label: 'Invoices', path: '/invoices' },
-          { icon: CircleDollarSign, label: 'Time entries' },
-          { icon: Banknote, label: 'Payments', path: '/invoices?paymentStatus=unpaid' },
-          { icon: CreditCard, label: 'Rate cards', path: '/rate-cards' },
+          { icon: LayoutDashboard, labelKey: 'financeDashboard', isHome: true, path: '/dashboard' },
         ],
       },
       {
-        section: 'Receivables',
+        sectionKey: 'billing',
         items: [
-          { icon: PieChart, label: 'Receivables' },
-          { icon: FileSpreadsheet, label: 'Disbursements' },
+          { icon: Receipt, labelKey: 'invoices', path: '/invoices' },
+          { icon: CircleDollarSign, labelKey: 'timeEntries' },
+          { icon: Banknote, labelKey: 'payments', path: '/invoices?paymentStatus=unpaid' },
+          { icon: CreditCard, labelKey: 'rateCards', path: '/rate-cards' },
+        ],
+      },
+      {
+        sectionKey: 'reports',
+        items: [
+          { icon: PieChart, labelKey: 'revenueReceivables', path: '/reports/revenue-summary' },
+          { icon: FileSpreadsheet, labelKey: 'disbursements' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'Finance dashboard' },
-    home: home('Finance overview'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'financeDashboard', showLanguage: true },
+    home: { homeKey: 'finance' },
   },
 
   dpo_compliance: {
@@ -338,29 +346,29 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
-        items: [{ icon: LayoutDashboard, label: 'Compliance dashboard', isHome: true }],
+        sectionKey: 'overview',
+        items: [{ icon: LayoutDashboard, labelKey: 'complianceDashboard', isHome: true }],
       },
       {
-        section: 'GDPR',
+        sectionKey: 'gdpr',
         items: [
-          { icon: Shield, label: 'Personal data register' },
-          { icon: FileOutput, label: 'Data exports log' },
-          { icon: Trash2, label: 'Retention rules' },
-          { icon: Lock, label: 'Consent records' },
+          { icon: Shield, labelKey: 'personalDataRegister' },
+          { icon: FileOutput, labelKey: 'dataExportsLog' },
+          { icon: Trash2, labelKey: 'retentionRules' },
+          { icon: Lock, labelKey: 'consentRecords' },
         ],
       },
       {
-        section: 'Audit',
+        sectionKey: 'audit',
         items: [
-          { icon: List, label: 'Audit trail' },
-          { icon: Eye, label: 'Access log' },
+          { icon: List, labelKey: 'auditTrail' },
+          { icon: Eye, labelKey: 'accessLog' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'Compliance dashboard' },
-    home: home('Compliance'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'complianceDashboard', showLanguage: true },
+    home: { homeKey: 'compliance', comingSoon: true },
   },
 
   it_admin: {
@@ -368,29 +376,29 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: false,
     nav: [
       {
-        section: 'Overview',
-        items: [{ icon: LayoutDashboard, label: 'System dashboard', isHome: true }],
+        sectionKey: 'overview',
+        items: [{ icon: LayoutDashboard, labelKey: 'systemDashboard', isHome: true }],
       },
       {
-        section: 'Users & access',
+        sectionKey: 'usersAndAccess',
         items: [
-          { icon: Users, label: 'Users', path: '/users' },
-          { icon: ShieldCheck, label: 'Roles & permissions' },
-          { icon: KeyRound, label: 'SSO / MFA config' },
+          { icon: Users, labelKey: 'users', path: '/users' },
+          { icon: ShieldCheck, labelKey: 'rolesPermissions' },
+          { icon: KeyRound, labelKey: 'ssoMfaConfig' },
         ],
       },
       {
-        section: 'System',
+        sectionKey: 'system',
         items: [
-          { icon: Plug, label: 'Integrations' },
-          { icon: Server, label: 'System health' },
-          { icon: History, label: 'Audit log' },
+          { icon: Plug, labelKey: 'integrations' },
+          { icon: Server, labelKey: 'systemHealth' },
+          { icon: History, labelKey: 'auditLog' },
         ],
       },
     ],
-    footer: [{ icon: Settings, label: 'Settings', path: '/settings' }],
-    topbar: { breadcrumb: 'System dashboard' },
-    home: home('System dashboard'),
+    footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
+    topbar: { breadcrumbKey: 'systemDashboard', showLanguage: true },
+    home: { homeKey: 'systemDashboard', comingSoon: true },
   },
 
   portal_client: {
@@ -398,33 +406,30 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     external: true,
     nav: [
       {
-        section: 'My portfolio',
+        sectionKey: 'myPortfolio',
         items: [
-          { icon: LayoutDashboard, label: 'Overview', isHome: true, path: '/dashboard' },
-          { icon: Inbox, label: 'Enquiries', path: '/portal/intake' },
-          { icon: Calendar, label: 'My deadlines', path: '/deadlines/my' },
+          { icon: LayoutDashboard, labelKey: 'overview', isHome: true, path: '/dashboard' },
+          { icon: Inbox, labelKey: 'enquiries', path: '/portal/intake' },
+          { icon: Calendar, labelKey: 'myDeadlines', path: '/deadlines/my' },
         ],
       },
       {
-        section: 'My matters',
+        sectionKey: 'myMatters',
         items: [
-          { icon: FolderOpen, label: 'My matters', path: '/matters' },
-          { icon: FileText, label: 'My documents', path: '/portal/documents' },
-          { icon: Receipt, label: 'My invoices', path: '/portal/invoices' },
-          { icon: RefreshCw, label: 'Renewals', path: '/portal/renewals' },
+          { icon: FolderOpen, labelKey: 'myMatters', path: '/matters' },
+          { icon: FileText, labelKey: 'myDocuments', path: '/portal/documents' },
+          { icon: Receipt, labelKey: 'myInvoices', path: '/portal/invoices' },
+          { icon: RefreshCw, labelKey: 'renewals', path: '/portal/renewals' },
         ],
       },
       {
-        section: 'Communication',
-        items: [{ icon: Mail, label: 'Messages' }],
+        sectionKey: 'communication',
+        items: [{ icon: Mail, labelKey: 'messages' }],
       },
     ],
-    footer: [{ icon: HelpCircle, label: 'Help' }],
-    topbar: { breadcrumb: 'My portfolio' },
-    home: {
-      title: 'My portfolio',
-      description: 'Submit filing enquiries and track matters for your organisation.',
-    },
+    footer: [{ icon: HelpCircle, labelKey: 'help' }],
+    topbar: { breadcrumbKey: 'myPortfolio', showLanguage: true },
+    home: { homeKey: 'portal_client' },
   },
 }
 

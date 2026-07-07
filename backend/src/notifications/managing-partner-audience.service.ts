@@ -9,7 +9,7 @@ export type ManagingPartnerRecipient = {
 };
 
 /**
- * Users who hold the managing_partner role — firm-wide oversight, not per-deadline assignment.
+ * Users who hold the managing_partner role - firm-wide oversight, not per-deadline assignment.
  */
 @Injectable()
 export class ManagingPartnerAudienceService {

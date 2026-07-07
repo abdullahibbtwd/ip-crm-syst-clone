@@ -160,7 +160,7 @@ export class RenewalDeadlinesService {
             data: {
               matterId: window.matterId,
               eventType: MatterTimelineEventType.deadline,
-              title: `${title} — due ${dueLabel}`,
+              title: `${title} - due ${dueLabel}`,
               description: `Renewal deadline set for cycle ${window.cycleNumber} (due ${formatDeadlineDate(baseDate)}).`,
               occurredAt: new Date(),
               createdById: userId,

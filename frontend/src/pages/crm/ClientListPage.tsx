@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Plus, Search } from 'lucide-react'
 import { CLIENT_PAGE_SIZE, ClientsTable } from '@/components/crm/ClientsTable'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -14,12 +15,13 @@ import {
 } from '@/components/ui/select'
 import { useClients } from '@/features/crm/hooks/useClients'
 import type { ClientFilters, ClientStatus, ClientType } from '@/features/crm/types'
-import { CLIENT_STATUS_LABELS, CLIENT_TYPE_LABELS } from '@/features/crm/utils'
+import { clientStatusLabel, clientTypeLabel } from '@/features/crm/utils'
 
 const ALL_STATUSES = 'All'
 const ALL_TYPES = 'All'
 
 export function ClientListPage() {
+  const { t } = useTranslation(['crm', 'common'])
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<ClientStatus | undefined>()
@@ -65,16 +67,16 @@ export function ClientListPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Clients</h1>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('clients.title')}</h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Manage company and individual client records. New clients are created via intake.{' '}
-            {CLIENT_PAGE_SIZE} per page.
+            {t('clients.description')}{' '}
+            {t('clients.perPage', { count: CLIENT_PAGE_SIZE })}
           </p>
         </div>
         <PermissionGate resource="intake" action="create">
           <Link to="/intake/new" className={buttonVariants({ variant: 'default' })}>
             <Plus className="size-4" />
-            New client via intake
+            {t('clients.newViaIntake')}
           </Link>
         </PermissionGate>
       </div>
@@ -83,7 +85,7 @@ export function ClientListPage() {
         <div className="relative min-w-[220px] flex-1 sm:max-w-sm">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search name or code…"
+            placeholder={t('clients.searchPlaceholder')}
             className="bg-background pl-9"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -96,13 +98,13 @@ export function ClientListPage() {
           }
         >
           <SelectTrigger className="w-[160px] bg-background">
-            <SelectValue placeholder="All statuses" />
+            <SelectValue placeholder={t('filters.allStatuses', { ns: 'common' })} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_STATUSES}>All statuses</SelectItem>
-            {(Object.keys(CLIENT_STATUS_LABELS) as ClientStatus[]).map((status) => (
+            <SelectItem value={ALL_STATUSES}>{t('filters.allStatuses', { ns: 'common' })}</SelectItem>
+            {(['active', 'prospect', 'inactive', 'archived'] as ClientStatus[]).map((status) => (
               <SelectItem key={status} value={status}>
-                {CLIENT_STATUS_LABELS[status]}
+                {clientStatusLabel(status)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -112,13 +114,13 @@ export function ClientListPage() {
           onValueChange={(v) => setTypeFilter(v === ALL_TYPES ? undefined : (v as ClientType))}
         >
           <SelectTrigger className="w-[160px] bg-background">
-            <SelectValue placeholder="All types" />
+            <SelectValue placeholder={t('filters.allTypes', { ns: 'common' })} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_TYPES}>All types</SelectItem>
-            {(Object.keys(CLIENT_TYPE_LABELS) as ClientType[]).map((type) => (
+            <SelectItem value={ALL_TYPES}>{t('filters.allTypes', { ns: 'common' })}</SelectItem>
+            {(['company', 'individual'] as ClientType[]).map((type) => (
               <SelectItem key={type} value={type}>
-                {CLIENT_TYPE_LABELS[type]}
+                {clientTypeLabel(type)}
               </SelectItem>
             ))}
           </SelectContent>

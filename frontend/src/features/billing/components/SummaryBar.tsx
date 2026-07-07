@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { formatHours, formatMoney } from '../utils'
 
@@ -18,15 +19,17 @@ export function SummaryBar({
   totalAmount,
   unbilledAmount,
 }: SummaryBarProps) {
+  const { t } = useTranslation('finance')
+
   const items = [
-    { label: 'Total hours', value: formatHours(totalHours) },
-    { label: 'Billable', value: formatHours(totalBillableHours) },
-    { label: 'Billable amount', value: formatMoney(totalBillableAmount) },
-    { label: 'Fixed fees', value: formatMoney(totalFixedFees) },
+    { label: t('summary.totalHours'), value: formatHours(totalHours) },
+    { label: t('summary.billable'), value: formatHours(totalBillableHours) },
+    { label: t('summary.billableAmount'), value: formatMoney(totalBillableAmount) },
+    { label: t('summary.fixedFees'), value: formatMoney(totalFixedFees) },
     ...(unbilledAmount != null
-      ? [{ label: 'Unbilled', value: formatMoney(unbilledAmount), highlight: true }]
+      ? [{ label: t('summary.unbilled'), value: formatMoney(unbilledAmount), highlight: true }]
       : []),
-    { label: 'Total', value: formatMoney(totalAmount), highlight: unbilledAmount == null },
+    { label: t('summary.total'), value: formatMoney(totalAmount), highlight: unbilledAmount == null },
   ]
 
   return (

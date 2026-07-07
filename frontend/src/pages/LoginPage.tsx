@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { Eye, EyeOff, KeyRound, Loader2, Lock } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { loginRequest, registerRequest, verifyMfaRequest } from '../features/auth/api'
 import { useAuth } from '../features/auth/AuthProvider'
@@ -21,6 +22,7 @@ function MfaStep({
 }: {
   onSuccess: (user: import('../features/auth/types').AuthUser) => void
 }) {
+  const { t } = useTranslation(['auth', 'common'])
   const {
     register,
     handleSubmit,
@@ -37,7 +39,7 @@ function MfaStep({
     const parsed = mfaVerifySchema.safeParse(data)
     if (!parsed.success) {
       for (const issue of parsed.error.issues) {
-        setError('code', { message: issue.message })
+        setError('code', { message: t(issue.message) })
       }
       return
     }
@@ -51,18 +53,17 @@ function MfaStep({
           role="alert"
           className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
         >
-          Invalid authentication code
+          {t('mfa.invalidCode')}
         </div>
       )}
 
       <div className="rounded-lg border border-brand-green/10 bg-brand-light/50 px-4 py-3 text-sm text-brand-green/80">
-        <KeyRound className="mb-1 inline h-4 w-4 text-brand-orange" /> Enter the
-        6-digit code from your authenticator app.
+        <KeyRound className="mb-1 inline h-4 w-4 text-brand-orange" /> {t('mfa.hint')}
       </div>
 
       <div>
         <label htmlFor="code" className="auth-label">
-          Authentication code
+          {t('mfa.codeLabel')}
         </label>
         <input
           id="code"
@@ -71,7 +72,7 @@ function MfaStep({
           autoComplete="one-time-code"
           maxLength={6}
           className="auth-input tracking-[0.3em]"
-          placeholder="000000"
+          placeholder={t('mfa.codePlaceholder')}
           {...register('code')}
         />
         {errors.code && <p className="auth-error">{errors.code.message}</p>}
@@ -85,10 +86,10 @@ function MfaStep({
         {mfaMutation.isPending ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Verifying…
+            {t('mfa.verifying')}
           </>
         ) : (
-          'Verify & sign in'
+          t('mfa.verifyAndSignIn')
         )}
       </button>
     </form>
@@ -102,6 +103,7 @@ function SignupForm({
   onSuccess: (user: import('../features/auth/types').AuthUser) => void
   errorMessage: string | null
 }) {
+  const { t } = useTranslation(['auth', 'common'])
   const [showPassword, setShowPassword] = useState(false)
 
   const {
@@ -130,7 +132,7 @@ function SignupForm({
     if (!parsed.success) {
       for (const issue of parsed.error.issues) {
         const field = issue.path[0] as keyof RegisterFormData
-        if (field) setError(field, { message: issue.message })
+        if (field) setError(field, { message: t(issue.message) })
       }
       return
     }
@@ -146,7 +148,7 @@ function SignupForm({
     errorMessage ??
     (Array.isArray(apiError)
       ? apiError.join(', ')
-      : apiError ?? (registerMutation.isError ? 'Could not create account' : null))
+      : apiError ?? (registerMutation.isError ? t('signup.couldNotCreateAccount') : null))
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
@@ -161,14 +163,14 @@ function SignupForm({
 
       <div>
         <label htmlFor="fullName" className="auth-label">
-          Full name
+          {t('signup.fullName')}
         </label>
         <input
           id="fullName"
           type="text"
           autoComplete="name"
           className="auth-input"
-          placeholder="Maria Petrova"
+          placeholder={t('signup.fullNamePlaceholder')}
           {...register('fullName')}
         />
         {errors.fullName && <p className="auth-error">{errors.fullName.message}</p>}
@@ -176,14 +178,14 @@ function SignupForm({
 
       <div>
         <label htmlFor="signup-email" className="auth-label">
-          Email address
+          {t('form.email')}
         </label>
         <input
           id="signup-email"
           type="email"
           autoComplete="email"
           className="auth-input"
-          placeholder="you@company.bg"
+          placeholder={t('signup.emailPlaceholder')}
           {...register('email')}
         />
         {errors.email && <p className="auth-error">{errors.email.message}</p>}
@@ -191,14 +193,15 @@ function SignupForm({
 
       <div>
         <label htmlFor="companyName" className="auth-label">
-          Company name <span className="text-brand-green/50">(optional)</span>
+          {t('signup.companyName')}{' '}
+          <span className="text-brand-green/50">{t('signup.optional')}</span>
         </label>
         <input
           id="companyName"
           type="text"
           autoComplete="organization"
           className="auth-input"
-          placeholder="Leave blank for individual clients"
+          placeholder={t('signup.companyPlaceholder')}
           {...register('companyName')}
         />
         {errors.companyName && (
@@ -208,7 +211,7 @@ function SignupForm({
 
       <div>
         <label htmlFor="signup-password" className="auth-label">
-          Password
+          {t('form.password')}
         </label>
         <div className="relative">
           <Lock
@@ -227,7 +230,7 @@ function SignupForm({
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 transition-colors hover:text-brand-orange"
-            aria-label={showPassword ? 'Hide password' : 'Show password'}
+            aria-label={showPassword ? t('password.hide') : t('password.show')}
           >
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
@@ -237,7 +240,7 @@ function SignupForm({
 
       <div>
         <label htmlFor="confirmPassword" className="auth-label">
-          Confirm password
+          {t('form.confirmPassword')}
         </label>
         <div className="relative">
           <Lock
@@ -256,7 +259,7 @@ function SignupForm({
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 transition-colors hover:text-brand-orange"
-            aria-label={showPassword ? 'Hide password' : 'Show password'}
+            aria-label={showPassword ? t('password.hide') : t('password.show')}
           >
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
@@ -272,10 +275,7 @@ function SignupForm({
           className="mt-1 size-4 rounded border-brand-green/20"
           {...register('gdprConsent')}
         />
-        <span>
-          I agree to the processing of my personal data in accordance with GDPR for
-          client portal access.
-        </span>
+        <span>{t('signup.gdprConsent')}</span>
       </label>
       {errors.gdprConsent && (
         <p className="auth-error">{errors.gdprConsent.message}</p>
@@ -289,10 +289,10 @@ function SignupForm({
         {registerMutation.isPending ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Creating account…
+            {t('signup.creatingAccount')}
           </>
         ) : (
-          'Create client account'
+          t('signup.createClientAccount')
         )}
       </button>
 
@@ -302,6 +302,7 @@ function SignupForm({
 }
 
 export function LoginPage() {
+  const { t } = useTranslation(['auth', 'common'])
   const navigate = useNavigate()
   const location = useLocation()
   const [searchParams] = useSearchParams()
@@ -364,7 +365,7 @@ export function LoginPage() {
     if (!parsed.success) {
       for (const issue of parsed.error.issues) {
         const field = issue.path[0] as keyof LoginFormData
-        setError(field, { message: issue.message })
+        setError(field, { message: t(issue.message) })
       }
       return
     }
@@ -381,7 +382,7 @@ export function LoginPage() {
       ? ssoError
       : Array.isArray(apiError)
         ? apiError.join(', ')
-        : apiError ?? (loginMutation.isError ? 'Invalid email or password' : null)
+        : apiError ?? (loginMutation.isError ? t('login.invalidCredentials') : null)
 
   const handleAuthSuccess = (user: import('../features/auth/types').AuthUser) => {
     setUser(user)
@@ -391,12 +392,8 @@ export function LoginPage() {
   if (mfaStep) {
     return (
       <AuthLayout
-        title="Two-factor authentication"
-        subtitle={
-          ssoMfaPending
-            ? 'SSO sign-in succeeded. Enter the code from your authenticator app to finish.'
-            : 'Enter the code from your authenticator app to continue.'
-        }
+        title={t('mfa.title')}
+        subtitle={ssoMfaPending ? t('mfa.subtitleSso') : t('mfa.subtitle')}
         footer={
           <button
             type="button"
@@ -406,7 +403,7 @@ export function LoginPage() {
               setSsoMfaPending(false)
             }}
           >
-            Back to sign in
+            {t('mfa.backToSignIn')}
           </button>
         }
       >
@@ -418,8 +415,8 @@ export function LoginPage() {
   if (signupMode) {
     return (
       <AuthLayout
-        title="Create client account"
-        subtitle="Register for portal access to your IP matters and deadlines."
+        title={t('signup.title')}
+        subtitle={t('signup.subtitle')}
         footer={
           <button
             type="button"
@@ -429,7 +426,7 @@ export function LoginPage() {
               window.history.replaceState({}, '', '/login')
             }}
           >
-            Already have an account? Sign in
+            {t('signup.alreadyHaveAccount')}
           </button>
         }
       >
@@ -440,19 +437,19 @@ export function LoginPage() {
 
   return (
     <AuthLayout
-      title="Welcome back"
-      subtitle="Sign in to access your IP matters, deadlines, and client workspace."
+      title={t('login.title')}
+      subtitle={t('login.subtitle')}
       footer={
         <div className="space-y-3">
-          <AuthFooterLink to="/reset-password">Forgot your password?</AuthFooterLink>
+          <AuthFooterLink to="/reset-password">{t('login.forgotPassword')}</AuthFooterLink>
           <p className="text-brand-green/60">
-            New client?{' '}
+            {t('login.newClient')}{' '}
             <button
               type="button"
               className="font-medium text-brand-green hover:text-brand-orange"
               onClick={() => setSignupMode(true)}
             >
-              Create an account
+              {t('login.createAccount')}
             </button>
           </p>
         </div>
@@ -470,14 +467,14 @@ export function LoginPage() {
 
         <div>
           <label htmlFor="email" className="auth-label">
-            Email address
+            {t('form.email')}
           </label>
           <input
             id="email"
             type="email"
             autoComplete="email"
             className="auth-input"
-            placeholder="you@ipconsulting.bg"
+            placeholder={t('login.emailPlaceholder')}
             {...register('email')}
           />
           {errors.email && (
@@ -488,13 +485,13 @@ export function LoginPage() {
         <div>
           <div className="mb-1.5 flex items-center justify-between">
             <label htmlFor="password" className="auth-label mb-0">
-              Password
+              {t('form.password')}
             </label>
             <Link
               to="/reset-password"
               className="text-xs text-brand-green/60 transition-colors hover:text-brand-orange"
             >
-              Reset password
+              {t('login.resetPassword')}
             </Link>
           </div>
           <div className="relative">
@@ -514,7 +511,7 @@ export function LoginPage() {
               type="button"
               onClick={() => setShowPassword((v) => !v)}
               className="absolute top-1/2 right-3 -translate-y-1/2 text-brand-green/40 transition-colors hover:text-brand-orange"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              aria-label={showPassword ? t('password.hide') : t('password.show')}
             >
               {showPassword ? (
                 <EyeOff className="h-4 w-4" />
@@ -536,10 +533,10 @@ export function LoginPage() {
           {loginMutation.isPending ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Signing in…
+              {t('login.signingIn')}
             </>
           ) : (
-            'Sign in'
+            t('login.signIn')
           )}
         </button>
 

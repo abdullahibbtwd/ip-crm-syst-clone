@@ -11,7 +11,13 @@ export const SYSTEM_ROLES = {
   PORTAL_CLIENT: 'portal_client',
 } as const
 
+import i18n from '@/i18n'
+
 export type SystemRole = (typeof SYSTEM_ROLES)[keyof typeof SYSTEM_ROLES]
+
+export function roleLabel(role: SystemRole): string {
+  return i18n.t(`roles.${role}`, { ns: 'nav', defaultValue: ROLE_LABELS[role] })
+}
 
 export const ROLE_LABELS: Record<SystemRole, string> = {
   managing_partner: 'Managing Partner',

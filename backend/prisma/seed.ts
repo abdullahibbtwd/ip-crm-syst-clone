@@ -812,7 +812,7 @@ async function main() {
     'Seeded CRM sample data (Acme clients, portal@acme.bg / Portal123!)',
   );
 
-  // Demo matter for portal renewals — Acme TM registered with cycle 1 upcoming
+  // Demo matter for portal renewals - Acme TM registered with cycle 1 upcoming
   const demoMatterId = '00000000-0000-4000-8000-000000000200';
   const demoIpRightId = '00000000-0000-4000-8000-000000000201';
   const demoRenewalWindowId = '00000000-0000-4000-8000-000000000202';
@@ -913,46 +913,57 @@ async function main() {
       id: '00000000-0000-4000-8000-000000000100',
       role: 'ip_attorney' as const,
       hourlyRate: 150,
+      internalCostPerHour: 60,
     },
     {
       id: '00000000-0000-4000-8000-000000000101',
       role: 'trademark_attorney' as const,
       hourlyRate: 120,
+      internalCostPerHour: 50,
     },
     {
       id: '00000000-0000-4000-8000-000000000102',
       role: 'paralegal' as const,
       hourlyRate: 80,
+      internalCostPerHour: 35,
     },
     {
       id: '00000000-0000-4000-8000-000000000103',
       role: 'coordinator' as const,
       hourlyRate: 70,
+      internalCostPerHour: 30,
     },
     {
       id: '00000000-0000-4000-8000-000000000104',
       role: 'managing_partner' as const,
       hourlyRate: 200,
+      internalCostPerHour: 75,
     },
   ];
 
   for (const card of defaultRateCards) {
     await prisma.rateCard.upsert({
       where: { id: card.id },
-      update: { hourlyRate: card.hourlyRate },
+      update: {
+        hourlyRate: card.hourlyRate,
+        internalCostPerHour: card.internalCostPerHour,
+      },
       create: {
         id: card.id,
         role: card.role,
         matterType: null,
         clientId: null,
         hourlyRate: card.hourlyRate,
+        internalCostPerHour: card.internalCostPerHour,
         currency: 'EUR',
         effectiveFrom: rateEffectiveFrom,
       },
     });
   }
 
-  console.log('Seeded default billing rate cards (5 firm-wide roles)');
+  console.log(
+    'Seeded default billing rate cards (5 firm-wide roles, with internal cost)',
+  );
 }
 
 main()

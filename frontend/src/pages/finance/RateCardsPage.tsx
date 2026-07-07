@@ -69,6 +69,7 @@ function RateCardDrawer({
   const [matterType, setMatterType] = useState<string>('any')
   const [clientId, setClientId] = useState<string>('firm')
   const [hourlyRate, setHourlyRate] = useState('150')
+  const [internalCostPerHour, setInternalCostPerHour] = useState('')
   const [effectiveFrom, setEffectiveFrom] = useState(() => new Date().toISOString().slice(0, 10))
   const [effectiveTo, setEffectiveTo] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -80,6 +81,9 @@ function RateCardDrawer({
       setMatterType(card.matterType ?? 'any')
       setClientId(card.clientId ?? 'firm')
       setHourlyRate(String(card.hourlyRate))
+      setInternalCostPerHour(
+        card.internalCostPerHour != null ? String(card.internalCostPerHour) : '',
+      )
       setEffectiveFrom(card.effectiveFrom.slice(0, 10))
       setEffectiveTo(card.effectiveTo?.slice(0, 10) ?? '')
     } else {
@@ -87,6 +91,7 @@ function RateCardDrawer({
       setMatterType('any')
       setClientId('firm')
       setHourlyRate('150')
+      setInternalCostPerHour('')
       setEffectiveFrom(new Date().toISOString().slice(0, 10))
       setEffectiveTo('')
     }
@@ -101,6 +106,15 @@ function RateCardDrawer({
       setError('Enter a valid hourly rate')
       return
     }
+    const parsedInternalCost =
+      internalCostPerHour.trim() === '' ? undefined : Number(internalCostPerHour)
+    if (
+      parsedInternalCost !== undefined &&
+      (Number.isNaN(parsedInternalCost) || parsedInternalCost < 0)
+    ) {
+      setError('Enter a valid internal cost or leave blank')
+      return
+    }
 
     try {
       if (isEdit && card) {
@@ -108,6 +122,8 @@ function RateCardDrawer({
           id: card.id,
           data: {
             hourlyRate: rate,
+            internalCostPerHour:
+              internalCostPerHour.trim() === '' ? null : parsedInternalCost,
             effectiveTo: effectiveTo || undefined,
           },
         })
@@ -117,6 +133,7 @@ function RateCardDrawer({
           matterType: matterType === 'any' ? undefined : matterType,
           clientId: clientId === 'firm' ? undefined : clientId,
           hourlyRate: rate,
+          internalCostPerHour: parsedInternalCost,
           effectiveFrom,
           effectiveTo: effectiveTo || undefined,
         })
@@ -199,7 +216,7 @@ function RateCardDrawer({
         )}
 
         <div className="space-y-2">
-          <Label htmlFor="hourly-rate">Hourly rate (EUR)</Label>
+          <Label htmlFor="hourly-rate">Billable rate (EUR/hr)</Label>
           <Input
             id="hourly-rate"
             type="number"
@@ -208,6 +225,23 @@ function RateCardDrawer({
             value={hourlyRate}
             onChange={(e) => setHourlyRate(e.target.value)}
           />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="internal-cost">Internal cost (EUR/hr)</Label>
+          <Input
+            id="internal-cost"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="Optional - for margin reporting"
+            value={internalCostPerHour}
+            onChange={(e) => setInternalCostPerHour(e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">
+            Mirrors billing rate resolution (client → firm + matter type → firm default). Snapshotted
+            on new time entries as cost_snapshot.
+          </p>
         </div>
 
         <div className="space-y-2">
@@ -253,8 +287,8 @@ export function RateCardsPage() {
           <div>
             <h1 className="font-serif text-2xl text-foreground md:text-3xl">Rate cards</h1>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              Firm price list by role, matter type, and optional client override. Used when logging
-              time on matters.
+              Firm price list by role, matter type, and optional client override. Billable rate is
+              used when logging time; optional internal cost drives true-margin profitability.
             </p>
           </div>
           <PermissionGate resource="billing" action="create">
@@ -281,7 +315,8 @@ export function RateCardsPage() {
                 <TableHead>Role</TableHead>
                 <TableHead>Matter type</TableHead>
                 <TableHead>Scope</TableHead>
-                <TableHead className="text-right">Rate</TableHead>
+                <TableHead className="text-right">Billable</TableHead>
+                <TableHead className="text-right">Internal cost</TableHead>
                 <TableHead>Effective</TableHead>
                 <TableHead className="w-[80px]" />
               </TableRow>
@@ -289,7 +324,7 @@ export function RateCardsPage() {
             <TableBody>
               {cards.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-muted-foreground">
+                  <TableCell colSpan={7} className="text-center text-muted-foreground">
                     No rate cards yet.
                   </TableCell>
                 </TableRow>
@@ -307,6 +342,11 @@ export function RateCardsPage() {
                     </TableCell>
                     <TableCell className="text-right font-medium">
                       {formatMoney(card.hourlyRate, card.currency)}/hr
+                    </TableCell>
+                    <TableCell className="text-right text-muted-foreground">
+                      {card.internalCostPerHour != null
+                        ? `${formatMoney(card.internalCostPerHour, card.currency)}/hr`
+                        : '-'}
                     </TableCell>
                     <TableCell className="text-muted-foreground text-sm">
                       {formatBillingDate(card.effectiveFrom)}

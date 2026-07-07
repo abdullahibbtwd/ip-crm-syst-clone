@@ -14,6 +14,7 @@ import { BillingModule } from './billing/billing.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { TasksModule } from './tasks/tasks.module';
+import { ReportsModule } from './reports/reports.module';
 import { UsersModule } from './users/users.module';
 import { StorageModule } from './storage/storage.module';
 import { AppController } from './app.controller';
@@ -48,6 +49,7 @@ import { PrismaModule } from './prisma/prisma.module';
     NotificationsModule,
     TasksModule,
     StorageModule,
+    ReportsModule,
     UsersModule,
   ],
   controllers: [AppController],

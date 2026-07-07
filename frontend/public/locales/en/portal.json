@@ -1,0 +1,153 @@
+{
+  "dashboard": {
+    "description": "Submit new filing enquiries and track matters opened under your organisation. Your portfolio at a glance.",
+    "eyebrow": "Client portal",
+    "filePatent": "File a patent",
+    "fileTrademark": "File a trademark",
+    "stats": {
+      "activeMatters": "Active matters",
+      "activeMattersHint": "Organization portfolio",
+      "openDeadlines": "Open deadlines",
+      "openDeadlinesHint": "Awaiting action",
+      "overdue": "Overdue",
+      "overdueCurrent": "All current",
+      "overdueUrgent": "Urgent attention",
+      "renewals": "Renewals",
+      "renewalsCurrent": "Maintenance current",
+      "renewalsNeedAction_one": "{{count}} need action",
+      "renewalsNeedAction_other": "{{count}} need action"
+    },
+    "title": "Welcome back"
+  },
+  "documentCategories": {
+    "application": "Application",
+    "certificate": "Certificate",
+    "correspondence": "Correspondence",
+    "evidence": "Evidence",
+    "office_action": "Office action"
+  },
+  "documents": {
+    "allCategories": "All categories",
+    "allMatters": "All matters",
+    "description": "Documents shared across all your matters.",
+    "download": "Download",
+    "empty": "No documents yet. Documents will appear here when your firm shares them on your matters.",
+    "error": "Failed to load documents.",
+    "loading": "Loading documents…",
+    "searchPlaceholder": "Search documents…",
+    "table": {
+      "category": "Category",
+      "document": "Document",
+      "matter": "Matter",
+      "size": "Size",
+      "updated": "Updated"
+    },
+    "title": "My documents"
+  },
+  "intake": {
+    "description": "File a new filing request or review the enquiries you have already submitted.",
+    "empty": {
+      "action": "File an enquiry",
+      "description": "File a trademark or patent enquiry to get started.",
+      "title": "No enquiries yet"
+    },
+    "error": "Could not load your enquiries.",
+    "filed": "Filed {{date}}",
+    "fileNew": "File new enquiry",
+    "loading": "Loading your enquiries…",
+    "myEnquiries": "My enquiries",
+    "status": {
+      "accepted": "Accepted",
+      "inReview": "In review",
+      "matterOpened": "Matter opened",
+      "notAccepted": "Not accepted",
+      "submitted": "Submitted"
+    },
+    "submitted": {
+      "description": "We ran an initial conflict check automatically. A coordinator will confirm and open your matter. You can review or edit your enquiry any time until it is accepted.",
+      "reviewEnquiry": "Review this enquiry",
+      "title": "Enquiry submitted"
+    },
+    "title": "Enquiries",
+    "untitled": "Untitled enquiry"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Back to my enquiries",
+    "cancel": "Cancel",
+    "defaultTitle": "Enquiry",
+    "edit": "Edit",
+    "editDescription": "Saving will update your enquiry and re-run the conflict check automatically.",
+    "editTitle": "Edit enquiry",
+    "enquirer": "Enquirer",
+    "enquirerCompany": "Company",
+    "enquirerIndividual": "Individual",
+    "enquiryDetails": "Enquiry details",
+    "error": "Could not load this enquiry.",
+    "fields": {
+      "companyName": "Company name",
+      "country": "Country",
+      "description": "Description",
+      "email": "Email",
+      "fullName": "Full name",
+      "matterType": "Matter type",
+      "otherParties": "Other parties",
+      "phone": "Phone",
+      "urgency": "Urgency"
+    },
+    "filed": "Filed {{date}}",
+    "loading": "Loading enquiry…",
+    "saveChanges": "Save changes",
+    "statusHints": {
+      "approved": "Your enquiry has been accepted and is being set up as a matter.",
+      "conflictFlagged": "A coordinator is reviewing your enquiry before it can be accepted.",
+      "converted": "A matter has been opened. You can track it under My matters.",
+      "new": "Received. A conflict check has run automatically and a coordinator will review it shortly.",
+      "rejected": "This enquiry was not accepted. Contact us if you have questions.",
+      "reviewing": "A coordinator is reviewing your enquiry."
+    },
+    "urgency": {
+      "normal": "Normal",
+      "urgent": "Urgent"
+    },
+    "viewMatter": "View matter"
+  },
+  "invoices": {
+    "description": "Invoices and payment status across all your matters.",
+    "error": "Failed to load invoices.",
+    "loading": "Loading invoices…",
+    "title": "My invoices"
+  },
+  "matterTypes": {
+    "design": "Design",
+    "other": "Other",
+    "patent": "Patent",
+    "trademark": "Trademark",
+    "utility_model": "Utility model"
+  },
+  "renewals": {
+    "couldNotLoad": "Could not load renewals",
+    "cycle": "cycle {{number}}",
+    "decline": "Decline",
+    "description": "Upcoming trademark and design renewals for your IP rights.",
+    "due": "Due {{date}}",
+    "empty": {
+      "description": "Renewals appear here after your firm registers an IP right on one of your matters. You will be asked to Proceed or Decline before each renewal due date.",
+      "title": "No renewals require your attention",
+      "viewDeadlines": "View my deadlines",
+      "viewMatters": "View my matters"
+    },
+    "errorFallback": "Please try again or sign out and back in if permissions changed.",
+    "instructionError": "Could not submit instruction",
+    "loading": "Loading…",
+    "proceed": "Proceed",
+    "retry": "Retry",
+    "title": "Renewals"
+  },
+  "renewalStatus": {
+    "completed": "Completed",
+    "filed": "Filed",
+    "instructed": "Instructed",
+    "lapsed": "Lapsed",
+    "upcoming": "Upcoming"
+  }
+}

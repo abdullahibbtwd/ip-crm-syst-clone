@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useOutletContext, useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { AlertTriangle, Plus } from 'lucide-react'
 import { DueTodayAlert } from '@/components/deadlines/DueTodayAlert'
 import { DueTodayBadge } from '@/components/deadlines/DueTodayBadge'
@@ -31,8 +32,8 @@ import {
 } from '@/features/deadlines/hooks/useDeadlines'
 import type { DeadlineStatus } from '@/features/deadlines/types'
 import {
-  DEADLINE_STATUS_LABELS,
   deadlineJurisdiction,
+  deadlineStatusLabel,
   deadlineUrgency,
   formatDeadlineDate,
   JURISDICTION_OPTIONS,
@@ -52,9 +53,17 @@ type LayoutContext = {
 }
 
 const MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
-const STATUSES = Object.keys(DEADLINE_STATUS_LABELS) as DeadlineStatus[]
+const STATUSES: DeadlineStatus[] = [
+  'pending',
+  'in_progress',
+  'completed',
+  'missed',
+  'escalated',
+  'superseded',
+]
 
 export function AllDeadlinesPage() {
+  const { t } = useTranslation('deadlines')
   const { activeRole } = useOutletContext<LayoutContext>()
   const [searchParams, setSearchParams] = useSearchParams()
   const [drawerOpen, setDrawerOpen] = useState(searchParams.get('new') === '1')
@@ -128,15 +137,15 @@ export function AllDeadlinesPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">All deadlines</h1>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('allDeadlines.title')}</h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Firm-wide deadline register across every matter and assignee.
+            {t('allDeadlines.description')}
           </p>
         </div>
         {canCreate && (
           <Button type="button" onClick={openDrawer}>
             <Plus className="size-4" />
-            New deadline
+            {t('allDeadlines.newDeadline')}
           </Button>
         )}
       </div>
@@ -144,25 +153,21 @@ export function AllDeadlinesPage() {
       <DueTodayAlert
         count={firmTodayCount}
         linkTo="/deadlines"
-        label={
-          firmTodayCount === 1
-            ? '1 firm deadline is due today across all matters.'
-            : `${firmTodayCount} firm deadlines are due today across all matters.`
-        }
+        label={t('allDeadlines.firmDueToday', { count: firmTodayCount })}
       />
 
       <div className="grid gap-3 rounded-xl border border-border/80 bg-muted/15 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         <div className="space-y-1.5">
-          <Label className="text-xs text-muted-foreground">Attorney</Label>
+          <Label className="text-xs text-muted-foreground">{t('allDeadlines.filters.attorney')}</Label>
           <Select
             value={assignedToId ?? ALL}
             onValueChange={(v) => setAssignedToId(v === ALL ? undefined : (v ?? undefined))}
           >
             <SelectTrigger className="bg-background">
-              <SelectValue placeholder="All attorneys" />
+              <SelectValue placeholder={t('allDeadlines.filters.allAttorneys')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>All attorneys</SelectItem>
+              <SelectItem value={ALL}>{t('allDeadlines.filters.allAttorneys')}</SelectItem>
               {assignees?.map((a) => (
                 <SelectItem key={a.id} value={a.id}>
                   {a.fullName}
@@ -173,19 +178,19 @@ export function AllDeadlinesPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label className="text-xs text-muted-foreground">Matter type</Label>
+          <Label className="text-xs text-muted-foreground">{t('allDeadlines.filters.matterType')}</Label>
           <Select
             value={matterType ?? ALL}
             onValueChange={(v) => setMatterType(v === ALL ? undefined : (v as MatterType))}
           >
             <SelectTrigger className="bg-background">
-              <SelectValue placeholder="All types" />
+              <SelectValue placeholder={t('allDeadlines.filters.allTypes')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>All types</SelectItem>
-              {MATTER_TYPES.map((t) => (
-                <SelectItem key={t} value={t}>
-                  {MATTER_TYPE_LABELS[t]}
+              <SelectItem value={ALL}>{t('allDeadlines.filters.allTypes')}</SelectItem>
+              {MATTER_TYPES.map((mt) => (
+                <SelectItem key={mt} value={mt}>
+                  {MATTER_TYPE_LABELS[mt]}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -193,16 +198,16 @@ export function AllDeadlinesPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label className="text-xs text-muted-foreground">Jurisdiction</Label>
+          <Label className="text-xs text-muted-foreground">{t('allDeadlines.filters.jurisdiction')}</Label>
           <Select
             value={jurisdiction ?? ALL}
             onValueChange={(v) => setJurisdiction(v === ALL ? undefined : (v ?? undefined))}
           >
             <SelectTrigger className="bg-background">
-              <SelectValue placeholder="All jurisdictions" />
+              <SelectValue placeholder={t('allDeadlines.filters.allJurisdictions')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>All jurisdictions</SelectItem>
+              <SelectItem value={ALL}>{t('allDeadlines.filters.allJurisdictions')}</SelectItem>
               {JURISDICTION_OPTIONS.map((j) => (
                 <SelectItem key={j.value} value={j.value}>
                   {j.label}
@@ -213,7 +218,7 @@ export function AllDeadlinesPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label className="text-xs text-muted-foreground">Status</Label>
+          <Label className="text-xs text-muted-foreground">{t('allDeadlines.filters.status')}</Label>
           <Select
             value={overdueOnly ? 'overdue' : (status ?? ALL)}
             onValueChange={(v) => {
@@ -227,14 +232,14 @@ export function AllDeadlinesPage() {
             }}
           >
             <SelectTrigger className="bg-background">
-              <SelectValue placeholder="All statuses" />
+              <SelectValue placeholder={t('allDeadlines.filters.allStatuses')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>All statuses</SelectItem>
-              <SelectItem value="overdue">Overdue</SelectItem>
+              <SelectItem value={ALL}>{t('allDeadlines.filters.allStatuses')}</SelectItem>
+              <SelectItem value="overdue">{t('allDeadlines.filters.overdue')}</SelectItem>
               {STATUSES.filter((s) => s !== 'superseded').map((s) => (
                 <SelectItem key={s} value={s}>
-                  {DEADLINE_STATUS_LABELS[s]}
+                  {deadlineStatusLabel(s)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -243,7 +248,7 @@ export function AllDeadlinesPage() {
 
         <div className="space-y-1.5">
           <Label htmlFor="due-from" className="text-xs text-muted-foreground">
-            Due from
+            {t('allDeadlines.filters.dueFrom')}
           </Label>
           <Input
             id="due-from"
@@ -256,7 +261,7 @@ export function AllDeadlinesPage() {
 
         <div className="space-y-1.5">
           <Label htmlFor="due-to" className="text-xs text-muted-foreground">
-            Due to
+            {t('allDeadlines.filters.dueTo')}
           </Label>
           <Input
             id="due-to"
@@ -269,21 +274,21 @@ export function AllDeadlinesPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading deadlines…</p>
+        <p className="text-sm text-muted-foreground">{t('allDeadlines.loading')}</p>
       ) : isError ? (
-        <p className="text-sm text-destructive">Failed to load deadlines.</p>
+        <p className="text-sm text-destructive">{t('allDeadlines.error')}</p>
       ) : (
         <>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Matter</TableHead>
-                <TableHead>Attorney</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Jurisdiction</TableHead>
-                <TableHead>Due date</TableHead>
-                <TableHead>Grace</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('allDeadlines.table.matter')}</TableHead>
+                <TableHead>{t('allDeadlines.table.attorney')}</TableHead>
+                <TableHead>{t('allDeadlines.table.type')}</TableHead>
+                <TableHead>{t('allDeadlines.table.jurisdiction')}</TableHead>
+                <TableHead>{t('allDeadlines.table.dueDate')}</TableHead>
+                <TableHead>{t('allDeadlines.table.grace')}</TableHead>
+                <TableHead>{t('allDeadlines.table.status')}</TableHead>
                 <TableHead className="w-[120px]" />
               </TableRow>
             </TableHeader>
@@ -291,7 +296,7 @@ export function AllDeadlinesPage() {
               {deadlines.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={8} className="py-12 text-center text-muted-foreground">
-                    No deadlines match your filters.
+                    {t('allDeadlines.empty')}
                   </TableCell>
                 </TableRow>
               ) : (
@@ -328,15 +333,15 @@ export function AllDeadlinesPage() {
                         </div>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
-                        {d.graceDate ? formatDeadlineDate(d.graceDate) : '—'}
+                        {d.graceDate ? formatDeadlineDate(d.graceDate) : '-'}
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="normal-case">
                           {urgency === 'today'
-                            ? 'Due today'
+                            ? t('urgency.dueToday')
                             : urgency === 'overdue' && d.status !== 'completed'
-                              ? 'Overdue'
-                              : DEADLINE_STATUS_LABELS[d.status]}
+                              ? t('urgency.overdue')
+                              : deadlineStatusLabel(d.status)}
                         </Badge>
                       </TableCell>
                       <TableCell>
@@ -362,7 +367,7 @@ export function AllDeadlinesPage() {
                 disabled={pageIndex === 0 || isFetching}
                 onClick={handlePreviousPage}
               >
-                Previous
+                {t('allDeadlines.previous')}
               </Button>
               <Button
                 type="button"
@@ -371,7 +376,7 @@ export function AllDeadlinesPage() {
                 disabled={!data?.nextCursor || isFetching}
                 onClick={handleNextPage}
               >
-                Next
+                {t('allDeadlines.next')}
               </Button>
             </div>
           )}

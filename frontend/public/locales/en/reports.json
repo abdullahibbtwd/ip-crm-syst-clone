@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Current",
+      "overdue30": "1–30 days",
+      "overdue60": "31–60 days",
+      "overdue90plus": "90+ days"
+    },
+    "bucketsShort": {
+      "current": "Current",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Aging legend",
+    "noOpenReceivables": "No open receivables"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} client group",
+    "clientGroups_other": "{{count}} client groups",
+    "clientMatters": "Client matters",
+    "clientsInWindow": "{{clients}} clients · {{days}} day horizon",
+    "crossTabTitle": "Client × jurisdiction × attorney",
+    "description": "Upcoming critical deadlines grouped by client, jurisdiction, and responsible attorney. Urgency colours match deadline worklists and notification milestones.",
+    "emptyDescription": "Try widening the portfolio window or clearing filters.",
+    "emptyTitle": "No deadlines in this window",
+    "error": "Could not load deadline risk report.",
+    "filters": {
+      "allAssignees": "All assignees",
+      "allAttorneys": "All attorneys",
+      "allJurisdictions": "All jurisdictions",
+      "jurisdiction": "Jurisdiction",
+      "portfolioWindow": "Portfolio window (days)",
+      "responsibleAttorney": "Responsible attorney"
+    },
+    "generated": "Generated {{date}}",
+    "loading": "Loading portfolio risk…",
+    "openWorklist": "Open worklist",
+    "stats": {
+      "critical": "Critical",
+      "criticalHint": "Overdue, today, or ≤7 days",
+      "dueToday": "Due today",
+      "dueTodayHint": "Action required today",
+      "inWindow": "In window",
+      "overdue": "Overdue",
+      "overdueHint": "Past due or escalated"
+    },
+    "table": {
+      "deadline": "Deadline",
+      "due": "Due",
+      "matter": "Matter",
+      "status": "Status"
+    },
+    "title": "Deadline portfolio risk"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "By jurisdiction",
+    "byMonth": "Filings by month",
+    "description": "Applications filed - aggregated from matter timeline filing events, grouped by month, matter type, and jurisdiction.",
+    "error": "Could not load filing volumes.",
+    "filters": {
+      "allJurisdictions": "All jurisdictions",
+      "allTypes": "All types",
+      "jurisdiction": "Jurisdiction",
+      "matterType": "Matter type",
+      "periodFrom": "Period from",
+      "periodTo": "Period to"
+    },
+    "generated": "Generated {{date}}",
+    "loading": "Loading filing volumes…",
+    "matterPortfolio": "Matter portfolio",
+    "noFilings": "No filings in period.",
+    "stats": {
+      "jurisdictions": "Jurisdictions",
+      "jurisdictionsHint": "Filing authorities",
+      "matterTypes": "Matter types",
+      "matterTypesHint": "Distinct types filed",
+      "totalFilings": "Total filings",
+      "totalFilingsHint": "In selected period"
+    },
+    "table": {
+      "filingDate": "Filing date",
+      "filings": "Filings",
+      "jurisdiction": "Jurisdiction",
+      "matter": "Matter",
+      "month": "Month",
+      "type": "Type"
+    },
+    "title": "Filing volumes"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "By due month",
+    "byJurisdiction": "By jurisdiction",
+    "cycle": "cycle {{number}}",
+    "description": "Upcoming renewal windows by status, jurisdiction, and due month - with urgency tiers aligned to deadline risk reporting.",
+    "dueBefore": "Due before",
+    "dueBeforeLabel": "Due before {{date}}",
+    "error": "Could not load renewals summary.",
+    "filters": {
+      "allJurisdictions": "All jurisdictions",
+      "jurisdiction": "Jurisdiction"
+    },
+    "generated": "Generated {{date}}",
+    "loading": "Loading renewals summary…",
+    "noRenewals": "No renewals in window.",
+    "renewalsWorklist": "Renewals worklist",
+    "stats": {
+      "critical": "Critical",
+      "criticalHint": "Overdue or due ≤7 days",
+      "instructed": "Instructed",
+      "instructedHint": "Proceed confirmed",
+      "pipeline": "Pipeline",
+      "pipelineHint": "Active renewal windows",
+      "upcoming": "Upcoming",
+      "upcomingHint": "Awaiting instruction"
+    },
+    "table": {
+      "client": "Client",
+      "due": "Due",
+      "ipRight": "IP right",
+      "month": "Month",
+      "status": "Status",
+      "windows": "Windows"
+    },
+    "title": "Renewals summary"
+  },
+  "renewalUrgency": {
+    "legend": "Renewal urgency",
+    "noPipeline": "No pipeline renewals",
+    "overdue": "Overdue",
+    "soon": "≤30 days",
+    "today": "Due today",
+    "urgent": "≤7 days"
+  },
+  "revenueSummary": {
+    "agingDetail": "Open receivables detail",
+    "agingSection": {
+      "description": "Snapshot of all open receivables by days past due",
+      "title": "Aging summary"
+    },
+    "description": "Issued invoice totals by month, collections, and open receivables aged by days past due - aligned with the Finance payment-tracking scenario.",
+    "error": "Could not load revenue summary.",
+    "filters": {
+      "periodFrom": "Period from",
+      "periodTo": "Period to"
+    },
+    "generated": "Generated {{date}}",
+    "invoice_one": "{{count}} invoice",
+    "invoice_other": "{{count}} invoices",
+    "invoiceRegister": "Invoice register",
+    "issuedInPeriod_one": "revenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "revenueSummary.issuedInPeriod",
+    "loading": "Loading revenue summary…",
+    "noInvoices": "No issued invoices in this period.",
+    "noReceivables": "No outstanding receivables.",
+    "openInvoices_one": "revenueSummary.openInvoices",
+    "openInvoices_other": "revenueSummary.openInvoices",
+    "period": "Period {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Issued invoice totals grouped by issue month",
+      "title": "Revenue by month"
+    },
+    "stats": {
+      "collected": "Collected",
+      "collectedHint": "Payments recorded in period",
+      "criticalReceivables": "60+ days overdue",
+      "criticalReceivablesHint": "Receivables requiring follow-up",
+      "outstanding": "Outstanding",
+      "totalInvoiced": "Total invoiced"
+    },
+    "table": {
+      "aging": "Aging",
+      "client": "Client",
+      "due": "Due",
+      "invoice": "Invoice",
+      "invoiced": "Invoiced",
+      "month": "Month",
+      "open": "Open",
+      "outstanding": "Outstanding",
+      "paid": "Paid"
+    },
+    "title": "Revenue & receivables"
+  },
+  "urgency": {
+    "legend": "Urgency legend",
+    "noActiveRisk": "No active risk",
+    "overdue": "Overdue",
+    "soon": "Due ≤30 days",
+    "soonShort": "≤30 days",
+    "today": "Due today",
+    "todayShort": "Today",
+    "urgent": "Due ≤7 days",
+    "urgentShort": "≤7 days"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Critical",
+      "criticalHint": "≤ 7 days",
+      "overdue": "Overdue",
+      "actionRequired": "Action required",
+      "dueToday": "Due today",
+      "requiresSignOff": "Requires sign-off",
+      "nextDays": "Next {{days}} days",
+      "clientsInWindow": "{{count}} clients in window",
+      "windowSummary": "Window summary",
+      "priorityDeadlines": "Priority deadlines",
+      "prioritySubtitle": "Most urgent items requiring monitoring",
+      "openReport": "Open report",
+      "loading": "Scanning risk vectors…",
+      "error": "Could not load risk analytics.",
+      "highestExposure": "Highest risk exposure",
+      "criticalCount": "{{count}} critical",
+      "portfolioClear": "Portfolio clear",
+      "noCriticalInWindow": "No critical risk detected in the next {{days}} days.",
+      "table": {
+        "priorityDeadline": "Priority deadline",
+        "clientJurisdiction": "Client & jurisdiction",
+        "dueDate": "Due Date"
+      },
+      "showingOf": "Showing {{shown}} of {{total}} priority items",
+      "viewCrossTab": "View full cross-tab report"
+    },
+    "filingVolumes": {
+      "title": "Filing volumes",
+      "subtitle": "Applications filed across the firm (Last 12 mo)",
+      "fullReport": "Full report",
+      "loading": "Aggregating filing history…",
+      "error": "Could not load filing analytics.",
+      "totalFilings": "Total filings",
+      "yearToDate": "Year to date",
+      "primaryType": "Primary type",
+      "applications_one": "{{count}} application",
+      "applications_other": "{{count}} applications",
+      "noData": "No data",
+      "topRegion": "Top region",
+      "monthActivity": "{{month}} Activity:",
+      "newFiling_one": "{{count}} new filing",
+      "newFiling_other": "{{count}} new filings",
+      "empty": "No filings detected in recent history.",
+      "table": {
+        "matterInfo": "Matter information",
+        "type": "Type",
+        "filingDate": "Filing Date"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Invoiced (12 mo)",
+      "issued_one": "{{count}} issued",
+      "issued_other": "{{count}} issued",
+      "collected": "Collected",
+      "paidInPeriod": "Paid in period",
+      "outstanding": "Outstanding",
+      "open_one": "{{count}} open",
+      "open_other": "{{count}} open",
+      "criticalRisk": "Critical Risk",
+      "overdue60Days": "60+ days overdue",
+      "receivablesAging": "Receivables aging",
+      "agingSubtitle": "Open issued invoices by days past due",
+      "fullReport": "Full report",
+      "loading": "Analyzing aging data…",
+      "error": "Could not load aging data.",
+      "portfolioHealthy": "Portfolio healthy",
+      "noReceivables": "No outstanding receivables found.",
+      "draftRef": "Draft ref",
+      "table": {
+        "invoiceInfo": "Invoice info",
+        "client": "Client",
+        "outstanding": "Outstanding"
+      },
+      "showingOf": "Showing {{shown}} of {{total}} open invoices",
+      "viewPortfolio": "View entire portfolio"
+    },
+    "teamWorkload": {
+      "title": "Team workload",
+      "subtitle": "Open matters, tasks, and deadlines per member",
+      "viewTeam": "View team",
+      "loading": "Calculating workload distribution…",
+      "error": "Could not load team data.",
+      "matters": "Matters",
+      "members_one": "{{count}} member",
+      "members_other": "{{count}} members",
+      "tasks": "Tasks",
+      "pendingAction": "Pending action",
+      "deadlines": "Deadlines",
+      "activeWindow": "Active window",
+      "busiest": "Busiest",
+      "items_one": "{{count}} item",
+      "items_other": "{{count}} items",
+      "clear": "Clear",
+      "empty": "No active team data",
+      "table": {
+        "teamMember": "Team member",
+        "matters": "Matters",
+        "tasks": "Tasks",
+        "deadlines": "Deadlines",
+        "total": "Total"
+      }
+    },
+    "clientProfitability": {
+      "title": "Client profitability",
+      "subtitle": "Billed revenue distribution by client portfolio",
+      "viewAllClients": "View all clients",
+      "loading": "Aggregating profitability data…",
+      "error": "Could not load client analytics.",
+      "trueMargin": "True margin:",
+      "revenueProxy": "Revenue proxy:",
+      "totalRevenue": "Total revenue",
+      "clients_one": "{{count}} client",
+      "clients_other": "{{count}} clients",
+      "totalMargin": "Total margin",
+      "topClient": "Top client",
+      "internalCost": "{{amount}} internal cost",
+      "noBillingData": "No billing data",
+      "unbilledWip": "Unbilled WIP",
+      "pendingAccrual": "Pending accrual",
+      "firmBilled": "Firm Billed",
+      "totalMatters": "Total matters",
+      "empty": "No client billing data detected.",
+      "table": {
+        "clientPortfolio": "Client portfolio",
+        "matters": "Matters",
+        "billable": "Billable",
+        "unbilled": "Unbilled",
+        "margin": "Margin",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Showing top {{shown}} of {{total}} clients by {{basis}}",
+      "basisMargin": "margin",
+      "basisRevenue": "revenue",
+      "viewLeaderboard": "View full leaderboard"
+    }
+  }
+}

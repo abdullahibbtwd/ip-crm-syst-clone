@@ -1,0 +1,148 @@
+{
+  "sidebar": {
+    "expand": "Expand sidebar",
+    "collapse": "Collapse sidebar",
+    "close": "Close sidebar"
+  },
+  "sections": {
+    "overview": "Overview",
+    "clients": "Clients",
+    "matters": "Matters",
+    "ipRights": "IP Rights",
+    "finance": "Finance",
+    "reports": "Reports",
+    "myWork": "My work",
+    "rights": "Rights",
+    "communication": "Communication",
+    "trademarks": "Trademarks",
+    "deadlines": "Deadlines",
+    "correspondence": "Correspondence",
+    "documentsAndMail": "Documents & mail",
+    "billing": "Billing",
+    "gdpr": "GDPR",
+    "audit": "Audit",
+    "usersAndAccess": "Users & access",
+    "system": "System",
+    "myPortfolio": "My portfolio",
+    "myMatters": "My matters"
+  },
+  "items": {
+    "dashboard": "Dashboard",
+    "deadlines": "Deadlines",
+    "alerts": "Alerts",
+    "clients": "Clients",
+    "holdingGroups": "Holding groups",
+    "allMatters": "All matters",
+    "intakeQueue": "Intake queue",
+    "rightsRegister": "Rights register",
+    "renewals": "Renewals",
+    "watch": "Watch",
+    "billingOverview": "Billing overview",
+    "deadlineRisk": "Deadline risk",
+    "filingVolumes": "Filing volumes",
+    "renewalsSummary": "Renewals summary",
+    "revenueReceivables": "Revenue & receivables",
+    "team": "Team",
+    "settings": "Settings",
+    "myDashboard": "My dashboard",
+    "myDeadlines": "My deadlines",
+    "myMatters": "My matters",
+    "patentFilings": "Patent filings",
+    "officeActions": "Office actions",
+    "documents": "Documents",
+    "correspondence": "Correspondence",
+    "myTmMatters": "My TM matters",
+    "oppositions": "Oppositions",
+    "watchAlerts": "Watch alerts",
+    "conflictCheck": "Conflict check",
+    "allDeadlines": "All deadlines",
+    "escalations": "Escalations",
+    "gracePeriods": "Grace periods",
+    "addDeadline": "Add deadline",
+    "incomingMail": "Incoming mail",
+    "outgoingMail": "Outgoing mail",
+    "myTasks": "My tasks",
+    "assignedMatters": "Assigned matters",
+    "financeDashboard": "Finance dashboard",
+    "invoices": "Invoices",
+    "timeEntries": "Time entries",
+    "payments": "Payments",
+    "rateCards": "Rate cards",
+    "disbursements": "Disbursements",
+    "complianceDashboard": "Compliance dashboard",
+    "personalDataRegister": "Personal data register",
+    "dataExportsLog": "Data exports log",
+    "retentionRules": "Retention rules",
+    "consentRecords": "Consent records",
+    "auditTrail": "Audit trail",
+    "accessLog": "Access log",
+    "systemDashboard": "System dashboard",
+    "users": "Users",
+    "rolesPermissions": "Roles & permissions",
+    "ssoMfaConfig": "SSO / MFA config",
+    "integrations": "Integrations",
+    "systemHealth": "System health",
+    "auditLog": "Audit log",
+    "overview": "Overview",
+    "enquiries": "Enquiries",
+    "myDocuments": "My documents",
+    "myInvoices": "My invoices",
+    "messages": "Messages",
+    "help": "Help",
+    "myPortfolio": "My portfolio"
+  },
+  "roles": {
+    "managing_partner": "Managing Partner",
+    "ip_attorney": "IP / Patent Attorney",
+    "trademark_attorney": "Trademark Attorney",
+    "coordinator": "Coordinator / Intake",
+    "docketing_admin": "Docketing Admin",
+    "paralegal": "Paralegal",
+    "finance": "Finance",
+    "dpo_compliance": "DPO / Compliance",
+    "it_admin": "IT / Admin",
+    "portal_client": "Client (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Coming soon - this area will show live data once the module is connected."
+    },
+    "managing_partner": {
+      "eyebrow": "Firm overview",
+      "title": "Firm overview",
+      "description": "Portfolio deadline risk, filing volumes, renewals pipeline, revenue, team workload, and client profitability - firm-wide reporting from a single home."
+    },
+    "coordinator": {
+      "eyebrow": "Coordination",
+      "title": "Intake & coordination",
+      "description": "Intake pipeline, filing volumes, and upcoming renewals - coordinate enquiries through to prosecution."
+    },
+    "docketing_admin": {
+      "eyebrow": "Docketing",
+      "title": "Deadline board",
+      "description": "Firm-wide deadline and docket risk - grouped by client, jurisdiction, and assignee with urgency highlighting."
+    },
+    "finance": {
+      "eyebrow": "Finance",
+      "title": "Finance overview",
+      "description": "Issued revenue, collections, and receivables aging - issue invoices and track payments from one place."
+    },
+    "portal_client": {
+      "eyebrow": "Client portal",
+      "title": "Welcome back",
+      "description": "Submit filing enquiries and track matters for your organisation."
+    },
+    "myDashboard": {
+      "title": "My dashboard"
+    },
+    "myTasks": {
+      "title": "My tasks"
+    },
+    "compliance": {
+      "title": "Compliance"
+    },
+    "systemDashboard": {
+      "title": "System dashboard"
+    }
+  }
+}

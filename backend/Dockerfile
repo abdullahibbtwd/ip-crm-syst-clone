@@ -1,4 +1,4 @@
-# Production image — multi-stage build (NestJS + Prisma)
+# Production image - multi-stage build (NestJS + Prisma)
 FROM node:20-alpine AS builder
 WORKDIR /app
 

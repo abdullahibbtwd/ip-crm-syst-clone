@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { matterTabsForUser } from '@/config/matter-tabs'
 import { cn } from '@/lib/utils'
 
@@ -8,6 +9,7 @@ type MatterTabNavProps = {
 }
 
 export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavProps) {
+  const { t } = useTranslation('matters')
   const base = `/matters/${matterId}`
   const tabs = matterTabsForUser(isPortalClient)
 
@@ -27,7 +29,7 @@ export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavP
             )
           }
         >
-          {tab.label}
+          {t(tab.labelKey)}
         </NavLink>
       ))}
     </nav>

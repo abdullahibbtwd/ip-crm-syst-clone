@@ -1,4 +1,4 @@
-# Production image — Vite build served by nginx (proxies /api + /socket.io to backend)
+# Production image - Vite build served by nginx (proxies /api + /socket.io to backend)
 FROM node:20-alpine AS builder
 WORKDIR /app
 

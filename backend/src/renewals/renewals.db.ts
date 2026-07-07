@@ -1,7 +1,7 @@
 import type { Prisma } from '../../generated/prisma/client';
 
 /**
- * Typed renewal delegates — avoids ESLint "could not be resolved" on PrismaService
+ * Typed renewal delegates - avoids ESLint "could not be resolved" on PrismaService
  * when `backend/generated/` is gitignored and the IDE cannot index the client.
  */
 export type RenewalWindowDb = {

@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { renewalsApi } from '@/features/renewals/api'
 import { usePortalRenewals } from '@/features/renewals/hooks/useRenewals'
 import { renewalKeys } from '@/features/renewals/queryKeys'
-import { RENEWAL_STATUS_LABELS } from '@/features/renewals/utils'
 import { formatDeadlineDate } from '@/features/deadlines/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
+import type { RenewalStatus } from '@/features/renewals/types'
 
 export function PortalRenewalsPage() {
+  const { t } = useTranslation('portal')
   const qc = useQueryClient()
   const { data: renewals, isLoading, isError, error, refetch } = usePortalRenewals()
 
@@ -26,42 +28,38 @@ export function PortalRenewalsPage() {
     },
   })
 
+  const renewalStatusLabel = (status: RenewalStatus) => t(`renewalStatus.${status}`)
+
   return (
     <div className="mx-auto max-w-3xl space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Renewals</h1>
-        <p className="text-sm text-muted-foreground">
-          Upcoming trademark and design renewals for your IP rights.
-        </p>
+        <h1 className="text-2xl font-semibold tracking-tight">{t('renewals.title')}</h1>
+        <p className="text-sm text-muted-foreground">{t('renewals.description')}</p>
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <p className="text-sm text-muted-foreground">{t('renewals.loading')}</p>
       ) : isError ? (
         <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm">
-          <p className="font-medium text-destructive">Could not load renewals</p>
+          <p className="font-medium text-destructive">{t('renewals.couldNotLoad')}</p>
           <p className="mt-1 text-muted-foreground">
-            {getApiErrorMessage(error, 'Please try again or sign out and back in if permissions changed.')}
+            {getApiErrorMessage(error, t('renewals.errorFallback'))}
           </p>
           <Button variant="outline" size="sm" className="mt-3" onClick={() => void refetch()}>
-            Retry
+            {t('renewals.retry')}
           </Button>
         </div>
       ) : !renewals?.length ? (
         <div className="rounded-lg border border-dashed p-6 text-sm text-muted-foreground">
-          <p className="font-medium text-foreground">No renewals require your attention</p>
-          <p className="mt-2">
-            Renewals appear here after your firm registers an IP right on one of your matters.
-            You will be asked to <strong className="font-medium text-foreground">Proceed</strong> or{' '}
-            <strong className="font-medium text-foreground">Decline</strong> before each renewal due date.
-          </p>
+          <p className="font-medium text-foreground">{t('renewals.empty.title')}</p>
+          <p className="mt-2">{t('renewals.empty.description')}</p>
           <p className="mt-3">
             <Link to="/matters" className="text-primary hover:underline">
-              View my matters
+              {t('renewals.empty.viewMatters')}
             </Link>
             {' · '}
             <Link to="/deadlines/my" className="text-primary hover:underline">
-              View my deadlines
+              {t('renewals.empty.viewDeadlines')}
             </Link>
           </p>
         </div>
@@ -74,10 +72,11 @@ export function PortalRenewalsPage() {
                   <p className="font-medium">{row.ipRight.title}</p>
                   <p className="text-sm text-muted-foreground">{row.matter.title}</p>
                   <p className="mt-1 text-sm">
-                    Due {formatDeadlineDate(row.dueDate)} · cycle {row.cycleNumber}
+                    {t('renewals.due', { date: formatDeadlineDate(row.dueDate) })} ·{' '}
+                    {t('renewals.cycle', { number: row.cycleNumber })}
                   </p>
                   <Badge variant="outline" className="mt-2">
-                    {RENEWAL_STATUS_LABELS[row.status]}
+                    {renewalStatusLabel(row.status)}
                   </Badge>
                 </div>
                 {row.status === 'upcoming' ? (
@@ -90,12 +89,12 @@ export function PortalRenewalsPage() {
                           { id: row.id, decision: 'proceed' },
                           {
                             onError: (err) =>
-                              alert(getApiErrorMessage(err, 'Could not submit instruction')),
+                              alert(getApiErrorMessage(err, t('renewals.instructionError'))),
                           },
                         )
                       }}
                     >
-                      Proceed
+                      {t('renewals.proceed')}
                     </Button>
                     <Button
                       size="sm"
@@ -106,12 +105,12 @@ export function PortalRenewalsPage() {
                           { id: row.id, decision: 'abandon' },
                           {
                             onError: (err) =>
-                              alert(getApiErrorMessage(err, 'Could not submit instruction')),
+                              alert(getApiErrorMessage(err, t('renewals.instructionError'))),
                           },
                         )
                       }}
                     >
-                      Decline
+                      {t('renewals.decline')}
                     </Button>
                   </div>
                 ) : null}

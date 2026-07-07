@@ -316,7 +316,7 @@ export class RenewalsService {
         data: {
           matterId,
           eventType: MatterTimelineEventType.note,
-          title: `IP right registered — ${registered.title}`,
+          title: `IP right registered - ${registered.title}`,
           description: `Registration no. ${registrationNumber}. First renewal due ${formatDate(windowDueDate)}.`,
           occurredAt: registrationDate,
           createdById: userId,
@@ -509,7 +509,7 @@ export class RenewalsService {
       data: {
         matterId: window.matterId,
         eventType: MatterTimelineEventType.note,
-        title: `Renewal filed — cycle ${window.cycleNumber}`,
+        title: `Renewal filed - cycle ${window.cycleNumber}`,
         description: `Renewal submission recorded for ${window.ipRight.title}.`,
         occurredAt: new Date(),
         createdById: userId,
@@ -574,7 +574,7 @@ export class RenewalsService {
           data: {
             matterId: window.matterId,
             sourceRenewalWindowId: id,
-            description: `Renewal official fee — ${window.ipRight.title} (cycle ${window.cycleNumber})`,
+            description: `Renewal official fee - ${window.ipRight.title} (cycle ${window.cycleNumber})`,
             amount: officialFee,
             currency: defaults.currency,
             category: FixedFeeCategory.disbursement,
@@ -588,7 +588,7 @@ export class RenewalsService {
           data: {
             matterId: window.matterId,
             sourceRenewalWindowId: id,
-            description: `Renewal service fee — ${window.ipRight.title} (cycle ${window.cycleNumber})`,
+            description: `Renewal service fee - ${window.ipRight.title} (cycle ${window.cycleNumber})`,
             amount: serviceFee,
             currency: defaults.currency,
             category: FixedFeeCategory.professional_fee,
@@ -667,7 +667,7 @@ export class RenewalsService {
         data: {
           matterId: window.matterId,
           eventType: MatterTimelineEventType.note,
-          title: `Renewal completed — cycle ${window.cycleNumber}`,
+          title: `Renewal completed - cycle ${window.cycleNumber}`,
           description: `${window.ipRight.title} renewed. Next expiry ${formatDate(nextExpiry)}.`,
           occurredAt: new Date(),
           createdById: userId,

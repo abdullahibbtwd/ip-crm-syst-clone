@@ -1,0 +1,52 @@
+{
+  "actions": {
+    "backToDashboard": "Обратно към таблото",
+    "cancel": "Отказ",
+    "edit": "Редактирай",
+    "loadMore": "Зареди още",
+    "next": "Напред",
+    "previous": "Назад",
+    "refresh": "Обнови",
+    "remove": "Премахни",
+    "save": "Запази",
+    "saveChanges": "Запази промените",
+    "view": "Преглед"
+  },
+  "errors": {
+    "loadFailed": "Неуспешно зареждане.",
+    "retryHint": "Проверете връзката и правата си, след което опитайте отново."
+  },
+  "filters": {
+    "allStatuses": "Всички статуси",
+    "allTypes": "Всички типове"
+  },
+  "language": {
+    "bg": "Български",
+    "en": "Английски",
+    "switch": "Смяна на езика"
+  },
+  "loading": {
+    "default": "Зареждане…",
+    "refreshing": "обновяване…",
+    "saving": "Запазване…"
+  },
+  "nav": {
+    "breadcrumb": "Навигационна верига",
+    "closeMenu": "Затвори менюто",
+    "openMenu": "Отвори менюто"
+  },
+  "pagination": {
+    "noResults": "Няма резултати",
+    "page": "Страница {{page}}",
+    "showing": "Показване {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Справки"
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Не",
+    "none": "Няма",
+    "yes": "Да"
+  }
+}

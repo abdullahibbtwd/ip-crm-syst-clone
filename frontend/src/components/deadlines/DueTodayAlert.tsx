@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { AlertCircle } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -16,13 +17,11 @@ export function DueTodayAlert({
   label,
   className,
 }: DueTodayAlertProps) {
+  const { t } = useTranslation('deadlines')
+
   if (count <= 0) return null
 
-  const message =
-    label ??
-    (count === 1
-      ? 'You have 1 deadline due today.'
-      : `You have ${count} deadlines due today.`)
+  const message = label ?? t('dueTodayAlert.personal', { count })
 
   return (
     <div
@@ -37,12 +36,12 @@ export function DueTodayAlert({
           <AlertCircle className="size-4" aria-hidden />
         </span>
         <div className="min-w-0">
-          <p className="text-sm font-medium text-foreground">Due today</p>
+          <p className="text-sm font-medium text-foreground">{t('dueTodayAlert.title')}</p>
           <p className="mt-0.5 text-sm text-muted-foreground">{message}</p>
         </div>
       </div>
       <Link to={linkTo} className={buttonVariants({ variant: 'outline', size: 'sm' })}>
-        View
+        {t('dueTodayAlert.view')}
       </Link>
     </div>
   )
