@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ListChecks } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useMyTasks } from '@/features/tasks/hooks/useTasks'
 import {
   formatTaskDueLabel,
   PRIORITY_DOT_CLASS,
-  PRIORITY_PREFIX,
   TASK_PRIORITY_LABELS,
 } from '@/features/tasks/utils'
 import { cn } from '@/lib/utils'
@@ -13,7 +11,7 @@ import { cn } from '@/lib/utils'
 import { ReportPanel } from '@/components/reports/report-ui'
 
 export function MyTasksWidget() {
-  const { data, isLoading, isError } = useMyTasks({ limit: 8 })
+  const { data, isLoading, isError } = useMyTasks(8)
   const tasks = data?.items ?? []
 
   return (
