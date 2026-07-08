@@ -1,18 +1,28 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
-  ArrowRight,
   Banknote,
   CreditCard,
   PieChart,
   Receipt,
 } from 'lucide-react'
-import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import type { RoleView } from '@/config/role-views'
 import { RevenueSummaryWidget } from '@/components/reports/RevenueSummaryWidget'
 import { StaffDashboardHero, ReportStatCard } from '@/components/reports/report-ui'
-import { cn } from '@/lib/utils'
+import {
+  DashboardKpiRail,
+  DashboardPageShell,
+  DashboardQuickLinkCard,
+  DashboardQuickLinksRail,
+  DashboardSectionHeading,
+  dashboardHeroPrimaryClass,
+  dashboardHeroSecondaryClass,
+} from '@/components/dashboard/dashboard-shell'
+
+const ICON_GREEN =
+  'bg-gradient-to-br from-brand-green/20 to-brand-green/5 text-brand-green shadow-[0_0_14px_rgba(26,60,52,0.12)]'
+const ICON_PRIMARY =
+  'bg-gradient-to-br from-primary/25 to-primary/5 text-primary shadow-[0_0_14px_rgba(232,98,26,0.18)]'
 
 type FinanceHomeProps = {
   view: RoleView
@@ -26,36 +36,24 @@ export function FinanceHome({ view, userName }: FinanceHomeProps) {
   const firstName = userName.split(' ')[0]
 
   return (
-    <div className="space-y-10">
+    <DashboardPageShell>
       <StaffDashboardHero
         eyebrow={tNav(`roleHomes.${homeKey}.eyebrow`)}
         title={tNav(`roleHomes.${homeKey}.title`)}
         firstName={firstName}
         description={tNav(`roleHomes.${homeKey}.description`)}
       >
-        <Link
-          to="/invoices"
-          className={cn(
-            buttonVariants(),
-            'bg-primary text-primary-foreground hover:bg-primary/95 shadow-md',
-          )}
-        >
+        <Link to="/invoices" className={dashboardHeroPrimaryClass()}>
           <Receipt className="size-4" />
           {t('finance.invoiceCenter')}
         </Link>
-        <Link
-          to="/reports/revenue-summary"
-          className={cn(
-            buttonVariants({ variant: 'outline' }),
-            'border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm',
-          )}
-        >
+        <Link to="/reports/revenue-summary" className={dashboardHeroSecondaryClass()}>
           <PieChart className="size-4" />
           {t('finance.revenueAnalytics')}
         </Link>
       </StaffDashboardHero>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <DashboardKpiRail desktopCols={3} ariaLabel={t('slider.kpiCarousel')}>
         <ReportStatCard
           icon={Receipt}
           label={t('finance.draftInvoices')}
@@ -80,74 +78,49 @@ export function FinanceHome({ view, userName }: FinanceHomeProps) {
           to="/invoices?paymentStatus=paid"
           tone="green"
         />
-      </div>
+      </DashboardKpiRail>
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="font-serif text-xl text-brand-green">{t('finance.revenueSummary')}</h2>
-          <Link to="/reports/revenue-summary" className="text-xs font-medium text-primary hover:underline">
-            {t('finance.viewFullReport')}
-          </Link>
-        </div>
+        <DashboardSectionHeading
+          title={t('finance.revenueSummary')}
+          action={
+            <Link
+              to="/reports/revenue-summary"
+              className="rounded-lg px-2.5 py-1 text-xs font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:underline"
+            >
+              {t('finance.viewFullReport')}
+            </Link>
+          }
+        />
         <RevenueSummaryWidget />
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Link to="/invoices" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <Receipt className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('finance.invoices')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('finance.invoicesDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/reports/revenue-summary" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <PieChart className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('finance.analytics')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('finance.analyticsDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/rate-cards" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <CreditCard className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('finance.rateCards')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('finance.rateCardsDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-      </div>
-    </div>
+      <DashboardQuickLinksRail desktopCols={3} ariaLabel={t('slider.quickLinksCarousel')}>
+        <DashboardQuickLinkCard
+          to="/invoices"
+          icon={Receipt}
+          title={t('finance.invoices')}
+          description={t('finance.invoicesDesc')}
+          iconClassName={ICON_PRIMARY}
+          variant="row"
+        />
+        <DashboardQuickLinkCard
+          to="/reports/revenue-summary"
+          icon={PieChart}
+          title={t('finance.analytics')}
+          description={t('finance.analyticsDesc')}
+          iconClassName={ICON_GREEN}
+          variant="row"
+        />
+        <DashboardQuickLinkCard
+          to="/rate-cards"
+          icon={CreditCard}
+          title={t('finance.rateCards')}
+          description={t('finance.rateCardsDesc')}
+          iconClassName={ICON_GREEN}
+          variant="row"
+        />
+      </DashboardQuickLinksRail>
+    </DashboardPageShell>
   )
 }

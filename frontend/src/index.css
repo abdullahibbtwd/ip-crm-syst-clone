@@ -187,6 +187,12 @@
     height: 6px;
   }
 
+  .shell-scrollbar::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
   .shell-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(26, 60, 52, 0.12);
     border-radius: 999px;
@@ -194,5 +200,76 @@
 
   .shell-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(26, 60, 52, 0.2);
+  }
+
+  /* Main app content — branded vertical scrollbar (replaces native browser chrome) */
+  .app-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26, 60, 52, 0.45) rgba(26, 60, 52, 0.06);
+  }
+
+  .app-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-button,
+  .app-scrollbar::-webkit-scrollbar-button:single-button,
+  .app-scrollbar::-webkit-scrollbar-button:vertical:decrement,
+  .app-scrollbar::-webkit-scrollbar-button:vertical:increment,
+  .app-scrollbar::-webkit-scrollbar-button:start:decrement,
+  .app-scrollbar::-webkit-scrollbar-button:end:increment {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-track {
+    background: rgba(26, 60, 52, 0.06);
+    border-radius: 999px;
+    margin: 4px 0;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: rgba(26, 60, 52, 0.38);
+    background-clip: padding-box;
+    transition: background 0.2s ease;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 60, 52, 0.55);
+    background-clip: padding-box;
+  }
+
+  .app-scrollbar::-webkit-scrollbar-thumb:active {
+    background: rgba(26, 60, 52, 0.72);
+    background-clip: padding-box;
+  }
+
+  .dashboard-slider-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  .dashboard-slider-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .dashboard-slider-scroll::-webkit-scrollbar-button,
+  .dashboard-slider-scroll::-webkit-scrollbar-thumb,
+  .dashboard-slider-scroll::-webkit-scrollbar-track {
+    display: none;
   }
 }

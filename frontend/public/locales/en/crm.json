@@ -61,6 +61,7 @@
     "new": "New holding group",
     "notesPlaceholder": "Optional notes about this holding structure",
     "notFound": "Holding group not found.",
+    "perPage": "{{count}} per page",
     "searchPlaceholder": "Search name or country…",
     "title": "Holding groups",
     "viewAria": "View {{name}}"
@@ -197,6 +198,7 @@
     "contacts": "Contacts",
     "history": "History",
     "matters": "Matters",
+    "watch": "Watch",
     "offices": "Offices",
     "overview": "Overview",
     "related": "Related"

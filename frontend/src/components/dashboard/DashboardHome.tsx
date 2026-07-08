@@ -5,6 +5,10 @@ import { CoordinatorHome } from '@/components/dashboard/CoordinatorHome'
 import { DocketingRiskHome } from '@/components/dashboard/DocketingRiskHome'
 import { FinanceHome } from '@/components/dashboard/FinanceHome'
 import { ManagingPartnerHome } from '@/components/dashboard/ManagingPartnerHome'
+import {
+  DashboardKpiRail,
+  DashboardPageShell,
+} from '@/components/dashboard/dashboard-shell'
 import { PortalDashboard } from '@/components/portal/PortalDashboard'
 import { MyTasksWidget } from '@/components/tasks/MyTasksWidget'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -44,14 +48,14 @@ function DefaultStaffHome({ view, userName }: DashboardHomeProps) {
   const tasks = useMyTasks(50)
 
   return (
-    <div className="space-y-10">
+    <DashboardPageShell>
       <StaffDashboardHero
         eyebrow={roleLabel(role)}
         title={homeCopy.title}
         firstName={firstName}
         description={homeCopy.description}
       >
-        <div className="flex items-center gap-2 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
+        <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-md">
           <ShieldCheck className="size-3.5 text-primary" />
           <span>{t('defaultStaff.verifiedSession')}</span>
         </div>
@@ -59,7 +63,7 @@ function DefaultStaffHome({ view, userName }: DashboardHomeProps) {
 
       {hasWorkWidgets ? (
         <div className="grid gap-8">
-          <div className="grid gap-4 sm:grid-cols-2">
+          <DashboardKpiRail desktopCols={2} ariaLabel={t('slider.kpiCarousel')}>
             <PermissionGate resource="deadline" action="read">
               <ReportStatCard
                 icon={CalendarClock}
@@ -82,10 +86,10 @@ function DefaultStaffHome({ view, userName }: DashboardHomeProps) {
                 loading={tasks.isLoading}
               />
             </PermissionGate>
-          </div>
+          </DashboardKpiRail>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-2 space-y-8">
+            <div className="space-y-8 lg:col-span-2">
               <PermissionGate resource="deadline" action="read">
                 <MyDeadlinesWidget />
               </PermissionGate>
@@ -100,7 +104,7 @@ function DefaultStaffHome({ view, userName }: DashboardHomeProps) {
       ) : (
         <ComingSoon title={t('comingSoon.dashboardTitle')} />
       )}
-    </div>
+    </DashboardPageShell>
   )
 }
 

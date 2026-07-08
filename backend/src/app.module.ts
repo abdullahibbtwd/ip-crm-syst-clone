@@ -13,6 +13,9 @@ import { CorrespondenceModule } from './correspondence/correspondence.module';
 import { BillingModule } from './billing/billing.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { AlertsModule } from './alerts/alerts.module';
+import { IpRightsModule } from './ip-rights/ip-rights.module';
+import { WatchModule } from './watch/watch.module';
 import { TasksModule } from './tasks/tasks.module';
 import { ReportsModule } from './reports/reports.module';
 import { UsersModule } from './users/users.module';
@@ -47,6 +50,9 @@ import { PrismaModule } from './prisma/prisma.module';
     BillingModule,
     InvoicesModule,
     NotificationsModule,
+    AlertsModule,
+    IpRightsModule,
+    WatchModule,
     TasksModule,
     StorageModule,
     ReportsModule,

@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/select'
 import { useShell } from '@/features/shell/ShellProvider'
 import { roleLabel as getRoleLabel, type SystemRole } from '@/lib/rbac'
+import { cn } from '@/lib/utils'
 import { LanguageMenu, NotificationsMenu, UserMenu } from './ShellMenus'
 
 type AppTopbarProps = {
@@ -51,29 +52,65 @@ export function AppTopbar({
   const breadcrumbLabel = tNav(`items.${breadcrumb}`)
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-2 border-b bg-background px-3 md:gap-3 md:px-4">
+    <header
+      className={cn(
+        'sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b px-3 backdrop-blur-xl',
+        'transition-all duration-500 md:gap-3 md:px-4',
+        external
+          ? 'border-white/10 bg-black/40 shadow-[0_4px_24px_rgba(0,0,0,0.12)]'
+          : 'border-brand-green/10 bg-white/80 shadow-sm shadow-brand-green/5',
+      )}
+    >
       <Button
         type="button"
         variant="ghost"
         size="icon-sm"
-        className="lg:hidden"
+        className="group lg:hidden"
         aria-label={sidebarOpen ? tCommon('nav.closeMenu') : tCommon('nav.openMenu')}
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
-        {sidebarOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+        {sidebarOpen ? (
+          <X className="size-5 transition-transform duration-300 group-hover:scale-110" />
+        ) : (
+          <Menu className="size-5 transition-transform duration-300 group-hover:scale-110" />
+        )}
       </Button>
 
       <nav
         aria-label={tCommon('nav.breadcrumb')}
-        className="flex min-w-0 flex-1 items-center gap-1.5 text-xs text-muted-foreground"
+        className="flex min-w-0 flex-1 items-center gap-2 text-xs"
       >
-        <span className="truncate font-medium text-foreground">{breadcrumbLabel}</span>
+        <span
+          className={cn(
+            'hidden shrink-0 font-bold uppercase tracking-widest sm:inline',
+            external ? 'text-emerald-400/70' : 'text-primary/70',
+          )}
+        >
+          {external ? 'Client portal' : 'CRM'}
+        </span>
+        <span
+          className={cn(
+            'hidden h-3 w-px sm:block',
+            external ? 'bg-white/20' : 'bg-brand-green/15',
+          )}
+          aria-hidden
+        />
+        <span
+          className={cn(
+            'truncate bg-clip-text text-sm font-semibold tracking-tight text-transparent',
+            external
+              ? 'bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-300'
+              : 'bg-gradient-to-r from-brand-green via-brand-green to-primary',
+          )}
+        >
+          {breadcrumbLabel}
+        </span>
       </nav>
 
       <div className="flex shrink-0 items-center gap-0.5">
-        {showLanguage ? <LanguageMenu /> : null}
+        {showLanguage ? <LanguageMenu external={external} /> : null}
 
-        <NotificationsMenu />
+        <NotificationsMenu external={external} />
 
         {showTasks && (
           <Button
@@ -81,22 +118,34 @@ export function AppTopbar({
             variant="ghost"
             size="icon-sm"
             aria-label="Tasks"
-            className="hidden sm:inline-flex"
+            className="group hidden sm:inline-flex"
             disabled
             title="Coming soon"
           >
-            <ListChecks className="size-4" />
+            <ListChecks className="size-4 transition-transform duration-300 group-hover:scale-110" />
           </Button>
         )}
 
-        <div className="mx-1 hidden h-4 w-px bg-border sm:block" />
+        <div
+          className={cn(
+            'mx-1.5 hidden h-5 w-px sm:block',
+            external ? 'bg-gradient-to-b from-transparent via-white/25 to-transparent' : 'bg-gradient-to-b from-transparent via-brand-green/20 to-transparent',
+          )}
+          aria-hidden
+        />
 
         {showRoleSwitcher && (
           <Select
             value={activeRole}
             onValueChange={(value) => onRoleChange(value as SystemRole)}
           >
-            <SelectTrigger size="sm" className="hidden w-[150px] md:inline-flex">
+            <SelectTrigger
+              size="sm"
+              className={cn(
+                'hidden w-[150px] border-transparent backdrop-blur-sm md:inline-flex',
+                external ? 'bg-white/5 hover:bg-white/10' : 'bg-brand-green/5 hover:bg-brand-green/8',
+              )}
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

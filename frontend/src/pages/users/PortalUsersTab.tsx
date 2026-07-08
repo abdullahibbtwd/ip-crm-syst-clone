@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import { UsersListPanel } from './UsersListPanel'
 
 export function PortalUsersTab() {
+  const { t } = useTranslation('users')
   return (
     <UsersListPanel
       segment="portal"
-      title="Portal users"
-      description="Client portal accounts created via self-registration or SSO signup. Each user is linked to a client record."
+      title={t('portal.title')}
+      description={t('portal.description')}
     />
   )
 }

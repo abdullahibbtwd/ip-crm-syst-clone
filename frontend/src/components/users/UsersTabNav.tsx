@@ -1,13 +1,25 @@
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Building2, UserRound, UsersRound } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const tabs = [
-  { to: '/users/team', label: 'Team', icon: UsersRound, description: 'Internal staff' },
-  { to: '/users/portal', label: 'Portal users', icon: UserRound, description: 'Client accounts' },
-] as const
-
 export function UsersTabNav() {
+  const { t } = useTranslation('users')
+  const tabs = [
+    {
+      to: '/users/team',
+      label: t('tabs.team.label'),
+      icon: UsersRound,
+      description: t('tabs.team.description'),
+    },
+    {
+      to: '/users/portal',
+      label: t('tabs.portal.label'),
+      icon: UserRound,
+      description: t('tabs.portal.description'),
+    },
+  ] as const
+
   return (
     <nav className="flex flex-wrap gap-2 border-b border-border/80 pb-0">
       {tabs.map((tab) => (

@@ -1,0 +1,89 @@
+{
+  "page": {
+    "title": "Trademark Watch",
+    "description": "Review potential conflicts detected against active watch profiles.",
+    "empty": "No watch alerts match your filters.",
+    "loading": "Loading watch alerts…"
+  },
+  "detail": {
+    "title": "Watch alert",
+    "back": "Back to watch worklist",
+    "loading": "Loading alert…",
+    "notFound": "Watch alert not found.",
+    "watchedMark": "Watched mark",
+    "conflictingMark": "Conflicting mark",
+    "registrySource": "Registry source",
+    "jurisdiction": "Jurisdiction",
+    "applicationNumber": "Application number",
+    "detectedAt": "Detected",
+    "client": "Client",
+    "profile": "Watch profile",
+    "niceClasses": "Nice classes",
+    "reject": "Reject alert",
+    "accept": "Accept & create matter",
+    "rejectConfirm": "Mark this alert as a false positive?",
+    "acceptConfirm": "Create an opposition matter from this alert?",
+    "triagedBy": "Triaged by {{name}}",
+    "linkedMatter": "Linked matter"
+  },
+  "clientTab": {
+    "title": "Watch profiles",
+    "description": "Monitor marks across registries using canonical jurisdiction codes (BG, EU, EP).",
+    "add": "Add trademark watch",
+    "empty": "No watch profiles yet. Add a profile to start monitoring this client's marks.",
+    "loading": "Loading watch profiles…",
+    "pause": "Pause",
+    "resume": "Resume",
+    "archive": "Archive",
+    "mockAlert": "Generate test alert"
+  },
+  "drawer": {
+    "title": "Add trademark watch",
+    "markText": "Mark text *",
+    "markPlaceholder": "e.g. Coca-Cola",
+    "jurisdictions": "Jurisdictions *",
+    "jurisdictionsHint": "Canonical codes — not registry names. BPO watches use BG; EUIPO watches use EU.",
+    "niceClasses": "Nice classes",
+    "niceClassesPlaceholder": "e.g. 32, 33",
+    "frequency": "Scan frequency",
+    "save": "Save watch profile"
+  },
+  "filters": {
+    "status": "Status",
+    "jurisdiction": "Jurisdiction",
+    "source": "Registry source",
+    "all": "All"
+  },
+  "stats": {
+    "new": "New alerts",
+    "accepted": "Accepted",
+    "rejected": "Rejected"
+  },
+  "profileStatus": {
+    "active": "Active",
+    "paused": "Paused",
+    "archived": "Archived"
+  },
+  "alertStatus": {
+    "new": "New",
+    "rejected": "Rejected",
+    "accepted": "Accepted"
+  },
+  "frequency": {
+    "daily": "Daily",
+    "weekly": "Weekly"
+  },
+  "table": {
+    "mark": "Watched mark",
+    "conflict": "Conflict",
+    "client": "Client",
+    "source": "Source",
+    "jurisdiction": "Jurisdiction",
+    "status": "Status",
+    "detected": "Detected",
+    "frequency": "Frequency",
+    "classes": "Classes",
+    "profiles": "Profiles",
+    "actions": "Actions"
+  }
+}

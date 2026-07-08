@@ -1,0 +1,89 @@
+{
+  "page": {
+    "title": "Наблюдение на марки",
+    "description": "Преглед на потенциални конфликти спрямо активни профили за наблюдение.",
+    "empty": "Няма сигнали, отговарящи на филтрите.",
+    "loading": "Зареждане на сигнали…"
+  },
+  "detail": {
+    "title": "Сигнал за наблюдение",
+    "back": "Обратно към работния списък",
+    "loading": "Зареждане…",
+    "notFound": "Сигналът не е намерен.",
+    "watchedMark": "Наблюдавана марка",
+    "conflictingMark": "Конфликтна марка",
+    "registrySource": "Регистър",
+    "jurisdiction": "Юрисдикция",
+    "applicationNumber": "Номер на заявка",
+    "detectedAt": "Открит",
+    "client": "Клиент",
+    "profile": "Профил за наблюдение",
+    "niceClasses": "Ницки класове",
+    "reject": "Отхвърли",
+    "accept": "Приеми и създай дело",
+    "rejectConfirm": "Маркирай като фалшив положителен?",
+    "acceptConfirm": "Създай дело за опозиция от този сигнал?",
+    "triagedBy": "Обработен от {{name}}",
+    "linkedMatter": "Свързано дело"
+  },
+  "clientTab": {
+    "title": "Профили за наблюдение",
+    "description": "Наблюдение на марки с канонични кодове на юрисдикции (BG, EU, EP).",
+    "add": "Добави наблюдение",
+    "empty": "Няма профили. Добавете профил, за да започнете наблюдение.",
+    "loading": "Зареждане…",
+    "pause": "Пауза",
+    "resume": "Възобнови",
+    "archive": "Архивирай",
+    "mockAlert": "Тестов сигнал"
+  },
+  "drawer": {
+    "title": "Добави наблюдение на марка",
+    "markText": "Текст на марката *",
+    "markPlaceholder": "напр. Coca-Cola",
+    "jurisdictions": "Юрисдикции *",
+    "jurisdictionsHint": "Канонични кодове — не имена на регистри.",
+    "niceClasses": "Ницки класове",
+    "niceClassesPlaceholder": "напр. 32, 33",
+    "frequency": "Честота на сканиране",
+    "save": "Запази профил"
+  },
+  "filters": {
+    "status": "Статус",
+    "jurisdiction": "Юрисдикция",
+    "source": "Регистър",
+    "all": "Всички"
+  },
+  "stats": {
+    "new": "Нови сигнали",
+    "accepted": "Приети",
+    "rejected": "Отхвърлени"
+  },
+  "profileStatus": {
+    "active": "Активен",
+    "paused": "На пауза",
+    "archived": "Архивиран"
+  },
+  "alertStatus": {
+    "new": "Нов",
+    "rejected": "Отхвърлен",
+    "accepted": "Приет"
+  },
+  "frequency": {
+    "daily": "Ежедневно",
+    "weekly": "Седмично"
+  },
+  "table": {
+    "mark": "Наблюдавана марка",
+    "conflict": "Конфликт",
+    "client": "Клиент",
+    "source": "Регистър",
+    "jurisdiction": "Юрисдикция",
+    "status": "Статус",
+    "detected": "Открит",
+    "frequency": "Честота",
+    "classes": "Класове",
+    "profiles": "Профили",
+    "actions": "Действия"
+  }
+}

@@ -1,6 +1,7 @@
 import { apiClient } from '@/lib/api-client'
 import type {
   BillingSummary,
+  BillingOverviewResponse,
   ClientBillingSummary,
   CreateFixedFeeInput,
   CreateRateCardInput,
@@ -49,6 +50,8 @@ export const billingApi = {
     apiClient.get<ResolvedRate>('/rate-cards/resolve', { matterId }),
 
   listRateCards: () => apiClient.get<RateCard[]>('/rate-cards'),
+
+  getOverview: () => apiClient.get<BillingOverviewResponse>('/billing/overview'),
 
   createRateCard: (data: CreateRateCardInput) =>
     apiClient.post<RateCard>('/rate-cards', data),

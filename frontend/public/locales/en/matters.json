@@ -184,12 +184,46 @@
     "notFound": "Matter not found."
   },
   "list": {
-    "description": "Browse and manage prosecution matters across your portfolio.",
-    "descriptionPortal": "View matters shared with your organisation.",
+    "description": "Portfolio view of all legal matters — search by title, client, or application number.",
+    "descriptionPortal": "Matters opened for your organisation after intake conversion.",
+    "filters": {
+      "allStatuses": "All statuses",
+      "allTypes": "All types"
+    },
     "intakeQueue": "Intake queue",
-    "searchPlaceholder": "Search title or reference…",
+    "perPage": "{{count}} per page",
+    "searchPlaceholder": "Search title, client, application no…",
     "title": "Matters",
     "titlePortal": "My matters"
+  },
+  "ipRightsRegister": {
+    "description": "Firm-wide register of IP rights with filters by client, jurisdiction, type, status, and expiry.",
+    "empty": "No IP rights found for these filters.",
+    "filters": {
+      "all": "All",
+      "allClients": "All clients",
+      "allJurisdictions": "All jurisdictions",
+      "allStatuses": "All statuses",
+      "allTypes": "All types",
+      "client": "Client",
+      "expiryFrom": "Expiry from",
+      "expiryTo": "Expiry to",
+      "jurisdiction": "Jurisdiction",
+      "matterType": "Matter type",
+      "status": "Status"
+    },
+    "loading": "Loading…",
+    "table": {
+      "applicationNo": "Application no.",
+      "client": "Client",
+      "expiry": "Expiry",
+      "ipRight": "IP right",
+      "jurisdiction": "Jurisdiction",
+      "matter": "Matter",
+      "status": "Status",
+      "type": "Type"
+    },
+    "title": "IP Rights Register"
   },
   "markType": {
     "combined": "Combined",

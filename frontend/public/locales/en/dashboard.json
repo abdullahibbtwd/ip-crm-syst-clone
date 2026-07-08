@@ -13,6 +13,15 @@
     "pendingTasks": "Pending Tasks",
     "awaitingCompletion": "Awaiting completion"
   },
+  "slider": {
+    "carousel": "Dashboard carousel",
+    "kpiCarousel": "Key metrics",
+    "quickLinksCarousel": "Quick links",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "dots": "Slide navigation",
+    "goToSlide": "Go to slide {{index}}"
+  },
   "managingPartner": {
     "fullRiskAnalytics": "Full risk analytics",
     "revenueTracking": "Revenue tracking",

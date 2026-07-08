@@ -14,6 +14,7 @@ import { ContactsTab } from './pages/crm/clients/tabs/ContactsTab'
 import { OfficesTab } from './pages/crm/clients/tabs/OfficesTab'
 import { ClientBillingTab } from './pages/crm/clients/tabs/ClientBillingTab'
 import { MattersTab } from './pages/crm/clients/tabs/MattersTab'
+import { ClientWatchTab } from './pages/crm/clients/tabs/ClientWatchTab'
 import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTab'
 import { RelationshipHistoryTab } from './pages/crm/clients/tabs/RelationshipHistoryTab'
 import { SettingsPage } from './pages/settings/SettingsPage'
@@ -32,7 +33,11 @@ import { MatterBillingTab } from './pages/matters/tabs/MatterBillingTab'
 import { MatterTasksTab } from './pages/matters/tabs/MatterTasksTab'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
+import { AlertsPage } from './pages/alerts/AlertsPage'
+import { IpRightsPage } from './pages/ip-rights/IpRightsPage'
 import { RenewalsPage } from './pages/renewals/RenewalsPage'
+import { WatchAlertsPage } from './pages/watch/WatchAlertsPage'
+import { WatchAlertDetailPage } from './pages/watch/WatchAlertDetailPage'
 import { UsersLayout, UsersIndexRedirect } from './pages/users/UsersLayout'
 import { TeamUsersTab } from './pages/users/TeamUsersTab'
 import { PortalUsersTab } from './pages/users/PortalUsersTab'
@@ -43,6 +48,7 @@ import { PortalInvoicesPage } from './pages/portal/PortalInvoicesPage'
 import { PortalRenewalsPage } from './pages/portal/PortalRenewalsPage'
 import { InvoicesListPage } from './pages/finance/InvoicesListPage'
 import { RateCardsPage } from './pages/finance/RateCardsPage'
+import { BillingOverviewPage } from './pages/finance/BillingOverviewPage'
 import { DeadlineRiskReportPage } from './pages/reports/DeadlineRiskReportPage'
 import { RevenueSummaryReportPage } from './pages/reports/RevenueSummaryReportPage'
 import { FilingVolumesReportPage } from './pages/reports/FilingVolumesReportPage'
@@ -81,6 +87,7 @@ export default function App() {
             <Route path="related" element={<RelatedCompaniesTab />} />
             <Route path="history" element={<RelationshipHistoryTab />} />
             <Route path="matters" element={<MattersTab />} />
+            <Route path="watch" element={<ClientWatchTab />} />
             <Route path="billing" element={<ClientBillingTab />} />
           </Route>
 
@@ -103,9 +110,14 @@ export default function App() {
           <Route path="/matters" element={<MatterListPage />} />
           <Route path="/invoices" element={<InvoicesListPage />} />
           <Route path="/rate-cards" element={<RateCardsPage />} />
+          <Route path="/billing-overview" element={<BillingOverviewPage />} />
           <Route path="/deadlines/my" element={<MyDeadlinesPage />} />
           <Route path="/deadlines" element={<AllDeadlinesPage />} />
+          <Route path="/alerts" element={<AlertsPage />} />
+          <Route path="/ip-rights" element={<IpRightsPage />} />
           <Route path="/renewals" element={<RenewalsPage />} />
+          <Route path="/watch-alerts" element={<WatchAlertsPage />} />
+          <Route path="/watch-alerts/:id" element={<WatchAlertDetailPage />} />
           <Route path="/reports/deadline-risk" element={<DeadlineRiskReportPage />} />
           <Route path="/reports/revenue-summary" element={<RevenueSummaryReportPage />} />
           <Route path="/reports/filing-volumes" element={<FilingVolumesReportPage />} />

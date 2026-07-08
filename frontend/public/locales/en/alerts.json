@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alerts",
+    "description": "Overdue, due today, and urgent items, plus unread notifications."
+  },
+  "sections": {
+    "overdue": "Overdue",
+    "today": "Due today",
+    "urgent": "Urgent",
+    "notifications": "Notifications"
+  },
+  "empty": {
+    "notifications": "No notifications",
+    "urgent": "No urgent items",
+    "overdue": "No overdue items",
+    "today": "No items due today"
+  }
+}

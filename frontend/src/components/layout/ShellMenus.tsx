@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Bell, Check, Languages, LogOut, Settings, User } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Badge } from '@/components/ui/badge'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   useMarkAllNotificationsRead,
   useMarkNotificationRead,
@@ -21,10 +19,151 @@ const LANGUAGES = [
   { code: 'bg', labelKey: 'language.bg' as const },
 ] as const
 
-export function LanguageMenu() {
+type MenuTheme = {
+  accent: string
+  accentGlow: string
+  accentMuted: string
+  panel: string
+  panelGlow: string
+  header: string
+  headerTitle: string
+  headerMuted: string
+  item: string
+  itemActive: string
+  divider: string
+  unreadRow: string
+  badge: string
+  iconTrigger: string
+}
+
+const MENU_THEMES: Record<'internal' | 'external', MenuTheme> = {
+  internal: {
+    accent: 'text-primary',
+    accentGlow: 'shadow-[0_0_10px_rgba(232,98,26,0.85)]',
+    accentMuted: 'text-primary/80',
+    panel: 'border-brand-green/15 bg-white/90 backdrop-blur-xl',
+    panelGlow: 'shadow-[0_16px_48px_rgba(26,60,52,0.16)]',
+    header: 'border-brand-green/10 bg-gradient-to-r from-brand-green/[0.06] via-primary/[0.04] to-transparent',
+    headerTitle: 'bg-gradient-to-r from-brand-green to-primary bg-clip-text text-transparent',
+    headerMuted: 'text-muted-foreground',
+    item: 'text-foreground/80 hover:border-brand-green/10 hover:bg-brand-green/[0.04] hover:text-foreground',
+    itemActive:
+      'border-primary/25 bg-primary/10 font-semibold text-brand-green shadow-sm shadow-primary/10',
+    divider: 'via-brand-green/15',
+    unreadRow: 'border-l-2 border-l-primary bg-primary/[0.06]',
+    badge: 'bg-gradient-to-r from-primary to-orange-400',
+    iconTrigger: 'text-brand-green/80',
+  },
+  external: {
+    accent: 'text-emerald-400',
+    accentGlow: 'shadow-[0_0_10px_rgba(52,211,153,0.85)]',
+    accentMuted: 'text-emerald-400/80',
+    panel: 'border-white/15 bg-slate-950/90 text-white backdrop-blur-xl',
+    panelGlow: 'shadow-[0_16px_48px_rgba(0,0,0,0.5)]',
+    header: 'border-white/10 bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-transparent',
+    headerTitle: 'bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent',
+    headerMuted: 'text-white/50',
+    item: 'text-white/75 hover:border-white/10 hover:bg-white/[0.06] hover:text-white',
+    itemActive:
+      'border-emerald-400/30 bg-white/10 font-semibold text-white shadow-sm shadow-emerald-500/20',
+    divider: 'via-white/20',
+    unreadRow: 'border-l-2 border-l-emerald-400 bg-emerald-500/[0.08]',
+    badge: 'bg-gradient-to-r from-emerald-400 to-teal-500',
+    iconTrigger: 'text-emerald-400/90',
+  },
+}
+
+function menuTheme(external?: boolean) {
+  return MENU_THEMES[external ? 'external' : 'internal']
+}
+
+const sweepClasses =
+  'after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-r after:from-transparent after:via-white/15 after:to-transparent after:-translate-x-full after:transition-transform after:duration-700 group-hover:after:translate-x-full'
+
+function ShellDropdown({
+  children,
+  className,
+  external,
+  role,
+  'aria-label': ariaLabel,
+}: {
+  children: ReactNode
+  className?: string
+  external?: boolean
+  role?: string
+  'aria-label'?: string
+}) {
+  const theme = menuTheme(external)
+
+  return (
+    <div
+      role={role}
+      aria-label={ariaLabel}
+      className={cn(
+        'absolute top-full right-0 z-50 mt-2 overflow-hidden rounded-2xl border',
+        'origin-top-right transition-all duration-500 ease-out',
+        'animate-in fade-in zoom-in-95 slide-in-from-top-2',
+        theme.panel,
+        theme.panelGlow,
+        className,
+      )}
+    >
+      <div
+        className={cn(
+          'pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b to-transparent',
+          external ? 'from-emerald-400/10' : 'from-primary/8',
+        )}
+        aria-hidden
+      />
+      <div className="relative">{children}</div>
+    </div>
+  )
+}
+
+function ShellMenuItem({
+  children,
+  className,
+  external,
+  active,
+  onClick,
+  disabled,
+}: {
+  children: ReactNode
+  className?: string
+  external?: boolean
+  active?: boolean
+  onClick?: () => void
+  disabled?: boolean
+}) {
+  const theme = menuTheme(external)
+
+  return (
+    <Button
+      type="button"
+      variant="ghost"
+      size="sm"
+      disabled={disabled}
+      onClick={onClick}
+      className={cn(
+        'group relative h-9 w-full justify-start gap-2.5 overflow-hidden rounded-xl border border-transparent px-3',
+        'transition-all duration-500 ease-out active:scale-[0.98]',
+        sweepClasses,
+        theme.item,
+        active && theme.itemActive,
+        disabled && 'opacity-50',
+        className,
+      )}
+    >
+      <span className="relative z-10 flex w-full items-center gap-2.5">{children}</span>
+    </Button>
+  )
+}
+
+export function LanguageMenu({ external }: { external?: boolean }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const { t } = useTranslation('common')
+  const theme = menuTheme(external)
   const activeLanguage = i18n.language?.startsWith('bg') ? 'bg' : 'en'
 
   useEffect(() => {
@@ -44,45 +183,62 @@ export function LanguageMenu() {
         type="button"
         variant="ghost"
         size="icon-sm"
-        className="hidden sm:inline-flex"
+        className={cn(
+          'group hidden sm:inline-flex transition-all duration-300',
+          open && (external ? 'bg-white/10' : 'bg-brand-green/5'),
+        )}
         aria-label={t('language.switch')}
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((value) => !value)}
       >
-        <Languages className="size-4" />
+        <Languages
+          className={cn(
+            'size-4 transition-transform duration-300 group-hover:scale-110',
+            external ? theme.iconTrigger : open && 'text-primary',
+          )}
+        />
       </Button>
 
       {open ? (
-        <Card
-          className="absolute top-full right-0 z-50 mt-1.5 w-44 gap-0 py-1 shadow-lg"
+        <ShellDropdown
+          className="w-48 p-1.5"
+          external={external}
           role="listbox"
           aria-label={t('language.switch')}
         >
-          <CardContent className="flex flex-col gap-0.5 p-1">
+          <p
+            className={cn(
+              'px-3 pb-1 pt-2 text-[9px] font-bold uppercase tracking-widest',
+              theme.headerMuted,
+            )}
+          >
+            {t('language.switch')}
+          </p>
+          <div className="flex flex-col gap-0.5 p-1">
             {LANGUAGES.map((language) => {
               const selected = activeLanguage === language.code
               return (
-                <Button
+                <ShellMenuItem
                   key={language.code}
-                  type="button"
-                  variant="ghost"
-                  size="sm"
-                  role="option"
-                  aria-selected={selected}
-                  className={cn('justify-between', selected && 'bg-muted/80')}
+                  external={external}
+                  active={selected}
                   onClick={() => {
                     void i18n.changeLanguage(language.code)
                     setOpen(false)
                   }}
                 >
-                  {t(language.labelKey)}
-                  {selected ? <Check className="size-3.5 text-primary" /> : <span className="size-3.5" />}
-                </Button>
+                  <span className="flex-1 text-left">{t(language.labelKey)}</span>
+                  {selected ? (
+                    <Check className={cn('size-3.5', theme.accent)} />
+                  ) : (
+                    <span className="size-3.5" />
+                  )}
+                </ShellMenuItem>
               )
             })}
-          </CardContent>
-        </Card>
+          </div>
+        </ShellDropdown>
       ) : null}
     </div>
   )
@@ -107,6 +263,7 @@ export function UserMenu({
 }: UserMenuProps) {
   const { userMenuOpen, setUserMenuOpen } = useShell()
   const ref = useRef<HTMLDivElement>(null)
+  const theme = menuTheme(external)
 
   useEffect(() => {
     if (!userMenuOpen) return
@@ -124,71 +281,97 @@ export function UserMenu({
       <Button
         type="button"
         variant="ghost"
-        className="h-auto gap-2 px-1.5 py-1"
+        className={cn(
+          'group h-auto gap-2 rounded-xl px-1.5 py-1 transition-all duration-500',
+          userMenuOpen
+            ? external
+              ? 'bg-white/10'
+              : 'bg-brand-green/5'
+            : 'hover:bg-accent/60',
+        )}
         onClick={() => setUserMenuOpen(!userMenuOpen)}
         aria-expanded={userMenuOpen}
         aria-haspopup="menu"
       >
         <div
           className={cn(
-            'flex size-8 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold',
+            'flex size-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold',
+            'shadow-md transition-transform duration-500 group-hover:scale-105',
             external
-              ? 'bg-primary/15 text-primary'
-              : 'bg-foreground text-background',
+              ? 'bg-gradient-to-br from-emerald-400 to-teal-500 text-emerald-950 shadow-emerald-500/30'
+              : 'bg-gradient-to-br from-primary to-orange-400 text-white shadow-primary/35',
+            userMenuOpen && 'ring-2 ring-offset-1',
+            userMenuOpen && (external ? 'ring-emerald-400/50' : 'ring-primary/40'),
           )}
         >
           {avatarInitials}
         </div>
         <div className="hidden min-w-0 text-left lg:block">
           <p className="truncate text-xs font-semibold">{userName}</p>
-          <p className="truncate text-[10px] text-muted-foreground">{roleLabel}</p>
+          <p className={cn('truncate text-[10px]', theme.headerMuted)}>{roleLabel}</p>
         </div>
       </Button>
 
       {userMenuOpen && (
-        <Card className="absolute top-full right-0 z-50 mt-1.5 w-56 gap-0 py-0 shadow-lg">
-          <CardHeader className="border-b">
-            <CardTitle className="text-sm">{userName}</CardTitle>
-            <p className="truncate text-xs text-muted-foreground">{email}</p>
-            <Badge variant="secondary" className="mt-1 w-fit text-[10px]">
+        <ShellDropdown className="w-60" external={external} role="menu">
+          <div className={cn('border-b px-4 py-3.5', theme.header)}>
+            <p className={cn('text-sm font-bold tracking-tight', theme.headerTitle)}>{userName}</p>
+            <p className={cn('mt-0.5 truncate text-xs', theme.headerMuted)}>{email}</p>
+            <span
+              className={cn(
+                'mt-2 inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white',
+                theme.badge,
+                'shadow-sm',
+                theme.accentGlow,
+              )}
+            >
               {roleLabel}
-            </Badge>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-0.5 p-1.5">
-            <Button variant="ghost" size="sm" className="justify-start" disabled>
-              <User className="size-4" />
+            </span>
+          </div>
+          <div className="flex flex-col gap-0.5 p-1.5">
+            <ShellMenuItem external={external} disabled>
+              <User className={cn('size-4 shrink-0', theme.accentMuted)} />
               Profile
-            </Button>
+            </ShellMenuItem>
             <Link
               to="/settings"
-              className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'justify-start')}
+              className={cn(
+                buttonVariants({ variant: 'ghost', size: 'sm' }),
+                'group relative h-9 w-full justify-start gap-2.5 overflow-hidden rounded-xl border border-transparent px-3',
+                'transition-all duration-500 ease-out active:scale-[0.98]',
+                sweepClasses,
+                theme.item,
+              )}
               onClick={() => setUserMenuOpen(false)}
             >
-              <Settings className="size-4" />
-              Settings
+              <span className="relative z-10 flex items-center gap-2.5">
+                <Settings className={cn('size-4 shrink-0', theme.accentMuted)} />
+                Settings
+              </span>
             </Link>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="justify-start text-destructive hover:text-destructive"
+            <div className={cn('my-1 h-px bg-gradient-to-r from-transparent to-transparent', theme.divider)} />
+            <ShellMenuItem
+              external={external}
+              className="text-destructive hover:border-destructive/20 hover:bg-destructive/10 hover:text-destructive"
               onClick={() => {
                 setUserMenuOpen(false)
                 onLogout()
               }}
             >
-              <LogOut className="size-4" />
+              <LogOut className="size-4 shrink-0" />
               Sign out
-            </Button>
-          </CardContent>
-        </Card>
+            </ShellMenuItem>
+          </div>
+        </ShellDropdown>
       )}
     </div>
   )
 }
 
-export function NotificationsMenu() {
+export function NotificationsMenu({ external }: { external?: boolean }) {
   const { notificationsOpen, setNotificationsOpen } = useShell()
   const ref = useRef<HTMLDivElement>(null)
+  const theme = menuTheme(external)
   const { data, isLoading, isError, refetch } = useNotifications(20)
   const { data: unreadData, refetch: refetchUnread } = useUnreadNotificationCount()
   const markRead = useMarkNotificationRead()
@@ -228,44 +411,90 @@ export function NotificationsMenu() {
         aria-label={`Notifications${unreadCount ? `, ${unreadCount} unread` : ''}`}
         aria-expanded={notificationsOpen}
         onClick={() => setNotificationsOpen(!notificationsOpen)}
-        className="relative"
+        className={cn(
+          'group relative transition-all duration-300',
+          notificationsOpen && (external ? 'bg-white/10' : 'bg-brand-green/5'),
+        )}
       >
-        <Bell className="size-4" />
+        <Bell
+          className={cn(
+            'size-4 transition-transform duration-300 group-hover:scale-110',
+            (external && unreadCount > 0) || (!external && unreadCount > 0)
+              ? theme.accent
+              : undefined,
+          )}
+        />
         {unreadCount > 0 ? (
-          <span className="absolute -top-0.5 -right-0.5 flex min-h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-semibold text-white">
-            {unreadCount > 9 ? '9+' : unreadCount}
-          </span>
-        ) : null}
+          <>
+            <span
+              className={cn(
+                'absolute top-1.5 right-1.5 size-2 rounded-full animate-pulse',
+                external ? 'bg-emerald-400' : 'bg-primary',
+                theme.accentGlow,
+              )}
+              aria-hidden
+            />
+            <span
+              className={cn(
+                'absolute -top-0.5 -right-0.5 flex min-h-4 min-w-4 items-center justify-center rounded-full px-1 text-[9px] font-bold text-white shadow-sm',
+                theme.badge,
+              )}
+            >
+              {unreadCount > 9 ? '9+' : unreadCount}
+            </span>
+          </>
+        ) : (
+          <span
+            className={cn(
+              'absolute top-2 right-2 size-1.5 rounded-full opacity-40',
+              external ? 'bg-emerald-400' : 'bg-primary',
+            )}
+            aria-hidden
+          />
+        )}
       </Button>
 
       {notificationsOpen && (
-        <Card className="absolute top-full right-0 z-50 mt-1.5 w-80 gap-0 py-0 shadow-lg">
-          <CardHeader className="flex flex-row items-center justify-between gap-2 border-b">
-            <CardTitle className="text-sm">Notifications</CardTitle>
+        <ShellDropdown className="w-80" external={external}>
+          <div className={cn('flex items-center justify-between gap-2 border-b px-4 py-3', theme.header)}>
+            <div>
+              <p className={cn('text-sm font-bold', theme.headerTitle)}>Notifications</p>
+              {unreadCount > 0 ? (
+                <p className={cn('mt-0.5 text-[10px] font-medium uppercase tracking-wider', theme.accentMuted)}>
+                  {unreadCount} unread
+                </p>
+              ) : null}
+            </div>
             {unreadCount > 0 ? (
               <Button
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="h-auto px-2 py-1 text-xs"
+                className={cn(
+                  'h-auto rounded-lg px-2.5 py-1 text-xs transition-all duration-300',
+                  external
+                    ? 'text-emerald-400 hover:bg-white/10 hover:text-emerald-300'
+                    : 'text-primary hover:bg-primary/10',
+                )}
                 onClick={() => markAllRead.mutate()}
                 disabled={markAllRead.isPending}
               >
                 Mark all read
               </Button>
             ) : null}
-          </CardHeader>
-          <CardContent className="max-h-80 overflow-y-auto p-0 shell-scrollbar">
+          </div>
+
+          <div className="max-h-80 overflow-y-auto p-1 shell-scrollbar">
             {isLoading ? (
-              <p className="px-4 py-6 text-sm text-muted-foreground">Loading…</p>
+              <p className={cn('px-4 py-8 text-center text-sm italic', theme.headerMuted)}>Loading…</p>
             ) : isError ? (
-              <div className="px-4 py-6 text-center">
-                <p className="text-sm text-muted-foreground">Could not load notifications.</p>
+              <div className="px-4 py-8 text-center">
+                <p className={cn('text-sm', theme.headerMuted)}>Could not load notifications.</p>
                 <Button
                   type="button"
                   variant="ghost"
                   size="sm"
-                  className="mt-2"
+                  className={cn('mt-2 rounded-lg', theme.accent)}
                   onClick={() => {
                     void refetch()
                     void refetchUnread()
@@ -275,38 +504,67 @@ export function NotificationsMenu() {
                 </Button>
               </div>
             ) : notifications.length === 0 ? (
-              <p className="px-4 py-6 text-sm text-muted-foreground">No notifications yet.</p>
+              <div className="px-4 py-10 text-center">
+                <Bell className={cn('mx-auto mb-2 size-8 opacity-20', theme.accent)} />
+                <p className={cn('text-sm', theme.headerMuted)}>No notifications yet.</p>
+              </div>
             ) : (
-              <ul>
+              <ul className="flex flex-col gap-0.5 p-1">
                 {notifications.map((n: Notification) => {
+                  const rowClass = cn(
+                    'group relative overflow-hidden rounded-xl border border-transparent px-3 py-2.5',
+                    'transition-all duration-500 ease-out hover:translate-x-0.5',
+                    sweepClasses,
+                    n.unread ? theme.unreadRow : theme.item,
+                  )
+
                   const content = (
-                    <>
-                      <p
-                        className={cn(
-                          'text-sm',
-                          n.unread ? 'font-medium' : 'text-muted-foreground',
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-2">
+                        {n.unread ? (
+                          <span
+                            className={cn(
+                              'mt-1.5 size-1.5 shrink-0 rounded-full animate-pulse',
+                              external ? 'bg-emerald-400' : 'bg-primary',
+                              theme.accentGlow,
+                            )}
+                            aria-hidden
+                          />
+                        ) : (
+                          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-transparent" />
                         )}
-                      >
-                        {n.title}
-                      </p>
-                      {n.body ? (
-                        <p className="mt-0.5 text-xs text-muted-foreground">{n.body}</p>
-                      ) : null}
-                    </>
+                        <div className="min-w-0 flex-1">
+                          <p
+                            className={cn(
+                              'text-sm leading-snug',
+                              n.unread ? 'font-semibold' : 'font-normal',
+                              external
+                                ? n.unread
+                                  ? 'text-white'
+                                  : 'text-white/60'
+                                : n.unread
+                                  ? 'text-brand-green'
+                                  : 'text-muted-foreground',
+                            )}
+                          >
+                            {n.title}
+                          </p>
+                          {n.body ? (
+                            <p className={cn('mt-0.5 text-xs leading-relaxed', theme.headerMuted)}>
+                              {n.body}
+                            </p>
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
                   )
 
                   return (
-                    <li
-                      key={n.id}
-                      className={cn(
-                        'border-b px-4 py-3 last:border-b-0',
-                        n.unread && 'bg-primary/5',
-                      )}
-                    >
+                    <li key={n.id}>
                       {n.linkUrl ? (
                         <Link
                           to={n.linkUrl}
-                          className="block"
+                          className={rowClass}
                           onClick={() => handleOpenItem(n.id, n.unread)}
                         >
                           {content}
@@ -314,7 +572,7 @@ export function NotificationsMenu() {
                       ) : (
                         <button
                           type="button"
-                          className="block w-full text-left"
+                          className={cn(rowClass, 'w-full text-left')}
                           onClick={() => handleOpenItem(n.id, n.unread)}
                         >
                           {content}
@@ -325,8 +583,8 @@ export function NotificationsMenu() {
                 })}
               </ul>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </ShellDropdown>
       )}
     </div>
   )

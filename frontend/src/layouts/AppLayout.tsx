@@ -202,7 +202,7 @@ function LayoutBody({
             onLogout={onLogout}
           />
 
-          <main className="flex-1 overflow-y-auto p-4 md:p-6">
+          <main className="app-scrollbar flex-1 overflow-y-auto p-4 md:p-6">
             <Outlet
               context={{
                 view: activeView,

@@ -132,3 +132,11 @@ export function useUpdateRateCard() {
     onSuccess: () => qc.invalidateQueries({ queryKey: billingKeys.rateCards() }),
   })
 }
+
+export function useBillingOverview() {
+  return useQuery({
+    queryKey: billingKeys.overview(),
+    queryFn: () => billingApi.getOverview(),
+    staleTime: 30_000,
+  })
+}

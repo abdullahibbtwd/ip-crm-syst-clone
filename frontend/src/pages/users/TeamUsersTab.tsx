@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import { UsersListPanel } from './UsersListPanel'
 
 export function TeamUsersTab() {
+  const { t } = useTranslation('users')
   return (
     <UsersListPanel
       segment="team"
-      title="Team members"
-      description="Internal staff with firm roles - attorneys, coordinators, finance, IT, and administration. Excludes portal client accounts."
+      title={t('team.title')}
+      description={t('team.description')}
     />
   )
 }

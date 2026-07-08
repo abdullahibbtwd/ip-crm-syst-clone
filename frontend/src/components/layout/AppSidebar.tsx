@@ -6,6 +6,7 @@ import {
   useMyTodayDeadlineCount,
 } from '@/features/deadlines/hooks/useDeadlines'
 import { useIntakePendingCount } from '@/features/intake/hooks/useIntake'
+import { useWatchNewCount } from '@/features/watch/hooks/useWatch'
 import { DueTodayCountBadge } from '@/components/deadlines/DueTodayBadge'
 import { usePermission } from '@/hooks/usePermission'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -14,6 +15,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { apiClient } from '@/lib/api-client'
 
 function useIsLgUp() {
   const [isLgUp, setIsLgUp] = useState(
@@ -38,6 +41,34 @@ type AppSidebarProps = {
   onNavigate: (id: string, path?: string) => void
 }
 
+type SidebarTheme = {
+  accentBar: string
+  accentGlow: string
+  iconActive: string
+  hoverDot: string
+  labelMuted: string
+  sectionLabel: string
+}
+
+const THEMES: Record<'internal' | 'external', SidebarTheme> = {
+  internal: {
+    accentBar: 'before:bg-primary before:shadow-[0_0_10px_rgba(232,98,26,0.85)]',
+    accentGlow: 'shadow-[0_0_20px_rgba(232,98,26,0.15)]',
+    iconActive: 'text-primary drop-shadow-[0_0_8px_rgba(232,98,26,0.55)]',
+    hoverDot: 'bg-primary/90 shadow-[0_0_8px_rgba(232,98,26,0.7)]',
+    labelMuted: 'text-white/35',
+    sectionLabel: 'text-white/30',
+  },
+  external: {
+    accentBar: 'before:bg-emerald-400 before:shadow-[0_0_10px_rgba(52,211,153,0.85)]',
+    accentGlow: 'shadow-[0_0_20px_rgba(52,211,153,0.12)]',
+    iconActive: 'text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.55)]',
+    hoverDot: 'bg-emerald-400/90 shadow-[0_0_8px_#10b981]',
+    labelMuted: 'text-emerald-400/90',
+    sectionLabel: 'text-white/30',
+  },
+}
+
 function isPathActive(itemPath: string, pathname: string): boolean {
   if (itemPath === '/dashboard') return pathname === '/dashboard'
   return pathname === itemPath || pathname.startsWith(`${itemPath}/`)
@@ -48,11 +79,15 @@ function badgeForPath(
   myCount: number,
   firmCount: number,
   intakeCount: number,
+  alertsCount: number,
+  watchNewCount: number,
 ): number {
   if (!path) return 0
   if (path === '/deadlines/my') return myCount
   if (path === '/deadlines') return firmCount
   if (path === '/intake') return intakeCount
+  if (path === '/alerts') return alertsCount > 0 ? alertsCount : 0
+  if (path === '/watch-alerts') return watchNewCount
   return 0
 }
 
@@ -72,64 +107,72 @@ function SidebarLink({
   badge?: number
 }) {
   const { t } = useTranslation('nav')
+  const theme = THEMES[external ? 'external' : 'internal']
   const Icon = item.icon
   const id = navId(item)
   const label = t(`items.${item.labelKey}`)
   const location = useLocation()
   const routeActive = item.path ? isPathActive(item.path, location.pathname) : isActive
+  const isAlerts = item.path === '/alerts'
+  const badgeLabel = isAlerts ? 'alerts' : undefined
+  const badgeTone = isAlerts ? ('warning' as const) : undefined
 
   const className = cn(
     buttonVariants({ variant: 'ghost' }),
-    'group relative h-9 w-full text-[13px] font-normal transition-all duration-300 ease-out active:scale-[0.98] overflow-hidden rounded-md',
+    'group relative h-10 w-full overflow-hidden rounded-xl text-[13px] font-normal',
+    'text-white/70 transition-all duration-500 ease-out active:scale-[0.98]',
+    'after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-r',
+    'after:from-white/0 after:via-white/10 after:to-white/0',
+    'after:-translate-x-full after:transition-transform after:duration-700 group-hover:after:translate-x-full',
     collapsed ? 'justify-center px-0' : 'justify-start gap-2.5 px-3',
-    !external && [
-      'text-muted-foreground hover:text-foreground',
-      routeActive
-        ? cn(
-            'bg-primary/10 font-semibold text-primary shadow-sm shadow-primary/5',
-            'before:absolute before:top-2 before:h-5 before:w-1 before:rounded-r-full before:bg-primary before:transition-all',
-            collapsed ? 'before:left-0' : 'before:left-0',
-          )
-        : 'hover:bg-accent/50',
-      !collapsed && !routeActive && 'hover:translate-x-0.5',
-    ],
-    external && [
-      'text-white/70 hover:text-white transition-all duration-200',
-      routeActive
-        ? cn(
-            'bg-white/10 font-semibold text-white shadow-md shadow-black/10 backdrop-blur-md border border-white/10',
-            'before:absolute before:left-0 before:top-2 before:h-5 before:w-1 before:rounded-r-full before:bg-emerald-400 before:shadow-[0_0_8px_rgba(52,211,153,0.8)]',
-          )
-        : 'hover:bg-white/5',
-      !collapsed && !routeActive && 'hover:translate-x-0.5',
-    ],
+    routeActive
+      ? cn(
+          'border border-white/10 bg-white/10 font-semibold text-white backdrop-blur-md',
+          theme.accentGlow,
+          'before:absolute before:left-0 before:top-2.5 before:h-5 before:w-1 before:rounded-r-full before:transition-all',
+          theme.accentBar,
+        )
+      : 'border border-transparent hover:border-white/5 hover:bg-white/5 hover:text-white',
+    !collapsed && !routeActive && 'hover:translate-x-0.5',
   )
 
   const content = (
     <>
-      <span className="relative shrink-0">
+      <span className="relative z-10 shrink-0">
         <Icon
           className={cn(
-            'size-4 transition-transform duration-300 group-hover:scale-110',
-            routeActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100',
-            external && routeActive && 'text-emerald-400 drop-shadow-[0_0_6px_rgba(52,211,153,0.5)]',
+            'size-4 transition-all duration-500 group-hover:scale-110',
+            routeActive ? cn('opacity-100', theme.iconActive) : 'opacity-70 group-hover:opacity-100',
           )}
           aria-hidden
         />
         {collapsed && badge ? (
-          <DueTodayCountBadge count={badge} collapsed external={external} />
+          <DueTodayCountBadge
+            count={badge}
+            collapsed
+            external={external}
+            label={badgeLabel}
+            tone={badgeTone}
+          />
         ) : null}
       </span>
       {!collapsed && (
         <>
-          <span className="flex-1 truncate text-left tracking-wide">{label}</span>
+          <span className="relative z-10 flex-1 truncate text-left tracking-wide">{label}</span>
           {badge ? (
-            <DueTodayCountBadge count={badge} external={external} />
+            <span className="relative z-10">
+              <DueTodayCountBadge
+                count={badge}
+                external={external}
+                label={badgeLabel}
+                tone={badgeTone}
+              />
+            </span>
           ) : (
             <span
               className={cn(
-                'ml-auto size-1.5 scale-0 rounded-full transition-transform duration-300 group-hover:scale-100',
-                external ? 'bg-emerald-400/80 shadow-[0_0_6px_#10b981]' : 'bg-primary/80',
+                'relative z-10 ml-auto size-1.5 scale-0 rounded-full transition-all duration-500 group-hover:scale-100',
+                theme.hoverDot,
               )}
             />
           )}
@@ -178,11 +221,13 @@ export function AppSidebar({
   onNavigate,
 }: AppSidebarProps) {
   const { t } = useTranslation('nav')
+  const theme = THEMES[external ? 'external' : 'internal']
   const { sidebarCollapsed, toggleSidebarCollapsed } = useShell()
   const isLgUp = useIsLgUp()
   const collapsed = sidebarCollapsed && isLgUp
   const canReadDeadlines = usePermission('deadline', 'read')
   const canReadIntake = usePermission('intake', 'read')
+  const canReadMatters = usePermission('matter', 'read')
   const { data: myToday } = useMyTodayDeadlineCount(canReadDeadlines)
   const { data: firmToday } = useFirmTodayDeadlineCount(canReadDeadlines)
   const { data: intakePending } = useIntakePendingCount(canReadIntake && !external)
@@ -190,32 +235,67 @@ export function AppSidebar({
   const firmTodayCount = firmToday?.count ?? 0
   const intakePendingCount = intakePending?.count ?? 0
 
+  type AlertsSummaryResponse = {
+    overdue: Array<{ id: string }>
+    today: Array<{ id: string }>
+    urgent: Array<{ id: string }>
+    notifications: Array<{ id: string }>
+  }
+
+  const { data: alertsSummary } = useQuery({
+    queryKey: ['alerts', 'summary'],
+    queryFn: () => apiClient.get<AlertsSummaryResponse>('/alerts/summary'),
+    enabled: !external,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 60_000,
+  })
+
+  const { data: watchNew } = useWatchNewCount()
+  const watchNewCount = canReadMatters && !external ? (watchNew?.newCount ?? 0) : 0
+
+  const alertsCount =
+    (alertsSummary?.overdue?.length ?? 0) +
+    (alertsSummary?.today?.length ?? 0) +
+    (alertsSummary?.urgent?.length ?? 0) +
+    (alertsSummary?.notifications?.length ?? 0)
+
   const badgeForItem = (item: NavItem) =>
-    badgeForPath(item.path, myTodayCount, firmTodayCount, intakePendingCount)
+    badgeForPath(item.path, myTodayCount, firmTodayCount, intakePendingCount, alertsCount, watchNewCount)
 
   return (
     <aside
       className={cn(
-        'flex h-full shrink-0 flex-col border-r transition-[width] duration-300 ease-in-out',
+        'relative flex h-full shrink-0 flex-col overflow-hidden border-r text-white',
+        'transition-[width] duration-500 ease-in-out',
         collapsed ? 'w-[68px]' : 'w-[240px]',
         external
-          ? 'border-white/10 bg-gradient-to-b from-brand-green via-brand-green/95 to-emerald-950 text-white shadow-[4px_0_24px_rgba(0,0,0,0.3)]'
-          : 'border-border bg-gradient-to-b from-card to-background text-foreground shadow-sm',
+          ? 'border-white/10 bg-gradient-to-b from-brand-green via-brand-green/95 to-emerald-950 shadow-[4px_0_32px_rgba(0,0,0,0.35)]'
+          : 'border-brand-green/30 bg-gradient-to-b from-brand-green via-[#152e28] to-slate-950 shadow-[4px_0_32px_rgba(0,0,0,0.25)]',
       )}
     >
+      {/* Ambient depth — soft light pool at the top */}
       <div
         className={cn(
-          'flex items-center border-b backdrop-blur-sm',
+          'pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b to-transparent',
+          external ? 'from-emerald-400/10' : 'from-primary/10',
+        )}
+        aria-hidden
+      />
+
+      <div
+        className={cn(
+          'relative z-10 flex items-center border-b border-white/10 bg-white/[0.03] backdrop-blur-md',
           collapsed ? 'flex-col gap-2 px-2 py-3' : 'gap-3 px-4 py-4',
-          external ? 'border-white/10 bg-white/[0.02]' : 'border-border/60 bg-muted/20',
         )}
       >
         <div
           className={cn(
-            'flex size-9 shrink-0 items-center justify-center rounded-xl text-xs font-bold shadow-sm transition-transform duration-500 hover:rotate-6',
+            'flex size-9 shrink-0 items-center justify-center rounded-xl text-xs font-bold',
+            'shadow-lg transition-all duration-500 hover:rotate-6 hover:scale-105',
             external
-              ? 'bg-gradient-to-tr from-emerald-400 to-teal-300 text-emerald-950 shadow-emerald-500/20'
-              : 'bg-gradient-to-tr from-foreground to-neutral-700 text-background',
+              ? 'bg-gradient-to-tr from-emerald-400 to-teal-300 text-emerald-950 shadow-emerald-500/30'
+              : 'bg-gradient-to-tr from-primary to-orange-400 text-white shadow-primary/40',
           )}
         >
           IP
@@ -223,20 +303,10 @@ export function AppSidebar({
 
         {!collapsed && (
           <div className="min-w-0 flex-1">
-            <p
-              className={cn(
-                'truncate text-sm font-bold tracking-tight transition-colors',
-                external ? 'text-white drop-shadow-sm' : 'text-foreground',
-              )}
-            >
+            <p className="truncate text-sm font-bold tracking-tight text-white drop-shadow-sm">
               IP Consulting
             </p>
-            <p
-              className={cn(
-                'text-[9px] font-bold tracking-widest uppercase opacity-80',
-                external ? 'text-emerald-400' : 'text-primary',
-              )}
-            >
+            <p className={cn('text-[9px] font-bold tracking-widest uppercase', theme.labelMuted)}>
               {external ? 'Client portal' : 'CRM'}
             </p>
           </div>
@@ -250,12 +320,9 @@ export function AppSidebar({
           aria-label={collapsed ? t('sidebar.expand') : t('sidebar.collapse')}
           aria-expanded={!collapsed}
           className={cn(
-            'shrink-0',
+            'shrink-0 text-white/70 transition-all duration-500 hover:bg-white/10 hover:text-white',
             !collapsed && 'ml-auto',
             !isLgUp && 'hidden',
-            external
-              ? 'text-white/70 hover:bg-white/10 hover:text-white'
-              : 'text-muted-foreground hover:text-foreground',
           )}
         >
           {collapsed ? (
@@ -268,7 +335,7 @@ export function AppSidebar({
 
       <div
         className={cn(
-          'flex-1 overflow-y-auto py-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
+          'relative z-10 flex-1 overflow-y-auto py-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
           collapsed ? 'space-y-2 px-2' : 'space-y-4 px-3',
         )}
       >
@@ -277,8 +344,8 @@ export function AppSidebar({
             {!collapsed && (
               <p
                 className={cn(
-                  'px-3 pb-1 text-[9px] font-bold tracking-widest uppercase transition-colors duration-300',
-                  external ? 'text-white/30' : 'text-muted-foreground/70',
+                  'px-3 pb-1 text-[9px] font-bold tracking-widest uppercase transition-colors duration-500',
+                  theme.sectionLabel,
                 )}
               >
                 {t(`sections.${group.sectionKey}`)}
@@ -303,11 +370,8 @@ export function AppSidebar({
 
       <div
         className={cn(
-          'space-y-1 border-t bg-gradient-to-t',
+          'relative z-10 space-y-1 border-t border-white/10 bg-gradient-to-t from-black/25 to-transparent backdrop-blur-sm',
           collapsed ? 'px-2 py-3' : 'px-3 py-3',
-          external
-            ? 'border-white/10 from-black/20 to-transparent'
-            : 'border-border/60 from-muted/10 to-transparent',
         )}
       >
         {footer.map((item) => (

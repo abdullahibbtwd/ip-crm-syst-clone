@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Inbox, Search } from 'lucide-react'
 import { MattersTable, MATTER_PAGE_SIZE } from '@/components/matters/MattersTable'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -15,15 +16,28 @@ import {
 import { useAuth } from '@/features/auth/AuthProvider'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import type { MatterFilters, MatterStatus, MatterType } from '@/features/matters/types'
-import { MATTER_STATUS_LABELS, MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
 
 const ALL_STATUSES = 'All'
 const ALL_TYPES = 'All'
 
-const MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
-const MATTER_STATUSES = Object.keys(MATTER_STATUS_LABELS) as MatterStatus[]
+const MATTER_TYPES: MatterType[] = [
+  'trademark',
+  'patent',
+  'utility_model',
+  'industrial_design',
+  'copyright',
+  'geographical_indication',
+  'border_measures',
+  'fto_analysis',
+  'valuation',
+  'dispute_opposition',
+]
+
+const MATTER_STATUSES: MatterStatus[] = ['draft', 'active', 'on_hold', 'closed', 'abandoned']
 
 export function MatterListPage() {
+  const { t } = useTranslation('matters')
   const { user } = useAuth()
   const isPortalClient = user?.roles.includes('portal_client') ?? false
   const [searchInput, setSearchInput] = useState('')
@@ -72,19 +86,17 @@ export function MatterListPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-            {isPortalClient ? 'My matters' : 'Matters'}
+            {isPortalClient ? t('list.titlePortal') : t('list.title')}
           </h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            {isPortalClient
-              ? 'Matters opened for your organisation after intake conversion.'
-              : 'Portfolio view of all legal matters - search by title, client, or application number.'}{' '}
-            {MATTER_PAGE_SIZE} per page.
+            {isPortalClient ? t('list.descriptionPortal') : t('list.description')}{' '}
+            {t('list.perPage', { count: MATTER_PAGE_SIZE })}
           </p>
         </div>
         <PermissionGate resource="intake" action="read">
           <Link to="/intake" className={buttonVariants({ variant: 'outline' })}>
             <Inbox className="size-4" />
-            Intake queue
+            {t('list.intakeQueue')}
           </Link>
         </PermissionGate>
       </div>
@@ -93,7 +105,7 @@ export function MatterListPage() {
         <div className="relative min-w-[220px] flex-1 sm:max-w-md">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search title, client, application no…"
+            placeholder={t('list.searchPlaceholder')}
             className="bg-background pl-9"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -104,13 +116,13 @@ export function MatterListPage() {
           onValueChange={(v) => setTypeFilter(v === ALL_TYPES ? undefined : (v as MatterType))}
         >
           <SelectTrigger className="w-[180px] bg-background">
-            <SelectValue placeholder="All types" />
+            <SelectValue placeholder={t('list.filters.allTypes')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_TYPES}>All types</SelectItem>
+            <SelectItem value={ALL_TYPES}>{t('list.filters.allTypes')}</SelectItem>
             {MATTER_TYPES.map((type) => (
               <SelectItem key={type} value={type}>
-                {MATTER_TYPE_LABELS[type]}
+                {matterTypeLabel(type)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -122,13 +134,13 @@ export function MatterListPage() {
           }
         >
           <SelectTrigger className="w-[160px] bg-background">
-            <SelectValue placeholder="All statuses" />
+            <SelectValue placeholder={t('list.filters.allStatuses')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_STATUSES}>All statuses</SelectItem>
+            <SelectItem value={ALL_STATUSES}>{t('list.filters.allStatuses')}</SelectItem>
             {MATTER_STATUSES.map((status) => (
               <SelectItem key={status} value={status}>
-                {MATTER_STATUS_LABELS[status]}
+                {matterStatusLabel(status)}
               </SelectItem>
             ))}
           </SelectContent>

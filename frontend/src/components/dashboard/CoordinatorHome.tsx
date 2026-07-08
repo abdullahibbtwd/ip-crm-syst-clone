@@ -1,18 +1,23 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import {
-  ArrowRight,
-  FolderOpen,
-  Inbox,
-  Users,
-} from 'lucide-react'
-import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { FolderOpen, Inbox, Users } from 'lucide-react'
 import type { RoleView } from '@/config/role-views'
 import { FilingVolumesWidget } from '@/components/reports/FilingVolumesWidget'
 import { RenewalsSummaryWidget } from '@/components/reports/RenewalsSummaryWidget'
 import { StaffDashboardHero } from '@/components/reports/report-ui'
-import { cn } from '@/lib/utils'
+import {
+  DashboardPageShell,
+  DashboardQuickLinkCard,
+  DashboardQuickLinksRail,
+  DashboardSectionHeading,
+  dashboardHeroPrimaryClass,
+  dashboardHeroSecondaryClass,
+} from '@/components/dashboard/dashboard-shell'
+
+const ICON_GREEN =
+  'bg-gradient-to-br from-brand-green/20 to-brand-green/5 text-brand-green shadow-[0_0_14px_rgba(26,60,52,0.12)]'
+const ICON_PRIMARY =
+  'bg-gradient-to-br from-primary/25 to-primary/5 text-primary shadow-[0_0_14px_rgba(232,98,26,0.18)]'
 
 type CoordinatorHomeProps = {
   view: RoleView
@@ -26,110 +31,76 @@ export function CoordinatorHome({ view, userName }: CoordinatorHomeProps) {
   const firstName = userName.split(' ')[0]
 
   return (
-    <div className="space-y-10">
+    <DashboardPageShell>
       <StaffDashboardHero
         eyebrow={tNav(`roleHomes.${homeKey}.eyebrow`)}
         title={tNav(`roleHomes.${homeKey}.title`)}
         firstName={firstName}
         description={tNav(`roleHomes.${homeKey}.description`)}
       >
-        <Link
-          to="/intake"
-          className={cn(
-            buttonVariants(),
-            'bg-primary text-primary-foreground hover:bg-primary/95 shadow-md',
-          )}
-        >
+        <Link to="/intake" className={dashboardHeroPrimaryClass()}>
           <Inbox className="size-4" />
           {t('coordinator.intakeQueue')}
         </Link>
-        <Link
-          to="/matters"
-          className={cn(
-            buttonVariants({ variant: 'outline' }),
-            'border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm',
-          )}
-        >
+        <Link to="/matters" className={dashboardHeroSecondaryClass()}>
           <FolderOpen className="size-4" />
           {t('coordinator.browseMatters')}
         </Link>
       </StaffDashboardHero>
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="font-serif text-xl text-brand-green">{t('coordinator.pipelineInsights')}</h2>
-          <div className="flex gap-2">
-            <Link to="/reports/filing-volumes" className="text-xs font-medium text-primary hover:underline">
-              {t('coordinator.filingVolumes')}
-            </Link>
-            <span className="text-muted-foreground/30">•</span>
-            <Link to="/reports/renewals-summary" className="text-xs font-medium text-primary hover:underline">
-              {t('coordinator.renewalsSummary')}
-            </Link>
-          </div>
-        </div>
+        <DashboardSectionHeading
+          title={t('coordinator.pipelineInsights')}
+          action={
+            <div className="flex gap-2">
+              <Link
+                to="/reports/filing-volumes"
+                className="rounded-lg px-2.5 py-1 text-xs font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:underline"
+              >
+                {t('coordinator.filingVolumes')}
+              </Link>
+              <span className="text-muted-foreground/30">•</span>
+              <Link
+                to="/reports/renewals-summary"
+                className="rounded-lg px-2.5 py-1 text-xs font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:underline"
+              >
+                {t('coordinator.renewalsSummary')}
+              </Link>
+            </div>
+          }
+        />
         <div className="grid gap-6 xl:grid-cols-2">
           <FilingVolumesWidget />
           <RenewalsSummaryWidget />
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Link to="/intake" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <Inbox className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('coordinator.intakePipeline')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('coordinator.intakePipelineDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/matters" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <FolderOpen className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('coordinator.openMatters')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('coordinator.openMattersDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/clients" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:-translate-y-1">
-            <CardContent className="flex items-start gap-4 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <Users className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('coordinator.clientDeck')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('coordinator.clientDeckDesc')}
-                </p>
-              </div>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground/30 transition group-hover:translate-x-1 group-hover:text-primary" />
-            </CardContent>
-          </Card>
-        </Link>
-      </div>
-    </div>
+      <DashboardQuickLinksRail desktopCols={3} ariaLabel={t('slider.quickLinksCarousel')}>
+        <DashboardQuickLinkCard
+          to="/intake"
+          icon={Inbox}
+          title={t('coordinator.intakePipeline')}
+          description={t('coordinator.intakePipelineDesc')}
+          iconClassName={ICON_PRIMARY}
+          variant="row"
+        />
+        <DashboardQuickLinkCard
+          to="/matters"
+          icon={FolderOpen}
+          title={t('coordinator.openMatters')}
+          description={t('coordinator.openMattersDesc')}
+          iconClassName={ICON_GREEN}
+          variant="row"
+        />
+        <DashboardQuickLinkCard
+          to="/clients"
+          icon={Users}
+          title={t('coordinator.clientDeck')}
+          description={t('coordinator.clientDeckDesc')}
+          iconClassName={ICON_GREEN}
+          variant="row"
+        />
+      </DashboardQuickLinksRail>
+    </DashboardPageShell>
   )
 }

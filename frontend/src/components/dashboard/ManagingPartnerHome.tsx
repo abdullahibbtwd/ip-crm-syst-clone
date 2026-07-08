@@ -9,8 +9,6 @@ import {
   RefreshCw,
   Users,
 } from 'lucide-react'
-import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import type { RoleView } from '@/config/role-views'
 import { useClients } from '@/features/crm/hooks/useClients'
 import {
@@ -30,11 +28,24 @@ import { RenewalsSummaryWidget } from '@/components/reports/RenewalsSummaryWidge
 import { RevenueSummaryWidget } from '@/components/reports/RevenueSummaryWidget'
 import { TeamWorkloadWidget } from '@/components/reports/TeamWorkloadWidget'
 import { StaffDashboardHero, ReportStatCard } from '@/components/reports/report-ui'
-import { cn } from '@/lib/utils'
+import {
+  DashboardKpiRail,
+  DashboardPageShell,
+  DashboardQuickLinkCard,
+  DashboardQuickLinksRail,
+  DashboardSectionHeading,
+  dashboardHeroPrimaryClass,
+  dashboardHeroSecondaryClass,
+} from '@/components/dashboard/dashboard-shell'
 import type { TFunction } from 'i18next'
 
 const DEADLINE_RISK_WINDOW = 30
 const CLIENT_LIST_LIMIT = 100
+
+const ICON_GREEN =
+  'bg-gradient-to-br from-brand-green/20 to-brand-green/5 text-brand-green shadow-[0_0_14px_rgba(26,60,52,0.12)]'
+const ICON_PRIMARY =
+  'bg-gradient-to-br from-primary/25 to-primary/5 text-primary shadow-[0_0_14px_rgba(232,98,26,0.18)]'
 
 function firmRiskLevel(
   critical: number,
@@ -118,10 +129,10 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
 
   const clientsKpi = useMemo(() => {
     if (clients.isLoading) {
-      return { value: '-', hint: t('managingPartner.loadingClients') }
+      return { value: '—', hint: t('managingPartner.loadingClients') }
     }
     if (clients.isError) {
-      return { value: '-', hint: t('managingPartner.clientsError') }
+      return { value: '—', hint: t('managingPartner.clientsError') }
     }
     const items = clients.data?.items ?? []
     const hasMore = Boolean(clients.data?.nextCursor)
@@ -134,36 +145,24 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
   }, [clients.data, clients.isError, clients.isLoading, t])
 
   return (
-    <div className="space-y-10">
+    <DashboardPageShell>
       <StaffDashboardHero
         eyebrow={tNav(`roleHomes.${homeKey}.eyebrow`)}
         title={tNav(`roleHomes.${homeKey}.title`)}
         firstName={firstName}
         description={tNav(`roleHomes.${homeKey}.description`)}
       >
-        <Link
-          to="/reports/deadline-risk"
-          className={cn(
-            buttonVariants(),
-            'bg-primary text-primary-foreground hover:bg-primary/95 shadow-md',
-          )}
-        >
+        <Link to="/reports/deadline-risk" className={dashboardHeroPrimaryClass()}>
           <BarChart3 className="size-4" />
           {t('managingPartner.fullRiskAnalytics')}
         </Link>
-        <Link
-          to="/reports/revenue-summary"
-          className={cn(
-            buttonVariants({ variant: 'outline' }),
-            'border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm',
-          )}
-        >
+        <Link to="/reports/revenue-summary" className={dashboardHeroSecondaryClass()}>
           <PieChart className="size-4" />
           {t('managingPartner.revenueTracking')}
         </Link>
       </StaffDashboardHero>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <DashboardKpiRail desktopCols={4} ariaLabel={t('slider.kpiCarousel')}>
         <ReportStatCard
           icon={BarChart3}
           label={t('managingPartner.firmDeadlineRisk')}
@@ -200,20 +199,20 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
           tone="brand"
           loading={clients.isLoading}
         />
-      </div>
+      </DashboardKpiRail>
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="border-l-4 border-primary pl-4 font-serif text-xl text-brand-green">
-            {t('managingPartner.sectionCriticalRisk')}
-          </h2>
-          <Link
-            to="/reports/deadline-risk"
-            className="text-xs font-medium text-primary hover:underline"
-          >
-            {t('managingPartner.viewAllReports')}
-          </Link>
-        </div>
+        <DashboardSectionHeading
+          title={t('managingPartner.sectionCriticalRisk')}
+          action={
+            <Link
+              to="/reports/deadline-risk"
+              className="rounded-lg px-2.5 py-1 text-xs font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:underline"
+            >
+              {t('managingPartner.viewAllReports')}
+            </Link>
+          }
+        />
         <DeadlineRiskWidget />
         <div className="grid gap-6 xl:grid-cols-2">
           <FilingVolumesWidget />
@@ -222,9 +221,7 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
       </div>
 
       <div className="space-y-6">
-        <h2 className="border-l-4 border-primary pl-4 font-serif text-xl text-brand-green">
-          {t('managingPartner.sectionRevenue')}
-        </h2>
+        <DashboardSectionHeading title={t('managingPartner.sectionRevenue')} />
         <RevenueSummaryWidget />
         <div className="grid gap-6 lg:grid-cols-2">
           <TeamWorkloadWidget />
@@ -232,93 +229,43 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
         </div>
       </div>
 
-      <div className="grid gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-5">
-        <Link to="/reports/deadline-risk" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
-            <CardContent className="flex flex-col gap-3 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <BarChart3 className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('managingPartner.quickDeadlineRisk')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('managingPartner.quickDeadlineRiskDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/reports/filing-volumes" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
-            <CardContent className="flex flex-col gap-3 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <FileOutput className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('managingPartner.quickFilingVolumes')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('managingPartner.quickFilingVolumesDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/reports/renewals-summary" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
-            <CardContent className="flex flex-col gap-3 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <RefreshCw className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('managingPartner.quickRenewals')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('managingPartner.quickRenewalsDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/deadlines" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
-            <CardContent className="flex flex-col gap-3 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-brand-green/8 text-brand-green transition-transform group-hover:scale-110">
-                <CalendarClock className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('managingPartner.quickWorklist')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('managingPartner.quickWorklistDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/clients" className="group block">
-          <Card className="h-full border-brand-green/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
-            <CardContent className="flex flex-col gap-3 p-5">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <Users className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1 px-1">
-                <p className="text-[13px] font-bold uppercase tracking-wider text-brand-green">
-                  {t('managingPartner.quickClientDeck')}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {t('managingPartner.quickClientDeckDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-      </div>
-    </div>
+      <DashboardQuickLinksRail desktopCols={5} ariaLabel={t('slider.quickLinksCarousel')}>
+        <DashboardQuickLinkCard
+          to="/reports/deadline-risk"
+          icon={BarChart3}
+          title={t('managingPartner.quickDeadlineRisk')}
+          description={t('managingPartner.quickDeadlineRiskDesc')}
+          iconClassName={ICON_GREEN}
+        />
+        <DashboardQuickLinkCard
+          to="/reports/filing-volumes"
+          icon={FileOutput}
+          title={t('managingPartner.quickFilingVolumes')}
+          description={t('managingPartner.quickFilingVolumesDesc')}
+          iconClassName={ICON_PRIMARY}
+        />
+        <DashboardQuickLinkCard
+          to="/reports/renewals-summary"
+          icon={RefreshCw}
+          title={t('managingPartner.quickRenewals')}
+          description={t('managingPartner.quickRenewalsDesc')}
+          iconClassName={ICON_GREEN}
+        />
+        <DashboardQuickLinkCard
+          to="/deadlines"
+          icon={CalendarClock}
+          title={t('managingPartner.quickWorklist')}
+          description={t('managingPartner.quickWorklistDesc')}
+          iconClassName={ICON_GREEN}
+        />
+        <DashboardQuickLinkCard
+          to="/clients"
+          icon={Users}
+          title={t('managingPartner.quickClientDeck')}
+          description={t('managingPartner.quickClientDeckDesc')}
+          iconClassName={ICON_PRIMARY}
+        />
+      </DashboardQuickLinksRail>
+    </DashboardPageShell>
   )
 }

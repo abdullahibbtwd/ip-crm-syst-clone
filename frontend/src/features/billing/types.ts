@@ -1,3 +1,5 @@
+import type { RevenueSummaryResponse } from '@/features/reports/types'
+
 export type BillingRateRole =
   | 'ip_attorney'
   | 'trademark_attorney'
@@ -140,3 +142,23 @@ export type CreateFixedFeeInput = {
 }
 
 export type UpdateFixedFeeInput = Partial<CreateFixedFeeInput>
+
+export type ProfitabilityBasis = 'revenue_proxy' | 'true_margin'
+
+export type RateCardsHealth = {
+  rateCardsTotal: number
+  hasInternalCostConfigured: boolean
+  internalCostRateCards: number
+  profitabilityBasis: ProfitabilityBasis
+  unratedTimeEntries: {
+    count: number
+    totalHours: number
+    totalAmount: number
+  }
+}
+
+export type BillingOverviewResponse = {
+  generatedAt: string
+  revenueSummary: RevenueSummaryResponse
+  rateCardsHealth: RateCardsHealth
+}

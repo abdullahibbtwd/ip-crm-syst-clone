@@ -27,25 +27,32 @@ export function DueTodayCountBadge({
   count,
   collapsed,
   external,
+  label = 'due today',
+  tone = 'warning',
 }: {
   count: number
   collapsed?: boolean
   external?: boolean
+  label?: string
+  tone?: 'warning' | 'success'
 }) {
   if (count <= 0) return null
 
-  const label = count > 9 ? '9+' : String(count)
+  const countLabel = count > 9 ? '9+' : String(count)
+  const toneBg = tone === 'success' ? (external ? 'bg-emerald-400' : 'bg-brand-green/90') : null
+  const warningBg = external ? 'bg-orange-400' : 'bg-orange-500'
+  const badgeBg = tone === 'success' ? toneBg : warningBg
 
   if (collapsed) {
     return (
       <span
         className={cn(
           'absolute -top-0.5 -right-0.5 flex min-h-4 min-w-4 items-center justify-center rounded-full px-1 text-[9px] font-bold text-white shadow-sm',
-          external ? 'bg-orange-400' : 'bg-orange-500',
+          badgeBg,
         )}
-        aria-label={`${count} due today`}
+        aria-label={`${count} ${label}`}
       >
-        {label}
+        {countLabel}
       </span>
     )
   }
@@ -54,11 +61,11 @@ export function DueTodayCountBadge({
     <span
       className={cn(
         'ml-auto flex min-h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[10px] font-bold tabular-nums text-white shadow-sm',
-        external ? 'bg-orange-400' : 'bg-orange-500',
+        badgeBg,
       )}
-      aria-label={`${count} due today`}
+      aria-label={`${count} ${label}`}
     >
-      {label}
+      {countLabel}
     </span>
   )
 }

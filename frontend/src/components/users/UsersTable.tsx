@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   ChevronLeft,
   ChevronRight,
@@ -57,21 +58,35 @@ function UserAvatar({ name, segment }: { name: string; segment: UserSegment }) {
   )
 }
 
-function AuthMethodBadge({ method }: { method: UserListItem['authMethod'] }) {
+function AuthMethodBadge({
+  method,
+  passwordLabel,
+  ssoLabel,
+}: {
+  method: UserListItem['authMethod']
+  passwordLabel: string
+  ssoLabel: string
+}) {
   const isSso = method === 'sso'
   return (
     <Badge variant={isSso ? 'info' : 'outline'} className="gap-1 normal-case">
       {isSso ? <ShieldCheck className="size-3" /> : <KeyRound className="size-3" />}
-      {isSso ? 'SSO' : 'Password'}
+      {isSso ? ssoLabel : passwordLabel}
     </Badge>
   )
 }
 
-function StatusBadge({ isActive }: { isActive: boolean }) {
+function StatusBadge({
+  isActive,
+  activeLabel,
+  inactiveLabel,
+}: {
+  isActive: boolean
+  activeLabel: string
+  inactiveLabel: string
+}) {
   return (
-    <Badge variant={isActive ? 'success' : 'secondary'}>
-      {isActive ? 'Active' : 'Inactive'}
-    </Badge>
+    <Badge variant={isActive ? 'success' : 'secondary'}>{isActive ? activeLabel : inactiveLabel}</Badge>
   )
 }
 
@@ -119,24 +134,37 @@ export function UsersTable({
   onPreviousPage,
   onNextPage,
 }: UsersTableProps) {
+  const { t } = useTranslation(['users', 'common'])
+
   const isPortal = segment === 'portal'
   const colCount = isPortal ? 7 : 6
 
   const rangeStart = items.length === 0 ? 0 : pageIndex * USERS_PAGE_SIZE + 1
   const rangeEnd = pageIndex * USERS_PAGE_SIZE + items.length
 
+  const passwordLabel = t('table.authMethod.password', { ns: 'users' })
+  const ssoLabel = t('table.authMethod.sso', { ns: 'users' })
+  const activeLabel = t('table.status.active', { ns: 'users' })
+  const inactiveLabel = t('table.status.inactive', { ns: 'users' })
+  const mfaEnabledLabel = t('table.mfa.enabled', { ns: 'users' })
+  const mfaOffLabel = t('table.mfa.off', { ns: 'users' })
+
   return (
     <div className="overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm">
       <Table>
         <TableHeader>
           <TableRow className="border-border/80 bg-muted/40 hover:bg-muted/40">
-            <TableHead className="w-[28%]">User</TableHead>
-            {isPortal && <TableHead>Client record</TableHead>}
-            <TableHead>Role</TableHead>
-            <TableHead>Sign-in</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Last login</TableHead>
-            <TableHead>{isPortal ? 'Registered' : 'MFA'}</TableHead>
+            <TableHead className="w-[28%]">{t('table.headers.user', { ns: 'users' })}</TableHead>
+            {isPortal && <TableHead>{t('table.clientRecord', { ns: 'users' })}</TableHead>}
+            <TableHead>{t('table.headers.role', { ns: 'users' })}</TableHead>
+            <TableHead>{t('table.headers.signIn', { ns: 'users' })}</TableHead>
+            <TableHead>{t('table.headers.status', { ns: 'users' })}</TableHead>
+            <TableHead>{t('table.headers.lastLogin', { ns: 'users' })}</TableHead>
+            <TableHead>
+              {isPortal
+                ? t('table.headers.registered', { ns: 'users' })
+                : t('table.headers.mfa', { ns: 'users' })}
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -145,9 +173,11 @@ export function UsersTable({
           {!isLoading && isError && (
             <TableRow>
               <TableCell colSpan={colCount} className="py-16 text-center">
-                <p className="text-sm font-medium text-destructive">Failed to load users.</p>
+                <p className="text-sm font-medium text-destructive">
+                  {t('table.error', { ns: 'users' })}
+                </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Check your connection and permissions, then try again.
+                  {t('errors.retryHint', { ns: 'common' })}
                 </p>
               </TableCell>
             </TableRow>
@@ -161,11 +191,11 @@ export function UsersTable({
                     <UsersRound className="size-5 text-muted-foreground" />
                   </span>
                   <div>
-                    <p className="font-medium text-foreground">No users found</p>
+                    <p className="font-medium text-foreground">
+                      {t('table.empty', { ns: 'users' })}
+                    </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {isPortal
-                        ? 'No portal client accounts match your filters.'
-                        : 'No team members match your filters.'}
+                      {t('table.emptyDescription', { ns: 'users' })}
                     </p>
                   </div>
                 </div>
@@ -218,11 +248,19 @@ export function UsersTable({
                 </TableCell>
 
                 <TableCell>
-                  <AuthMethodBadge method={user.authMethod} />
+                  <AuthMethodBadge
+                    method={user.authMethod}
+                    passwordLabel={passwordLabel}
+                    ssoLabel={ssoLabel}
+                  />
                 </TableCell>
 
                 <TableCell>
-                  <StatusBadge isActive={user.isActive} />
+                  <StatusBadge
+                    isActive={user.isActive}
+                    activeLabel={activeLabel}
+                    inactiveLabel={inactiveLabel}
+                  />
                 </TableCell>
 
                 <TableCell className="text-sm text-muted-foreground">
@@ -234,10 +272,10 @@ export function UsersTable({
                     formatJoined(user.createdAt)
                   ) : user.mfaEnabled ? (
                     <Badge variant="success" className="normal-case">
-                      Enabled
+                      {mfaEnabledLabel}
                     </Badge>
                   ) : (
-                    <span className="text-muted-foreground">Off</span>
+                    <span className="text-muted-foreground">{mfaOffLabel}</span>
                   )}
                 </TableCell>
               </TableRow>
@@ -250,8 +288,13 @@ export function UsersTable({
               <div className="flex flex-wrap items-center justify-between gap-3 py-1">
                 <p className="text-xs text-muted-foreground">
                   {items.length === 0
-                    ? 'No results'
-                    : `Showing ${rangeStart}–${rangeEnd}${hasNextPage ? '+' : ''}`}
+                    ? t('pagination.noResults', { ns: 'common' })
+                    : t('pagination.showing', {
+                        ns: 'common',
+                        start: rangeStart,
+                        end: rangeEnd,
+                      })}
+                  {items.length > 0 && hasNextPage ? '+' : ''}
                 </p>
                 <div className="flex items-center gap-2">
                   <Button
@@ -262,7 +305,7 @@ export function UsersTable({
                     onClick={onPreviousPage}
                   >
                     <ChevronLeft className="size-4" />
-                    Previous
+                    {t('actions.previous', { ns: 'common' })}
                   </Button>
                   <Button
                     type="button"
@@ -271,7 +314,7 @@ export function UsersTable({
                     disabled={!hasNextPage || isLoading}
                     onClick={onNextPage}
                   >
-                    Next
+                    {t('actions.next', { ns: 'common' })}
                     <ChevronRight className="size-4" />
                   </Button>
                   {isLoading && (

@@ -82,7 +82,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
           { icon: Calendar, labelKey: 'deadlines', path: '/deadlines' },
-          { icon: Bell, labelKey: 'alerts' },
+          { icon: Bell, labelKey: 'alerts', path: '/alerts' },
         ],
       },
       {
@@ -102,14 +102,14 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'ipRights',
         items: [
-          { icon: Award, labelKey: 'rightsRegister' },
+          { icon: Award, labelKey: 'rightsRegister', path: '/ip-rights' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
-          { icon: Eye, labelKey: 'watch' },
+          { icon: Eye, labelKey: 'watch', path: '/watch-alerts' },
         ],
       },
       {
         sectionKey: 'finance',
-        items: [{ icon: Receipt, labelKey: 'billingOverview' }],
+        items: [{ icon: Receipt, labelKey: 'billingOverview', path: '/billing-overview' }],
       },
       {
         sectionKey: 'reports',
@@ -151,7 +151,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'rights',
         items: [
-          { icon: Award, labelKey: 'rightsRegister' },
+          { icon: Award, labelKey: 'rightsRegister', path: '/ip-rights' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
         ],
       },
@@ -185,12 +185,12 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: ShieldCheck, labelKey: 'myTmMatters', path: '/matters' },
           { icon: Upload, labelKey: 'oppositions' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
-          { icon: Eye, labelKey: 'watchAlerts' },
+          { icon: Eye, labelKey: 'watchAlerts', path: '/watch-alerts' },
         ],
       },
       {
         sectionKey: 'rights',
-        items: [{ icon: Award, labelKey: 'rightsRegister' }],
+        items: [{ icon: Award, labelKey: 'rightsRegister', path: '/ip-rights' }],
       },
       {
         sectionKey: 'communication',

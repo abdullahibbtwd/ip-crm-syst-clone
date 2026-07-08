@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Search } from 'lucide-react'
 import { USERS_PAGE_SIZE, UsersTable } from '@/components/users/UsersTable'
 import { Input } from '@/components/ui/input'
@@ -21,6 +22,7 @@ type UsersListPanelProps = {
 }
 
 export function UsersListPanel({ segment, title, description }: UsersListPanelProps) {
+  const { t } = useTranslation('users')
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<boolean | undefined>()
@@ -74,8 +76,8 @@ export function UsersListPanel({ segment, title, description }: UsersListPanelPr
           <Input
             placeholder={
               segment === 'portal'
-                ? 'Search name, email, or client code…'
-                : 'Search name or email…'
+                ? t('filters.searchPortal')
+                : t('filters.searchTeam')
             }
             className="bg-background pl-9"
             value={searchInput}
@@ -96,12 +98,12 @@ export function UsersListPanel({ segment, title, description }: UsersListPanelPr
           }}
         >
           <SelectTrigger className="w-[160px] bg-background">
-            <SelectValue placeholder="All statuses" />
+            <SelectValue placeholder={t('filters.allStatuses')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value={ALL_STATUSES}>All statuses</SelectItem>
-            <SelectItem value="active">Active only</SelectItem>
-            <SelectItem value="inactive">Inactive only</SelectItem>
+            <SelectItem value={ALL_STATUSES}>{t('filters.allStatuses')}</SelectItem>
+            <SelectItem value="active">{t('filters.activeOnly')}</SelectItem>
+            <SelectItem value="inactive">{t('filters.inactiveOnly')}</SelectItem>
           </SelectContent>
         </Select>
       </div>

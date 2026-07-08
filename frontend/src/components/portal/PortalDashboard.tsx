@@ -9,14 +9,18 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { MATTER_PAGE_SIZE } from '@/components/matters/MattersTable'
-import { buttonVariants } from '@/components/ui/button'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import { useMyDeadlines } from '@/features/deadlines/hooks/useDeadlines'
 import { usePortalRenewals } from '@/features/renewals/hooks/useRenewals'
 import { deadlineUrgency } from '@/features/deadlines/utils'
-import { cn } from '@/lib/utils'
 import type { RoleView } from '@/config/role-views'
 import { StaffDashboardHero, ReportStatCard } from '@/components/reports/report-ui'
+import {
+  DashboardKpiRail,
+  DashboardPageShell,
+  dashboardHeroPrimaryClass,
+  dashboardHeroSecondaryClass,
+} from '@/components/dashboard/dashboard-shell'
 
 type PortalDashboardProps = {
   view: RoleView
@@ -26,6 +30,7 @@ type PortalDashboardProps = {
 export function PortalDashboard({ view, userName }: PortalDashboardProps) {
   const { t } = useTranslation('portal')
   const { t: tNav } = useTranslation('nav')
+  const { t: tDash } = useTranslation('dashboard')
   const { homeKey } = view.home
   const firstName = userName.split(' ')[0]
   const matters = useMatters({ limit: MATTER_PAGE_SIZE })
@@ -48,36 +53,24 @@ export function PortalDashboard({ view, userName }: PortalDashboardProps) {
   ).length
 
   return (
-    <div className="space-y-10">
+    <DashboardPageShell>
       <StaffDashboardHero
         eyebrow={tNav(`roleHomes.${homeKey}.eyebrow`)}
         title={tNav(`roleHomes.${homeKey}.title`)}
         firstName={firstName}
         description={tNav(`roleHomes.${homeKey}.description`)}
       >
-        <Link
-          to="/portal/intake?tab=new&type=trademark"
-          className={cn(
-            buttonVariants(),
-            'bg-primary text-primary-foreground hover:bg-primary/95 shadow-md',
-          )}
-        >
+        <Link to="/portal/intake?tab=new&type=trademark" className={dashboardHeroPrimaryClass()}>
           <Award className="size-4" />
           {t('dashboard.fileTrademark')}
         </Link>
-        <Link
-          to="/portal/intake?tab=new&type=patent"
-          className={cn(
-            buttonVariants({ variant: 'outline' }),
-            'border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm',
-          )}
-        >
+        <Link to="/portal/intake?tab=new&type=patent" className={dashboardHeroSecondaryClass()}>
           <Atom className="size-4" />
           {t('dashboard.filePatent')}
         </Link>
       </StaffDashboardHero>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <DashboardKpiRail desktopCols={4} ariaLabel={tDash('slider.kpiCarousel')}>
         <ReportStatCard
           icon={FolderOpen}
           label={t('dashboard.stats.activeMatters')}
@@ -122,7 +115,7 @@ export function PortalDashboard({ view, userName }: PortalDashboardProps) {
           tone={overdueCount > 0 ? 'alert' : 'green'}
           loading={deadlines.isLoading}
         />
-      </div>
-    </div>
+      </DashboardKpiRail>
+    </DashboardPageShell>
   )
 }

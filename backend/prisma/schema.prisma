@@ -56,6 +56,8 @@ model User {
   notifications          Notification[]
   renewalInstructions    RenewalInstruction[]   @relation("RenewalInstructionCapturedBy")
   renewalPaymentsRecorded RenewalPayment[]      @relation("RenewalPaymentRecordedBy")
+  watchProfilesCreated   WatchProfile[]         @relation("WatchProfileCreatedBy")
+  watchAlertsTriaged     WatchAlert[]           @relation("WatchAlertTriagedBy")
 
   @@map("users")
 }
@@ -258,6 +260,8 @@ model Client {
   rateCards           RateCard[]
   invoices            Invoice[]
   renewalWindows      RenewalWindow[]
+  watchProfiles       WatchProfile[]
+  watchAlerts         WatchAlert[]
 
   @@index([status])
   @@index([type])
@@ -582,6 +586,7 @@ model Matter {
   invoices       Invoice[]
   tasks          Task[]
   renewalWindows RenewalWindow[]
+  watchAlerts    WatchAlert[]
 
   @@index([clientId])
   @@index([status])
@@ -1180,4 +1185,83 @@ model Notification {
   @@index([userId, readAt])
   @@index([userId, createdAt])
   @@map("notifications")
+}
+
+enum WatchProfileStatus {
+  active
+  paused
+  archived
+
+  @@map("watch_profile_status")
+}
+
+enum WatchFrequency {
+  daily
+  weekly
+
+  @@map("watch_frequency")
+}
+
+enum WatchAlertStatus {
+  new
+  rejected
+  accepted
+
+  @@map("watch_alert_status")
+}
+
+enum WatchRegistrySource {
+  BPO
+  EUIPO
+  WIPO
+
+  @@map("watch_registry_source")
+}
+
+model WatchProfile {
+  id            String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId      String             @map("client_id") @db.Uuid
+  markText      String             @map("mark_text")
+  jurisdictions String[]           @default([])
+  niceClasses   Int[]              @default([]) @map("nice_classes")
+  frequency     WatchFrequency     @default(weekly)
+  status        WatchProfileStatus @default(active)
+  createdById   String             @map("created_by_id") @db.Uuid
+  createdAt     DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime           @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client    Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  createdBy User         @relation("WatchProfileCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  alerts    WatchAlert[]
+
+  @@index([clientId])
+  @@index([status])
+  @@map("watch_profiles")
+}
+
+model WatchAlert {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  watchProfileId    String              @map("watch_profile_id") @db.Uuid
+  clientId          String              @map("client_id") @db.Uuid
+  conflictingMark   String              @map("conflicting_mark")
+  source            WatchRegistrySource
+  jurisdiction      String?
+  applicationNumber String?             @map("application_number")
+  status            WatchAlertStatus    @default(new)
+  matterId          String?             @map("matter_id") @db.Uuid
+  detectedAt        DateTime            @default(now()) @map("detected_at") @db.Timestamptz(6)
+  triagedAt         DateTime?           @map("triaged_at") @db.Timestamptz(6)
+  triagedById       String?             @map("triaged_by_id") @db.Uuid
+  createdAt         DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  watchProfile WatchProfile @relation(fields: [watchProfileId], references: [id], onDelete: Cascade)
+  client       Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  matter       Matter?      @relation(fields: [matterId], references: [id], onDelete: SetNull)
+  triagedBy    User?        @relation("WatchAlertTriagedBy", fields: [triagedById], references: [id], onDelete: SetNull)
+
+  @@index([clientId, status])
+  @@index([status, detectedAt])
+  @@index([watchProfileId])
+  @@map("watch_alerts")
 }

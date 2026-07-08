@@ -13,6 +13,15 @@
     "pendingTasks": "Чакащи задачи",
     "awaitingCompletion": "Очакват изпълнение"
   },
+  "slider": {
+    "carousel": "Карусел на таблото",
+    "kpiCarousel": "Ключови показатели",
+    "quickLinksCarousel": "Бързи връзки",
+    "previous": "Предишен слайд",
+    "next": "Следващ слайд",
+    "dots": "Навигация по слайдове",
+    "goToSlide": "Към слайд {{index}}"
+  },
   "managingPartner": {
     "fullRiskAnalytics": "Пълна аналитика на риска",
     "revenueTracking": "Проследяване на приходи",
