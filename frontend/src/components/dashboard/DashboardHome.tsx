@@ -4,6 +4,7 @@ import { MyDeadlinesWidget } from '@/components/deadlines/MyDeadlinesWidget'
 import { CoordinatorHome } from '@/components/dashboard/CoordinatorHome'
 import { DocketingRiskHome } from '@/components/dashboard/DocketingRiskHome'
 import { FinanceHome } from '@/components/dashboard/FinanceHome'
+import { ComplianceHome } from '@/components/dashboard/ComplianceHome'
 import { ManagingPartnerHome } from '@/components/dashboard/ManagingPartnerHome'
 import {
   DashboardKpiRail,
@@ -127,6 +128,10 @@ export function DashboardHome({ view, userName }: DashboardHomeProps) {
 
   if (view.role === 'coordinator') {
     return <CoordinatorHome view={view} userName={userName} />
+  }
+
+  if (view.role === 'dpo_compliance') {
+    return <ComplianceHome view={view} userName={userName} />
   }
 
   return <DefaultStaffHome view={view} userName={userName} />

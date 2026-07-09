@@ -2,6 +2,8 @@ export type CorrespondenceDirection = 'incoming' | 'outgoing'
 
 export type CorrespondenceStatus = 'draft' | 'sent' | 'received' | 'replied'
 
+export type CorrespondenceSource = 'manual' | 'synced'
+
 export type CorrespondenceCategory =
   | 'application'
   | 'office_action'
@@ -32,12 +34,34 @@ export type Correspondence = {
   recipient: string
   subject: string
   status: CorrespondenceStatus
+  source: CorrespondenceSource
+  messageId: string | null
+  bodyText: string | null
+  metadata: Record<string, unknown> | null
   isClientVisible: boolean
   documentVersionId: string | null
   createdAt: string
   updatedAt: string
   createdBy: CorrespondenceUser | null
   documentVersion: CorrespondenceDocumentLink | null
+}
+
+export type ParsedEmailAttachment = {
+  fileName: string
+  contentType: string
+  size: number
+}
+
+export type ParsedEmailResult = {
+  sender: string
+  recipient: string
+  cc: string[]
+  subject: string
+  correspondenceDate: string
+  bodyText: string | null
+  messageId: string | null
+  attachments: ParsedEmailAttachment[]
+  headersDetected: boolean
 }
 
 export type CreateCorrespondenceInput = {
@@ -47,7 +71,11 @@ export type CreateCorrespondenceInput = {
   sender: string
   recipient: string
   subject: string
-  status: CorrespondenceStatus
+  status?: CorrespondenceStatus
+  source?: CorrespondenceSource
+  messageId?: string
+  bodyText?: string
+  metadata?: Record<string, unknown>
   documentVersionId?: string
 }
 
@@ -69,3 +97,5 @@ export type MatterTimelineEvent = {
     subject: string
   } | null
 }
+
+export type LogEmailMode = 'eml' | 'paste' | 'manual'

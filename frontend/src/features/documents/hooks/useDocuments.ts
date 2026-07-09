@@ -51,3 +51,22 @@ export function useUploadDocumentVersion(matterId: string, documentId: string) {
     },
   })
 }
+
+export function useDocumentTemplates() {
+  return useQuery({
+    queryKey: documentKeys.templates(),
+    queryFn: () => documentsApi.listTemplates(),
+  })
+}
+
+export function useGenerateDocument(matterId: string, filters?: DocumentFilters) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (templateId: string) =>
+      documentsApi.generateFromTemplate(matterId, templateId),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: documentKeys.matter(matterId, filters) })
+      qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })
+    },
+  })
+}

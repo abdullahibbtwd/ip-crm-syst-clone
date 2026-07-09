@@ -58,6 +58,8 @@ model User {
   renewalPaymentsRecorded RenewalPayment[]      @relation("RenewalPaymentRecordedBy")
   watchProfilesCreated   WatchProfile[]         @relation("WatchProfileCreatedBy")
   watchAlertsTriaged     WatchAlert[]           @relation("WatchAlertTriagedBy")
+  mailboxConnections     MailboxConnection[]
+  unlinkedEmailsLinked   UnlinkedEmail[]        @relation("UnlinkedEmailLinkedBy")
 
   @@map("users")
 }
@@ -587,6 +589,7 @@ model Matter {
   tasks          Task[]
   renewalWindows RenewalWindow[]
   watchAlerts    WatchAlert[]
+  suggestedUnlinkedEmails UnlinkedEmail[]
 
   @@index([clientId])
   @@index([status])
@@ -868,6 +871,22 @@ model MatterDocumentVersion {
   @@map("matter_document_versions")
 }
 
+model DocumentTemplate {
+  id            String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug          String           @unique
+  name          String
+  category      DocumentCategory
+  description   String?
+  referenceLine String?          @map("reference_line")
+  htmlBody      String           @map("html_body") @db.Text
+  isActive      Boolean          @default(true) @map("is_active")
+  createdAt     DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([isActive])
+  @@map("document_templates")
+}
+
 enum CorrespondenceDirection {
   incoming
   outgoing
@@ -882,6 +901,13 @@ enum CorrespondenceStatus {
   replied
 
   @@map("correspondence_status")
+}
+
+enum CorrespondenceSource {
+  manual
+  synced
+
+  @@map("correspondence_source")
 }
 
 enum MatterTimelineEventType {
@@ -904,23 +930,108 @@ model Correspondence {
   recipient          String
   subject            String
   status             CorrespondenceStatus    @default(received)
+  source             CorrespondenceSource    @default(manual)
+  messageId          String?                 @map("message_id")
+  bodyText           String?                 @map("body_text")
+  metadata           Json?
   isClientVisible    Boolean                 @default(false) @map("is_client_visible")
   documentVersionId  String?                 @map("document_version_id") @db.Uuid
+  mailboxConnectionId String?                @map("mailbox_connection_id") @db.Uuid
   createdById        String?                 @map("created_by_id") @db.Uuid
   createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt          DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  matter          Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
-  documentVersion MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
-  createdBy       User?                  @relation("CorrespondenceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
-  timelineEvent   MatterTimelineEvent?
-  deadlines       Deadline[]
+  matter             Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  documentVersion    MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
+  mailboxConnection  MailboxConnection?     @relation(fields: [mailboxConnectionId], references: [id], onDelete: SetNull)
+  createdBy          User?                  @relation("CorrespondenceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  timelineEvent      MatterTimelineEvent?
+  deadlines          Deadline[]
+  linkedFromQueue    UnlinkedEmail?
 
   @@index([matterId])
   @@index([correspondenceDate])
   @@index([status])
   @@index([category])
+  @@index([messageId])
+  @@index([mailboxConnectionId])
   @@map("correspondence")
+}
+
+enum MailboxProvider {
+  microsoft
+  google
+
+  @@map("mailbox_provider")
+}
+
+enum MailboxConnectionStatus {
+  active
+  revoked
+  error
+
+  @@map("mailbox_connection_status")
+}
+
+enum UnlinkedEmailStatus {
+  pending
+  linked
+  dismissed
+
+  @@map("unlinked_email_status")
+}
+
+model MailboxConnection {
+  id              String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId          String                  @map("user_id") @db.Uuid
+  provider        MailboxProvider
+  emailAddress    String                  @map("email_address")
+  status          MailboxConnectionStatus @default(active)
+  encryptedTokens String                  @map("encrypted_tokens")
+  lastSyncAt      DateTime?               @map("last_sync_at") @db.Timestamptz(6)
+  lastSyncError   String?                 @map("last_sync_error")
+  syncCursor      String?                 @map("sync_cursor")
+  createdAt       DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  unlinkedEmails   UnlinkedEmail[]
+  correspondence   Correspondence[]
+
+  @@unique([userId, provider])
+  @@index([status])
+  @@map("mailbox_connections")
+}
+
+model UnlinkedEmail {
+  id                     String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  mailboxConnectionId    String              @map("mailbox_connection_id") @db.Uuid
+  externalMessageId      String              @map("external_message_id")
+  internetMessageId      String?             @map("internet_message_id")
+  sender                 String
+  recipient              String
+  subject                String
+  receivedAt             DateTime            @map("received_at") @db.Timestamptz(6)
+  hasAttachments         Boolean             @default(false) @map("has_attachments")
+  status                 UnlinkedEmailStatus @default(pending)
+  suggestedMatterId      String?             @map("suggested_matter_id") @db.Uuid
+  suggestionReason       String?             @map("suggestion_reason")
+  emlStorageKey          String              @map("eml_storage_key")
+  metadata               Json?
+  linkedCorrespondenceId String?             @unique @map("linked_correspondence_id") @db.Uuid
+  linkedById             String?             @map("linked_by_id") @db.Uuid
+  linkedAt               DateTime?           @map("linked_at") @db.Timestamptz(6)
+  createdAt              DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  mailboxConnection    MailboxConnection @relation(fields: [mailboxConnectionId], references: [id], onDelete: Cascade)
+  suggestedMatter      Matter?           @relation(fields: [suggestedMatterId], references: [id], onDelete: SetNull)
+  linkedCorrespondence Correspondence?   @relation(fields: [linkedCorrespondenceId], references: [id], onDelete: SetNull)
+  linkedBy             User?             @relation("UnlinkedEmailLinkedBy", fields: [linkedById], references: [id], onDelete: SetNull)
+
+  @@unique([mailboxConnectionId, externalMessageId])
+  @@index([status, receivedAt])
+  @@index([internetMessageId])
+  @@map("unlinked_emails")
 }
 
 model MatterTimelineEvent {
@@ -1264,4 +1375,26 @@ model WatchAlert {
   @@index([status, detectedAt])
   @@index([watchProfileId])
   @@map("watch_alerts")
+}
+
+enum RetentionAction {
+  anonymize
+  delete
+
+  @@map("retention_action")
+}
+
+model RetentionRule {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  entityType    String          @map("entity_type")
+  conditionJson Json            @default("{}") @map("condition_json")
+  retentionDays Int             @map("retention_days")
+  action        RetentionAction
+  isActive      Boolean         @default(true) @map("is_active")
+  description   String?
+  createdAt     DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime        @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([entityType])
+  @@map("retention_rules")
 }

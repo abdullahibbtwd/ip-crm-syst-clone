@@ -33,6 +33,8 @@ const RESOURCES = [
   'registry',
   'task',
   'renewal',
+  'email',
+  'email_queue',
 ] as const;
 
 const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -52,6 +54,11 @@ const EXTRA_PERMISSIONS = [
     action: 'instruct',
     key: 'renewal:instruct',
   },
+  {
+    resource: 'email_queue',
+    action: 'link',
+    key: 'email_queue:link',
+  },
 ] as const;
 
 const ROLE_DEFINITIONS: Record<
@@ -60,7 +67,10 @@ const ROLE_DEFINITIONS: Record<
 > = {
   [SYSTEM_ROLES.MANAGING_PARTNER]: {
     description: 'Full firm oversight and administration',
-    permissions: ALL_PERMISSIONS.map((p) => p.key),
+    permissions: [
+      ...ALL_PERMISSIONS.map((p) => p.key),
+      ...EXTRA_PERMISSIONS.map((p) => p.key),
+    ],
   },
   [SYSTEM_ROLES.IP_ATTORNEY]: {
     description: 'Patent and IP prosecution matters',
@@ -79,6 +89,11 @@ const ROLE_DEFINITIONS: Record<
       'correspondence:read',
       'correspondence:create',
       'correspondence:update',
+      'email:read',
+      'email:create',
+      'email:delete',
+      'email_queue:read',
+      'email_queue:link',
       'billing:read',
       'billing:create',
       'task:read',
@@ -106,6 +121,11 @@ const ROLE_DEFINITIONS: Record<
       'correspondence:read',
       'correspondence:create',
       'correspondence:update',
+      'email:read',
+      'email:create',
+      'email:delete',
+      'email_queue:read',
+      'email_queue:link',
       'billing:read',
       'billing:create',
       'task:read',
@@ -131,6 +151,11 @@ const ROLE_DEFINITIONS: Record<
       'document:create',
       'correspondence:read',
       'correspondence:create',
+      'email:read',
+      'email:create',
+      'email:delete',
+      'email_queue:read',
+      'email_queue:link',
       'billing:read',
       'billing:create',
       'deadline:read',
@@ -151,6 +176,11 @@ const ROLE_DEFINITIONS: Record<
       'renewal:update',
       'document:read',
       'correspondence:read',
+      'email:read',
+      'email:create',
+      'email:delete',
+      'email_queue:read',
+      'email_queue:link',
       'registry:read',
       'registry:update',
     ],
@@ -652,6 +682,111 @@ async function main() {
   console.log(
     'Seeded deadline rules (matter_created + office_action + renewal_due for EU, EP, BG)',
   );
+
+  const retentionRuleSeeds = [
+    {
+      id: '00000000-0000-4000-9000-000000000001',
+      entityType: 'intake_leads',
+      conditionJson: { status: 'rejected' },
+      retentionDays: 730,
+      action: 'anonymize' as const,
+      description: 'Rejected intake enquiries — anonymize after 24 months',
+    },
+    {
+      id: '00000000-0000-4000-9000-000000000002',
+      entityType: 'intake_leads',
+      conditionJson: {
+        statusNotIn: ['converted', 'rejected'],
+      },
+      retentionDays: 1095,
+      action: 'anonymize' as const,
+      description: 'Stale unconverted intake — anonymize after 36 months',
+    },
+    {
+      id: '00000000-0000-4000-9000-000000000003',
+      entityType: 'audit_logs',
+      conditionJson: {},
+      retentionDays: 2555,
+      action: 'delete' as const,
+      description: 'Audit logs — delete after 7 years',
+    },
+  ];
+
+  for (const rule of retentionRuleSeeds) {
+    await prisma.retentionRule.upsert({
+      where: { id: rule.id },
+      update: {
+        entityType: rule.entityType,
+        conditionJson: rule.conditionJson,
+        retentionDays: rule.retentionDays,
+        action: rule.action,
+        description: rule.description,
+        isActive: true,
+      },
+      create: rule,
+    });
+  }
+
+  console.log('Seeded GDPR retention rules');
+
+  const documentTemplateSeeds = [
+    {
+      id: '00000000-0000-4000-a000-000000000001',
+      slug: 'filing-cover-letter',
+      name: 'Filing Cover Letter',
+      category: 'application' as const,
+      description: 'Cover letter accompanying a new trademark or patent filing package.',
+      referenceLine:
+        'Re: Application No. {{applicationNumber}} — {{matterTitle}} ({{jurisdiction}})',
+      htmlBody: `<p>Dear {{clientName}},</p>
+<p>We are pleased to confirm that we have prepared and submitted the above-referenced {{matterType}} application on your behalf. The application was filed on {{filingDate}} before the competent authority in {{jurisdiction}}.</p>
+<p>Please find enclosed our filing submission for your records. We will monitor the application and advise you promptly upon receipt of any official communication from the office.</p>
+<p>Should you have any questions regarding this matter, please do not hesitate to contact us.</p>`,
+    },
+    {
+      id: '00000000-0000-4000-a000-000000000002',
+      slug: 'renewal-instruction-letter',
+      name: 'Renewal Instruction Letter',
+      category: 'correspondence' as const,
+      description: 'Client letter confirming renewal instructions and upcoming deadline.',
+      referenceLine:
+        'Re: Renewal — Reg. No. {{registrationNumber}} — {{ipRightTitle}} ({{jurisdiction}})',
+      htmlBody: `<p>Dear {{clientName}},</p>
+<p>We write further to your instructions regarding the renewal of the above-referenced intellectual property right registered in {{jurisdiction}}.</p>
+<p>We confirm that we have recorded your renewal instruction and will proceed to file the renewal application before the applicable deadline. We will send you a copy of the filed renewal request once submitted.</p>
+<p>Please contact us immediately if your instructions change or if you require an updated cost estimate.</p>`,
+    },
+    {
+      id: '00000000-0000-4000-a000-000000000003',
+      slug: 'filing-confirmation',
+      name: 'Filing Confirmation',
+      category: 'correspondence' as const,
+      description: 'Short confirmation to the client that a filing has been completed.',
+      referenceLine: 'Re: {{matterTitle}} — Filing confirmation',
+      htmlBody: `<p>Dear {{clientName}},</p>
+<p>This is to confirm that we have completed the filing of your {{matterType}} matter titled &ldquo;{{ipRightTitle}}&rdquo; in {{jurisdiction}}.</p>
+<p>Application/filing reference: <strong>{{applicationNumber}}</strong>. Filing date: <strong>{{filingDate}}</strong>.</p>
+<p>We will keep you informed of material developments and official actions as they arise.</p>`,
+    },
+  ];
+
+  for (const template of documentTemplateSeeds) {
+    await prisma.documentTemplate.upsert({
+      where: { id: template.id },
+      update: {
+        slug: template.slug,
+        name: template.name,
+        category: template.category,
+        description: template.description,
+        referenceLine: template.referenceLine,
+        htmlBody: template.htmlBody,
+        isActive: true,
+      },
+      create: template,
+    });
+  }
+
+  console.log('Seeded document letter templates');
 
   const holdingGroup = await prisma.holdingGroup.upsert({
     where: { id: '00000000-0000-4000-8000-000000000001' },

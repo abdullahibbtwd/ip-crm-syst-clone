@@ -10,7 +10,7 @@ import {
   Req,
 } from '@nestjs/common';
 import type { Request } from 'express';
-import { Audit } from '../common/decorators/audit.decorator';
+import { Audit, SkipAudit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { INTAKE_MODULE } from './intake.constants';
@@ -26,30 +26,33 @@ import { IntakeService } from './intake.service';
 
 @Controller('intake')
 @RequirePermissions('intake:read')
-@Audit({ action: 'intake', resource: 'intake', module: INTAKE_MODULE })
 export class IntakeController {
   constructor(private readonly intakeService: IntakeService) {}
 
   @Post()
   @RequirePermissions('intake:create')
+  @Audit({ action: 'intake.create', resource: 'intake', module: INTAKE_MODULE })
   create(@Body() dto: CreateIntakeLeadDto, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.intakeService.create(dto, user);
   }
 
   @Get()
+  @SkipAudit()
   findAll(@Query() query: IntakeQueryDto, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.intakeService.findAll(query, user);
   }
 
   @Get('pending-count')
+  @SkipAudit()
   pendingCount(@Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.intakeService.countPending(user);
   }
 
   @Get(':id')
+  @Audit({ action: 'intake.read', resource: 'intake', module: INTAKE_MODULE })
   findOne(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.intakeService.findOneForUser(id, user);

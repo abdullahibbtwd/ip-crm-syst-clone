@@ -16,6 +16,9 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { AlertsModule } from './alerts/alerts.module';
 import { IpRightsModule } from './ip-rights/ip-rights.module';
 import { WatchModule } from './watch/watch.module';
+import { RetentionModule } from './retention/retention.module';
+import { EmailIntegrationModule } from './email-integration/email-integration.module';
+import { PdfModule } from './pdf/pdf.module';
 import { TasksModule } from './tasks/tasks.module';
 import { ReportsModule } from './reports/reports.module';
 import { UsersModule } from './users/users.module';
@@ -53,6 +56,9 @@ import { PrismaModule } from './prisma/prisma.module';
     AlertsModule,
     IpRightsModule,
     WatchModule,
+    RetentionModule,
+    EmailIntegrationModule,
+    PdfModule,
     TasksModule,
     StorageModule,
     ReportsModule,

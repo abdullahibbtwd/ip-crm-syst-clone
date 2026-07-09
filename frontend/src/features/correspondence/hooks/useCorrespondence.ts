@@ -34,6 +34,18 @@ export function useCreateCorrespondence(matterId: string) {
   })
 }
 
+export function useParseEml(matterId: string) {
+  return useMutation({
+    mutationFn: (file: File) => correspondenceApi.parseEml(matterId, file),
+  })
+}
+
+export function useParsePastedEmail(matterId: string) {
+  return useMutation({
+    mutationFn: (text: string) => correspondenceApi.parseText(matterId, text),
+  })
+}
+
 export function useUpdateCorrespondenceStatus(matterId: string) {
   const qc = useQueryClient()
   return useMutation({

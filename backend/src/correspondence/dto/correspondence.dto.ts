@@ -1,6 +1,7 @@
 import {
   IsDateString,
   IsEnum,
+  IsObject,
   IsOptional,
   IsString,
   IsUUID,
@@ -9,6 +10,7 @@ import {
 } from 'class-validator';
 import {
   CorrespondenceDirection,
+  CorrespondenceSource,
   CorrespondenceStatus,
   DocumentCategory,
 } from '../../../generated/prisma/client';
@@ -38,12 +40,35 @@ export class CreateCorrespondenceDto {
   @MaxLength(1000)
   subject!: string;
 
+  @IsOptional()
   @IsEnum(CorrespondenceStatus)
-  status!: CorrespondenceStatus;
+  status?: CorrespondenceStatus;
+
+  @IsOptional()
+  @IsEnum(CorrespondenceSource)
+  source?: CorrespondenceSource;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(500)
+  messageId?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(500_000)
+  bodyText?: string;
+
+  @IsOptional()
+  @IsObject()
+  metadata?: Record<string, unknown>;
 
   @IsOptional()
   @IsUUID()
   documentVersionId?: string;
+
+  @IsOptional()
+  @IsUUID()
+  mailboxConnectionId?: string;
 }
 
 export class UpdateCorrespondenceDto {

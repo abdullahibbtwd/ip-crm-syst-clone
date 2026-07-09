@@ -1,5 +1,6 @@
 export const documentKeys = {
   all: ['documents'] as const,
+  templates: () => [...documentKeys.all, 'templates'] as const,
   portal: (filters?: Record<string, unknown>) =>
     [...documentKeys.all, 'portal', filters ?? {}] as const,
   matter: (matterId: string, filters?: Record<string, unknown>) =>

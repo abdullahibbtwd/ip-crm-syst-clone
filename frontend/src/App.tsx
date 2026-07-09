@@ -15,9 +15,12 @@ import { OfficesTab } from './pages/crm/clients/tabs/OfficesTab'
 import { ClientBillingTab } from './pages/crm/clients/tabs/ClientBillingTab'
 import { MattersTab } from './pages/crm/clients/tabs/MattersTab'
 import { ClientWatchTab } from './pages/crm/clients/tabs/ClientWatchTab'
+import { ClientAccessHistoryTab } from './pages/crm/clients/tabs/ClientAccessHistoryTab'
 import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTab'
 import { RelationshipHistoryTab } from './pages/crm/clients/tabs/RelationshipHistoryTab'
 import { SettingsPage } from './pages/settings/SettingsPage'
+import { EmailIntegrationSettingsPage } from './pages/settings/EmailIntegrationSettingsPage'
+import { EmailQueuePage } from './pages/email-queue/EmailQueuePage'
 import { CreateIntakePage } from './pages/intake/CreateIntakePage'
 import { IntakeDetailPage } from './pages/intake/IntakeDetailPage'
 import { IntakeListPage } from './pages/intake/IntakeListPage'
@@ -53,6 +56,9 @@ import { DeadlineRiskReportPage } from './pages/reports/DeadlineRiskReportPage'
 import { RevenueSummaryReportPage } from './pages/reports/RevenueSummaryReportPage'
 import { FilingVolumesReportPage } from './pages/reports/FilingVolumesReportPage'
 import { RenewalsSummaryReportPage } from './pages/reports/RenewalsSummaryReportPage'
+import { AuditTrailPage } from './pages/compliance/AuditTrailPage'
+import { DataExportsPage } from './pages/compliance/DataExportsPage'
+import { RetentionRulesPage } from './pages/compliance/RetentionRulesPage'
 
 export default function App() {
   return (
@@ -88,6 +94,7 @@ export default function App() {
             <Route path="history" element={<RelationshipHistoryTab />} />
             <Route path="matters" element={<MattersTab />} />
             <Route path="watch" element={<ClientWatchTab />} />
+            <Route path="access" element={<ClientAccessHistoryTab />} />
             <Route path="billing" element={<ClientBillingTab />} />
           </Route>
 
@@ -96,6 +103,8 @@ export default function App() {
           <Route path="/holding-groups/:id" element={<HoldingGroupDetailPage />} />
 
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/settings/email" element={<EmailIntegrationSettingsPage />} />
+          <Route path="/email-queue" element={<EmailQueuePage />} />
 
           <Route path="/users" element={<UsersLayout />}>
             <Route index element={<UsersIndexRedirect />} />
@@ -122,6 +131,9 @@ export default function App() {
           <Route path="/reports/revenue-summary" element={<RevenueSummaryReportPage />} />
           <Route path="/reports/filing-volumes" element={<FilingVolumesReportPage />} />
           <Route path="/reports/renewals-summary" element={<RenewalsSummaryReportPage />} />
+          <Route path="/compliance/audit-trail" element={<AuditTrailPage />} />
+          <Route path="/compliance/data-exports" element={<DataExportsPage />} />
+          <Route path="/compliance/retention" element={<RetentionRulesPage />} />
           <Route path="/matters/:id" element={<MatterLayout />}>
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<MatterOverviewTab />} />

@@ -120,6 +120,18 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: PieChart, labelKey: 'revenueReceivables', path: '/reports/revenue-summary' },
         ],
       },
+      {
+        sectionKey: 'compliance',
+        items: [
+          { icon: List, labelKey: 'auditTrail', path: '/compliance/audit-trail' },
+          { icon: FileOutput, labelKey: 'dataExportsLog', path: '/compliance/data-exports' },
+          { icon: Trash2, labelKey: 'retentionRules', path: '/compliance/retention' },
+        ],
+      },
+      {
+        sectionKey: 'communication',
+        items: [{ icon: Mail, labelKey: 'emailQueue', path: '/email-queue' }],
+      },
     ],
     footer: [
       { icon: UsersRound, labelKey: 'team', path: '/users/team' },
@@ -159,7 +171,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'communication',
         items: [
           { icon: FileText, labelKey: 'documents' },
-          { icon: Mail, labelKey: 'correspondence' },
+          { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
     ],
@@ -196,7 +208,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'communication',
         items: [
           { icon: FileText, labelKey: 'documents' },
-          { icon: Mail, labelKey: 'correspondence' },
+          { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
     ],
@@ -229,7 +241,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
       {
         sectionKey: 'communication',
-        items: [{ icon: Mail, labelKey: 'correspondence' }],
+        items: [{ icon: Mail, labelKey: 'emailQueue', path: '/email-queue' }],
       },
       {
         sectionKey: 'reports',
@@ -268,7 +280,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'correspondence',
         items: [
-          { icon: Mail, labelKey: 'incomingMail' },
+          { icon: Mail, labelKey: 'incomingMail', path: '/email-queue' },
           { icon: Send, labelKey: 'outgoingMail' },
         ],
       },
@@ -347,28 +359,30 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     nav: [
       {
         sectionKey: 'overview',
-        items: [{ icon: LayoutDashboard, labelKey: 'complianceDashboard', isHome: true }],
+        items: [
+          { icon: LayoutDashboard, labelKey: 'complianceDashboard', isHome: true, path: '/dashboard' },
+        ],
       },
       {
         sectionKey: 'gdpr',
         items: [
-          { icon: Shield, labelKey: 'personalDataRegister' },
-          { icon: FileOutput, labelKey: 'dataExportsLog' },
-          { icon: Trash2, labelKey: 'retentionRules' },
+          { icon: Shield, labelKey: 'personalDataRegister', path: '/clients' },
+          { icon: FileOutput, labelKey: 'dataExportsLog', path: '/compliance/data-exports' },
+          { icon: Trash2, labelKey: 'retentionRules', path: '/compliance/retention' },
           { icon: Lock, labelKey: 'consentRecords' },
         ],
       },
       {
         sectionKey: 'audit',
         items: [
-          { icon: List, labelKey: 'auditTrail' },
-          { icon: Eye, labelKey: 'accessLog' },
+          { icon: List, labelKey: 'auditTrail', path: '/compliance/audit-trail' },
+          { icon: Eye, labelKey: 'accessLog', path: '/clients' },
         ],
       },
     ],
     footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
     topbar: { breadcrumbKey: 'complianceDashboard', showLanguage: true },
-    home: { homeKey: 'compliance', comingSoon: true },
+    home: { homeKey: 'compliance' },
   },
 
   it_admin: {
@@ -392,7 +406,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: Plug, labelKey: 'integrations' },
           { icon: Server, labelKey: 'systemHealth' },
-          { icon: History, labelKey: 'auditLog' },
+          { icon: History, labelKey: 'auditLog', path: '/compliance/audit-trail' },
         ],
       },
     ],

@@ -19,6 +19,7 @@
     "correspondence": "Correspondence",
     "documentsAndMail": "Documents & mail",
     "billing": "Billing",
+    "compliance": "Compliance",
     "gdpr": "GDPR",
     "audit": "Audit",
     "usersAndAccess": "Users & access",
@@ -60,6 +61,7 @@
     "gracePeriods": "Grace periods",
     "addDeadline": "Add deadline",
     "incomingMail": "Incoming mail",
+    "emailQueue": "Email queue",
     "outgoingMail": "Outgoing mail",
     "myTasks": "My tasks",
     "assignedMatters": "Assigned matters",
@@ -139,7 +141,9 @@
       "title": "My tasks"
     },
     "compliance": {
-      "title": "Compliance"
+      "eyebrow": "GDPR & compliance",
+      "title": "Compliance",
+      "description": "Retention policies, access registers, and subject access exports."
     },
     "systemDashboard": {
       "title": "System dashboard"

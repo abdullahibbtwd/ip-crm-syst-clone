@@ -322,6 +322,7 @@ export class InvoicesService {
         category: fee.category,
         amount: decimalToNumber(fee.amount),
       })),
+      notes: issued.notes,
     });
 
     const row = await this.prisma.invoice.update({
@@ -421,10 +422,15 @@ export class InvoicesService {
     }
 
     const url = await this.pdf.getDownloadUrl(invoice.pdfStorageKey);
+    const { fileName, mimeType } = InvoicePdfService.resolveDownloadMeta(
+      invoice.pdfStorageKey,
+      invoice.invoiceNumber,
+    );
     return {
       url,
-      fileName: `${invoice.invoiceNumber ?? 'invoice'}.html`,
-      mimeType: 'text/html',
+      fileName,
+      mimeType,
+      clientId: invoice.clientId,
     };
   }
 

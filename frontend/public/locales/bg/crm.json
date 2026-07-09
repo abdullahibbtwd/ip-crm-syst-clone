@@ -194,6 +194,7 @@
     "type": "Тип"
   },
   "tabs": {
+    "accessHistory": "История на достъп",
     "billing": "Фактуриране",
     "contacts": "Контакти",
     "history": "История",

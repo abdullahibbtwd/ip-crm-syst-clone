@@ -60,12 +60,19 @@ export class InvoicesController {
   }
 
   @Get(':id/pdf')
+  @Audit({
+    action: 'invoice.export',
+    resource: 'invoice',
+    module: INVOICES_MODULE,
+    personalDataExport: true,
+  })
   getPdf(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.invoices.getPdfDownload(id, user);
   }
 
   @Get(':id')
+  @Audit({ action: 'invoice.read', resource: 'invoice', module: INVOICES_MODULE })
   findOne(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.invoices.findOne(id, user);
@@ -119,12 +126,19 @@ export class PortalInvoicesController {
   }
 
   @Get(':id/pdf')
+  @Audit({
+    action: 'invoice.export',
+    resource: 'invoice',
+    module: INVOICES_MODULE,
+    personalDataExport: true,
+  })
   getPdf(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.invoices.getPdfDownload(id, user);
   }
 
   @Get(':id')
+  @Audit({ action: 'invoice.read', resource: 'invoice', module: INVOICES_MODULE })
   findOne(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.invoices.findOne(id, user);

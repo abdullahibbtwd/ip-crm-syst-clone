@@ -56,7 +56,29 @@
     "quickWorklist": "Работен списък",
     "quickWorklistDesc": "Филтриране и възлагане на срокове",
     "quickClientDeck": "Клиентски портфейл",
-    "quickClientDeckDesc": "Пълен портфейл и CRM"
+    "quickClientDeckDesc": "Пълен портфейл и CRM",
+    "quickAuditTrail": "Одитна следа",
+    "quickAuditTrailDesc": "Фирмен одитен дневник",
+    "quickDataExports": "Експорти на данни",
+    "quickDataExportsDesc": "Регистър на SAR и изтегляния",
+    "quickRetention": "Правила за съхранение",
+    "quickRetentionDesc": "Автоматизирани политики за данни"
+  },
+  "compliance": {
+    "auditTrail": "Одитна следа",
+    "clientRegister": "Клиентски регистър",
+    "sectionGdpr": "GDPR инструменти",
+    "sectionAccess": "Достъп и експорти",
+    "dataExports": "Дневник на експорти",
+    "dataExportsDesc": "Проследени експорти на лични данни",
+    "retentionRules": "Правила за съхранение",
+    "retentionRulesDesc": "Seed политики и нощен job",
+    "clientRegisterDesc": "Отворете клиент за история на достъп или SAR",
+    "accessHistory": "История на достъп",
+    "accessHistoryDesc": "Регистър на достъп по клиент (таб в профила)",
+    "sarExports": "Експорти по искане на субект",
+    "sarExportsDesc": "JSON пакети от DPO/MP",
+    "auditTrailDesc": "Фирмени одитни събития"
   },
   "coordinator": {
     "intakeQueue": "Опашка за приемане",

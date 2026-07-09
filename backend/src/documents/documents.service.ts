@@ -5,12 +5,14 @@ import {
 } from '@nestjs/common';
 import { DocumentCategory, Prisma } from '../../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { PdfRendererService } from '../pdf/pdf-renderer.service';
 import { MinioStorageService } from '../storage/minio-storage.service';
 import {
-  ALLOWED_MIME_TYPES,
+  isAllowedUploadMime,
   MAX_UPLOAD_BYTES,
 } from '../storage/storage.constants';
 import { DocumentQueryDto, UploadDocumentDto } from './dto/document.dto';
+import { DocumentTemplatesService } from './document-templates.service';
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
@@ -48,6 +50,8 @@ export class DocumentsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly storage: MinioStorageService,
+    private readonly pdfRenderer: PdfRendererService,
+    private readonly documentTemplates: DocumentTemplatesService,
   ) {}
 
   async listForMatter(matterId: string, query: DocumentQueryDto) {
@@ -238,6 +242,65 @@ export class DocumentsService {
     return version;
   }
 
+  async generateFromTemplate(
+    matterId: string,
+    templateId: string,
+    userId: string,
+  ) {
+    await this.assertMatterExists(matterId);
+    const template = await this.documentTemplates.findById(templateId);
+    const html = await this.documentTemplates.renderForMatter(templateId, matterId);
+    const pdfBuffer = await this.pdfRenderer.renderHtmlToPdf(html);
+
+    const stamp = new Date().toISOString().slice(0, 10);
+    const fileName = `${template.slug}-${stamp}.pdf`;
+    const displayName = template.name;
+    const tags = ['generated', template.slug];
+
+    const document = await this.prisma.matterDocument.create({
+      data: {
+        matterId,
+        displayName,
+        category: template.category,
+        tags,
+        createdById: userId,
+      },
+    });
+
+    const storageKey = buildStorageKey(matterId, document.id, 1, fileName);
+
+    try {
+      await this.storage.putObject(storageKey, pdfBuffer, 'application/pdf');
+      const version = await this.prisma.matterDocumentVersion.create({
+        data: {
+          documentId: document.id,
+          version: 1,
+          fileName,
+          mimeType: 'application/pdf',
+          sizeBytes: pdfBuffer.length,
+          storageKey,
+          uploadedById: userId,
+        },
+        include: versionInclude,
+      });
+
+      return {
+        id: document.id,
+        matterId: document.matterId,
+        displayName: document.displayName,
+        category: document.category,
+        tags: document.tags,
+        createdAt: document.createdAt,
+        updatedAt: document.updatedAt,
+        versionCount: 1,
+        latestVersion: version,
+      };
+    } catch (err) {
+      await this.prisma.matterDocument.delete({ where: { id: document.id } });
+      throw err;
+    }
+  }
+
   async listVersions(documentId: string) {
     const document = await this.prisma.matterDocument.findUnique({
       where: { id: documentId },
@@ -253,6 +316,12 @@ export class DocumentsService {
   }
 
   async getDownloadUrl(documentId: string, versionId?: string) {
+    const doc = await this.prisma.matterDocument.findUnique({
+      where: { id: documentId },
+      select: { matter: { select: { clientId: true } } },
+    });
+    if (!doc) throw new NotFoundException('Document not found');
+
     const version = versionId
       ? await this.prisma.matterDocumentVersion.findFirst({
           where: { id: versionId, documentId },
@@ -270,6 +339,7 @@ export class DocumentsService {
       fileName: version.fileName,
       mimeType: version.mimeType,
       version: version.version,
+      clientId: doc.matter.clientId,
     };
   }
 
@@ -280,9 +350,9 @@ export class DocumentsService {
     if (file.size > MAX_UPLOAD_BYTES) {
       throw new BadRequestException('File exceeds maximum upload size (50 MB)');
     }
-    if (file.mimetype && !ALLOWED_MIME_TYPES.has(file.mimetype)) {
+    if (!isAllowedUploadMime(file.mimetype, file.originalname)) {
       throw new BadRequestException(
-        `File type not allowed: ${file.mimetype}. Use PDF, Word, Excel, or common images.`,
+        `File type not allowed: ${file.mimetype}. Use PDF, Word, Excel, email (.eml), or common images.`,
       );
     }
   }

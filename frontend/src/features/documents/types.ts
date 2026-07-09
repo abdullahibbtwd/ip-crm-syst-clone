@@ -60,3 +60,11 @@ export type UploadDocumentInput = {
   category: DocumentCategory
   tags?: string
 }
+
+export type DocumentTemplate = {
+  id: string
+  slug: string
+  name: string
+  category: DocumentCategory
+  description: string | null
+}

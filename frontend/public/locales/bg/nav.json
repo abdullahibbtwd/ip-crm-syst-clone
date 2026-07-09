@@ -19,6 +19,7 @@
     "correspondence": "Кореспонденция",
     "documentsAndMail": "Документи и поща",
     "billing": "Фактуриране",
+    "compliance": "Съответствие",
     "gdpr": "GDPR",
     "audit": "Одит",
     "usersAndAccess": "Потребители и достъп",
@@ -60,6 +61,7 @@
     "gracePeriods": "Гратисни периоди",
     "addDeadline": "Добавяне на срок",
     "incomingMail": "Входяща поща",
+    "emailQueue": "Опашка за имейли",
     "outgoingMail": "Изходяща поща",
     "myTasks": "Моите задачи",
     "assignedMatters": "Възложени дела",
@@ -139,7 +141,9 @@
       "title": "Моите задачи"
     },
     "compliance": {
-      "title": "Съответствие"
+      "eyebrow": "GDPR и съответствие",
+      "title": "Съответствие",
+      "description": "Политики за съхранение, регистри на достъп и експорти по искане."
     },
     "systemDashboard": {
       "title": "Системно табло"

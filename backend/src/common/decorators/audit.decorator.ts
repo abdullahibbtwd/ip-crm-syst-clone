@@ -7,6 +7,8 @@ export interface AuditMeta {
   resource: string;
   module?: string;
   skip?: boolean;
+  /** Logs action as personal_data_export (GDPR export trace). */
+  personalDataExport?: boolean;
 }
 
 export const Audit = (meta: AuditMeta) => SetMetadata(AUDIT_KEY, meta);

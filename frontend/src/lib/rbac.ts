@@ -49,6 +49,10 @@ export function hasRole(roles: string[], role: SystemRole): boolean {
   return roles.includes(role)
 }
 
+export function canViewGdprCompliance(roles: string[]): boolean {
+  return hasRole(roles, SYSTEM_ROLES.DPO_COMPLIANCE) || hasRole(roles, SYSTEM_ROLES.MANAGING_PARTNER)
+}
+
 export function hasAnyRole(roles: string[], candidates: SystemRole[]): boolean {
   return candidates.some((r) => roles.includes(r))
 }

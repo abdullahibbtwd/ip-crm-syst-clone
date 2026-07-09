@@ -13,4 +13,22 @@ export const ALLOWED_MIME_TYPES = new Set([
   'image/gif',
   'image/webp',
   'text/plain',
+  'message/rfc822',
 ]);
+
+/** Browsers often send .eml as application/octet-stream */
+export function isAllowedUploadMime(
+  mimeType: string | undefined,
+  originalName: string,
+): boolean {
+  if (mimeType && ALLOWED_MIME_TYPES.has(mimeType)) return true;
+  const lower = originalName.toLowerCase();
+  if (lower.endsWith('.eml')) {
+    return (
+      !mimeType ||
+      mimeType === 'application/octet-stream' ||
+      mimeType === 'message/rfc822'
+    );
+  }
+  return false;
+}

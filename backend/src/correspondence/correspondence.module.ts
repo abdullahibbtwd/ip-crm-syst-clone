@@ -6,6 +6,7 @@ import {
   MatterTimelineController,
 } from './correspondence.controller';
 import { CorrespondenceService } from './correspondence.service';
+import { EmlParserService } from './eml-parser.service';
 
 @Module({
   imports: [DeadlinesModule],
@@ -14,7 +15,7 @@ import { CorrespondenceService } from './correspondence.service';
     MatterTimelineController,
     CorrespondenceController,
   ],
-  providers: [CorrespondenceService],
-  exports: [CorrespondenceService],
+  providers: [CorrespondenceService, EmlParserService],
+  exports: [CorrespondenceService, EmlParserService],
 })
 export class CorrespondenceModule {}

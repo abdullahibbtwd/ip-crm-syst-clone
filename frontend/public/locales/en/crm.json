@@ -194,6 +194,7 @@
     "type": "Type"
   },
   "tabs": {
+    "accessHistory": "Access history",
     "billing": "Billing",
     "contacts": "Contacts",
     "history": "History",

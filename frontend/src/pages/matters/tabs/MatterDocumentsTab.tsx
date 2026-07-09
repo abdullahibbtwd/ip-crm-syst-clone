@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Download, Plus, Upload } from 'lucide-react'
+import { Download, FileText, Plus, Upload } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,6 +23,8 @@ import {
 import { Drawer } from '@/components/crm/Drawer'
 import {
   useDocumentDownload,
+  useDocumentTemplates,
+  useGenerateDocument,
   useMatterDocuments,
   useUploadDocument,
 } from '@/features/documents/hooks/useDocuments'
@@ -55,11 +57,15 @@ export function MatterDocumentsTab() {
   }
 
   const { data: documents, isLoading, isError } = useMatterDocuments(matterId, filters)
+  const { data: templates } = useDocumentTemplates()
   const uploadDocument = useUploadDocument(matterId, filters)
+  const generateDocument = useGenerateDocument(matterId, filters)
   const download = useDocumentDownload()
 
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [generateOpen, setGenerateOpen] = useState(false)
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string>('')
   const [file, setFile] = useState<File | null>(null)
   const [displayName, setDisplayName] = useState('')
   const [category, setCategory] = useState<DocumentCategory>('correspondence')
@@ -104,6 +110,22 @@ export function MatterDocumentsTab() {
     }
   }
 
+  const handleGenerate = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError(null)
+    if (!selectedTemplateId) {
+      setError('Choose a letter template')
+      return
+    }
+    try {
+      await generateDocument.mutateAsync(selectedTemplateId)
+      setGenerateOpen(false)
+      setSelectedTemplateId('')
+    } catch (err) {
+      setError(getApiErrorMessage(err, 'Document generation failed'))
+    }
+  }
+
   if (isError) return <p className="text-sm text-destructive">Failed to load documents.</p>
 
   const rows = documents ?? []
@@ -119,16 +141,31 @@ export function MatterDocumentsTab() {
           </p>
         </div>
         <PermissionGate resource="document" action="create">
-          <Button
-            size="sm"
-            onClick={() => {
-              resetForm()
-              setDrawerOpen(true)
-            }}
-          >
-            <Plus className="size-4" />
-            Upload new document
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                setError(null)
+                setSelectedTemplateId(templates?.[0]?.id ?? '')
+                setGenerateOpen(true)
+              }}
+              disabled={!templates?.length}
+            >
+              <FileText className="size-4" />
+              Generate document
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => {
+                resetForm()
+                setDrawerOpen(true)
+              }}
+            >
+              <Plus className="size-4" />
+              Upload new document
+            </Button>
+          </div>
         </PermissionGate>
       </div>
 
@@ -320,6 +357,63 @@ export function MatterDocumentsTab() {
             </Button>
             <Button type="submit" disabled={uploadDocument.isPending}>
               {uploadDocument.isPending ? 'Uploading…' : 'Upload'}
+            </Button>
+          </div>
+        </form>
+      </Drawer>
+
+      <Drawer
+        open={generateOpen}
+        onClose={() => setGenerateOpen(false)}
+        title="Generate document"
+      >
+        <form onSubmit={handleGenerate} className="space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Pick a letter template. Matter and client details are filled in automatically and saved
+            as a PDF in this folder.
+          </p>
+
+          <div className="space-y-2">
+            {(templates ?? []).map((template) => (
+              <label
+                key={template.id}
+                className={cn(
+                  'flex cursor-pointer gap-3 rounded-lg border p-3 transition-colors',
+                  selectedTemplateId === template.id
+                    ? 'border-primary bg-primary/5'
+                    : 'border-border hover:border-primary/40',
+                )}
+              >
+                <input
+                  type="radio"
+                  name="template"
+                  className="mt-1"
+                  checked={selectedTemplateId === template.id}
+                  onChange={() => setSelectedTemplateId(template.id)}
+                />
+                <span className="min-w-0">
+                  <span className="block font-medium">{template.name}</span>
+                  {template.description ? (
+                    <span className="mt-0.5 block text-sm text-muted-foreground">
+                      {template.description}
+                    </span>
+                  ) : null}
+                </span>
+              </label>
+            ))}
+            {!templates?.length ? (
+              <p className="text-sm text-muted-foreground">No templates available.</p>
+            ) : null}
+          </div>
+
+          {error ? <p className="text-sm text-destructive">{error}</p> : null}
+
+          <div className="flex justify-end gap-2 border-t pt-4">
+            <Button type="button" variant="outline" onClick={() => setGenerateOpen(false)}>
+              Cancel
+            </Button>
+            <Button type="submit" disabled={generateDocument.isPending || !selectedTemplateId}>
+              {generateDocument.isPending ? 'Generating…' : 'Generate PDF'}
             </Button>
           </div>
         </form>

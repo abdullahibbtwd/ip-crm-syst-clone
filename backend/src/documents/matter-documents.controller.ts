@@ -19,6 +19,7 @@ import type { AuthenticatedUser } from '../auth/auth.types';
 import { DOCUMENTS_MODULE } from './documents.constants';
 import { DocumentsService } from './documents.service';
 import { DocumentQueryDto, UploadDocumentDto } from './dto/document.dto';
+import { GenerateDocumentDto } from './dto/generate-document.dto';
 import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 
 @Controller('matters/:matterId/documents')
@@ -39,6 +40,26 @@ export class MatterDocumentsController {
     const user = req.user as AuthenticatedUser;
     await this.portalAccess.assertMatterAccess(matterId, user);
     return this.documentsService.listForMatter(matterId, query);
+  }
+
+  @Post('generate')
+  @RequirePermissions('document:create')
+  @Audit({ action: 'document.generate', resource: 'document', module: DOCUMENTS_MODULE })
+  generate(
+    @Param('matterId') matterId: string,
+    @Body() dto: GenerateDocumentDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.portalAccess
+      .assertMatterAccess(matterId, user)
+      .then(() =>
+        this.documentsService.generateFromTemplate(
+          matterId,
+          dto.templateId,
+          user.userId,
+        ),
+      );
   }
 
   @Post()

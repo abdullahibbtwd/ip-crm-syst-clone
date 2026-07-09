@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import {
   CorrespondenceDirection,
+  CorrespondenceSource,
   CorrespondenceStatus,
   DocumentCategory,
   MatterTimelineEventType,
@@ -55,10 +56,26 @@ function defaultStatusForDirection(
 function timelineTitle(
   direction: CorrespondenceDirection,
   subject: string,
+  source: CorrespondenceSource = CorrespondenceSource.manual,
 ): string {
   const prefix =
     direction === CorrespondenceDirection.incoming ? 'Received' : 'Sent';
-  return `${prefix}: ${subject}`;
+  const emailTag =
+    source === CorrespondenceSource.synced ? ' (Synced)' : '';
+  return `${prefix}${emailTag}: ${subject}`;
+}
+
+function timelineDescription(created: {
+  sender: string;
+  recipient: string;
+  bodyText: string | null;
+}): string {
+  const route = `${created.sender} → ${created.recipient}`;
+  if (created.bodyText) {
+    const preview = created.bodyText.replace(/\s+/g, ' ').trim().slice(0, 160);
+    return preview ? `${route}\n${preview}` : route;
+  }
+  return route;
 }
 
 @Injectable()
@@ -96,6 +113,8 @@ export class CorrespondenceService {
 
     const status = dto.status ?? defaultStatusForDirection(dto.direction);
     const correspondenceDate = new Date(dto.correspondenceDate);
+    const source = dto.source ?? CorrespondenceSource.manual;
+    const metadata = this.buildMetadata(dto.metadata, dto.bodyText);
 
     const row = await this.prisma.$transaction(async (tx) => {
       const created = await tx.correspondence.create({
@@ -108,7 +127,12 @@ export class CorrespondenceService {
           recipient: dto.recipient.trim(),
           subject: dto.subject.trim(),
           status,
+          source,
+          messageId: dto.messageId?.trim() || null,
+          bodyText: dto.bodyText?.trim() || null,
+          metadata: metadata as Prisma.InputJsonValue,
           documentVersionId: dto.documentVersionId,
+          mailboxConnectionId: dto.mailboxConnectionId,
           createdById: userId,
         },
         include: correspondenceInclude,
@@ -118,8 +142,8 @@ export class CorrespondenceService {
         data: {
           matterId,
           eventType: MatterTimelineEventType.correspondence,
-          title: timelineTitle(dto.direction, created.subject),
-          description: `${created.sender} → ${created.recipient}`,
+          title: timelineTitle(dto.direction, created.subject, source),
+          description: timelineDescription(created),
           occurredAt: correspondenceDate,
           sourceCorrespondenceId: created.id,
           createdById: userId,
@@ -128,6 +152,7 @@ export class CorrespondenceService {
             status: created.status,
             category: created.category,
             correspondenceId: created.id,
+            source: created.source,
           } as Prisma.InputJsonValue,
         },
       });
@@ -205,5 +230,16 @@ export class CorrespondenceService {
         'Document version not found on this matter',
       );
     }
+  }
+
+  private buildMetadata(
+    metadata: Record<string, unknown> | undefined,
+    bodyText: string | undefined,
+  ): Prisma.InputJsonValue | undefined {
+    const base = { ...(metadata ?? {}) };
+    if (bodyText?.trim() && !base.logMethod) {
+      base.logMethod = 'paste';
+    }
+    return Object.keys(base).length > 0 ? (base as Prisma.InputJsonValue) : undefined;
   }
 }

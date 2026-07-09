@@ -1,9 +1,11 @@
+import { api } from '@/lib/api'
 import { apiClient } from '@/lib/api-client'
 import type {
   Correspondence,
   CorrespondenceStatus,
   CreateCorrespondenceInput,
   MatterTimelineEvent,
+  ParsedEmailResult,
 } from './types'
 
 export const correspondenceApi = {
@@ -12,6 +14,21 @@ export const correspondenceApi = {
 
   create: (matterId: string, data: CreateCorrespondenceInput) =>
     apiClient.post<Correspondence>(`/matters/${matterId}/correspondence`, data),
+
+  parseEml: (matterId: string, file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    return api
+      .post<ParsedEmailResult>(`/matters/${matterId}/correspondence/parse-eml`, form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((r) => r.data)
+  },
+
+  parseText: (matterId: string, text: string) =>
+    apiClient.post<ParsedEmailResult>(`/matters/${matterId}/correspondence/parse-text`, {
+      text,
+    }),
 
   updateStatus: (id: string, status: CorrespondenceStatus) =>
     apiClient.patch<Correspondence>(`/correspondence/${id}`, { status }),

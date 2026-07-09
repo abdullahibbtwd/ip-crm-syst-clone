@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
-import { Pencil, X } from 'lucide-react'
+import { Download, Pencil, X } from 'lucide-react'
 import { ClientStatusBadge } from '@/components/crm/ClientStatusBadge'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -16,11 +16,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useAuth } from '@/features/auth/AuthProvider'
+import { useExportClientData } from '@/features/compliance/hooks/useCompliance'
 import { useClient, useUpdateClient } from '@/features/crm/hooks/useClients'
 import { useHoldingGroups } from '@/features/crm/hooks/useHoldingGroups'
 import type { ClientDetail, ClientStatus } from '@/features/crm/types'
 import { CLIENT_STATUS_LABELS, CLIENT_TYPE_LABELS } from '@/features/crm/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
+import { canViewGdprCompliance } from '@/lib/rbac'
 import { getCountryLabel } from '@/lib/countries'
 import type { ClientTabContext } from '../ClientLayout'
 
@@ -61,6 +64,9 @@ function ClientOverviewCard({
   onSaved: () => void
 }) {
   const updateClient = useUpdateClient(client.id)
+  const exportData = useExportClientData(client.id)
+  const { user } = useAuth()
+  const showGdprActions = canViewGdprCompliance(user?.roles ?? [])
   const { data: holdingGroups } = useHoldingGroups({ limit: 50 })
 
   const [status, setStatus] = useState<ClientStatus>(client.status)
@@ -152,12 +158,37 @@ function ClientOverviewCard({
             <p className="mt-1 font-mono text-xs text-muted-foreground">{client.internalCode}</p>
           </div>
           {!editing && (
-            <PermissionGate resource="client" action="update">
-              <Button type="button" variant="outline" size="sm" onClick={onEdit}>
-                <Pencil className="size-4" />
-                Edit
-              </Button>
-            </PermissionGate>
+            <div className="flex flex-wrap gap-2">
+              {showGdprActions ? (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={exportData.isPending}
+                  onClick={async () => {
+                    const bundle = await exportData.mutateAsync()
+                    const blob = new Blob([JSON.stringify(bundle, null, 2)], {
+                      type: 'application/json',
+                    })
+                    const url = URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.href = url
+                    a.download = `client-${client.internalCode}-export.json`
+                    a.click()
+                    URL.revokeObjectURL(url)
+                  }}
+                >
+                  <Download className="size-4" />
+                  Export client data
+                </Button>
+              ) : null}
+              <PermissionGate resource="client" action="update">
+                <Button type="button" variant="outline" size="sm" onClick={onEdit}>
+                  <Pencil className="size-4" />
+                  Edit
+                </Button>
+              </PermissionGate>
+            </div>
           )}
         </div>
       </CardHeader>

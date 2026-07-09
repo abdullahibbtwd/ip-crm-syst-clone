@@ -2,6 +2,7 @@ import { api } from '@/lib/api'
 import type {
   DocumentDownloadResponse,
   DocumentFilters,
+  DocumentTemplate,
   DocumentVersion,
   MatterDocument,
   PortalDocument,
@@ -49,4 +50,12 @@ export const documentsApi = {
       })
       .then((r) => r.data)
   },
+
+  listTemplates: () =>
+    api.get<DocumentTemplate[]>('/document-templates').then((r) => r.data),
+
+  generateFromTemplate: (matterId: string, templateId: string) =>
+    api
+      .post<MatterDocument>(`/matters/${matterId}/documents/generate`, { templateId })
+      .then((r) => r.data),
 }

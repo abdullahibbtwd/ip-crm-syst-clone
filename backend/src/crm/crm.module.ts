@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { AuditModule } from '../audit/audit.module';
+import { ComplianceModule } from '../compliance/compliance.module';
 import { ClientsController } from './clients/clients.controller';
 import { ClientsService } from './clients/clients.service';
 import { ContactsController } from './contacts/contacts.controller';
@@ -12,6 +14,7 @@ import { RelatedCompaniesController } from './related-companies/related-companie
 import { RelatedCompaniesService } from './related-companies/related-companies.service';
 
 @Module({
+  imports: [AuditModule, ComplianceModule],
   controllers: [
     HoldingGroupsController,
     ClientsController,

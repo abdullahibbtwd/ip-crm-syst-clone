@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '@/features/auth/AuthProvider'
+import { canViewGdprCompliance } from '@/lib/rbac'
 import { cn } from '@/lib/utils'
 
-const tabs = [
+const baseTabs = [
   { to: 'overview', labelKey: 'tabs.overview' },
   { to: 'offices', labelKey: 'tabs.offices' },
   { to: 'contacts', labelKey: 'tabs.contacts' },
@@ -13,8 +15,13 @@ const tabs = [
   { to: 'billing', labelKey: 'tabs.billing' },
 ] as const
 
+const complianceTab = { to: 'access', labelKey: 'tabs.accessHistory' } as const
+
 export function ClientTabNav({ clientId }: { clientId: string }) {
   const { t } = useTranslation('crm')
+  const { user } = useAuth()
+  const showCompliance = canViewGdprCompliance(user?.roles ?? [])
+  const tabs = showCompliance ? [...baseTabs, complianceTab] : baseTabs
   const base = `/clients/${clientId}`
 
   return (

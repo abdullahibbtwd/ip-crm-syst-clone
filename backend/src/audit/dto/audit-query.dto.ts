@@ -23,6 +23,10 @@ export class AuditQueryDto {
 
   @IsOptional()
   @IsString()
+  action?: string;
+
+  @IsOptional()
+  @IsString()
   cursor?: string;
 
   @IsOptional()

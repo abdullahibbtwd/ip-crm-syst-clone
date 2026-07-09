@@ -5,8 +5,11 @@ import {
   BarChart3,
   CalendarClock,
   FileOutput,
+  List,
   PieChart,
   RefreshCw,
+  Shield,
+  Trash2,
   Users,
 } from 'lucide-react'
 import type { RoleView } from '@/config/role-views'
@@ -264,6 +267,27 @@ export function ManagingPartnerHome({ view, userName }: ManagingPartnerHomeProps
           title={t('managingPartner.quickClientDeck')}
           description={t('managingPartner.quickClientDeckDesc')}
           iconClassName={ICON_PRIMARY}
+        />
+        <DashboardQuickLinkCard
+          to="/compliance/audit-trail"
+          icon={List}
+          title={t('managingPartner.quickAuditTrail')}
+          description={t('managingPartner.quickAuditTrailDesc')}
+          iconClassName={ICON_GREEN}
+        />
+        <DashboardQuickLinkCard
+          to="/compliance/data-exports"
+          icon={Shield}
+          title={t('managingPartner.quickDataExports')}
+          description={t('managingPartner.quickDataExportsDesc')}
+          iconClassName={ICON_PRIMARY}
+        />
+        <DashboardQuickLinkCard
+          to="/compliance/retention"
+          icon={Trash2}
+          title={t('managingPartner.quickRetention')}
+          description={t('managingPartner.quickRetentionDesc')}
+          iconClassName={ICON_GREEN}
         />
       </DashboardQuickLinksRail>
     </DashboardPageShell>

@@ -73,6 +73,8 @@ services:
       MINIO_BUCKET: ${MINIO_BUCKET}
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      PUPPETEER_EXECUTABLE_PATH: /usr/local/bin/puppeteer-chromium
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
     ports:
       - "${BACKEND_PORT:-3002}:3002"
     depends_on:

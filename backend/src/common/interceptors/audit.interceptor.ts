@@ -12,6 +12,8 @@ import { AUDIT_KEY, AuditMeta } from '../decorators/audit.decorator';
 import { AuditService } from '../../audit/audit.service';
 import { AuthenticatedUser } from '../../auth/auth.types';
 
+const READ_METHODS = new Set(['GET', 'HEAD']);
+
 @Injectable()
 export class AuditInterceptor implements NestInterceptor {
   constructor(
@@ -32,10 +34,12 @@ export class AuditInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest<Request>();
     const user = request.user as AuthenticatedUser | undefined;
     const startedAt = Date.now();
+    const isRead = READ_METHODS.has(request.method);
 
-    const action =
-      auditMeta?.action ??
-      `${request.method.toLowerCase()}.${context.getHandler().name}`;
+    const action = auditMeta?.personalDataExport
+      ? 'personal_data_export'
+      : (auditMeta?.action ??
+        `${request.method.toLowerCase()}.${context.getHandler().name}`);
     const resource = auditMeta?.resource ?? this.inferResource(request.path);
     const module = auditMeta?.module ?? 'api';
 
@@ -48,13 +52,14 @@ export class AuditInterceptor implements NestInterceptor {
           userAgent: request.headers['user-agent'],
           action,
           resource,
-          resourceId: this.extractResourceId(request.params),
+          resourceId: this.extractResourceId(request.params, resource),
           module,
-          newValue: this.sanitizeBody(responseBody),
+          newValue: isRead ? undefined : this.sanitizeBody(responseBody),
           metadata: {
             method: request.method,
             path: request.path,
             durationMs: Date.now() - startedAt,
+            clientId: this.extractClientId(request.params, resource, responseBody),
           },
           status: AuditStatus.success,
         });
@@ -67,12 +72,13 @@ export class AuditInterceptor implements NestInterceptor {
           userAgent: request.headers['user-agent'],
           action,
           resource,
-          resourceId: this.extractResourceId(request.params),
+          resourceId: this.extractResourceId(request.params, resource),
           module,
           metadata: {
             method: request.method,
             path: request.path,
             durationMs: Date.now() - startedAt,
+            clientId: this.extractClientId(request.params, resource),
             error: error.message,
           },
           status:
@@ -88,10 +94,39 @@ export class AuditInterceptor implements NestInterceptor {
     return segment ?? 'system';
   }
 
-  private extractResourceId(params: Request['params']): string | null {
+  private extractResourceId(
+    params: Request['params'],
+    resource: string,
+  ): string | null {
     if (!params) return null;
-    const id = params.id ?? params.userId;
+    if (resource === 'client' && typeof params.clientId === 'string') {
+      return params.clientId;
+    }
+    const id = params.id ?? params.userId ?? params.contactId;
     return typeof id === 'string' ? id : null;
+  }
+
+  private extractClientId(
+    params: Request['params'],
+    resource: string,
+    responseBody?: unknown,
+  ): string | null {
+    if (params?.clientId && typeof params.clientId === 'string') {
+      return params.clientId;
+    }
+    if (resource === 'client' && params?.id && typeof params.id === 'string') {
+      return params.id;
+    }
+    if (
+      responseBody &&
+      typeof responseBody === 'object' &&
+      responseBody !== null &&
+      'clientId' in responseBody &&
+      typeof (responseBody as { clientId?: unknown }).clientId === 'string'
+    ) {
+      return (responseBody as { clientId: string }).clientId;
+    }
+    return null;
   }
 
   private extractIp(request: Request): string | null {

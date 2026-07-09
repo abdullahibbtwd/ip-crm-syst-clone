@@ -21,7 +21,6 @@ import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 
 @Controller('documents')
 @RequirePermissions('document:read')
-@Audit({ action: 'document', resource: 'document', module: DOCUMENTS_MODULE })
 export class DocumentsController {
   constructor(
     private readonly documentsService: DocumentsService,
@@ -29,6 +28,7 @@ export class DocumentsController {
   ) {}
 
   @Get(':id/versions')
+  @Audit({ action: 'document.read', resource: 'document', module: DOCUMENTS_MODULE })
   async listVersions(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     await this.portalAccess.assertDocumentAccess(id, user);
@@ -36,6 +36,12 @@ export class DocumentsController {
   }
 
   @Get(':id/download')
+  @Audit({
+    action: 'document.download',
+    resource: 'document',
+    module: DOCUMENTS_MODULE,
+    personalDataExport: true,
+  })
   async download(
     @Param('id') id: string,
     @Req() req: Request,
@@ -48,6 +54,7 @@ export class DocumentsController {
 
   @Post(':id/versions')
   @RequirePermissions('document:create')
+  @Audit({ action: 'document.upload', resource: 'document', module: DOCUMENTS_MODULE })
   @UseInterceptors(
     FileInterceptor('file', {
       storage: memoryStorage(),
