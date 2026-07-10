@@ -343,6 +343,7 @@ export class MattersService {
         clientId: matter.clientId,
         rightType: dto.rightType,
         title: dto.title,
+        applicationNumber: dto.applicationNumber,
         registrationNumber: dto.registrationNumber,
         filingDate: dto.filingDate ? new Date(dto.filingDate) : null,
         registrationDate: dto.registrationDate

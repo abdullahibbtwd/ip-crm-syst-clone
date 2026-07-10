@@ -81,7 +81,8 @@
       "certificate": "Сертификат",
       "correspondence": "Обща кореспонденция",
       "evidence": "Доказателства",
-      "office_action": "Офис действие"
+      "office_action": "Офис действие",
+      "renewal": "Подновяване"
     },
     "direction": {
       "incoming": "Входяща",

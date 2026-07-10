@@ -33,6 +33,9 @@ export const correspondenceApi = {
   updateStatus: (id: string, status: CorrespondenceStatus) =>
     apiClient.patch<Correspondence>(`/correspondence/${id}`, { status }),
 
+  attachDocument: (id: string, documentVersionId: string) =>
+    apiClient.patch<Correspondence>(`/correspondence/${id}`, { documentVersionId }),
+
   listTimeline: (matterId: string) =>
     apiClient.get<MatterTimelineEvent[]>(`/matters/${matterId}/timeline`),
 }

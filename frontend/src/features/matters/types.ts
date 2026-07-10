@@ -123,6 +123,7 @@ export type UpdateMatterInput = Partial<
 export type CreateIpRightInput = {
   rightType: MatterType
   title: string
+  applicationNumber?: string
   registrationNumber?: string
   filingDate?: string
   registrationDate?: string

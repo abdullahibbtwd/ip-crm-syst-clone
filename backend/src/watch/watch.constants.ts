@@ -9,4 +9,5 @@ export const REGISTRY_DEFAULT_JURISDICTION: Record<string, string> = {
   BPO: 'BG',
   EUIPO: 'EU',
   WIPO: 'EP',
+  EPO: 'EP',
 };

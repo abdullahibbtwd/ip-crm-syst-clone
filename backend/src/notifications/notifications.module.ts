@@ -63,6 +63,7 @@ import { NotificationEmailProcessor } from './processors/notification-email.proc
     DeadlineNotifyService,
     DeadlineNotificationScanService,
     ManagingPartnerAudienceService,
+    EmailService,
   ],
 })
 export class NotificationsModule {}

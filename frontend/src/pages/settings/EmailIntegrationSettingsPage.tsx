@@ -80,8 +80,9 @@ export function EmailIntegrationSettingsPage() {
           </p>
           <h1 className="font-serif text-2xl text-foreground md:text-3xl">Email integration</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Connect your work mailbox so new emails appear in the firm Email Queue for manual
-            linking to matters. Read-only access — the CRM never sends or deletes mail.
+            Connect your work mailbox to sync inbound mail into the Email Queue and send replies
+            from the CRM. Requires Mail.Read + Mail.Send (Microsoft) or gmail.readonly + gmail.send
+            (Google). Reconnect after scope updates to grant send permission.
           </p>
         </div>
         <Button

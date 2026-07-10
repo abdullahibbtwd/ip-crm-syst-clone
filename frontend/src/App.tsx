@@ -20,7 +20,11 @@ import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTa
 import { RelationshipHistoryTab } from './pages/crm/clients/tabs/RelationshipHistoryTab'
 import { SettingsPage } from './pages/settings/SettingsPage'
 import { EmailIntegrationSettingsPage } from './pages/settings/EmailIntegrationSettingsPage'
+import { IntegrationsSettingsPage } from './pages/settings/IntegrationsSettingsPage'
+import { DeadlineRulesPage } from './pages/settings/DeadlineRulesPage'
+import { DocumentTemplatesPage } from './pages/settings/DocumentTemplatesPage'
 import { EmailQueuePage } from './pages/email-queue/EmailQueuePage'
+import { BroadcastsPage } from './pages/broadcasts/BroadcastsPage'
 import { CreateIntakePage } from './pages/intake/CreateIntakePage'
 import { IntakeDetailPage } from './pages/intake/IntakeDetailPage'
 import { IntakeListPage } from './pages/intake/IntakeListPage'
@@ -104,7 +108,11 @@ export default function App() {
 
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/settings/email" element={<EmailIntegrationSettingsPage />} />
+          <Route path="/settings/integrations" element={<IntegrationsSettingsPage />} />
+          <Route path="/settings/deadline-rules" element={<DeadlineRulesPage />} />
+          <Route path="/settings/document-templates" element={<DocumentTemplatesPage />} />
           <Route path="/email-queue" element={<EmailQueuePage />} />
+          <Route path="/broadcasts" element={<BroadcastsPage />} />
 
           <Route path="/users" element={<UsersLayout />}>
             <Route index element={<UsersIndexRedirect />} />

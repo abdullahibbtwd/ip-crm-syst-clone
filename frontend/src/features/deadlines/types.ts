@@ -54,6 +54,8 @@ export type Deadline = {
     id: string
     jurisdiction: string
     eventType: DeadlineEventType
+    triggerType?: string
+    daysOffset?: number
     priority: number
     description: string | null
   } | null

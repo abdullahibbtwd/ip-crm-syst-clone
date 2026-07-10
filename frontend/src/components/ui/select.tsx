@@ -81,13 +81,13 @@ function SelectContent({
         align={align}
         alignOffset={alignOffset}
         alignItemWithTrigger={alignItemWithTrigger}
-        className="isolate z-50"
+        className="isolate z-[100]"
       >
         <SelectPrimitive.Popup
           data-slot="select-content"
           data-align-trigger={alignItemWithTrigger}
           className={cn(
-            'relative z-50 max-h-(--available-height) w-(--anchor-width) min-w-40',
+            'relative z-[100] max-h-(--available-height) w-(--anchor-width) min-w-40',
             'origin-(--transform-origin) overflow-hidden rounded-md',
             'border border-border/80 bg-popover text-popover-foreground',
             'shadow-lg shadow-foreground/5',

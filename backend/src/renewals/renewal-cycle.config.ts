@@ -62,7 +62,7 @@ export function resolveRenewalJurisdiction(
 ): RenewalJurisdiction | null {
   const code = jurisdiction.trim().toUpperCase();
 
-  if (code === 'EU' || code === 'EM' || code === 'WIPO') {
+  if (code === 'EU' || code === 'EM' || code === 'WIPO' || code === 'WO') {
     return matterType === 'trademark' || matterType === 'industrial_design'
       ? 'EU'
       : null;

@@ -1,4 +1,4 @@
-import { Loader2, Link2, Paperclip } from 'lucide-react'
+import { Loader2, Link2, Paperclip, Reply } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { Drawer } from '@/components/crm/Drawer'
 import { Badge } from '@/components/ui/badge'
@@ -6,11 +6,13 @@ import { Button } from '@/components/ui/button'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { emailIntegrationApi } from '../api'
 import { emailIntegrationKeys } from '../queryKeys'
+import { EmailAiSummary } from './EmailAiSummary'
 
 type EmailPreviewDrawerProps = {
   emailId: string | null
   onClose: () => void
   onAttachToMatter?: () => void
+  onReply?: () => void
 }
 
 function formatReceived(iso: string) {
@@ -34,6 +36,7 @@ export function EmailPreviewDrawer({
   emailId,
   onClose,
   onAttachToMatter,
+  onReply,
 }: EmailPreviewDrawerProps) {
   const { data, isLoading, isError } = useQuery({
     queryKey: [...emailIntegrationKeys.queue(), 'preview', emailId],
@@ -91,14 +94,30 @@ export function EmailPreviewDrawer({
             )}
           </div>
 
-          {onAttachToMatter ? (
-            <PermissionGate resource="email_queue" action="link">
-              <Button className="w-full" onClick={onAttachToMatter}>
-                <Link2 className="size-4" />
-                Attach to matter correspondence
-              </Button>
-            </PermissionGate>
-          ) : null}
+          <EmailAiSummary emailId={data.id} preview={data} />
+
+          <div className="flex flex-col gap-2 sm:flex-row">
+            {onReply ? (
+              <PermissionGate resource="email" action="create">
+                <Button className="flex-1" variant="default" onClick={onReply}>
+                  <Reply className="size-4" />
+                  Reply
+                </Button>
+              </PermissionGate>
+            ) : null}
+            {onAttachToMatter ? (
+              <PermissionGate resource="email_queue" action="link">
+                <Button
+                  className="flex-1"
+                  variant={onReply ? 'outline' : 'default'}
+                  onClick={onAttachToMatter}
+                >
+                  <Link2 className="size-4" />
+                  Attach to matter
+                </Button>
+              </PermissionGate>
+            ) : null}
+          </div>
         </div>
       )}
     </Drawer>

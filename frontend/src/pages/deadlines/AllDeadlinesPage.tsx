@@ -24,6 +24,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { CreateDeadlineDrawer } from '@/features/deadlines/components/CreateDeadlineDrawer'
+import { DeadlineExplanationButton } from '@/features/deadlines/components/DeadlineExplanationButton'
 import { DeadlineStatusButton } from '@/features/deadlines/components/DeadlineStatusButton'
 import {
   useAllDeadlines,
@@ -312,7 +313,10 @@ export function AllDeadlinesPage() {
                         >
                           {d.matter?.title ?? d.title}
                         </Link>
-                        <p className="text-xs text-muted-foreground">{d.title}</p>
+                        <p className="text-xs text-muted-foreground inline-flex items-center gap-1">
+                          {d.title}
+                          <DeadlineExplanationButton deadlineId={d.id} />
+                        </p>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
                         {d.assignedTo.fullName}

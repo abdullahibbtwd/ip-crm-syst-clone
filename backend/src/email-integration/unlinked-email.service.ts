@@ -99,20 +99,25 @@ export class UnlinkedEmailService {
       subject: parsed.subject || row.subject || '(No subject)',
       receivedAt: row.receivedAt,
       hasAttachments: row.hasAttachments || parsed.attachments.length > 0,
-      bodyText: parsed.bodyText,
+      bodyText: parsed.bodyText ?? row.bodyText,
       bodyHtml: parsed.bodyHtml,
       attachments: parsed.attachments,
+      internetMessageId: row.internetMessageId,
+      externalMessageId: row.externalMessageId,
+      mailboxConnectionId: row.mailboxConnectionId,
       mailboxConnection: row.mailboxConnection,
       suggestedMatter: row.suggestedMatter,
+      suggestedCategory: row.suggestedCategory,
+      metadata: row.metadata,
     };
   }
 
   async dismiss(id: string, userId: string, roles: string[]) {
-    await this.getById(id);
+    const row = await this.getById(id);
     if (!this.canLink(roles)) {
       throw new ForbiddenException('Not allowed to dismiss queued emails');
     }
-    return this.prisma.unlinkedEmail.update({
+    const updated = await this.prisma.unlinkedEmail.update({
       where: { id },
       data: {
         status: UnlinkedEmailStatus.dismissed,
@@ -121,6 +126,14 @@ export class UnlinkedEmailService {
       },
       include: queueInclude,
     });
+
+    try {
+      await this.storage.deleteObject(row.emlStorageKey);
+    } catch {
+      // Lifecycle rule will eventually clean up if delete fails
+    }
+
+    return updated;
   }
 
   async linkToMatter(

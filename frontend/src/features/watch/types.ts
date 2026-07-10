@@ -1,7 +1,7 @@
 export type WatchProfileStatus = 'active' | 'paused' | 'archived'
 export type WatchFrequency = 'daily' | 'weekly'
 export type WatchAlertStatus = 'new' | 'rejected' | 'accepted'
-export type WatchRegistrySource = 'BPO' | 'EUIPO' | 'WIPO'
+export type WatchRegistrySource = 'BPO' | 'EUIPO' | 'WIPO' | 'EPO'
 
 export type WatchClientSummary = {
   id: string

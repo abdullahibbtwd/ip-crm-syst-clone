@@ -4,6 +4,7 @@ import type { CorrespondenceCategory } from '@/features/correspondence/types'
 import { deadlineKeys } from '@/features/deadlines/queryKeys'
 import { emailIntegrationApi } from '../api'
 import { emailIntegrationKeys } from '../queryKeys'
+import type { SendOutboundEmailInput } from '../types'
 
 export function useMailboxProviders() {
   return useQuery({
@@ -97,6 +98,42 @@ export function useDismissQueuedEmail() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: emailIntegrationKeys.queue() })
       qc.invalidateQueries({ queryKey: emailIntegrationKeys.queueStats() })
+    },
+  })
+}
+
+export function useDraftOutboundReply(
+  params: {
+    matterId: string
+    unlinkedEmailId?: string
+    correspondenceId?: string
+    useAi?: boolean
+  } | null,
+) {
+  return useQuery({
+    queryKey: [
+      ...emailIntegrationKeys.all,
+      'outbound-draft',
+      params?.matterId,
+      params?.unlinkedEmailId,
+      params?.correspondenceId,
+      params?.useAi ?? false,
+    ],
+    queryFn: () => emailIntegrationApi.draftReply(params!),
+    enabled: Boolean(params?.matterId),
+  })
+}
+
+export function useSendOutboundEmail() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (body: SendOutboundEmailInput) => emailIntegrationApi.sendOutbound(body),
+    onSuccess: (data) => {
+      qc.invalidateQueries({ queryKey: emailIntegrationKeys.queue() })
+      qc.invalidateQueries({ queryKey: emailIntegrationKeys.queueStats() })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.matter(data.matterId) })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(data.matterId) })
+      qc.invalidateQueries({ queryKey: deadlineKeys.matter(data.matterId) })
     },
   })
 }

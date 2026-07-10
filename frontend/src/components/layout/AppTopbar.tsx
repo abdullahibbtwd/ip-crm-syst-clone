@@ -16,6 +16,7 @@ import { useShell } from '@/features/shell/ShellProvider'
 import { roleLabel as getRoleLabel, type SystemRole } from '@/lib/rbac'
 import { cn } from '@/lib/utils'
 import { LanguageMenu, NotificationsMenu, UserMenu } from './ShellMenus'
+import { GlobalSearch } from './GlobalSearch'
 
 type AppTopbarProps = {
   userName: string
@@ -78,7 +79,7 @@ export function AppTopbar({
 
       <nav
         aria-label={tCommon('nav.breadcrumb')}
-        className="flex min-w-0 flex-1 items-center gap-2 text-xs"
+        className="flex min-w-0 shrink items-center gap-2 text-xs md:max-w-[28%]"
       >
         <span
           className={cn(
@@ -107,7 +108,9 @@ export function AppTopbar({
         </span>
       </nav>
 
-      <div className="flex shrink-0 items-center gap-0.5">
+      {!external ? <GlobalSearch /> : null}
+
+      <div className="ml-auto flex shrink-0 items-center gap-0.5">
         {showLanguage ? <LanguageMenu external={external} /> : null}
 
         <NotificationsMenu external={external} />

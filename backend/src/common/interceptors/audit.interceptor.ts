@@ -54,12 +54,16 @@ export class AuditInterceptor implements NestInterceptor {
           resource,
           resourceId: this.extractResourceId(request.params, resource),
           module,
-          newValue: isRead ? undefined : this.sanitizeBody(responseBody),
+          newValue:
+            isRead || resource === 'mcp'
+              ? undefined
+              : this.sanitizeBody(responseBody),
           metadata: {
             method: request.method,
             path: request.path,
             durationMs: Date.now() - startedAt,
             clientId: this.extractClientId(request.params, resource, responseBody),
+            ...this.buildMcpMetadata(resource, request, responseBody),
           },
           status: AuditStatus.success,
         });
@@ -80,6 +84,7 @@ export class AuditInterceptor implements NestInterceptor {
             durationMs: Date.now() - startedAt,
             clientId: this.extractClientId(request.params, resource),
             error: error.message,
+            ...this.buildMcpMetadata(resource, request),
           },
           status:
             error.status === 403 ? AuditStatus.denied : AuditStatus.failure,
@@ -145,5 +150,40 @@ export class AuditInterceptor implements NestInterceptor {
     delete clone.refreshToken;
     delete clone.accessToken;
     return clone;
+  }
+
+  /**
+   * MCP calls: log tool name + parameter shape + response size, never full PII payloads.
+   * Sets metadata.aiAgent so DPO reports can distinguish agent vs human actions.
+   */
+  private buildMcpMetadata(
+    resource: string,
+    request: Request,
+    responseBody?: unknown,
+  ): Record<string, unknown> {
+    if (resource !== 'mcp') return {};
+
+    const body = request.body as
+      | { toolName?: unknown; parameters?: unknown }
+      | undefined;
+    const parameters =
+      body?.parameters && typeof body.parameters === 'object'
+        ? (body.parameters as Record<string, unknown>)
+        : null;
+
+    const responseJson =
+      responseBody === undefined ? '' : JSON.stringify(responseBody);
+
+    return {
+      aiAgent: true,
+      toolName: typeof body?.toolName === 'string' ? body.toolName : undefined,
+      parameters: parameters
+        ? {
+            keys: Object.keys(parameters),
+            count: Object.keys(parameters).length,
+          }
+        : undefined,
+      responseSize: responseJson.length,
+    };
   }
 }

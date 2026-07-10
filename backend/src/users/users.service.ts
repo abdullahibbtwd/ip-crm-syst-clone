@@ -1,9 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { Prisma } from '../../generated/prisma/client';
 import { clientDisplayName } from '../crm/crm.utils';
 import { parseLimit } from '../crm/dto/pagination.dto';
 import { PrismaService } from '../prisma/prisma.service';
-import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import { SYSTEM_ROLES, type SystemRole } from '../rbac/rbac.constants';
+import type { InviteUserDto } from './dto/invite-user.dto';
+import {
+  TEAM_ASSIGNABLE_ROLES,
+  type UpdateUserRoleDto,
+} from './dto/update-user-role.dto';
 import { UserQueryDto, UserSegment } from './dto/user-query.dto';
 
 const ATTORNEY_ROLES = [
@@ -173,6 +182,186 @@ export class UsersService {
       email: user.email,
       roles: user.userRoles.map((r) => r.role.name),
     }));
+  }
+
+  /**
+   * Provision a user for SSO (passwordHash null) or refresh an existing invite.
+   * Matches backend/scripts/invite-user.ts behaviour.
+   */
+  async invite(dto: InviteUserDto) {
+    const email = dto.email.trim().toLowerCase();
+    const fullName = dto.fullName.trim();
+    const role = dto.role;
+
+    if (role === SYSTEM_ROLES.PORTAL_CLIENT && !dto.clientCode?.trim()) {
+      throw new BadRequestException(
+        'Portal client invites require a client internal code (clientCode).',
+      );
+    }
+
+    if (role !== SYSTEM_ROLES.PORTAL_CLIENT && dto.clientCode?.trim()) {
+      throw new BadRequestException(
+        'clientCode is only allowed when inviting a portal_client.',
+      );
+    }
+
+    const roleRow = await this.prisma.role.findUnique({ where: { name: role } });
+    if (!roleRow) {
+      throw new BadRequestException(
+        `Role "${role}" is not seeded. Run: npx prisma db seed`,
+      );
+    }
+
+    let clientId: string | null = null;
+    if (dto.clientCode?.trim()) {
+      const client = await this.prisma.client.findFirst({
+        where: { internalCode: dto.clientCode.trim() },
+        select: { id: true },
+      });
+      if (!client) {
+        throw new BadRequestException(
+          `Client not found with internal code "${dto.clientCode.trim()}".`,
+        );
+      }
+      clientId = client.id;
+    }
+
+    const existing = await this.prisma.user.findUnique({
+      where: { email },
+      select: {
+        id: true,
+        clientId: true,
+        userRoles: { select: { role: { select: { name: true } } } },
+      },
+    });
+
+    if (existing) {
+      const existingRoles = existing.userRoles.map((r) => r.role.name);
+      const isPortal = existingRoles.includes(SYSTEM_ROLES.PORTAL_CLIENT);
+      const invitingPortal = role === SYSTEM_ROLES.PORTAL_CLIENT;
+
+      if (isPortal !== invitingPortal) {
+        throw new BadRequestException(
+          invitingPortal
+            ? 'That email already belongs to a team user.'
+            : 'That email already belongs to a portal user.',
+        );
+      }
+    }
+
+    const user = await this.prisma.user.upsert({
+      where: { email },
+      update: {
+        fullName,
+        isActive: true,
+        ...(clientId !== null ? { clientId } : {}),
+      },
+      create: {
+        email,
+        fullName,
+        isActive: true,
+        passwordHash: null,
+        clientId,
+      },
+      select: userListSelect,
+    });
+
+    if (role !== SYSTEM_ROLES.PORTAL_CLIENT) {
+      // Team invite: replace staff roles with the invited role (single primary).
+      await this.replaceTeamRoles(user.id, role);
+    } else {
+      await this.prisma.userRole.upsert({
+        where: {
+          userId_roleId: { userId: user.id, roleId: roleRow.id },
+        },
+        update: {},
+        create: { userId: user.id, roleId: roleRow.id },
+      });
+    }
+
+    const refreshed = await this.prisma.user.findUniqueOrThrow({
+      where: { id: user.id },
+      select: userListSelect,
+    });
+
+    return this.toListItem(refreshed);
+  }
+
+  async updateRole(
+    userId: string,
+    dto: UpdateUserRoleDto,
+    actorUserId: string,
+  ) {
+    if (userId === actorUserId) {
+      throw new BadRequestException('You cannot change your own role.');
+    }
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        userRoles: { select: { role: { select: { name: true } } } },
+      },
+    });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const roles = user.userRoles.map((r) => r.role.name);
+    if (roles.includes(SYSTEM_ROLES.PORTAL_CLIENT)) {
+      throw new BadRequestException(
+        'Portal client roles cannot be changed here. Invite or link via the portal flow.',
+      );
+    }
+
+    if (
+      !(TEAM_ASSIGNABLE_ROLES as readonly string[]).includes(dto.role)
+    ) {
+      throw new BadRequestException('Invalid team role');
+    }
+
+    await this.replaceTeamRoles(userId, dto.role);
+
+    const refreshed = await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+      select: userListSelect,
+    });
+
+    return this.toListItem(refreshed);
+  }
+
+  private async replaceTeamRoles(userId: string, roleName: SystemRole) {
+    const roleRow = await this.prisma.role.findUnique({
+      where: { name: roleName },
+    });
+    if (!roleRow) {
+      throw new BadRequestException(
+        `Role "${roleName}" is not seeded. Run: npx prisma db seed`,
+      );
+    }
+
+    const portalRole = await this.prisma.role.findUnique({
+      where: { name: SYSTEM_ROLES.PORTAL_CLIENT },
+      select: { id: true },
+    });
+
+    await this.prisma.$transaction(async (tx) => {
+      await tx.userRole.deleteMany({
+        where: {
+          userId,
+          ...(portalRole
+            ? { roleId: { not: portalRole.id } }
+            : {}),
+        },
+      });
+      await tx.userRole.upsert({
+        where: {
+          userId_roleId: { userId, roleId: roleRow.id },
+        },
+        update: {},
+        create: { userId, roleId: roleRow.id },
+      });
+    });
   }
 
   private toListItem(user: UserListRow) {

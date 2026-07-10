@@ -7,6 +7,7 @@ import { withActiveNav, navId } from '../features/shell/nav-utils'
 import { ShellProvider, useShell } from '../features/shell/ShellProvider'
 import { AppSidebar } from '../components/layout/AppSidebar'
 import { AppTopbar } from '../components/layout/AppTopbar'
+import { AiAssistantFab } from '../features/ai-assistant/components/AiAssistantFab'
 import { Button } from '@/components/ui/button'
 import {
   initials,
@@ -213,6 +214,8 @@ function LayoutBody({
           </main>
         </div>
       </div>
+
+      <AiAssistantFab />
     </div>
   )
 }

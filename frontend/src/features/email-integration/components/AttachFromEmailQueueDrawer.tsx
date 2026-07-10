@@ -52,9 +52,13 @@ export function AttachFromEmailQueueDrawer({
     })
   }, [rows, matterId])
 
-  const handleAttach = async (emailId: string) => {
+  const handleAttach = async (emailId: string, category?: UnlinkedEmail['suggestedCategory']) => {
     try {
-      await linkEmail.mutateAsync({ id: emailId, matterId })
+      await linkEmail.mutateAsync({
+        id: emailId,
+        matterId,
+        category: category ?? undefined,
+      })
       onClose()
     } catch (err) {
       window.alert(getApiErrorMessage(err, 'Failed to attach email'))
@@ -110,6 +114,15 @@ export function AttachFromEmailQueueDrawer({
                             Suggested
                           </Badge>
                         ) : null}
+                        {row.suggestedCategory ? (
+                          <Badge variant="outline" className="normal-case">
+                            {row.suggestedCategory === 'office_action'
+                              ? 'Office action'
+                              : row.suggestedCategory === 'renewal'
+                                ? 'Renewal'
+                                : row.suggestedCategory}
+                          </Badge>
+                        ) : null}
                       </div>
                       <p className="truncate text-sm text-muted-foreground">
                         From {displaySender(row)}
@@ -121,14 +134,14 @@ export function AttachFromEmailQueueDrawer({
                     <Button
                       size="sm"
                       disabled={linkEmail.isPending}
-                      onClick={() => void handleAttach(row.id)}
+                      onClick={() => void handleAttach(row.id, row.suggestedCategory)}
                     >
                       {linkEmail.isPending ? (
                         <Loader2 className="size-4 animate-spin" />
                       ) : (
                         <Link2 className="size-4" />
                       )}
-                      Attach
+                      {row.suggestedCategory || isSuggested ? 'Confirm & link' : 'Attach'}
                     </Button>
                   </div>
                 </li>

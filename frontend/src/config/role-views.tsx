@@ -24,6 +24,7 @@ import {
   List,
   Lock,
   Mail,
+  Megaphone,
   PieChart,
   Plug,
   Receipt,
@@ -130,7 +131,18 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
       {
         sectionKey: 'communication',
-        items: [{ icon: Mail, labelKey: 'emailQueue', path: '/email-queue' }],
+        items: [
+          { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
+          { icon: Megaphone, labelKey: 'broadcasts', path: '/broadcasts' },
+        ],
+      },
+      {
+        sectionKey: 'system',
+        items: [
+          { icon: CalendarPlus, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
+          { icon: FileText, labelKey: 'documentTemplates', path: '/settings/document-templates' },
+          { icon: Plug, labelKey: 'integrations', path: '/settings/integrations' },
+        ],
       },
     ],
     footer: [
@@ -241,7 +253,10 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
       {
         sectionKey: 'communication',
-        items: [{ icon: Mail, labelKey: 'emailQueue', path: '/email-queue' }],
+        items: [
+          { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
+          { icon: Megaphone, labelKey: 'broadcasts', path: '/broadcasts' },
+        ],
       },
       {
         sectionKey: 'reports',
@@ -275,6 +290,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Clock, labelKey: 'gracePeriods' },
           { icon: CalendarPlus, labelKey: 'addDeadline', path: '/deadlines' },
+          { icon: List, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
         ],
       },
       {
@@ -282,6 +298,12 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: Mail, labelKey: 'incomingMail', path: '/email-queue' },
           { icon: Send, labelKey: 'outgoingMail' },
+        ],
+      },
+      {
+        sectionKey: 'system',
+        items: [
+          { icon: FileText, labelKey: 'documentTemplates', path: '/settings/document-templates' },
         ],
       },
     ],
@@ -404,7 +426,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'system',
         items: [
-          { icon: Plug, labelKey: 'integrations' },
+          { icon: Plug, labelKey: 'integrations', path: '/settings/integrations' },
           { icon: Server, labelKey: 'systemHealth' },
           { icon: History, labelKey: 'auditLog', path: '/compliance/audit-trail' },
         ],

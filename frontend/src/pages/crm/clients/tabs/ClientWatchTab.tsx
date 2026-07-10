@@ -1,7 +1,17 @@
 import { useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Eye, Pause, Play, Plus, Sparkles, Trash2 } from 'lucide-react'
+import {
+  AlertCircle,
+  CheckCircle2,
+  Eye,
+  Loader2,
+  Pause,
+  Play,
+  Plug,
+  Plus,
+  Trash2,
+} from 'lucide-react'
 import { CreateWatchProfileDrawer } from '@/components/watch/CreateWatchProfileDrawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { ReportPanel } from '@/components/reports/report-ui'
@@ -15,8 +25,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { useScanEpoForClient } from '@/features/registry/hooks/useRegistry'
 import {
-  useCreateMockWatchAlert,
   useUpdateWatchProfileStatus,
   useWatchProfiles,
 } from '@/features/watch/hooks/useWatch'
@@ -26,6 +36,8 @@ import {
   watchProfileStatusLabel,
   WATCH_PROFILE_STATUS_VARIANT,
 } from '@/features/watch/utils'
+import { getApiErrorMessage } from '@/lib/api-client'
+import { cn } from '@/lib/utils'
 import type { ClientTabContext } from '../ClientLayout'
 
 export function ClientWatchTab() {
@@ -33,11 +45,43 @@ export function ClientWatchTab() {
   const { clientId } = useOutletContext<ClientTabContext>()
   const { data, isLoading } = useWatchProfiles(clientId)
   const updateStatus = useUpdateWatchProfileStatus()
-  const createMock = useCreateMockWatchAlert()
+  const scanEpo = useScanEpoForClient()
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [epoBanner, setEpoBanner] = useState<{
+    tone: 'success' | 'error'
+    message: string
+  } | null>(null)
 
   const profiles = data?.items ?? []
   const activeCount = profiles.filter((p) => p.status === 'active').length
+
+  const handleScanEpo = async () => {
+    setEpoBanner(null)
+    try {
+      const result = await scanEpo.mutateAsync(clientId)
+      if (!result.success) {
+        setEpoBanner({
+          tone: 'error',
+          message: result.message || t('clientTab.epoScanFailed'),
+        })
+        return
+      }
+      setEpoBanner({
+        tone: 'success',
+        message:
+          result.message ||
+          t('clientTab.epoScanSuccess', {
+            alerts: result.alertsCreated,
+            profiles: result.profilesScanned,
+          }),
+      })
+    } catch (err) {
+      setEpoBanner({
+        tone: 'error',
+        message: getApiErrorMessage(err, t('clientTab.epoScanFailed')),
+      })
+    }
+  }
 
   if (isLoading) {
     return <p className="text-sm text-muted-foreground">{t('clientTab.loading')}</p>
@@ -55,11 +99,24 @@ export function ClientWatchTab() {
             <p className="text-sm text-muted-foreground">{t('clientTab.description')}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <PermissionGate resource="matter" action="create">
-              <Button size="sm" variant="outline" onClick={() => void createMock.mutate({ clientId })}>
-                <Sparkles className="size-4" />
-                {t('clientTab.mockAlert')}
+            <PermissionGate resource="registry" action="read">
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={scanEpo.isPending || activeCount === 0}
+                onClick={() => void handleScanEpo()}
+              >
+                {scanEpo.isPending ? (
+                  <Loader2 className="size-4 animate-spin" />
+                ) : (
+                  <Plug className="size-4" />
+                )}
+                {scanEpo.isPending
+                  ? t('clientTab.epoScanning')
+                  : t('clientTab.epoScan')}
               </Button>
+            </PermissionGate>
+            <PermissionGate resource="matter" action="create">
               <Button size="sm" onClick={() => setDrawerOpen(true)}>
                 <Plus className="size-4" />
                 {t('clientTab.add')}
@@ -67,6 +124,35 @@ export function ClientWatchTab() {
             </PermissionGate>
           </div>
         </div>
+
+        {epoBanner && (
+          <div
+            className={cn(
+              'mb-4 flex flex-wrap items-start gap-2 rounded-lg border px-3 py-2 text-sm',
+              epoBanner.tone === 'success'
+                ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-900'
+                : 'border-destructive/30 bg-destructive/5 text-destructive',
+            )}
+          >
+            {epoBanner.tone === 'success' ? (
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
+            ) : (
+              <AlertCircle className="mt-0.5 size-4 shrink-0" />
+            )}
+            <div className="min-w-0 flex-1 space-y-1">
+              <p>{epoBanner.message}</p>
+              {epoBanner.tone === 'success' && (
+                <Link
+                  to="/watch-alerts"
+                  className="text-xs font-medium underline underline-offset-2"
+                >
+                  {t('clientTab.viewAlerts')}
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
           <span>
             <strong className="text-foreground">{profiles.length}</strong> {t('table.profiles')}

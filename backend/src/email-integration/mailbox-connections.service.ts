@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
   MailboxConnectionStatus,
@@ -7,6 +7,8 @@ import {
 } from '../../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import type { MailboxProviderId } from './email-integration.constants';
+import { MAILBOX_TOKEN_REFRESH_SKEW_MS } from './email-integration.constants';
+import { MailboxAuthError } from './mailbox-http.errors';
 import { MailboxTokenService } from './mailbox-token.service';
 
 const connectionSelect = {
@@ -15,6 +17,7 @@ const connectionSelect = {
   provider: true,
   emailAddress: true,
   status: true,
+  accessTokenExpiresAt: true,
   lastSyncAt: true,
   lastSyncError: true,
   createdAt: true,
@@ -23,6 +26,8 @@ const connectionSelect = {
 
 @Injectable()
 export class MailboxConnectionsService {
+  private readonly logger = new Logger(MailboxConnectionsService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly tokens: MailboxTokenService,
@@ -60,6 +65,10 @@ export class MailboxConnectionsService {
       accessTokenExpiresAt: input.accessTokenExpiresAt,
     });
 
+    const accessTokenExpiresAt = input.accessTokenExpiresAt
+      ? new Date(input.accessTokenExpiresAt)
+      : null;
+
     return this.prisma.mailboxConnection.upsert({
       where: {
         userId_provider: {
@@ -72,12 +81,14 @@ export class MailboxConnectionsService {
         provider: input.provider as MailboxProvider,
         emailAddress: input.emailAddress,
         encryptedTokens,
+        accessTokenExpiresAt,
         status: MailboxConnectionStatus.active,
         lastSyncError: null,
       },
       update: {
         emailAddress: input.emailAddress,
         encryptedTokens,
+        accessTokenExpiresAt,
         status: MailboxConnectionStatus.active,
         lastSyncError: null,
       },
@@ -105,6 +116,21 @@ export class MailboxConnectionsService {
     });
   }
 
+  /** Active connections whose access token is missing or near expiry. */
+  async listConnectionsNeedingTokenRefresh(skewMs = MAILBOX_TOKEN_REFRESH_SKEW_MS) {
+    const threshold = new Date(Date.now() + skewMs);
+    return this.prisma.mailboxConnection.findMany({
+      where: {
+        status: MailboxConnectionStatus.active,
+        OR: [
+          { accessTokenExpiresAt: null },
+          { accessTokenExpiresAt: { lte: threshold } },
+        ],
+      },
+      select: { id: true, provider: true, emailAddress: true },
+    });
+  }
+
   async getAccessToken(connectionId: string): Promise<string> {
     const row = await this.prisma.mailboxConnection.findUnique({
       where: { id: connectionId },
@@ -128,23 +154,77 @@ export class MailboxConnectionsService {
       return payload.accessToken;
     }
 
-    const refreshed = await this.refreshAccessToken(
+    const refreshed = await this.refreshAndPersist(
+      connectionId,
       row.provider as MailboxProviderId,
       payload.refreshToken,
     );
-
-    const encryptedTokens = this.tokens.encrypt({
-      refreshToken: payload.refreshToken,
-      accessToken: refreshed.accessToken,
-      accessTokenExpiresAt: refreshed.accessTokenExpiresAt,
-    });
-
-    await this.prisma.mailboxConnection.update({
-      where: { id: connectionId },
-      data: { encryptedTokens },
-    });
-
     return refreshed.accessToken;
+  }
+
+  /**
+   * Proactively refresh the access token (token-rotation janitor).
+   * Returns true when a refresh was performed.
+   */
+  async ensureFreshAccessToken(connectionId: string): Promise<boolean> {
+    const row = await this.prisma.mailboxConnection.findUnique({
+      where: { id: connectionId },
+      select: {
+        id: true,
+        provider: true,
+        encryptedTokens: true,
+        status: true,
+        accessTokenExpiresAt: true,
+      },
+    });
+    if (!row || row.status !== MailboxConnectionStatus.active) {
+      return false;
+    }
+
+    const stillFresh =
+      row.accessTokenExpiresAt &&
+      row.accessTokenExpiresAt.getTime() > Date.now() + MAILBOX_TOKEN_REFRESH_SKEW_MS;
+
+    if (stillFresh) {
+      const payload = this.tokens.decrypt(row.encryptedTokens);
+      if (
+        payload.accessToken &&
+        payload.accessTokenExpiresAt &&
+        payload.accessTokenExpiresAt > Date.now() + MAILBOX_TOKEN_REFRESH_SKEW_MS
+      ) {
+        return false;
+      }
+    }
+
+    const payload = this.tokens.decrypt(row.encryptedTokens);
+    await this.refreshAndPersist(
+      connectionId,
+      row.provider as MailboxProviderId,
+      payload.refreshToken,
+    );
+    return true;
+  }
+
+  async refreshExpiringTokens(): Promise<{ checked: number; refreshed: number; failed: number }> {
+    const due = await this.listConnectionsNeedingTokenRefresh();
+    let refreshed = 0;
+    let failed = 0;
+
+    for (const connection of due) {
+      try {
+        const didRefresh = await this.ensureFreshAccessToken(connection.id);
+        if (didRefresh) refreshed += 1;
+      } catch (err) {
+        failed += 1;
+        const message = err instanceof Error ? err.message : String(err);
+        this.logger.error(
+          `Token refresh failed for ${connection.id} (${connection.emailAddress}): ${message}`,
+        );
+        await this.markSyncError(connection.id, message);
+      }
+    }
+
+    return { checked: due.length, refreshed, failed };
   }
 
   async markSyncSuccess(connectionId: string, syncCursor?: string) {
@@ -169,10 +249,44 @@ export class MailboxConnectionsService {
     });
   }
 
-  private async refreshAccessToken(
+  private async refreshAndPersist(
+    connectionId: string,
     provider: MailboxProviderId,
     refreshToken: string,
   ): Promise<{ accessToken: string; accessTokenExpiresAt: number }> {
+    try {
+      const refreshed = await this.refreshAccessToken(provider, refreshToken);
+      const encryptedTokens = this.tokens.encrypt({
+        refreshToken: refreshed.refreshToken,
+        accessToken: refreshed.accessToken,
+        accessTokenExpiresAt: refreshed.accessTokenExpiresAt,
+      });
+
+      await this.prisma.mailboxConnection.update({
+        where: { id: connectionId },
+        data: {
+          encryptedTokens,
+          accessTokenExpiresAt: new Date(refreshed.accessTokenExpiresAt),
+          status: MailboxConnectionStatus.active,
+          lastSyncError: null,
+        },
+      });
+
+      return refreshed;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      throw new MailboxAuthError(provider, message);
+    }
+  }
+
+  private async refreshAccessToken(
+    provider: MailboxProviderId,
+    refreshToken: string,
+  ): Promise<{
+    accessToken: string;
+    refreshToken: string;
+    accessTokenExpiresAt: number;
+  }> {
     if (provider === 'microsoft') {
       const tenant =
         this.config.get('MAILBOX_MICROSOFT_TENANT_ID') ??
@@ -189,7 +303,7 @@ export class MailboxConnectionsService {
         client_secret: clientSecret,
         refresh_token: refreshToken,
         grant_type: 'refresh_token',
-        scope: 'https://graph.microsoft.com/Mail.Read offline_access',
+        scope: 'https://graph.microsoft.com/Mail.Read https://graph.microsoft.com/Mail.Send offline_access',
       });
 
       const res = await fetch(
@@ -202,6 +316,7 @@ export class MailboxConnectionsService {
       );
       const json = (await res.json()) as {
         access_token?: string;
+        refresh_token?: string;
         expires_in?: number;
         error_description?: string;
       };
@@ -210,6 +325,7 @@ export class MailboxConnectionsService {
       }
       return {
         accessToken: json.access_token,
+        refreshToken: json.refresh_token ?? refreshToken,
         accessTokenExpiresAt: Date.now() + (json.expires_in ?? 3600) * 1000,
       };
     }
@@ -235,6 +351,7 @@ export class MailboxConnectionsService {
     });
     const json = (await res.json()) as {
       access_token?: string;
+      refresh_token?: string;
       expires_in?: number;
       error_description?: string;
     };
@@ -243,6 +360,7 @@ export class MailboxConnectionsService {
     }
     return {
       accessToken: json.access_token,
+      refreshToken: json.refresh_token ?? refreshToken,
       accessTokenExpiresAt: Date.now() + (json.expires_in ?? 3600) * 1000,
     };
   }

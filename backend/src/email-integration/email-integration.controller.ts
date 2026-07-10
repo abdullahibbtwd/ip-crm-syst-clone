@@ -1,9 +1,11 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
   Param,
   Post,
+  Query,
   Req,
   Res,
 } from '@nestjs/common';
@@ -13,9 +15,11 @@ import { Audit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { EMAIL_INTEGRATION_MODULE } from './email-integration.constants';
+import { SendOutboundEmailDto } from './dto/outbound-email.dto';
 import { MailboxConnectionsService } from './mailbox-connections.service';
 import { MailboxOAuthService } from './mailbox-oauth.service';
 import { EmailSyncService } from './email-sync.service';
+import { OutboundEmailService } from './outbound-email.service';
 
 @Controller('email-integration')
 @Audit({
@@ -28,6 +32,7 @@ export class EmailIntegrationController {
     private readonly oauth: MailboxOAuthService,
     private readonly connections: MailboxConnectionsService,
     private readonly sync: EmailSyncService,
+    private readonly outbound: OutboundEmailService,
   ) {}
 
   @Get('providers')
@@ -90,5 +95,28 @@ export class EmailIntegrationController {
   async fetchNow(@Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.sync.fetchForUser(user.userId);
+  }
+
+  @Get('outbound/draft')
+  @RequirePermissions('email:create', 'correspondence:create')
+  draftReply(
+    @Query('matterId') matterId: string,
+    @Query('unlinkedEmailId') unlinkedEmailId?: string,
+    @Query('correspondenceId') correspondenceId?: string,
+    @Query('useAi') useAi?: string,
+  ) {
+    return this.outbound.buildDraftReply({
+      matterId,
+      unlinkedEmailId,
+      correspondenceId,
+      useAi: useAi === 'true' || useAi === '1',
+    });
+  }
+
+  @Post('outbound')
+  @RequirePermissions('email:create', 'correspondence:create')
+  async sendOutbound(@Body() dto: SendOutboundEmailDto, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.outbound.enqueueAndWait(dto, user.userId, user.roles);
   }
 }

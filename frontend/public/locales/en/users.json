@@ -11,6 +11,24 @@
     "searchPortal": "Search portal users…",
     "searchTeam": "Search team members…"
   },
+  "invite": {
+    "button": "Invite user",
+    "cancel": "Cancel",
+    "description": "Add a team member so they can sign in with Microsoft or Google SSO using this exact email. No password is set.",
+    "email": "Work email",
+    "emailPlaceholder": "name@company.com",
+    "errors": {
+      "failed": "Failed to invite user",
+      "required": "Email and full name are required"
+    },
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Jane Doe",
+    "role": "Role",
+    "ssoHint": "After inviting, ask them to sign in with SSO using this email. They must sign out and back in if their role changes later.",
+    "submit": "Invite for SSO",
+    "submitting": "Inviting…",
+    "title": "Invite team user"
+  },
   "layout": {
     "accessRestricted": "Access restricted",
     "description": "Manage internal team members and external portal client accounts. SSO and password-based sign-in are shown per user.",
@@ -20,6 +38,12 @@
   "portal": {
     "description": "External client accounts with portal access to shared matters and documents.",
     "title": "Portal users"
+  },
+  "role": {
+    "errors": {
+      "failed": "Failed to update role"
+    },
+    "ownRoleHint": "You cannot change your own role"
   },
   "table": {
     "authMethod": {
@@ -60,7 +84,7 @@
     }
   },
   "team": {
-    "description": "Internal staff with roles, sign-in method, and MFA status.",
+    "description": "Internal staff with roles, sign-in method, and MFA status. Managing partners and IT admins can invite users and change roles.",
     "title": "Team members"
   },
   "teamMemberSelect": {

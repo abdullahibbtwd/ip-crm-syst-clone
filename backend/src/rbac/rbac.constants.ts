@@ -30,6 +30,9 @@ export const RESOURCES = [
   'task',
   'email',
   'email_queue',
+  'broadcast',
+  'ai',
+  'mcp',
 ] as const;
 
 export const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -89,6 +92,10 @@ export const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.TRADEMARK_ATTORNEY]: {
@@ -119,6 +126,10 @@ export const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.COORDINATOR]: {
@@ -141,10 +152,16 @@ export const ROLE_DEFINITIONS: Record<
       'email:delete',
       'email_queue:read',
       'email_queue:link',
+      'broadcast:read',
+      'broadcast:create',
       'billing:read',
       'billing:create',
       'deadline:read',
       'portal:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.DOCKETING_ADMIN]: {
@@ -164,6 +181,10 @@ export const ROLE_DEFINITIONS: Record<
       'email_queue:link',
       'registry:read',
       'registry:update',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.PARALEGAL]: {
@@ -184,6 +205,8 @@ export const ROLE_DEFINITIONS: Record<
       'deadline:read',
       'deadline:update',
       'client:read',
+      'ai:read',
+      'ai:create',
     ],
   },
   [SYSTEM_ROLES.FINANCE]: {
@@ -221,6 +244,8 @@ export const ROLE_DEFINITIONS: Record<
       'role:update',
       'audit:read',
       'task:read',
+      'registry:read',
+      'email:read',
     ],
   },
   [SYSTEM_ROLES.PORTAL_CLIENT]: {

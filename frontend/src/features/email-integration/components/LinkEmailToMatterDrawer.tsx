@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { CheckCircle2, Link2, Loader2, Search } from 'lucide-react'
+import { CheckCircle2, Link2, Loader2, Search, Sparkles } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -26,6 +27,8 @@ type LinkEmailToMatterDrawerProps = {
   emailId: string | null
   emailSubject?: string
   suggestedMatter?: UnlinkedEmail['suggestedMatter']
+  suggestedCategory?: CorrespondenceCategory | null
+  suggestionReason?: string | null
   fixedMatterId?: string
   fixedMatterTitle?: string
   open: boolean
@@ -46,6 +49,8 @@ export function LinkEmailToMatterDrawer({
   emailId,
   emailSubject,
   suggestedMatter,
+  suggestedCategory,
+  suggestionReason,
   fixedMatterId,
   fixedMatterTitle,
   open,
@@ -71,8 +76,8 @@ export function LinkEmailToMatterDrawer({
       return
     }
     setMatterSearch(suggestedMatter ? matterSearchLabel(suggestedMatter) : '')
-    setCategory('correspondence')
-  }, [open, suggestedMatter])
+    setCategory(suggestedCategory ?? 'correspondence')
+  }, [open, suggestedMatter, suggestedCategory])
 
   const handleLink = async (matterId: string) => {
     if (!emailId) return
@@ -90,6 +95,7 @@ export function LinkEmailToMatterDrawer({
   }
 
   const title = fixedMatterId ? 'Attach to correspondence' : 'Attach email to matter'
+  const canOneClick = Boolean(suggestedMatter && !fixedMatterId)
 
   return (
     <Drawer open={open} onClose={onClose} title={title} className="max-w-md">
@@ -99,6 +105,21 @@ export function LinkEmailToMatterDrawer({
             <span className="text-muted-foreground">Email: </span>
             <span className="font-medium">{emailSubject}</span>
           </p>
+        ) : null}
+
+        {suggestedCategory ? (
+          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-primary/25 bg-primary/5 px-3 py-2 text-sm">
+            <Sparkles className="size-3.5 text-primary" />
+            <span>
+              Auto-classified as{' '}
+              <strong>{CORRESPONDENCE_CATEGORY_LABELS[suggestedCategory]}</strong>
+            </span>
+            {suggestedCategory === 'office_action' ? (
+              <span className="text-xs text-muted-foreground">
+                (will create office-action deadlines on link)
+              </span>
+            ) : null}
+          </div>
         ) : null}
 
         <div className="space-y-2">
@@ -114,6 +135,7 @@ export function LinkEmailToMatterDrawer({
               {CORRESPONDENCE_CATEGORIES.map((value) => (
                 <SelectItem key={value} value={value}>
                   {CORRESPONDENCE_CATEGORY_LABELS[value]}
+                  {suggestedCategory === value ? ' (suggested)' : ''}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -141,13 +163,44 @@ export function LinkEmailToMatterDrawer({
               ) : (
                 <Link2 className="size-4" />
               )}
-              {linked ? 'Attached' : 'Attach to this matter'}
+              {linked ? 'Attached' : 'Confirm & link'}
             </Button>
           </div>
         ) : (
           <>
+            {canOneClick ? (
+              <button
+                type="button"
+                className={cn(
+                  'flex w-full flex-col gap-1 rounded-lg border border-primary/40 bg-primary/5 px-3 py-3 text-left transition-colors hover:bg-primary/10',
+                )}
+                disabled={linkEmail.isPending || linked}
+                onClick={() => void handleLink(suggestedMatter!.id)}
+              >
+                <div className="flex w-full items-center justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wide text-primary">
+                      Confirm & link
+                    </p>
+                    <p className="mt-0.5 font-medium">{matterSearchLabel(suggestedMatter)}</p>
+                  </div>
+                  {linkEmail.isPending ? (
+                    <Loader2 className="size-4 animate-spin text-primary" />
+                  ) : (
+                    <Link2 className="size-4 shrink-0 text-primary" />
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  {CORRESPONDENCE_CATEGORY_LABELS[category]}
+                  {suggestionReason ? ` · ${suggestionReason.replace(/_/g, ' ')}` : ''}
+                </p>
+              </button>
+            ) : null}
+
             <div className="space-y-2">
-              <label className="text-sm font-medium">Matter</label>
+              <label className="text-sm font-medium">
+                {canOneClick ? 'Or choose another matter' : 'Matter'}
+              </label>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
@@ -158,23 +211,6 @@ export function LinkEmailToMatterDrawer({
                 />
               </div>
             </div>
-
-            {suggestedMatter ? (
-              <button
-                type="button"
-                className={cn(
-                  'flex w-full items-center justify-between gap-3 rounded-lg border border-primary/30 bg-primary/5 px-3 py-2.5 text-left text-sm transition-colors hover:bg-primary/10',
-                )}
-                disabled={linkEmail.isPending}
-                onClick={() => void handleLink(suggestedMatter.id)}
-              >
-                <div>
-                  <p className="text-xs text-muted-foreground">Suggested match</p>
-                  <p className="font-medium">{matterSearchLabel(suggestedMatter)}</p>
-                </div>
-                <Link2 className="size-4 shrink-0 text-primary" />
-              </button>
-            ) : null}
 
             <div className="space-y-1">
               {searchingMatters ? (

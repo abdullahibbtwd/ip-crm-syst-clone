@@ -6,6 +6,7 @@ import { MinioStorageService } from '../storage/minio-storage.service';
 import { MailboxConnectionsService } from './mailbox-connections.service';
 import { GoogleMailService } from './google-mail.service';
 import { MicrosoftMailService } from './microsoft-mail.service';
+import { classifyIncomingEmail } from './email-classification';
 import { MatterSuggestionService } from './matter-suggestion.service';
 import {
   MANUAL_MAILBOX_FETCH_LIMIT,
@@ -176,7 +177,9 @@ export class EmailSyncService {
     const suggestion = await this.suggestions.suggest(
       message.sender,
       message.subject,
+      parsedBody,
     );
+    const classification = classifyIncomingEmail(message.subject, parsedBody);
 
     const storageKey = `mailbox/${connectionId}/${message.externalMessageId}.eml`;
     await this.storage.putObject(storageKey, message.rawMime, 'message/rfc822');
@@ -194,11 +197,14 @@ export class EmailSyncService {
         status: UnlinkedEmailStatus.pending,
         suggestedMatterId: suggestion.suggestedMatterId,
         suggestionReason: suggestion.suggestionReason,
+        suggestedCategory: classification.suggestedCategory,
         emlStorageKey: storageKey,
+        bodyText: parsedBody?.trim() || null,
         metadata: {
           bodyPreview: parsedBody?.slice(0, 280) ?? null,
           sender: message.sender,
           subject: message.subject,
+          classificationReason: classification.classificationReason,
         },
       },
     });

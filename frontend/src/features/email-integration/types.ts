@@ -1,3 +1,5 @@
+import type { CorrespondenceCategory } from '@/features/correspondence/types'
+
 export type MailboxProviderId = 'microsoft' | 'google'
 
 export type MailboxConnectionStatus = 'active' | 'revoked' | 'error'
@@ -49,6 +51,7 @@ export type UnlinkedEmail = {
   status: UnlinkedEmailStatus
   suggestedMatterId: string | null
   suggestionReason: string | null
+  suggestedCategory: CorrespondenceCategory | null
   metadata: Record<string, unknown> | null
   linkedCorrespondenceId: string | null
   linkedAt: string | null
@@ -86,6 +89,53 @@ export type QueuedEmailPreview = {
   bodyText: string | null
   bodyHtml: string | null
   attachments: Array<{ fileName: string; contentType: string; size: number }>
+  internetMessageId: string | null
+  externalMessageId: string
+  mailboxConnectionId: string
   mailboxConnection: UnlinkedEmail['mailboxConnection']
   suggestedMatter: QueueMatterSuggestion | null
+  suggestedCategory: CorrespondenceCategory | null
+  metadata?: {
+    aiSummary?: { text: string; generatedAt: string; model: string }
+    [key: string]: unknown
+  } | null
+}
+
+export type OutboundAttachment = {
+  fileName: string
+  contentType: string
+  contentBase64: string
+}
+
+export type SendOutboundEmailInput = {
+  connectionId: string
+  matterId: string
+  to: string[]
+  cc?: string[]
+  subject: string
+  bodyText: string
+  bodyHtml?: string
+  inReplyToMessageId?: string
+  replyToUnlinkedEmailId?: string
+  replyToCorrespondenceId?: string
+  category?: CorrespondenceCategory
+  attachments?: OutboundAttachment[]
+}
+
+export type OutboundSendResult = {
+  correspondenceId: string
+  matterId: string
+  providerMessageId: string | null
+  linkedIncoming: boolean
+}
+
+export type OutboundDraftReply = {
+  to: string[]
+  subject: string
+  bodyText: string
+  bodyHtml: string
+  inReplyToMessageId: string | null
+  templateSlug: string | null
+  quotedOriginal: string | null
+  usedAi?: boolean
 }

@@ -1,6 +1,16 @@
 import { Fragment, useMemo, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { ChevronDown, ChevronRight, FileText, Plus, Stamp } from 'lucide-react'
+import {
+  AlertCircle,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  FileText,
+  Loader2,
+  Plus,
+  RefreshCw,
+  Stamp,
+} from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -35,13 +45,14 @@ import {
   useMarkRenewalFiled,
   useRegisterIpRight,
 } from '@/features/renewals/hooks/useRenewals'
+import { useCheckEpoStatus } from '@/features/registry/hooks/useRegistry'
 import {
   RENEWAL_STATUS_LABELS,
   RENEWAL_URGENCY_ROW_CLASS,
   renewalUrgency,
 } from '@/features/renewals/utils'
 import type { IpRight, IpRightStatus } from '@/features/matters/types'
-import { formatDeadlineDate } from '@/features/deadlines/utils'
+import { formatDeadlineDate, JURISDICTION_OPTIONS, jurisdictionLabel } from '@/features/deadlines/utils'
 import { cn } from '@/lib/utils'
 import {
   IP_RIGHT_STATUS_LABELS,
@@ -49,11 +60,35 @@ import {
   formatMatterDate,
 } from '@/features/matters/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
-import { getCountryOptions } from '@/lib/countries'
 import type { MatterTabContext } from '../MatterLayout'
 
 function todayIsoDate() {
   return new Date().toISOString().slice(0, 10)
+}
+
+function isEpoJurisdiction(code: string | null | undefined) {
+  const normalized = (code ?? '').trim().toUpperCase()
+  return normalized === 'EP' || normalized === 'EPO'
+}
+
+/** Prefer application number; fall back to registration number for manually added filed rights. */
+function epoLookupNumber(right: {
+  applicationNumber?: string | null
+  registrationNumber?: string | null
+}) {
+  return right.applicationNumber?.trim() || right.registrationNumber?.trim() || null
+}
+
+function canCheckEpoStatus(right: {
+  jurisdiction: string
+  applicationNumber?: string | null
+  registrationNumber?: string | null
+  status: string
+}) {
+  return (
+    isEpoJurisdiction(right.jurisdiction) &&
+    (right.status === 'filed' || right.status === 'registered')
+  )
 }
 
 export function MatterIpRightsTab() {
@@ -63,10 +98,34 @@ export function MatterIpRightsTab() {
   const createIpRight = useCreateIpRight(matterId)
   const fileIpRight = useFileIpRight(matterId)
   const registerIpRight = useRegisterIpRight(matterId)
+  const checkEpo = useCheckEpoStatus(matterId)
   const instructRenewal = useInstructRenewal()
   const markRenewalFiled = useMarkRenewalFiled()
   const completeRenewal = useCompleteRenewal()
-  const countryOptions = getCountryOptions()
+  const [epoBanner, setEpoBanner] = useState<{
+    tone: 'success' | 'error'
+    message: string
+  } | null>(null)
+  const [checkingRightId, setCheckingRightId] = useState<string | null>(null)
+
+  const handleCheckEpo = async (right: IpRight) => {
+    setEpoBanner(null)
+    setCheckingRightId(right.id)
+    try {
+      const result = await checkEpo.mutateAsync(right.id)
+      setEpoBanner({
+        tone: result.success ? 'success' : 'error',
+        message: result.message,
+      })
+    } catch (err) {
+      setEpoBanner({
+        tone: 'error',
+        message: getApiErrorMessage(err, 'EPO status check failed'),
+      })
+    } finally {
+      setCheckingRightId(null)
+    }
+  }
 
   const documentVersionOptions = useMemo(
     () =>
@@ -91,6 +150,7 @@ export function MatterIpRightsTab() {
 
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [title, setTitle] = useState('')
+  const [applicationNumber, setApplicationNumber] = useState('')
   const [registrationNumber, setRegistrationNumber] = useState('')
   const [jurisdiction, setJurisdiction] = useState(matter.jurisdictions[0]?.countryCode ?? 'BG')
   const [status, setStatus] = useState<IpRightStatus>('pending')
@@ -123,6 +183,7 @@ export function MatterIpRightsTab() {
 
   const resetForm = () => {
     setTitle('')
+    setApplicationNumber('')
     setRegistrationNumber('')
     setJurisdiction(matter.jurisdictions[0]?.countryCode ?? 'BG')
     setStatus('pending')
@@ -196,6 +257,7 @@ export function MatterIpRightsTab() {
       await createIpRight.mutateAsync({
         rightType: matter.matterType,
         title: title.trim(),
+        applicationNumber: applicationNumber.trim() || undefined,
         registrationNumber: registrationNumber.trim() || undefined,
         jurisdiction,
         status,
@@ -264,6 +326,24 @@ export function MatterIpRightsTab() {
         </PermissionGate>
       </div>
 
+      {epoBanner && (
+        <div
+          className={cn(
+            'flex items-start gap-2 rounded-lg border px-3 py-2 text-sm',
+            epoBanner.tone === 'success'
+              ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-900'
+              : 'border-destructive/30 bg-destructive/5 text-destructive',
+          )}
+        >
+          {epoBanner.tone === 'success' ? (
+            <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
+          ) : (
+            <AlertCircle className="mt-0.5 size-4 shrink-0" />
+          )}
+          <p>{epoBanner.message}</p>
+        </div>
+      )}
+
       <Table>
         <TableHeader>
           <TableRow>
@@ -273,7 +353,7 @@ export function MatterIpRightsTab() {
             <TableHead>Jurisdiction</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Filing date</TableHead>
-            <TableHead className="w-[140px]">Actions</TableHead>
+            <TableHead className="min-w-[220px]">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -308,7 +388,7 @@ export function MatterIpRightsTab() {
                     {MATTER_TYPE_LABELS[right.rightType]}
                   </TableCell>
                   <TableCell>{right.applicationNumber ?? right.registrationNumber ?? '-'}</TableCell>
-                  <TableCell>{right.jurisdiction}</TableCell>
+                  <TableCell>{jurisdictionLabel(right.jurisdiction)}</TableCell>
                   <TableCell>{IP_RIGHT_STATUS_LABELS[right.status]}</TableCell>
                   <TableCell className="text-muted-foreground">
                     {right.filingDate ? formatMatterDate(right.filingDate) : '-'}
@@ -332,6 +412,30 @@ export function MatterIpRightsTab() {
                           >
                             <Stamp className="size-4" />
                             Register
+                          </Button>
+                        </PermissionGate>
+                      ) : null}
+                      {canCheckEpoStatus(right) ? (
+                        <PermissionGate resource="matter" action="update">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            disabled={
+                              checkingRightId === right.id || !epoLookupNumber(right)
+                            }
+                            onClick={() => void handleCheckEpo(right)}
+                            title={
+                              epoLookupNumber(right)
+                                ? 'Check EPO legal status (OPS)'
+                                : 'Add an application number before checking EPO'
+                            }
+                          >
+                            {checkingRightId === right.id ? (
+                              <Loader2 className="size-4 animate-spin" />
+                            ) : (
+                              <RefreshCw className="size-4" />
+                            )}
+                            Check EPO
                           </Button>
                         </PermissionGate>
                       ) : null}
@@ -366,6 +470,14 @@ export function MatterIpRightsTab() {
             <Input value={title} onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className="space-y-1.5">
+            <label className="text-sm text-muted-foreground">Application number</label>
+            <Input
+              value={applicationNumber}
+              onChange={(e) => setApplicationNumber(e.target.value)}
+              placeholder="e.g. EP3000000"
+            />
+          </div>
+          <div className="space-y-1.5">
             <label className="text-sm text-muted-foreground">Registration number</label>
             <Input
               value={registrationNumber}
@@ -374,19 +486,25 @@ export function MatterIpRightsTab() {
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Jurisdiction</label>
+            <label className="text-sm text-muted-foreground">Filing office / jurisdiction</label>
             <Select value={jurisdiction} onValueChange={(v) => v && setJurisdiction(v)}>
               <SelectTrigger>
-                <SelectValue />
+                <SelectValue>
+                  {(value) => jurisdictionLabel(String(value ?? ''))}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                {countryOptions.map((c) => (
-                  <SelectItem key={c.code} value={c.code}>
-                    {c.code} - {c.name}
+                {JURISDICTION_OPTIONS.map((opt) => (
+                  <SelectItem key={opt.value} value={opt.value}>
+                    {opt.label}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
+            <p className="text-xs text-muted-foreground">
+              Use EPO (EP) for European patents, EUIPO (EU) for EU trademarks/designs, BPO (BG)
+              for Bulgaria, WIPO (WO) for PCT.
+            </p>
           </div>
           <div className="space-y-1.5">
             <label className="text-sm text-muted-foreground">Status</label>
@@ -445,7 +563,8 @@ export function MatterIpRightsTab() {
             <div className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
               <p className="font-medium">{fileTarget.title}</p>
               <p className="text-muted-foreground">
-                {MATTER_TYPE_LABELS[fileTarget.rightType]} · {fileTarget.jurisdiction}
+                {MATTER_TYPE_LABELS[fileTarget.rightType]} ·{' '}
+                {jurisdictionLabel(fileTarget.jurisdiction)}
               </p>
             </div>
 
@@ -509,19 +628,24 @@ export function MatterIpRightsTab() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Jurisdiction</label>
+              <label className="text-sm font-medium">Filing office / jurisdiction</label>
               <Select value={fileJurisdiction} onValueChange={(v) => v && setFileJurisdiction(v)}>
                 <SelectTrigger>
-                  <SelectValue />
+                  <SelectValue>
+                    {(value) => jurisdictionLabel(String(value ?? ''))}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
-                  {countryOptions.map((c) => (
-                    <SelectItem key={c.code} value={c.code}>
-                      {c.code} - {c.name}
+                  {JURISDICTION_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
+              <p className="text-xs text-muted-foreground">
+                Choose EPO (EP) to enable prosecution status checks against OPS.
+              </p>
             </div>
 
             {fileError ? <p className="text-sm text-destructive">{fileError}</p> : null}

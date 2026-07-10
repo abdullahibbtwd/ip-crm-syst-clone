@@ -81,7 +81,8 @@
       "certificate": "Certificate",
       "correspondence": "General correspondence",
       "evidence": "Evidence",
-      "office_action": "Office action"
+      "office_action": "Office action",
+      "renewal": "Renewal"
     },
     "direction": {
       "incoming": "Incoming",

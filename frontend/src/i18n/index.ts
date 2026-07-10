@@ -34,7 +34,8 @@ void i18n
     ns: [...I18N_NAMESPACES],
     defaultNS: 'common',
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // Bust browser cache when locale JSON changes (e.g. new nav keys)
+      loadPath: '/locales/{{lng}}/{{ns}}.json?v=20260710f',
     },
     detection: {
       order: ['localStorage', 'navigator'],

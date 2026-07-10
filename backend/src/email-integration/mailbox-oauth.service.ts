@@ -11,6 +11,8 @@ import * as oidc from 'openid-client';
 import {
   MAILBOX_PROVIDER_LABELS,
   MAILBOX_PROVIDERS,
+  GOOGLE_MAILBOX_SCOPES,
+  MICROSOFT_MAILBOX_SCOPES,
   type MailboxProviderId,
 } from './email-integration.constants';
 import { MailboxConnectionsService } from './mailbox-connections.service';
@@ -65,9 +67,7 @@ export class MailboxOAuthService {
     });
 
     const scopes =
-      id === 'microsoft'
-        ? 'openid email profile offline_access https://graph.microsoft.com/Mail.Read'
-        : 'openid email profile https://www.googleapis.com/auth/gmail.readonly';
+      id === 'microsoft' ? MICROSOFT_MAILBOX_SCOPES : GOOGLE_MAILBOX_SCOPES;
 
     const authParams: Record<string, string> = {
       redirect_uri: this.callbackUrl(id),

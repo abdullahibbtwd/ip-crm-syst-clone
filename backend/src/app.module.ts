@@ -18,11 +18,16 @@ import { IpRightsModule } from './ip-rights/ip-rights.module';
 import { WatchModule } from './watch/watch.module';
 import { RetentionModule } from './retention/retention.module';
 import { EmailIntegrationModule } from './email-integration/email-integration.module';
+import { BroadcastsModule } from './broadcasts/broadcasts.module';
+import { SearchModule } from './search/search.module';
 import { PdfModule } from './pdf/pdf.module';
 import { TasksModule } from './tasks/tasks.module';
 import { ReportsModule } from './reports/reports.module';
 import { UsersModule } from './users/users.module';
 import { StorageModule } from './storage/storage.module';
+import { AiModule } from './ai/ai.module';
+import { McpModule } from './mcp/mcp.module';
+import { RegistryModule } from './registry/registry.module';
 import { AppController } from './app.controller';
 import { AuditInterceptor } from './common/interceptors/audit.interceptor';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
@@ -58,11 +63,16 @@ import { PrismaModule } from './prisma/prisma.module';
     WatchModule,
     RetentionModule,
     EmailIntegrationModule,
+    BroadcastsModule,
+    SearchModule,
     PdfModule,
     TasksModule,
     StorageModule,
     ReportsModule,
     UsersModule,
+    AiModule,
+    McpModule,
+    RegistryModule,
   ],
   controllers: [AppController],
   providers: [

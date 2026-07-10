@@ -35,6 +35,9 @@ const RESOURCES = [
   'renewal',
   'email',
   'email_queue',
+  'broadcast',
+  'ai',
+  'mcp',
 ] as const;
 
 const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -102,6 +105,10 @@ const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.TRADEMARK_ATTORNEY]: {
@@ -134,6 +141,10 @@ const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.COORDINATOR]: {
@@ -156,12 +167,18 @@ const ROLE_DEFINITIONS: Record<
       'email:delete',
       'email_queue:read',
       'email_queue:link',
+      'broadcast:read',
+      'broadcast:create',
       'billing:read',
       'billing:create',
       'deadline:read',
       'renewal:read',
       'renewal:update',
       'portal:read',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.DOCKETING_ADMIN]: {
@@ -183,6 +200,10 @@ const ROLE_DEFINITIONS: Record<
       'email_queue:link',
       'registry:read',
       'registry:update',
+      'ai:read',
+      'ai:create',
+      'mcp:read',
+      'mcp:create',
     ],
   },
   [SYSTEM_ROLES.PARALEGAL]: {
@@ -204,6 +225,8 @@ const ROLE_DEFINITIONS: Record<
       'deadline:update',
       'renewal:read',
       'client:read',
+      'ai:read',
+      'ai:create',
     ],
   },
   [SYSTEM_ROLES.FINANCE]: {
@@ -241,6 +264,8 @@ const ROLE_DEFINITIONS: Record<
       'role:update',
       'audit:read',
       'task:read',
+      'registry:read',
+      'email:read',
     ],
   },
   [SYSTEM_ROLES.PORTAL_CLIENT]: {
@@ -767,6 +792,22 @@ async function main() {
 <p>This is to confirm that we have completed the filing of your {{matterType}} matter titled &ldquo;{{ipRightTitle}}&rdquo; in {{jurisdiction}}.</p>
 <p>Application/filing reference: <strong>{{applicationNumber}}</strong>. Filing date: <strong>{{filingDate}}</strong>.</p>
 <p>We will keep you informed of material developments and official actions as they arise.</p>`,
+    },
+    {
+      id: '00000000-0000-4000-a000-000000000004',
+      slug: 'office-action-response-email',
+      name: 'Office Action Response (email draft)',
+      category: 'office_action' as const,
+      description:
+        'Email draft reply to an official office action — used by the outbound Reply composer.',
+      referenceLine:
+        'Re: Office Action — {{matterTitle}} ({{jurisdiction}}) — App. {{applicationNumber}}',
+      htmlBody: `<p>Dear Sir/Madam,</p>
+<p>We write on behalf of our client, <strong>{{clientName}}</strong>, in response to the official communication concerning the above-referenced {{matterType}} matter (<em>{{ipRightTitle}}</em>) in {{jurisdiction}}.</p>
+<p>Application / reference number: <strong>{{applicationNumber}}</strong>.</p>
+<p>[Please insert substantive response to the office action here.]</p>
+<p>We remain at your disposal should any clarification be required.</p>
+<p>Yours faithfully,<br/>{{attorneyName}}<br/>{{attorneyTitle}}<br/>{{firmName}}</p>`,
     },
   ];
 

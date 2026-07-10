@@ -8,6 +8,7 @@ import {
   Loader2,
   Paperclip,
   RefreshCw,
+  Reply,
 } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Badge } from '@/components/ui/badge'
@@ -23,6 +24,10 @@ import {
 import { emailIntegrationApi } from '@/features/email-integration/api'
 import { EmailPreviewDrawer } from '@/features/email-integration/components/EmailPreviewDrawer'
 import { LinkEmailToMatterDrawer } from '@/features/email-integration/components/LinkEmailToMatterDrawer'
+import {
+  ReplyComposerDrawer,
+  type ReplyComposerContext,
+} from '@/features/email-integration/components/ReplyComposerDrawer'
 import {
   useEmailQueue,
   useFetchMailboxEmails,
@@ -40,13 +45,26 @@ function formatReceived(iso: string) {
 function suggestionLabel(reason: string | null) {
   switch (reason) {
     case 'subject_ref':
-      return 'Subject reference'
+      return 'Client ref in subject'
+    case 'body_ref':
+      return 'Client ref in body'
     case 'single_active_matter':
       return 'Single active matter'
     case 'contact_match':
       return 'Contact match'
     default:
-      return 'Suggested'
+      return 'Suggested matter'
+  }
+}
+
+function categorySuggestionLabel(category: UnlinkedEmail['suggestedCategory']) {
+  switch (category) {
+    case 'office_action':
+      return 'Office action'
+    case 'renewal':
+      return 'Renewal'
+    default:
+      return null
   }
 }
 
@@ -65,6 +83,7 @@ export function EmailQueuePage() {
   const fetchEmails = useFetchMailboxEmails()
   const [previewId, setPreviewId] = useState<string | null>(null)
   const [linkEmailId, setLinkEmailId] = useState<string | null>(null)
+  const [replyContext, setReplyContext] = useState<ReplyComposerContext | null>(null)
 
   const list = rows ?? []
   const linkRow = linkEmailId ? list.find((r) => r.id === linkEmailId) : undefined
@@ -73,6 +92,21 @@ export function EmailQueuePage() {
   const openLink = (row: UnlinkedEmail) => {
     setPreviewId(null)
     setLinkEmailId(row.id)
+  }
+
+  const openReply = (row: UnlinkedEmail) => {
+    setPreviewId(null)
+    setReplyContext({
+      unlinkedEmailId: row.id,
+      connectionId: row.mailboxConnectionId,
+      matterId: row.suggestedMatter?.id,
+      matterTitle: row.suggestedMatter?.title,
+      to: displaySender(row),
+      subject: displaySubject(row).startsWith('Re:')
+        ? displaySubject(row)
+        : `Re: ${displaySubject(row)}`,
+      inReplyToMessageId: row.internetMessageId,
+    })
   }
 
   const handleDownload = async (id: string) => {
@@ -133,7 +167,7 @@ export function EmailQueuePage() {
             <TableHead>Subject</TableHead>
             <TableHead>Mailbox</TableHead>
             <TableHead>Suggestion</TableHead>
-            <TableHead className="w-[108px] text-right">Actions</TableHead>
+            <TableHead className="w-[140px] text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -188,13 +222,28 @@ export function EmailQueuePage() {
                   {row.mailboxConnection.emailAddress}
                 </TableCell>
                 <TableCell>
-                  {row.suggestedMatter ? (
-                    <Badge variant="outline" className="normal-case">
-                      {suggestionLabel(row.suggestionReason)}
-                    </Badge>
-                  ) : (
-                    <span className="text-muted-foreground">—</span>
-                  )}
+                  <div className="flex flex-col items-start gap-1">
+                    {row.suggestedMatter ? (
+                      <Badge variant="outline" className="normal-case">
+                        {suggestionLabel(row.suggestionReason)}
+                      </Badge>
+                    ) : null}
+                    {categorySuggestionLabel(row.suggestedCategory) ? (
+                      <Badge
+                        variant="outline"
+                        className={
+                          row.suggestedCategory === 'office_action'
+                            ? 'normal-case border-amber-500/40 bg-amber-500/10 text-amber-800'
+                            : 'normal-case border-sky-500/40 bg-sky-500/10 text-sky-800'
+                        }
+                      >
+                        {categorySuggestionLabel(row.suggestedCategory)}
+                      </Badge>
+                    ) : null}
+                    {!row.suggestedMatter && !row.suggestedCategory ? (
+                      <span className="text-muted-foreground">—</span>
+                    ) : null}
+                  </div>
                 </TableCell>
                 <TableCell
                   className="text-right"
@@ -212,6 +261,19 @@ export function EmailQueuePage() {
                     >
                       <Eye className="size-4" />
                     </Button>
+                    <PermissionGate resource="email" action="create">
+                      <Button
+                        type="button"
+                        size="icon-sm"
+                        variant="ghost"
+                        title="Reply"
+                        aria-label="Reply"
+                        className="text-amber-600 hover:bg-amber-500/10 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300"
+                        onClick={() => openReply(row)}
+                      >
+                        <Reply className="size-4" />
+                      </Button>
+                    </PermissionGate>
                     <PermissionGate resource="email_queue" action="link">
                       <Button
                         type="button"
@@ -247,6 +309,13 @@ export function EmailQueuePage() {
       <EmailPreviewDrawer
         emailId={previewId}
         onClose={() => setPreviewId(null)}
+        onReply={
+          previewRow
+            ? () => {
+                openReply(previewRow)
+              }
+            : undefined
+        }
         onAttachToMatter={
           previewRow
             ? () => {
@@ -261,8 +330,16 @@ export function EmailQueuePage() {
         emailId={linkEmailId}
         emailSubject={linkRow ? displaySubject(linkRow) : undefined}
         suggestedMatter={linkRow?.suggestedMatter}
+        suggestedCategory={linkRow?.suggestedCategory}
+        suggestionReason={linkRow?.suggestionReason}
         open={Boolean(linkEmailId)}
         onClose={() => setLinkEmailId(null)}
+      />
+
+      <ReplyComposerDrawer
+        open={Boolean(replyContext)}
+        context={replyContext}
+        onClose={() => setReplyContext(null)}
       />
     </div>
   )

@@ -35,7 +35,11 @@
     "pause": "Pause",
     "resume": "Resume",
     "archive": "Archive",
-    "mockAlert": "Generate test alert"
+    "epoScan": "Scan EPO for alerts",
+    "epoScanning": "Scanning EPO…",
+    "epoScanSuccess": "Created {{alerts}} new EPO alert(s) from {{profiles}} profile(s).",
+    "epoScanFailed": "EPO watch scan failed",
+    "viewAlerts": "View watch alerts"
   },
   "drawer": {
     "title": "Add trademark watch",

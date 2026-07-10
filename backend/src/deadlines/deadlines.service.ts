@@ -45,6 +45,8 @@ const deadlineInclude = {
       id: true,
       jurisdiction: true,
       eventType: true,
+      triggerType: true,
+      daysOffset: true,
       priority: true,
       description: true,
     },
@@ -207,6 +209,7 @@ export class DeadlinesService {
           jurisdiction,
           matterType,
           triggerType: DeadlineRuleTriggerType.matter_created,
+          isActive: true,
         },
       });
 
@@ -530,6 +533,28 @@ export class DeadlinesService {
     });
 
     return new Map(groups.map((g) => [g.matterId, g._count._all]));
+  }
+
+  /** Active (pending / in_progress) deadlines for a matter — used by MCP tools. */
+  async getActiveByMatterId(matterId: string) {
+    await this.assertMatterExists(matterId);
+    return this.prisma.deadline.findMany({
+      where: {
+        matterId,
+        status: { in: [...ACTIVE_DEADLINE_STATUSES] },
+      },
+      orderBy: [{ dueDate: 'asc' }, { createdAt: 'desc' }],
+      include: deadlineInclude,
+    });
+  }
+
+  async findById(id: string) {
+    const deadline = await this.prisma.deadline.findUnique({
+      where: { id },
+      include: deadlineInclude,
+    });
+    if (!deadline) throw new NotFoundException('Deadline not found');
+    return deadline;
   }
 
   private async assertMatterExists(matterId: string) {

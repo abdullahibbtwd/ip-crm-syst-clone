@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Table,
@@ -9,44 +10,45 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  JURISDICTION_STATUS_LABELS,
-  MATTER_ATTRIBUTE_FIELDS,
-  MATTER_TYPE_LABELS,
+  getMatterAttributeFields,
+  jurisdictionStatusLabel,
+  matterTypeLabel,
 } from '@/features/matters/utils'
 import { getCountryLabel } from '@/lib/countries'
 import type { MatterTabContext } from '../MatterLayout'
 
 export function MatterOverviewTab() {
+  const { t } = useTranslation('matters')
   const { matter } = useOutletContext<MatterTabContext>()
   const attrs = matter.attributes?.attributes ?? {}
-  const fieldConfigs = MATTER_ATTRIBUTE_FIELDS[matter.matterType] ?? []
+  const fieldConfigs = getMatterAttributeFields(matter.matterType)
 
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Matter details</CardTitle>
+          <CardTitle className="text-base">{t('overview.title')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm">
           <div className="flex justify-between gap-4">
-            <span className="text-muted-foreground">Type</span>
-            <span>{MATTER_TYPE_LABELS[matter.matterType]}</span>
+            <span className="text-muted-foreground">{t('overview.type')}</span>
+            <span>{matterTypeLabel(matter.matterType)}</span>
           </div>
           <div className="flex justify-between gap-4">
-            <span className="text-muted-foreground">Status</span>
+            <span className="text-muted-foreground">{t('overview.status')}</span>
             <span className="capitalize">{matter.status.replace('_', ' ')}</span>
           </div>
           <div className="flex justify-between gap-4">
-            <span className="text-muted-foreground">Lead attorney</span>
+            <span className="text-muted-foreground">{t('overview.assignedTo')}</span>
             <span>{matter.assignedTo?.fullName ?? '-'}</span>
           </div>
           <div className="flex justify-between gap-4">
-            <span className="text-muted-foreground">Opened by</span>
+            <span className="text-muted-foreground">{t('overview.openedBy')}</span>
             <span>{matter.filedBy?.fullName ?? '-'}</span>
           </div>
           {matter.description ? (
             <div className="space-y-1 border-t pt-3">
-              <span className="text-muted-foreground">Description</span>
+              <span className="text-muted-foreground">{t('overview.description')}</span>
               <p className="whitespace-pre-wrap">{matter.description}</p>
             </div>
           ) : null}
@@ -55,18 +57,18 @@ export function MatterOverviewTab() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Jurisdictions</CardTitle>
+          <CardTitle className="text-base">{t('overview.jurisdictions')}</CardTitle>
         </CardHeader>
         <CardContent>
           {matter.jurisdictions.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No jurisdictions recorded.</p>
+            <p className="text-sm text-muted-foreground">{t('overview.jurisdictionsEmpty')}</p>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Country</TableHead>
-                  <TableHead>Local ref.</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead>{t('overview.table.country')}</TableHead>
+                  <TableHead>{t('overview.table.localRef')}</TableHead>
+                  <TableHead>{t('overview.table.status')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -78,7 +80,7 @@ export function MatterOverviewTab() {
                     <TableCell className="text-muted-foreground">
                       {j.localRefNumber ?? '-'}
                     </TableCell>
-                    <TableCell>{JURISDICTION_STATUS_LABELS[j.status]}</TableCell>
+                    <TableCell>{jurisdictionStatusLabel(j.status)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -90,7 +92,7 @@ export function MatterOverviewTab() {
       {fieldConfigs.length > 0 ? (
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle className="text-base">Type-specific attributes</CardTitle>
+            <CardTitle className="text-base">{t('overview.typeSpecific')}</CardTitle>
           </CardHeader>
           <CardContent>
             <dl className="grid gap-3 sm:grid-cols-2">

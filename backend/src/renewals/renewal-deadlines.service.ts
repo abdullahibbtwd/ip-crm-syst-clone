@@ -90,6 +90,7 @@ export class RenewalDeadlinesService {
             jurisdiction,
             matterType: window.matter.matterType,
             triggerType: DeadlineRuleTriggerType.renewal_due,
+            isActive: true,
           },
         });
 

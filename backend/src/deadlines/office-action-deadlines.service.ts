@@ -83,6 +83,7 @@ export class OfficeActionDeadlinesService {
             jurisdiction,
             matterType: matter.matterType,
             triggerType: DeadlineRuleTriggerType.office_action,
+            isActive: true,
           },
         });
 

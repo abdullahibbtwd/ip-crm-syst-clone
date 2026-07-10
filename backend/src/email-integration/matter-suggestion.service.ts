@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { MatterStatus } from '../../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { extractClientRef } from './email-classification';
 
 export type MatterSuggestion = {
   suggestedMatterId: string | null;
@@ -13,15 +14,17 @@ const ACTIVE_MATTER_STATUSES: MatterStatus[] = [
   MatterStatus.on_hold,
 ];
 
-const CLIENT_REF_PATTERN = /\b(CL-\d{4}-\d{3})\b/i;
-
 @Injectable()
 export class MatterSuggestionService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async suggest(sender: string, subject: string): Promise<MatterSuggestion> {
-    const fromSubject = await this.suggestFromSubject(subject);
-    if (fromSubject.suggestedMatterId) return fromSubject;
+  async suggest(
+    sender: string,
+    subject: string,
+    bodyText?: string | null,
+  ): Promise<MatterSuggestion> {
+    const fromRef = await this.suggestFromClientRef(subject, bodyText);
+    if (fromRef.suggestedMatterId) return fromRef;
 
     const senderEmail = this.extractEmail(sender);
     if (!senderEmail) return { suggestedMatterId: null, suggestionReason: null };
@@ -61,11 +64,14 @@ export class MatterSuggestionService {
     return { suggestedMatterId: null, suggestionReason: null };
   }
 
-  private async suggestFromSubject(subject: string): Promise<MatterSuggestion> {
-    const match = subject.match(CLIENT_REF_PATTERN);
-    if (!match) return { suggestedMatterId: null, suggestionReason: null };
+  private async suggestFromClientRef(
+    subject: string,
+    bodyText?: string | null,
+  ): Promise<MatterSuggestion> {
+    const internalCode = extractClientRef(subject, bodyText);
+    if (!internalCode) return { suggestedMatterId: null, suggestionReason: null };
 
-    const internalCode = match[1].toUpperCase();
+    const inSubject = extractClientRef(subject, null) != null;
     const client = await this.prisma.client.findFirst({
       where: { internalCode },
       select: { id: true },
@@ -85,7 +91,7 @@ export class MatterSuggestionService {
 
     return {
       suggestedMatterId: matter.id,
-      suggestionReason: 'subject_ref',
+      suggestionReason: inSubject ? 'subject_ref' : 'body_ref',
     };
   }
 

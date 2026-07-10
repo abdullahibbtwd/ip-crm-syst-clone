@@ -10,6 +10,7 @@ export type CorrespondenceCategory =
   | 'evidence'
   | 'certificate'
   | 'correspondence'
+  | 'renewal'
 
 export type CorrespondenceUser = {
   id: string

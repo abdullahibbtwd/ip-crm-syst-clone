@@ -6,6 +6,7 @@ export const REGISTRY_SOURCE_LABELS: Record<WatchRegistrySource, string> = {
   BPO: 'BPO (Bulgaria)',
   EUIPO: 'EUIPO',
   WIPO: 'WIPO',
+  EPO: 'EPO (OPS)',
 }
 
 export function registrySourceLabel(source: WatchRegistrySource) {

@@ -80,9 +80,10 @@ export const URGENCY_DOT_CLASS: Record<DeadlineUrgency, string> = {
 }
 
 export const JURISDICTION_OPTIONS = [
-  { value: 'BG', label: 'Bulgaria (BG)' },
-  { value: 'EU', label: 'EUIPO (EU)' },
-  { value: 'EP', label: 'EPO (EP)' },
+  { value: 'BG', label: 'BPO — Bulgaria (BG)' },
+  { value: 'EU', label: 'EUIPO — European Union (EU)' },
+  { value: 'EP', label: 'EPO — European Patent (EP)' },
+  { value: 'WO', label: 'WIPO / PCT (WO)' },
 ] as const
 
 export function jurisdictionLabel(code: string | null | undefined) {

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
@@ -12,6 +13,13 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import {
   Table,
   TableBody,
   TableCell,
@@ -20,13 +28,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { useAuth } from '@/features/auth/AuthProvider'
+import { useUpdateUserRole } from '@/features/users/hooks/useUserMutations'
 import type { UserListItem, UserSegment } from '@/features/users/types'
 import {
+  TEAM_ASSIGNABLE_ROLES,
   formatJoined,
   formatLastLogin,
   formatUserRole,
   roleBadgeVariant,
+  type TeamAssignableRole,
 } from '@/features/users/utils'
+import { usePermission } from '@/hooks/usePermission'
+import { getApiErrorMessage } from '@/lib/api-client'
 import { initials, resolvePrimaryRole, type SystemRole } from '@/lib/rbac'
 import { cn } from '@/lib/utils'
 
@@ -86,7 +100,9 @@ function StatusBadge({
   inactiveLabel: string
 }) {
   return (
-    <Badge variant={isActive ? 'success' : 'secondary'}>{isActive ? activeLabel : inactiveLabel}</Badge>
+    <Badge variant={isActive ? 'success' : 'secondary'}>
+      {isActive ? activeLabel : inactiveLabel}
+    </Badge>
   )
 }
 
@@ -104,6 +120,65 @@ function RoleBadges({ roles }: { roles: string[] }) {
           +{extra}
         </Badge>
       )}
+    </div>
+  )
+}
+
+function TeamRoleSelect({ user }: { user: UserListItem }) {
+  const { t } = useTranslation('users')
+  const { user: me } = useAuth()
+  const updateRole = useUpdateUserRole()
+  const [error, setError] = useState<string | null>(null)
+
+  const primary = resolvePrimaryRole(user.roles as SystemRole[])
+  const current = (TEAM_ASSIGNABLE_ROLES as readonly string[]).includes(primary)
+    ? (primary as TeamAssignableRole)
+    : TEAM_ASSIGNABLE_ROLES[0]
+  const isSelf = me?.id === user.id
+
+  const handleChange = async (role: string) => {
+    if (role === current || isSelf) return
+    setError(null)
+    try {
+      await updateRole.mutateAsync({
+        id: user.id,
+        role: role as TeamAssignableRole,
+      })
+    } catch (err) {
+      setError(getApiErrorMessage(err, t('role.errors.failed')))
+    }
+  }
+
+  if (isSelf) {
+    return (
+      <div className="space-y-1">
+        <RoleBadges roles={user.roles} />
+        <p className="text-[11px] text-muted-foreground">{t('role.ownRoleHint')}</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-1">
+      <Select
+        value={current}
+        onValueChange={handleChange}
+        disabled={updateRole.isPending}
+      >
+        <SelectTrigger className="h-8 w-[200px] bg-background text-xs">
+          <SelectValue>
+            {(value) => formatUserRole(String(value ?? ''))}
+          </SelectValue>
+        </SelectTrigger>
+        <SelectContent>
+          {TEAM_ASSIGNABLE_ROLES.map((r) => (
+            <SelectItem key={r} value={r}>
+              {formatUserRole(r)}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      {error && <p className="text-[11px] text-destructive">{error}</p>}
     </div>
   )
 }
@@ -135,6 +210,7 @@ export function UsersTable({
   onNextPage,
 }: UsersTableProps) {
   const { t } = useTranslation(['users', 'common'])
+  const canUpdateRole = usePermission('user', 'update')
 
   const isPortal = segment === 'portal'
   const colCount = isPortal ? 7 : 6
@@ -244,7 +320,11 @@ export function UsersTable({
                 )}
 
                 <TableCell>
-                  <RoleBadges roles={user.roles} />
+                  {!isPortal && canUpdateRole ? (
+                    <TeamRoleSelect user={user} />
+                  ) : (
+                    <RoleBadges roles={user.roles} />
+                  )}
                 </TableCell>
 
                 <TableCell>

@@ -35,7 +35,11 @@
     "pause": "Пауза",
     "resume": "Възобнови",
     "archive": "Архивирай",
-    "mockAlert": "Тестов сигнал"
+    "epoScan": "Сканирай EPO за сигнали",
+    "epoScanning": "Сканиране на EPO…",
+    "epoScanSuccess": "Създадени {{alerts}} нови EPO сигнала от {{profiles}} профила.",
+    "epoScanFailed": "Неуспешно EPO сканиране",
+    "viewAlerts": "Виж сигналите"
   },
   "drawer": {
     "title": "Добави наблюдение на марка",

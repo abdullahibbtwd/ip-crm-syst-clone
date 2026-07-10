@@ -2,6 +2,7 @@ import {
   BadRequestException,
   ConflictException,
   Injectable,
+  Logger,
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -15,6 +16,7 @@ import {
   RelationshipEventType,
 } from '../../generated/prisma/client';
 import { ClientsService } from '../crm/clients/clients.service';
+import { EmailService } from '../notifications/email.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import type { RegisterDto } from './dto/auth.dto';
@@ -45,13 +47,24 @@ function splitFullName(fullName: string) {
   return { firstName: parts[0], lastName: parts.slice(1).join(' ') };
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
     private readonly config: ConfigService,
     private readonly clientsService: ClientsService,
+    private readonly email: EmailService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<UserWithAccess> {
@@ -443,11 +456,32 @@ export class AuthService {
     );
     const resetUrl = `${frontendUrl}/reset-password?token=${rawToken}`;
 
-    if (this.config.get('NODE_ENV') !== 'production') {
-      console.log(`[dev] Password reset link for ${user.email}: ${resetUrl}`);
+    const subject = 'Reset your IP Consulting CRM password';
+    const text = [
+      `Hello ${user.fullName},`,
+      '',
+      'We received a request to reset your password. Open this link within one hour:',
+      resetUrl,
+      '',
+      'If you did not request a password reset, you can ignore this email.',
+    ].join('\n');
+    const html = [
+      `<p>Hello ${escapeHtml(user.fullName)},</p>`,
+      '<p>We received a request to reset your password. This link expires in one hour:</p>',
+      `<p><a href="${resetUrl}">Reset password</a></p>`,
+      `<p style="word-break:break-all;color:#555;font-size:12px">${escapeHtml(resetUrl)}</p>`,
+      '<p>If you did not request a password reset, you can ignore this email.</p>',
+    ].join('');
+
+    try {
+      await this.email.send({ to: user.email, subject, text, html });
+    } catch (err) {
+      this.logger.error(
+        `Failed to send password reset email to ${user.email}`,
+        err instanceof Error ? err.stack : String(err),
+      );
     }
 
-    // TODO: send email via transactional provider in production
     return { message };
   }
 

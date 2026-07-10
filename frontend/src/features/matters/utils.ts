@@ -206,18 +206,38 @@ export function getMatterAttributeFields(matterType: MatterType): AttributeField
   )
 }
 
-/** @deprecated Use getMatterAttributeFields() for translated labels */
+/** @deprecated Use getMatterAttributeFields() at render time (after i18n is ready). */
 export const MATTER_ATTRIBUTE_FIELDS: Record<MatterType, AttributeFieldConfig[]> = {
-  trademark: getMatterAttributeFields('trademark'),
-  patent: getMatterAttributeFields('patent'),
-  utility_model: getMatterAttributeFields('utility_model'),
-  industrial_design: getMatterAttributeFields('industrial_design'),
-  copyright: getMatterAttributeFields('copyright'),
-  geographical_indication: getMatterAttributeFields('geographical_indication'),
-  border_measures: getMatterAttributeFields('border_measures'),
-  fto_analysis: getMatterAttributeFields('fto_analysis'),
-  valuation: getMatterAttributeFields('valuation'),
-  dispute_opposition: getMatterAttributeFields('dispute_opposition'),
+  get trademark() {
+    return getMatterAttributeFields('trademark')
+  },
+  get patent() {
+    return getMatterAttributeFields('patent')
+  },
+  get utility_model() {
+    return getMatterAttributeFields('utility_model')
+  },
+  get industrial_design() {
+    return getMatterAttributeFields('industrial_design')
+  },
+  get copyright() {
+    return getMatterAttributeFields('copyright')
+  },
+  get geographical_indication() {
+    return getMatterAttributeFields('geographical_indication')
+  },
+  get border_measures() {
+    return getMatterAttributeFields('border_measures')
+  },
+  get fto_analysis() {
+    return getMatterAttributeFields('fto_analysis')
+  },
+  get valuation() {
+    return getMatterAttributeFields('valuation')
+  },
+  get dispute_opposition() {
+    return getMatterAttributeFields('dispute_opposition')
+  },
 }
 
 export function formatJurisdictions(codes: string[]) {

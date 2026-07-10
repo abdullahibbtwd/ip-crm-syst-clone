@@ -14,6 +14,7 @@ import { RequirePermissions } from '../common/decorators/permissions.decorator';
 import { Roles } from '../common/decorators/roles.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import { DeadlineExplanationService } from './deadline-explanation.service';
 import { DEADLINES_MODULE } from './deadlines.constants';
 import { DeadlinesService } from './deadlines.service';
 import {
@@ -27,7 +28,10 @@ import {
 @RequirePermissions('deadline:read')
 @Audit({ action: 'deadline', resource: 'deadline', module: DEADLINES_MODULE })
 export class DeadlinesController {
-  constructor(private readonly deadlinesService: DeadlinesService) {}
+  constructor(
+    private readonly deadlinesService: DeadlinesService,
+    private readonly explanationService: DeadlineExplanationService,
+  ) {}
 
   @Get()
   listAll(@Query() query: ListAllDeadlinesQueryDto) {
@@ -49,6 +53,17 @@ export class DeadlinesController {
   listMy(@Query() query: MyDeadlinesQueryDto, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.deadlinesService.listMyDeadlines(user, query);
+  }
+
+  @Get(':id/explanation')
+  @RequirePermissions('ai:read')
+  @Audit({
+    action: 'deadline_explanation',
+    resource: 'deadline',
+    module: DEADLINES_MODULE,
+  })
+  explanation(@Param('id') id: string) {
+    return this.explanationService.explain(id);
   }
 
   @Post()

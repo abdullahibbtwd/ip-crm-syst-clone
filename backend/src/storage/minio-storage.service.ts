@@ -2,6 +2,7 @@ import {
   CreateBucketCommand,
   DeleteObjectCommand,
   HeadBucketCommand,
+  PutBucketLifecycleConfigurationCommand,
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3';
@@ -9,6 +10,10 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+
+/** Staging mailbox `.eml` prefix — keep in sync with email-sync ingest keys. */
+const MAILBOX_STAGING_PREFIX = 'mailbox/';
+const DEFAULT_MAILBOX_STAGING_RETENTION_DAYS = 30;
 
 @Injectable()
 export class MinioStorageService implements OnModuleInit {
@@ -35,6 +40,7 @@ export class MinioStorageService implements OnModuleInit {
     });
 
     await this.ensureBucket();
+    await this.ensureMailboxStagingLifecycle();
   }
 
   private async ensureBucket() {
@@ -49,6 +55,48 @@ export class MinioStorageService implements OnModuleInit {
           `MinIO bucket check failed (is MinIO running on port ${this.config.get('MINIO_PORT', '9000')}?): ${err}`,
         );
       }
+    }
+  }
+
+  /**
+   * Auto-delete staging mailbox `.eml` objects under `mailbox/` after N days.
+   * Matter document copies under `matters/` are unaffected.
+   */
+  private async ensureMailboxStagingLifecycle() {
+    const days = Number(
+      this.config.get(
+        'MAILBOX_STAGING_RETENTION_DAYS',
+        String(DEFAULT_MAILBOX_STAGING_RETENTION_DAYS),
+      ),
+    );
+    if (!Number.isFinite(days) || days <= 0) {
+      this.logger.log('Mailbox staging lifecycle disabled (retention days <= 0)');
+      return;
+    }
+
+    try {
+      await this.client.send(
+        new PutBucketLifecycleConfigurationCommand({
+          Bucket: this.bucket,
+          LifecycleConfiguration: {
+            Rules: [
+              {
+                ID: 'mailbox-staging-expire',
+                Status: 'Enabled',
+                Filter: { Prefix: MAILBOX_STAGING_PREFIX },
+                Expiration: { Days: days },
+              },
+            ],
+          },
+        }),
+      );
+      this.logger.log(
+        `MinIO lifecycle: expire ${MAILBOX_STAGING_PREFIX}* after ${days} days`,
+      );
+    } catch (err) {
+      this.logger.warn(
+        `Could not set MinIO mailbox lifecycle (bucket may be offline): ${err}`,
+      );
     }
   }
 

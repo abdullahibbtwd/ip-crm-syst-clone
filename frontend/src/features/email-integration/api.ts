@@ -5,7 +5,10 @@ import type {
   LinkEmailResult,
   MailboxConnection,
   MailboxProviderInfo,
+  OutboundDraftReply,
+  OutboundSendResult,
   QueuedEmailPreview,
+  SendOutboundEmailInput,
   UnlinkedEmail,
 } from './types'
 
@@ -44,4 +47,22 @@ export const emailIntegrationApi = {
     apiClient.get<{ url: string; fileName: string; mimeType: string }>(
       `/email-queue/${id}/download`,
     ),
+
+  draftReply: (params: {
+    matterId: string
+    unlinkedEmailId?: string
+    correspondenceId?: string
+    useAi?: boolean
+  }) => {
+    const search = new URLSearchParams({ matterId: params.matterId })
+    if (params.unlinkedEmailId) search.set('unlinkedEmailId', params.unlinkedEmailId)
+    if (params.correspondenceId) search.set('correspondenceId', params.correspondenceId)
+    if (params.useAi) search.set('useAi', 'true')
+    return apiClient.get<OutboundDraftReply>(
+      `/email-integration/outbound/draft?${search.toString()}`,
+    )
+  },
+
+  sendOutbound: (body: SendOutboundEmailInput) =>
+    apiClient.post<OutboundSendResult>('/email-integration/outbound', body),
 }

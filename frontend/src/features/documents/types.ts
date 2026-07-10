@@ -4,6 +4,7 @@ export type DocumentCategory =
   | 'evidence'
   | 'certificate'
   | 'correspondence'
+  | 'renewal'
 
 export type DocumentUser = {
   id: string

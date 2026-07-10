@@ -33,5 +33,169 @@
     "title": "Security"
   },
   "subtitle": "Manage your account preferences and security.",
-  "title": "Settings"
+  "title": "Settings",
+  "links": {
+    "email": {
+      "title": "Email integration",
+      "description": "Connect Microsoft 365 or Google Workspace to sync inbox messages into the Email Queue.",
+      "action": "Manage mailboxes"
+    },
+    "deadlineRules": {
+      "title": "Deadline rules",
+      "description": "Configure jurisdiction and matter-type offsets for auto-created deadlines.",
+      "action": "Manage deadline rules"
+    },
+    "documentTemplates": {
+      "title": "Document templates",
+      "description": "Edit letter templates, merge fields, and preview generated PDFs.",
+      "action": "Manage templates"
+    },
+    "integrations": {
+      "title": "Registry integrations",
+      "description": "Connect EPO OPS and other IP registries for watch scans and bibliographic lookups.",
+      "action": "Manage integrations"
+    }
+  },
+  "integrations": {
+    "title": "Integrations",
+    "subtitle": "External registry and data-provider connections used by watch and filing workflows.",
+    "noPermission": "You do not have permission to view registry integrations.",
+    "epo": {
+      "title": "EPO Registry (OPS)",
+      "description": "Open Patent Services v3.2. Access tokens are refreshed automatically from your consumer key and secret.",
+      "statusConfigured": "Configured",
+      "statusNotConfigured": "Not configured",
+      "statusLoading": "Checking…",
+      "testButton": "Test connection",
+      "testing": "Testing…",
+      "testSuccess": "EPO connection successful. Retrieved patent: {{title}}",
+      "testFailed": "EPO connection failed",
+      "envHint": "Set EPO_CONSUMER_KEY and EPO_CONSUMER_SECRET in the server .env, then restart the API."
+    }
+  },
+  "deadlineRules": {
+    "title": "Deadline rules",
+    "subtitle": "Jurisdiction and matter-type offsets used when auto-creating deadlines from matter creation, office actions, and renewals.",
+    "newRule": "New rule",
+    "noPermission": "You do not have permission to view deadline rules.",
+    "loading": "Loading deadline rules…",
+    "loadError": "Failed to load deadline rules.",
+    "empty": "No deadline rules match these filters.",
+    "allJurisdictions": "All jurisdictions",
+    "allMatterTypes": "All matter types",
+    "filters": {
+      "jurisdiction": "Jurisdiction",
+      "matterType": "Matter type"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiction",
+      "matterType": "Matter type",
+      "event": "Event",
+      "trigger": "Trigger",
+      "offset": "Offset",
+      "grace": "Grace",
+      "priority": "Priority",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "editAria": "Edit deadline rule",
+    "drawer": {
+      "createTitle": "New deadline rule",
+      "editTitle": "Edit deadline rule",
+      "jurisdiction": "Jurisdiction",
+      "matterType": "Matter type",
+      "eventType": "Event type",
+      "triggerType": "Trigger type",
+      "daysOffset": "Days offset",
+      "dayCounting": "Day counting",
+      "businessDays": "Business days",
+      "calendarDays": "Calendar days",
+      "gracePeriod": "Grace period (days)",
+      "priority": "Priority (1–10)",
+      "description": "Description",
+      "status": "Status",
+      "cancel": "Cancel",
+      "create": "Create rule",
+      "save": "Save changes"
+    },
+    "errors": {
+      "daysOffset": "Enter a valid days offset",
+      "grace": "Enter a valid grace period",
+      "priority": "Priority must be between 1 and 10",
+      "saveFailed": "Failed to save deadline rule"
+    },
+    "offset": {
+      "businessDay": "business day",
+      "businessDays": "business days",
+      "calendarDay": "calendar day",
+      "calendarDays": "calendar days",
+      "sameDay": "Same day ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Filing",
+      "examination_response": "Examination response",
+      "renewal": "Renewal",
+      "opposition": "Opposition",
+      "grace_period": "Grace period"
+    },
+    "triggerType": {
+      "matter_created": "Matter created",
+      "office_action": "Office action",
+      "renewal_due": "Renewal due"
+    }
+  },
+  "documentTemplates": {
+    "title": "Document templates",
+    "subtitle": "Letter and filing templates with merge fields. Generate PDFs from matters or preview with sample data.",
+    "newTemplate": "New template",
+    "noPermission": "You do not have permission to view document templates.",
+    "loading": "Loading templates…",
+    "loadError": "Failed to load document templates.",
+    "empty": "No document templates yet.",
+    "columns": {
+      "name": "Name",
+      "slug": "Slug",
+      "category": "Category",
+      "status": "Status",
+      "updated": "Updated"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "editAria": "Edit document template",
+    "drawer": {
+      "createTitle": "New document template",
+      "editTitle": "Edit document template",
+      "loading": "Loading template…",
+      "slug": "Slug",
+      "slugHint": "Lowercase kebab-case, unique.",
+      "slugReadonly": "Slug:",
+      "name": "Name",
+      "category": "Category",
+      "description": "Description",
+      "referenceLine": "Reference line",
+      "mergeFields": "Merge fields",
+      "insertIntoReference": "Insert into reference line",
+      "insertIntoHtml": "Insert into HTML body",
+      "htmlBody": "HTML body",
+      "livePreview": "Live preview",
+      "status": "Status",
+      "previewPdf": "Preview PDF",
+      "cancel": "Cancel",
+      "create": "Create template",
+      "save": "Save changes"
+    },
+    "errors": {
+      "required": "Name and HTML body are required",
+      "slugRequired": "Slug is required",
+      "saveFailed": "Failed to save document template",
+      "previewFailed": "Failed to generate PDF preview"
+    }
+  }
 }

@@ -1,4 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { assertMailboxOk } from './mailbox-http.errors';
+import {
+  extractEmailAddress,
+  type SendMailboxMessageInput,
+  type SendMailboxMessageResult,
+} from './mailbox-mail.util';
 
 export type FetchedMailboxMessage = {
   externalMessageId: string;
@@ -50,10 +56,7 @@ export class MicrosoftMailService {
     const listRes = await fetch(listUrl, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-    if (!listRes.ok) {
-      const err = await listRes.text();
-      throw new Error(`Microsoft Graph list failed: ${err}`);
-    }
+    await assertMailboxOk(listRes, 'Microsoft Graph', 'list messages');
 
     const listJson = (await listRes.json()) as {
       value?: Array<{
@@ -74,6 +77,9 @@ export class MicrosoftMailService {
           `https://graph.microsoft.com/v1.0/me/messages/${item.id}/$value`,
           { headers: { Authorization: `Bearer ${accessToken}` } },
         );
+        if (mimeRes.status === 429 || mimeRes.status === 503) {
+          await assertMailboxOk(mimeRes, 'Microsoft Graph', `get MIME ${item.id}`);
+        }
         if (!mimeRes.ok) continue;
         const rawMime = Buffer.from(await mimeRes.arrayBuffer());
         const sender = this.formatGraphAddress(item.from?.emailAddress);
@@ -95,6 +101,12 @@ export class MicrosoftMailService {
           hasAttachments: Boolean(item.hasAttachments),
         });
       } catch (err) {
+        if (err && typeof err === 'object' && 'name' in err) {
+          const name = (err as { name: string }).name;
+          if (name === 'MailboxRateLimitError' || name === 'MailboxAuthError') {
+            throw err;
+          }
+        }
         this.logger.warn(
           `Skipping Microsoft message ${item.id}: ${err instanceof Error ? err.message : err}`,
         );
@@ -110,5 +122,64 @@ export class MicrosoftMailService {
     if (!entry) return '';
     if (entry.address && entry.name) return `${entry.name} <${entry.address}>`;
     return entry.address ?? entry.name ?? '';
+  }
+
+  async sendMail(
+    accessToken: string,
+    input: SendMailboxMessageInput,
+  ): Promise<SendMailboxMessageResult> {
+    const toRecipients = input.to.map((address) => ({
+      emailAddress: { address: extractEmailAddress(address) },
+    }));
+    const ccRecipients = (input.cc ?? []).map((address) => ({
+      emailAddress: { address: extractEmailAddress(address) },
+    }));
+
+    const internetMessageHeaders: Array<{ name: string; value: string }> = [];
+    if (input.inReplyToMessageId) {
+      internetMessageHeaders.push({
+        name: 'In-Reply-To',
+        value: input.inReplyToMessageId,
+      });
+      internetMessageHeaders.push({
+        name: 'References',
+        value: input.inReplyToMessageId,
+      });
+    }
+
+    const attachments = (input.attachments ?? []).map((file) => ({
+      '@odata.type': '#microsoft.graph.fileAttachment',
+      name: file.fileName,
+      contentType: file.contentType,
+      contentBytes: file.contentBase64,
+    }));
+
+    const res = await fetch('https://graph.microsoft.com/v1.0/me/sendMail', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: {
+          subject: input.subject,
+          body: {
+            contentType: 'HTML',
+            content: input.bodyHtml,
+          },
+          toRecipients,
+          ccRecipients: ccRecipients.length ? ccRecipients : undefined,
+          internetMessageHeaders: internetMessageHeaders.length
+            ? internetMessageHeaders
+            : undefined,
+          attachments: attachments.length ? attachments : undefined,
+        },
+        saveToSentItems: true,
+      }),
+    });
+
+    await assertMailboxOk(res, 'Microsoft Graph', 'sendMail');
+    // Graph sendMail returns 202 with empty body — no message id
+    return { providerMessageId: null };
   }
 }

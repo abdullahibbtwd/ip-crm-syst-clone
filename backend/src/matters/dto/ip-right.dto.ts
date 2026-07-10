@@ -22,6 +22,11 @@ export class CreateIpRightDto {
   @IsOptional()
   @IsString()
   @MaxLength(100)
+  applicationNumber?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
   registrationNumber?: string;
 
   @IsOptional()

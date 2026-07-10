@@ -33,5 +33,169 @@
     "title": "Сигурност"
   },
   "subtitle": "Управление на предпочитанията и сигурността на акаунта.",
-  "title": "Настройки"
+  "title": "Настройки",
+  "links": {
+    "email": {
+      "title": "Имейл интеграция",
+      "description": "Свържете Microsoft 365 или Google Workspace за синхронизиране на входящи съобщения в опашката за имейли.",
+      "action": "Управление на пощенски кутии"
+    },
+    "deadlineRules": {
+      "title": "Правила за срокове",
+      "description": "Конфигурирайте отмествания по юрисдикция и тип дело за автоматично създадени срокове.",
+      "action": "Управление на правилата"
+    },
+    "documentTemplates": {
+      "title": "Шаблони за документи",
+      "description": "Редактирайте шаблони за писма, полета за сливане и преглеждайте PDF файлове.",
+      "action": "Управление на шаблони"
+    },
+    "integrations": {
+      "title": "Регистърни интеграции",
+      "description": "Свържете EPO OPS и други IP регистри за наблюдение и библиографски справки.",
+      "action": "Управление на интеграции"
+    }
+  },
+  "integrations": {
+    "title": "Интеграции",
+    "subtitle": "Външни регистри и доставчици на данни за наблюдение и подаване.",
+    "noPermission": "Нямате право да преглеждате регистърни интеграции.",
+    "epo": {
+      "title": "EPO регистър (OPS)",
+      "description": "Open Patent Services v3.2. Токените за достъп се обновяват автоматично от consumer key и secret.",
+      "statusConfigured": "Конфигуриран",
+      "statusNotConfigured": "Не е конфигуриран",
+      "statusLoading": "Проверка…",
+      "testButton": "Тест на връзката",
+      "testing": "Тестване…",
+      "testSuccess": "EPO връзката е успешна. Получен патент: {{title}}",
+      "testFailed": "Неуспешен тест на EPO",
+      "envHint": "Задайте EPO_CONSUMER_KEY и EPO_CONSUMER_SECRET в .env на сървъра и рестартирайте API."
+    }
+  },
+  "deadlineRules": {
+    "title": "Правила за срокове",
+    "subtitle": "Отмествания по юрисдикция и тип дело, използвани при автоматично създаване на срокове от откриване на дело, office action и подновявания.",
+    "newRule": "Ново правило",
+    "noPermission": "Нямате право да преглеждате правилата за срокове.",
+    "loading": "Зареждане на правилата…",
+    "loadError": "Неуспешно зареждане на правилата за срокове.",
+    "empty": "Няма правила, които да съвпадат с тези филтри.",
+    "allJurisdictions": "Всички юрисдикции",
+    "allMatterTypes": "Всички типове дела",
+    "filters": {
+      "jurisdiction": "Юрисдикция",
+      "matterType": "Тип дело"
+    },
+    "columns": {
+      "jurisdiction": "Юрисдикция",
+      "matterType": "Тип дело",
+      "event": "Събитие",
+      "trigger": "Тригер",
+      "offset": "Отместване",
+      "grace": "Гратисен период",
+      "priority": "Приоритет",
+      "status": "Статус"
+    },
+    "status": {
+      "active": "Активно",
+      "inactive": "Неактивно"
+    },
+    "editAria": "Редактирай правило за срок",
+    "drawer": {
+      "createTitle": "Ново правило за срок",
+      "editTitle": "Редактиране на правило",
+      "jurisdiction": "Юрисдикция",
+      "matterType": "Тип дело",
+      "eventType": "Тип събитие",
+      "triggerType": "Тип тригер",
+      "daysOffset": "Отместване в дни",
+      "dayCounting": "Броене на дни",
+      "businessDays": "Работни дни",
+      "calendarDays": "Календарни дни",
+      "gracePeriod": "Гратисен период (дни)",
+      "priority": "Приоритет (1–10)",
+      "description": "Описание",
+      "status": "Статус",
+      "cancel": "Отказ",
+      "create": "Създай правило",
+      "save": "Запази промените"
+    },
+    "errors": {
+      "daysOffset": "Въведете валидно отместване в дни",
+      "grace": "Въведете валиден гратисен период",
+      "priority": "Приоритетът трябва да е между 1 и 10",
+      "saveFailed": "Неуспешно запазване на правилото"
+    },
+    "offset": {
+      "businessDay": "работен ден",
+      "businessDays": "работни дни",
+      "calendarDay": "календарен ден",
+      "calendarDays": "календарни дни",
+      "sameDay": "Същия ден ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Подаване",
+      "examination_response": "Отговор на експертиза",
+      "renewal": "Подновяване",
+      "opposition": "Възражение",
+      "grace_period": "Гратисен период"
+    },
+    "triggerType": {
+      "matter_created": "Създаване на дело",
+      "office_action": "Office action",
+      "renewal_due": "Дължимо подновяване"
+    }
+  },
+  "documentTemplates": {
+    "title": "Шаблони за документи",
+    "subtitle": "Шаблони за писма и подавания с полета за сливане. Генерирайте PDF от дела или прегледайте с примерни данни.",
+    "newTemplate": "Нов шаблон",
+    "noPermission": "Нямате право да преглеждате шаблоните за документи.",
+    "loading": "Зареждане на шаблони…",
+    "loadError": "Неуспешно зареждане на шаблоните.",
+    "empty": "Все още няма шаблони за документи.",
+    "columns": {
+      "name": "Име",
+      "slug": "Идентификатор",
+      "category": "Категория",
+      "status": "Статус",
+      "updated": "Обновено"
+    },
+    "status": {
+      "active": "Активен",
+      "inactive": "Неактивен"
+    },
+    "editAria": "Редактирай шаблон",
+    "drawer": {
+      "createTitle": "Нов шаблон за документ",
+      "editTitle": "Редактиране на шаблон",
+      "loading": "Зареждане на шаблон…",
+      "slug": "Идентификатор (slug)",
+      "slugHint": "Малки букви, kebab-case, уникален.",
+      "slugReadonly": "Идентификатор:",
+      "name": "Име",
+      "category": "Категория",
+      "description": "Описание",
+      "referenceLine": "Референтен ред",
+      "mergeFields": "Полета за сливане",
+      "insertIntoReference": "Вмъкване в референтния ред",
+      "insertIntoHtml": "Вмъкване в HTML тялото",
+      "htmlBody": "HTML тяло",
+      "livePreview": "Преглед на живо",
+      "status": "Статус",
+      "previewPdf": "Преглед на PDF",
+      "cancel": "Отказ",
+      "create": "Създай шаблон",
+      "save": "Запази промените"
+    },
+    "errors": {
+      "required": "Името и HTML тялото са задължителни",
+      "slugRequired": "Идентификаторът е задължителен",
+      "saveFailed": "Неуспешно запазване на шаблона",
+      "previewFailed": "Неуспешно генериране на PDF преглед"
+    }
+  }
 }

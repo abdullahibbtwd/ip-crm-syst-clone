@@ -26,6 +26,7 @@ import {
 } from '@/features/deadlines/utils'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { cn } from '@/lib/utils'
+import { DeadlineExplanationButton } from '@/features/deadlines/components/DeadlineExplanationButton'
 import type { MatterTabContext } from '../MatterLayout'
 
 export function MatterDeadlinesTab() {
@@ -78,7 +79,12 @@ export function MatterDeadlinesTab() {
               const days = daysUntilDue(d.dueDate)
               return (
                 <TableRow key={d.id} className={cn(URGENCY_ROW_CLASS[urgency])}>
-                  <TableCell className="font-medium">{d.title}</TableCell>
+                  <TableCell className="font-medium">
+                    <span className="inline-flex items-center gap-1">
+                      {d.title}
+                      <DeadlineExplanationButton deadlineId={d.id} />
+                    </span>
+                  </TableCell>
                   <TableCell className="text-muted-foreground">
                     {jurisdictionLabel(deadlineJurisdiction(d))}
                   </TableCell>

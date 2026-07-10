@@ -1,8 +1,13 @@
 const FILING_AUTHORITY: Record<string, string> = {
   BG: 'BPO',
+  BPO: 'BPO',
   EU: 'EUIPO',
   EUTM: 'EUIPO',
+  EM: 'EUIPO',
   EP: 'EPO',
+  EPO: 'EPO',
+  WO: 'WIPO',
+  WIPO: 'WIPO',
   US: 'USPTO',
   GB: 'UKIPO',
   DE: 'DPMA',

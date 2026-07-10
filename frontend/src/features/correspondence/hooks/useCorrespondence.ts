@@ -56,3 +56,20 @@ export function useUpdateCorrespondenceStatus(matterId: string) {
     },
   })
 }
+
+export function useAttachCorrespondenceDocument(matterId: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({
+      id,
+      documentVersionId,
+    }: {
+      id: string
+      documentVersionId: string
+    }) => correspondenceApi.attachDocument(id, documentVersionId),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(matterId) })
+    },
+  })
+}

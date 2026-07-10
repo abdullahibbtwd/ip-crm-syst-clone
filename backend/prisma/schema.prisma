@@ -60,6 +60,7 @@ model User {
   watchAlertsTriaged     WatchAlert[]           @relation("WatchAlertTriagedBy")
   mailboxConnections     MailboxConnection[]
   unlinkedEmailsLinked   UnlinkedEmail[]        @relation("UnlinkedEmailLinkedBy")
+  broadcastsCreated      Broadcast[]            @relation("BroadcastCreatedBy")
 
   @@map("users")
 }
@@ -264,6 +265,7 @@ model Client {
   renewalWindows      RenewalWindow[]
   watchProfiles       WatchProfile[]
   watchAlerts         WatchAlert[]
+  broadcastRecipients BroadcastRecipient[]
 
   @@index([status])
   @@index([type])
@@ -774,6 +776,7 @@ model DeadlineRule {
   gracePeriodDays  Int                     @default(0) @map("grace_period_days")
   priority         Int                     @default(2)
   description      String?
+  isActive         Boolean                 @default(true) @map("is_active")
   createdAt        DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt        DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
 
@@ -782,6 +785,7 @@ model DeadlineRule {
   @@unique([jurisdiction, matterType, eventType, triggerType])
   @@index([jurisdiction, matterType])
   @@index([triggerType])
+  @@index([isActive])
   @@map("deadline_rules")
 }
 
@@ -801,6 +805,7 @@ model Deadline {
   escalationLevel        Int            @default(0) @map("escalation_level")
   reminderSentAt         DateTime?      @map("reminder_sent_at") @db.Timestamptz(6)
   remindersSent          Json           @default("[]") @map("reminders_sent")
+  metadata               Json?
   completedAt            DateTime?      @map("completed_at") @db.Timestamptz(6)
   createdAt              DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt              DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
@@ -826,6 +831,7 @@ enum DocumentCategory {
   evidence
   certificate
   correspondence
+  renewal
 
   @@map("document_category")
 }
@@ -982,17 +988,18 @@ enum UnlinkedEmailStatus {
 }
 
 model MailboxConnection {
-  id              String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  userId          String                  @map("user_id") @db.Uuid
-  provider        MailboxProvider
-  emailAddress    String                  @map("email_address")
-  status          MailboxConnectionStatus @default(active)
-  encryptedTokens String                  @map("encrypted_tokens")
-  lastSyncAt      DateTime?               @map("last_sync_at") @db.Timestamptz(6)
-  lastSyncError   String?                 @map("last_sync_error")
-  syncCursor      String?                 @map("sync_cursor")
-  createdAt       DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt       DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                   String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId               String                  @map("user_id") @db.Uuid
+  provider             MailboxProvider
+  emailAddress         String                  @map("email_address")
+  status               MailboxConnectionStatus @default(active)
+  encryptedTokens      String                  @map("encrypted_tokens")
+  accessTokenExpiresAt DateTime?               @map("access_token_expires_at") @db.Timestamptz(6)
+  lastSyncAt           DateTime?               @map("last_sync_at") @db.Timestamptz(6)
+  lastSyncError        String?                 @map("last_sync_error")
+  syncCursor           String?                 @map("sync_cursor")
+  createdAt            DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt            DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   unlinkedEmails   UnlinkedEmail[]
@@ -1000,6 +1007,7 @@ model MailboxConnection {
 
   @@unique([userId, provider])
   @@index([status])
+  @@index([accessTokenExpiresAt])
   @@map("mailbox_connections")
 }
 
@@ -1016,7 +1024,9 @@ model UnlinkedEmail {
   status                 UnlinkedEmailStatus @default(pending)
   suggestedMatterId      String?             @map("suggested_matter_id") @db.Uuid
   suggestionReason       String?             @map("suggestion_reason")
+  suggestedCategory      DocumentCategory?   @map("suggested_category")
   emlStorageKey          String              @map("eml_storage_key")
+  bodyText               String?             @map("body_text") @db.Text
   metadata               Json?
   linkedCorrespondenceId String?             @unique @map("linked_correspondence_id") @db.Uuid
   linkedById             String?             @map("linked_by_id") @db.Uuid
@@ -1325,6 +1335,7 @@ enum WatchRegistrySource {
   BPO
   EUIPO
   WIPO
+  EPO
 
   @@map("watch_registry_source")
 }
@@ -1397,4 +1408,73 @@ model RetentionRule {
 
   @@index([entityType])
   @@map("retention_rules")
+}
+
+enum BroadcastAudience {
+  active_clients
+  pending_eu_renewals
+  trademark_matters
+  manual
+
+  @@map("broadcast_audience")
+}
+
+enum BroadcastStatus {
+  queued
+  sending
+  completed
+  failed
+
+  @@map("broadcast_status")
+}
+
+enum BroadcastRecipientStatus {
+  pending
+  sent
+  failed
+  skipped
+
+  @@map("broadcast_recipient_status")
+}
+
+model Broadcast {
+  id              String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subject         String
+  bodyText        String           @map("body_text") @db.Text
+  bodyHtml        String?          @map("body_html") @db.Text
+  audience        BroadcastAudience
+  audienceFilter  Json?            @map("audience_filter")
+  status          BroadcastStatus  @default(queued)
+  totalRecipients Int              @default(0) @map("total_recipients")
+  sentCount       Int              @default(0) @map("sent_count")
+  failedCount     Int              @default(0) @map("failed_count")
+  createdById     String           @map("created_by_id") @db.Uuid
+  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  completedAt     DateTime?        @map("completed_at") @db.Timestamptz(6)
+
+  createdBy  User                 @relation("BroadcastCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  recipients BroadcastRecipient[]
+
+  @@index([createdAt])
+  @@index([status])
+  @@map("broadcasts")
+}
+
+model BroadcastRecipient {
+  id          String                   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  broadcastId String                   @map("broadcast_id") @db.Uuid
+  clientId    String?                  @map("client_id") @db.Uuid
+  email       String
+  displayName String?                  @map("display_name")
+  status      BroadcastRecipientStatus @default(pending)
+  error       String?
+  sentAt      DateTime?                @map("sent_at") @db.Timestamptz(6)
+  createdAt   DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  broadcast Broadcast @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
+  client    Client?   @relation(fields: [clientId], references: [id], onDelete: SetNull)
+
+  @@index([broadcastId, status])
+  @@index([email])
+  @@map("broadcast_recipients")
 }

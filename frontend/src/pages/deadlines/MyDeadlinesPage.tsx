@@ -14,6 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { DeadlineExplanationButton } from '@/features/deadlines/components/DeadlineExplanationButton'
 import { DeadlineStatusButton } from '@/features/deadlines/components/DeadlineStatusButton'
 import { useMyDeadlines, useMyTodayDeadlineCount } from '@/features/deadlines/hooks/useDeadlines'
 import type { MyDeadlinesTab } from '@/features/deadlines/types'
@@ -133,12 +134,15 @@ export function MyDeadlinesPage() {
                       className={cn('cursor-pointer', URGENCY_ROW_CLASS[urgency])}
                     >
                       <TableCell>
-                        <Link
-                          to={`/matters/${d.matterId}/deadlines`}
-                          className="font-medium text-primary hover:underline"
-                        >
-                          {d.matter?.title ?? d.title}
-                        </Link>
+                        <div className="flex items-center gap-1">
+                          <Link
+                            to={`/matters/${d.matterId}/deadlines`}
+                            className="font-medium text-primary hover:underline"
+                          >
+                            {d.matter?.title ?? d.title}
+                          </Link>
+                          <DeadlineExplanationButton deadlineId={d.id} />
+                        </div>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
                         {matterType ? MATTER_TYPE_LABELS[matterType] : '-'}

@@ -18,6 +18,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { apiClient } from '@/lib/api-client'
 
+function humanizeNavKey(key: string): string {
+  return key
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/^./, (c) => c.toUpperCase())
+}
+
 function useIsLgUp() {
   const [isLgUp, setIsLgUp] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches,
@@ -110,7 +116,9 @@ function SidebarLink({
   const theme = THEMES[external ? 'external' : 'internal']
   const Icon = item.icon
   const id = navId(item)
-  const label = t(`items.${item.labelKey}`)
+  const label = t(`items.${item.labelKey}`, {
+    defaultValue: humanizeNavKey(item.labelKey),
+  })
   const location = useLocation()
   const routeActive = item.path ? isPathActive(item.path, location.pathname) : isActive
   const isAlerts = item.path === '/alerts'
@@ -348,7 +356,9 @@ export function AppSidebar({
                   theme.sectionLabel,
                 )}
               >
-                {t(`sections.${group.sectionKey}`)}
+                {t(`sections.${group.sectionKey}`, {
+                  defaultValue: humanizeNavKey(group.sectionKey),
+                })}
               </p>
             )}
             <div className="space-y-1">

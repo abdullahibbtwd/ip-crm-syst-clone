@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Download, FileText, Link2, Mail, Plus } from 'lucide-react'
+import { Download, ExternalLink, FileText, Link2, Loader2, Mail, Plus, Reply, Upload } from 'lucide-react'
 import { LogCorrespondenceDrawer } from '@/components/correspondence/LogCorrespondenceDrawer'
 import { LogEmailDrawer } from '@/components/correspondence/LogEmailDrawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { AttachFromEmailQueueDrawer } from '@/features/email-integration/components/AttachFromEmailQueueDrawer'
+import {
+  ReplyComposerDrawer,
+  type ReplyComposerContext,
+} from '@/features/email-integration/components/ReplyComposerDrawer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,6 +20,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
+  useAttachCorrespondenceDocument,
   useMatterCorrespondence,
   useUpdateCorrespondenceStatus,
 } from '@/features/correspondence/hooks/useCorrespondence'
@@ -24,9 +29,14 @@ import {
   CORRESPONDENCE_CATEGORY_LABELS,
   DIRECTION_LABELS,
   STATUS_LABELS,
+  correspondenceEpoRegisterLink,
   formatCorrespondenceDate,
 } from '@/features/correspondence/utils'
-import { useDocumentDownload } from '@/features/documents/hooks/useDocuments'
+import {
+  useDocumentDownload,
+  useUploadDocument,
+} from '@/features/documents/hooks/useDocuments'
+import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 import type { MatterTabContext } from '../MatterLayout'
 
@@ -40,10 +50,55 @@ export function MatterCorrespondenceTab() {
   const { matterId, matter } = useOutletContext<MatterTabContext>()
   const { data: rows, isLoading, isError } = useMatterCorrespondence(matterId)
   const updateStatus = useUpdateCorrespondenceStatus(matterId)
+  const attachDocument = useAttachCorrespondenceDocument(matterId)
+  const uploadDocument = useUploadDocument(matterId)
   const download = useDocumentDownload()
   const [emailDrawerOpen, setEmailDrawerOpen] = useState(false)
   const [correspondenceDrawerOpen, setCorrespondenceDrawerOpen] = useState(false)
   const [queueDrawerOpen, setQueueDrawerOpen] = useState(false)
+  const [replyContext, setReplyContext] = useState<ReplyComposerContext | null>(null)
+  const [uploadTargetId, setUploadTargetId] = useState<string | null>(null)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const uploading =
+    uploadDocument.isPending || attachDocument.isPending
+
+  const openUploadPicker = (correspondenceId: string) => {
+    setUploadError(null)
+    setUploadTargetId(correspondenceId)
+    fileInputRef.current?.click()
+  }
+
+  const handleFileSelected = async (file: File | undefined) => {
+    if (!file || !uploadTargetId) return
+    const correspondenceId = uploadTargetId
+    const target = (rows ?? []).find((r) => r.id === correspondenceId)
+    try {
+      const uploaded = await uploadDocument.mutateAsync({
+        file,
+        displayName:
+          file.name.replace(/\.[^.]+$/, '') ||
+          target?.subject?.slice(0, 80) ||
+          'Correspondence attachment',
+        category: target?.category ?? 'correspondence',
+        tags: 'epo-upload',
+      })
+      const versionId = uploaded.latestVersion?.id
+      if (!versionId) {
+        throw new Error('Upload succeeded but no document version was returned')
+      }
+      await attachDocument.mutateAsync({
+        id: correspondenceId,
+        documentVersionId: versionId,
+      })
+    } catch (err) {
+      setUploadError(getApiErrorMessage(err, 'Failed to upload and attach file'))
+    } finally {
+      setUploadTargetId(null)
+      if (fileInputRef.current) fileInputRef.current.value = ''
+    }
+  }
 
   if (isLoading && !rows) {
     return <p className="text-sm text-muted-foreground">Loading correspondence…</p>
@@ -56,6 +111,20 @@ export function MatterCorrespondenceTab() {
 
   return (
     <div className="space-y-4">
+      <input
+        ref={fileInputRef}
+        type="file"
+        className="hidden"
+        accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.eml,application/pdf"
+        onChange={(e) => void handleFileSelected(e.target.files?.[0])}
+      />
+
+      {uploadError ? (
+        <p className="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+          {uploadError}
+        </p>
+      ) : null}
+
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="font-medium">Correspondence</h2>
@@ -133,7 +202,9 @@ export function MatterCorrespondenceTab() {
               </TableCell>
             </TableRow>
           ) : (
-            list.map((item) => (
+            list.map((item) => {
+              const epoLink = correspondenceEpoRegisterLink(item)
+              return (
               <TableRow key={item.id}>
                 <TableCell>
                   <div className="flex flex-wrap items-center gap-1.5">
@@ -181,7 +252,19 @@ export function MatterCorrespondenceTab() {
                   </div>
                 </TableCell>
                 <TableCell className="max-w-[240px] font-medium">
-                  <span className="line-clamp-2">{item.subject}</span>
+                  {epoLink ? (
+                    <a
+                      href={epoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="line-clamp-2 text-primary underline-offset-2 hover:underline"
+                      title="Open on EPO Register"
+                    >
+                      {item.subject}
+                    </a>
+                  ) : (
+                    <span className="line-clamp-2">{item.subject}</span>
+                  )}
                 </TableCell>
                 <TableCell>
                   <Badge variant="outline" className="normal-case">
@@ -212,32 +295,95 @@ export function MatterCorrespondenceTab() {
                   )}
                 </TableCell>
                 <TableCell>
-                  <PermissionGate resource="correspondence" action="update">
-                    {item.status !== 'replied' && item.direction === 'incoming' ? (
+                  <div className="flex flex-wrap items-center justify-end gap-1.5">
+                    {epoLink ? (
                       <Button
                         size="sm"
                         variant="outline"
-                        disabled={updateStatus.isPending}
+                        title="Open official record on EPO Register"
                         onClick={() =>
-                          updateStatus.mutate({ id: item.id, status: 'replied' })
+                          window.open(epoLink, '_blank', 'noopener,noreferrer')
                         }
                       >
-                        Mark replied
-                      </Button>
-                    ) : item.status === 'draft' && item.direction === 'outgoing' ? (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        disabled={updateStatus.isPending}
-                        onClick={() => updateStatus.mutate({ id: item.id, status: 'sent' })}
-                      >
-                        Mark sent
+                        <ExternalLink className="size-3.5" />
+                        View on EPO
                       </Button>
                     ) : null}
-                  </PermissionGate>
+                    <PermissionGate resource="document" action="create">
+                      <PermissionGate resource="correspondence" action="update">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          title={
+                            item.documentVersion
+                              ? 'Replace attached file'
+                              : 'Upload PDF or document for this correspondence'
+                          }
+                          disabled={uploading}
+                          onClick={() => openUploadPicker(item.id)}
+                        >
+                          {uploading && uploadTargetId === item.id ? (
+                            <Loader2 className="size-3.5 animate-spin" />
+                          ) : (
+                            <Upload className="size-3.5" />
+                          )}
+                          {item.documentVersion ? 'Replace file' : 'Upload file'}
+                        </Button>
+                      </PermissionGate>
+                    </PermissionGate>
+                    {item.direction === 'incoming' ? (
+                      <PermissionGate resource="email" action="create">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          title="Reply via connected mailbox"
+                          onClick={() =>
+                            setReplyContext({
+                              matterId,
+                              matterTitle: matter.title,
+                              correspondenceId: item.id,
+                              to: item.sender,
+                              subject: item.subject.startsWith('Re:')
+                                ? item.subject
+                                : `Re: ${item.subject}`,
+                              inReplyToMessageId: item.messageId,
+                              category: item.category,
+                            })
+                          }
+                        >
+                          <Reply className="size-3.5" />
+                          Reply
+                        </Button>
+                      </PermissionGate>
+                    ) : null}
+                    <PermissionGate resource="correspondence" action="update">
+                      {item.status !== 'replied' && item.direction === 'incoming' ? (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          disabled={updateStatus.isPending}
+                          onClick={() =>
+                            updateStatus.mutate({ id: item.id, status: 'replied' })
+                          }
+                        >
+                          Mark replied
+                        </Button>
+                      ) : item.status === 'draft' && item.direction === 'outgoing' ? (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          disabled={updateStatus.isPending}
+                          onClick={() => updateStatus.mutate({ id: item.id, status: 'sent' })}
+                        >
+                          Mark sent
+                        </Button>
+                      ) : null}
+                    </PermissionGate>
+                  </div>
                 </TableCell>
               </TableRow>
-            ))
+              )
+            })
           )}
         </TableBody>
       </Table>
@@ -257,6 +403,11 @@ export function MatterCorrespondenceTab() {
         matterTitle={matter.title}
         open={queueDrawerOpen}
         onClose={() => setQueueDrawerOpen(false)}
+      />
+      <ReplyComposerDrawer
+        open={Boolean(replyContext)}
+        context={replyContext}
+        onClose={() => setReplyContext(null)}
       />
     </div>
   )
