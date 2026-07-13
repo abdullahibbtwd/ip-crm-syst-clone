@@ -1,9 +1,13 @@
+import { Type } from 'class-transformer';
 import {
   IsEnum,
   IsIn,
+  IsNumber,
   IsOptional,
   IsString,
   IsUUID,
+  Max,
+  Min,
   MinLength,
 } from 'class-validator';
 import { WatchAlertStatus, WatchRegistrySource } from '../../../generated/prisma/client';
@@ -27,6 +31,17 @@ export class ListWatchAlertsQueryDto extends PaginationQueryDto {
   @IsOptional()
   @IsEnum(WatchRegistrySource)
   source?: WatchRegistrySource;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(1)
+  minSimilarity?: number;
+
+  @IsOptional()
+  @IsIn(['similarity', 'detectedAt'])
+  sortBy?: 'similarity' | 'detectedAt';
 }
 
 export class CreateMockWatchAlertDto {

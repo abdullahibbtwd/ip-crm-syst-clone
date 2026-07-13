@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { CalendarPlus, FileText, Mail, Plug, Shield } from 'lucide-react'
+import { CalendarDays, CalendarPlus, FileText, KeyRound, Mail, Plug, Server, Shield, ShieldCheck } from 'lucide-react'
 import { MfaEnrollmentCard } from '@/features/auth/MfaEnrollmentCard'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { buttonVariants } from '@/components/ui/button'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { RoleGate } from '@/components/permissions/RoleGate'
+import { SYSTEM_ROLES } from '@/lib/rbac'
+
+/** Firm admin settings — matches backend @Roles on these endpoints. */
+const FIRM_ADMIN_ROLES = [
+  SYSTEM_ROLES.MANAGING_PARTNER,
+  SYSTEM_ROLES.DOCKETING_ADMIN,
+] as const
 
 export function SettingsPage() {
   const { t } = useTranslation('settings')
@@ -17,43 +25,113 @@ export function SettingsPage() {
       </div>
 
       <PermissionGate resource="email" action="read">
-        <Card className="shadow-none">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <Mail className="size-4 text-primary" />
-              <CardTitle className="text-base">{t('links.email.title')}</CardTitle>
-            </div>
-            <CardDescription>{t('links.email.description')}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Link to="/settings/email" className={buttonVariants({ variant: 'outline', size: 'sm' })}>
-              {t('links.email.action')}
-            </Link>
-          </CardContent>
-        </Card>
+        <RoleGate roles={[...FIRM_ADMIN_ROLES, SYSTEM_ROLES.IP_ATTORNEY, SYSTEM_ROLES.TRADEMARK_ATTORNEY, SYSTEM_ROLES.COORDINATOR, SYSTEM_ROLES.PARALEGAL]}>
+          <Card className="shadow-none">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <Mail className="size-4 text-primary" />
+                <CardTitle className="text-base">{t('links.email.title')}</CardTitle>
+              </div>
+              <CardDescription>{t('links.email.description')}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link to="/settings/email" className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+                {t('links.email.action')}
+              </Link>
+            </CardContent>
+          </Card>
+        </RoleGate>
       </PermissionGate>
 
       <PermissionGate resource="registry" action="read">
-        <Card className="shadow-none">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <Plug className="size-4 text-primary" />
-              <CardTitle className="text-base">{t('links.integrations.title')}</CardTitle>
-            </div>
-            <CardDescription>{t('links.integrations.description')}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Link
-              to="/settings/integrations"
-              className={buttonVariants({ variant: 'outline', size: 'sm' })}
-            >
-              {t('links.integrations.action')}
-            </Link>
-          </CardContent>
-        </Card>
+        <RoleGate roles={[...FIRM_ADMIN_ROLES, SYSTEM_ROLES.IP_ATTORNEY, SYSTEM_ROLES.TRADEMARK_ATTORNEY, SYSTEM_ROLES.IT_ADMIN]}>
+          <Card className="shadow-none">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <Plug className="size-4 text-primary" />
+                <CardTitle className="text-base">{t('links.integrations.title')}</CardTitle>
+              </div>
+              <CardDescription>{t('links.integrations.description')}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link
+                to="/settings/integrations"
+                className={buttonVariants({ variant: 'outline', size: 'sm' })}
+              >
+                {t('links.integrations.action')}
+              </Link>
+            </CardContent>
+          </Card>
+        </RoleGate>
       </PermissionGate>
 
-      <PermissionGate resource="deadline" action="read">
+      <PermissionGate resource="role" action="read">
+        <RoleGate roles={[SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.IT_ADMIN]}>
+          <Card className="shadow-none">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <KeyRound className="size-4 text-primary" />
+                <CardTitle className="text-base">{t('links.ssoMfa.title')}</CardTitle>
+              </div>
+              <CardDescription>{t('links.ssoMfa.description')}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link
+                to="/settings/sso-mfa"
+                className={buttonVariants({ variant: 'outline', size: 'sm' })}
+              >
+                {t('links.ssoMfa.action')}
+              </Link>
+            </CardContent>
+          </Card>
+        </RoleGate>
+      </PermissionGate>
+
+      <PermissionGate resource="role" action="read">
+        <RoleGate roles={[SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.IT_ADMIN]}>
+          <Card className="shadow-none">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="size-4 text-primary" />
+                <CardTitle className="text-base">{t('links.roles.title')}</CardTitle>
+              </div>
+              <CardDescription>{t('links.roles.description')}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link
+                to="/settings/roles"
+                className={buttonVariants({ variant: 'outline', size: 'sm' })}
+              >
+                {t('links.roles.action')}
+              </Link>
+            </CardContent>
+          </Card>
+        </RoleGate>
+      </PermissionGate>
+
+      <PermissionGate resource="role" action="read">
+        <RoleGate roles={[SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.IT_ADMIN]}>
+          <Card className="shadow-none">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <Server className="size-4 text-primary" />
+                <CardTitle className="text-base">{t('links.systemHealth.title')}</CardTitle>
+              </div>
+              <CardDescription>{t('links.systemHealth.description')}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link
+                to="/settings/system-health"
+                className={buttonVariants({ variant: 'outline', size: 'sm' })}
+              >
+                {t('links.systemHealth.action')}
+              </Link>
+            </CardContent>
+          </Card>
+        </RoleGate>
+      </PermissionGate>
+
+      <RoleGate roles={[...FIRM_ADMIN_ROLES]}>
         <Card className="shadow-none">
           <CardHeader>
             <div className="flex items-center gap-2">
@@ -71,9 +149,29 @@ export function SettingsPage() {
             </Link>
           </CardContent>
         </Card>
-      </PermissionGate>
+      </RoleGate>
 
-      <PermissionGate resource="document" action="read">
+      <RoleGate roles={[...FIRM_ADMIN_ROLES]}>
+        <Card className="shadow-none">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <CalendarDays className="size-4 text-primary" />
+              <CardTitle className="text-base">{t('links.holidays.title')}</CardTitle>
+            </div>
+            <CardDescription>{t('links.holidays.description')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Link
+              to="/settings/holidays"
+              className={buttonVariants({ variant: 'outline', size: 'sm' })}
+            >
+              {t('links.holidays.action')}
+            </Link>
+          </CardContent>
+        </Card>
+      </RoleGate>
+
+      <RoleGate roles={[...FIRM_ADMIN_ROLES]}>
         <Card className="shadow-none">
           <CardHeader>
             <div className="flex items-center gap-2">
@@ -91,7 +189,7 @@ export function SettingsPage() {
             </Link>
           </CardContent>
         </Card>
-      </PermissionGate>
+      </RoleGate>
 
       <Card className="shadow-none">
         <CardHeader>

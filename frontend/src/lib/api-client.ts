@@ -7,6 +7,9 @@ export const apiClient = {
   post: <T>(url: string, data?: unknown) =>
     api.post<T>(url, data).then((r) => r.data),
 
+  put: <T>(url: string, data?: unknown) =>
+    api.put<T>(url, data).then((r) => r.data),
+
   patch: <T>(url: string, data?: unknown) =>
     api.patch<T>(url, data).then((r) => r.data),
 

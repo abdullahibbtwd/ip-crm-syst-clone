@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Plus, Search } from 'lucide-react'
 import { IntakeLeadsTable, INTAKE_PAGE_SIZE } from '@/components/intake/IntakeLeadsTable'
@@ -28,11 +28,20 @@ const INTAKE_STATUSES: IntakeStatus[] = [
   'converted',
 ]
 
+const INTAKE_STATUS_SET = new Set<string>(INTAKE_STATUSES)
+
+function parseIntakeStatus(value: string | null): IntakeStatus | undefined {
+  if (!value || !INTAKE_STATUS_SET.has(value)) return undefined
+  return value as IntakeStatus
+}
+
 export function IntakeListPage() {
   const { t } = useTranslation(['intake', 'common'])
+  const [searchParams, setSearchParams] = useSearchParams()
+  const statusFilter = parseIntakeStatus(searchParams.get('status'))
+
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
-  const [statusFilter, setStatusFilter] = useState<IntakeStatus | undefined>()
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
@@ -45,6 +54,18 @@ export function IntakeListPage() {
     setPageIndex(0)
     setCursors([undefined])
   }, [debouncedSearch, statusFilter])
+
+  const setStatusFilter = (value: IntakeStatus | undefined) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set('status', value)
+        else next.delete('status')
+        return next
+      },
+      { replace: true },
+    )
+  }
 
   const filters: IntakeFilters = {
     search: debouncedSearch || undefined,

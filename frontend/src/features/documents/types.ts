@@ -68,4 +68,7 @@ export type DocumentTemplate = {
   name: string
   category: DocumentCategory
   description: string | null
+  hasDocx?: boolean
 }
+
+export type GenerateDocumentFormat = 'pdf' | 'docx'

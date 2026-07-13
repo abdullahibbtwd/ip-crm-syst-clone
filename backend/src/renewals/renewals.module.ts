@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { PortalAccessModule } from '../common/portal-access.module';
+import { DeadlinesModule } from '../deadlines/deadlines.module';
+import { InvoicesModule } from '../invoices/invoices.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { PortalRenewalsController } from './portal-renewals.controller';
 import { RenewalDeadlinesService } from './renewal-deadlines.service';
@@ -7,7 +9,12 @@ import { RenewalsController } from './renewals.controller';
 import { RenewalsService } from './renewals.service';
 
 @Module({
-  imports: [NotificationsModule, PortalAccessModule],
+  imports: [
+    NotificationsModule,
+    PortalAccessModule,
+    DeadlinesModule,
+    InvoicesModule,
+  ],
   controllers: [RenewalsController, PortalRenewalsController],
   providers: [RenewalsService, RenewalDeadlinesService],
   exports: [RenewalsService, RenewalDeadlinesService],

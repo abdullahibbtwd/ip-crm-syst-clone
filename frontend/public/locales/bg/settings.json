@@ -45,6 +45,11 @@
       "description": "Конфигурирайте отмествания по юрисдикция и тип дело за автоматично създадени срокове.",
       "action": "Управление на правилата"
     },
+    "holidays": {
+      "title": "Календар на празници",
+      "description": "Празници по юрисдикция, използвани при броене на работни дни за срокове.",
+      "action": "Управление на празници"
+    },
     "documentTemplates": {
       "title": "Шаблони за документи",
       "description": "Редактирайте шаблони за писма, полета за сливане и преглеждайте PDF файлове.",
@@ -54,7 +59,93 @@
       "title": "Регистърни интеграции",
       "description": "Свържете EPO OPS и други IP регистри за наблюдение и библиографски справки.",
       "action": "Управление на интеграции"
+    },
+    "ssoMfa": {
+      "title": "SSO и MFA",
+      "description": "Конфигурирайте Google/Microsoft вход и фирмена MFA политика. Тайните се криптират в базата.",
+      "action": "Управление на SSO и MFA"
+    },
+    "roles": {
+      "title": "Роли и права",
+      "description": "Матрица само за четене на системните роли и предоставените права.",
+      "action": "Преглед на ролите"
+    },
+    "systemHealth": {
+      "title": "Здраве на системата",
+      "description": "Проверки на живо за база данни, Redis и обектно хранилище.",
+      "action": "Преглед на здравето"
     }
+  },
+  "ssoMfa": {
+    "title": "SSO и MFA",
+    "subtitle": "Доставчици на идентичност и политика за многофакторна автентикация.",
+    "noPermission": "Нямате право да управлявате SSO или MFA настройки.",
+    "loading": "Зареждане на SSO настройки…",
+    "saveButton": "Запази настройките",
+    "saveSuccess": "SSO и MFA настройките са запазени сигурно.",
+    "saveFailed": "Неуспешно запазване на SSO и MFA настройки",
+    "securityHint": "Client secrets се криптират при съхранение (AES-256-GCM). Пълните тайни никога не се връщат от API.",
+    "leaveBlankToKeep": "Оставете празно, за да запазите текущата тайна",
+    "clientId": "Client ID",
+    "clientSecret": "Client secret",
+    "tenantId": "Tenant ID",
+    "redirectUri": "Redirect URI (регистрирайте в конзолата на доставчика)",
+    "sourceDatabase": "База данни",
+    "sourceEnv": "Околна среда (.env)",
+    "sourceNone": "Не е конфигуриран",
+    "editButton": "Редактирай",
+    "cancelEdit": "Отказ",
+    "configuredViaEnv": "Конфигурирано чрез околна среда",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / Microsoft 365 OIDC приложение за SSO вход.",
+      "saveButton": "Запази Microsoft",
+      "saveSuccess": "Microsoft SSO настройките са запазени."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Google OAuth клиент за SSO вход.",
+      "saveButton": "Запази Google",
+      "saveSuccess": "Google SSO настройките са запазени."
+    },
+    "mfa": {
+      "title": "MFA политика",
+      "description": "Фирмени MFA настройки. Потребителите се записват от собствената страница Settings.",
+      "requireInternal": "Изисквай MFA за вътрешен персонал",
+      "requireInternalHint": "Когато е включено, вътрешните потребители трябва да активират MFA в Settings → Security.",
+      "saveButton": "Запази MFA политика",
+      "saveSuccess": "MFA политиката е запазена."
+    }
+  },
+  "roles": {
+    "title": "Роли и права",
+    "subtitle": "Матрица само за четене на системните роли и предоставените права (seeded RBAC).",
+    "noPermission": "Нямате право да преглеждате роли.",
+    "loading": "Зареждане на роли…",
+    "error": "Неуспешно зареждане на роли.",
+    "system": "Системна",
+    "columns": {
+      "role": "Роля",
+      "description": "Описание",
+      "permissions": "Права"
+    }
+  },
+  "systemHealth": {
+    "title": "Здраве на системата",
+    "subtitle": "Проверки на живо за база данни, Redis и обектно хранилище.",
+    "noPermission": "Нямате право да преглеждате здравето на системата.",
+    "loading": "Проверка на услугите…",
+    "error": "Неуспешно зареждане на статуса.",
+    "overall": "Общо",
+    "statusOk": "Здрава",
+    "statusDegraded": "Влошена",
+    "database": "База данни",
+    "redis": "Redis",
+    "storage": "Обектно хранилище",
+    "checkOk": "Достъпна",
+    "checkFailed": "Недостъпна",
+    "refresh": "Обнови",
+    "refreshing": "Обновяване…"
   },
   "integrations": {
     "title": "Интеграции",
@@ -70,7 +161,57 @@
       "testing": "Тестване…",
       "testSuccess": "EPO връзката е успешна. Получен патент: {{title}}",
       "testFailed": "Неуспешен тест на EPO",
-      "envHint": "Задайте EPO_CONSUMER_KEY и EPO_CONSUMER_SECRET в .env на сървъра и рестартирайте API."
+      "envHint": "Задайте EPO_CONSUMER_KEY и EPO_CONSUMER_SECRET в .env на сървъра и рестартирайте API.",
+      "consumerKey": "Consumer key",
+      "consumerSecret": "Consumer secret",
+      "consumerKeyPlaceholder": "Въведете EPO consumer key",
+      "consumerSecretPlaceholder": "Въведете EPO consumer secret",
+      "leaveBlankToKeep": "Оставете празно, за да запазите текущата стойност",
+      "apiBaseUrl": "API base URL (по избор)",
+      "authUrl": "Auth URL (по избор)",
+      "saveButton": "Запази идентификационни данни",
+      "clearButton": "Изчисти запазените данни",
+      "saveSuccess": "EPO идентификационните данни са запазени сигурно.",
+      "saveFailed": "Неуспешно запазване на EPO идентификационни данни",
+      "clearSuccess": "Запазените EPO данни са изчистени. Env резервът остава валиден, ако е зададен.",
+      "clearFailed": "Неуспешно изчистване на EPO идентификационни данни",
+      "securityHint": "Тайните се криптират при съхранение (AES-256-GCM). Пълните стойности никога не се връщат от API.",
+      "sourceLabel": "Активен източник",
+      "sourceDatabase": "База данни",
+      "sourceEnv": "Околна среда (.env)",
+      "sourceNone": "Не е конфигуриран",
+      "keyHint": "ключ …{{lastFour}}",
+      "editButton": "Редактирай",
+      "cancelEdit": "Отказ",
+      "configuredViaEnv": "Конфигурирано чрез околна среда",
+      "defaultEndpoint": "Стандартен EPO endpoint"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Изпраща издадени фактури към Xero Accounting през API. Синхронизират се само промените след последния успешен sync.",
+      "quickbooksTitle": "QuickBooks Online",
+      "quickbooksDescription": "Изпраща издадени фактури към QuickBooks. Клиентите се намират (или създават) по display name.",
+      "xeroTenantId": "Xero tenant ID",
+      "quickbooksRealmId": "QuickBooks realm / company ID",
+      "statusConfigured": "Конфигуриран",
+      "statusNotConfigured": "Не е конфигуриран",
+      "loading": "Зареждане…",
+      "clientId": "Client ID (по избор)",
+      "clientSecret": "Client secret (по избор)",
+      "accessToken": "Access token",
+      "leaveBlankToKeep": "Оставете празно, за да запазите текущата стойност",
+      "saveButton": "Запази идентификационни данни",
+      "clearButton": "Изчисти",
+      "editButton": "Редактирай",
+      "cancelEdit": "Отказ",
+      "syncNow": "Синхронизирай сега",
+      "lastSync": "Последна синхронизация",
+      "neverSynced": "Никога",
+      "saveSuccess": "Счетоводните данни са запазени сигурно.",
+      "saveFailed": "Неуспешно запазване на счетоводни данни",
+      "clearSuccess": "Счетоводните данни са изчистени.",
+      "clearFailed": "Неуспешно изчистване",
+      "syncFailed": "Неуспешно стартиране на синхронизация"
     }
   },
   "deadlineRules": {
@@ -162,6 +303,7 @@
       "slug": "Идентификатор",
       "category": "Категория",
       "status": "Статус",
+      "docx": "Word",
       "updated": "Обновено"
     },
     "status": {
@@ -169,6 +311,15 @@
       "inactive": "Неактивен"
     },
     "editAria": "Редактирай шаблон",
+    "uploadDocx": "Качи .docx",
+    "removeDocx": "Премахни .docx",
+    "uploadDocxAria": "Качи Word шаблон",
+    "removeDocxAria": "Премахни Word шаблон",
+    "confirmRemoveDocx": "Премахване на Word (.docx) шаблона от този шаблон за писмо?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
     "drawer": {
       "createTitle": "Нов шаблон за документ",
       "editTitle": "Редактиране на шаблон",
@@ -195,7 +346,50 @@
       "required": "Името и HTML тялото са задължителни",
       "slugRequired": "Идентификаторът е задължителен",
       "saveFailed": "Неуспешно запазване на шаблона",
-      "previewFailed": "Неуспешно генериране на PDF преглед"
+      "previewFailed": "Неуспешно генериране на PDF преглед",
+      "docxUploadFailed": "Неуспешно качване на Word шаблон",
+      "docxDeleteFailed": "Неуспешно премахване на Word шаблон"
+    }
+  },
+  "holidays": {
+    "title": "Календар на празници",
+    "subtitle": "Официални празници по юрисдикция. Повтарящите се празници важат всяка година на същия месец и ден при броене на работни дни.",
+    "newHoliday": "Нов празник",
+    "noPermission": "Нямате право да преглеждате празници.",
+    "loading": "Зареждане на празници…",
+    "loadError": "Неуспешно зареждане на празници.",
+    "empty": "Няма празници за този филтър.",
+    "allJurisdictions": "Всички юрисдикции",
+    "filters": {
+      "jurisdiction": "Юрисдикция"
+    },
+    "columns": {
+      "jurisdiction": "Юрисдикция",
+      "date": "Дата",
+      "name": "Име",
+      "recurring": "Повтарящ се"
+    },
+    "recurring": {
+      "yes": "Повтарящ се",
+      "no": "Еднократен"
+    },
+    "editAria": "Редактирай празник",
+    "deleteAria": "Изтрий празник",
+    "confirmDelete": "Изтриване на празник „{{name}}“?",
+    "drawer": {
+      "createTitle": "Нов празник",
+      "editTitle": "Редактиране на празник",
+      "jurisdiction": "Юрисдикция",
+      "date": "Дата",
+      "name": "Име",
+      "recurring": "Повтаря се ежегодно",
+      "cancel": "Отказ",
+      "create": "Създай празник",
+      "save": "Запази промените"
+    },
+    "errors": {
+      "required": "Името и датата са задължителни",
+      "saveFailed": "Неуспешно запазване на празник"
     }
   }
 }

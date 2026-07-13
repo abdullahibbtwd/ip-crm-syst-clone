@@ -10,6 +10,11 @@ import {
   WatchRegistrySource,
 } from '../../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { WatchAlertNotifyService } from '../watch/watch-alert-notify.service';
+import {
+  scoreMarkSimilarity,
+  WATCH_MATCH_METHOD,
+} from '../watch/watch-similarity.util';
 import { REGISTRY_SCAN_CONCURRENCY } from './registry.constants';
 import { EpoProvider } from './providers/epo.provider';
 
@@ -28,6 +33,7 @@ export class RegistryScanService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly epo: EpoProvider,
+    private readonly alertNotify: WatchAlertNotifyService,
   ) {}
 
   /** Nightly / full scan: all active profiles with EP jurisdiction. */
@@ -110,8 +116,13 @@ export class RegistryScanService {
           if (existing) continue;
 
           const conflictingMark = hit.title?.trim() || applicationNumber;
+          const similarityScore = await scoreMarkSimilarity(
+            conflictingMark,
+            profile.markText,
+            this.prisma,
+          );
 
-          await this.prisma.watchAlert.create({
+          const alert = await this.prisma.watchAlert.create({
             data: {
               watchProfileId: profile.id,
               clientId: profile.clientId,
@@ -122,9 +133,13 @@ export class RegistryScanService {
                 : (profile.jurisdictions[0] ?? 'EP'),
               applicationNumber,
               status: WatchAlertStatus.new,
+              similarityScore,
+              matchMethod:
+                similarityScore != null ? WATCH_MATCH_METHOD : null,
             },
           });
           alertsCreated += 1;
+          await this.alertNotify.notifyAlertCreated(alert.id);
         }
       } catch (err) {
         errors += 1;

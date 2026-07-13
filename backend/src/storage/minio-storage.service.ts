@@ -135,4 +135,19 @@ export class MinioStorageService implements OnModuleInit {
     }
     return Buffer.concat(chunks);
   }
+
+  /** Lightweight readiness probe for system health. */
+  async checkHealth(): Promise<{ ok: boolean; latencyMs: number; error?: string }> {
+    const started = Date.now();
+    try {
+      await this.client.send(new HeadBucketCommand({ Bucket: this.bucket }));
+      return { ok: true, latencyMs: Date.now() - started };
+    } catch (err) {
+      return {
+        ok: false,
+        latencyMs: Date.now() - started,
+        error: err instanceof Error ? err.message : 'MinIO unreachable',
+      };
+    }
+  }
 }

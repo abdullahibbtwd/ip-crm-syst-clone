@@ -42,6 +42,8 @@ export type WatchAlert = {
   source: WatchRegistrySource
   jurisdiction: string | null
   applicationNumber: string | null
+  similarityScore: number | null
+  matchMethod: string | null
   status: WatchAlertStatus
   matterId: string | null
   detectedAt: string
@@ -72,6 +74,8 @@ export type WatchAlertFilters = {
   clientId?: string
   jurisdiction?: string
   source?: WatchRegistrySource
+  minSimilarity?: number
+  sortBy?: 'detectedAt' | 'similarity'
   limit?: number
   cursor?: string
 }

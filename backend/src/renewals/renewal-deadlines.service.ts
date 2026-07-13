@@ -10,6 +10,7 @@ import { DeadlineNotifyService } from '../notifications/deadline-notify.service'
 import { PrismaService } from '../prisma/prisma.service';
 import { expandDeadlineRuleJurisdictions } from '../deadlines/deadline-jurisdiction.utils';
 import { addDays } from '../deadlines/deadlines.utils';
+import { HolidaysService } from '../deadlines/holidays.service';
 
 function formatDeadlineDate(date: Date): string {
   return new Intl.DateTimeFormat('en-GB', {
@@ -33,6 +34,7 @@ export class RenewalDeadlinesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly deadlineNotify: DeadlineNotifyService,
+    private readonly holidays: HolidaysService,
   ) {}
 
   async generateFromWindow(renewalWindowId: string, userId: string) {
@@ -85,6 +87,10 @@ export class RenewalDeadlinesService {
 
     await this.prisma.$transaction(async (tx) => {
       for (const jurisdiction of jurisdictions) {
+        const holidaySet = await this.holidays.getHolidaySetAround(
+          jurisdiction,
+          baseDate,
+        );
         const rules = await tx.deadlineRule.findMany({
           where: {
             jurisdiction,
@@ -99,10 +105,16 @@ export class RenewalDeadlinesService {
             baseDate,
             rule.daysOffset,
             rule.isBusinessDays,
+            holidaySet,
           );
           const graceDate =
             rule.gracePeriodDays > 0
-              ? addDays(dueDate, rule.gracePeriodDays, rule.isBusinessDays)
+              ? addDays(
+                  dueDate,
+                  rule.gracePeriodDays,
+                  rule.isBusinessDays,
+                  holidaySet,
+                )
               : window.graceDate;
 
           const title = renewalDeadlineTitle(rule.description, jurisdiction);

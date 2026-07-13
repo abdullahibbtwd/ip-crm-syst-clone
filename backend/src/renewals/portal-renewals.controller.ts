@@ -27,6 +27,18 @@ export class PortalRenewalsController {
     return this.renewals.listForPortalClient(clientId);
   }
 
+  @Post('parts/:partId/instruct')
+  @RequirePermissions('renewal:instruct')
+  instructPart(
+    @Param('partId') partId: string,
+    @Body() dto: InstructRenewalDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    const clientId = this.portalAccess.requireScopeClientId(user)!;
+    return this.renewals.portalInstructPart(partId, dto, user, clientId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;

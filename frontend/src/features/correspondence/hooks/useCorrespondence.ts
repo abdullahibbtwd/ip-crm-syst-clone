@@ -2,13 +2,23 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { deadlineKeys } from '@/features/deadlines/queryKeys'
 import { correspondenceApi } from '../api'
 import { correspondenceKeys } from '../queryKeys'
-import type { CorrespondenceStatus, CreateCorrespondenceInput } from '../types'
+import type {
+  CorrespondenceStatus,
+  CreateCorrespondenceInput,
+  UpdateCorrespondenceInput,
+} from '../types'
+import { isEpoDocumentFetching } from '../utils'
 
 export function useMatterCorrespondence(matterId: string) {
   return useQuery({
     queryKey: correspondenceKeys.matter(matterId),
     queryFn: () => correspondenceApi.listForMatter(matterId),
     enabled: Boolean(matterId),
+    refetchInterval: (query) => {
+      const rows = query.state.data
+      if (!rows?.some(isEpoDocumentFetching)) return false
+      return 5_000
+    },
   })
 }
 
@@ -20,6 +30,13 @@ export function useMatterTimeline(matterId: string) {
   })
 }
 
+export function usePortalCorrespondence() {
+  return useQuery({
+    queryKey: correspondenceKeys.portal(),
+    queryFn: () => correspondenceApi.portalList(),
+  })
+}
+
 export function useCreateCorrespondence(matterId: string) {
   const qc = useQueryClient()
   return useMutation({
@@ -28,6 +45,7 @@ export function useCreateCorrespondence(matterId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(matterId) })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.portal() })
       qc.invalidateQueries({ queryKey: deadlineKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: deadlineKeys.my() })
     },
@@ -43,6 +61,18 @@ export function useParseEml(matterId: string) {
 export function useParsePastedEmail(matterId: string) {
   return useMutation({
     mutationFn: (text: string) => correspondenceApi.parseText(matterId, text),
+  })
+}
+
+export function useUpdateCorrespondence(matterId: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: UpdateCorrespondenceInput }) =>
+      correspondenceApi.update(id, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.portal() })
+    },
   })
 }
 

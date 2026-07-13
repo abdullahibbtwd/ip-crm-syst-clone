@@ -8,6 +8,8 @@ import {
 import { Prisma } from '../../generated/prisma/client';
 import { PdfRendererService } from '../pdf/pdf-renderer.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { MinioStorageService } from '../storage/minio-storage.service';
+import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 import {
   applyMergeFields,
   buildDocumentMergeContext,
@@ -16,47 +18,81 @@ import {
   sampleDocumentMergeContext,
 } from './document-merge.util';
 import { renderLetterDocument } from './document-template-renderer';
+import { DocxTemplateService } from './docx-template.service';
 import {
   CreateDocumentTemplateDto,
   UpdateDocumentTemplateDto,
 } from './dto/document-template.dto';
+
+const DOCX_MIME =
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+
+function buildDocxTemplateStorageKey(templateId: string) {
+  return `document-templates/${templateId}/template.docx`;
+}
+
+/** Plain-text merge (no HTML escaping) for DOCX / reference lines. */
+function applyPlainMergeFields(
+  template: string,
+  fields: Record<string, string>,
+): string {
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key: string) => fields[key] ?? '');
+}
 
 @Injectable()
 export class DocumentTemplatesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly pdfRenderer: PdfRendererService,
+    private readonly storage: MinioStorageService,
+    private readonly docxTemplates: DocxTemplateService,
   ) {}
 
   listActive() {
-    return this.prisma.documentTemplate.findMany({
-      where: { isActive: true },
-      orderBy: { name: 'asc' },
-      select: {
-        id: true,
-        slug: true,
-        name: true,
-        category: true,
-        description: true,
-      },
-    });
+    return this.prisma.documentTemplate
+      .findMany({
+        where: { isActive: true },
+        orderBy: { name: 'asc' },
+        select: {
+          id: true,
+          slug: true,
+          name: true,
+          category: true,
+          description: true,
+          docxStorageKey: true,
+        },
+      })
+      .then((rows) =>
+        rows.map(({ docxStorageKey, ...rest }) => ({
+          ...rest,
+          hasDocx: Boolean(docxStorageKey),
+        })),
+      );
   }
 
   /** Admin list — includes inactive templates. */
   listAll() {
-    return this.prisma.documentTemplate.findMany({
-      orderBy: [{ isActive: 'desc' }, { name: 'asc' }],
-      select: {
-        id: true,
-        slug: true,
-        name: true,
-        category: true,
-        description: true,
-        isActive: true,
-        updatedAt: true,
-        createdAt: true,
-      },
-    });
+    return this.prisma.documentTemplate
+      .findMany({
+        orderBy: [{ isActive: 'desc' }, { name: 'asc' }],
+        select: {
+          id: true,
+          slug: true,
+          name: true,
+          category: true,
+          description: true,
+          isActive: true,
+          updatedAt: true,
+          createdAt: true,
+          docxStorageKey: true,
+        },
+      })
+      .then((rows) =>
+        rows.map(({ docxStorageKey, ...rest }) => ({
+          ...rest,
+          hasDocx: Boolean(docxStorageKey),
+        })),
+      );
   }
 
   mergeFieldKeys() {
@@ -145,24 +181,57 @@ export class DocumentTemplatesService {
     });
   }
 
+  async setDocxStorageKey(templateId: string, storageKey: string) {
+    await this.findByIdAdmin(templateId);
+    return this.prisma.documentTemplate.update({
+      where: { id: templateId },
+      data: { docxStorageKey: storageKey },
+    });
+  }
+
+  async clearDocxStorageKey(templateId: string) {
+    await this.findByIdAdmin(templateId);
+    return this.prisma.documentTemplate.update({
+      where: { id: templateId },
+      data: { docxStorageKey: null },
+    });
+  }
+
+  async uploadDocx(templateId: string, file: Express.Multer.File) {
+    await this.findByIdAdmin(templateId);
+    this.validateDocxFile(file);
+
+    const storageKey = buildDocxTemplateStorageKey(templateId);
+    await this.storage.putObject(
+      storageKey,
+      file.buffer,
+      file.mimetype || DOCX_MIME,
+    );
+    const updated = await this.setDocxStorageKey(templateId, storageKey);
+    return {
+      id: updated.id,
+      docxStorageKey: updated.docxStorageKey,
+      hasDocx: true,
+    };
+  }
+
+  async deleteDocx(templateId: string) {
+    const template = await this.findByIdAdmin(templateId);
+    if (template.docxStorageKey) {
+      await this.storage.deleteObject(template.docxStorageKey);
+    }
+    const updated = await this.clearDocxStorageKey(templateId);
+    return {
+      id: updated.id,
+      docxStorageKey: null,
+      hasDocx: false,
+    };
+  }
+
   async renderForMatter(templateId: string, matterId: string): Promise<string> {
     const template = await this.findById(templateId);
 
-    const matter = await this.prisma.matter.findUnique({
-      where: { id: matterId },
-      include: {
-        client: {
-          include: {
-            offices: { orderBy: [{ isPrimary: 'desc' }, { createdAt: 'asc' }] },
-          },
-        },
-        assignedTo: { select: { fullName: true, email: true } },
-        jurisdictions: { orderBy: { countryCode: 'asc' } },
-        ipRights: { orderBy: { createdAt: 'desc' }, take: 1 },
-      },
-    });
-    if (!matter) throw new NotFoundException('Matter not found');
-
+    const matter = await this.loadMatterForMerge(matterId);
     const fields = buildDocumentMergeContext(matter);
 
     return renderLetterDocument({
@@ -170,6 +239,32 @@ export class DocumentTemplatesService {
       htmlBody: template.htmlBody,
       fields,
     });
+  }
+
+  async renderDocxForMatter(
+    templateId: string,
+    matterId: string,
+  ): Promise<Buffer> {
+    const template = await this.findById(templateId);
+    if (!template.docxStorageKey) {
+      throw new BadRequestException(
+        'This template has no DOCX file. Upload a .docx template first.',
+      );
+    }
+
+    const matter = await this.loadMatterForMerge(matterId);
+    const fields = buildDocumentMergeContext(matter);
+    if (template.referenceLine) {
+      fields.referenceLine = applyPlainMergeFields(
+        template.referenceLine,
+        fields,
+      );
+    }
+
+    const templateBuffer = await this.storage.getObjectBuffer(
+      template.docxStorageKey,
+    );
+    return this.docxTemplates.renderDocx(templateBuffer, fields);
   }
 
   /** Preview PDF with sample merge data (admin safety rail). */
@@ -209,6 +304,41 @@ export class DocumentTemplatesService {
       type: 'application/pdf',
       disposition: 'inline; filename="template-preview.pdf"',
     });
+  }
+
+  private async loadMatterForMerge(matterId: string) {
+    const matter = await this.prisma.matter.findUnique({
+      where: { id: matterId },
+      include: {
+        client: {
+          include: {
+            offices: { orderBy: [{ isPrimary: 'desc' }, { createdAt: 'asc' }] },
+          },
+        },
+        assignedTo: { select: { fullName: true, email: true } },
+        jurisdictions: { orderBy: { countryCode: 'asc' } },
+        ipRights: { orderBy: { createdAt: 'desc' }, take: 1 },
+      },
+    });
+    if (!matter) throw new NotFoundException('Matter not found');
+    return matter;
+  }
+
+  private validateDocxFile(file: Express.Multer.File) {
+    if (!file?.buffer?.length) {
+      throw new BadRequestException('File is required');
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      throw new BadRequestException('File exceeds maximum upload size (50 MB)');
+    }
+    const name = file.originalname?.toLowerCase() ?? '';
+    const mimeOk =
+      !file.mimetype ||
+      file.mimetype === DOCX_MIME ||
+      file.mimetype === 'application/octet-stream';
+    if (!name.endsWith('.docx') || !mimeOk) {
+      throw new BadRequestException('Only .docx files are allowed');
+    }
   }
 
   private assertMergeFields(

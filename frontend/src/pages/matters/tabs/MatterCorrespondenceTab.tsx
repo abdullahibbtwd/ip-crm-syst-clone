@@ -22,6 +22,7 @@ import {
 import {
   useAttachCorrespondenceDocument,
   useMatterCorrespondence,
+  useUpdateCorrespondence,
   useUpdateCorrespondenceStatus,
 } from '@/features/correspondence/hooks/useCorrespondence'
 import type { Correspondence } from '@/features/correspondence/types'
@@ -31,6 +32,8 @@ import {
   STATUS_LABELS,
   correspondenceEpoRegisterLink,
   formatCorrespondenceDate,
+  isEpoDocumentAutoFetched,
+  isEpoDocumentFetching,
 } from '@/features/correspondence/utils'
 import {
   useDocumentDownload,
@@ -50,6 +53,7 @@ export function MatterCorrespondenceTab() {
   const { matterId, matter } = useOutletContext<MatterTabContext>()
   const { data: rows, isLoading, isError } = useMatterCorrespondence(matterId)
   const updateStatus = useUpdateCorrespondenceStatus(matterId)
+  const updateCorrespondence = useUpdateCorrespondence(matterId)
   const attachDocument = useAttachCorrespondenceDocument(matterId)
   const uploadDocument = useUploadDocument(matterId)
   const download = useDocumentDownload()
@@ -235,6 +239,14 @@ export function MatterCorrespondenceTab() {
                         Synced
                       </Badge>
                     ) : null}
+                    {item.isClientVisible ? (
+                      <Badge
+                        variant="outline"
+                        className="normal-case border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-300"
+                      >
+                        Client visible
+                      </Badge>
+                    ) : null}
                   </div>
                 </TableCell>
                 <TableCell className="text-muted-foreground">
@@ -273,23 +285,35 @@ export function MatterCorrespondenceTab() {
                 </TableCell>
                 <TableCell>
                   {item.documentVersion ? (
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon-sm"
-                      className="text-muted-foreground hover:text-foreground"
-                      title={`Download ${item.documentVersion.fileName}`}
-                      disabled={download.isPending}
-                      onClick={() =>
-                        download.mutate({
-                          documentId: item.documentVersion!.document.id,
-                          versionId: item.documentVersion!.id,
-                        })
-                      }
-                    >
-                      <Download className="size-4" />
-                      <span className="sr-only">Download attachment</span>
-                    </Button>
+                    <div className="flex items-center gap-1.5">
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon-sm"
+                        className="text-muted-foreground hover:text-foreground"
+                        title={`Download ${item.documentVersion.fileName}`}
+                        disabled={download.isPending}
+                        onClick={() =>
+                          download.mutate({
+                            documentId: item.documentVersion!.document.id,
+                            versionId: item.documentVersion!.id,
+                          })
+                        }
+                      >
+                        <Download className="size-4" />
+                        <span className="sr-only">Download attachment</span>
+                      </Button>
+                      {isEpoDocumentAutoFetched(item) ? (
+                        <Badge variant="success" className="normal-case">
+                          Document ready
+                        </Badge>
+                      ) : null}
+                    </div>
+                  ) : isEpoDocumentFetching(item) ? (
+                    <Badge variant="info" className="normal-case gap-1">
+                      <Loader2 className="size-3 animate-spin" />
+                      Fetching document…
+                    </Badge>
                   ) : (
                     <span className="text-muted-foreground/40">—</span>
                   )}
@@ -357,6 +381,24 @@ export function MatterCorrespondenceTab() {
                       </PermissionGate>
                     ) : null}
                     <PermissionGate resource="correspondence" action="update">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        disabled={updateCorrespondence.isPending}
+                        title={
+                          item.isClientVisible
+                            ? 'Hide from client portal'
+                            : 'Show in client portal'
+                        }
+                        onClick={() =>
+                          updateCorrespondence.mutate({
+                            id: item.id,
+                            data: { isClientVisible: !item.isClientVisible },
+                          })
+                        }
+                      >
+                        {item.isClientVisible ? 'Hide from client inbox' : 'Send to client inbox'}
+                      </Button>
                       {item.status !== 'replied' && item.direction === 'incoming' ? (
                         <Button
                           size="sm"

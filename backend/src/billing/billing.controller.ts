@@ -98,6 +98,24 @@ export class MatterTimeEntriesController {
 export class TimeEntriesController {
   constructor(private readonly billing: BillingService) {}
 
+  @Get()
+  @Roles(SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.FINANCE)
+  listAll(
+    @Query('matterId') matterId?: string,
+    @Query('loggedById') loggedById?: string,
+    @Query('from') from?: string,
+    @Query('to') to?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.billing.listAllTimeEntries({
+      matterId,
+      loggedById,
+      from,
+      to,
+      limit: limit ? Number(limit) : undefined,
+    });
+  }
+
   @Patch(':id')
   @RequirePermissions('billing:update')
   update(@Param('id') id: string, @Body() dto: UpdateTimeEntryDto) {
@@ -134,6 +152,24 @@ export class MatterFixedFeesController {
 @Audit({ action: 'billing', resource: 'billing', module: BILLING_MODULE })
 export class FixedFeesController {
   constructor(private readonly billing: BillingService) {}
+
+  @Get()
+  @Roles(SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.FINANCE)
+  listAll(
+    @Query('category') category?: string,
+    @Query('matterId') matterId?: string,
+    @Query('from') from?: string,
+    @Query('to') to?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.billing.listAllFixedFees({
+      category,
+      matterId,
+      from,
+      to,
+      limit: limit ? Number(limit) : undefined,
+    });
+  }
 
   @Patch(':id')
   @RequirePermissions('billing:update')

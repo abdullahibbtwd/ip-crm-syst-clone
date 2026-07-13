@@ -38,6 +38,8 @@ const RESOURCES = [
   'broadcast',
   'ai',
   'mcp',
+  'partner',
+  'approval',
 ] as const;
 
 const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -105,6 +107,12 @@ const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'partner:read',
+      'partner:create',
+      'partner:update',
+      'approval:read',
+      'approval:create',
+      'approval:update',
       'ai:read',
       'ai:create',
       'mcp:read',
@@ -141,6 +149,12 @@ const ROLE_DEFINITIONS: Record<
       'client:read',
       'portal:read',
       'registry:read',
+      'partner:read',
+      'partner:create',
+      'partner:update',
+      'approval:read',
+      'approval:create',
+      'approval:update',
       'ai:read',
       'ai:create',
       'mcp:read',
@@ -174,6 +188,12 @@ const ROLE_DEFINITIONS: Record<
       'deadline:read',
       'renewal:read',
       'renewal:update',
+      'partner:read',
+      'partner:create',
+      'partner:update',
+      'approval:read',
+      'approval:create',
+      'approval:update',
       'portal:read',
       'ai:read',
       'ai:create',
@@ -200,6 +220,9 @@ const ROLE_DEFINITIONS: Record<
       'email_queue:link',
       'registry:read',
       'registry:update',
+      'partner:read',
+      'partner:create',
+      'partner:update',
       'ai:read',
       'ai:create',
       'mcp:read',
@@ -225,6 +248,12 @@ const ROLE_DEFINITIONS: Record<
       'deadline:update',
       'renewal:read',
       'client:read',
+      'partner:read',
+      'partner:create',
+      'partner:update',
+      'approval:read',
+      'approval:create',
+      'approval:update',
       'ai:read',
       'ai:create',
     ],
@@ -280,6 +309,9 @@ const ROLE_DEFINITIONS: Record<
       'intake:create',
       'renewal:read',
       'renewal:instruct',
+      'correspondence:read',
+      'approval:read',
+      'approval:update',
     ],
   },
 };
@@ -706,6 +738,110 @@ async function main() {
 
   console.log(
     'Seeded deadline rules (matter_created + office_action + renewal_due for EU, EP, BG)',
+  );
+
+  const holidaySeeds: Array<{
+    jurisdiction: string;
+    date: string;
+    name: string;
+    isRecurring: boolean;
+  }> = [
+    // Bulgaria 2026
+    { jurisdiction: 'BG', date: '2026-01-01', name: "New Year's Day", isRecurring: true },
+    { jurisdiction: 'BG', date: '2026-03-03', name: 'Liberation Day', isRecurring: true },
+    { jurisdiction: 'BG', date: '2026-05-01', name: 'Labour Day', isRecurring: true },
+    { jurisdiction: 'BG', date: '2026-05-06', name: "St George's Day", isRecurring: true },
+    {
+      jurisdiction: 'BG',
+      date: '2026-05-24',
+      name: 'Culture and Literacy Day',
+      isRecurring: true,
+    },
+    { jurisdiction: 'BG', date: '2026-09-06', name: 'Unification Day', isRecurring: true },
+    {
+      jurisdiction: 'BG',
+      date: '2026-09-22',
+      name: 'Independence Day',
+      isRecurring: true,
+    },
+    { jurisdiction: 'BG', date: '2026-12-24', name: 'Christmas Eve', isRecurring: true },
+    { jurisdiction: 'BG', date: '2026-12-25', name: 'Christmas Day', isRecurring: true },
+    {
+      jurisdiction: 'BG',
+      date: '2026-12-26',
+      name: 'Second Christmas Day',
+      isRecurring: true,
+    },
+    // EU / EP (Luxembourg-style fixed days; movable feasts omitted)
+    ...(['EU', 'EP'] as const).flatMap((jurisdiction) => [
+      {
+        jurisdiction,
+        date: '2026-01-01',
+        name: "New Year's Day",
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-05-01',
+        name: 'Labour Day',
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-06-23',
+        name: 'National Day',
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-08-15',
+        name: 'Assumption Day',
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-11-01',
+        name: "All Saints' Day",
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-12-25',
+        name: 'Christmas Day',
+        isRecurring: true,
+      },
+      {
+        jurisdiction,
+        date: '2026-12-26',
+        name: 'Second Christmas Day',
+        isRecurring: true,
+      },
+    ]),
+  ];
+
+  for (const holiday of holidaySeeds) {
+    await prisma.holiday.upsert({
+      where: {
+        jurisdiction_date: {
+          jurisdiction: holiday.jurisdiction,
+          date: new Date(holiday.date),
+        },
+      },
+      update: {
+        name: holiday.name,
+        isRecurring: holiday.isRecurring,
+      },
+      create: {
+        jurisdiction: holiday.jurisdiction,
+        date: new Date(holiday.date),
+        name: holiday.name,
+        isRecurring: holiday.isRecurring,
+      },
+    });
+  }
+
+  console.log(
+    `Seeded ${holidaySeeds.length} holidays for BG, EU, EP (2026)`,
   );
 
   const retentionRuleSeeds = [

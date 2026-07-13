@@ -13,7 +13,9 @@ const DEFAULT_GRACE_MONTHS = 6;
 
 /**
  * Renewal term length by matter type and rule jurisdiction.
- * Patent annuities are deferred - use manual renewal windows until schedules ship.
+ * Patents use yearly annuities (termYears: 1); cycle N is anniversary + N years.
+ * On register, only cycle 1 is created; complete() auto-creates the next cycle
+ * when supportsAutomaticRenewalCycle is true.
  */
 const RENEWAL_CYCLES: Partial<
   Record<MatterType, Partial<Record<RenewalJurisdiction, RenewalCycleConfig>>>
@@ -26,6 +28,14 @@ const RENEWAL_CYCLES: Partial<
   industrial_design: {
     EU: { termYears: 5, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
     BG: { termYears: 5, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
+  },
+  patent: {
+    EP: { termYears: 1, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
+    BG: { termYears: 1, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
+  },
+  utility_model: {
+    EP: { termYears: 1, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
+    BG: { termYears: 1, graceMonthsAfterDue: DEFAULT_GRACE_MONTHS },
   },
 };
 
@@ -69,7 +79,11 @@ export function resolveRenewalJurisdiction(
   }
 
   if (code === 'EP' || code === 'EPO') {
-    return matterType === 'patent' || matterType === 'trademark' ? 'EP' : null;
+    return matterType === 'patent' ||
+      matterType === 'utility_model' ||
+      matterType === 'trademark'
+      ? 'EP'
+      : null;
   }
 
   if (code === 'BG' || code === 'BPO') {

@@ -97,6 +97,65 @@ export class DocumentsService {
     }));
   }
 
+  async listFirmWide(query: DocumentQueryDto & { matterId?: string }) {
+    const search = query.search?.trim();
+    const documents = await this.prisma.matterDocument.findMany({
+      where: {
+        ...(query.matterId ? { matterId: query.matterId } : {}),
+        category: query.category,
+        ...(search
+          ? {
+              OR: [
+                { displayName: { contains: search, mode: 'insensitive' } },
+                { tags: { has: search.toLowerCase() } },
+              ],
+            }
+          : {}),
+      },
+      orderBy: { updatedAt: 'desc' },
+      take: 100,
+      include: {
+        matter: {
+          select: {
+            id: true,
+            title: true,
+            client: {
+              select: {
+                id: true,
+                companyName: true,
+                firstName: true,
+                lastName: true,
+                internalCode: true,
+              },
+            },
+          },
+        },
+        createdBy: { select: userSelect },
+        versions: {
+          orderBy: { version: 'desc' },
+          take: 1,
+          include: versionInclude,
+        },
+        _count: { select: { versions: true } },
+      },
+    });
+
+    return documents.map((doc) => ({
+      id: doc.id,
+      matterId: doc.matterId,
+      matterTitle: doc.matter.title,
+      client: doc.matter.client,
+      displayName: doc.displayName,
+      category: doc.category,
+      tags: doc.tags,
+      createdAt: doc.createdAt,
+      updatedAt: doc.updatedAt,
+      createdBy: doc.createdBy,
+      versionCount: doc._count.versions,
+      latestVersion: doc.versions[0] ?? null,
+    }));
+  }
+
   async listForPortalClient(clientId: string, query: DocumentQueryDto & { matterId?: string }) {
     const search = query.search?.trim();
 
@@ -154,29 +213,68 @@ export class DocumentsService {
     const displayName = dto.displayName?.trim() || file.originalname;
     const tags = parseTags(dto.tags);
 
+    return this.createFromBuffer({
+      matterId,
+      userId,
+      displayName,
+      category: dto.category,
+      tags,
+      fileName: file.originalname,
+      mimeType: file.mimetype,
+      buffer: file.buffer,
+    });
+  }
+
+  /** Create a matter document from an in-memory buffer (system / EPO auto-fetch). */
+  async createFromBuffer(input: {
+    matterId: string;
+    userId: string;
+    displayName: string;
+    category: DocumentCategory;
+    tags: string[];
+    fileName: string;
+    mimeType: string;
+    buffer: Buffer;
+  }) {
+    await this.assertMatterExists(input.matterId);
+
+    if (input.buffer.length > MAX_UPLOAD_BYTES) {
+      throw new BadRequestException(
+        `File exceeds maximum size of ${MAX_UPLOAD_BYTES} bytes`,
+      );
+    }
+    if (!isAllowedUploadMime(input.mimeType, input.fileName)) {
+      throw new BadRequestException(`MIME type not allowed: ${input.mimeType}`);
+    }
+
     const document = await this.prisma.matterDocument.create({
       data: {
-        matterId,
-        displayName,
-        category: dto.category,
-        tags,
-        createdById: userId,
+        matterId: input.matterId,
+        displayName: input.displayName,
+        category: input.category,
+        tags: input.tags,
+        createdById: input.userId,
       },
     });
 
-    const storageKey = buildStorageKey(matterId, document.id, 1, file.originalname);
+    const storageKey = buildStorageKey(
+      input.matterId,
+      document.id,
+      1,
+      input.fileName,
+    );
 
     try {
-      await this.storage.putObject(storageKey, file.buffer, file.mimetype);
+      await this.storage.putObject(storageKey, input.buffer, input.mimeType);
       const version = await this.prisma.matterDocumentVersion.create({
         data: {
           documentId: document.id,
           version: 1,
-          fileName: file.originalname,
-          mimeType: file.mimetype,
-          sizeBytes: file.size,
+          fileName: input.fileName,
+          mimeType: input.mimeType,
+          sizeBytes: input.buffer.length,
           storageKey,
-          uploadedById: userId,
+          uploadedById: input.userId,
         },
         include: versionInclude,
       });
@@ -246,16 +344,41 @@ export class DocumentsService {
     matterId: string,
     templateId: string,
     userId: string,
+    format: 'pdf' | 'docx' = 'pdf',
   ) {
     await this.assertMatterExists(matterId);
     const template = await this.documentTemplates.findById(templateId);
-    const html = await this.documentTemplates.renderForMatter(templateId, matterId);
-    const pdfBuffer = await this.pdfRenderer.renderHtmlToPdf(html);
 
     const stamp = new Date().toISOString().slice(0, 10);
-    const fileName = `${template.slug}-${stamp}.pdf`;
     const displayName = template.name;
     const tags = ['generated', template.slug];
+
+    let fileName: string;
+    let mimeType: string;
+    let buffer: Buffer;
+
+    if (format === 'docx') {
+      if (!template.docxStorageKey) {
+        throw new BadRequestException(
+          'This template has no DOCX file. Upload a .docx template first.',
+        );
+      }
+      buffer = await this.documentTemplates.renderDocxForMatter(
+        templateId,
+        matterId,
+      );
+      fileName = `${template.slug}-${stamp}.docx`;
+      mimeType =
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    } else {
+      const html = await this.documentTemplates.renderForMatter(
+        templateId,
+        matterId,
+      );
+      buffer = await this.pdfRenderer.renderHtmlToPdf(html);
+      fileName = `${template.slug}-${stamp}.pdf`;
+      mimeType = 'application/pdf';
+    }
 
     const document = await this.prisma.matterDocument.create({
       data: {
@@ -270,14 +393,14 @@ export class DocumentsService {
     const storageKey = buildStorageKey(matterId, document.id, 1, fileName);
 
     try {
-      await this.storage.putObject(storageKey, pdfBuffer, 'application/pdf');
+      await this.storage.putObject(storageKey, buffer, mimeType);
       const version = await this.prisma.matterDocumentVersion.create({
         data: {
           documentId: document.id,
           version: 1,
           fileName,
-          mimeType: 'application/pdf',
-          sizeBytes: pdfBuffer.length,
+          mimeType,
+          sizeBytes: buffer.length,
           storageKey,
           uploadedById: userId,
         },

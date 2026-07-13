@@ -2,17 +2,51 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { correspondenceKeys } from '@/features/correspondence/queryKeys'
 import { matterKeys } from '@/features/matters/queryKeys'
 import { watchKeys } from '@/features/watch/queryKeys'
-import { registryApi } from '../api'
+import {
+  registryApi,
+  type UpsertEpoCredentialsInput,
+} from '../api'
 
 export const registryKeys = {
   all: ['registry'] as const,
   epoStatus: () => [...registryKeys.all, 'epo-status'] as const,
+  epoCredentials: () => [...registryKeys.all, 'epo-credentials'] as const,
 }
 
 export function useEpoRegistryStatus() {
   return useQuery({
     queryKey: registryKeys.epoStatus(),
     queryFn: () => registryApi.getEpoStatus(),
+  })
+}
+
+export function useEpoCredentials() {
+  return useQuery({
+    queryKey: registryKeys.epoCredentials(),
+    queryFn: () => registryApi.getEpoCredentials(),
+  })
+}
+
+export function useUpsertEpoCredentials() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (data: UpsertEpoCredentialsInput) =>
+      registryApi.upsertEpoCredentials(data),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: registryKeys.epoCredentials() })
+      void qc.invalidateQueries({ queryKey: registryKeys.epoStatus() })
+    },
+  })
+}
+
+export function useClearEpoCredentials() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: () => registryApi.clearEpoCredentials(),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: registryKeys.epoCredentials() })
+      void qc.invalidateQueries({ queryKey: registryKeys.epoStatus() })
+    },
   })
 }
 

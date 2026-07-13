@@ -15,6 +15,7 @@ import {
 import {
   formatDetectedAt,
   formatNiceClasses,
+  formatSimilarityScore,
   formatWatchJurisdictions,
   registrySourceLabel,
   watchAlertStatusLabel,
@@ -115,6 +116,16 @@ export function WatchAlertDetailPage() {
             <div>
               <dt className="text-xs text-muted-foreground">{t('detail.applicationNumber')}</dt>
               <dd className="mt-1 font-medium">{alert.applicationNumber ?? '—'}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-muted-foreground">{t('detail.similarity')}</dt>
+              <dd className="mt-1 font-medium">
+                {alert.similarityScore != null ? (
+                  <Badge variant="secondary">{formatSimilarityScore(alert.similarityScore)}</Badge>
+                ) : (
+                  '—'
+                )}
+              </dd>
             </div>
             <div>
               <dt className="text-xs text-muted-foreground">{t('detail.detectedAt')}</dt>

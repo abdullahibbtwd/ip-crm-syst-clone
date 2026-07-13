@@ -1,13 +1,14 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { AiProvider } from './interfaces/ai-provider.interface';
+import { AnthropicProvider } from './providers/anthropic.provider';
 import { GeminiProvider } from './providers/gemini.provider';
+import { OpenAiProvider } from './providers/openai.provider';
 
 export type AiProviderName = 'gemini' | 'openai' | 'anthropic';
 
 /**
  * Resolves the active AI provider from `AI_PROVIDER`.
- * Only Gemini is implemented today; openai/anthropic are reserved for future providers.
  */
 @Injectable()
 export class AiProviderFactory {
@@ -16,6 +17,8 @@ export class AiProviderFactory {
   constructor(
     private readonly config: ConfigService,
     private readonly gemini: GeminiProvider,
+    private readonly openai: OpenAiProvider,
+    private readonly anthropic: AnthropicProvider,
   ) {}
 
   create(): AiProvider {
@@ -27,11 +30,9 @@ export class AiProviderFactory {
       case 'gemini':
         return this.gemini;
       case 'openai':
+        return this.openai;
       case 'anthropic':
-        this.logger.warn(
-          `AI_PROVIDER=${configured} is not implemented yet; falling back to GeminiProvider`,
-        );
-        return this.gemini;
+        return this.anthropic;
       default:
         this.logger.warn(
           `Unknown AI_PROVIDER="${configured}"; falling back to GeminiProvider`,

@@ -1,4 +1,5 @@
 import {
+  IsBoolean,
   IsDateString,
   IsEnum,
   IsObject,
@@ -69,6 +70,10 @@ export class CreateCorrespondenceDto {
   @IsOptional()
   @IsUUID()
   mailboxConnectionId?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isClientVisible?: boolean;
 }
 
 export class UpdateCorrespondenceDto {
@@ -85,4 +90,8 @@ export class UpdateCorrespondenceDto {
   @IsOptional()
   @IsUUID()
   documentVersionId?: string | null;
+
+  @IsOptional()
+  @IsBoolean()
+  isClientVisible?: boolean;
 }

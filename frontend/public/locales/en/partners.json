@@ -1,0 +1,87 @@
+{
+  "title": "Foreign partners",
+  "subtitle": "Local agents and associate counsel used for filings and matter instructions.",
+  "newPartner": "New partner",
+  "noPermission": "You do not have permission to view partners.",
+  "loading": "Loading partners…",
+  "loadError": "Failed to load partners.",
+  "empty": "No partners match these filters.",
+  "searchPlaceholder": "Search name, company, email…",
+  "filters": {
+    "all": "All partners",
+    "activeOnly": "Active only"
+  },
+  "columns": {
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "jurisdictions": "Jurisdictions",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "editAria": "Edit partner",
+  "deactivateAria": "Deactivate partner",
+  "confirmDeactivate": "Deactivate partner “{{name}}”?",
+  "drawer": {
+    "createTitle": "New partner",
+    "editTitle": "Edit partner",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "countryCode": "Country code",
+    "jurisdictions": "Jurisdictions",
+    "jurisdictionsHint": "Comma-separated codes, e.g. BG, EU, EP",
+    "notes": "Notes",
+    "status": "Status",
+    "cancel": "Cancel",
+    "create": "Create partner",
+    "save": "Save changes"
+  },
+  "errors": {
+    "nameRequired": "Name is required",
+    "saveFailed": "Failed to save partner"
+  },
+  "instructions": {
+    "title": "Partner instructions",
+    "subtitle": "Draft, send, and track instructions to foreign partners on this matter.",
+    "newDraft": "New draft",
+    "noPermission": "You do not have permission to view partner instructions.",
+    "loading": "Loading instructions…",
+    "loadError": "Failed to load instructions.",
+    "empty": "No partner instructions yet.",
+    "columns": {
+      "title": "Title",
+      "partner": "Partner",
+      "status": "Status",
+      "created": "Created"
+    },
+    "status": {
+      "draft": "Draft",
+      "sent": "Sent",
+      "acknowledged": "Acknowledged",
+      "complete": "Complete"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Select partner",
+      "title": "Title",
+      "body": "Instructions",
+      "cancel": "Cancel",
+      "create": "Create draft"
+    },
+    "errors": {
+      "required": "Partner and title are required",
+      "saveFailed": "Failed to create instruction"
+    }
+  },
+  "actions": {
+    "send": "Send",
+    "acknowledge": "Acknowledge",
+    "complete": "Complete"
+  }
+}

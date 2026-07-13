@@ -20,21 +20,25 @@ export type EpoTestResult =
 export class RegistryService {
   constructor(private readonly epo: EpoProvider) {}
 
-  getEpoStatus() {
+  async getEpoStatus() {
+    await this.epo.refreshCredentials();
     return {
       provider: 'epo' as const,
       configured: this.epo.isConfigured(),
+      source: this.epo.getCredentialSource(),
     };
   }
 
   async testEpoConnection(patentNumber?: string): Promise<EpoTestResult> {
     const number = (patentNumber?.trim() || 'EP3000000').toUpperCase();
 
+    await this.epo.refreshCredentials();
+
     if (!this.epo.isConfigured()) {
       return {
         success: false,
         error:
-          'EPO is not configured. Set EPO_CONSUMER_KEY and EPO_CONSUMER_SECRET in .env.',
+          'EPO is not configured. Add credentials under Settings → Integrations (or set EPO_CONSUMER_KEY / EPO_CONSUMER_SECRET in .env).',
       };
     }
 

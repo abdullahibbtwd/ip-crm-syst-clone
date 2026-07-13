@@ -85,6 +85,7 @@ export function LogCorrespondenceDrawer({
   const [uploadCategory, setUploadCategory] = useState<DocumentCategory>('correspondence')
   const [uploadTags, setUploadTags] = useState('')
   const [uploadDragOver, setUploadDragOver] = useState(false)
+  const [isClientVisible, setIsClientVisible] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const resetUploadFields = () => {
@@ -109,6 +110,7 @@ export function LogCorrespondenceDrawer({
     setRecipient('')
     setSubject('')
     setStatus('received')
+    setIsClientVisible(false)
     resetAttachment()
     setError(null)
   }
@@ -174,6 +176,7 @@ export function LogCorrespondenceDrawer({
         recipient: recipient.trim(),
         subject: subject.trim(),
         status,
+        isClientVisible,
         metadata: { logMethod: 'correspondence' },
         documentVersionId: linkedVersionId,
       })
@@ -407,6 +410,21 @@ export function LogCorrespondenceDrawer({
               placeholder="BPO Office Action - Response Required"
             />
           </div>
+
+          <label className="flex cursor-pointer items-start gap-2.5 rounded-md border bg-background px-3 py-2.5">
+            <input
+              type="checkbox"
+              className="mt-0.5 size-4 rounded border-input"
+              checked={isClientVisible}
+              onChange={(e) => setIsClientVisible(e.target.checked)}
+            />
+            <span>
+              <span className="block text-sm font-medium">Send to client inbox</span>
+              <span className="text-xs text-muted-foreground">
+                Show this entry in the client portal Messages inbox.
+              </span>
+            </span>
+          </label>
 
           {direction === 'incoming' && category === 'office_action' ? (
             <p className="text-xs text-muted-foreground">

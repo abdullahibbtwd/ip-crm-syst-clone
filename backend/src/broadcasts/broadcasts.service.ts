@@ -227,6 +227,28 @@ export class BroadcastsService {
         where: { id: data.broadcastId },
         data: { sentCount: { increment: 1 } },
       });
+
+      if (recipient.clientId) {
+        const sentAt = new Date();
+        await this.prisma.portalBroadcastCopy.upsert({
+          where: { broadcastRecipientId: recipient.id },
+          create: {
+            clientId: recipient.clientId,
+            broadcastId: recipient.broadcastId,
+            broadcastRecipientId: recipient.id,
+            subject: recipient.broadcast.subject,
+            bodyText: recipient.broadcast.bodyText,
+            bodyHtml: recipient.broadcast.bodyHtml,
+            sentAt,
+          },
+          update: {
+            subject: recipient.broadcast.subject,
+            bodyText: recipient.broadcast.bodyText,
+            bodyHtml: recipient.broadcast.bodyHtml,
+            sentAt,
+          },
+        });
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       await this.prisma.broadcastRecipient.update({

@@ -7,6 +7,7 @@ import type {
   InstructRenewalInput,
   RegisterIpRightInput,
   RenewalFilters,
+  SplitRenewalWindowInput,
 } from '../types'
 
 export function usePortalRenewals() {
@@ -81,6 +82,65 @@ export function useMarkRenewalFiled() {
     mutationFn: (id: string) => renewalsApi.markFiled(id),
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: renewalKeys.all })
+    },
+  })
+}
+
+export function useSplitRenewalWindow() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({
+      windowId,
+      data,
+    }: {
+      windowId: string
+      data: SplitRenewalWindowInput
+    }) => renewalsApi.splitWindow(windowId, data),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: renewalKeys.all })
+    },
+  })
+}
+
+export function useInstructRenewalPart() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({
+      partId,
+      data,
+    }: {
+      partId: string
+      data: InstructRenewalInput
+    }) => renewalsApi.instructPart(partId, data),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: renewalKeys.all })
+    },
+  })
+}
+
+export function useMarkRenewalPartFiled() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (partId: string) => renewalsApi.markPartFiled(partId),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: renewalKeys.all })
+    },
+  })
+}
+
+export function useCompleteRenewalPart() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({
+      partId,
+      data,
+    }: {
+      partId: string
+      data: CompleteRenewalInput
+    }) => renewalsApi.completePart(partId, data),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: renewalKeys.all })
+      void qc.invalidateQueries({ queryKey: matterKeys.all })
     },
   })
 }

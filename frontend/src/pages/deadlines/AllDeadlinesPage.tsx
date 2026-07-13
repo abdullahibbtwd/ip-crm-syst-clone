@@ -62,6 +62,12 @@ const STATUSES: DeadlineStatus[] = [
   'escalated',
   'superseded',
 ]
+const STATUS_SET = new Set<string>(STATUSES)
+
+function parseDeadlineStatus(value: string | null): DeadlineStatus | undefined {
+  if (!value || !STATUS_SET.has(value)) return undefined
+  return value as DeadlineStatus
+}
 
 export function AllDeadlinesPage() {
   const { t } = useTranslation('deadlines')
@@ -71,10 +77,12 @@ export function AllDeadlinesPage() {
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
+  const status = parseDeadlineStatus(searchParams.get('status'))
+  const hasGraceOnly = searchParams.get('hasGrace') === '1'
+
   const [assignedToId, setAssignedToId] = useState<string | undefined>()
   const [matterType, setMatterType] = useState<MatterType | undefined>()
   const [jurisdiction, setJurisdiction] = useState<string | undefined>()
-  const [status, setStatus] = useState<DeadlineStatus | undefined>()
   const [dueFrom, setDueFrom] = useState('')
   const [dueTo, setDueTo] = useState('')
   const [overdueOnly, setOverdueOnly] = useState(false)
@@ -85,10 +93,22 @@ export function AllDeadlinesPage() {
   const { data: todayData } = useFirmTodayDeadlineCount()
   const firmTodayCount = todayData?.count ?? 0
 
+  const setStatus = (value: DeadlineStatus | undefined) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set('status', value)
+        else next.delete('status')
+        return next
+      },
+      { replace: true },
+    )
+  }
+
   useEffect(() => {
     setPageIndex(0)
     setCursors([undefined])
-  }, [assignedToId, matterType, jurisdiction, status, dueFrom, dueTo, overdueOnly])
+  }, [assignedToId, matterType, jurisdiction, status, dueFrom, dueTo, overdueOnly, hasGraceOnly])
 
   const { data, isLoading, isError, isFetching } = useAllDeadlines({
     assignedToId,
@@ -102,7 +122,7 @@ export function AllDeadlinesPage() {
     cursor: cursors[pageIndex],
   })
 
-  const deadlines = data?.items ?? []
+  const deadlines = (data?.items ?? []).filter((d) => (hasGraceOnly ? Boolean(d.graceDate) : true))
 
   const openDrawer = () => {
     setDrawerOpen(true)

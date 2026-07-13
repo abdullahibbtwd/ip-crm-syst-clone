@@ -18,6 +18,7 @@ export const I18N_NAMESPACES = [
   'finance',
   'users',
   'settings',
+  'partners',
   'portal',
   'reports',
 ] as const
@@ -35,7 +36,7 @@ void i18n
     defaultNS: 'common',
     backend: {
       // Bust browser cache when locale JSON changes (e.g. new nav keys)
-      loadPath: '/locales/{{lng}}/{{ns}}.json?v=20260710f',
+      loadPath: '/locales/{{lng}}/{{ns}}.json?v=20260713a',
     },
     detection: {
       order: ['localStorage', 'navigator'],

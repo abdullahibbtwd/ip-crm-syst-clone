@@ -13,7 +13,6 @@ import {
 } from '../../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { MattersService } from '../matters/matters.service';
-import { NotificationDispatchService } from '../notifications/notification-dispatch.service';
 import { parseLimit } from '../crm/dto/pagination.dto';
 import {
   REGISTRY_DEFAULT_JURISDICTION,
@@ -27,6 +26,11 @@ import {
   CreateWatchProfileDto,
   UpdateWatchProfileDto,
 } from './dto/watch-profile.dto';
+import { WatchAlertNotifyService } from './watch-alert-notify.service';
+import {
+  scoreMarkSimilarity,
+  WATCH_MATCH_METHOD,
+} from './watch-similarity.util';
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
@@ -74,7 +78,7 @@ export class WatchService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly matters: MattersService,
-    private readonly notifications: NotificationDispatchService,
+    private readonly alertNotify: WatchAlertNotifyService,
   ) {}
 
   async listProfilesForClient(clientId: string) {
@@ -130,13 +134,25 @@ export class WatchService {
     if (query.clientId) where.clientId = query.clientId;
     if (query.jurisdiction) where.jurisdiction = query.jurisdiction;
     if (query.source) where.source = query.source;
+    if (query.minSimilarity != null) {
+      where.similarityScore = { gte: query.minSimilarity };
+    }
 
     const statsWhere: Prisma.WatchAlertWhereInput = { ...where };
     delete statsWhere.status;
 
+    const sortBy = query.sortBy ?? 'detectedAt';
+    const orderBy: Prisma.WatchAlertOrderByWithRelationInput[] =
+      sortBy === 'similarity'
+        ? [
+            { similarityScore: { sort: 'desc', nulls: 'last' } },
+            { id: 'desc' },
+          ]
+        : [{ detectedAt: 'desc' }, { id: 'desc' }];
+
     const rows = await this.prisma.watchAlert.findMany({
       where,
-      orderBy: [{ detectedAt: 'desc' }, { id: 'desc' }],
+      orderBy,
       take: take + 1,
       ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
       include: watchAlertListInclude,
@@ -221,18 +237,30 @@ export class WatchService {
       throw new BadRequestException('Invalid jurisdiction code');
     }
 
-    return this.prisma.watchAlert.create({
+    const conflictingMark = dto.conflictingMark?.trim() ?? 'Koka-Cola';
+    const similarityScore = await scoreMarkSimilarity(
+      conflictingMark,
+      profile.markText,
+      this.prisma,
+    );
+
+    const alert = await this.prisma.watchAlert.create({
       data: {
         watchProfileId: profile.id,
         clientId: profile.clientId,
-        conflictingMark: dto.conflictingMark?.trim() ?? 'Koka-Cola',
+        conflictingMark,
         source,
         jurisdiction,
         applicationNumber: dto.applicationNumber ?? '018765432',
         status: WatchAlertStatus.new,
+        similarityScore,
+        matchMethod: similarityScore != null ? WATCH_MATCH_METHOD : null,
       },
       include: watchAlertListInclude,
     });
+
+    await this.alertNotify.notifyAlertCreated(alert.id);
+    return alert;
   }
 
   async rejectAlert(id: string, userId: string) {
@@ -242,7 +270,7 @@ export class WatchService {
       throw new BadRequestException('Alert has already been triaged');
     }
 
-    return this.prisma.watchAlert.update({
+    const updated = await this.prisma.watchAlert.update({
       where: { id },
       data: {
         status: WatchAlertStatus.rejected,
@@ -251,6 +279,9 @@ export class WatchService {
       },
       include: watchAlertListInclude,
     });
+
+    await this.alertNotify.notifyAlertTriaged(id, 'rejected');
+    return updated;
   }
 
   async acceptAlert(id: string, userId: string) {
@@ -303,21 +334,7 @@ export class WatchService {
       include: watchAlertListInclude,
     });
 
-    if (matter.assignedToId) {
-      await this.notifications.dispatch({
-        userId: matter.assignedToId,
-        type: 'general',
-        title: `Watch alert accepted: ${alert.conflictingMark}`,
-        body: `A trademark watch conflict was accepted and matter "${matter.title}" was created.`,
-        resource: 'matter',
-        resourceId: matter.id,
-        linkUrl: `/matters/${matter.id}`,
-        metadata: {
-          watchAlertId: alert.id,
-          matterId: matter.id,
-        },
-      });
-    }
+    await this.alertNotify.notifyAlertTriaged(id, 'accepted');
 
     return { alert: updated, matter };
   }

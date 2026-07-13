@@ -62,8 +62,13 @@ export function useDocumentTemplates() {
 export function useGenerateDocument(matterId: string, filters?: DocumentFilters) {
   const qc = useQueryClient()
   return useMutation({
-    mutationFn: (templateId: string) =>
-      documentsApi.generateFromTemplate(matterId, templateId),
+    mutationFn: ({
+      templateId,
+      format = 'pdf',
+    }: {
+      templateId: string
+      format?: 'pdf' | 'docx'
+    }) => documentsApi.generateFromTemplate(matterId, templateId, format),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId, filters) })
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })

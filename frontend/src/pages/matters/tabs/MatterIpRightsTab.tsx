@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState, type FormEvent } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import {
   AlertCircle,
@@ -40,18 +40,23 @@ import {
 } from '@/features/matters/hooks/useMatters'
 import {
   useCompleteRenewal,
+  useCompleteRenewalPart,
   useInstructRenewal,
+  useInstructRenewalPart,
   useIpRightRenewals,
   useMarkRenewalFiled,
+  useMarkRenewalPartFiled,
   useRegisterIpRight,
+  useSplitRenewalWindow,
 } from '@/features/renewals/hooks/useRenewals'
+import type { RenewalPart, RenewalWindow, SplitRenewalPartInput } from '@/features/renewals/types'
 import { useCheckEpoStatus } from '@/features/registry/hooks/useRegistry'
 import {
   RENEWAL_STATUS_LABELS,
   RENEWAL_URGENCY_ROW_CLASS,
   renewalUrgency,
 } from '@/features/renewals/utils'
-import type { IpRight, IpRightStatus } from '@/features/matters/types'
+import type { IpRight, IpRightStatus, MatterType } from '@/features/matters/types'
 import { formatDeadlineDate, JURISDICTION_OPTIONS, jurisdictionLabel } from '@/features/deadlines/utils'
 import { cn } from '@/lib/utils'
 import {
@@ -448,6 +453,7 @@ export function MatterIpRightsTab() {
                       <IpRightRenewalsPanel
                         matterId={matterId}
                         ipRightId={right.id}
+                        rightType={right.rightType}
                         onInstruct={(id, decision) =>
                           instructRenewal.mutate({ id, data: { decision } })
                         }
@@ -709,20 +715,265 @@ export function MatterIpRightsTab() {
   )
 }
 
+function canSplitWindow(w: RenewalWindow) {
+  if (w.status !== 'upcoming') return false
+  const parts = w.parts ?? []
+  return parts.length === 0 || parts.every((p) => p.status === 'upcoming')
+}
+
+function SplitRenewalDrawer({
+  open,
+  onClose,
+  window: renewalWindow,
+}: {
+  open: boolean
+  onClose: () => void
+  window: RenewalWindow | null
+}) {
+  const split = useSplitRenewalWindow()
+  const [rows, setRows] = useState<Array<{ jurisdiction: string; niceClasses: string; notes: string }>>([
+    { jurisdiction: '', niceClasses: '', notes: '' },
+    { jurisdiction: '', niceClasses: '', notes: '' },
+  ])
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!open || !renewalWindow) return
+    const existing = renewalWindow.parts ?? []
+    if (existing.length > 0) {
+      setRows(
+        existing.map((p) => ({
+          jurisdiction: p.jurisdiction,
+          niceClasses: p.niceClasses.join(', '),
+          notes: p.notes ?? '',
+        })),
+      )
+    } else {
+      setRows([
+        { jurisdiction: renewalWindow.jurisdiction, niceClasses: '', notes: '' },
+        { jurisdiction: '', niceClasses: '', notes: '' },
+      ])
+    }
+    setError(null)
+  }, [open, renewalWindow])
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    if (!renewalWindow) return
+    setError(null)
+    const parts: SplitRenewalPartInput[] = []
+    for (const row of rows) {
+      const jurisdiction = row.jurisdiction.trim().toUpperCase()
+      if (!jurisdiction) continue
+      const niceClasses = row.niceClasses
+        .split(/[,\s]+/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => Number(s))
+        .filter((n) => Number.isInteger(n) && n > 0)
+      parts.push({
+        jurisdiction,
+        niceClasses: niceClasses.length ? niceClasses : undefined,
+        notes: row.notes.trim() || undefined,
+      })
+    }
+    if (parts.length < 1) {
+      setError('Add at least one part with a jurisdiction')
+      return
+    }
+    try {
+      await split.mutateAsync({ windowId: renewalWindow.id, data: { parts } })
+      onClose()
+    } catch (err) {
+      setError(getApiErrorMessage(err, 'Could not split renewal'))
+    }
+  }
+
+  return (
+    <Drawer open={open} onClose={onClose} title="Split renewal" className="max-w-lg">
+      <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4">
+        <p className="text-sm text-muted-foreground">
+          Split this renewal into jurisdiction / Nice-class parts. Each part is instructed and
+          completed separately; the window status rolls up from the parts.
+        </p>
+        {rows.map((row, index) => (
+          <div key={index} className="space-y-2 rounded-md border p-3">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium">Part {index + 1}</p>
+              {rows.length > 1 ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => setRows((prev) => prev.filter((_, i) => i !== index))}
+                >
+                  Remove
+                </Button>
+              ) : null}
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground">Jurisdiction</label>
+              <Input
+                value={row.jurisdiction}
+                onChange={(e) =>
+                  setRows((prev) =>
+                    prev.map((r, i) =>
+                      i === index ? { ...r, jurisdiction: e.target.value } : r,
+                    ),
+                  )
+                }
+                placeholder="EU"
+                required
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground">Nice classes (comma-separated)</label>
+              <Input
+                value={row.niceClasses}
+                onChange={(e) =>
+                  setRows((prev) =>
+                    prev.map((r, i) =>
+                      i === index ? { ...r, niceClasses: e.target.value } : r,
+                    ),
+                  )
+                }
+                placeholder="9, 42"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground">Notes</label>
+              <Input
+                value={row.notes}
+                onChange={(e) =>
+                  setRows((prev) =>
+                    prev.map((r, i) => (i === index ? { ...r, notes: e.target.value } : r)),
+                  )
+                }
+              />
+            </div>
+          </div>
+        ))}
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={() =>
+            setRows((prev) => [...prev, { jurisdiction: '', niceClasses: '', notes: '' }])
+          }
+        >
+          Add part
+        </Button>
+        {error ? <p className="text-sm text-destructive">{error}</p> : null}
+        <div className="flex justify-end gap-2">
+          <Button type="button" variant="outline" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit" disabled={split.isPending}>
+            {split.isPending ? 'Saving…' : 'Save parts'}
+          </Button>
+        </div>
+      </form>
+    </Drawer>
+  )
+}
+
+function RenewalPartsTable({
+  parts,
+  onInstruct,
+  onFile,
+  onComplete,
+}: {
+  parts: RenewalPart[]
+  onInstruct: (partId: string, decision: 'proceed' | 'abandon') => void
+  onFile: (partId: string) => void
+  onComplete: (partId: string) => void
+}) {
+  return (
+    <div className="mt-2 rounded-md border bg-background/60 p-2">
+      <p className="mb-2 text-xs font-medium text-muted-foreground">Partial renewals</p>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Jurisdiction</TableHead>
+            <TableHead>Nice classes</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="min-w-[180px]">Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {parts.map((p) => (
+            <TableRow key={p.id}>
+              <TableCell className="font-medium">{p.jurisdiction}</TableCell>
+              <TableCell>
+                {p.niceClasses.length ? p.niceClasses.join(', ') : '—'}
+              </TableCell>
+              <TableCell>
+                <Badge variant="outline">{RENEWAL_STATUS_LABELS[p.status]}</Badge>
+              </TableCell>
+              <TableCell>
+                <PermissionGate resource="renewal" action="update">
+                  <div className="flex flex-wrap gap-1">
+                    {p.status === 'upcoming' ? (
+                      <>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => onInstruct(p.id, 'proceed')}
+                        >
+                          Proceed
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => onInstruct(p.id, 'abandon')}
+                        >
+                          Abandon
+                        </Button>
+                      </>
+                    ) : null}
+                    {p.status === 'instructed' ? (
+                      <Button size="sm" variant="outline" onClick={() => onFile(p.id)}>
+                        Mark filed
+                      </Button>
+                    ) : null}
+                    {p.status === 'instructed' || p.status === 'filed' ? (
+                      <Button size="sm" onClick={() => onComplete(p.id)}>
+                        Complete
+                      </Button>
+                    ) : null}
+                  </div>
+                </PermissionGate>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  )
+}
+
 function IpRightRenewalsPanel({
   matterId,
   ipRightId,
+  rightType,
   onInstruct,
   onFile,
   onComplete,
 }: {
   matterId: string
   ipRightId: string
+  rightType: MatterType
   onInstruct: (id: string, decision: 'proceed' | 'abandon') => void
   onFile: (id: string) => void
   onComplete: (id: string) => void
 }) {
   const { data: renewals, isLoading } = useIpRightRenewals(matterId, ipRightId)
+  const instructPart = useInstructRenewalPart()
+  const markPartFiled = useMarkRenewalPartFiled()
+  const completePart = useCompleteRenewalPart()
+  const [splitTarget, setSplitTarget] = useState<RenewalWindow | null>(null)
+  const isAnnuity = rightType === 'patent' || rightType === 'utility_model'
+  const scheduleTitle = isAnnuity ? 'Annuity schedule' : 'Renewal windows'
 
   if (isLoading) {
     return <p className="text-sm text-muted-foreground">Loading renewals…</p>
@@ -731,69 +982,116 @@ function IpRightRenewalsPanel({
   if (!renewals?.length) {
     return (
       <p className="text-sm text-muted-foreground">
-        No renewal windows yet. Register the IP right to open cycle 1.
+        {isAnnuity
+          ? 'No annuity windows yet. Register the patent to open year 1.'
+          : 'No renewal windows yet. Register the IP right to open cycle 1.'}
       </p>
     )
   }
 
   return (
-    <div className="space-y-2">
-      <p className="text-sm font-medium">Renewal windows</p>
-      <div className="space-y-2">
-        {renewals.map((w) => {
-          const urgency = renewalUrgency(w.dueDate, w.status)
-          return (
-            <div
-              key={w.id}
-              className={cn(
-                'flex flex-wrap items-center justify-between gap-2 rounded-md border px-3 py-2',
-                RENEWAL_URGENCY_ROW_CLASS[urgency],
-              )}
-            >
-              <div>
-                <p className="text-sm font-medium">
-                  Cycle {w.cycleNumber} · due {formatDeadlineDate(w.dueDate)}
-                </p>
-                <Badge variant="outline" className="mt-1">
-                  {RENEWAL_STATUS_LABELS[w.status]}
-                </Badge>
-              </div>
-              <PermissionGate resource="renewal" action="update">
-                <div className="flex flex-wrap gap-1">
-                  {w.status === 'upcoming' ? (
-                    <>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => onInstruct(w.id, 'proceed')}
-                      >
-                        Record proceed
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => onInstruct(w.id, 'abandon')}
-                      >
-                        Abandon
-                      </Button>
-                    </>
-                  ) : null}
-                  {w.status === 'instructed' ? (
-                    <Button size="sm" variant="outline" onClick={() => onFile(w.id)}>
-                      Mark filed
-                    </Button>
-                  ) : null}
-                  {w.status === 'instructed' || w.status === 'filed' ? (
-                    <Button size="sm" onClick={() => onComplete(w.id)}>
-                      Complete
-                    </Button>
-                  ) : null}
-                </div>
-              </PermissionGate>
-            </div>
-          )
-        })}
-      </div>
+    <div className="space-y-3">
+      <p className="text-sm font-medium">{scheduleTitle}</p>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>{isAnnuity ? 'Year / cycle' : 'Cycle'}</TableHead>
+            <TableHead>Due date</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="min-w-[200px]">Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {renewals.map((w) => {
+            const urgency = renewalUrgency(w.dueDate, w.status)
+            const parts = w.parts ?? []
+            const hasParts = parts.length > 0
+            return (
+              <Fragment key={w.id}>
+                <TableRow className={RENEWAL_URGENCY_ROW_CLASS[urgency]}>
+                  <TableCell className="font-medium">
+                    {isAnnuity ? `Year ${w.cycleNumber}` : `Cycle ${w.cycleNumber}`}
+                    {hasParts ? (
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        ({parts.length} parts)
+                      </span>
+                    ) : null}
+                  </TableCell>
+                  <TableCell>{formatDeadlineDate(w.dueDate)}</TableCell>
+                  <TableCell>
+                    <Badge variant="outline">{RENEWAL_STATUS_LABELS[w.status]}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <PermissionGate resource="renewal" action="update">
+                      <div className="flex flex-wrap gap-1">
+                        {canSplitWindow(w) ? (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => setSplitTarget(w)}
+                          >
+                            {hasParts ? 'Edit split' : 'Split renewal'}
+                          </Button>
+                        ) : null}
+                        {!hasParts && w.status === 'upcoming' ? (
+                          <>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => onInstruct(w.id, 'proceed')}
+                            >
+                              Record proceed
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => onInstruct(w.id, 'abandon')}
+                            >
+                              Abandon
+                            </Button>
+                          </>
+                        ) : null}
+                        {!hasParts && w.status === 'instructed' ? (
+                          <Button size="sm" variant="outline" onClick={() => onFile(w.id)}>
+                            Mark filed
+                          </Button>
+                        ) : null}
+                        {!hasParts &&
+                        (w.status === 'instructed' || w.status === 'filed') ? (
+                          <Button size="sm" onClick={() => onComplete(w.id)}>
+                            Complete
+                          </Button>
+                        ) : null}
+                      </div>
+                    </PermissionGate>
+                  </TableCell>
+                </TableRow>
+                {hasParts ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="bg-muted/10 p-3">
+                      <RenewalPartsTable
+                        parts={parts}
+                        onInstruct={(partId, decision) =>
+                          instructPart.mutate({ partId, data: { decision } })
+                        }
+                        onFile={(partId) => markPartFiled.mutate(partId)}
+                        onComplete={(partId) =>
+                          completePart.mutate({ partId, data: {} })
+                        }
+                      />
+                    </TableCell>
+                  </TableRow>
+                ) : null}
+              </Fragment>
+            )
+          })}
+        </TableBody>
+      </Table>
+      <SplitRenewalDrawer
+        open={Boolean(splitTarget)}
+        onClose={() => setSplitTarget(null)}
+        window={splitTarget}
+      />
     </div>
   )
 }

@@ -89,6 +89,31 @@ export function defaultStatusForDirection(
   return direction === 'outgoing' ? 'draft' : 'received'
 }
 
+/** True while EPO OPS published-document auto-fetch is in progress. */
+export function isEpoDocumentFetching(
+  item: import('./types').Correspondence,
+): boolean {
+  if (item.documentVersionId || item.documentVersion) return false
+  const meta = item.metadata
+  if (!meta || meta.source !== 'epo_ops') return false
+  const status = meta.epoDocumentFetchStatus
+  if (status === 'failed' || status === 'unavailable' || status === 'ready') {
+    return false
+  }
+  return (
+    status === 'pending' ||
+    typeof meta.epoPublicationNumber === 'string' ||
+    typeof meta.epoAppNumber === 'string'
+  )
+}
+
+/** True when the attachment was linked by EPO auto-fetch (not manual upload). */
+export function isEpoDocumentAutoFetched(
+  item: import('./types').Correspondence,
+): boolean {
+  return item.metadata?.epoDocumentAutoFetched === true
+}
+
 /** EPO Register link from correspondence metadata (stored or derived). */
 export function correspondenceEpoRegisterLink(
   item: import('./types').Correspondence,

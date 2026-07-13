@@ -38,8 +38,8 @@ export class AuthController {
   @Public()
   @SkipAudit()
   @Get('sso/providers')
-  getSsoProviders() {
-    return { providers: this.ssoService.getProviders() };
+  async getSsoProviders() {
+    return { providers: await this.ssoService.getProviders() };
   }
 
   @Public()

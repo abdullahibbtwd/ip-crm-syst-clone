@@ -6,8 +6,10 @@ import {
   BarChart3,
   Bell,
   Calendar,
+  CalendarDays,
   CalendarPlus,
   Building2,
+  Handshake,
   CircleDollarSign,
   Clock,
   CreditCard,
@@ -98,6 +100,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: FolderOpen, labelKey: 'allMatters', path: '/matters' },
           { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],
       },
       {
@@ -110,7 +113,10 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
       {
         sectionKey: 'finance',
-        items: [{ icon: Receipt, labelKey: 'billingOverview', path: '/billing-overview' }],
+        items: [
+          { icon: Receipt, labelKey: 'invoices', path: '/invoices' },
+          { icon: CircleDollarSign, labelKey: 'billingOverview', path: '/billing-overview' },
+        ],
       },
       {
         sectionKey: 'reports',
@@ -140,6 +146,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'system',
         items: [
           { icon: CalendarPlus, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
+          { icon: CalendarDays, labelKey: 'holidays', path: '/settings/holidays' },
           { icon: FileText, labelKey: 'documentTemplates', path: '/settings/document-templates' },
           { icon: Plug, labelKey: 'integrations', path: '/settings/integrations' },
         ],
@@ -168,8 +175,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'matters',
         items: [
           { icon: FolderOpen, labelKey: 'myMatters', path: '/matters' },
-          { icon: Atom, labelKey: 'patentFilings' },
-          { icon: Upload, labelKey: 'officeActions' },
+          { icon: Atom, labelKey: 'patentFilings', path: '/matters?matterType=patent' },
+          { icon: Upload, labelKey: 'officeActions', path: '/deadlines' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],
       },
       {
@@ -182,14 +190,14 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'communication',
         items: [
-          { icon: FileText, labelKey: 'documents' },
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
     ],
     footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
     topbar: { breadcrumbKey: 'myDashboard', showLanguage: true, showTasks: true },
-    home: { homeKey: 'myDashboard', comingSoon: true },
+    home: { homeKey: 'myDashboard' },
   },
 
   trademark_attorney: {
@@ -207,9 +215,14 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'trademarks',
         items: [
           { icon: ShieldCheck, labelKey: 'myTmMatters', path: '/matters' },
-          { icon: Upload, labelKey: 'oppositions' },
+          {
+            icon: Upload,
+            labelKey: 'oppositions',
+            path: '/matters?matterType=dispute_opposition',
+          },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Eye, labelKey: 'watchAlerts', path: '/watch-alerts' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],
       },
       {
@@ -219,14 +232,14 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'communication',
         items: [
-          { icon: FileText, labelKey: 'documents' },
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
     ],
     footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
     topbar: { breadcrumbKey: 'myDashboard', showLanguage: true, showTasks: true },
-    home: { homeKey: 'myDashboard', comingSoon: true },
+    home: { homeKey: 'myDashboard' },
   },
 
   coordinator: {
@@ -247,8 +260,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: Users, labelKey: 'clients', path: '/clients' },
           { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
           { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
-          { icon: Search, labelKey: 'conflictCheck' },
+          { icon: Search, labelKey: 'conflictCheck', path: '/intake?status=conflict_check' },
         ],
       },
       {
@@ -280,24 +294,26 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
           { icon: Calendar, labelKey: 'allDeadlines', path: '/deadlines' },
-          { icon: Bell, labelKey: 'escalations' },
+          { icon: Bell, labelKey: 'escalations', path: '/deadlines?status=escalated' },
         ],
       },
       {
         sectionKey: 'deadlines',
         items: [
           { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
-          { icon: Clock, labelKey: 'gracePeriods' },
+          { icon: Clock, labelKey: 'gracePeriods', path: '/deadlines?hasGrace=1' },
           { icon: CalendarPlus, labelKey: 'addDeadline', path: '/deadlines' },
           { icon: List, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
+          { icon: CalendarDays, labelKey: 'holidays', path: '/settings/holidays' },
         ],
       },
       {
         sectionKey: 'correspondence',
         items: [
           { icon: Mail, labelKey: 'incomingMail', path: '/email-queue' },
-          { icon: Send, labelKey: 'outgoingMail' },
+          { icon: Send, labelKey: 'outgoingMail', path: '/email-queue' },
         ],
       },
       {
@@ -328,19 +344,20 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: FolderOpen, labelKey: 'assignedMatters', path: '/matters' },
           { icon: Users, labelKey: 'clients', path: '/clients' },
+          { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],
       },
       {
         sectionKey: 'documentsAndMail',
         items: [
-          { icon: FileText, labelKey: 'documents' },
-          { icon: Mail, labelKey: 'correspondence' },
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
+          { icon: Mail, labelKey: 'correspondence', path: '/email-queue' },
         ],
       },
     ],
     footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
     topbar: { breadcrumbKey: 'myTasks', showLanguage: true, showTasks: true },
-    home: { homeKey: 'myTasks', comingSoon: true },
+    home: { homeKey: 'myTasks' },
   },
 
   finance: {
@@ -357,7 +374,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'billing',
         items: [
           { icon: Receipt, labelKey: 'invoices', path: '/invoices' },
-          { icon: CircleDollarSign, labelKey: 'timeEntries' },
+          { icon: CircleDollarSign, labelKey: 'timeEntries', path: '/time-entries' },
           { icon: Banknote, labelKey: 'payments', path: '/invoices?paymentStatus=unpaid' },
           { icon: CreditCard, labelKey: 'rateCards', path: '/rate-cards' },
         ],
@@ -366,7 +383,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'reports',
         items: [
           { icon: PieChart, labelKey: 'revenueReceivables', path: '/reports/revenue-summary' },
-          { icon: FileSpreadsheet, labelKey: 'disbursements' },
+          { icon: FileSpreadsheet, labelKey: 'disbursements', path: '/disbursements' },
         ],
       },
     ],
@@ -391,7 +408,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: Shield, labelKey: 'personalDataRegister', path: '/clients' },
           { icon: FileOutput, labelKey: 'dataExportsLog', path: '/compliance/data-exports' },
           { icon: Trash2, labelKey: 'retentionRules', path: '/compliance/retention' },
-          { icon: Lock, labelKey: 'consentRecords' },
+          { icon: Lock, labelKey: 'consentRecords', path: '/compliance/consent' },
         ],
       },
       {
@@ -413,28 +430,35 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
     nav: [
       {
         sectionKey: 'overview',
-        items: [{ icon: LayoutDashboard, labelKey: 'systemDashboard', isHome: true }],
+        items: [
+          {
+            icon: LayoutDashboard,
+            labelKey: 'systemDashboard',
+            isHome: true,
+            path: '/dashboard',
+          },
+        ],
       },
       {
         sectionKey: 'usersAndAccess',
         items: [
           { icon: Users, labelKey: 'users', path: '/users' },
-          { icon: ShieldCheck, labelKey: 'rolesPermissions' },
-          { icon: KeyRound, labelKey: 'ssoMfaConfig' },
+          { icon: ShieldCheck, labelKey: 'rolesPermissions', path: '/settings/roles' },
+          { icon: KeyRound, labelKey: 'ssoMfaConfig', path: '/settings/sso-mfa' },
         ],
       },
       {
         sectionKey: 'system',
         items: [
           { icon: Plug, labelKey: 'integrations', path: '/settings/integrations' },
-          { icon: Server, labelKey: 'systemHealth' },
+          { icon: Server, labelKey: 'systemHealth', path: '/settings/system-health' },
           { icon: History, labelKey: 'auditLog', path: '/compliance/audit-trail' },
         ],
       },
     ],
     footer: [{ icon: Settings, labelKey: 'settings', path: '/settings' }],
     topbar: { breadcrumbKey: 'systemDashboard', showLanguage: true },
-    home: { homeKey: 'systemDashboard', comingSoon: true },
+    home: { homeKey: 'systemDashboard' },
   },
 
   portal_client: {
@@ -460,10 +484,16 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       },
       {
         sectionKey: 'communication',
-        items: [{ icon: Mail, labelKey: 'messages' }],
+        items: [
+          { icon: Mail, labelKey: 'messages', path: '/portal/messages' },
+          { icon: ShieldCheck, labelKey: 'approvals', path: '/portal/approvals' },
+        ],
       },
     ],
-    footer: [{ icon: HelpCircle, labelKey: 'help' }],
+    footer: [
+      { icon: HelpCircle, labelKey: 'help', path: '/portal/help' },
+      { icon: Settings, labelKey: 'settings', path: '/settings' },
+    ],
     topbar: { breadcrumbKey: 'myPortfolio', showLanguage: true },
     home: { homeKey: 'portal_client' },
   },

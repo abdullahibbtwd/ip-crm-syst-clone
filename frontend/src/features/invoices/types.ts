@@ -109,3 +109,19 @@ export type InvoiceListResponse = {
   items: Invoice[]
   nextCursor: string | null
 }
+
+export type AccountingExportFormat = 'journal' | 'xero' | 'quickbooks'
+
+export type AccountingExportParams = {
+  format: AccountingExportFormat
+  from?: string
+  to?: string
+  clientId?: string
+}
+
+export type AccountingExportResponse = {
+  csv: string
+  filename: string
+  format: AccountingExportFormat
+  count: number
+}

@@ -194,6 +194,11 @@ export function RenewalsPage() {
                   <TableCell>{formatDeadlineDate(row.dueDate)}</TableCell>
                   <TableCell>
                     <Badge variant="outline">{renewalStatusLabel(row.status)}</Badge>
+                    {(row.parts?.length ?? 0) > 0 ? (
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {row.parts!.length} parts
+                      </p>
+                    ) : null}
                   </TableCell>
                   <TableCell className="text-muted-foreground">
                     {row.matter.assignedTo?.fullName ?? '-'}

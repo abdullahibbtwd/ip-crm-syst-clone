@@ -1,4 +1,4 @@
-import { IsArray, IsOptional, IsString, IsUUID, MaxLength, MinLength, ArrayMinSize, ValidateNested, IsEnum } from 'class-validator';
+import { IsArray, IsBoolean, IsOptional, IsString, IsUUID, MaxLength, MinLength, ArrayMinSize, ValidateNested, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
 import { DocumentCategory } from '../../../generated/prisma/client';
 
@@ -66,6 +66,10 @@ export class SendOutboundEmailDto {
   @IsOptional()
   @IsEnum(DocumentCategory)
   category?: DocumentCategory;
+
+  @IsOptional()
+  @IsBoolean()
+  isClientVisible?: boolean;
 
   @IsOptional()
   @IsArray()

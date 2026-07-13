@@ -78,6 +78,23 @@ export type CreateCorrespondenceInput = {
   bodyText?: string
   metadata?: Record<string, unknown>
   documentVersionId?: string
+  isClientVisible?: boolean
+}
+
+export type UpdateCorrespondenceInput = {
+  status?: CorrespondenceStatus
+  subject?: string
+  documentVersionId?: string | null
+  isClientVisible?: boolean
+}
+
+export type PortalCorrespondence = Correspondence & {
+  matter: {
+    id: string
+    title: string
+    matterType: string
+    status: string
+  }
 }
 
 export type MatterTimelineEvent = {

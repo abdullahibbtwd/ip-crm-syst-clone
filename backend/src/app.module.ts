@@ -28,6 +28,11 @@ import { StorageModule } from './storage/storage.module';
 import { AiModule } from './ai/ai.module';
 import { McpModule } from './mcp/mcp.module';
 import { RegistryModule } from './registry/registry.module';
+import { PartnersModule } from './partners/partners.module';
+import { ApprovalsModule } from './approvals/approvals.module';
+import { RolesModule } from './rbac/roles.module';
+import { PortalMessagesModule } from './portal-messages/portal-messages.module';
+import { HealthController } from './health/health.controller';
 import { AppController } from './app.controller';
 import { AuditInterceptor } from './common/interceptors/audit.interceptor';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
@@ -35,6 +40,7 @@ import { PermissionsGuard } from './common/guards/permissions.guard';
 import { RolesGuard } from './common/guards/roles.guard';
 import { PortalAccessModule } from './common/portal-access.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { SecretsModule } from './secrets/secrets.module';
 
 @Module({
   imports: [
@@ -46,6 +52,7 @@ import { PrismaModule } from './prisma/prisma.module';
       ],
     }),
     PrismaModule,
+    SecretsModule,
     PortalAccessModule,
     AuditModule,
     AuthModule,
@@ -73,8 +80,12 @@ import { PrismaModule } from './prisma/prisma.module';
     AiModule,
     McpModule,
     RegistryModule,
+    PartnersModule,
+    ApprovalsModule,
+    RolesModule,
+    PortalMessagesModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [
     { provide: APP_GUARD, useClass: JwtAuthGuard },
     { provide: APP_GUARD, useClass: RolesGuard },

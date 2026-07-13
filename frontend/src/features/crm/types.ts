@@ -30,6 +30,8 @@ export type ClientListItem = {
   firstName: string | null
   lastName: string | null
   country: string | null
+  gdprConsent?: boolean
+  gdprConsentDate?: string | null
   createdAt: string
   displayName: string
   assignedUser: { id: string; fullName: string } | null

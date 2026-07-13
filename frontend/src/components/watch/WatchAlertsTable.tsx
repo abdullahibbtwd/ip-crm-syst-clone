@@ -17,6 +17,7 @@ import { jurisdictionLabel } from '@/features/deadlines/utils'
 import type { WatchAlert } from '@/features/watch/types'
 import {
   formatDetectedAt,
+  formatSimilarityScore,
   registrySourceLabel,
   watchAlertStatusLabel,
   WATCH_ALERT_STATUS_VARIANT,
@@ -44,7 +45,7 @@ export function WatchAlertsTable({
 }: WatchAlertsTableProps) {
   const { t } = useTranslation(['watch', 'common'])
   const navigate = useNavigate()
-  const colCount = 8
+  const colCount = 9
 
   const rangeStart = items.length === 0 ? 0 : pageIndex * WATCH_ALERT_PAGE_SIZE + 1
   const rangeEnd = pageIndex * WATCH_ALERT_PAGE_SIZE + items.length
@@ -55,6 +56,7 @@ export function WatchAlertsTable({
         <TableRow className="bg-muted/40 hover:bg-muted/40">
           <TableHead>{t('table.conflict')}</TableHead>
           <TableHead>{t('table.mark')}</TableHead>
+          <TableHead>{t('table.similarity')}</TableHead>
           <TableHead>{t('table.client')}</TableHead>
           <TableHead>{t('table.source')}</TableHead>
           <TableHead>{t('table.jurisdiction')}</TableHead>
@@ -99,6 +101,13 @@ export function WatchAlertsTable({
               <TableCell className="font-medium text-foreground">{alert.conflictingMark}</TableCell>
               <TableCell className="text-muted-foreground">
                 {alert.watchProfile?.markText ?? '—'}
+              </TableCell>
+              <TableCell>
+                {alert.similarityScore != null ? (
+                  <Badge variant="secondary">{formatSimilarityScore(alert.similarityScore)}</Badge>
+                ) : (
+                  <span className="text-muted-foreground">—</span>
+                )}
               </TableCell>
               <TableCell onClick={(e) => e.stopPropagation()}>
                 {alert.client ? (

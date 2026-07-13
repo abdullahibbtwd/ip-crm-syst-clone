@@ -23,6 +23,7 @@ import {
   ListAllDeadlinesQueryDto,
   MyDeadlinesQueryDto,
 } from './dto/deadline.dto';
+import { HolidaysService } from './holidays.service';
 
 function startOfDay(date: Date): Date {
   const d = new Date(date);
@@ -76,6 +77,7 @@ export class DeadlinesService {
     private readonly prisma: PrismaService,
     private readonly portalAccess: PortalAccessService,
     private readonly deadlineNotify: DeadlineNotifyService,
+    private readonly holidays: HolidaysService,
   ) {}
 
   async generateInitialDeadlines(matterId: string) {
@@ -204,6 +206,10 @@ export class DeadlinesService {
     let updated = 0;
 
     for (const jurisdiction of jurisdictions) {
+      const holidaySet = await this.holidays.getHolidaySetAround(
+        jurisdiction,
+        baseDate,
+      );
       const rules = await this.prisma.deadlineRule.findMany({
         where: {
           jurisdiction,
@@ -214,10 +220,20 @@ export class DeadlinesService {
       });
 
       for (const rule of rules) {
-        const dueDate = addDays(baseDate, rule.daysOffset, rule.isBusinessDays);
+        const dueDate = addDays(
+          baseDate,
+          rule.daysOffset,
+          rule.isBusinessDays,
+          holidaySet,
+        );
         const graceDate =
           rule.gracePeriodDays > 0
-            ? addDays(dueDate, rule.gracePeriodDays, rule.isBusinessDays)
+            ? addDays(
+                dueDate,
+                rule.gracePeriodDays,
+                rule.isBusinessDays,
+                holidaySet,
+              )
             : null;
 
         const title =

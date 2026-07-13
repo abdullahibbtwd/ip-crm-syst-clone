@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Eye, Pencil, Plus } from 'lucide-react'
+import { Eye, FileUp, Pencil, Plus, Trash2 } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { RoleGate } from '@/components/permissions/RoleGate'
+import { SYSTEM_ROLES } from '@/lib/rbac'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -25,11 +27,13 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import {
   useCreateDocumentTemplate,
+  useDeleteTemplateDocx,
   useDocumentTemplate,
   useDocumentTemplatesAdmin,
   useMergeFields,
   usePreviewDocumentTemplate,
   useUpdateDocumentTemplate,
+  useUploadTemplateDocx,
 } from '@/features/document-templates/hooks/useDocumentTemplates'
 import type { DocumentTemplateAdmin } from '@/features/document-templates/types'
 import type { DocumentCategory } from '@/features/documents/types'
@@ -398,10 +402,44 @@ function DocumentTemplateDrawer({
 export function DocumentTemplatesPage() {
   const { t } = useTranslation('settings')
   const { data: templates, isLoading, isError } = useDocumentTemplatesAdmin()
+  const uploadDocx = useUploadTemplateDocx()
+  const deleteDocx = useDeleteTemplateDocx()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
+  const [docxError, setDocxError] = useState<string | null>(null)
+  const docxInputRef = useRef<HTMLInputElement>(null)
+  const [docxTargetId, setDocxTargetId] = useState<string | null>(null)
+
+  const handleUploadDocx = async (id: string, file: File | undefined) => {
+    if (!file) return
+    setDocxError(null)
+    try {
+      await uploadDocx.mutateAsync({ id, file })
+    } catch (err) {
+      setDocxError(getApiErrorMessage(err, t('documentTemplates.errors.docxUploadFailed')))
+    } finally {
+      setDocxTargetId(null)
+      if (docxInputRef.current) docxInputRef.current.value = ''
+    }
+  }
+
+  const handleRemoveDocx = async (id: string) => {
+    if (!window.confirm(t('documentTemplates.confirmRemoveDocx'))) return
+    setDocxError(null)
+    try {
+      await deleteDocx.mutateAsync(id)
+    } catch (err) {
+      setDocxError(getApiErrorMessage(err, t('documentTemplates.errors.docxDeleteFailed')))
+    }
+  }
 
   return (
+    <RoleGate
+      roles={[SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.DOCKETING_ADMIN]}
+      fallback={
+        <p className="text-sm text-muted-foreground">{t('documentTemplates.noPermission')}</p>
+      }
+    >
     <PermissionGate
       resource="document"
       action="read"
@@ -433,12 +471,25 @@ export function DocumentTemplatesPage() {
           </PermissionGate>
         </div>
 
+        <input
+          ref={docxInputRef}
+          type="file"
+          accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          className="hidden"
+          onChange={(e) => {
+            if (docxTargetId) {
+              void handleUploadDocx(docxTargetId, e.target.files?.[0])
+            }
+          }}
+        />
+
         {isLoading && (
           <p className="text-sm text-muted-foreground">{t('documentTemplates.loading')}</p>
         )}
         {isError && (
           <p className="text-sm text-destructive">{t('documentTemplates.loadError')}</p>
         )}
+        {docxError && <p className="text-sm text-destructive">{docxError}</p>}
 
         {templates && (
           <Table>
@@ -448,14 +499,15 @@ export function DocumentTemplatesPage() {
                 <TableHead>{t('documentTemplates.columns.slug')}</TableHead>
                 <TableHead>{t('documentTemplates.columns.category')}</TableHead>
                 <TableHead>{t('documentTemplates.columns.status')}</TableHead>
+                <TableHead>{t('documentTemplates.columns.docx')}</TableHead>
                 <TableHead>{t('documentTemplates.columns.updated')}</TableHead>
-                <TableHead className="w-[80px]" />
+                <TableHead className="w-[140px]" />
               </TableRow>
             </TableHeader>
             <TableBody>
               {templates.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-muted-foreground">
+                  <TableCell colSpan={7} className="text-center text-muted-foreground">
                     {t('documentTemplates.empty')}
                   </TableCell>
                 </TableRow>
@@ -476,24 +528,62 @@ export function DocumentTemplatesPage() {
                           : t('documentTemplates.status.inactive')}
                       </Badge>
                     </TableCell>
+                    <TableCell>
+                      {tpl.hasDocx ? (
+                        <Badge variant="info">{t('documentTemplates.docx.attached')}</Badge>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">
+                          {t('documentTemplates.docx.none')}
+                        </span>
+                      )}
+                    </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
                       {new Date(tpl.updatedAt).toLocaleDateString()}
                     </TableCell>
                     <TableCell>
-                      <PermissionGate resource="document" action="update">
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon-sm"
-                          onClick={() => {
-                            setEditingId(tpl.id)
-                            setDrawerOpen(true)
-                          }}
-                          aria-label={t('documentTemplates.editAria')}
-                        >
-                          <Pencil className="size-3.5" />
-                        </Button>
-                      </PermissionGate>
+                      <div className="flex items-center gap-1">
+                        <PermissionGate resource="document" action="update">
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                            onClick={() => {
+                              setEditingId(tpl.id)
+                              setDrawerOpen(true)
+                            }}
+                            aria-label={t('documentTemplates.editAria')}
+                          >
+                            <Pencil className="size-3.5" />
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon-sm"
+                            disabled={uploadDocx.isPending}
+                            onClick={() => {
+                              setDocxTargetId(tpl.id)
+                              docxInputRef.current?.click()
+                            }}
+                            aria-label={t('documentTemplates.uploadDocxAria')}
+                            title={t('documentTemplates.uploadDocx')}
+                          >
+                            <FileUp className="size-3.5" />
+                          </Button>
+                          {tpl.hasDocx ? (
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon-sm"
+                              disabled={deleteDocx.isPending}
+                              onClick={() => handleRemoveDocx(tpl.id)}
+                              aria-label={t('documentTemplates.removeDocxAria')}
+                              title={t('documentTemplates.removeDocx')}
+                            >
+                              <Trash2 className="size-3.5" />
+                            </Button>
+                          ) : null}
+                        </PermissionGate>
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))
@@ -512,5 +602,6 @@ export function DocumentTemplatesPage() {
         />
       </div>
     </PermissionGate>
+    </RoleGate>
   )
 }

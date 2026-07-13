@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Download, Loader2, RefreshCw } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -9,10 +11,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useEnqueueAccountingSync } from '@/features/invoices/hooks/useAccountingIntegrations'
+import { downloadCsvFile, invoicesApi } from '@/features/invoices/api'
 import { InvoiceListTable } from '@/features/invoices/components/InvoiceListTable'
 import { useAllInvoices } from '@/features/invoices/hooks/useInvoices'
-import type { InvoiceStatus, PaymentStatus } from '@/features/invoices/types'
+import type {
+  AccountingExportFormat,
+  InvoiceStatus,
+  PaymentStatus,
+} from '@/features/invoices/types'
 import { PAYMENT_STATUS_LABELS } from '@/features/invoices/utils'
+import { getApiErrorMessage } from '@/lib/api-client'
 
 const PAYMENT_FILTERS: Array<{ value: string; label: string }> = [
   { value: 'all', label: 'All payments' },
@@ -27,10 +36,23 @@ const STATUS_FILTERS: Array<{ value: string; label: string }> = [
   { value: 'issued', label: 'Issued' },
 ]
 
+const EXPORT_FORMATS: Array<{ value: AccountingExportFormat; label: string }> = [
+  { value: 'journal', label: 'Journal CSV' },
+  { value: 'xero', label: 'Xero CSV' },
+  { value: 'quickbooks', label: 'QuickBooks CSV' },
+]
+
 export function InvoicesListPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [searchInput, setSearchInput] = useState(searchParams.get('search') ?? '')
   const [debouncedSearch, setDebouncedSearch] = useState(searchInput)
+  const [exportFrom, setExportFrom] = useState('')
+  const [exportTo, setExportTo] = useState('')
+  const [exporting, setExporting] = useState<AccountingExportFormat | null>(null)
+  const [exportError, setExportError] = useState<string | null>(null)
+  const [syncMessage, setSyncMessage] = useState<string | null>(null)
+  const syncXero = useEnqueueAccountingSync('xero')
+  const syncQuickBooks = useEnqueueAccountingSync('quickbooks')
 
   const paymentFilter = searchParams.get('paymentStatus') ?? 'all'
   const statusFilter = searchParams.get('status') ?? 'all'
@@ -57,6 +79,37 @@ export function InvoicesListPage() {
     setSearchParams(next, { replace: true })
   }
 
+  const handleExport = async (format: AccountingExportFormat) => {
+    setExportError(null)
+    setExporting(format)
+    try {
+      const result = await invoicesApi.exportAccounting({
+        format,
+        ...(exportFrom ? { from: exportFrom } : {}),
+        ...(exportTo ? { to: exportTo } : {}),
+      })
+      downloadCsvFile(result.csv, result.filename)
+    } catch (err) {
+      setExportError(getApiErrorMessage(err, 'Accounting export failed'))
+    } finally {
+      setExporting(null)
+    }
+  }
+
+  const handleLiveSync = async (provider: 'xero' | 'quickbooks') => {
+    setSyncMessage(null)
+    setExportError(null)
+    try {
+      const result =
+        provider === 'xero'
+          ? await syncXero.mutateAsync()
+          : await syncQuickBooks.mutateAsync()
+      setSyncMessage(result.message)
+    } catch (err) {
+      setExportError(getApiErrorMessage(err, 'Accounting sync failed'))
+    }
+  }
+
   return (
     <PermissionGate
       resource="invoice"
@@ -66,12 +119,82 @@ export function InvoicesListPage() {
       }
     >
       <div className="space-y-6">
-        <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Invoices</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Firm-wide invoice register across all matters. Issue invoices from matter billing tabs,
-            then record payments here.
-          </p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h1 className="font-serif text-2xl text-foreground md:text-3xl">Invoices</h1>
+            <p className="mt-1 max-w-xl text-sm text-muted-foreground">
+              Firm-wide invoice register across all matters. Issue invoices from matter billing tabs,
+              then record payments here.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-end gap-3 rounded-md border p-3">
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Export from</label>
+            <Input
+              type="date"
+              value={exportFrom}
+              onChange={(e) => setExportFrom(e.target.value)}
+              className="w-[160px]"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Export to</label>
+            <Input
+              type="date"
+              value={exportTo}
+              onChange={(e) => setExportTo(e.target.value)}
+              className="w-[160px]"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {EXPORT_FORMATS.map((item) => (
+              <Button
+                key={item.value}
+                type="button"
+                size="sm"
+                variant="outline"
+                disabled={exporting !== null}
+                onClick={() => handleExport(item.value)}
+              >
+                <Download className="size-3.5" />
+                {exporting === item.value ? 'Exporting…' : item.label}
+              </Button>
+            ))}
+            <PermissionGate resource="invoice" action="update">
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                disabled={syncXero.isPending || syncQuickBooks.isPending}
+                onClick={() => void handleLiveSync('xero')}
+              >
+                {syncXero.isPending ? (
+                  <Loader2 className="size-3.5 animate-spin" />
+                ) : (
+                  <RefreshCw className="size-3.5" />
+                )}
+                Sync Xero
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                disabled={syncXero.isPending || syncQuickBooks.isPending}
+                onClick={() => void handleLiveSync('quickbooks')}
+              >
+                {syncQuickBooks.isPending ? (
+                  <Loader2 className="size-3.5 animate-spin" />
+                ) : (
+                  <RefreshCw className="size-3.5" />
+                )}
+                Sync QuickBooks
+              </Button>
+            </PermissionGate>
+          </div>
+          {syncMessage ? <p className="w-full text-sm text-emerald-700">{syncMessage}</p> : null}
+          {exportError ? <p className="w-full text-sm text-destructive">{exportError}</p> : null}
         </div>
 
         <div className="flex flex-wrap gap-3">

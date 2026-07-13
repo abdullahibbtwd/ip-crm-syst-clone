@@ -3,7 +3,13 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { getRoleView, type NavItem } from '../config/role-views'
 import { useAuth } from '../features/auth/AuthProvider'
 import { NotificationSyncProvider } from '../features/notifications/notification-sync-context'
-import { withActiveNav, navId } from '../features/shell/nav-utils'
+import {
+  withActiveNav,
+  navId,
+  isNavPathActive,
+  navPathSpecificity,
+  findNavItem,
+} from '../features/shell/nav-utils'
 import { ShellProvider, useShell } from '../features/shell/ShellProvider'
 import { AppSidebar } from '../components/layout/AppSidebar'
 import { AppTopbar } from '../components/layout/AppTopbar'
@@ -88,13 +94,10 @@ function LayoutBody({
       ...view.footer,
     ]
       .filter((item): item is NavItem & { path: string } => Boolean(item.path))
-      .sort((a, b) => b.path.length - a.path.length)
+      .sort((a, b) => navPathSpecificity(b.path) - navPathSpecificity(a.path))
 
     for (const item of navItems) {
-      if (
-        location.pathname === item.path ||
-        (item.path !== '/dashboard' && location.pathname.startsWith(`${item.path}/`))
-      ) {
+      if (isNavPathActive(item.path, location.pathname, location.search)) {
         setActiveNavId(navId(item))
         return
       }
@@ -125,10 +128,13 @@ function LayoutBody({
       }
     }
     if (location.pathname === '/dashboard') {
+      const current = findNavItem(view, activeNavId)
+      // Keep pathless "Coming Soon" section panels selected
+      if (current && !current.path && !current.isHome) return
       const home = view.nav.flatMap((s) => s.items).find((i) => i.isHome)
       if (home) setActiveNavId(navId(home))
     }
-  }, [location.pathname, view, setActiveNavId])
+  }, [location.pathname, location.search, view, setActiveNavId, activeNavId])
 
   const handleNavigate = (id: string, path?: string) => {
     if (path) {

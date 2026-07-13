@@ -275,10 +275,49 @@
     "correspondence": "Correspondence",
     "deadlines": "Deadlines",
     "documents": "Documents",
+    "instructions": "Instructions",
+    "approvals": "Approvals",
     "ipRights": "IP rights",
     "overview": "Overview",
     "tasks": "Tasks",
     "timeline": "Timeline"
+  },
+  "approvals": {
+    "title": "Client approvals",
+    "subtitle": "Draft and submit approval requests for the client portal.",
+    "newDraft": "New draft",
+    "loading": "Loading approvals…",
+    "loadError": "Failed to load approvals.",
+    "empty": "No approval requests yet.",
+    "noPermission": "You do not have permission to view approvals for this matter.",
+    "decisionNote": "Client note: {{note}}",
+    "columns": {
+      "title": "Title",
+      "status": "Status",
+      "dueDate": "Due",
+      "created": "Created"
+    },
+    "status": {
+      "draft": "Draft",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "actions": {
+      "submit": "Submit"
+    },
+    "drawer": {
+      "createTitle": "New approval request",
+      "title": "Title",
+      "description": "Description",
+      "dueDate": "Due date",
+      "cancel": "Cancel",
+      "create": "Create draft"
+    },
+    "errors": {
+      "titleRequired": "Title is required",
+      "saveFailed": "Failed to create approval"
+    }
   },
   "tasks": {
     "add": "Add task",

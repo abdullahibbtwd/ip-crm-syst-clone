@@ -10,6 +10,7 @@ import { DeadlineNotifyService } from '../notifications/deadline-notify.service'
 import { PrismaService } from '../prisma/prisma.service';
 import { addDays } from './deadlines.utils';
 import { expandDeadlineRuleJurisdictions } from './deadline-jurisdiction.utils';
+import { HolidaysService } from './holidays.service';
 
 function formatDeadlineDate(date: Date): string {
   return new Intl.DateTimeFormat('en-GB', {
@@ -33,6 +34,7 @@ export class OfficeActionDeadlinesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly deadlineNotify: DeadlineNotifyService,
+    private readonly holidays: HolidaysService,
   ) {}
 
   async generateFromOfficeAction(
@@ -78,6 +80,10 @@ export class OfficeActionDeadlinesService {
 
     await this.prisma.$transaction(async (tx) => {
       for (const jurisdiction of jurisdictions) {
+        const holidaySet = await this.holidays.getHolidaySetAround(
+          jurisdiction,
+          baseDate,
+        );
         const rules = await tx.deadlineRule.findMany({
           where: {
             jurisdiction,
@@ -110,10 +116,16 @@ export class OfficeActionDeadlinesService {
             baseDate,
             rule.daysOffset,
             rule.isBusinessDays,
+            holidaySet,
           );
           const graceDate =
             rule.gracePeriodDays > 0
-              ? addDays(dueDate, rule.gracePeriodDays, rule.isBusinessDays)
+              ? addDays(
+                  dueDate,
+                  rule.gracePeriodDays,
+                  rule.isBusinessDays,
+                  holidaySet,
+                )
               : null;
 
           const title = deadlineTitle(rule.description, jurisdiction);

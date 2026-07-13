@@ -78,7 +78,9 @@
     "dataExportsLog": "Data exports log",
     "retentionRules": "Retention rules",
     "deadlineRules": "Deadline rules",
+    "holidays": "Holiday calendar",
     "documentTemplates": "Document templates",
+    "partners": "Partners",
     "consentRecords": "Consent records",
     "auditTrail": "Audit trail",
     "accessLog": "Access log",
@@ -94,6 +96,7 @@
     "myDocuments": "My documents",
     "myInvoices": "My invoices",
     "messages": "Messages",
+    "approvals": "Approvals",
     "help": "Help",
     "myPortfolio": "My portfolio"
   },

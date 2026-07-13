@@ -14,7 +14,7 @@ export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavP
   const tabs = matterTabsForUser(isPortalClient)
 
   return (
-    <nav className="flex flex-wrap gap-1 border-b pb-2">
+    <nav className="-mx-1 flex gap-1 overflow-x-auto border-b pb-2 scrollbar-thin">
       {tabs.map((tab) => (
         <NavLink
           key={tab.to}
@@ -22,7 +22,7 @@ export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavP
           end={tab.to === 'overview'}
           className={({ isActive }) =>
             cn(
-              'rounded-md px-3 py-1.5 text-sm transition-colors',
+              'shrink-0 rounded-md px-3 py-1.5 text-sm whitespace-nowrap transition-colors',
               isActive
                 ? 'bg-primary/12 font-medium text-primary'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground',

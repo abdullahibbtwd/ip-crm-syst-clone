@@ -54,8 +54,15 @@ export const documentsApi = {
   listTemplates: () =>
     api.get<DocumentTemplate[]>('/document-templates').then((r) => r.data),
 
-  generateFromTemplate: (matterId: string, templateId: string) =>
+  generateFromTemplate: (
+    matterId: string,
+    templateId: string,
+    format: 'pdf' | 'docx' = 'pdf',
+  ) =>
     api
-      .post<MatterDocument>(`/matters/${matterId}/documents/generate`, { templateId })
+      .post<MatterDocument>(`/matters/${matterId}/documents/generate`, {
+        templateId,
+        format,
+      })
       .then((r) => r.data),
 }

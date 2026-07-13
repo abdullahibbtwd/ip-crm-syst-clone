@@ -78,7 +78,9 @@
     "dataExportsLog": "Дневник на експорти на данни",
     "retentionRules": "Правила за съхранение",
     "deadlineRules": "Правила за срокове",
+    "holidays": "Календар на празници",
     "documentTemplates": "Шаблони за документи",
+    "partners": "Партньори",
     "consentRecords": "Записи за съгласие",
     "auditTrail": "Одитна следа",
     "accessLog": "Дневник на достъп",
@@ -94,6 +96,7 @@
     "myDocuments": "Моите документи",
     "myInvoices": "Моите фактури",
     "messages": "Съобщения",
+    "approvals": "Одобрения",
     "help": "Помощ",
     "myPortfolio": "Моето портфолио"
   },

@@ -15,6 +15,8 @@ import { ListRenewalsQueryDto } from './dto/renewal-query.dto';
 import {
   CompleteRenewalDto,
   InstructRenewalDto,
+  RecordRenewalPartPaymentDto,
+  SplitRenewalWindowDto,
 } from './dto/renewal-workflow.dto';
 import { RENEWALS_MODULE } from './renewals.constants';
 import { RenewalsService } from './renewals.service';
@@ -34,6 +36,62 @@ export class RenewalsController {
   @Get()
   listAll(@Query() query: ListRenewalsQueryDto) {
     return this.renewals.listAll(query);
+  }
+
+  @Get('windows/:windowId/parts')
+  listParts(@Param('windowId') windowId: string) {
+    return this.renewals.listParts(windowId);
+  }
+
+  @Post('windows/:windowId/parts/split')
+  @RequirePermissions('renewal:update')
+  splitWindow(
+    @Param('windowId') windowId: string,
+    @Body() dto: SplitRenewalWindowDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewals.splitWindow(windowId, dto.parts, user.userId);
+  }
+
+  @Post('parts/:partId/instruct')
+  @RequirePermissions('renewal:update')
+  instructPart(
+    @Param('partId') partId: string,
+    @Body() dto: InstructRenewalDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewals.instructPart(partId, dto, user.userId);
+  }
+
+  @Post('parts/:partId/file')
+  @RequirePermissions('renewal:update')
+  markPartFiled(@Param('partId') partId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewals.markPartFiled(partId, user.userId);
+  }
+
+  @Post('parts/:partId/payments')
+  @RequirePermissions('renewal:update')
+  recordPartPayment(
+    @Param('partId') partId: string,
+    @Body() dto: RecordRenewalPartPaymentDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewals.recordPartPayment(partId, dto, user.userId);
+  }
+
+  @Post('parts/:partId/complete')
+  @RequirePermissions('renewal:update')
+  completePart(
+    @Param('partId') partId: string,
+    @Body() dto: CompleteRenewalDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.renewals.completePart(partId, dto, user.userId);
   }
 
   @Get(':id')

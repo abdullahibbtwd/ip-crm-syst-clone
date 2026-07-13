@@ -280,6 +280,38 @@ export class InvoicesService {
     return serializeInvoice(row);
   }
 
+  /**
+   * Create a draft from specific unbilled lines and issue it (PDF + portal).
+   * Used by renewal completion automation.
+   */
+  async createAndIssueFromLines(
+    matterId: string,
+    input: {
+      fixedFeeIds?: string[];
+      timeEntryIds?: string[];
+      notes?: string;
+      taxRate?: number;
+    },
+    userId: string,
+  ) {
+    if (!input.fixedFeeIds?.length && !input.timeEntryIds?.length) {
+      throw new BadRequestException('No lines provided to invoice');
+    }
+
+    const draft = await this.createDraft(
+      matterId,
+      {
+        fixedFeeIds: input.fixedFeeIds,
+        timeEntryIds: input.timeEntryIds,
+        notes: input.notes,
+        taxRate: input.taxRate,
+      },
+      userId,
+    );
+
+    return this.issue(draft.id);
+  }
+
   async issue(id: string) {
     const existing = await this.getInvoiceOrThrow(id);
     if (existing.status !== InvoiceStatus.draft) {

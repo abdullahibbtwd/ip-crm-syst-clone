@@ -74,6 +74,58 @@ export function MattersTable({
   const rangeEnd = pageIndex * MATTER_PAGE_SIZE + items.length
 
   return (
+    <div className="space-y-3">
+      {compact && !isLoading && !isError && items.length > 0 ? (
+        <ul className="space-y-3 md:hidden">
+          {items.map((matter) => {
+            const jurisdictionCodes = matter.jurisdictions.map((j) => j.countryCode)
+            return (
+              <li key={matter.id}>
+                <button
+                  type="button"
+                  className="w-full rounded-lg border p-4 text-left transition-colors hover:bg-muted/40"
+                  onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1 space-y-1">
+                      <p className="font-medium leading-snug break-words">{matter.title}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {MATTER_TYPE_LABELS[matter.matterType]}
+                        {jurisdictionCodes.length > 0
+                          ? ` · ${formatJurisdictions(jurisdictionCodes)}`
+                          : ''}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                        <MatterStatusBadge status={matter.status} />
+                        {(matter.upcomingDeadlineCount ?? 0) > 0 ? (
+                          <Badge
+                            variant="outline"
+                            className="gap-1 border-amber-500/50 bg-amber-500/10 font-medium normal-case text-amber-700"
+                          >
+                            <CalendarClock className="size-3" />
+                            {matter.upcomingDeadlineCount} upcoming
+                          </Badge>
+                        ) : null}
+                      </div>
+                    </div>
+                    <span className="shrink-0 text-xs text-muted-foreground">
+                      {formatMatterDate(matter.createdAt)}
+                    </span>
+                  </div>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      ) : null}
+
+      <div
+        className={
+          compact && !isLoading && !isError && items.length > 0
+            ? 'hidden md:block'
+            : undefined
+        }
+      >
     <Table>
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
@@ -270,5 +322,7 @@ export function MattersTable({
         </TableRow>
       </TableFooter>
     </Table>
+      </div>
+    </div>
   )
 }

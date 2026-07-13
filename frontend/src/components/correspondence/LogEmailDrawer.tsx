@@ -102,6 +102,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
   const [mode, setMode] = useState<Extract<LogEmailMode, 'eml' | 'paste'>>('eml')
   const [step, setStep] = useState<'capture' | 'review'>('capture')
   const [category, setCategory] = useState<CorrespondenceCategory>('correspondence')
+  const [isClientVisible, setIsClientVisible] = useState(false)
   const [correspondenceDate, setCorrespondenceDate] = useState(
     () => new Date().toISOString().slice(0, 10),
   )
@@ -121,6 +122,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
     setMode('eml')
     setStep('capture')
     setCategory('correspondence')
+    setIsClientVisible(false)
     setCorrespondenceDate(new Date().toISOString().slice(0, 10))
     setSender('')
     setRecipient('')
@@ -225,6 +227,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
           logMethod: parsedMeta.logMethod ?? mode,
         },
         documentVersionId,
+        isClientVisible,
       })
 
       resetForm()
@@ -484,6 +487,21 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
                 A response deadline will be added to the attorney worklist automatically.
               </p>
             ) : null}
+
+            <label className="flex cursor-pointer items-start gap-2.5 rounded-md border bg-background px-3 py-2.5">
+              <input
+                type="checkbox"
+                className="mt-0.5 size-4 rounded border-input"
+                checked={isClientVisible}
+                onChange={(e) => setIsClientVisible(e.target.checked)}
+              />
+              <span>
+                <span className="block text-sm font-medium">Send to client inbox</span>
+                <span className="text-xs text-muted-foreground">
+                  Show this entry in the client portal Messages inbox.
+                </span>
+              </span>
+            </label>
           </section>
         )}
 

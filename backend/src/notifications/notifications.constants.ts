@@ -21,6 +21,10 @@ export type DispatchNotificationInput = {
     | 'deadline_escalation'
     | 'task_assigned'
     | 'renewal_instruction_received'
+    | 'partner_instruction_update'
+    | 'client_approval_update'
+    | 'watch_alert_created'
+    | 'watch_alert_triaged'
     | 'general';
   title: string;
   body?: string;

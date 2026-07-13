@@ -2,10 +2,11 @@ import { api } from '@/lib/api'
 import { apiClient } from '@/lib/api-client'
 import type {
   Correspondence,
-  CorrespondenceStatus,
   CreateCorrespondenceInput,
   MatterTimelineEvent,
   ParsedEmailResult,
+  PortalCorrespondence,
+  UpdateCorrespondenceInput,
 } from './types'
 
 export const correspondenceApi = {
@@ -30,7 +31,10 @@ export const correspondenceApi = {
       text,
     }),
 
-  updateStatus: (id: string, status: CorrespondenceStatus) =>
+  update: (id: string, data: UpdateCorrespondenceInput) =>
+    apiClient.patch<Correspondence>(`/correspondence/${id}`, data),
+
+  updateStatus: (id: string, status: NonNullable<UpdateCorrespondenceInput['status']>) =>
     apiClient.patch<Correspondence>(`/correspondence/${id}`, { status }),
 
   attachDocument: (id: string, documentVersionId: string) =>
@@ -38,4 +42,9 @@ export const correspondenceApi = {
 
   listTimeline: (matterId: string) =>
     apiClient.get<MatterTimelineEvent[]>(`/matters/${matterId}/timeline`),
+
+  portalList: () => apiClient.get<PortalCorrespondence[]>('/portal/correspondence'),
+
+  portalGet: (id: string) =>
+    apiClient.get<PortalCorrespondence>(`/portal/correspondence/${id}`),
 }

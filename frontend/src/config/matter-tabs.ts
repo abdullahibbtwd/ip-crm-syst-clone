@@ -8,6 +8,8 @@ export const MATTER_TABS = [
   { to: 'tasks', labelKey: 'tabs.tasks', portalVisible: false },
   { to: 'billing', labelKey: 'tabs.billing', portalVisible: true },
   { to: 'ip-rights', labelKey: 'tabs.ipRights', portalVisible: false },
+  { to: 'instructions', labelKey: 'tabs.instructions', portalVisible: false },
+  { to: 'approvals', labelKey: 'tabs.approvals', portalVisible: false },
 ] as const
 
 export type MatterTabSlug = (typeof MATTER_TABS)[number]['to']

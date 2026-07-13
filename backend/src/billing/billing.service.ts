@@ -180,6 +180,103 @@ export class BillingService {
     return rows.map(serializeTimeEntry);
   }
 
+  async listAllTimeEntries(filters: {
+    matterId?: string;
+    loggedById?: string;
+    from?: string;
+    to?: string;
+    limit?: number;
+  }) {
+    const take = Math.min(filters.limit ?? 100, 200);
+    const rows = await this.prisma.timeEntry.findMany({
+      where: {
+        ...(filters.matterId ? { matterId: filters.matterId } : {}),
+        ...(filters.loggedById ? { loggedById: filters.loggedById } : {}),
+        ...(filters.from || filters.to
+          ? {
+              date: {
+                ...(filters.from ? { gte: new Date(filters.from) } : {}),
+                ...(filters.to ? { lte: new Date(filters.to) } : {}),
+              },
+            }
+          : {}),
+      },
+      orderBy: [{ date: 'desc' }, { createdAt: 'desc' }],
+      take,
+      include: {
+        ...timeEntryInclude,
+        matter: {
+          select: {
+            id: true,
+            title: true,
+            client: {
+              select: {
+                id: true,
+                companyName: true,
+                firstName: true,
+                lastName: true,
+                internalCode: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    return rows.map((row) => ({
+      ...serializeTimeEntry(row),
+      matter: row.matter,
+    }));
+  }
+
+  async listAllFixedFees(filters: {
+    category?: string;
+    matterId?: string;
+    from?: string;
+    to?: string;
+    limit?: number;
+  }) {
+    const take = Math.min(filters.limit ?? 100, 200);
+    const rows = await this.prisma.fixedFee.findMany({
+      where: {
+        ...(filters.category
+          ? { category: filters.category as never }
+          : {}),
+        ...(filters.matterId ? { matterId: filters.matterId } : {}),
+        ...(filters.from || filters.to
+          ? {
+              date: {
+                ...(filters.from ? { gte: new Date(filters.from) } : {}),
+                ...(filters.to ? { lte: new Date(filters.to) } : {}),
+              },
+            }
+          : {}),
+      },
+      orderBy: [{ date: 'desc' }, { createdAt: 'desc' }],
+      take,
+      include: {
+        matter: {
+          select: {
+            id: true,
+            title: true,
+            client: {
+              select: {
+                id: true,
+                companyName: true,
+                firstName: true,
+                lastName: true,
+                internalCode: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    return rows.map((row) => ({
+      ...serializeFixedFee(row),
+      matter: row.matter,
+    }));
+  }
+
   async createTimeEntry(
     matterId: string,
     dto: CreateTimeEntryDto,

@@ -58,6 +58,7 @@ export class MatterDocumentsController {
           matterId,
           dto.templateId,
           user.userId,
+          dto.format ?? 'pdf',
         ),
       );
   }

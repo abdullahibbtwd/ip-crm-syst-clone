@@ -9,6 +9,7 @@ import {
   WatchProfileActionsController,
   WatchProfilesController,
 } from './watch-profiles.controller';
+import { WatchAlertNotifyService } from './watch-alert-notify.service';
 import { WatchService } from './watch.service';
 
 @Module({
@@ -18,7 +19,7 @@ import { WatchService } from './watch.service';
     WatchProfileActionsController,
     WatchAlertsController,
   ],
-  providers: [WatchService],
-  exports: [WatchService],
+  providers: [WatchService, WatchAlertNotifyService],
+  exports: [WatchService, WatchAlertNotifyService],
 })
 export class WatchModule {}

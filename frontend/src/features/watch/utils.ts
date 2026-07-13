@@ -41,6 +41,12 @@ export function formatDetectedAt(iso: string) {
   }).format(new Date(iso))
 }
 
+/** Format 0–1 similarity as percent, e.g. 0.72 → "72%". */
+export function formatSimilarityScore(score: number | null | undefined) {
+  if (score == null || Number.isNaN(score)) return '—'
+  return `${Math.round(score * 100)}%`
+}
+
 export const WATCH_ALERT_STATUS_VARIANT: Record<
   WatchAlertStatus,
   'default' | 'secondary' | 'outline' | 'destructive' | 'success' | 'warning' | 'info'

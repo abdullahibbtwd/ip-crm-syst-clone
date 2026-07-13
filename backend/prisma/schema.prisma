@@ -61,6 +61,11 @@ model User {
   mailboxConnections     MailboxConnection[]
   unlinkedEmailsLinked   UnlinkedEmail[]        @relation("UnlinkedEmailLinkedBy")
   broadcastsCreated      Broadcast[]            @relation("BroadcastCreatedBy")
+  partnerInstructionsCreated PartnerInstruction[] @relation("PartnerInstructionCreatedBy")
+  holidaysCreated        Holiday[]              @relation("HolidayCreatedBy")
+  approvalRequestsCreated ClientApprovalRequest[] @relation("ApprovalRequestedBy")
+  approvalRequestsDecided ClientApprovalRequest[] @relation("ApprovalDecidedBy")
+  systemSecretsUpdated   SystemSecret[]         @relation("SystemSecretUpdatedBy")
 
   @@map("users")
 }
@@ -266,6 +271,8 @@ model Client {
   watchProfiles       WatchProfile[]
   watchAlerts         WatchAlert[]
   broadcastRecipients BroadcastRecipient[]
+  portalBroadcastCopies PortalBroadcastCopy[]
+  approvalRequests    ClientApprovalRequest[]
 
   @@index([status])
   @@index([type])
@@ -592,6 +599,8 @@ model Matter {
   renewalWindows RenewalWindow[]
   watchAlerts    WatchAlert[]
   suggestedUnlinkedEmails UnlinkedEmail[]
+  partnerInstructions PartnerInstruction[]
+  approvalRequests    ClientApprovalRequest[]
 
   @@index([clientId])
   @@index([status])
@@ -695,6 +704,7 @@ model RenewalWindow {
   payments      RenewalPayment[]
   deadlines     Deadline[]
   fixedFees     FixedFee[]
+  parts         RenewalPart[]
 
   @@unique([ipRightId, cycleNumber])
   @@index([status, dueDate])
@@ -703,24 +713,54 @@ model RenewalWindow {
   @@map("renewal_windows")
 }
 
+/// Jurisdiction / Nice-class slice of a renewal cycle (partial renewals).
+model RenewalPart {
+  id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  renewalWindowId String        @map("renewal_window_id") @db.Uuid
+  jurisdiction    String
+  niceClasses     Int[]         @default([]) @map("nice_classes")
+  status          RenewalStatus @default(upcoming)
+  officialFee     Decimal?      @map("official_fee") @db.Decimal(12, 2)
+  serviceFee      Decimal?      @map("service_fee") @db.Decimal(12, 2)
+  currency        String        @default("EUR")
+  dueDate         DateTime?     @map("due_date") @db.Date
+  graceDate       DateTime?     @map("grace_date") @db.Date
+  notes           String?
+  completedAt     DateTime?     @map("completed_at") @db.Timestamptz(6)
+  createdAt       DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  renewalWindow RenewalWindow         @relation(fields: [renewalWindowId], references: [id], onDelete: Cascade)
+  instructions  RenewalInstruction[]
+  payments      RenewalPayment[]
+
+  @@index([renewalWindowId])
+  @@index([status])
+  @@map("renewal_parts")
+}
+
 model RenewalInstruction {
   id              String                     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   renewalWindowId String                     @map("renewal_window_id") @db.Uuid
+  renewalPartId   String?                    @map("renewal_part_id") @db.Uuid
   decision        RenewalInstructionDecision
   notes           String?
   capturedAt      DateTime                   @default(now()) @map("captured_at") @db.Timestamptz(6)
   capturedById    String                     @map("captured_by_id") @db.Uuid
 
   renewalWindow RenewalWindow @relation(fields: [renewalWindowId], references: [id], onDelete: Cascade)
+  renewalPart   RenewalPart?  @relation(fields: [renewalPartId], references: [id], onDelete: Cascade)
   capturedBy    User          @relation("RenewalInstructionCapturedBy", fields: [capturedById], references: [id], onDelete: Restrict)
 
   @@index([renewalWindowId])
+  @@index([renewalPartId])
   @@map("renewal_instructions")
 }
 
 model RenewalPayment {
   id                     String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   renewalWindowId        String   @map("renewal_window_id") @db.Uuid
+  renewalPartId          String?  @map("renewal_part_id") @db.Uuid
   amount                 Decimal  @db.Decimal(12, 2)
   currency               String   @default("EUR")
   paidAt                 DateTime @map("paid_at") @db.Date
@@ -729,10 +769,12 @@ model RenewalPayment {
   createdAt              DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
 
   renewalWindow        RenewalWindow          @relation(fields: [renewalWindowId], references: [id], onDelete: Cascade)
+  renewalPart          RenewalPart?           @relation(fields: [renewalPartId], references: [id], onDelete: Cascade)
   proofDocumentVersion MatterDocumentVersion? @relation("RenewalPaymentProof", fields: [proofDocumentVersionId], references: [id], onDelete: SetNull)
   recordedBy           User                   @relation("RenewalPaymentRecordedBy", fields: [recordedById], references: [id], onDelete: Restrict)
 
   @@index([renewalWindowId])
+  @@index([renewalPartId])
   @@map("renewal_payments")
 }
 
@@ -789,6 +831,25 @@ model DeadlineRule {
   @@map("deadline_rules")
 }
 
+/// Jurisdiction-specific public holiday used when shifting business-day deadlines.
+model Holiday {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  jurisdiction String
+  date         DateTime @db.Date
+  name         String
+  isRecurring  Boolean  @default(false) @map("is_recurring")
+  createdById  String?  @map("created_by_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  createdBy User? @relation("HolidayCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@unique([jurisdiction, date])
+  @@index([jurisdiction])
+  @@index([date])
+  @@map("holidays")
+}
+
 model Deadline {
   id                     String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   matterId               String         @map("matter_id") @db.Uuid
@@ -815,6 +876,7 @@ model Deadline {
   sourceCorrespondence Correspondence? @relation(fields: [sourceCorrespondenceId], references: [id], onDelete: SetNull)
   sourceRenewalWindow  RenewalWindow?  @relation(fields: [sourceRenewalWindowId], references: [id], onDelete: SetNull)
   assignedTo           User            @relation("DeadlineAssignedTo", fields: [assignedToId], references: [id], onDelete: Restrict)
+  partnerInstructions  PartnerInstruction[]
 
   @@index([matterId])
   @@index([assignedToId])
@@ -871,6 +933,7 @@ model MatterDocumentVersion {
   correspondence Correspondence[]
   filingIpRights     IpRight[]         @relation("IpRightFilingDocument")
   renewalPaymentProofs RenewalPayment[] @relation("RenewalPaymentProof")
+  approvalRequests ClientApprovalRequest[]
 
   @@unique([documentId, version])
   @@index([documentId])
@@ -878,19 +941,78 @@ model MatterDocumentVersion {
 }
 
 model DocumentTemplate {
-  id            String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  slug          String           @unique
-  name          String
-  category      DocumentCategory
-  description   String?
-  referenceLine String?          @map("reference_line")
-  htmlBody      String           @map("html_body") @db.Text
-  isActive      Boolean          @default(true) @map("is_active")
-  createdAt     DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt     DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug           String           @unique
+  name           String
+  category       DocumentCategory
+  description    String?
+  referenceLine  String?          @map("reference_line")
+  htmlBody       String           @map("html_body") @db.Text
+  /// MinIO key for optional .docx merge template (docxtemplater).
+  docxStorageKey String?          @map("docx_storage_key")
+  isActive       Boolean          @default(true) @map("is_active")
+  createdAt      DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([isActive])
   @@map("document_templates")
+}
+
+enum PartnerInstructionStatus {
+  draft
+  sent
+  acknowledged
+  complete
+
+  @@map("partner_instruction_status")
+}
+
+/// Foreign agent / associate counsel used for local filings and instructions.
+model Partner {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String
+  company       String?
+  email         String?
+  phone         String?
+  countryCode   String?  @map("country_code")
+  jurisdictions String[] @default([])
+  notes         String?
+  isActive      Boolean  @default(true) @map("is_active")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  instructions PartnerInstruction[]
+
+  @@index([isActive])
+  @@index([name])
+  @@map("partners")
+}
+
+model PartnerInstruction {
+  id              String                   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId        String                   @map("matter_id") @db.Uuid
+  partnerId       String                   @map("partner_id") @db.Uuid
+  title           String
+  body            String?                  @db.Text
+  status          PartnerInstructionStatus @default(draft)
+  deadlineId      String?                  @map("deadline_id") @db.Uuid
+  createdById     String                   @map("created_by_id") @db.Uuid
+  sentAt          DateTime?                @map("sent_at") @db.Timestamptz(6)
+  acknowledgedAt  DateTime?                @map("acknowledged_at") @db.Timestamptz(6)
+  completedAt     DateTime?                @map("completed_at") @db.Timestamptz(6)
+  createdAt       DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter    Matter   @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  partner   Partner  @relation(fields: [partnerId], references: [id], onDelete: Restrict)
+  deadline  Deadline? @relation(fields: [deadlineId], references: [id], onDelete: SetNull)
+  createdBy User     @relation("PartnerInstructionCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+
+  @@index([matterId])
+  @@index([partnerId])
+  @@index([status])
+  @@index([deadlineId])
+  @@map("partner_instructions")
 }
 
 enum CorrespondenceDirection {
@@ -941,6 +1063,7 @@ model Correspondence {
   bodyText           String?                 @map("body_text")
   metadata           Json?
   isClientVisible    Boolean                 @default(false) @map("is_client_visible")
+  portalReadAt       DateTime?               @map("portal_read_at") @db.Timestamptz(6)
   documentVersionId  String?                 @map("document_version_id") @db.Uuid
   mailboxConnectionId String?                @map("mailbox_connection_id") @db.Uuid
   createdById        String?                 @map("created_by_id") @db.Uuid
@@ -961,6 +1084,7 @@ model Correspondence {
   @@index([category])
   @@index([messageId])
   @@index([mailboxConnectionId])
+  @@index([isClientVisible, portalReadAt])
   @@map("correspondence")
 }
 
@@ -1282,9 +1406,51 @@ enum NotificationType {
   deadline_escalation
   task_assigned
   renewal_instruction_received
+  partner_instruction_update
+  client_approval_update
+  watch_alert_created
+  watch_alert_triaged
   general
 
   @@map("notification_type")
+}
+
+enum ClientApprovalStatus {
+  draft
+  pending
+  approved
+  rejected
+
+  @@map("client_approval_status")
+}
+
+model ClientApprovalRequest {
+  id                String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  matterId          String               @map("matter_id") @db.Uuid
+  clientId          String               @map("client_id") @db.Uuid
+  title             String
+  description       String?              @db.Text
+  status            ClientApprovalStatus @default(draft)
+  documentVersionId String?              @map("document_version_id") @db.Uuid
+  dueDate           DateTime?            @map("due_date") @db.Date
+  decisionNote      String?              @map("decision_note") @db.Text
+  requestedById     String               @map("requested_by_id") @db.Uuid
+  decidedById       String?              @map("decided_by_id") @db.Uuid
+  requestedAt       DateTime?            @map("requested_at") @db.Timestamptz(6)
+  decidedAt         DateTime?            @map("decided_at") @db.Timestamptz(6)
+  createdAt         DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  matter          Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  client          Client                 @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  documentVersion MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
+  requestedBy     User                   @relation("ApprovalRequestedBy", fields: [requestedById], references: [id], onDelete: Restrict)
+  decidedBy       User?                  @relation("ApprovalDecidedBy", fields: [decidedById], references: [id], onDelete: SetNull)
+
+  @@index([matterId])
+  @@index([clientId])
+  @@index([status])
+  @@map("client_approval_requests")
 }
 
 model Notification {
@@ -1369,6 +1535,9 @@ model WatchAlert {
   source            WatchRegistrySource
   jurisdiction      String?
   applicationNumber String?             @map("application_number")
+  /// 0–1 similarity vs watched mark (pg_trgm conflict_trgm_score).
+  similarityScore   Float?              @map("similarity_score")
+  matchMethod       String?             @map("match_method")
   status            WatchAlertStatus    @default(new)
   matterId          String?             @map("matter_id") @db.Uuid
   detectedAt        DateTime            @default(now()) @map("detected_at") @db.Timestamptz(6)
@@ -1385,6 +1554,7 @@ model WatchAlert {
   @@index([clientId, status])
   @@index([status, detectedAt])
   @@index([watchProfileId])
+  @@index([similarityScore])
   @@map("watch_alerts")
 }
 
@@ -1454,6 +1624,7 @@ model Broadcast {
 
   createdBy  User                 @relation("BroadcastCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
   recipients BroadcastRecipient[]
+  portalCopies PortalBroadcastCopy[]
 
   @@index([createdAt])
   @@index([status])
@@ -1471,10 +1642,52 @@ model BroadcastRecipient {
   sentAt      DateTime?                @map("sent_at") @db.Timestamptz(6)
   createdAt   DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
 
-  broadcast Broadcast @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
-  client    Client?   @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  broadcast   Broadcast             @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
+  client      Client?               @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  portalCopy  PortalBroadcastCopy?
 
   @@index([broadcastId, status])
   @@index([email])
   @@map("broadcast_recipients")
+}
+
+/// Per-client snapshot of a sent firm broadcast for the portal Messages inbox.
+model PortalBroadcastCopy {
+  id                   String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId             String    @map("client_id") @db.Uuid
+  broadcastId          String    @map("broadcast_id") @db.Uuid
+  broadcastRecipientId String    @unique @map("broadcast_recipient_id") @db.Uuid
+  subject              String
+  bodyText             String    @map("body_text") @db.Text
+  bodyHtml             String?   @map("body_html") @db.Text
+  sentAt               DateTime  @map("sent_at") @db.Timestamptz(6)
+  readAt               DateTime? @map("read_at") @db.Timestamptz(6)
+  createdAt            DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  client             Client             @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  broadcast          Broadcast          @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
+  broadcastRecipient BroadcastRecipient @relation(fields: [broadcastRecipientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId, sentAt])
+  @@index([broadcastId])
+  @@map("portal_broadcast_copies")
+}
+
+/// Encrypted system credentials (SSO, integrations). Plaintext never stored for secret keys.
+model SystemSecret {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  category       String
+  key            String
+  encryptedValue String?  @map("encrypted_value")
+  nonSecretValue String?  @map("non_secret_value")
+  lastFour       String?  @map("last_four") @db.VarChar(8)
+  updatedById    String?  @map("updated_by_id") @db.Uuid
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  updatedBy User? @relation("SystemSecretUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@unique([category, key])
+  @@index([category])
+  @@map("system_secrets")
 }

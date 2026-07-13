@@ -15,6 +15,7 @@
     "registrySource": "Регистър",
     "jurisdiction": "Юрисдикция",
     "applicationNumber": "Номер на заявка",
+    "similarity": "Сходство",
     "detectedAt": "Открит",
     "client": "Клиент",
     "profile": "Профил за наблюдение",
@@ -56,6 +57,12 @@
     "status": "Статус",
     "jurisdiction": "Юрисдикция",
     "source": "Регистър",
+    "minSimilarity": "Мин. сходство",
+    "anySimilarity": "Всякакво сходство",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Подреди по",
+    "sortDetected": "Най-нови",
+    "sortSimilarity": "Най-високо сходство",
     "all": "Всички"
   },
   "stats": {
@@ -81,6 +88,7 @@
     "mark": "Наблюдавана марка",
     "conflict": "Конфликт",
     "client": "Клиент",
+    "similarity": "Сходство",
     "source": "Регистър",
     "jurisdiction": "Юрисдикция",
     "status": "Статус",

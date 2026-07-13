@@ -39,11 +39,31 @@ export type EpoApplicationRef = {
   epodoc: string;
 };
 
+/** Publication reference used for OPS images / fullimage retrieval. */
+export type EpoPublicationRef = {
+  /** e.g. EP1000000.A1 */
+  epodoc: string;
+  country: string;
+  docNumber: string;
+  kind: string | null;
+};
+
 export type RegistryLegalStatus = {
   publicationNumber: string;
   events: RegistryLegalEvent[];
   /** Prefer this for EPO Register links when present. */
   applicationRef?: EpoApplicationRef | null;
+  /** Prefer A1/B1 publication ref when present (for document fetch). */
+  publicationRef?: EpoPublicationRef | null;
+};
+
+export type EpoFetchedDocument = {
+  buffer: Buffer;
+  mimeType: string;
+  fileName: string;
+  pageCount: number;
+  publicationNumber: string;
+  imagePath: string;
 };
 
 export interface RegistryConnector {
@@ -63,6 +83,13 @@ export interface RegistryConnector {
 
   /** Prosecution / legal status history for a patent number. */
   getLegalStatus(docNumber: string): Promise<RegistryLegalStatus>;
+
+  /**
+   * Fetch the published full-document as a merged PDF via OPS images
+   * (inquiry → per-page PDF → merge). Requires a publication number with kind
+   * when possible (e.g. EP1000000.A1).
+   */
+  getDocument(publicationNumber: string): Promise<EpoFetchedDocument>;
 }
 
 export const REGISTRY_CONNECTOR = Symbol('REGISTRY_CONNECTOR');

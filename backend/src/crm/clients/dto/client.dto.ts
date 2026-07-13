@@ -6,6 +6,7 @@ import {
   IsUUID,
   ValidateIf,
 } from 'class-validator';
+import { Type } from 'class-transformer';
 import { ClientStatus, ClientType } from '../../../../generated/prisma/client';
 import { PaginationQueryDto } from '../../dto/pagination.dto';
 
@@ -140,4 +141,9 @@ export class ClientQueryDto extends PaginationQueryDto {
   @IsOptional()
   @IsString()
   search?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  @Type(() => Boolean)
+  gdprConsent?: boolean;
 }

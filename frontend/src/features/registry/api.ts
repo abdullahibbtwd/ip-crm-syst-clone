@@ -1,8 +1,29 @@
 import { apiClient } from '@/lib/api-client'
 
+export type EpoCredentialSource = 'database' | 'env' | 'none'
+
 export type EpoRegistryStatus = {
   provider: 'epo'
   configured: boolean
+  source?: EpoCredentialSource
+}
+
+export type EpoCredentialsStatus = {
+  provider: 'epo'
+  configured: boolean
+  source: EpoCredentialSource
+  consumerKey: { configured: boolean; lastFour: string | null }
+  consumerSecret: { configured: boolean; lastFour: string | null }
+  apiBaseUrl: string | null
+  authUrl: string | null
+  updatedAt: string | null
+}
+
+export type UpsertEpoCredentialsInput = {
+  consumerKey?: string
+  consumerSecret?: string
+  apiBaseUrl?: string
+  authUrl?: string
 }
 
 export type EpoTestSuccess = {
@@ -42,6 +63,15 @@ export type EpoStatusCheckResult = {
 
 export const registryApi = {
   getEpoStatus: () => apiClient.get<EpoRegistryStatus>('/registry/epo/status'),
+
+  getEpoCredentials: () =>
+    apiClient.get<EpoCredentialsStatus>('/settings/integrations/epo'),
+
+  upsertEpoCredentials: (data: UpsertEpoCredentialsInput) =>
+    apiClient.put<EpoCredentialsStatus>('/settings/integrations/epo', data),
+
+  clearEpoCredentials: () =>
+    apiClient.delete<EpoCredentialsStatus>('/settings/integrations/epo'),
 
   testEpo: (patentNumber?: string) =>
     apiClient.get<EpoTestResult>('/registry/test/epo', {

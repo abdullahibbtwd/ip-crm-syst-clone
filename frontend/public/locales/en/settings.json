@@ -45,6 +45,11 @@
       "description": "Configure jurisdiction and matter-type offsets for auto-created deadlines.",
       "action": "Manage deadline rules"
     },
+    "holidays": {
+      "title": "Holiday calendar",
+      "description": "Jurisdiction holidays used when counting business days for deadlines.",
+      "action": "Manage holidays"
+    },
     "documentTemplates": {
       "title": "Document templates",
       "description": "Edit letter templates, merge fields, and preview generated PDFs.",
@@ -54,7 +59,93 @@
       "title": "Registry integrations",
       "description": "Connect EPO OPS and other IP registries for watch scans and bibliographic lookups.",
       "action": "Manage integrations"
+    },
+    "ssoMfa": {
+      "title": "SSO & MFA",
+      "description": "Configure Google/Microsoft login apps and firm MFA policy. Secrets are encrypted in the database.",
+      "action": "Manage SSO & MFA"
+    },
+    "roles": {
+      "title": "Roles & permissions",
+      "description": "Read-only matrix of system roles and their granted permissions.",
+      "action": "View roles matrix"
+    },
+    "systemHealth": {
+      "title": "System health",
+      "description": "Live checks for database, Redis, and object storage.",
+      "action": "View system health"
     }
+  },
+  "ssoMfa": {
+    "title": "SSO & MFA",
+    "subtitle": "Identity providers and multi-factor authentication policy for the firm.",
+    "noPermission": "You do not have permission to manage SSO or MFA settings.",
+    "loading": "Loading SSO settings…",
+    "saveButton": "Save settings",
+    "saveSuccess": "SSO and MFA settings saved securely.",
+    "saveFailed": "Failed to save SSO and MFA settings",
+    "securityHint": "Client secrets are encrypted at rest (AES-256-GCM). Full secrets are never returned by the API.",
+    "leaveBlankToKeep": "Leave blank to keep current secret",
+    "clientId": "Client ID",
+    "clientSecret": "Client secret",
+    "tenantId": "Tenant ID",
+    "redirectUri": "Redirect URI (register in the provider console)",
+    "sourceDatabase": "Database",
+    "sourceEnv": "Environment (.env)",
+    "sourceNone": "Not configured",
+    "editButton": "Edit",
+    "cancelEdit": "Cancel",
+    "configuredViaEnv": "Configured via environment",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / Microsoft 365 OIDC app used for staff and portal SSO login.",
+      "saveButton": "Save Microsoft",
+      "saveSuccess": "Microsoft SSO settings saved."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Google OAuth client used for SSO login.",
+      "saveButton": "Save Google",
+      "saveSuccess": "Google SSO settings saved."
+    },
+    "mfa": {
+      "title": "MFA policy",
+      "description": "Org-wide MFA settings. Users still enroll from their own Settings page.",
+      "requireInternal": "Require MFA for internal staff",
+      "requireInternalHint": "When enabled, internal users should enroll MFA under Settings → Security. Login enforcement can be tightened in a follow-up.",
+      "saveButton": "Save MFA policy",
+      "saveSuccess": "MFA policy saved."
+    }
+  },
+  "roles": {
+    "title": "Roles & permissions",
+    "subtitle": "Read-only matrix of system roles and granted permissions (seeded RBAC).",
+    "noPermission": "You do not have permission to view roles.",
+    "loading": "Loading roles…",
+    "error": "Failed to load roles.",
+    "system": "System",
+    "columns": {
+      "role": "Role",
+      "description": "Description",
+      "permissions": "Permissions"
+    }
+  },
+  "systemHealth": {
+    "title": "System health",
+    "subtitle": "Live checks for database, Redis, and object storage.",
+    "noPermission": "You do not have permission to view system health.",
+    "loading": "Checking services…",
+    "error": "Failed to load health status.",
+    "overall": "Overall",
+    "statusOk": "Healthy",
+    "statusDegraded": "Degraded",
+    "database": "Database",
+    "redis": "Redis",
+    "storage": "Object storage",
+    "checkOk": "Reachable",
+    "checkFailed": "Unreachable",
+    "refresh": "Refresh",
+    "refreshing": "Refreshing…"
   },
   "integrations": {
     "title": "Integrations",
@@ -70,7 +161,57 @@
       "testing": "Testing…",
       "testSuccess": "EPO connection successful. Retrieved patent: {{title}}",
       "testFailed": "EPO connection failed",
-      "envHint": "Set EPO_CONSUMER_KEY and EPO_CONSUMER_SECRET in the server .env, then restart the API."
+      "envHint": "Set EPO_CONSUMER_KEY and EPO_CONSUMER_SECRET in the server .env, then restart the API.",
+      "consumerKey": "Consumer key",
+      "consumerSecret": "Consumer secret",
+      "consumerKeyPlaceholder": "Enter EPO consumer key",
+      "consumerSecretPlaceholder": "Enter EPO consumer secret",
+      "leaveBlankToKeep": "Leave blank to keep current value",
+      "apiBaseUrl": "API base URL (optional)",
+      "authUrl": "Auth URL (optional)",
+      "saveButton": "Save credentials",
+      "clearButton": "Clear stored credentials",
+      "saveSuccess": "EPO credentials saved securely.",
+      "saveFailed": "Failed to save EPO credentials",
+      "clearSuccess": "Stored EPO credentials cleared. Env fallback still applies if set.",
+      "clearFailed": "Failed to clear EPO credentials",
+      "securityHint": "Secrets are encrypted at rest (AES-256-GCM). Full values are never returned by the API.",
+      "sourceLabel": "Active source",
+      "sourceDatabase": "Database",
+      "sourceEnv": "Environment (.env)",
+      "sourceNone": "Not configured",
+      "keyHint": "key …{{lastFour}}",
+      "editButton": "Edit",
+      "cancelEdit": "Cancel",
+      "configuredViaEnv": "Configured via environment",
+      "defaultEndpoint": "Default EPO endpoint"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Push issued invoices to Xero Accounting via API. Only invoices changed since the last successful sync are sent.",
+      "quickbooksTitle": "QuickBooks Online",
+      "quickbooksDescription": "Push issued invoices to QuickBooks. Customers are matched (or created) by display name.",
+      "xeroTenantId": "Xero tenant ID",
+      "quickbooksRealmId": "QuickBooks realm / company ID",
+      "statusConfigured": "Configured",
+      "statusNotConfigured": "Not configured",
+      "loading": "Loading…",
+      "clientId": "Client ID (optional)",
+      "clientSecret": "Client secret (optional)",
+      "accessToken": "Access token",
+      "leaveBlankToKeep": "Leave blank to keep current value",
+      "saveButton": "Save credentials",
+      "clearButton": "Clear",
+      "editButton": "Edit",
+      "cancelEdit": "Cancel",
+      "syncNow": "Sync now",
+      "lastSync": "Last sync",
+      "neverSynced": "Never",
+      "saveSuccess": "Accounting credentials saved securely.",
+      "saveFailed": "Failed to save accounting credentials",
+      "clearSuccess": "Accounting credentials cleared.",
+      "clearFailed": "Failed to clear accounting credentials",
+      "syncFailed": "Failed to queue accounting sync"
     }
   },
   "deadlineRules": {
@@ -162,6 +303,7 @@
       "slug": "Slug",
       "category": "Category",
       "status": "Status",
+      "docx": "Word",
       "updated": "Updated"
     },
     "status": {
@@ -169,6 +311,15 @@
       "inactive": "Inactive"
     },
     "editAria": "Edit document template",
+    "uploadDocx": "Upload .docx",
+    "removeDocx": "Remove .docx",
+    "uploadDocxAria": "Upload Word template",
+    "removeDocxAria": "Remove Word template",
+    "confirmRemoveDocx": "Remove the Word (.docx) template from this letter template?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
     "drawer": {
       "createTitle": "New document template",
       "editTitle": "Edit document template",
@@ -195,7 +346,50 @@
       "required": "Name and HTML body are required",
       "slugRequired": "Slug is required",
       "saveFailed": "Failed to save document template",
-      "previewFailed": "Failed to generate PDF preview"
+      "previewFailed": "Failed to generate PDF preview",
+      "docxUploadFailed": "Failed to upload Word template",
+      "docxDeleteFailed": "Failed to remove Word template"
+    }
+  },
+  "holidays": {
+    "title": "Holiday calendar",
+    "subtitle": "Public holidays by jurisdiction. Recurring holidays apply every year on the same month and day when counting business days.",
+    "newHoliday": "New holiday",
+    "noPermission": "You do not have permission to view holidays.",
+    "loading": "Loading holidays…",
+    "loadError": "Failed to load holidays.",
+    "empty": "No holidays match this filter.",
+    "allJurisdictions": "All jurisdictions",
+    "filters": {
+      "jurisdiction": "Jurisdiction"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiction",
+      "date": "Date",
+      "name": "Name",
+      "recurring": "Recurring"
+    },
+    "recurring": {
+      "yes": "Recurring",
+      "no": "One-time"
+    },
+    "editAria": "Edit holiday",
+    "deleteAria": "Delete holiday",
+    "confirmDelete": "Delete holiday “{{name}}”?",
+    "drawer": {
+      "createTitle": "New holiday",
+      "editTitle": "Edit holiday",
+      "jurisdiction": "Jurisdiction",
+      "date": "Date",
+      "name": "Name",
+      "recurring": "Recurring annually",
+      "cancel": "Cancel",
+      "create": "Create holiday",
+      "save": "Save changes"
+    },
+    "errors": {
+      "required": "Name and date are required",
+      "saveFailed": "Failed to save holiday"
     }
   }
 }

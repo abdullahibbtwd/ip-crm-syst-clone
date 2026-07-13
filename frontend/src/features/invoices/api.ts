@@ -1,5 +1,7 @@
 import { api } from '@/lib/api'
 import type {
+  AccountingExportParams,
+  AccountingExportResponse,
   CreateInvoiceInput,
   Invoice,
   InvoiceListFilters,
@@ -7,6 +9,18 @@ import type {
   InvoicePdfResponse,
   RecordPaymentInput,
 } from './types'
+
+export function downloadCsvFile(csv: string, filename: string) {
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = filename
+  document.body.appendChild(anchor)
+  anchor.click()
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
 
 export const invoicesApi = {
   listAll: (filters?: InvoiceListFilters) =>
@@ -34,4 +48,9 @@ export const invoicesApi = {
 
   getPortalPdf: (id: string) =>
     api.get<InvoicePdfResponse>(`/portal/invoices/${id}/pdf`).then((r) => r.data),
+
+  exportAccounting: (params: AccountingExportParams) =>
+    api
+      .get<AccountingExportResponse>('/invoices/export/accounting', { params })
+      .then((r) => r.data),
 }

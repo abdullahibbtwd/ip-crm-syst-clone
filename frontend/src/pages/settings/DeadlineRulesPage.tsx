@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { Pencil, Plus } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { RoleGate } from '@/components/permissions/RoleGate'
+import { SYSTEM_ROLES } from '@/lib/rbac'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -354,6 +356,12 @@ export function DeadlineRulesPage() {
   })
 
   return (
+    <RoleGate
+      roles={[SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.DOCKETING_ADMIN]}
+      fallback={
+        <p className="text-sm text-muted-foreground">{t('deadlineRules.noPermission')}</p>
+      }
+    >
     <PermissionGate
       resource="deadline"
       action="read"
@@ -502,5 +510,6 @@ export function DeadlineRulesPage() {
         />
       </div>
     </PermissionGate>
+    </RoleGate>
   )
 }

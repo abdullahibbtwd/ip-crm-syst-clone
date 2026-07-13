@@ -4,6 +4,8 @@ import {
   NotFoundException,
   ServiceUnavailableException,
 } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
 import {
   CorrespondenceDirection,
   CorrespondenceSource,
@@ -17,10 +19,17 @@ import { NotificationDispatchService } from '../notifications/notification-dispa
 import { PrismaService } from '../prisma/prisma.service';
 import type {
   EpoApplicationRef,
+  EpoPublicationRef,
   RegistryLegalEvent,
 } from './interfaces/registry-connector.interface';
 import { EpoProvider } from './providers/epo.provider';
-import { EPO_STATUS_SCAN_CONCURRENCY } from './registry.constants';
+import type { EpoDocumentFetchJobData } from './processors/epo-document.processor';
+import {
+  EPO_DOCUMENT_FETCH_JOB,
+  EPO_DOCUMENT_FETCH_MAX_ATTEMPTS,
+  EPO_DOCUMENT_FETCH_QUEUE,
+  EPO_STATUS_SCAN_CONCURRENCY,
+} from './registry.constants';
 import {
   epoRegisterUrl,
   epoRegisterUrlFromParts,
@@ -53,6 +62,8 @@ export class EpoStatusService {
     private readonly epo: EpoProvider,
     private readonly correspondence: CorrespondenceService,
     private readonly notifications: NotificationDispatchService,
+    @InjectQueue(EPO_DOCUMENT_FETCH_QUEUE)
+    private readonly epoDocumentQueue: Queue<EpoDocumentFetchJobData>,
   ) {}
 
   async scanAllActiveEpRights(): Promise<{
@@ -207,15 +218,32 @@ export class EpoStatusService {
       (await this.resolveFallbackUserId());
 
     let correspondenceCreated = 0;
+    const publicationNumber =
+      legal.publicationRef?.epodoc ?? legal.publicationNumber ?? null;
 
     for (const event of newEvents) {
-      await this.createEventCorrespondence(right.matterId, event, actorId, {
-        ipRightId: right.id,
-        applicationNumber: lookupNumber,
-        applicationRef: legal.applicationRef ?? null,
-      });
+      const created = await this.createEventCorrespondence(
+        right.matterId,
+        event,
+        actorId,
+        {
+          ipRightId: right.id,
+          applicationNumber: lookupNumber,
+          applicationRef: legal.applicationRef ?? null,
+          publicationRef: legal.publicationRef ?? null,
+        },
+      );
       seen.add(event.eventId);
       correspondenceCreated += 1;
+
+      await this.enqueueDocumentFetch({
+        correspondenceId: created.id,
+        matterId: right.matterId,
+        ipRightId: right.id,
+        publicationNumber,
+        applicationNumber: lookupNumber,
+        actorUserId: actorId,
+      });
     }
 
     const lastEventId =
@@ -229,6 +257,7 @@ export class EpoStatusService {
       epoLastChecked: new Date().toISOString().slice(0, 10),
       epoSeenEventIds: [...seen].slice(-200),
       ...(lastEventId ? { epoLastEventId: lastEventId } : {}),
+      ...(publicationNumber ? { epoPublicationNumber: publicationNumber } : {}),
       ...(legal.applicationRef
         ? {
             epoAppNumber: legal.applicationRef.fullAppNumber,
@@ -303,6 +332,7 @@ export class EpoStatusService {
       ipRightId: string;
       applicationNumber: string;
       applicationRef?: EpoApplicationRef | null;
+      publicationRef?: EpoPublicationRef | null;
     },
   ) {
     const category =
@@ -335,8 +365,9 @@ export class EpoStatusService {
       appRef,
       meta.applicationNumber,
     );
+    const publicationNumber = meta.publicationRef?.epodoc ?? null;
 
-    await this.correspondence.create(
+    return this.correspondence.create(
       matterId,
       {
         direction: CorrespondenceDirection.incoming,
@@ -353,6 +384,7 @@ export class EpoStatusService {
           appRef
             ? `Register number: EP${appRef.baseNumber}.${appRef.checkDigit}`
             : null,
+          publicationNumber ? `Publication: ${publicationNumber}` : null,
           `Code: ${event.code}`,
           `Date: ${event.date ?? 'unknown'}`,
           `Kind: ${event.kind}`,
@@ -373,10 +405,32 @@ export class EpoStatusService {
           ipRightId: meta.ipRightId,
           applicationNumber: meta.applicationNumber,
           epoRegisterLink: registerParts.registerLink,
+          ...(publicationNumber
+            ? { epoPublicationNumber: publicationNumber }
+            : {}),
+          epoDocumentFetchStatus: 'pending',
         },
       },
       userId,
     );
+  }
+
+  private async enqueueDocumentFetch(data: EpoDocumentFetchJobData) {
+    try {
+      await this.epoDocumentQueue.add(EPO_DOCUMENT_FETCH_JOB, data, {
+        jobId: `epo-doc-${data.correspondenceId}`,
+        attempts: EPO_DOCUMENT_FETCH_MAX_ATTEMPTS,
+        backoff: { type: 'exponential', delay: 60_000 },
+        removeOnComplete: 50,
+        removeOnFail: 100,
+      });
+    } catch (err) {
+      this.logger.warn(
+        `Failed to enqueue EPO document fetch for ${data.correspondenceId}: ${
+          err instanceof Error ? err.message : err
+        }`,
+      );
+    }
   }
 
   private async resolveFallbackUserId(): Promise<string> {

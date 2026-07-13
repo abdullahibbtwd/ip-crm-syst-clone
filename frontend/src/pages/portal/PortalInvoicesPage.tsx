@@ -9,8 +9,8 @@ export function PortalInvoicesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-xl font-semibold">{t('invoices.title')}</h1>
-        <p className="text-sm text-muted-foreground">{t('invoices.description')}</p>
+        <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('invoices.title')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('invoices.description')}</p>
       </div>
 
       {isLoading && <p className="text-sm text-muted-foreground">{t('invoices.loading')}</p>}

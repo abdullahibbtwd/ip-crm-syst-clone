@@ -119,6 +119,7 @@ export type SendOutboundEmailInput = {
   replyToUnlinkedEmailId?: string
   replyToCorrespondenceId?: string
   category?: CorrespondenceCategory
+  isClientVisible?: boolean
   attachments?: OutboundAttachment[]
 }
 

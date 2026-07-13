@@ -27,6 +27,19 @@ export const documentTemplatesApi = {
   deactivate: (id: string) =>
     apiClient.delete<DocumentTemplateDetail>(`/document-templates/${id}`),
 
+  uploadDocx: (id: string, file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    return api
+      .post<DocumentTemplateAdmin>(`/document-templates/${id}/docx`, form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((r) => r.data)
+  },
+
+  deleteDocx: (id: string) =>
+    apiClient.delete<DocumentTemplateAdmin>(`/document-templates/${id}/docx`),
+
   previewPdf: async (body: PreviewDocumentTemplateInput) => {
     const r = await api.post<Blob>('/document-templates/preview', body, {
       responseType: 'blob',

@@ -4,6 +4,7 @@ import type {
   IpRight,
   Prisma,
   RenewalInstruction,
+  RenewalPart,
   RenewalPayment,
   RenewalWindow,
   User,
@@ -12,14 +13,44 @@ import { decimalToNumber } from '../billing/billing.utils';
 
 const userBriefSelect = { id: true, fullName: true, email: true } as const;
 
+const renewalPartSelect = {
+  id: true,
+  renewalWindowId: true,
+  jurisdiction: true,
+  niceClasses: true,
+  status: true,
+  officialFee: true,
+  serviceFee: true,
+  currency: true,
+  dueDate: true,
+  graceDate: true,
+  notes: true,
+  completedAt: true,
+  createdAt: true,
+  updatedAt: true,
+} as const;
+
 export const renewalWindowListInclude = {
   ipRight: {
-    select: { id: true, title: true, registrationNumber: true, jurisdiction: true },
+    select: {
+      id: true,
+      title: true,
+      registrationNumber: true,
+      jurisdiction: true,
+    },
+  },
+  parts: {
+    orderBy: { createdAt: 'asc' as const },
+    select: renewalPartSelect,
   },
 } satisfies Prisma.RenewalWindowInclude;
 
 export const renewalWindowDetailInclude = {
   ipRight: true,
+  parts: {
+    orderBy: { createdAt: 'asc' as const },
+    select: renewalPartSelect,
+  },
   instructions: {
     orderBy: { capturedAt: 'desc' as const },
     include: { capturedBy: { select: userBriefSelect } },
@@ -55,7 +86,9 @@ type RenewalWindowListRow = RenewalWindow &
   Prisma.RenewalWindowGetPayload<{ include: typeof renewalWindowListInclude }>;
 
 type RenewalWindowDetailRow = RenewalWindow &
-  Prisma.RenewalWindowGetPayload<{ include: typeof renewalWindowDetailInclude }>;
+  Prisma.RenewalWindowGetPayload<{
+    include: typeof renewalWindowDetailInclude;
+  }>;
 
 function serializeUser(user: Pick<User, 'id' | 'fullName' | 'email'>) {
   return user;
@@ -89,10 +122,52 @@ export const renewalWorklistInclude = {
       },
     },
   },
+  parts: {
+    orderBy: { createdAt: 'asc' as const },
+    select: renewalPartSelect,
+  },
 } satisfies Prisma.RenewalWindowInclude;
 
 type RenewalWorklistRow = RenewalWindow &
   Prisma.RenewalWindowGetPayload<{ include: typeof renewalWorklistInclude }>;
+
+export function serializeRenewalPart(
+  row: Pick<
+    RenewalPart,
+    | 'id'
+    | 'renewalWindowId'
+    | 'jurisdiction'
+    | 'niceClasses'
+    | 'status'
+    | 'officialFee'
+    | 'serviceFee'
+    | 'currency'
+    | 'dueDate'
+    | 'graceDate'
+    | 'notes'
+    | 'completedAt'
+    | 'createdAt'
+    | 'updatedAt'
+  >,
+) {
+  return {
+    id: row.id,
+    renewalWindowId: row.renewalWindowId,
+    jurisdiction: row.jurisdiction,
+    niceClasses: row.niceClasses,
+    status: row.status,
+    officialFee:
+      row.officialFee == null ? null : decimalToNumber(row.officialFee),
+    serviceFee: row.serviceFee == null ? null : decimalToNumber(row.serviceFee),
+    currency: row.currency,
+    dueDate: row.dueDate,
+    graceDate: row.graceDate,
+    notes: row.notes,
+    completedAt: row.completedAt,
+    createdAt: row.createdAt,
+    updatedAt: row.updatedAt,
+  };
+}
 
 export function serializeRenewalWorklistItem(row: RenewalWorklistRow) {
   return {
@@ -116,6 +191,7 @@ export function serializeRenewalWindowList(row: RenewalWindowListRow) {
     createdAt: row.createdAt,
     updatedAt: row.updatedAt,
     ipRight: row.ipRight,
+    parts: (row.parts ?? []).map(serializeRenewalPart),
   };
 }
 
@@ -131,10 +207,13 @@ export function serializeRenewalWindowDetail(row: RenewalWindowDetailRow) {
 }
 
 function serializeInstruction(
-  row: RenewalInstruction & { capturedBy: Pick<User, 'id' | 'fullName' | 'email'> },
+  row: RenewalInstruction & {
+    capturedBy: Pick<User, 'id' | 'fullName' | 'email'>;
+  },
 ) {
   return {
     id: row.id,
+    renewalPartId: row.renewalPartId,
     decision: row.decision,
     notes: row.notes,
     capturedAt: row.capturedAt,
@@ -145,11 +224,16 @@ function serializeInstruction(
 function serializePayment(
   row: RenewalPayment & {
     recordedBy: Pick<User, 'id' | 'fullName' | 'email'>;
-    proofDocumentVersion: { id: string; fileName: string; version: number } | null;
+    proofDocumentVersion: {
+      id: string;
+      fileName: string;
+      version: number;
+    } | null;
   },
 ) {
   return {
     id: row.id,
+    renewalPartId: row.renewalPartId,
     amount: decimalToNumber(row.amount),
     currency: row.currency,
     paidAt: row.paidAt,

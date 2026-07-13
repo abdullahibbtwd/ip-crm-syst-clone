@@ -30,23 +30,28 @@ export function WatchAlertsPage() {
   const [status, setStatus] = useState<WatchAlertStatus | undefined>('new')
   const [jurisdiction, setJurisdiction] = useState<string | undefined>()
   const [source, setSource] = useState<WatchRegistrySource | undefined>()
+  const [minSimilarity, setMinSimilarity] = useState<string>(ALL)
+  const [sortBy, setSortBy] = useState<'detectedAt' | 'similarity'>('detectedAt')
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
   useEffect(() => {
     setPageIndex(0)
     setCursors([undefined])
-  }, [status, jurisdiction, source])
+  }, [status, jurisdiction, source, minSimilarity, sortBy])
 
   const filters = useMemo(
     () => ({
       status,
       jurisdiction,
       source,
+      minSimilarity:
+        minSimilarity === ALL ? undefined : Number(minSimilarity),
+      sortBy,
       limit: WATCH_ALERT_PAGE_SIZE,
       cursor: cursors[pageIndex],
     }),
-    [status, jurisdiction, source, pageIndex, cursors],
+    [status, jurisdiction, source, minSimilarity, sortBy, pageIndex, cursors],
   )
 
   const { data, isLoading, isFetching } = useWatchAlerts(filters)
@@ -165,6 +170,31 @@ export function WatchAlertsPage() {
                   {registrySourceLabel(s)}
                 </SelectItem>
               ))}
+            </SelectContent>
+          </Select>
+
+          <Select value={minSimilarity} onValueChange={(v) => setMinSimilarity(v ?? ALL)}>
+            <SelectTrigger className="w-[180px] bg-background">
+              <SelectValue placeholder={t('filters.minSimilarity')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value={ALL}>{t('filters.anySimilarity')}</SelectItem>
+              <SelectItem value="0.3">{t('filters.similarityAtLeast', { pct: 30 })}</SelectItem>
+              <SelectItem value="0.5">{t('filters.similarityAtLeast', { pct: 50 })}</SelectItem>
+              <SelectItem value="0.7">{t('filters.similarityAtLeast', { pct: 70 })}</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select
+            value={sortBy}
+            onValueChange={(v) => setSortBy((v as 'detectedAt' | 'similarity') ?? 'detectedAt')}
+          >
+            <SelectTrigger className="w-[180px] bg-background">
+              <SelectValue placeholder={t('filters.sortBy')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="detectedAt">{t('filters.sortDetected')}</SelectItem>
+              <SelectItem value="similarity">{t('filters.sortSimilarity')}</SelectItem>
             </SelectContent>
           </Select>
         </div>

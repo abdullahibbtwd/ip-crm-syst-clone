@@ -7,6 +7,7 @@ export type DocumentTemplateAdmin = {
   category: DocumentCategory
   description: string | null
   isActive: boolean
+  hasDocx?: boolean
   createdAt: string
   updatedAt: string
 }

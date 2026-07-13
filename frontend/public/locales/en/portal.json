@@ -19,6 +19,63 @@
     },
     "title": "Welcome back"
   },
+  "correspondence": {
+    "title": "Messages",
+    "description": "Correspondence your firm has shared with you.",
+    "loading": "Loading messages…",
+    "error": "Failed to load messages.",
+    "empty": "No messages yet. Shared correspondence will appear here.",
+    "table": {
+      "subject": "Subject",
+      "date": "Date",
+      "direction": "Direction",
+      "matter": "Matter"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "description": "Firm broadcasts and matter messages shared with your organisation.",
+    "loading": "Loading messages…",
+    "loadingDetail": "Opening…",
+    "error": "Failed to load messages.",
+    "empty": "No messages yet. Firm updates and shared correspondence will appear here.",
+    "selectHint": "Select a message to read it.",
+    "relatedMatter": "Matter",
+    "noBody": "No message body.",
+    "openLink": "Open message link",
+    "kindBroadcast": "Broadcast",
+    "kindCorrespondence": "Matter",
+    "table": {
+      "type": "Type",
+      "subject": "Subject",
+      "date": "Date",
+      "matter": "Matter"
+    }
+  },
+  "approvals": {
+    "title": "Approvals",
+    "description": "Review and decide on approval requests from your firm.",
+    "loading": "Loading approvals…",
+    "couldNotLoad": "Could not load approvals",
+    "retry": "Retry",
+    "decideError": "Could not submit your decision",
+    "approve": "Approve",
+    "reject": "Reject",
+    "notePlaceholder": "Optional note…",
+    "due": "Due {{date}}",
+    "pendingSection": "Awaiting your decision",
+    "historySection": "Previous decisions",
+    "empty": {
+      "title": "No approval requests",
+      "description": "When your firm submits an approval request, it will appear here."
+    },
+    "status": {
+      "draft": "Draft",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    }
+  },
   "documentCategories": {
     "application": "Application",
     "certificate": "Certificate",
@@ -149,5 +206,18 @@
     "instructed": "Instructed",
     "lapsed": "Lapsed",
     "upcoming": "Upcoming"
+  },
+  "help": {
+    "title": "Help",
+    "subtitle": "How to use the client portal for your IP portfolio.",
+    "enquiriesTitle": "File an enquiry",
+    "enquiriesBody": "Use Enquiries to submit a new matter request. The firm will review conflict checks and convert approved leads into matters.",
+    "openEnquiries": "Open enquiries",
+    "approvalsTitle": "Approvals",
+    "approvalsBody": "When the firm requests your approval (for example renewals or instructions), respond from the Approvals page.",
+    "openApprovals": "Open approvals",
+    "contactTitle": "Need more help?",
+    "contactBody": "Contact your assigned attorney or coordinator through Messages, or reply to firm correspondence on a matter.",
+    "openMessages": "Open messages"
   }
 }

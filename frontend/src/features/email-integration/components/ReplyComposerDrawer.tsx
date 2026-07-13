@@ -110,6 +110,7 @@ export function ReplyComposerDrawer({
   const [subject, setSubject] = useState('')
   const [bodyText, setBodyText] = useState('')
   const [category, setCategory] = useState<CorrespondenceCategory>('correspondence')
+  const [isClientVisible, setIsClientVisible] = useState(false)
   const [inReplyTo, setInReplyTo] = useState<string | undefined>()
   const [attachments, setAttachments] = useState<PendingAttachment[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -252,6 +253,7 @@ export function ReplyComposerDrawer({
         replyToUnlinkedEmailId: context?.unlinkedEmailId,
         replyToCorrespondenceId: context?.correspondenceId,
         category,
+        isClientVisible,
         attachments: attachments.map(({ fileName, contentType, contentBase64 }) => ({
           fileName,
           contentType,
@@ -482,6 +484,21 @@ export function ReplyComposerDrawer({
             </ul>
           ) : null}
         </div>
+
+        <label className="flex cursor-pointer items-start gap-2.5 rounded-md border bg-background px-3 py-2.5">
+          <input
+            type="checkbox"
+            className="mt-0.5 size-4 rounded border-input"
+            checked={isClientVisible}
+            onChange={(e) => setIsClientVisible(e.target.checked)}
+          />
+          <span>
+            <span className="block text-sm font-medium">Send to client inbox</span>
+            <span className="text-xs text-muted-foreground">
+              Show this message in the client portal Messages inbox.
+            </span>
+          </span>
+        </label>
 
         {error ? <p className="text-sm text-destructive">{error}</p> : null}
 

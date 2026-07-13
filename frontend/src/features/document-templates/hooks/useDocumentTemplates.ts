@@ -58,6 +58,29 @@ export function useDeactivateDocumentTemplate() {
   })
 }
 
+export function useUploadTemplateDocx() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, file }: { id: string; file: File }) =>
+      documentTemplatesApi.uploadDocx(id, file),
+    onSuccess: (_data, vars) => {
+      qc.invalidateQueries({ queryKey: documentTemplatesKeys.lists() })
+      qc.invalidateQueries({ queryKey: documentTemplatesKeys.detail(vars.id) })
+    },
+  })
+}
+
+export function useDeleteTemplateDocx() {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (id: string) => documentTemplatesApi.deleteDocx(id),
+    onSuccess: (_data, id) => {
+      qc.invalidateQueries({ queryKey: documentTemplatesKeys.lists() })
+      qc.invalidateQueries({ queryKey: documentTemplatesKeys.detail(id) })
+    },
+  })
+}
+
 export function usePreviewDocumentTemplate() {
   return useMutation({
     mutationFn: (body: PreviewDocumentTemplateInput) =>

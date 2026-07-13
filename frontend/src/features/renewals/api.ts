@@ -2,11 +2,14 @@ import { apiClient } from '@/lib/api-client'
 import type {
   CompleteRenewalInput,
   InstructRenewalInput,
+  RecordRenewalPartPaymentInput,
   RegisterIpRightInput,
   RenewalFilters,
   RenewalListResponse,
+  RenewalPart,
   RenewalWindow,
   RenewalWorklistItem,
+  SplitRenewalWindowInput,
 } from './types'
 
 export const renewalsApi = {
@@ -37,9 +40,30 @@ export const renewalsApi = {
   complete: (id: string, data: CompleteRenewalInput) =>
     apiClient.post<RenewalWindow>(`/renewals/${id}/complete`, data),
 
+  listParts: (windowId: string) =>
+    apiClient.get<RenewalPart[]>(`/renewals/windows/${windowId}/parts`),
+
+  splitWindow: (windowId: string, data: SplitRenewalWindowInput) =>
+    apiClient.post<RenewalWindow>(`/renewals/windows/${windowId}/parts/split`, data),
+
+  instructPart: (partId: string, data: InstructRenewalInput) =>
+    apiClient.post<RenewalWindow>(`/renewals/parts/${partId}/instruct`, data),
+
+  markPartFiled: (partId: string) =>
+    apiClient.post<RenewalWindow>(`/renewals/parts/${partId}/file`),
+
+  recordPartPayment: (partId: string, data: RecordRenewalPartPaymentInput) =>
+    apiClient.post<RenewalWindow>(`/renewals/parts/${partId}/payments`, data),
+
+  completePart: (partId: string, data: CompleteRenewalInput) =>
+    apiClient.post<RenewalWindow>(`/renewals/parts/${partId}/complete`, data),
+
   listPortal: () =>
     apiClient.get<RenewalWorklistItem[]>('/portal/renewals'),
 
   portalInstruct: (id: string, data: InstructRenewalInput) =>
     apiClient.post<RenewalWindow>(`/portal/renewals/${id}/instruct`, data),
+
+  portalInstructPart: (partId: string, data: InstructRenewalInput) =>
+    apiClient.post<RenewalWindow>(`/portal/renewals/parts/${partId}/instruct`, data),
 }

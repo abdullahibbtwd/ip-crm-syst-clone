@@ -15,7 +15,9 @@ import { Roles } from '../common/decorators/roles.decorator';
 import { PortalAccessService } from '../common/portal-access.service';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
+import { AccountingExportService } from './accounting-export.service';
 import {
+  AccountingExportQueryDto,
   CreateInvoiceDto,
   ListInvoicesQueryDto,
   RecordPaymentDto,
@@ -51,12 +53,28 @@ export class MatterInvoicesController {
 @RequirePermissions('invoice:read')
 @Audit({ action: 'invoice', resource: 'invoice', module: INVOICES_MODULE })
 export class InvoicesController {
-  constructor(private readonly invoices: InvoicesService) {}
+  constructor(
+    private readonly invoices: InvoicesService,
+    private readonly accountingExport: AccountingExportService,
+  ) {}
 
   @Get()
   @Roles(SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.FINANCE)
   listAll(@Query() query: ListInvoicesQueryDto) {
     return this.invoices.listAll(query);
+  }
+
+  @Get('export/accounting')
+  @Roles(SYSTEM_ROLES.MANAGING_PARTNER, SYSTEM_ROLES.FINANCE)
+  @RequirePermissions('invoice:read')
+  @Audit({
+    action: 'invoice.accounting_export',
+    resource: 'invoice',
+    module: INVOICES_MODULE,
+    personalDataExport: true,
+  })
+  exportAccounting(@Query() query: AccountingExportQueryDto) {
+    return this.accountingExport.export(query);
   }
 
   @Get(':id/pdf')

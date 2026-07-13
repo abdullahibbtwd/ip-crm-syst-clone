@@ -1,6 +1,7 @@
 import {
   IsDateString,
   IsEnum,
+  IsIn,
   IsNumber,
   IsOptional,
   IsString,
@@ -9,6 +10,15 @@ import {
   Min,
 } from 'class-validator';
 import { InvoiceStatus, PaymentStatus } from '../../../generated/prisma/client';
+
+export const ACCOUNTING_EXPORT_FORMATS = [
+  'journal',
+  'xero',
+  'quickbooks',
+] as const;
+
+export type AccountingExportFormat =
+  (typeof ACCOUNTING_EXPORT_FORMATS)[number];
 
 export class CreateInvoiceDto {
   @IsOptional()
@@ -93,4 +103,21 @@ export class ListInvoicesQueryDto {
 
   @IsOptional()
   limit?: number;
+}
+
+export class AccountingExportQueryDto {
+  @IsIn(ACCOUNTING_EXPORT_FORMATS)
+  format!: AccountingExportFormat;
+
+  @IsOptional()
+  @IsDateString()
+  from?: string;
+
+  @IsOptional()
+  @IsDateString()
+  to?: string;
+
+  @IsOptional()
+  @IsUUID()
+  clientId?: string;
 }

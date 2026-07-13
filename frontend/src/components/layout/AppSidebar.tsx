@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { apiClient } from '@/lib/api-client'
 
@@ -75,11 +75,6 @@ const THEMES: Record<'internal' | 'external', SidebarTheme> = {
   },
 }
 
-function isPathActive(itemPath: string, pathname: string): boolean {
-  if (itemPath === '/dashboard') return pathname === '/dashboard'
-  return pathname === itemPath || pathname.startsWith(`${itemPath}/`)
-}
-
 function badgeForPath(
   path: string | undefined,
   myCount: number,
@@ -87,6 +82,7 @@ function badgeForPath(
   intakeCount: number,
   alertsCount: number,
   watchNewCount: number,
+  messagesUnreadCount: number,
 ): number {
   if (!path) return 0
   if (path === '/deadlines/my') return myCount
@@ -94,6 +90,7 @@ function badgeForPath(
   if (path === '/intake') return intakeCount
   if (path === '/alerts') return alertsCount > 0 ? alertsCount : 0
   if (path === '/watch-alerts') return watchNewCount
+  if (path === '/portal/messages') return messagesUnreadCount
   return 0
 }
 
@@ -119,8 +116,9 @@ function SidebarLink({
   const label = t(`items.${item.labelKey}`, {
     defaultValue: humanizeNavKey(item.labelKey),
   })
-  const location = useLocation()
-  const routeActive = item.path ? isPathActive(item.path, location.pathname) : isActive
+  // Prefer shell activeNavId so query-specific siblings (e.g. escalations vs all deadlines)
+  // do not all highlight when sharing a pathname.
+  const routeActive = isActive
   const isAlerts = item.path === '/alerts'
   const badgeLabel = isAlerts ? 'alerts' : undefined
   const badgeTone = isAlerts ? ('warning' as const) : undefined
@@ -262,6 +260,14 @@ export function AppSidebar({
   const { data: watchNew } = useWatchNewCount()
   const watchNewCount = canReadMatters && !external ? (watchNew?.newCount ?? 0) : 0
 
+  const { data: messagesUnread } = useQuery({
+    queryKey: ['portal-messages', 'unread-count'],
+    queryFn: () => apiClient.get<{ count: number }>('/portal/messages/unread-count'),
+    enabled: Boolean(external),
+    refetchInterval: 60_000,
+  })
+  const messagesUnreadCount = external ? (messagesUnread?.count ?? 0) : 0
+
   const alertsCount =
     (alertsSummary?.overdue?.length ?? 0) +
     (alertsSummary?.today?.length ?? 0) +
@@ -269,7 +275,15 @@ export function AppSidebar({
     (alertsSummary?.notifications?.length ?? 0)
 
   const badgeForItem = (item: NavItem) =>
-    badgeForPath(item.path, myTodayCount, firmTodayCount, intakePendingCount, alertsCount, watchNewCount)
+    badgeForPath(
+      item.path,
+      myTodayCount,
+      firmTodayCount,
+      intakePendingCount,
+      alertsCount,
+      watchNewCount,
+      messagesUnreadCount,
+    )
 
   return (
     <aside

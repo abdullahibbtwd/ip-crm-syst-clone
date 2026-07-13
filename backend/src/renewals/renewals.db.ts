@@ -38,6 +38,40 @@ export type RenewalPaymentDb = {
   ) => Prisma.PrismaPromise<Prisma.RenewalPaymentGetPayload<T>>;
 };
 
+export type RenewalPartDb = {
+  findMany: <T extends Prisma.RenewalPartFindManyArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.RenewalPartGetPayload<T>[]>;
+
+  findFirst: <T extends Prisma.RenewalPartFindFirstArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.RenewalPartGetPayload<T> | null>;
+
+  findUnique: <T extends Prisma.RenewalPartFindUniqueArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.RenewalPartGetPayload<T> | null>;
+
+  create: <T extends Prisma.RenewalPartCreateArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.RenewalPartGetPayload<T>>;
+
+  createMany: <T extends Prisma.RenewalPartCreateManyArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.BatchPayload>;
+
+  update: <T extends Prisma.RenewalPartUpdateArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.RenewalPartGetPayload<T>>;
+
+  deleteMany: <T extends Prisma.RenewalPartDeleteManyArgs>(
+    args: T,
+  ) => Prisma.PrismaPromise<Prisma.BatchPayload>;
+
+  count: <T extends Prisma.RenewalPartCountArgs>(
+    args?: T,
+  ) => Prisma.PrismaPromise<number>;
+};
+
 export function renewalWindowDb(db: {
   renewalWindow: unknown;
 }): RenewalWindowDb {
@@ -54,4 +88,8 @@ export function renewalPaymentDb(db: {
   renewalPayment: unknown;
 }): RenewalPaymentDb {
   return db.renewalPayment as RenewalPaymentDb;
+}
+
+export function renewalPartDb(db: { renewalPart: unknown }): RenewalPartDb {
+  return db.renewalPart as RenewalPartDb;
 }

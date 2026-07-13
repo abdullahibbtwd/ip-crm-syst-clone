@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Inbox, Search } from 'lucide-react'
 import { MattersTable, MATTER_PAGE_SIZE } from '@/components/matters/MattersTable'
@@ -36,14 +36,30 @@ const MATTER_TYPES: MatterType[] = [
 
 const MATTER_STATUSES: MatterStatus[] = ['draft', 'active', 'on_hold', 'closed', 'abandoned']
 
+const MATTER_TYPE_SET = new Set<string>(MATTER_TYPES)
+const MATTER_STATUS_SET = new Set<string>(MATTER_STATUSES)
+
+function parseMatterType(value: string | null): MatterType | undefined {
+  if (!value || !MATTER_TYPE_SET.has(value)) return undefined
+  return value as MatterType
+}
+
+function parseMatterStatus(value: string | null): MatterStatus | undefined {
+  if (!value || !MATTER_STATUS_SET.has(value)) return undefined
+  return value as MatterStatus
+}
+
 export function MatterListPage() {
   const { t } = useTranslation('matters')
   const { user } = useAuth()
   const isPortalClient = user?.roles.includes('portal_client') ?? false
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const typeFilter = parseMatterType(searchParams.get('matterType'))
+  const statusFilter = parseMatterStatus(searchParams.get('status'))
+
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
-  const [statusFilter, setStatusFilter] = useState<MatterStatus | undefined>()
-  const [typeFilter, setTypeFilter] = useState<MatterType | undefined>()
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
@@ -56,6 +72,30 @@ export function MatterListPage() {
     setPageIndex(0)
     setCursors([undefined])
   }, [debouncedSearch, statusFilter, typeFilter])
+
+  const setTypeFilter = (value: MatterType | undefined) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set('matterType', value)
+        else next.delete('matterType')
+        return next
+      },
+      { replace: true },
+    )
+  }
+
+  const setStatusFilter = (value: MatterStatus | undefined) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set('status', value)
+        else next.delete('status')
+        return next
+      },
+      { replace: true },
+    )
+  }
 
   const filters: MatterFilters = {
     search: debouncedSearch || undefined,
@@ -101,8 +141,8 @@ export function MatterListPage() {
         </PermissionGate>
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-border/80 bg-muted/15 p-4">
-        <div className="relative min-w-[220px] flex-1 sm:max-w-md">
+      <div className="flex flex-col gap-3 rounded-xl border border-border/80 bg-muted/15 p-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="relative w-full flex-1 sm:min-w-[220px] sm:max-w-md">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t('list.searchPlaceholder')}
@@ -115,7 +155,7 @@ export function MatterListPage() {
           value={typeFilter ?? ALL_TYPES}
           onValueChange={(v) => setTypeFilter(v === ALL_TYPES ? undefined : (v as MatterType))}
         >
-          <SelectTrigger className="w-[180px] bg-background">
+          <SelectTrigger className="w-full bg-background sm:w-[180px]">
             <SelectValue placeholder={t('list.filters.allTypes')} />
           </SelectTrigger>
           <SelectContent>
@@ -133,7 +173,7 @@ export function MatterListPage() {
             setStatusFilter(v === ALL_STATUSES ? undefined : (v as MatterStatus))
           }
         >
-          <SelectTrigger className="w-[160px] bg-background">
+          <SelectTrigger className="w-full bg-background sm:w-[160px]">
             <SelectValue placeholder={t('list.filters.allStatuses')} />
           </SelectTrigger>
           <SelectContent>

@@ -180,6 +180,7 @@ export class OutboundEmailService {
         bodyText,
         documentVersionId,
         mailboxConnectionId: connection.id,
+        isClientVisible: data.isClientVisible ?? false,
         metadata: {
           logMethod: 'outbound_reply',
           provider: connection.provider,

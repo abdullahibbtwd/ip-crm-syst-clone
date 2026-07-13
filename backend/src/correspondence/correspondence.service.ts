@@ -134,6 +134,7 @@ export class CorrespondenceService {
           documentVersionId: dto.documentVersionId,
           mailboxConnectionId: dto.mailboxConnectionId,
           createdById: userId,
+          isClientVisible: dto.isClientVisible ?? false,
         },
         include: correspondenceInclude,
       });
@@ -201,9 +202,129 @@ export class CorrespondenceService {
         status: dto.status,
         subject: dto.subject?.trim(),
         documentVersionId: dto.documentVersionId,
+        isClientVisible: dto.isClientVisible,
+        // Re-sharing to portal marks the message unread for the client inbox.
+        ...(dto.isClientVisible === true ? { portalReadAt: null } : {}),
       },
       include: correspondenceInclude,
     });
+  }
+
+  /**
+   * Link an auto-fetched document version and merge metadata (EPO processor).
+   * Skips if a document is already linked (manual upload wins).
+   */
+  async linkAutoFetchedDocument(
+    correspondenceId: string,
+    documentVersionId: string,
+    metadataPatch: Record<string, unknown>,
+  ) {
+    const existing = await this.prisma.correspondence.findUnique({
+      where: { id: correspondenceId },
+    });
+    if (!existing) throw new NotFoundException('Correspondence not found');
+
+    if (existing.documentVersionId) {
+      this.logger.log(
+        `Skipping EPO auto-link for ${correspondenceId}: document already attached`,
+      );
+      return this.prisma.correspondence.findUniqueOrThrow({
+        where: { id: correspondenceId },
+        include: correspondenceInclude,
+      });
+    }
+
+    await this.assertDocumentVersionOnMatter(
+      existing.matterId,
+      documentVersionId,
+    );
+
+    const prev =
+      existing.metadata &&
+      typeof existing.metadata === 'object' &&
+      !Array.isArray(existing.metadata)
+        ? (existing.metadata as Record<string, unknown>)
+        : {};
+
+    return this.prisma.correspondence.update({
+      where: { id: correspondenceId },
+      data: {
+        documentVersionId,
+        status:
+          existing.status === CorrespondenceStatus.draft
+            ? CorrespondenceStatus.received
+            : existing.status,
+        metadata: {
+          ...prev,
+          ...metadataPatch,
+          epoDocumentFetchStatus: 'ready',
+          epoDocumentAutoFetched: true,
+        } as Prisma.InputJsonValue,
+      },
+      include: correspondenceInclude,
+    });
+  }
+
+  async mergeMetadata(
+    correspondenceId: string,
+    metadataPatch: Record<string, unknown>,
+  ) {
+    const existing = await this.prisma.correspondence.findUnique({
+      where: { id: correspondenceId },
+      select: { id: true, metadata: true },
+    });
+    if (!existing) throw new NotFoundException('Correspondence not found');
+
+    const prev =
+      existing.metadata &&
+      typeof existing.metadata === 'object' &&
+      !Array.isArray(existing.metadata)
+        ? (existing.metadata as Record<string, unknown>)
+        : {};
+
+    return this.prisma.correspondence.update({
+      where: { id: correspondenceId },
+      data: {
+        metadata: { ...prev, ...metadataPatch } as Prisma.InputJsonValue,
+      },
+      include: correspondenceInclude,
+    });
+  }
+
+  async listForPortalClient(clientId: string) {
+    return this.prisma.correspondence.findMany({
+      where: {
+        isClientVisible: true,
+        status: { not: CorrespondenceStatus.draft },
+        matter: { clientId },
+      },
+      orderBy: [{ correspondenceDate: 'desc' }, { createdAt: 'desc' }],
+      include: {
+        ...correspondenceInclude,
+        matter: {
+          select: { id: true, title: true, matterType: true, status: true },
+        },
+      },
+    });
+  }
+
+  async findOneForPortal(id: string, clientId: string) {
+    const row = await this.prisma.correspondence.findFirst({
+      where: {
+        id,
+        isClientVisible: true,
+        status: { not: CorrespondenceStatus.draft },
+        matter: { clientId },
+      },
+      include: {
+        ...correspondenceInclude,
+        matter: {
+          select: { id: true, title: true, matterType: true, status: true },
+        },
+      },
+    });
+    if (!row) throw new NotFoundException('Correspondence not found');
+    return row;
   }
 
   private async assertMatterExists(matterId: string) {

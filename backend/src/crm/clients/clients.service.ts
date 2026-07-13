@@ -105,6 +105,9 @@ export class ClientsService {
       type: query.type,
       assignedUserId: query.assignedUserId,
       holdingGroupId: query.holdingGroupId,
+      ...(query.gdprConsent !== undefined
+        ? { gdprConsent: query.gdprConsent }
+        : {}),
       ...(search
         ? {
             OR: [
@@ -131,6 +134,8 @@ export class ClientsService {
         firstName: true,
         lastName: true,
         country: true,
+        gdprConsent: true,
+        gdprConsentDate: true,
         createdAt: true,
         assignedUser: { select: { id: true, fullName: true } },
         holdingGroup: { select: { id: true, name: true } },

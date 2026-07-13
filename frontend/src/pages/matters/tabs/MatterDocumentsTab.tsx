@@ -66,6 +66,7 @@ export function MatterDocumentsTab() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [generateOpen, setGenerateOpen] = useState(false)
   const [selectedTemplateId, setSelectedTemplateId] = useState<string>('')
+  const [generateFormat, setGenerateFormat] = useState<'pdf' | 'docx'>('pdf')
   const [file, setFile] = useState<File | null>(null)
   const [displayName, setDisplayName] = useState('')
   const [category, setCategory] = useState<DocumentCategory>('correspondence')
@@ -110,6 +111,9 @@ export function MatterDocumentsTab() {
     }
   }
 
+  const selectedTemplate = templates?.find((tpl) => tpl.id === selectedTemplateId)
+  const canGenerateDocx = Boolean(selectedTemplate?.hasDocx)
+
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
@@ -117,10 +121,18 @@ export function MatterDocumentsTab() {
       setError('Choose a letter template')
       return
     }
+    if (generateFormat === 'docx' && !canGenerateDocx) {
+      setError('This template has no Word (.docx) file uploaded')
+      return
+    }
     try {
-      await generateDocument.mutateAsync(selectedTemplateId)
+      await generateDocument.mutateAsync({
+        templateId: selectedTemplateId,
+        format: generateFormat,
+      })
       setGenerateOpen(false)
       setSelectedTemplateId('')
+      setGenerateFormat('pdf')
     } catch (err) {
       setError(getApiErrorMessage(err, 'Document generation failed'))
     }
@@ -148,6 +160,7 @@ export function MatterDocumentsTab() {
               onClick={() => {
                 setError(null)
                 setSelectedTemplateId(templates?.[0]?.id ?? '')
+                setGenerateFormat('pdf')
                 setGenerateOpen(true)
               }}
               disabled={!templates?.length}
@@ -370,7 +383,7 @@ export function MatterDocumentsTab() {
         <form onSubmit={handleGenerate} className="space-y-4">
           <p className="text-sm text-muted-foreground">
             Pick a letter template. Matter and client details are filled in automatically and saved
-            as a PDF in this folder.
+            in this folder.
           </p>
 
           <div className="space-y-2">
@@ -389,10 +402,22 @@ export function MatterDocumentsTab() {
                   name="template"
                   className="mt-1"
                   checked={selectedTemplateId === template.id}
-                  onChange={() => setSelectedTemplateId(template.id)}
+                  onChange={() => {
+                    setSelectedTemplateId(template.id)
+                    if (!template.hasDocx && generateFormat === 'docx') {
+                      setGenerateFormat('pdf')
+                    }
+                  }}
                 />
                 <span className="min-w-0">
-                  <span className="block font-medium">{template.name}</span>
+                  <span className="flex flex-wrap items-center gap-2">
+                    <span className="font-medium">{template.name}</span>
+                    {template.hasDocx ? (
+                      <Badge variant="info" className="font-normal normal-case">
+                        Word
+                      </Badge>
+                    ) : null}
+                  </span>
                   {template.description ? (
                     <span className="mt-0.5 block text-sm text-muted-foreground">
                       {template.description}
@@ -406,6 +431,24 @@ export function MatterDocumentsTab() {
             ) : null}
           </div>
 
+          <div className="space-y-1.5">
+            <label className="text-sm text-muted-foreground">Format</label>
+            <Select
+              value={generateFormat}
+              onValueChange={(v) => setGenerateFormat((v as 'pdf' | 'docx') ?? 'pdf')}
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="pdf">PDF</SelectItem>
+                <SelectItem value="docx" disabled={!canGenerateDocx}>
+                  Word (.docx){!canGenerateDocx ? ' — not available' : ''}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
           <div className="flex justify-end gap-2 border-t pt-4">
@@ -413,7 +456,11 @@ export function MatterDocumentsTab() {
               Cancel
             </Button>
             <Button type="submit" disabled={generateDocument.isPending || !selectedTemplateId}>
-              {generateDocument.isPending ? 'Generating…' : 'Generate PDF'}
+              {generateDocument.isPending
+                ? 'Generating…'
+                : generateFormat === 'docx'
+                  ? 'Generate Word'
+                  : 'Generate PDF'}
             </Button>
           </div>
         </form>
