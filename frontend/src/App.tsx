@@ -26,6 +26,7 @@ import { RolesPermissionsPage } from './pages/settings/RolesPermissionsPage'
 import { SystemHealthPage } from './pages/settings/SystemHealthPage'
 import { DeadlineRulesPage } from './pages/settings/DeadlineRulesPage'
 import { DocumentTemplatesPage } from './pages/settings/DocumentTemplatesPage'
+import { PrecedentsPage } from './pages/PrecedentsPage'
 import { HolidaysPage } from './pages/settings/HolidaysPage'
 import { TimeEntriesPage } from './pages/billing/TimeEntriesPage'
 import { DisbursementsPage } from './pages/billing/DisbursementsPage'
@@ -49,6 +50,7 @@ import { MatterBillingTab } from './pages/matters/tabs/MatterBillingTab'
 import { MatterTasksTab } from './pages/matters/tabs/MatterTasksTab'
 import { MatterInstructionsTab } from './pages/matters/tabs/MatterInstructionsTab'
 import { MatterApprovalsTab } from './pages/matters/tabs/MatterApprovalsTab'
+import { MatterCustomsTab } from './pages/matters/tabs/MatterCustomsTab'
 import { PartnersListPage } from './pages/partners/PartnersListPage'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
@@ -162,6 +164,7 @@ export default function App() {
           <Route path="/renewals" element={<RenewalsPage />} />
           <Route path="/watch-alerts" element={<WatchAlertsPage />} />
           <Route path="/watch-alerts/:id" element={<WatchAlertDetailPage />} />
+          <Route path="/precedents" element={<PrecedentsPage />} />
           <Route path="/reports/deadline-risk" element={<DeadlineRiskReportPage />} />
           <Route path="/reports/revenue-summary" element={<RevenueSummaryReportPage />} />
           <Route path="/reports/filing-volumes" element={<FilingVolumesReportPage />} />
@@ -179,6 +182,7 @@ export default function App() {
             <Route path="tasks" element={<MatterTasksTab />} />
             <Route path="billing" element={<MatterBillingTab />} />
             <Route path="ip-rights" element={<MatterIpRightsTab />} />
+            <Route path="customs" element={<MatterCustomsTab />} />
             <Route path="instructions" element={<MatterInstructionsTab />} />
             <Route path="approvals" element={<MatterApprovalsTab />} />
           </Route>

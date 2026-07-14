@@ -283,6 +283,10 @@ export class SsoService implements OnModuleInit {
         result.tokens.refreshToken,
       )
 
+      if (result.mfaEnrollmentRequired) {
+        return res.redirect(`${frontendUrl}/settings?mfa=enroll`)
+      }
+
       return res.redirect(`${frontendUrl}/dashboard`)
     } catch (error) {
       const message =

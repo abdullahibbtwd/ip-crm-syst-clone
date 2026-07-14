@@ -5,6 +5,7 @@ import {
   Banknote,
   BarChart3,
   Bell,
+  BookMarked,
   Calendar,
   CalendarDays,
   CalendarPlus,
@@ -101,6 +102,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: FolderOpen, labelKey: 'allMatters', path: '/matters' },
           { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
+          { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
         ],
       },
       {
@@ -191,6 +193,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'communication',
         items: [
           { icon: FileText, labelKey: 'documents', path: '/documents' },
+          { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
@@ -233,6 +236,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'communication',
         items: [
           { icon: FileText, labelKey: 'documents', path: '/documents' },
+          { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
         ],
       },
@@ -351,6 +355,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'documentsAndMail',
         items: [
           { icon: FileText, labelKey: 'documents', path: '/documents' },
+          { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
           { icon: Mail, labelKey: 'correspondence', path: '/email-queue' },
         ],
       },

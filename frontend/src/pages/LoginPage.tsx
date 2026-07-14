@@ -60,6 +60,9 @@ function MfaStep({
       <div className="rounded-lg border border-brand-green/10 bg-brand-light/50 px-4 py-3 text-sm text-brand-green/80">
         <KeyRound className="mb-1 inline h-4 w-4 text-brand-orange" /> {t('mfa.hint')}
       </div>
+      <p className="text-xs text-muted-foreground">
+        Lost your device? Enter a backup code (format XXXX-XXXX) instead.
+      </p>
 
       <div>
         <label htmlFor="code" className="auth-label">
@@ -354,7 +357,14 @@ export function LoginPage() {
         return
       }
       if ('user' in data && data.user) {
-        setUser(data.user)
+        setUser({
+          ...data.user,
+          mfaEnrollmentRequired: data.mfaEnrollmentRequired ?? data.user.mfaEnrollmentRequired,
+        })
+        if (data.mfaEnrollmentRequired) {
+          navigate('/settings?mfa=enroll', { replace: true })
+          return
+        }
         navigate(from, { replace: true })
       }
     },

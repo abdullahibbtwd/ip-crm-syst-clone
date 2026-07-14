@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { CheckCircle2, Link2, Loader2, Search, Sparkles } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -36,7 +35,9 @@ type LinkEmailToMatterDrawerProps = {
   onLinked?: () => void
 }
 
-function matterSearchLabel(matter: UnlinkedEmail['suggestedMatter']) {
+function matterSearchLabel(
+  matter: UnlinkedEmail['suggestedMatter'] | undefined,
+) {
   if (!matter) return ''
   const client =
     matter.client.companyName ??

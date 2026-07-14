@@ -5,6 +5,7 @@ export interface JwtPayload {
   permissions: string[];
   clientId?: string | null;
   type?: 'access' | 'mfa_pending';
+  mfaEnrollmentRequired?: boolean;
 }
 
 export interface AuthenticatedUser extends JwtPayload {
@@ -13,7 +14,12 @@ export interface AuthenticatedUser extends JwtPayload {
 
 export type LoginResult =
   | { mfaRequired: true; pendingUserId: string }
-  | { mfaRequired: false; user: PublicUser };
+  | {
+      mfaRequired: false;
+      user: PublicUser;
+      tokens: TokenPair;
+      mfaEnrollmentRequired?: boolean;
+    };
 
 export type PublicUser = {
   id: string;
@@ -23,6 +29,7 @@ export type PublicUser = {
   roles: string[];
   permissions: string[];
   mfaEnabled: boolean;
+  mfaEnrollmentRequired?: boolean;
 };
 
 export type TokenPair = {

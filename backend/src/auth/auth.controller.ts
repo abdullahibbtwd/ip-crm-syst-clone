@@ -21,6 +21,7 @@ import { AuthService } from './auth.service';
 import {
   ForgotPasswordDto,
   LoginDto,
+  MfaDisableDto,
   MfaVerifyDto,
   RegisterDto,
   ResetPasswordDto,
@@ -92,7 +93,10 @@ export class AuthController {
       );
     }
 
-    return { user: result.user };
+    return {
+      user: result.user,
+      mfaEnrollmentRequired: result.mfaEnrollmentRequired ?? false,
+    };
   }
 
   @Public()
@@ -211,7 +215,30 @@ export class AuthController {
   @Post('mfa/enable')
   async enableMfa(@Req() req: Request, @Body() body: MfaVerifyDto) {
     const user = req.user as { userId: string };
-    const profile = await this.authService.enableMfa(user.userId, body.code);
+    const result = await this.authService.enableMfa(user.userId, body.code);
+    return result;
+  }
+
+  @Audit({ action: 'auth.mfa.disable', resource: 'auth', module: 'identity' })
+  @Post('mfa/disable')
+  async disableMfa(@Req() req: Request, @Body() body: MfaDisableDto) {
+    const user = req.user as { userId: string };
+    const profile = await this.authService.disableMfa(
+      user.userId,
+      body.password,
+      body.code,
+    );
     return { user: profile };
+  }
+
+  @Audit({
+    action: 'auth.mfa.backup_codes',
+    resource: 'auth',
+    module: 'identity',
+  })
+  @Post('mfa/backup-codes')
+  regenerateBackupCodes(@Req() req: Request, @Body() body: MfaVerifyDto) {
+    const user = req.user as { userId: string };
+    return this.authService.regenerateBackupCodes(user.userId, body.code);
   }
 }

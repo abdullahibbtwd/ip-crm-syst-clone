@@ -9,6 +9,7 @@ import {
   Upload,
 } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
+import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,6 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import { InsertPrecedentPicker } from '@/features/precedents/components/InsertPrecedentPicker'
 import {
   useCreateCorrespondence,
   useParseEml,
@@ -474,13 +476,58 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
 
             {bodyText ? (
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-muted-foreground">Body preview</label>
-                <div className="max-h-28 overflow-y-auto rounded-md border bg-background p-3 text-xs leading-relaxed text-muted-foreground">
-                  {bodyText.slice(0, 600)}
-                  {bodyText.length > 600 ? '…' : ''}
+                <div className="flex items-center justify-between gap-2">
+                  <label className="text-xs font-medium text-muted-foreground">Body preview</label>
+                  <PermissionGate resource="precedent" action="read">
+                    <InsertPrecedentPicker
+                      onInsert={(html) => {
+                        const plain = html
+                          .replace(/<br\s*\/?>/gi, '\n')
+                          .replace(/<\/p>/gi, '\n\n')
+                          .replace(/<[^>]+>/g, '')
+                          .replace(/&nbsp;/g, ' ')
+                          .trim()
+                        setBodyText((prev) =>
+                          prev?.trim() ? `${prev.trim()}\n\n${plain}` : plain,
+                        )
+                      }}
+                    />
+                  </PermissionGate>
                 </div>
+                <Textarea
+                  className="max-h-40 bg-background text-xs leading-relaxed"
+                  rows={6}
+                  value={bodyText}
+                  onChange={(e) => setBodyText(e.target.value)}
+                />
               </div>
-            ) : null}
+            ) : (
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between gap-2">
+                  <label className="text-xs font-medium text-muted-foreground">Body</label>
+                  <PermissionGate resource="precedent" action="read">
+                    <InsertPrecedentPicker
+                      onInsert={(html) => {
+                        const plain = html
+                          .replace(/<br\s*\/?>/gi, '\n')
+                          .replace(/<\/p>/gi, '\n\n')
+                          .replace(/<[^>]+>/g, '')
+                          .replace(/&nbsp;/g, ' ')
+                          .trim()
+                        setBodyText(plain)
+                      }}
+                    />
+                  </PermissionGate>
+                </div>
+                <Textarea
+                  className="bg-background text-xs"
+                  rows={4}
+                  value={bodyText ?? ''}
+                  onChange={(e) => setBodyText(e.target.value || null)}
+                  placeholder="Optional — paste text or insert a precedent"
+                />
+              </div>
+            )}
 
             {category === 'office_action' ? (
               <p className="text-xs text-amber-700 dark:text-amber-400">

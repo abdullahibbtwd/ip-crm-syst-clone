@@ -22,6 +22,13 @@ export function MatterLayout() {
   if (isPortalClient && activeTab && !isPortalMatterTab(activeTab)) {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
+  if (
+    matter &&
+    activeTab === 'customs' &&
+    matter.matterType !== 'border_measures'
+  ) {
+    return <Navigate to={`/matters/${id}/overview`} replace />
+  }
 
   return (
     <div className="space-y-6">
@@ -58,7 +65,11 @@ export function MatterLayout() {
             </p>
           </div>
 
-          <MatterTabNav matterId={id} isPortalClient={isPortalClient} />
+          <MatterTabNav
+            matterId={id}
+            isPortalClient={isPortalClient}
+            matterType={matter.matterType}
+          />
           <Outlet context={{ matterId: id, matter }} />
         </>
       )}

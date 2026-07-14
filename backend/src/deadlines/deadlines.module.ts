@@ -8,6 +8,7 @@ import { DeadlinesController } from './deadlines.controller';
 import { DeadlinesService } from './deadlines.service';
 import { HolidaysController } from './holidays.controller';
 import { HolidaysService } from './holidays.service';
+import { CustomsSeizureDeadlinesService } from './customs-seizure-deadlines.service';
 import { OfficeActionDeadlinesService } from './office-action-deadlines.service';
 
 @Module({
@@ -20,6 +21,7 @@ import { OfficeActionDeadlinesService } from './office-action-deadlines.service'
   providers: [
     DeadlinesService,
     OfficeActionDeadlinesService,
+    CustomsSeizureDeadlinesService,
     DeadlineExplanationService,
     DeadlineRulesService,
     HolidaysService,
@@ -27,6 +29,7 @@ import { OfficeActionDeadlinesService } from './office-action-deadlines.service'
   exports: [
     DeadlinesService,
     OfficeActionDeadlinesService,
+    CustomsSeizureDeadlinesService,
     DeadlineRulesService,
     HolidaysService,
   ],

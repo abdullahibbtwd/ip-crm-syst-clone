@@ -25,6 +25,8 @@ export type DispatchNotificationInput = {
     | 'client_approval_update'
     | 'watch_alert_created'
     | 'watch_alert_triaged'
+    | 'retainer_low_balance'
+    | 'retainer_depleted'
     | 'general';
   title: string;
   body?: string;

@@ -1,8 +1,10 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../features/auth/AuthProvider'
 
+const MFA_ENROLLMENT_ALLOWED = ['/settings', '/logout']
+
 export function ProtectedRoute() {
-  const { isAuthenticated, isLoading } = useAuth()
+  const { user, isAuthenticated, isLoading } = useAuth()
   const location = useLocation()
 
   if (isLoading) {
@@ -15,6 +17,13 @@ export function ProtectedRoute() {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace state={{ from: location }} />
+  }
+
+  if (
+    user?.mfaEnrollmentRequired &&
+    !MFA_ENROLLMENT_ALLOWED.some((path) => location.pathname.startsWith(path))
+  ) {
+    return <Navigate to="/settings?mfa=enroll" replace />
   }
 
   return <Outlet />

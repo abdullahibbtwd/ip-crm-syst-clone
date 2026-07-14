@@ -11,7 +11,10 @@ import {
 import type { Request } from 'express';
 import { Audit } from '../common/decorators/audit.decorator';
 import { RequirePermissions } from '../common/decorators/permissions.decorator';
+import { Roles } from '../common/decorators/roles.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { AuthService } from '../auth/auth.service';
+import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import { InviteUserDto } from './dto/invite-user.dto';
 import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 import { UserQueryDto } from './dto/user-query.dto';
@@ -19,7 +22,10 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly authService: AuthService,
+  ) {}
 
   @Get()
   @RequirePermissions('user:read')
@@ -62,5 +68,13 @@ export class UsersController {
   ) {
     const actor = req.user as AuthenticatedUser;
     return this.usersService.updateRole(id, dto, actor.userId);
+  }
+
+  @Post(':id/mfa/reset')
+  @RequirePermissions('user:update')
+  @Roles(SYSTEM_ROLES.IT_ADMIN, SYSTEM_ROLES.MANAGING_PARTNER)
+  @Audit({ action: 'user.mfa_reset', resource: 'user', module: 'users' })
+  resetMfa(@Param('id') id: string) {
+    return this.authService.resetUserMfa(id);
   }
 }

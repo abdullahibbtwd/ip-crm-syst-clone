@@ -35,6 +35,9 @@ export const RESOURCES = [
   'mcp',
   'partner',
   'approval',
+  'retainer',
+  'precedent',
+  'customs',
 ] as const;
 
 export const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -104,6 +107,12 @@ export const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.TRADEMARK_ATTORNEY]: {
@@ -144,6 +153,12 @@ export const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.COORDINATOR]: {
@@ -182,6 +197,9 @@ export const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'customs:read',
+      'customs:create',
     ],
   },
   [SYSTEM_ROLES.DOCKETING_ADMIN]: {
@@ -208,6 +226,9 @@ export const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'customs:read',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.PARALEGAL]: {
@@ -236,6 +257,11 @@ export const ROLE_DEFINITIONS: Record<
       'approval:update',
       'ai:read',
       'ai:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
     ],
   },
   [SYSTEM_ROLES.FINANCE]: {
@@ -248,9 +274,12 @@ export const ROLE_DEFINITIONS: Record<
       'billing:create',
       'billing:update',
       'billing:delete',
+      'retainer:read',
+      'retainer:update',
       'task:read',
       'client:read',
       'matter:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.DPO_COMPLIANCE]: {
@@ -261,6 +290,7 @@ export const ROLE_DEFINITIONS: Record<
       'client:read',
       'document:read',
       'matter:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.IT_ADMIN]: {
@@ -276,6 +306,7 @@ export const ROLE_DEFINITIONS: Record<
       'registry:read',
       'registry:update',
       'email:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.PORTAL_CLIENT]: {

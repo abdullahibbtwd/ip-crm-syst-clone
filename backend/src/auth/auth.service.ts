@@ -33,8 +33,11 @@ import {
   userAccessInclude,
   type UserWithAccess,
 } from './user-access';
+import { MfaPolicyService } from './mfa-policy.service';
+import { MfaSecretService } from './mfa-secret.service';
 
 const MFA_ISSUER = 'IP Consulting CRM';
+const BACKUP_CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
 function splitFullName(fullName: string) {
   const parts = fullName.trim().split(/\s+/).filter(Boolean);
@@ -65,6 +68,8 @@ export class AuthService {
     private readonly config: ConfigService,
     private readonly clientsService: ClientsService,
     private readonly email: EmailService,
+    private readonly mfaSecret: MfaSecretService,
+    private readonly mfaPolicy: MfaPolicyService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<UserWithAccess> {
@@ -252,13 +257,21 @@ export class AuthService {
       return { mfaRequired: true, pendingUserId: user.id };
     }
 
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(user);
+
     await this.prisma.user.update({
       where: { id: user.id },
       data: { lastLoginAt: new Date() },
     });
 
-    const tokens = await this.createTokenPair(user);
-    return { mfaRequired: false, user: this.toPublicUser(user), tokens };
+    const tokens = await this.createTokenPair(user, { mfaEnrollmentRequired });
+    return {
+      mfaRequired: false,
+      user: await this.toPublicUser(user, mfaEnrollmentRequired),
+      tokens,
+      mfaEnrollmentRequired,
+    };
   }
 
   async createMfaPendingToken(userId: string): Promise<string> {
@@ -300,13 +313,23 @@ export class AuthService {
       throw new UnauthorizedException('MFA is not enabled for this account');
     }
 
-    const result = await verify({
-      token: code,
-      secret: user.mfaSecret,
-    });
+    const secret = this.mfaSecret.decrypt(user.mfaSecret);
+    const normalizedCode = code.replace(/\s/g, '').toUpperCase();
 
-    if (!result.valid) {
-      throw new UnauthorizedException('Invalid authentication code');
+    if (/^\d{6}$/.test(normalizedCode)) {
+      const result = await verify({
+        token: normalizedCode,
+        secret,
+      });
+
+      if (!result.valid) {
+        throw new UnauthorizedException('Invalid authentication code');
+      }
+    } else {
+      const backupValid = await this.consumeBackupCode(user.id, normalizedCode);
+      if (!backupValid) {
+        throw new UnauthorizedException('Invalid authentication code');
+      }
     }
 
     await this.prisma.user.update({
@@ -314,8 +337,13 @@ export class AuthService {
       data: { lastLoginAt: new Date() },
     });
 
-    const tokens = await this.createTokenPair(user);
-    return { user: this.toPublicUser(user), tokens };
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(user);
+    const tokens = await this.createTokenPair(user, { mfaEnrollmentRequired });
+    return {
+      user: await this.toPublicUser(user, mfaEnrollmentRequired),
+      tokens,
+    };
   }
 
   async refresh(
@@ -342,7 +370,12 @@ export class AuthService {
     });
 
     const tokens = await this.createTokenPair(stored.user);
-    return { user: this.toPublicUser(stored.user), tokens };
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(stored.user);
+    return {
+      user: await this.toPublicUser(stored.user, mfaEnrollmentRequired),
+      tokens,
+    };
   }
 
   async logout(refreshToken: string | undefined): Promise<void> {
@@ -362,7 +395,9 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
-    return this.toPublicUser(user);
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(user);
+    return this.toPublicUser(user, mfaEnrollmentRequired);
   }
 
   async startMfaSetup(
@@ -379,7 +414,7 @@ export class AuthService {
     const secret = generateSecret();
     await this.prisma.user.update({
       where: { id: userId },
-      data: { mfaSecret: secret, mfaEnabled: false },
+      data: { mfaSecret: this.mfaSecret.encrypt(secret), mfaEnabled: false },
     });
 
     const otpauthUrl = generateURI({
@@ -391,7 +426,10 @@ export class AuthService {
     return { otpauthUrl, secret };
   }
 
-  async enableMfa(userId: string, code: string): Promise<PublicUser> {
+  async enableMfa(
+    userId: string,
+    code: string,
+  ): Promise<{ user: PublicUser; backupCodes: string[] }> {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
       include: userAccessInclude,
@@ -407,14 +445,17 @@ export class AuthService {
       throw new BadRequestException('Start two-factor setup before confirming');
     }
 
+    const secret = this.mfaSecret.decrypt(user.mfaSecret);
     const result = await verify({
       token: code,
-      secret: user.mfaSecret,
+      secret,
     });
 
     if (!result.valid) {
       throw new BadRequestException('Invalid authentication code');
     }
+
+    const backupCodes = await this.replaceBackupCodes(userId);
 
     const updated = await this.prisma.user.update({
       where: { id: userId },
@@ -422,7 +463,94 @@ export class AuthService {
       include: userAccessInclude,
     });
 
-    return this.toPublicUser(updated);
+    return {
+      user: await this.toPublicUser(updated, false),
+      backupCodes,
+    };
+  }
+
+  async disableMfa(
+    userId: string,
+    password: string,
+    code: string,
+  ): Promise<PublicUser> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: userAccessInclude,
+    });
+
+    if (!user?.isActive || !user.passwordHash) {
+      throw new UnauthorizedException('User not found');
+    }
+    if (!user.mfaEnabled || !user.mfaSecret) {
+      throw new BadRequestException('Two-factor authentication is not enabled');
+    }
+
+    const validPassword = await bcrypt.compare(password, user.passwordHash);
+    if (!validPassword) {
+      throw new UnauthorizedException('Invalid password');
+    }
+
+    await this.assertMfaCode(user, code);
+
+    await this.prisma.$transaction([
+      this.prisma.mfaBackupCode.deleteMany({ where: { userId } }),
+      this.prisma.user.update({
+        where: { id: userId },
+        data: { mfaEnabled: false, mfaSecret: null },
+      }),
+      this.prisma.refreshToken.updateMany({
+        where: { userId, revoked: false },
+        data: { revoked: true },
+      }),
+    ]);
+
+    const updated = await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+      include: userAccessInclude,
+    });
+
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(updated);
+    return this.toPublicUser(updated, mfaEnrollmentRequired);
+  }
+
+  async regenerateBackupCodes(userId: string, code: string): Promise<string[]> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: userAccessInclude,
+    });
+
+    if (!user?.isActive || !user.mfaEnabled || !user.mfaSecret) {
+      throw new BadRequestException('Two-factor authentication is not enabled');
+    }
+
+    await this.assertMfaCode(user, code);
+    return this.replaceBackupCodes(userId);
+  }
+
+  async resetUserMfa(targetUserId: string): Promise<{ success: true }> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: targetUserId },
+    });
+
+    if (!user) {
+      throw new BadRequestException('User not found');
+    }
+
+    await this.prisma.$transaction([
+      this.prisma.mfaBackupCode.deleteMany({ where: { userId: targetUserId } }),
+      this.prisma.user.update({
+        where: { id: targetUserId },
+        data: { mfaEnabled: false, mfaSecret: null },
+      }),
+      this.prisma.refreshToken.updateMany({
+        where: { userId: targetUserId, revoked: false },
+        data: { revoked: true },
+      }),
+    ]);
+
+    return { success: true };
   }
 
   async requestPasswordReset(email: string): Promise<{ message: string }> {
@@ -539,7 +667,10 @@ export class AuthService {
     return buildAuthenticatedUser(user);
   }
 
-  private async createTokenPair(user: UserWithAccess): Promise<TokenPair> {
+  private async createTokenPair(
+    user: UserWithAccess,
+    options?: { mfaEnrollmentRequired?: boolean },
+  ): Promise<TokenPair> {
     const authUser = buildAuthenticatedUser(user);
     const accessToken = await this.jwtService.signAsync(
       {
@@ -549,6 +680,7 @@ export class AuthService {
         permissions: authUser.permissions,
         clientId: authUser.clientId,
         type: 'access',
+        mfaEnrollmentRequired: options?.mfaEnrollmentRequired ?? false,
       } satisfies JwtPayload,
       {
         secret: this.config.getOrThrow<string>('JWT_ACCESS_SECRET'),
@@ -571,7 +703,10 @@ export class AuthService {
     return { accessToken, refreshToken };
   }
 
-  private toPublicUser(user: UserWithAccess): PublicUser {
+  private async toPublicUser(
+    user: UserWithAccess,
+    mfaEnrollmentRequired = false,
+  ): Promise<PublicUser> {
     const { roles, permissions } = buildAuthenticatedUser(user);
     return {
       id: user.id,
@@ -581,7 +716,86 @@ export class AuthService {
       roles,
       permissions,
       mfaEnabled: user.mfaEnabled,
+      mfaEnrollmentRequired,
     };
+  }
+
+  private generateBackupCode(): string {
+    const part = (len: number) =>
+      Array.from({ length: len }, () =>
+        BACKUP_CODE_CHARS.charAt(
+          randomBytes(1)[0]! % BACKUP_CODE_CHARS.length,
+        ),
+      ).join('');
+    return `${part(4)}-${part(4)}`;
+  }
+
+  private normalizeBackupCode(code: string): string {
+    return code.replace(/\s/g, '').replace('-', '').toUpperCase();
+  }
+
+  private async replaceBackupCodes(userId: string): Promise<string[]> {
+    const codes = Array.from({ length: 10 }, () => this.generateBackupCode());
+    const rows = await Promise.all(
+      codes.map(async (code) => ({
+        userId,
+        codeHash: await bcrypt.hash(this.normalizeBackupCode(code), 10),
+      })),
+    );
+
+    await this.prisma.$transaction([
+      this.prisma.mfaBackupCode.deleteMany({ where: { userId } }),
+      this.prisma.mfaBackupCode.createMany({ data: rows }),
+    ]);
+
+    return codes;
+  }
+
+  private async consumeBackupCode(
+    userId: string,
+    rawCode: string,
+  ): Promise<boolean> {
+    const normalized = this.normalizeBackupCode(rawCode);
+    if (normalized.length !== 8) return false;
+
+    const codes = await this.prisma.mfaBackupCode.findMany({
+      where: { userId, usedAt: null },
+    });
+
+    for (const entry of codes) {
+      const match = await bcrypt.compare(normalized, entry.codeHash);
+      if (match) {
+        await this.prisma.mfaBackupCode.update({
+          where: { id: entry.id },
+          data: { usedAt: new Date() },
+        });
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private async assertMfaCode(user: UserWithAccess, code: string): Promise<void> {
+    if (!user.mfaSecret) {
+      throw new BadRequestException('Two-factor authentication is not configured');
+    }
+
+    const secret = this.mfaSecret.decrypt(user.mfaSecret);
+    const normalizedCode = code.replace(/\s/g, '').toUpperCase();
+
+    if (/^\d{6}$/.test(normalizedCode)) {
+      const result = await verify({ token: normalizedCode, secret });
+      if (!result.valid) {
+        throw new UnauthorizedException('Invalid authentication code');
+      }
+      return;
+    }
+
+    const backupValid = await this.consumeBackupCode(user.id, normalizedCode);
+    if (!backupValid) {
+      throw new UnauthorizedException('Invalid authentication code');
+    }
   }
 
   hashToken(token: string) {

@@ -10,6 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
+import { InsertPrecedentPicker } from '@/features/precedents/components/InsertPrecedentPicker'
 import { useCreateCorrespondence } from '@/features/correspondence/hooks/useCorrespondence'
 import type {
   CorrespondenceCategory,
@@ -28,7 +30,21 @@ import type { DocumentCategory } from '@/features/documents/types'
 import { DOCUMENT_CATEGORY_LABELS } from '@/features/documents/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { usePermission } from '@/hooks/usePermission'
+import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { cn } from '@/lib/utils'
+
+function htmlToPlainText(html: string): string {
+  return html
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .trim()
+}
 
 const DIRECTIONS: CorrespondenceDirection[] = ['incoming', 'outgoing']
 const STATUSES: CorrespondenceStatus[] = ['draft', 'sent', 'received', 'replied']
@@ -86,6 +102,7 @@ export function LogCorrespondenceDrawer({
   const [uploadTags, setUploadTags] = useState('')
   const [uploadDragOver, setUploadDragOver] = useState(false)
   const [isClientVisible, setIsClientVisible] = useState(false)
+  const [bodyText, setBodyText] = useState('')
   const [error, setError] = useState<string | null>(null)
 
   const resetUploadFields = () => {
@@ -111,6 +128,7 @@ export function LogCorrespondenceDrawer({
     setSubject('')
     setStatus('received')
     setIsClientVisible(false)
+    setBodyText('')
     resetAttachment()
     setError(null)
   }
@@ -177,6 +195,7 @@ export function LogCorrespondenceDrawer({
         subject: subject.trim(),
         status,
         isClientVisible,
+        bodyText: bodyText.trim() || undefined,
         metadata: { logMethod: 'correspondence' },
         documentVersionId: linkedVersionId,
       })
@@ -408,6 +427,27 @@ export function LogCorrespondenceDrawer({
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder="BPO Office Action - Response Required"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between gap-2">
+              <label className="text-xs font-medium text-muted-foreground">Body</label>
+              <PermissionGate resource="precedent" action="read">
+                <InsertPrecedentPicker
+                  onInsert={(html) => {
+                    const plain = htmlToPlainText(html)
+                    setBodyText((prev) => (prev.trim() ? `${prev.trim()}\n\n${plain}` : plain))
+                  }}
+                />
+              </PermissionGate>
+            </div>
+            <Textarea
+              className="bg-background"
+              rows={5}
+              value={bodyText}
+              onChange={(e) => setBodyText(e.target.value)}
+              placeholder="Optional body text — insert from the precedents library"
             />
           </div>
 

@@ -133,12 +133,16 @@ function SidebarLink({
     collapsed ? 'justify-center px-0' : 'justify-start gap-2.5 px-3',
     routeActive
       ? cn(
-          'border border-white/10 bg-white/10 font-semibold text-white backdrop-blur-md',
+          external
+            ? 'border border-white/15 bg-white/12 font-semibold text-white'
+            : 'border border-white/10 bg-white/10 font-semibold text-white backdrop-blur-md',
           theme.accentGlow,
           'before:absolute before:left-0 before:top-2.5 before:h-5 before:w-1 before:rounded-r-full before:transition-all',
           theme.accentBar,
         )
-      : 'border border-transparent hover:border-white/5 hover:bg-white/5 hover:text-white',
+      : external
+        ? 'border border-transparent hover:bg-white/10 hover:text-white'
+        : 'border border-transparent hover:border-white/5 hover:bg-white/5 hover:text-white',
     !collapsed && !routeActive && 'hover:translate-x-0.5',
   )
 
@@ -292,7 +296,7 @@ export function AppSidebar({
         'transition-[width] duration-500 ease-in-out',
         collapsed ? 'w-[68px]' : 'w-[240px]',
         external
-          ? 'border-white/10 bg-gradient-to-b from-brand-green via-brand-green/95 to-emerald-950 shadow-[4px_0_32px_rgba(0,0,0,0.35)]'
+          ? 'border-emerald-950/40 bg-brand-green text-white shadow-[4px_0_24px_rgba(0,0,0,0.28)]'
           : 'border-brand-green/30 bg-gradient-to-b from-brand-green via-[#152e28] to-slate-950 shadow-[4px_0_32px_rgba(0,0,0,0.25)]',
       )}
     >
@@ -300,14 +304,15 @@ export function AppSidebar({
       <div
         className={cn(
           'pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b to-transparent',
-          external ? 'from-emerald-400/10' : 'from-primary/10',
+          external ? 'from-white/[0.04]' : 'from-primary/10',
         )}
         aria-hidden
       />
 
       <div
         className={cn(
-          'relative z-10 flex items-center border-b border-white/10 bg-white/[0.03] backdrop-blur-md',
+          'relative z-10 flex items-center border-b',
+          external ? 'border-white/12 bg-brand-green' : 'border-white/10 bg-white/[0.03] backdrop-blur-md',
           collapsed ? 'flex-col gap-2 px-2 py-3' : 'gap-3 px-4 py-4',
         )}
       >
@@ -394,7 +399,10 @@ export function AppSidebar({
 
       <div
         className={cn(
-          'relative z-10 space-y-1 border-t border-white/10 bg-gradient-to-t from-black/25 to-transparent backdrop-blur-sm',
+          'relative z-10 space-y-1 border-t',
+          external
+            ? 'border-white/12 bg-[#15352e]'
+            : 'border-white/10 bg-gradient-to-t from-black/25 to-transparent backdrop-blur-sm',
           collapsed ? 'px-2 py-3' : 'px-3 py-3',
         )}
       >

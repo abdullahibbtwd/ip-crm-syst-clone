@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Download, ExternalLink, FileText, Link2, Loader2, Mail, Plus, Reply, Upload } from 'lucide-react'
+import { BookMarked, Download, ExternalLink, FileText, Link2, Loader2, Mail, Plus, Reply, Upload } from 'lucide-react'
 import { LogCorrespondenceDrawer } from '@/components/correspondence/LogCorrespondenceDrawer'
 import { LogEmailDrawer } from '@/components/correspondence/LogEmailDrawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
+import { SaveAsPrecedentDrawer } from '@/features/precedents/components/SaveAsPrecedentDrawer'
 import { AttachFromEmailQueueDrawer } from '@/features/email-integration/components/AttachFromEmailQueueDrawer'
 import {
   ReplyComposerDrawer,
@@ -63,6 +64,7 @@ export function MatterCorrespondenceTab() {
   const [replyContext, setReplyContext] = useState<ReplyComposerContext | null>(null)
   const [uploadTargetId, setUploadTargetId] = useState<string | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
+  const [savePrecedentTarget, setSavePrecedentTarget] = useState<Correspondence | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const uploading =
@@ -380,6 +382,19 @@ export function MatterCorrespondenceTab() {
                         </Button>
                       </PermissionGate>
                     ) : null}
+                    {(item.bodyText || item.subject) ? (
+                      <PermissionGate resource="precedent" action="create">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          title="Save as draft precedent"
+                          onClick={() => setSavePrecedentTarget(item)}
+                        >
+                          <BookMarked className="size-3.5" />
+                          Save as precedent
+                        </Button>
+                      </PermissionGate>
+                    ) : null}
                     <PermissionGate resource="correspondence" action="update">
                       <Button
                         size="sm"
@@ -451,6 +466,15 @@ export function MatterCorrespondenceTab() {
         context={replyContext}
         onClose={() => setReplyContext(null)}
       />
+      {savePrecedentTarget ? (
+        <SaveAsPrecedentDrawer
+          open
+          onClose={() => setSavePrecedentTarget(null)}
+          correspondenceId={savePrecedentTarget.id}
+          defaultTitle={savePrecedentTarget.subject}
+          defaultMatterType={matter.matterType}
+        />
+      ) : null}
     </div>
   )
 }

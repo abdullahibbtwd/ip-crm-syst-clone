@@ -6,6 +6,7 @@ export type AuthUser = {
   roles: string[]
   permissions: string[]
   mfaEnabled: boolean
+  mfaEnrollmentRequired?: boolean
 }
 
 export type LoginResponse = {

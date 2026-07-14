@@ -40,6 +40,9 @@ const RESOURCES = [
   'mcp',
   'partner',
   'approval',
+  'retainer',
+  'precedent',
+  'customs',
 ] as const;
 
 const ACTIONS = ['read', 'create', 'update', 'delete'] as const;
@@ -117,6 +120,12 @@ const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.TRADEMARK_ATTORNEY]: {
@@ -159,6 +168,12 @@ const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.COORDINATOR]: {
@@ -199,6 +214,9 @@ const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'customs:read',
+      'customs:create',
     ],
   },
   [SYSTEM_ROLES.DOCKETING_ADMIN]: {
@@ -227,6 +245,9 @@ const ROLE_DEFINITIONS: Record<
       'ai:create',
       'mcp:read',
       'mcp:create',
+      'precedent:read',
+      'customs:read',
+      'customs:update',
     ],
   },
   [SYSTEM_ROLES.PARALEGAL]: {
@@ -256,6 +277,11 @@ const ROLE_DEFINITIONS: Record<
       'approval:update',
       'ai:read',
       'ai:create',
+      'precedent:read',
+      'precedent:create',
+      'precedent:update',
+      'customs:read',
+      'customs:create',
     ],
   },
   [SYSTEM_ROLES.FINANCE]: {
@@ -268,9 +294,12 @@ const ROLE_DEFINITIONS: Record<
       'billing:create',
       'billing:update',
       'billing:delete',
+      'retainer:read',
+      'retainer:update',
       'task:read',
       'client:read',
       'matter:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.DPO_COMPLIANCE]: {
@@ -281,6 +310,7 @@ const ROLE_DEFINITIONS: Record<
       'client:read',
       'document:read',
       'matter:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.IT_ADMIN]: {
@@ -295,6 +325,7 @@ const ROLE_DEFINITIONS: Record<
       'task:read',
       'registry:read',
       'email:read',
+      'precedent:read',
     ],
   },
   [SYSTEM_ROLES.PORTAL_CLIENT]: {
@@ -713,6 +744,28 @@ async function main() {
       priority: 2,
       description: 'BPO design renewal due',
     },
+    {
+      jurisdiction: 'BG',
+      matterType: 'border_measures' as const,
+      eventType: 'examination_response' as const,
+      triggerType: 'customs_seizure' as const,
+      daysOffset: 10,
+      isBusinessDays: true,
+      gracePeriodDays: 0,
+      priority: 1,
+      description: 'Customs seizure response (statutory)',
+    },
+    {
+      jurisdiction: 'EU',
+      matterType: 'border_measures' as const,
+      eventType: 'examination_response' as const,
+      triggerType: 'customs_seizure' as const,
+      daysOffset: 10,
+      isBusinessDays: true,
+      gracePeriodDays: 0,
+      priority: 1,
+      description: 'EU customs seizure response (statutory)',
+    },
   ];
 
   for (const rule of deadlineRuleSeeds) {
@@ -737,7 +790,7 @@ async function main() {
   }
 
   console.log(
-    'Seeded deadline rules (matter_created + office_action + renewal_due for EU, EP, BG)',
+    'Seeded deadline rules (matter_created + office_action + renewal_due + customs_seizure)',
   );
 
   const holidaySeeds: Array<{

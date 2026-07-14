@@ -55,18 +55,21 @@ export function AppTopbar({
   return (
     <header
       className={cn(
-        'sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b px-3 backdrop-blur-xl',
+        'sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b px-3',
         'transition-all duration-500 md:gap-3 md:px-4',
         external
-          ? 'border-white/10 bg-black/40 shadow-[0_4px_24px_rgba(0,0,0,0.12)]'
-          : 'border-brand-green/10 bg-white/80 shadow-sm shadow-brand-green/5',
+          ? 'border-brand-green/80 bg-brand-green text-white shadow-[0_2px_12px_rgba(0,0,0,0.18)]'
+          : 'border-brand-green/10 bg-white/80 shadow-sm shadow-brand-green/5 backdrop-blur-xl',
       )}
     >
       <Button
         type="button"
         variant="ghost"
         size="icon-sm"
-        className="group lg:hidden"
+        className={cn(
+          'group lg:hidden',
+          external && 'text-white hover:bg-white/10 hover:text-white',
+        )}
         aria-label={sidebarOpen ? tCommon('nav.closeMenu') : tCommon('nav.openMenu')}
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
@@ -84,7 +87,7 @@ export function AppTopbar({
         <span
           className={cn(
             'hidden shrink-0 font-bold uppercase tracking-widest sm:inline',
-            external ? 'text-emerald-400/70' : 'text-primary/70',
+            external ? 'text-emerald-200/90' : 'text-primary/70',
           )}
         >
           {external ? 'Client portal' : 'CRM'}
@@ -92,16 +95,16 @@ export function AppTopbar({
         <span
           className={cn(
             'hidden h-3 w-px sm:block',
-            external ? 'bg-white/20' : 'bg-brand-green/15',
+            external ? 'bg-white/25' : 'bg-brand-green/15',
           )}
           aria-hidden
         />
         <span
           className={cn(
-            'truncate bg-clip-text text-sm font-semibold tracking-tight text-transparent',
+            'truncate text-sm font-semibold tracking-tight',
             external
-              ? 'bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-300'
-              : 'bg-gradient-to-r from-brand-green via-brand-green to-primary',
+              ? 'text-white'
+              : 'bg-gradient-to-r from-brand-green via-brand-green to-primary bg-clip-text text-transparent',
           )}
         >
           {breadcrumbLabel}
@@ -145,8 +148,10 @@ export function AppTopbar({
             <SelectTrigger
               size="sm"
               className={cn(
-                'hidden w-[150px] border-transparent backdrop-blur-sm md:inline-flex',
-                external ? 'bg-white/5 hover:bg-white/10' : 'bg-brand-green/5 hover:bg-brand-green/8',
+                'hidden w-[150px] border-transparent md:inline-flex',
+                external
+                  ? 'bg-white/10 text-white hover:bg-white/15'
+                  : 'bg-brand-green/5 hover:bg-brand-green/8 backdrop-blur-sm',
               )}
             >
               <SelectValue />

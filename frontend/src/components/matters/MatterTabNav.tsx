@@ -6,12 +6,17 @@ import { cn } from '@/lib/utils'
 type MatterTabNavProps = {
   matterId: string
   isPortalClient?: boolean
+  matterType?: string | null
 }
 
-export function MatterTabNav({ matterId, isPortalClient = false }: MatterTabNavProps) {
+export function MatterTabNav({
+  matterId,
+  isPortalClient = false,
+  matterType,
+}: MatterTabNavProps) {
   const { t } = useTranslation('matters')
   const base = `/matters/${matterId}`
-  const tabs = matterTabsForUser(isPortalClient)
+  const tabs = matterTabsForUser(isPortalClient, matterType)
 
   return (
     <nav className="-mx-1 flex gap-1 overflow-x-auto border-b pb-2 scrollbar-thin">

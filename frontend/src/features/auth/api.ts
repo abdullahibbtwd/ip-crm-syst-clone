@@ -16,7 +16,7 @@ export type SsoProvider = {
 
 export type LoginResponse =
   | { mfaRequired: true }
-  | { mfaRequired?: false; user: AuthUser }
+  | { mfaRequired?: false; user: AuthUser; mfaEnrollmentRequired?: boolean }
 
 export async function fetchSsoProviders() {
   const response = await api.get<{ providers: SsoProvider[] }>('/auth/sso/providers')
@@ -77,7 +77,20 @@ export async function startMfaSetupRequest() {
 }
 
 export async function enableMfaRequest(data: MfaVerifyFormData) {
-  const response = await api.post<{ user: AuthUser }>('/auth/mfa/enable', data)
+  const response = await api.post<{ user: AuthUser; backupCodes: string[] }>(
+    '/auth/mfa/enable',
+    data,
+  )
+  return response.data
+}
+
+export async function disableMfaRequest(data: { password: string; code: string }) {
+  const response = await api.post<{ user: AuthUser }>('/auth/mfa/disable', data)
+  return response.data
+}
+
+export async function regenerateBackupCodesRequest(data: MfaVerifyFormData) {
+  const response = await api.post<string[]>('/auth/mfa/backup-codes', data)
   return response.data
 }
 

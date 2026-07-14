@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { ClientRetainerCard } from '@/features/retainers/components/ClientRetainerCard'
 import type { ClientTabContext } from '../ClientLayout'
 
 export function ClientBillingTab() {
@@ -33,6 +34,9 @@ export function ClientBillingTab() {
       {isError && (
         <p className="text-sm text-destructive">Failed to load billing data.</p>
       )}
+
+      <ClientRetainerCard clientId={clientId} />
+
       {data && (
         <div className="space-y-6">
           <div>

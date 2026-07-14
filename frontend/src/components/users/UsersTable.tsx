@@ -136,8 +136,8 @@ function TeamRoleSelect({ user }: { user: UserListItem }) {
     : TEAM_ASSIGNABLE_ROLES[0]
   const isSelf = me?.id === user.id
 
-  const handleChange = async (role: string) => {
-    if (role === current || isSelf) return
+  const handleChange = async (role: string | null) => {
+    if (!role || role === current || isSelf) return
     setError(null)
     try {
       await updateRole.mutateAsync({

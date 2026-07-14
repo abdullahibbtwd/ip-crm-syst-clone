@@ -32,6 +32,9 @@ import { PartnersModule } from './partners/partners.module';
 import { ApprovalsModule } from './approvals/approvals.module';
 import { RolesModule } from './rbac/roles.module';
 import { PortalMessagesModule } from './portal-messages/portal-messages.module';
+import { RetainersModule } from './retainers/retainers.module';
+import { PrecedentsModule } from './precedents/precedents.module';
+import { CustomsModule } from './customs/customs.module';
 import { HealthController } from './health/health.controller';
 import { AppController } from './app.controller';
 import { AuditInterceptor } from './common/interceptors/audit.interceptor';
@@ -64,6 +67,9 @@ import { SecretsModule } from './secrets/secrets.module';
     CorrespondenceModule,
     BillingModule,
     InvoicesModule,
+    RetainersModule,
+    PrecedentsModule,
+    CustomsModule,
     NotificationsModule,
     AlertsModule,
     IpRightsModule,

@@ -11,6 +11,8 @@ import { LocalStrategy } from './strategies/local.strategy';
 import { AuthCookieService } from './auth-cookie.service';
 import { SsoService } from './sso.service';
 import { SsoMfaSettingsController } from './sso-mfa-settings.controller';
+import { MfaPolicyService } from './mfa-policy.service';
+import { MfaSecretService } from './mfa-secret.service';
 
 @Module({
   imports: [
@@ -29,7 +31,15 @@ import { SsoMfaSettingsController } from './sso-mfa-settings.controller';
     }),
   ],
   controllers: [AuthController, SsoMfaSettingsController],
-  providers: [AuthService, AuthCookieService, SsoService, LocalStrategy, JwtStrategy],
-  exports: [AuthService, SsoService],
+  providers: [
+    AuthService,
+    AuthCookieService,
+    SsoService,
+    LocalStrategy,
+    JwtStrategy,
+    MfaSecretService,
+    MfaPolicyService,
+  ],
+  exports: [AuthService, SsoService, MfaPolicyService],
 })
 export class AuthModule {}

@@ -14,12 +14,17 @@ import {
 import { useRecordInvoicePayment } from '@/features/invoices/hooks/useInvoices'
 import type { Invoice } from '@/features/invoices/types'
 import { formatInvoiceMoney } from '@/features/invoices/utils'
+import {
+  useApplyRetainerToInvoice,
+  useClientRetainer,
+} from '@/features/retainers/hooks/useRetainers'
 import { getApiErrorMessage } from '@/lib/api-client'
 
 const PAYMENT_METHODS = [
   { value: 'bank_transfer', label: 'Bank transfer' },
   { value: 'card', label: 'Card' },
   { value: 'cash', label: 'Cash' },
+  { value: 'retainer', label: 'Retainer balance' },
   { value: 'other', label: 'Other' },
 ]
 
@@ -32,6 +37,11 @@ type RecordPaymentDrawerProps = {
 export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDrawerProps) {
   const { alert } = useAppAlert()
   const recordPayment = useRecordInvoicePayment(invoice?.matterId ?? '')
+  const applyRetainer = useApplyRetainerToInvoice(
+    invoice?.clientId ?? '',
+    invoice?.matterId,
+  )
+  const { data: retainer } = useClientRetainer(invoice?.clientId ?? '')
   const [amount, setAmount] = useState('')
   const [paidAt, setPaidAt] = useState(() => new Date().toISOString().slice(0, 10))
   const [method, setMethod] = useState('bank_transfer')
@@ -41,6 +51,9 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
   const remaining = invoice
     ? Math.max(0, invoice.totalAmount - invoice.paidAmount)
     : 0
+  const retainerBalance = retainer?.balance ?? 0
+  const isRetainer = method === 'retainer'
+  const isPending = recordPayment.isPending || applyRetainer.isPending
 
   useEffect(() => {
     if (!open || !invoice) return
@@ -65,19 +78,31 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
       setError(`Amount cannot exceed ${formatInvoiceMoney(remaining, invoice.currency)}`)
       return
     }
+    if (isRetainer && parsed > retainerBalance) {
+      setError('Amount exceeds available retainer balance')
+      return
+    }
 
     try {
-      await recordPayment.mutateAsync({
-        id: invoice.id,
-        data: {
-          amount: parsed,
-          paidAt,
-          method,
-          reference: reference.trim() || undefined,
-        },
-      })
+      if (isRetainer) {
+        await applyRetainer.mutateAsync({
+          invoiceId: invoice.id,
+          data: { amount: parsed },
+        })
+      } else {
+        await recordPayment.mutateAsync({
+          id: invoice.id,
+          data: {
+            amount: parsed,
+            paidAt,
+            method,
+            reference: reference.trim() || undefined,
+          },
+        })
+      }
+
       await alert({
-        title: 'Payment recorded',
+        title: isRetainer ? 'Retainer applied' : 'Payment recorded',
         message: `${formatInvoiceMoney(parsed, invoice.currency)} applied to ${invoice.invoiceNumber ?? 'invoice'}.`,
         variant: 'success',
       })
@@ -104,6 +129,11 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
               Total {formatInvoiceMoney(invoice.totalAmount, invoice.currency)} · Paid{' '}
               {formatInvoiceMoney(invoice.paidAmount, invoice.currency)}
             </p>
+            {retainerBalance > 0 && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Retainer available: {formatInvoiceMoney(retainerBalance, invoice.currency)}
+              </p>
+            )}
           </div>
 
           <div className="space-y-2">
@@ -118,15 +148,17 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="payment-date">Payment date</Label>
-            <Input
-              id="payment-date"
-              type="date"
-              value={paidAt}
-              onChange={(e) => setPaidAt(e.target.value)}
-            />
-          </div>
+          {!isRetainer && (
+            <div className="space-y-2">
+              <Label htmlFor="payment-date">Payment date</Label>
+              <Input
+                id="payment-date"
+                type="date"
+                value={paidAt}
+                onChange={(e) => setPaidAt(e.target.value)}
+              />
+            </div>
+          )}
 
           <div className="space-y-2">
             <Label>Method</Label>
@@ -135,7 +167,9 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {PAYMENT_METHODS.map((item) => (
+                {PAYMENT_METHODS.filter(
+                  (item) => item.value !== 'retainer' || retainerBalance > 0,
+                ).map((item) => (
                   <SelectItem key={item.value} value={item.value}>
                     {item.label}
                   </SelectItem>
@@ -144,15 +178,17 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
             </Select>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="payment-reference">Reference (optional)</Label>
-            <Input
-              id="payment-reference"
-              value={reference}
-              onChange={(e) => setReference(e.target.value)}
-              placeholder="Transaction ID, cheque no., etc."
-            />
-          </div>
+          {!isRetainer && (
+            <div className="space-y-2">
+              <Label htmlFor="payment-reference">Reference (optional)</Label>
+              <Input
+                id="payment-reference"
+                value={reference}
+                onChange={(e) => setReference(e.target.value)}
+                placeholder="Transaction ID, cheque no., etc."
+              />
+            </div>
+          )}
 
           {error && <p className="text-sm text-destructive">{error}</p>}
 
@@ -160,8 +196,8 @@ export function RecordPaymentDrawer({ invoice, open, onClose }: RecordPaymentDra
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>
-            <Button type="submit" disabled={recordPayment.isPending || remaining <= 0}>
-              Record payment
+            <Button type="submit" disabled={isPending || remaining <= 0}>
+              {isRetainer ? 'Apply from retainer' : 'Record payment'}
             </Button>
           </div>
         </form>

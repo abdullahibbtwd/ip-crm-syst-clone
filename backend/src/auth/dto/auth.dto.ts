@@ -19,7 +19,17 @@ export class LoginDto {
 
 export class MfaVerifyDto {
   @IsString()
-  @Length(6, 6)
+  @Length(6, 9)
+  code!: string;
+}
+
+export class MfaDisableDto {
+  @IsString()
+  @MinLength(8)
+  password!: string;
+
+  @IsString()
+  @Length(6, 9)
   code!: string;
 }
 

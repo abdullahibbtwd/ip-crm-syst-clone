@@ -55,21 +55,21 @@ const MENU_THEMES: Record<'internal' | 'external', MenuTheme> = {
     iconTrigger: 'text-brand-green/80',
   },
   external: {
-    accent: 'text-emerald-400',
-    accentGlow: 'shadow-[0_0_10px_rgba(52,211,153,0.85)]',
-    accentMuted: 'text-emerald-400/80',
-    panel: 'border-white/15 bg-slate-950/90 text-white backdrop-blur-xl',
-    panelGlow: 'shadow-[0_16px_48px_rgba(0,0,0,0.5)]',
-    header: 'border-white/10 bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-transparent',
-    headerTitle: 'bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent',
-    headerMuted: 'text-white/50',
-    item: 'text-white/75 hover:border-white/10 hover:bg-white/[0.06] hover:text-white',
+    accent: 'text-emerald-300',
+    accentGlow: 'shadow-[0_0_10px_rgba(52,211,153,0.45)]',
+    accentMuted: 'text-emerald-200/90',
+    panel: 'border-white/12 bg-[#122923] text-white',
+    panelGlow: 'shadow-[0_16px_40px_rgba(0,0,0,0.45)]',
+    header: 'border-white/10 bg-[#16372f]',
+    headerTitle: 'text-emerald-200',
+    headerMuted: 'text-white/55',
+    item: 'text-white/80 hover:border-white/10 hover:bg-white/8 hover:text-white',
     itemActive:
-      'border-emerald-400/30 bg-white/10 font-semibold text-white shadow-sm shadow-emerald-500/20',
+      'border-emerald-400/35 bg-white/12 font-semibold text-white shadow-sm',
     divider: 'via-white/20',
-    unreadRow: 'border-l-2 border-l-emerald-400 bg-emerald-500/[0.08]',
+    unreadRow: 'border-l-2 border-l-emerald-400 bg-emerald-500/15',
     badge: 'bg-gradient-to-r from-emerald-400 to-teal-500',
-    iconTrigger: 'text-emerald-400/90',
+    iconTrigger: 'text-emerald-200',
   },
 }
 
@@ -185,6 +185,7 @@ export function LanguageMenu({ external }: { external?: boolean }) {
         size="icon-sm"
         className={cn(
           'group hidden sm:inline-flex transition-all duration-300',
+          external && 'text-white hover:bg-white/10 hover:text-white',
           open && (external ? 'bg-white/10' : 'bg-brand-green/5'),
         )}
         aria-label={t('language.switch')}
@@ -195,7 +196,7 @@ export function LanguageMenu({ external }: { external?: boolean }) {
         <Languages
           className={cn(
             'size-4 transition-transform duration-300 group-hover:scale-110',
-            external ? theme.iconTrigger : open && 'text-primary',
+            external ? 'text-white/90' : open && 'text-primary',
           )}
         />
       </Button>
@@ -283,11 +284,12 @@ export function UserMenu({
         variant="ghost"
         className={cn(
           'group h-auto gap-2 rounded-xl px-1.5 py-1 transition-all duration-500',
+          external && 'text-white hover:bg-white/10 hover:text-white',
           userMenuOpen
             ? external
               ? 'bg-white/10'
               : 'bg-brand-green/5'
-            : 'hover:bg-accent/60',
+            : !external && 'hover:bg-accent/60',
         )}
         onClick={() => setUserMenuOpen(!userMenuOpen)}
         aria-expanded={userMenuOpen}
@@ -301,14 +303,26 @@ export function UserMenu({
               ? 'bg-gradient-to-br from-emerald-400 to-teal-500 text-emerald-950 shadow-emerald-500/30'
               : 'bg-gradient-to-br from-primary to-orange-400 text-white shadow-primary/35',
             userMenuOpen && 'ring-2 ring-offset-1',
-            userMenuOpen && (external ? 'ring-emerald-400/50' : 'ring-primary/40'),
+            userMenuOpen &&
+              (external
+                ? 'ring-emerald-300/60 ring-offset-brand-green'
+                : 'ring-primary/40'),
           )}
         >
           {avatarInitials}
         </div>
         <div className="hidden min-w-0 text-left lg:block">
-          <p className="truncate text-xs font-semibold">{userName}</p>
-          <p className={cn('truncate text-[10px]', theme.headerMuted)}>{roleLabel}</p>
+          <p className={cn('truncate text-xs font-semibold', external && 'text-white')}>
+            {userName}
+          </p>
+          <p
+            className={cn(
+              'truncate text-[10px]',
+              external ? 'text-white/65' : theme.headerMuted,
+            )}
+          >
+            {roleLabel}
+          </p>
         </div>
       </Button>
 
@@ -413,15 +427,14 @@ export function NotificationsMenu({ external }: { external?: boolean }) {
         onClick={() => setNotificationsOpen(!notificationsOpen)}
         className={cn(
           'group relative transition-all duration-300',
+          external && 'text-white hover:bg-white/10 hover:text-white',
           notificationsOpen && (external ? 'bg-white/10' : 'bg-brand-green/5'),
         )}
       >
         <Bell
           className={cn(
             'size-4 transition-transform duration-300 group-hover:scale-110',
-            (external && unreadCount > 0) || (!external && unreadCount > 0)
-              ? theme.accent
-              : undefined,
+            unreadCount > 0 ? theme.accent : external ? 'text-white/90' : undefined,
           )}
         />
         {unreadCount > 0 ? (
