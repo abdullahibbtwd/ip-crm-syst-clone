@@ -5,5 +5,13 @@
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
-  }
+  },
+  "moduleNameMapper": {
+    "^(\\.{1,2}/.*)\\.js$": "$1",
+    "^puppeteer$": "<rootDir>/mocks/empty-module.js",
+    "^otplib$": "<rootDir>/mocks/otplib-mock.js",
+    "^openid-client$": "<rootDir>/mocks/openid-client-mock.js"
+  },
+  "testTimeout": 60000,
+  "forceExit": true
 }
