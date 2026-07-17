@@ -18,6 +18,7 @@ describe('ContactsService', () => {
       updateMany: jest.Mock;
       create: jest.Mock;
       findFirst: jest.Mock;
+      findMany: jest.Mock;
       update: jest.Mock;
     };
     clientOffice: { findFirst: jest.Mock };
@@ -35,6 +36,7 @@ describe('ContactsService', () => {
         updateMany: jest.fn(),
         create: jest.fn(),
         findFirst: jest.fn(),
+        findMany: jest.fn(),
         update: jest.fn(),
       },
       clientOffice: { findFirst: jest.fn() },
@@ -120,6 +122,94 @@ describe('ContactsService', () => {
         where: { id: 'ct1' },
         data: { isActive: false },
       });
+    });
+  });
+
+  describe('findAll and update branches', () => {
+    it('findAll scopes by client and optional role', async () => {
+      prisma.contact.findMany.mockResolvedValue([]);
+
+      await service.findAll('c1', { role: ContactRole.billing } as never);
+
+      expect(clientsService.findOne).toHaveBeenCalledWith('c1');
+      expect(prisma.contact.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { clientId: 'c1', isActive: true, role: ContactRole.billing },
+        }),
+      );
+    });
+
+    it('update promotes contact to primary and logs history', async () => {
+      prisma.contact.findFirst.mockResolvedValue({
+        id: 'ct2',
+        role: ContactRole.general,
+        firstName: 'Bob',
+        lastName: 'Smith',
+      });
+      prisma.contact.update.mockResolvedValue({
+        id: 'ct2',
+        role: ContactRole.primary,
+        firstName: 'Bob',
+        lastName: 'Smith',
+      });
+
+      await service.update(
+        'c1',
+        'ct2',
+        { role: ContactRole.primary },
+        'u1',
+      );
+
+      expect(prisma.contact.updateMany).toHaveBeenCalled();
+      expect(history.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          eventType: RelationshipEventType.contact_added,
+          description: expect.stringContaining('Primary contact set'),
+        }),
+      );
+    });
+
+    it('update validates office when officeId provided', async () => {
+      prisma.contact.findFirst.mockResolvedValue({
+        id: 'ct3',
+        role: ContactRole.general,
+      });
+      prisma.clientOffice.findFirst.mockResolvedValue({ id: 'off1' });
+      prisma.contact.update.mockResolvedValue({ id: 'ct3' });
+
+      await service.update('c1', 'ct3', { officeId: 'off1' } as never, 'u1');
+
+      expect(prisma.clientOffice.findFirst).toHaveBeenCalledWith({
+        where: { id: 'off1', clientId: 'c1' },
+      });
+    });
+
+    it('update throws when contact is missing', async () => {
+      prisma.contact.findFirst.mockResolvedValue(null);
+      await expect(
+        service.update('c1', 'missing', { firstName: 'X' } as never),
+      ).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('create without primary role skips demotion', async () => {
+      prisma.contact.create.mockResolvedValue({
+        id: 'ct4',
+        firstName: 'Eve',
+        lastName: 'Doe',
+        role: ContactRole.general,
+      });
+
+      await service.create(
+        'c1',
+        {
+          role: ContactRole.general,
+          firstName: 'Eve',
+          lastName: 'Doe',
+        },
+        'u1',
+      );
+
+      expect(prisma.contact.updateMany).not.toHaveBeenCalled();
     });
   });
 });

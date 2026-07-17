@@ -119,4 +119,157 @@ describe('GoogleMailService', () => {
       }),
     );
   });
+
+  it('fetchNewMessages returns empty list when no messages', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+    await expect(service.fetchNewMessages('token')).resolves.toEqual([]);
+  });
+
+  it('fetchNewMessages skips messages missing raw payload', async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ messages: [{ id: 'msg-1' }] }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          id: 'msg-1',
+          payload: { headers: [] },
+        }),
+      });
+    await expect(service.fetchNewMessages('token')).resolves.toEqual([]);
+  });
+
+  it('fetchNewMessages detects attachments in raw mime', async () => {
+    const rawMime = Buffer.from(
+      'From: a@x.com\r\nContent-Disposition: attachment\r\n\r\nBody',
+    ).toString('base64');
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ messages: [{ id: 'msg-1' }] }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          id: 'msg-1',
+          raw: rawMime.replace(/\+/g, '-').replace(/\//g, '_'),
+          payload: { headers: [{ name: 'Subject', value: 'File' }] },
+        }),
+      });
+
+    const messages = await service.fetchNewMessages('token', { limit: 1 });
+    expect(messages[0].hasAttachments).toBe(true);
+  });
+
+  it('sendMail builds multipart mime with cc and attachments', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ id: 'sent-2' }),
+    });
+
+    await service.sendMail('token', {
+      fromAddress: 'me@firm.com',
+      to: ['client@example.com'],
+      cc: ['cc@example.com'],
+      subject: 'Docs',
+      bodyHtml: '<p>See attached</p>',
+      inReplyToMessageId: '<parent>',
+      attachments: [
+        {
+          fileName: 'doc.pdf',
+          contentType: 'application/pdf',
+          contentBase64: 'abc123',
+        },
+      ],
+    });
+
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
+    expect(body.raw).toBeTruthy();
+  });
+
+  it('sendMail propagates provider errors', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: false,
+      status: 403,
+      text: async () => 'denied',
+      headers: { get: () => null },
+    });
+    await expect(
+      service.sendMail('token', {
+        fromAddress: 'me@firm.com',
+        to: ['client@example.com'],
+        subject: 'Hi',
+        bodyHtml: '<p>Hi</p>',
+      }),
+    ).rejects.toThrow();
+  });
+
+  it('sendMail without attachments uses simple html mime', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ id: 'sent-plain' }),
+    });
+
+    await service.sendMail('token', {
+      fromAddress: 'me@firm.com',
+      to: ['client@example.com'],
+      subject: 'Plain',
+      bodyHtml: '<p>Simple</p>',
+    });
+
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
+    const decoded = Buffer.from(
+      body.raw.replace(/-/g, '+').replace(/_/g, '/'),
+      'base64',
+    ).toString('utf8');
+    expect(decoded).toContain('Content-Type: text/html');
+    expect(decoded).not.toContain('multipart/mixed');
+  });
+
+  it('fetchNewMessages uses default since window when not provided', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ messages: [] }),
+    });
+    await service.fetchNewMessages('token');
+    const url = String(fetchMock.mock.calls[0][0]);
+    expect(url).toMatch(/[?&]q=after(%3A|:)\d+/);
+  });
+
+  it('fetchNewMessages skips individual message on parse errors', async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ messages: [{ id: 'bad' }] }),
+      })
+      .mockRejectedValueOnce(new Error('parse fail'));
+
+    await expect(service.fetchNewMessages('token')).resolves.toEqual([]);
+  });
+
+  it('fetchNewMessages uses unknown recipient fallback from headers', async () => {
+    const rawMime = Buffer.from('From: a@x.com\r\n\r\nBody').toString('base64');
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ messages: [{ id: 'msg-2' }] }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          id: 'msg-2',
+          raw: rawMime.replace(/\+/g, '-').replace(/\//g, '_'),
+          payload: { headers: [{ name: 'From', value: 'a@x.com' }] },
+        }),
+      });
+
+    const messages = await service.fetchNewMessages('token', { limit: 1 });
+    expect(messages[0].recipient).toBe('Unknown recipient');
+    expect(messages[0].subject).toBe('(No subject)');
+  });
 });

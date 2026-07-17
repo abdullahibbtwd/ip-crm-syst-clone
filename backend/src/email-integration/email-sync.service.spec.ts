@@ -160,4 +160,104 @@ describe('EmailSyncService', () => {
     );
     expect(connections.markSyncSuccess).not.toHaveBeenCalled();
   });
+
+  it('syncAllConnections ingests when enabled', async () => {
+    config.get.mockImplementation((key: string) =>
+      key === 'EMAIL_SYNC_ENABLED' ? 'true' : undefined,
+    );
+    connections.listActiveConnections.mockResolvedValue([{ id: 'c1' }]);
+    jest.spyOn(service, 'syncConnection').mockResolvedValue(2);
+
+    await expect(service.syncAllConnections()).resolves.toEqual({
+      synced: 1,
+      ingested: 2,
+    });
+  });
+
+  it('syncAllConnections marks errors per connection', async () => {
+    config.get.mockImplementation((key: string) =>
+      key === 'EMAIL_SYNC_ENABLED' ? 'true' : undefined,
+    );
+    connections.listActiveConnections.mockResolvedValue([{ id: 'c1' }]);
+    jest
+      .spyOn(service, 'syncConnection')
+      .mockRejectedValue(new Error('provider down'));
+
+    await expect(service.syncAllConnections()).resolves.toEqual({
+      synced: 1,
+      ingested: 0,
+    });
+    expect(connections.markSyncError).toHaveBeenCalledWith('c1', 'provider down');
+  });
+
+  it('syncConnection skips duplicate messages', async () => {
+    prisma.mailboxConnection.findUnique.mockResolvedValue({
+      id: 'c1',
+      provider: 'google',
+      status: 'active',
+      lastSyncAt: null,
+    });
+    connections.getAccessToken.mockResolvedValue('token');
+    googleMail.fetchNewMessages.mockResolvedValue([
+      {
+        externalMessageId: 'ext-1',
+        internetMessageId: '<dup>',
+        rawMime: Buffer.from('raw'),
+        sender: 'a@x.com',
+        recipient: 'b@x.com',
+        subject: 'Dup',
+        receivedAt: new Date(),
+        hasAttachments: false,
+      },
+    ]);
+    prisma.unlinkedEmail.findFirst.mockResolvedValue({ id: 'existing' });
+
+    await expect(service.syncConnection('c1')).resolves.toBe(0);
+    expect(prisma.unlinkedEmail.create).not.toHaveBeenCalled();
+  });
+
+  it('syncConnection continues when eml parse fails', async () => {
+    prisma.mailboxConnection.findUnique.mockResolvedValue({
+      id: 'c1',
+      provider: 'microsoft',
+      status: 'active',
+      lastSyncAt: null,
+    });
+    connections.getAccessToken.mockResolvedValue('token');
+    microsoftMail.fetchNewMessages.mockResolvedValue([
+      {
+        externalMessageId: 'ext-2',
+        internetMessageId: null,
+        rawMime: Buffer.from('bad'),
+        sender: 'a@x.com',
+        recipient: 'b@x.com',
+        subject: 'Broken',
+        receivedAt: new Date(),
+        hasAttachments: false,
+      },
+    ]);
+    emlParser.parseBuffer.mockRejectedValue(new Error('parse fail'));
+    prisma.unlinkedEmail.findFirst.mockResolvedValue(null);
+    prisma.unlinkedEmail.create.mockResolvedValue({ id: 'ue2' });
+
+    await expect(service.syncConnection('c1')).resolves.toBe(1);
+    expect(prisma.unlinkedEmail.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.objectContaining({
+          internetMessageId: null,
+          bodyText: null,
+        }),
+      }),
+    );
+  });
+
+  it('fetchForUser propagates sync failures', async () => {
+    prisma.mailboxConnection.findMany.mockResolvedValue([{ id: 'c1' }]);
+    jest
+      .spyOn(service, 'syncConnection')
+      .mockRejectedValue(new Error('manual fetch failed'));
+
+    await expect(service.fetchForUser('u1')).rejects.toThrow('manual fetch failed');
+    expect(connections.markSyncError).toHaveBeenCalled();
+  });
 });

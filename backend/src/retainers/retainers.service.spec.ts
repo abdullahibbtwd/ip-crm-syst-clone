@@ -279,7 +279,67 @@ describe('RetainersService', () => {
       ).rejects.toThrow(/Insufficient retainer balance/);
     });
 
-    it('draws down retainer and records invoice payment', async () => {
+    it('rejects when invoice is already fully paid', async () => {
+      prisma.invoice.findUnique.mockResolvedValue({
+        id: 'inv1',
+        status: InvoiceStatus.issued,
+        clientId: 'c1',
+        invoiceNumber: 'INV-1',
+        totalAmount: 100,
+        paidAmount: 100,
+        paidAt: new Date(),
+        client: {
+          id: 'c1',
+          companyName: 'Acme',
+          firstName: null,
+          lastName: null,
+          internalCode: 'CL-1',
+        },
+      });
+
+      await expect(
+        service.applyToInvoice('inv1', { amount: 10 }, 'u1'),
+      ).rejects.toThrow(/already fully paid/);
+    });
+
+    it('records partial payment when draw-down is less than total', async () => {
+      prisma.invoice.findUnique.mockResolvedValue({
+        id: 'inv1',
+        status: InvoiceStatus.issued,
+        clientId: 'c1',
+        invoiceNumber: 'INV-1',
+        totalAmount: 100,
+        paidAmount: 0,
+        paidAt: null,
+        client: {
+          id: 'c1',
+          companyName: 'Acme',
+          firstName: null,
+          lastName: null,
+          internalCode: 'CL-1',
+        },
+      });
+      prisma.clientRetainerAccount.findUnique.mockResolvedValue({
+        id: 'acc1',
+        balance: 200,
+      });
+      prisma.clientRetainerAccount.findUniqueOrThrow.mockResolvedValue({
+        id: 'acc1',
+        balance: 200,
+      });
+
+      await service.applyToInvoice('inv1', { amount: 50 }, 'u1');
+
+      expect(prisma.invoice.update).toHaveBeenCalledWith({
+        where: { id: 'inv1' },
+        data: expect.objectContaining({
+          paidAmount: 50,
+          paymentStatus: PaymentStatus.partial,
+        }),
+      });
+    });
+
+    it('draws down retainer and records full invoice payment', async () => {
       prisma.invoice.findUnique.mockResolvedValue({
         id: 'inv1',
         status: InvoiceStatus.issued,
@@ -323,6 +383,93 @@ describe('RetainersService', () => {
           paymentStatus: PaymentStatus.paid,
         }),
       });
+    });
+  });
+
+  describe('low balance notifications', () => {
+    it('notifies staff and portal users when balance drops below threshold', async () => {
+      prisma.clientRetainerAccount.findUniqueOrThrow.mockResolvedValue({
+        id: 'acc1',
+        balance: 100,
+      });
+      prisma.clientRetainerAccount.findUnique.mockResolvedValue({
+        id: 'acc1',
+        clientId: 'c1',
+        balance: 40,
+        currency: 'EUR',
+        lowBalanceThreshold: 50,
+        client: {
+          companyName: 'Acme',
+          firstName: null,
+          lastName: null,
+          internalCode: 'CL-1',
+          assignedUserId: 'assigned1',
+        },
+      });
+      prisma.user.findMany
+        .mockResolvedValueOnce([{ id: 'finance1', email: 'finance@x.com' }])
+        .mockResolvedValueOnce([{ id: 'portal1', email: 'portal@x.com' }]);
+      prisma.user.findFirst.mockResolvedValue({
+        id: 'assigned1',
+        email: 'assigned@x.com',
+      });
+
+      await service.recordAdjustment(
+        'c1',
+        { amount: -60, note: 'Large draw' },
+        'u1',
+      );
+
+      expect(notifications.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          userId: 'finance1',
+          type: 'retainer_low_balance',
+        }),
+      );
+      expect(notifications.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          userId: 'portal1',
+          type: 'retainer_low_balance',
+          metadata: expect.objectContaining({ audience: 'portal_client' }),
+        }),
+      );
+    });
+
+    it('uses depleted notification type when balance reaches zero', async () => {
+      prisma.clientRetainerAccount.findUniqueOrThrow.mockResolvedValue({
+        id: 'acc1',
+        balance: 10,
+      });
+      prisma.clientRetainerAccount.findUnique.mockResolvedValue({
+        id: 'acc1',
+        clientId: 'c1',
+        balance: 0,
+        currency: 'EUR',
+        lowBalanceThreshold: 25,
+        client: {
+          companyName: null,
+          firstName: 'Jane',
+          lastName: 'Doe',
+          internalCode: 'CL-2',
+          assignedUserId: null,
+        },
+      });
+      prisma.user.findMany.mockResolvedValue([
+        { id: 'finance1', email: 'finance@x.com' },
+      ]);
+
+      await service.recordAdjustment(
+        'c1',
+        { amount: -10, note: 'Final draw' },
+        'u1',
+      );
+
+      expect(notifications.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          userId: 'finance1',
+          type: 'retainer_depleted',
+        }),
+      );
     });
   });
 });

@@ -453,4 +453,176 @@ describe('CustomsService', () => {
       expect(result.status).toBe('approved');
     });
   });
+
+  describe('optional field branches', () => {
+    it('createSeizure stores optional trimmed fields', async () => {
+      prisma.matter.findUnique.mockResolvedValue(borderMatter);
+      prisma.customsSeizure.create.mockResolvedValue(
+        baseSeizure({
+          consignmentReference: 'REF-1',
+          quantity: '10 units',
+          portOfEntry: 'Varna',
+        }),
+      );
+
+      await service.createSeizure(
+        'm1',
+        {
+          seizureDate: '2026-01-01',
+          customsOffice: 'Sofia',
+          goodsDescription: 'Goods',
+          consignmentReference: ' REF-1 ',
+          quantity: ' 10 units ',
+          portOfEntry: ' Varna ',
+        },
+        'u1',
+      );
+
+      expect(prisma.customsSeizure.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            consignmentReference: 'REF-1',
+            quantity: '10 units',
+            portOfEntry: 'Varna',
+          }),
+        }),
+      );
+    });
+
+    it('updateSeizure clears optional fields and sets linked matter', async () => {
+      prisma.customsSeizure.findUnique.mockResolvedValue(baseSeizure());
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm2' });
+      prisma.customsSeizure.update.mockResolvedValue({
+        ...baseSeizure({
+          consignmentReference: null,
+          quantity: null,
+          portOfEntry: null,
+          linkedMatterId: 'm2',
+          seizureDate: new Date('2026-02-01'),
+        }),
+        _count: { custodyLogs: 0, applications: 0 },
+      });
+
+      const result = await service.updateSeizure('sz1', {
+        consignmentReference: '',
+        quantity: '  ',
+        portOfEntry: '',
+        linkedMatterId: 'm2',
+        seizureDate: '2026-02-01',
+        goodsDescription: ' Updated goods ',
+      });
+
+      expect(result.linkedMatterId).toBe('m2');
+      expect(result.consignmentReference).toBeNull();
+    });
+
+    it('addCustody accepts document on same matter', async () => {
+      prisma.customsSeizure.findUnique.mockResolvedValue(baseSeizure());
+      prisma.matterDocumentVersion.findUnique.mockResolvedValue({
+        id: 'dv1',
+        document: { matterId: 'm1' },
+      });
+      prisma.custodyLog.create.mockResolvedValue({
+        id: 'cl1',
+        action: 'stored',
+        occurredAt: new Date('2026-01-03'),
+        notes: null,
+        actorUser: user,
+        documentVersion: { id: 'dv1', fileName: 'scan.pdf', documentId: 'd1' },
+        createdAt: new Date('2026-01-03'),
+      });
+
+      const result = await service.addCustody(
+        'sz1',
+        {
+          action: 'stored',
+          occurredAt: '2026-01-03',
+          documentVersionId: 'dv1',
+        },
+        'u1',
+      );
+
+      expect(result.documentVersion?.id).toBe('dv1');
+    });
+
+    it('createApplication links seizure and date fields', async () => {
+      prisma.matter.findUnique.mockResolvedValue(borderMatter);
+      prisma.customsSeizure.findFirst.mockResolvedValue({ id: 'sz1' });
+      prisma.customsApplication.create.mockResolvedValue({
+        id: 'app1',
+        matterId: 'm1',
+        seizureId: 'sz1',
+        authority: 'EU',
+        applicationNumber: 'APP-9',
+        submittedDate: new Date('2026-01-05'),
+        validFrom: new Date('2026-01-06'),
+        validUntil: new Date('2027-01-06'),
+        status: 'pending',
+        renewalOfId: 'app0',
+        createdById: 'u1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        createdBy: user,
+      });
+
+      const result = await service.createApplication(
+        'm1',
+        {
+          authority: 'EU',
+          seizureId: 'sz1',
+          applicationNumber: ' APP-9 ',
+          submittedDate: '2026-01-05',
+          validFrom: '2026-01-06',
+          validUntil: '2027-01-06',
+          renewalOfId: 'app0',
+        },
+        'u1',
+      );
+
+      expect(result.seizureId).toBe('sz1');
+      expect(result.applicationNumber).toBe('APP-9');
+    });
+
+    it('updateApplication clears date fields', async () => {
+      prisma.customsApplication.findUnique.mockResolvedValue({ id: 'app1' });
+      prisma.customsApplication.update.mockResolvedValue({
+        id: 'app1',
+        matterId: 'm1',
+        seizureId: null,
+        authority: 'EU',
+        applicationNumber: null,
+        submittedDate: null,
+        validFrom: null,
+        validUntil: null,
+        status: 'draft',
+        renewalOfId: null,
+        createdById: 'u1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        createdBy: user,
+      });
+
+      const result = await service.updateApplication('app1', {
+        submittedDate: '',
+        validFrom: '',
+        validUntil: '',
+        applicationNumber: '',
+        seizureId: null,
+      });
+
+      expect(result.submittedDate).toBeNull();
+      expect(result.applicationNumber).toBeNull();
+    });
+
+    it('createApplication rejects non-border matter', async () => {
+      prisma.matter.findUnique.mockResolvedValue({
+        id: 'm1',
+        clientId: 'c1',
+        matterType: MatterType.patent,
+      });
+      await expect(
+        service.createApplication('m1', { authority: 'EU' }, 'u1'),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+  });
 });

@@ -134,4 +134,90 @@ describe('MailboxOAuthService', () => {
       service.startConnect('yahoo', 'u1', res as unknown as Response),
     ).rejects.toBeInstanceOf(NotFoundException);
   });
+
+  it('startConnect works for microsoft provider', async () => {
+    await service.startConnect('microsoft', 'u1', res as unknown as Response);
+    expect(oidc.buildAuthorizationUrl).toHaveBeenCalled();
+    expect(res.redirect).toHaveBeenCalled();
+  });
+
+  it('handleCallback uses preferred_username when email claim missing', async () => {
+    (oidc.authorizationCodeGrant as jest.Mock).mockResolvedValue({
+      access_token: 'access',
+      refresh_token: 'refresh',
+      expires_in: 3600,
+      claims: () => ({ preferred_username: 'user@firm.com' }),
+    });
+
+    const req = {
+      protocol: 'http',
+      get: jest.fn(() => 'localhost:3000'),
+      originalUrl:
+        '/api/email-integration/callback/microsoft?code=abc&state=state123',
+    } as unknown as Request;
+
+    await service.startConnect('microsoft', 'u1', res as unknown as Response);
+    res.redirect.mockClear();
+
+    await service.handleCallback('microsoft', req, res as unknown as Response);
+
+    expect(connections.upsertConnection).toHaveBeenCalledWith(
+      expect.objectContaining({ emailAddress: 'user@firm.com' }),
+    );
+  });
+
+  it('handleCallback redirects when refresh token missing', async () => {
+    (oidc.authorizationCodeGrant as jest.Mock).mockResolvedValue({
+      access_token: 'access',
+      claims: () => ({ email: 'user@firm.com' }),
+    });
+
+    const req = {
+      protocol: 'http',
+      get: jest.fn(() => 'localhost:3000'),
+      originalUrl:
+        '/api/email-integration/callback/google?code=abc&state=state123',
+    } as unknown as Request;
+
+    await service.startConnect('google', 'u1', res as unknown as Response);
+    res.redirect.mockClear();
+
+    await service.handleCallback('google', req, res as unknown as Response);
+
+    expect(res.redirect).toHaveBeenCalledWith(
+      expect.stringContaining('settings/email?error='),
+    );
+    expect(connections.upsertConnection).not.toHaveBeenCalled();
+  });
+
+  it('handleCallback redirects when provider email missing', async () => {
+    (oidc.authorizationCodeGrant as jest.Mock).mockResolvedValue({
+      access_token: 'access',
+      refresh_token: 'refresh',
+      claims: () => ({}),
+    });
+
+    const req = {
+      protocol: 'http',
+      get: jest.fn(() => 'localhost:3000'),
+      originalUrl:
+        '/api/email-integration/callback/google?code=abc&state=state123',
+    } as unknown as Request;
+
+    await service.startConnect('google', 'u1', res as unknown as Response);
+    res.redirect.mockClear();
+
+    await service.handleCallback('google', req, res as unknown as Response);
+
+    expect(res.redirect).toHaveBeenCalledWith(
+      expect.stringContaining('settings/email?error='),
+    );
+  });
+
+  it('getConfiguredProviders marks disabled providers without secrets', () => {
+    config.get.mockReturnValue(undefined);
+    const providers = service.getConfiguredProviders();
+    expect(providers.every((p) => p.enabled === false)).toBe(true);
+    expect(providers[0].redirectUri).toBeUndefined();
+  });
 });

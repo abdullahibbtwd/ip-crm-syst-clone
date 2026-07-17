@@ -267,5 +267,64 @@ describe('PartnerInstructionsService', () => {
       expect(result.status).toBe(PartnerInstructionStatus.acknowledged);
       expect(notifications.dispatch).not.toHaveBeenCalled();
     });
+
+    it('transitions acknowledged to complete', async () => {
+      prisma.partnerInstruction.findFirst.mockResolvedValue(
+        instructionRow({ status: PartnerInstructionStatus.acknowledged }),
+      );
+      prisma.partnerInstruction.update.mockResolvedValue(
+        instructionRow({
+          status: PartnerInstructionStatus.complete,
+          completedAt: new Date(),
+        }),
+      );
+
+      const result = await service.transition(
+        'm1',
+        'i1',
+        PartnerInstructionStatus.complete,
+      );
+
+      expect(result.status).toBe(PartnerInstructionStatus.complete);
+    });
+
+    it('sent transition skips partner email when partner has no address', async () => {
+      prisma.partnerInstruction.findFirst.mockResolvedValue(
+        instructionRow({
+          partner: {
+            id: 'p1',
+            name: 'Local Agent',
+            email: null,
+            isActive: true,
+          },
+        }),
+      );
+      prisma.partnerInstruction.update.mockResolvedValue(
+        instructionRow({
+          status: PartnerInstructionStatus.sent,
+          partner: {
+            id: 'p1',
+            name: 'Local Agent',
+            email: null,
+            isActive: true,
+          },
+        }),
+      );
+
+      await service.transition('m1', 'i1', PartnerInstructionStatus.sent);
+
+      expect(notifications.dispatch).toHaveBeenCalled();
+      expect(email.send).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('update deadline validation', () => {
+    it('rejects deadline not on matter when updating', async () => {
+      prisma.partnerInstruction.findFirst.mockResolvedValue(instructionRow());
+      prisma.deadline.findFirst.mockResolvedValue(null);
+      await expect(
+        service.update('m1', 'i1', { deadlineId: 'd-missing' }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
   });
 });

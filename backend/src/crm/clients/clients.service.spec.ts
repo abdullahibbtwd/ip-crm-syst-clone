@@ -17,7 +17,9 @@ describe('ClientsService', () => {
     client: {
       findUnique: jest.Mock;
       findFirst: jest.Mock;
+      findMany: jest.Mock;
       create: jest.Mock;
+      update: jest.Mock;
     };
     $transaction: jest.Mock;
     $executeRaw: jest.Mock;
@@ -29,7 +31,9 @@ describe('ClientsService', () => {
       client: {
         findUnique: jest.fn(),
         findFirst: jest.fn(),
+        findMany: jest.fn(),
         create: jest.fn(),
+        update: jest.fn(),
       },
       $transaction: jest.fn(async (fn) => fn(prisma)),
       $executeRaw: jest.fn(),
@@ -50,6 +54,15 @@ describe('ClientsService', () => {
         } as never),
       ).rejects.toBeInstanceOf(BadRequestException);
       expect(prisma.$transaction).not.toHaveBeenCalled();
+    });
+
+    it('rejects individual clients without names', async () => {
+      await expect(
+        service.create({
+          type: ClientType.individual,
+          country: 'BG',
+        } as never),
+      ).rejects.toBeInstanceOf(BadRequestException);
     });
 
     it('creates a company client and logs history', async () => {
@@ -82,11 +95,255 @@ describe('ClientsService', () => {
     });
   });
 
+  describe('findAll', () => {
+    it('returns paginated clients with display names', async () => {
+      prisma.client.findMany.mockResolvedValue([
+        {
+          id: 'c1',
+          type: ClientType.company,
+          companyName: 'Acme',
+          firstName: null,
+          lastName: null,
+          internalCode: 'CL-2026-001',
+        },
+        { id: 'c2', type: ClientType.company, companyName: 'Beta' },
+        { id: 'c3', type: ClientType.company, companyName: 'Gamma' },
+      ]);
+
+      const result = await service.findAll({ limit: 2 } as never);
+
+      expect(result.items).toHaveLength(2);
+      expect(result.items[0].displayName).toBe('Acme');
+      expect(result.nextCursor).toBe('c2');
+    });
+
+    it('applies search and filter query params', async () => {
+      prisma.client.findMany.mockResolvedValue([]);
+      await service.findAll({
+        search: ' acme ',
+        status: ClientStatus.active,
+        type: ClientType.company,
+        assignedUserId: 'u1',
+        holdingGroupId: 'hg1',
+        gdprConsent: true,
+      } as never);
+
+      expect(prisma.client.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            status: ClientStatus.active,
+            type: ClientType.company,
+            assignedUserId: 'u1',
+            holdingGroupId: 'hg1',
+            gdprConsent: true,
+            OR: expect.any(Array),
+          }),
+        }),
+      );
+    });
+  });
+
   describe('findOne', () => {
+    it('returns client with display name', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        internalCode: 'CL-2026-001',
+      });
+
+      const result = await service.findOne('c1');
+      expect(result.displayName).toBe('Acme');
+    });
+
     it('throws when missing', async () => {
       prisma.client.findUnique.mockResolvedValue(null);
       await expect(service.findOne('missing')).rejects.toBeInstanceOf(
         NotFoundException,
+      );
+    });
+  });
+
+  describe('getSummary', () => {
+    it('throws when missing', async () => {
+      prisma.client.findUnique.mockResolvedValue(null);
+      await expect(service.getSummary('missing')).rejects.toBeInstanceOf(
+        NotFoundException,
+      );
+    });
+
+    it('returns summary fields', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        internalCode: 'CL-1',
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        status: ClientStatus.active,
+        country: 'BG',
+        contacts: [{ id: 'ct1' }],
+        offices: [{ id: 'o1' }],
+      });
+
+      const result = await service.getSummary('c1');
+      expect(result.displayName).toBe('Acme');
+      expect(result.primaryContact).toEqual({ id: 'ct1' });
+    });
+  });
+
+  describe('update', () => {
+    it('rejects archived clients', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.archived,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        holdingGroupId: null,
+        gdprConsent: false,
+        gdprConsentDate: null,
+      });
+
+      await expect(
+        service.update('c1', { notes: 'x' } as never),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('updates client and logs status change', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.active,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        holdingGroupId: null,
+        gdprConsent: false,
+        gdprConsentDate: null,
+      });
+      prisma.client.update.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.inactive,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        internalCode: 'CL-1',
+      });
+
+      await service.update(
+        'c1',
+        { status: ClientStatus.inactive } as never,
+        'u1',
+      );
+
+      expect(history.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          eventType: RelationshipEventType.status_changed,
+        }),
+      );
+    });
+
+    it('logs holding group changes and sets gdpr consent date', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.active,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        holdingGroupId: null,
+        gdprConsent: false,
+        gdprConsentDate: null,
+        internalCode: 'CL-1',
+        contacts: [],
+        offices: [],
+        relatedCompanies: [],
+        assignedUser: null,
+        holdingGroup: null,
+      });
+      prisma.client.update.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.active,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        holdingGroupId: 'hg1',
+        gdprConsent: true,
+        gdprConsentDate: new Date(),
+        internalCode: 'CL-1',
+        contacts: [],
+        offices: [],
+        relatedCompanies: [],
+        assignedUser: null,
+        holdingGroup: { id: 'hg1', name: 'Group' },
+      });
+
+      await service.update(
+        'c1',
+        { holdingGroupId: 'hg1', gdprConsent: true } as never,
+        'u1',
+      );
+
+      expect(history.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          eventType: RelationshipEventType.holding_changed,
+        }),
+      );
+    });
+  });
+
+  describe('archive', () => {
+    it('returns existing archived client without update', async () => {
+      const archived = {
+        id: 'c1',
+        status: ClientStatus.archived,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        internalCode: 'CL-1',
+      };
+      prisma.client.findUnique.mockResolvedValue(archived);
+
+      await expect(service.archive('c1')).resolves.toMatchObject({
+        id: 'c1',
+        displayName: 'Acme',
+      });
+      expect(prisma.client.update).not.toHaveBeenCalled();
+    });
+
+    it('archives active client and logs history', async () => {
+      prisma.client.findUnique.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.active,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        internalCode: 'CL-1',
+      });
+      prisma.client.update.mockResolvedValue({
+        id: 'c1',
+        status: ClientStatus.archived,
+        type: ClientType.company,
+        companyName: 'Acme',
+        firstName: null,
+        lastName: null,
+        internalCode: 'CL-1',
+      });
+
+      await service.archive('c1', 'u1');
+
+      expect(history.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          description: 'Client archived',
+        }),
       );
     });
   });

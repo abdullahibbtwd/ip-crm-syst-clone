@@ -304,4 +304,284 @@ describe('DocumentsService', () => {
       service.upload('m1', file, { category: DocumentCategory.application } as never, 'u1'),
     ).rejects.toBeInstanceOf(BadRequestException);
   });
+
+  it('listForMatter applies search filter', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    prisma.matterDocument.findMany.mockResolvedValue([]);
+    await service.listForMatter('m1', { search: 'spec' } as never);
+    expect(prisma.matterDocument.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        where: expect.objectContaining({
+          OR: expect.any(Array),
+        }),
+      }),
+    );
+  });
+
+  it('getDownloadUrl resolves specific version', async () => {
+    prisma.matterDocument.findUnique.mockResolvedValue({
+      matter: { clientId: 'c1' },
+    });
+    prisma.matterDocumentVersion.findFirst.mockResolvedValue({
+      id: 'v2',
+      storageKey: 'k2',
+      fileName: 'b.pdf',
+      mimeType: 'application/pdf',
+      version: 2,
+    });
+
+    const result = await service.getDownloadUrl('d1', 'v2');
+    expect(result.version).toBe(2);
+    expect(prisma.matterDocumentVersion.findFirst).toHaveBeenCalledWith(
+      expect.objectContaining({ where: { id: 'v2', documentId: 'd1' } }),
+    );
+  });
+
+  it('getDownloadUrl throws when version missing', async () => {
+    prisma.matterDocument.findUnique.mockResolvedValue({
+      matter: { clientId: 'c1' },
+    });
+    prisma.matterDocumentVersion.findFirst.mockResolvedValue(null);
+    await expect(service.getDownloadUrl('d1')).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+  });
+
+  it('uploadVersion throws when document missing', async () => {
+    prisma.matterDocument.findUnique.mockResolvedValue(null);
+    const file = {
+      buffer: Buffer.from('pdf'),
+      size: 4,
+      mimetype: 'application/pdf',
+      originalname: 'rev.pdf',
+    } as Express.Multer.File;
+    await expect(service.uploadVersion('missing', file, 'u1')).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+  });
+
+  it('upload rejects empty file buffer', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    const file = {
+      buffer: Buffer.alloc(0),
+      size: 0,
+      mimetype: 'application/pdf',
+      originalname: 'empty.pdf',
+    } as Express.Multer.File;
+    await expect(
+      service.upload('m1', file, { category: DocumentCategory.application } as never, 'u1'),
+    ).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('generateFromTemplate rejects docx when template has no docx', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    documentTemplates.findById.mockResolvedValue({
+      id: 'tpl-1',
+      name: 'Letter',
+      slug: 'letter',
+      category: DocumentCategory.correspondence,
+      docxStorageKey: null,
+    });
+    await expect(
+      service.generateFromTemplate('m1', 'tpl-1', 'u1', 'docx'),
+    ).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('generateFromTemplate rolls back on storage failure', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    documentTemplates.findById.mockResolvedValue({
+      id: 'tpl-1',
+      name: 'Cover Letter',
+      slug: 'cover-letter',
+      category: DocumentCategory.correspondence,
+      docxStorageKey: null,
+    });
+    prisma.matterDocument.create.mockResolvedValue({
+      id: 'd-gen',
+      matterId: 'm1',
+      displayName: 'Cover Letter',
+      category: DocumentCategory.correspondence,
+      tags: [],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    storage.putObject.mockRejectedValue(new Error('storage down'));
+
+    await expect(
+      service.generateFromTemplate('m1', 'tpl-1', 'u1', 'pdf'),
+    ).rejects.toThrow('storage down');
+    expect(prisma.matterDocument.delete).toHaveBeenCalledWith({
+      where: { id: 'd-gen' },
+    });
+  });
+
+  describe('extended branch coverage', () => {
+    it('listFirmWide applies search and category filters', async () => {
+      prisma.matterDocument.findMany.mockResolvedValue([]);
+      await service.listFirmWide({ search: 'contract', category: 'correspondence' } as never);
+      expect(prisma.matterDocument.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            OR: expect.any(Array),
+            category: 'correspondence',
+          }),
+        }),
+      );
+    });
+
+    it('listForPortalClient scopes to client id', async () => {
+      prisma.matterDocument.findMany.mockResolvedValue([]);
+      await service.listForPortalClient('c1', {} as never);
+      expect(prisma.matterDocument.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            matter: { clientId: 'c1' },
+          }),
+        }),
+      );
+    });
+
+    it('upload accepts docx mime type', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      prisma.matterDocument.create.mockResolvedValue({
+        id: 'd1',
+        matterId: 'm1',
+        displayName: 'Brief',
+        category: DocumentCategory.correspondence,
+        tags: [],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+      prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'v1' });
+
+      await service.upload(
+        'm1',
+        {
+          buffer: Buffer.from('docx'),
+          mimetype:
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          originalname: 'brief.docx',
+          size: 10,
+        } as Express.Multer.File,
+        { displayName: 'Brief' } as never,
+        'u1',
+      );
+
+      expect(storage.putObject).toHaveBeenCalled();
+    });
+
+    it('getDownloadUrl uses latest version when versionId omitted', async () => {
+      prisma.matterDocument.findUnique.mockResolvedValue({
+        id: 'd1',
+        matter: { clientId: 'c1' },
+      });
+      prisma.matterDocumentVersion.findFirst.mockResolvedValue({
+        id: 'v2',
+        storageKey: 'k2',
+        fileName: 'f.pdf',
+        mimeType: 'application/pdf',
+        version: 2,
+      });
+      storage.getPresignedDownloadUrl.mockResolvedValue('https://signed');
+      const result = await service.getDownloadUrl('d1');
+      expect(result.url).toBe('https://signed');
+    });
+
+    it('createFromBuffer rejects oversize files', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      const huge = Buffer.alloc(51 * 1024 * 1024);
+      await expect(
+        service.createFromBuffer({
+          matterId: 'm1',
+          userId: 'u1',
+          displayName: 'Big',
+          category: DocumentCategory.correspondence,
+          tags: [],
+          fileName: 'big.pdf',
+          mimeType: 'application/pdf',
+          buffer: huge,
+        }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('createFromBuffer rolls back document on storage failure', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      prisma.matterDocument.create.mockResolvedValue({
+        id: 'd-new',
+        matterId: 'm1',
+        displayName: 'File',
+        category: DocumentCategory.correspondence,
+        tags: [],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+      storage.putObject.mockRejectedValue(new Error('storage fail'));
+
+      await expect(
+        service.createFromBuffer({
+          matterId: 'm1',
+          userId: 'u1',
+          displayName: 'File',
+          category: DocumentCategory.correspondence,
+          tags: [],
+          fileName: 'f.pdf',
+          mimeType: 'application/pdf',
+          buffer: Buffer.from('pdf'),
+        }),
+      ).rejects.toThrow('storage fail');
+      expect(prisma.matterDocument.delete).toHaveBeenCalledWith({
+        where: { id: 'd-new' },
+      });
+    });
+
+    it('listForMatter applies category filter from query', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      prisma.matterDocument.findMany.mockResolvedValue([]);
+      await service.listForMatter('m1', { category: DocumentCategory.filing } as never);
+      expect(prisma.matterDocument.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            matterId: 'm1',
+            category: DocumentCategory.filing,
+          }),
+        }),
+      );
+    });
+
+    it('uploadVersion increments version number', async () => {
+      prisma.matterDocument.findUnique.mockResolvedValue({
+        id: 'd1',
+        matterId: 'm1',
+        versions: [{ version: 2 }],
+      });
+      prisma.matterDocumentVersion.create.mockResolvedValue({
+        id: 'v3',
+        version: 3,
+      });
+
+      await service.uploadVersion(
+        'd1',
+        {
+          buffer: Buffer.from('pdf'),
+          mimetype: 'application/pdf',
+          originalname: 'rev.pdf',
+          size: 3,
+        } as Express.Multer.File,
+        'u1',
+      );
+
+      expect(prisma.matterDocumentVersion.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ version: 3 }),
+        }),
+      );
+    });
+
+    it('getDownloadUrl throws when document missing', async () => {
+      prisma.matterDocument.findUnique.mockResolvedValue(null);
+      await expect(service.getDownloadUrl('missing')).rejects.toBeInstanceOf(
+        NotFoundException,
+      );
+    });
+  });
 });

@@ -118,4 +118,84 @@ describe('MicrosoftMailService', () => {
       }),
     );
   });
+
+  it('fetchNewMessages returns empty when graph returns no value', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+    await expect(service.fetchNewMessages('token')).resolves.toEqual([]);
+  });
+
+  it('fetchNewMessages formats partial graph addresses', async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          value: [
+            {
+              id: 'msg-2',
+              subject: '',
+              from: { emailAddress: { address: 'solo@example.com' } },
+              toRecipients: [{ emailAddress: { name: 'Inbox' } }],
+              receivedDateTime: undefined,
+              hasAttachments: false,
+            },
+          ],
+        }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        arrayBuffer: async () => Buffer.from('MIME'),
+      });
+
+    const messages = await service.fetchNewMessages('token');
+    expect(messages[0].sender).toBe('solo@example.com');
+    expect(messages[0].recipient).toBe('Inbox');
+    expect(messages[0].subject).toBe('(No subject)');
+  });
+
+  it('sendMail omits optional cc and attachments', async () => {
+    fetchMock.mockResolvedValueOnce({ ok: true, json: async () => ({}) });
+
+    await service.sendMail('token', {
+      fromAddress: 'me@firm.com',
+      to: ['client@example.com'],
+      subject: 'Hello',
+      bodyHtml: '<p>Hi</p>',
+    });
+
+    const payload = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
+    expect(payload.message.ccRecipients).toBeUndefined();
+    expect(payload.message.attachments).toBeUndefined();
+  });
+
+  it('fetchNewMessages propagates auth errors from list', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: false,
+      status: 401,
+      text: async () => 'unauthorized',
+      headers: { get: () => null },
+    });
+    await expect(service.fetchNewMessages('token')).rejects.toThrow();
+  });
+
+  it('fetchNewMessages uses default since when not provided', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ value: [] }),
+    });
+    await service.fetchNewMessages('token');
+    expect(String(fetchMock.mock.calls[0][0])).toContain('receivedDateTime%20ge');
+  });
+
+  it('fetchNewMessages skips message when mime fetch throws', async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ value: [{ id: 'msg-x' }] }),
+      })
+      .mockRejectedValueOnce(new Error('network'));
+    await expect(service.fetchNewMessages('token')).resolves.toEqual([]);
+  });
 });

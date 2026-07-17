@@ -138,4 +138,96 @@ describe('NotificationDispatchService', () => {
 
     expect(prisma.notification.create).not.toHaveBeenCalled();
   });
+
+  it('returns zero when no managing partners exist', async () => {
+    managingPartnerAudience.listActiveManagingPartners.mockResolvedValue([]);
+    await expect(
+      service.ensureManagingPartnerDeadlineCopies({
+        userId: 'u1',
+        type: 'deadline_reminder',
+        title: 'Due',
+        resourceId: 'd1',
+      }),
+    ).resolves.toBe(0);
+    expect(prisma.notification.create).not.toHaveBeenCalled();
+  });
+
+  it('skips MP fan-out when assignee is the only managing partner', async () => {
+    managingPartnerAudience.listActiveManagingPartners.mockResolvedValue([
+      { id: 'u1', email: 'mp@x.com' },
+    ]);
+    await expect(
+      service.ensureManagingPartnerDeadlineCopies({
+        userId: 'u1',
+        type: 'deadline_reminder',
+        title: 'Due',
+        resourceId: 'd1',
+      }),
+    ).resolves.toBe(0);
+  });
+
+  it('includes assignee name in MP body when provided', async () => {
+    managingPartnerAudience.listActiveManagingPartners.mockResolvedValue([
+      { id: 'mp1', email: 'mp@x.com' },
+    ]);
+
+    await service.ensureManagingPartnerDeadlineCopies({
+      userId: 'u1',
+      assigneeName: 'Ada',
+      type: 'deadline_reminder',
+      title: 'Due',
+      body: 'Reply due',
+      resourceId: 'd1',
+      metadata: { source: 'scan' },
+    });
+
+    expect(prisma.notification.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.objectContaining({
+          body: 'Reply due Attorney: Ada.',
+        }),
+      }),
+    );
+  });
+
+  it('dedupes MP copies by source metadata when milestone absent', async () => {
+    managingPartnerAudience.listActiveManagingPartners.mockResolvedValue([
+      { id: 'mp1', email: 'mp@x.com' },
+    ]);
+    prisma.notification.findFirst.mockResolvedValue({ id: 'existing' });
+
+    await service.ensureManagingPartnerDeadlineCopies({
+      userId: 'u1',
+      type: 'deadline_reminder',
+      title: 'Due',
+      resourceId: 'd1',
+      metadata: { source: 'backfill' },
+    });
+
+    expect(prisma.notification.findFirst).toHaveBeenCalledWith(
+      expect.objectContaining({
+        where: expect.objectContaining({
+          AND: expect.arrayContaining([
+            expect.objectContaining({
+              metadata: { path: ['source'], equals: 'backfill' },
+            }),
+          ]),
+        }),
+      }),
+    );
+    expect(prisma.notification.create).not.toHaveBeenCalled();
+  });
+
+  it('uses default email subject when emailSubject omitted', async () => {
+    await service.dispatch({
+      userId: 'u1',
+      type: 'deadline_reminder',
+      title: 'Hello',
+      emailTo: 'a@x.com',
+    });
+    expect(emailQueue.add).toHaveBeenCalledWith(
+      SEND_EMAIL_JOB,
+      expect.objectContaining({ subject: 'Hello', text: 'Hello' }),
+    );
+  });
 });

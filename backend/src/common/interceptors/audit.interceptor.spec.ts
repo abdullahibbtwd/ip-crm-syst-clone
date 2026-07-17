@@ -220,6 +220,87 @@ describe('AuditInterceptor', () => {
     });
   });
 
+  it('extracts resourceId for client routes', (done) => {
+    reflector.getAllAndOverride.mockReturnValue({ resource: 'client' });
+    const next: CallHandler = { handle: () => of({}) };
+
+    interceptor
+      .intercept(
+        buildContext({
+          method: 'GET',
+          path: '/clients/c1',
+          params: { clientId: 'c1' },
+        }),
+        next,
+      )
+      .subscribe({
+        complete: () => {
+          expect(auditService.log).toHaveBeenCalledWith(
+            expect.objectContaining({ resourceId: 'c1' }),
+          );
+          done();
+        },
+      });
+  });
+
+  it('extracts clientId from response body on writes', (done) => {
+    reflector.getAllAndOverride.mockReturnValue(undefined);
+    const next: CallHandler = {
+      handle: () => of({ id: 'm1', clientId: 'c9' }),
+    };
+
+    interceptor
+      .intercept(
+        buildContext({
+          method: 'POST',
+          path: '/matters',
+          params: {},
+        }),
+        next,
+      )
+      .subscribe({
+        complete: () => {
+          expect(auditService.log).toHaveBeenCalledWith(
+            expect.objectContaining({
+              metadata: expect.objectContaining({ clientId: 'c9' }),
+            }),
+          );
+          done();
+        },
+      });
+  });
+
+  it('uses request.ip when x-forwarded-for is absent', (done) => {
+    reflector.getAllAndOverride.mockReturnValue(undefined);
+    const next: CallHandler = { handle: () => of({}) };
+    const ctx = buildContext({ headers: { 'user-agent': 'jest' } });
+    const request = ctx.switchToHttp().getRequest();
+    request.ip = '192.0.2.10';
+
+    interceptor.intercept(ctx, next).subscribe({
+      complete: () => {
+        expect(auditService.log).toHaveBeenCalledWith(
+          expect.objectContaining({ ipAddress: '192.0.2.10' }),
+        );
+        done();
+      },
+    });
+  });
+
+  it('treats HEAD as read-only', (done) => {
+    reflector.getAllAndOverride.mockReturnValue(undefined);
+    const next: CallHandler = { handle: () => of({ secret: 'x' }) };
+
+    interceptor.intercept(buildContext({ method: 'HEAD' }), next).subscribe({
+      complete: () => {
+        expect(auditService.log).toHaveBeenCalledWith(
+          expect.objectContaining({ newValue: undefined }),
+        );
+        done();
+      },
+    });
+  });
+
   it('extracts IP from x-forwarded-for header', (done) => {
     reflector.getAllAndOverride.mockReturnValue(undefined);
     const next: CallHandler = { handle: () => of({}) };

@@ -378,6 +378,15 @@ describe('AuthService', () => {
       expect(email.send).not.toHaveBeenCalled();
     });
 
+    it('returns generic message for SSO-only users without password hash', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ passwordHash: null }),
+      );
+      const result = await service.requestPasswordReset('ada@example.com');
+      expect(result.message).toMatch(/If an account exists/);
+      expect(email.send).not.toHaveBeenCalled();
+    });
+
     it('creates reset token and emails active user', async () => {
       prisma.user.findUnique.mockResolvedValue(accessUser());
       prisma.passwordResetToken.updateMany.mockResolvedValue({});
@@ -389,6 +398,17 @@ describe('AuthService', () => {
       expect(email.send).toHaveBeenCalledWith(
         expect.objectContaining({ to: 'ada@example.com' }),
       );
+    });
+
+    it('still returns generic message when email send fails', async () => {
+      prisma.user.findUnique.mockResolvedValue(accessUser());
+      prisma.passwordResetToken.updateMany.mockResolvedValue({});
+      prisma.passwordResetToken.create.mockResolvedValue({});
+      email.send.mockRejectedValue(new Error('smtp down'));
+
+      const result = await service.requestPasswordReset('ada@example.com');
+
+      expect(result.message).toMatch(/If an account exists/);
     });
 
     it('resetPassword rejects invalid token', async () => {
@@ -423,6 +443,22 @@ describe('AuthService', () => {
       ).rejects.toBeInstanceOf(UnauthorizedException);
     });
 
+    it('verifyMfaAndLogin rejects wrong token type', async () => {
+      jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'access' });
+      await expect(
+        service.verifyMfaAndLogin('pending', '123456'),
+      ).rejects.toThrow(/Invalid MFA session/);
+    });
+
+    it('verifyMfaAndLogin rejects when MFA is not enabled on account', async () => {
+      jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'mfa_pending' });
+      prisma.user.findUnique.mockResolvedValue(accessUser({ mfaEnabled: false }));
+
+      await expect(
+        service.verifyMfaAndLogin('pending', '123456'),
+      ).rejects.toThrow(/MFA is not enabled/);
+    });
+
     it('verifyMfaAndLogin accepts valid TOTP and issues tokens', async () => {
       jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'mfa_pending' });
       const user = accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' });
@@ -435,6 +471,24 @@ describe('AuthService', () => {
 
       expect(result.tokens.accessToken).toBe('access-jwt');
       expect(mfaSecret.decrypt).toHaveBeenCalledWith('enc:sec');
+    });
+
+    it('verifyMfaAndLogin accepts backup codes', async () => {
+      jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'mfa_pending' });
+      const user = accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' });
+      prisma.user.findUnique.mockResolvedValue(user);
+      prisma.user.update.mockResolvedValue(user);
+      prisma.refreshToken.create.mockResolvedValue({});
+      prisma.mfaBackupCode.findMany.mockResolvedValue([
+        { id: 'bc1', codeHash: 'hash' },
+      ]);
+      (bcrypt.compare as jest.Mock).mockResolvedValue(true);
+      prisma.mfaBackupCode.update.mockResolvedValue({});
+
+      const result = await service.verifyMfaAndLogin('pending', 'ABCD-EFGH');
+
+      expect(result.tokens.accessToken).toBe('access-jwt');
+      expect(prisma.mfaBackupCode.update).toHaveBeenCalled();
     });
 
     it('enableMfa verifies code and returns backup codes', async () => {
@@ -450,6 +504,20 @@ describe('AuthService', () => {
 
       expect(result.backupCodes).toHaveLength(10);
       expect(result.user.mfaEnabled).toBe(true);
+    });
+
+    it('enableMfa rejects when already enabled or setup not started', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' }),
+      );
+      await expect(service.enableMfa('u1', '123456')).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
+
+      prisma.user.findUnique.mockResolvedValue(accessUser({ mfaSecret: null }));
+      await expect(service.enableMfa('u1', '123456')).rejects.toThrow(
+        /Start two-factor setup/,
+      );
     });
 
     it('disableMfa requires password and MFA code', async () => {
@@ -468,11 +536,42 @@ describe('AuthService', () => {
       ).rejects.toBeInstanceOf(UnauthorizedException);
     });
 
+    it('disableMfa clears MFA after valid password and code', async () => {
+      const user = accessUser({
+        mfaEnabled: true,
+        mfaSecret: 'enc:sec',
+        passwordHash: 'hashed',
+      });
+      prisma.user.findUnique.mockResolvedValueOnce(user);
+      prisma.user.findUniqueOrThrow.mockResolvedValue(
+        accessUser({ mfaEnabled: false }),
+      );
+      (bcrypt.compare as jest.Mock).mockResolvedValue(true);
+      (verify as jest.Mock).mockResolvedValue({ valid: true });
+
+      const result = await service.disableMfa('u1', 'good-pass', '123456');
+
+      expect(result.mfaEnabled).toBe(false);
+      expect(prisma.$transaction).toHaveBeenCalled();
+    });
+
     it('regenerateBackupCodes requires enabled MFA', async () => {
       prisma.user.findUnique.mockResolvedValue(accessUser({ mfaEnabled: false }));
       await expect(
         service.regenerateBackupCodes('u1', '123456'),
       ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('regenerateBackupCodes returns fresh codes after MFA verification', async () => {
+      const user = accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' });
+      prisma.user.findUnique.mockResolvedValue(user);
+      (verify as jest.Mock).mockResolvedValue({ valid: true });
+      (bcrypt.hash as jest.Mock).mockResolvedValue('hash');
+
+      const codes = await service.regenerateBackupCodes('u1', '123456');
+
+      expect(codes).toHaveLength(10);
+      expect(prisma.mfaBackupCode.createMany).toHaveBeenCalled();
     });
   });
 
@@ -516,6 +615,13 @@ describe('AuthService', () => {
       ).resolves.toBe(existing);
     });
 
+    it('registerPortalFromSso rejects inactive existing user', async () => {
+      prisma.user.findUnique.mockResolvedValue(accessUser({ isActive: false }));
+      await expect(
+        service.registerPortalFromSso('ada@example.com', 'Ada Lovelace'),
+      ).rejects.toBeInstanceOf(UnauthorizedException);
+    });
+
     it('registerPortalFromSso provisions new SSO portal user', async () => {
       prisma.user.findUnique.mockResolvedValue(null);
       prisma.role.findUniqueOrThrow.mockResolvedValue({ id: 'role-portal' });
@@ -554,6 +660,222 @@ describe('AuthService', () => {
       expect(result.secret).toBeTruthy();
       expect(result.otpauthUrl).toContain('otpauth://');
       expect(mfaSecret.encrypt).toHaveBeenCalled();
+    });
+  });
+
+  describe('additional branch coverage', () => {
+    it('validateUser rejects accounts without password hash', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ passwordHash: null }),
+      );
+      await expect(service.validateUser('ada@example.com', 'pw')).rejects.toBeInstanceOf(
+        UnauthorizedException,
+      );
+    });
+
+    it('refresh rejects inactive users even with valid token', async () => {
+      prisma.refreshToken.findUnique.mockResolvedValue({
+        id: 'rt1',
+        revoked: false,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: accessUser({ isActive: false }),
+      });
+      await expect(service.refresh('raw')).rejects.toBeInstanceOf(
+        UnauthorizedException,
+      );
+    });
+
+    it('verifyMfaAndLogin rejects invalid TOTP codes', async () => {
+      jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'mfa_pending' });
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' }),
+      );
+      (verify as jest.Mock).mockResolvedValue({ valid: false });
+      await expect(
+        service.verifyMfaAndLogin('pending', '000000'),
+      ).rejects.toBeInstanceOf(UnauthorizedException);
+    });
+
+    it('verifyMfaAndLogin rejects invalid backup codes', async () => {
+      jwtService.verifyAsync.mockResolvedValue({ sub: 'u1', type: 'mfa_pending' });
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' }),
+      );
+      prisma.mfaBackupCode.findMany.mockResolvedValue([]);
+      await expect(
+        service.verifyMfaAndLogin('pending', 'ABCD-EFGH'),
+      ).rejects.toBeInstanceOf(UnauthorizedException);
+    });
+
+    it('enableMfa rejects invalid confirmation code', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaSecret: 'enc:sec' }),
+      );
+      (verify as jest.Mock).mockResolvedValue({ valid: false });
+      await expect(service.enableMfa('u1', '000000')).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
+    });
+
+    it('disableMfa rejects when password hash is missing', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({
+          mfaEnabled: true,
+          mfaSecret: 'enc:sec',
+          passwordHash: null,
+        }),
+      );
+      await expect(
+        service.disableMfa('u1', 'pass', '123456'),
+      ).rejects.toBeInstanceOf(UnauthorizedException);
+    });
+
+    it('disableMfa rejects when MFA is not enabled', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaEnabled: false, mfaSecret: null }),
+      );
+      await expect(
+        service.disableMfa('u1', 'pass', '123456'),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('registerPortalClient creates individual client without company', async () => {
+      prisma.user.findUnique.mockResolvedValue(null);
+      (bcrypt.hash as jest.Mock).mockResolvedValue('hash');
+      prisma.role.findUniqueOrThrow.mockResolvedValue({ id: 'role-portal' });
+      prisma.user.create.mockResolvedValue({ id: 'u-new' });
+      prisma.user.findUniqueOrThrow.mockResolvedValue(accessUser({ id: 'u-new' }));
+
+      await service.registerPortalClient({
+        email: 'solo@example.com',
+        password: 'Pass123!',
+        fullName: 'Solo User',
+      } as never);
+
+      expect(clientsService.createInTransaction).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({
+          type: 'individual',
+          firstName: 'Solo',
+          lastName: 'User',
+        }),
+      );
+    });
+
+    it('resetPassword rejects expired tokens', async () => {
+      prisma.passwordResetToken.findUnique.mockResolvedValue({
+        id: 'prt1',
+        userId: 'u1',
+        used: false,
+        expiresAt: new Date(Date.now() - 60_000),
+        user: { isActive: true },
+      });
+      await expect(
+        service.resetPassword('tok', 'NewPass123!'),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('resetPassword rejects already-used tokens', async () => {
+      prisma.passwordResetToken.findUnique.mockResolvedValue({
+        id: 'prt1',
+        userId: 'u1',
+        used: true,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: { isActive: true },
+      });
+      await expect(
+        service.resetPassword('tok', 'NewPass123!'),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('regenerateBackupCodes rejects invalid MFA code', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ mfaEnabled: true, mfaSecret: 'enc:sec' }),
+      );
+      (verify as jest.Mock).mockResolvedValue({ valid: false });
+      await expect(
+        service.regenerateBackupCodes('u1', '000000'),
+      ).rejects.toBeInstanceOf(UnauthorizedException);
+    });
+
+    it('getProfile includes mfaEnrollmentRequired from policy', async () => {
+      prisma.user.findUnique.mockResolvedValue(accessUser());
+      mfaPolicy.requiresMfaEnrollment.mockResolvedValue(true);
+      const profile = await service.getProfile('u1');
+      expect(profile.mfaEnrollmentRequired).toBe(true);
+    });
+
+    it('requestPasswordReset returns generic message for inactive users', async () => {
+      prisma.user.findUnique.mockResolvedValue(
+        accessUser({ isActive: false }),
+      );
+      const result = await service.requestPasswordReset('ada@example.com');
+      expect(result.message).toMatch(/If an account exists/);
+      expect(email.send).not.toHaveBeenCalled();
+    });
+
+    it('login omits mfaEnrollmentRequired when policy returns false', async () => {
+      const user = accessUser();
+      mfaPolicy.requiresMfaEnrollment.mockResolvedValue(false);
+      prisma.user.update.mockResolvedValue(user);
+      prisma.refreshToken.create.mockResolvedValue({});
+      const result = await service.login(user);
+      expect(result.mfaEnrollmentRequired).toBe(false);
+    });
+
+    it('refresh rejects when token record has no user', async () => {
+      prisma.refreshToken.findUnique.mockResolvedValue({
+        id: 'rt1',
+        revoked: false,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: null,
+      });
+      await expect(service.refresh('raw')).rejects.toThrow();
+    });
+
+    it('resolveSessionUser returns user for active account', async () => {
+      prisma.user.findUnique.mockResolvedValue(accessUser());
+      await expect(service.resolveSessionUser('u1')).resolves.toMatchObject({
+        userId: 'u1',
+      });
+    });
+
+    it('registerPortalFromSso creates user when email is new', async () => {
+      prisma.user.findUnique.mockResolvedValue(null);
+      prisma.role.findUniqueOrThrow.mockResolvedValue({ id: 'role-portal' });
+      prisma.user.create.mockResolvedValue({ id: 'u-sso' });
+      prisma.user.findUniqueOrThrow.mockResolvedValue(
+        accessUser({ id: 'u-sso', email: 'sso@example.com' }),
+      );
+      const result = await service.registerPortalFromSso(
+        'sso@example.com',
+        'SSO User',
+      );
+      expect(result.email).toBe('sso@example.com');
+    });
+
+    it('refresh rejects expired refresh tokens', async () => {
+      prisma.refreshToken.findUnique.mockResolvedValue({
+        id: 'rt1',
+        revoked: false,
+        expiresAt: new Date(Date.now() - 60_000),
+        user: accessUser(),
+      });
+      await expect(service.refresh('raw')).rejects.toBeInstanceOf(
+        UnauthorizedException,
+      );
+    });
+
+    it('refresh rejects revoked refresh tokens', async () => {
+      prisma.refreshToken.findUnique.mockResolvedValue({
+        id: 'rt1',
+        revoked: true,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: accessUser(),
+      });
+      await expect(service.refresh('raw')).rejects.toBeInstanceOf(
+        UnauthorizedException,
+      );
     });
   });
 });

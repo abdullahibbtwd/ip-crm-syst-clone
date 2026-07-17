@@ -232,6 +232,37 @@ describe('InvoicesService', () => {
       expect(result.pdfStorageKey).toBe('pdf/key.pdf');
       expect(pdf.generateAndStore).toHaveBeenCalled();
     });
+
+    it('increments existing invoice sequence', async () => {
+      const year = new Date().getFullYear();
+      prisma.invoice.findUnique.mockResolvedValue(invoiceRow());
+      prisma.invoiceSequence.findUnique.mockResolvedValue({
+        year,
+        lastNumber: 7,
+      });
+      prisma.invoiceSequence.update.mockResolvedValue({
+        year,
+        lastNumber: 8,
+      });
+      prisma.invoice.update
+        .mockResolvedValueOnce(
+          invoiceRow({
+            status: InvoiceStatus.issued,
+            invoiceNumber: `INV-${year}-0008`,
+          }),
+        )
+        .mockResolvedValueOnce(
+          invoiceRow({
+            status: InvoiceStatus.issued,
+            invoiceNumber: `INV-${year}-0008`,
+            pdfStorageKey: 'pdf/key.pdf',
+          }),
+        );
+
+      const result = await service.issue('inv-1');
+      expect(result.invoiceNumber).toBe(`INV-${year}-0008`);
+      expect(prisma.invoiceSequence.update).toHaveBeenCalled();
+    });
   });
 
   describe('listForMatter', () => {
@@ -446,6 +477,32 @@ describe('InvoicesService', () => {
 
       expect(prisma.invoicePayment.create).toHaveBeenCalled();
       expect(result.paymentStatus).toBe(PaymentStatus.paid);
+    });
+
+    it('records partial payment status', async () => {
+      prisma.invoice.findUnique.mockResolvedValue(
+        invoiceRow({
+          status: InvoiceStatus.issued,
+          totalAmount: 100,
+          paidAmount: 0,
+        }),
+      );
+      prisma.invoicePayment.create.mockResolvedValue({ id: 'pay-1' });
+      prisma.invoice.update.mockResolvedValue(
+        invoiceRow({
+          status: InvoiceStatus.issued,
+          paidAmount: 40,
+          paymentStatus: PaymentStatus.partial,
+        }),
+      );
+
+      const result = await service.recordPayment(
+        'inv-1',
+        { amount: 40, paidAt: '2026-01-15T10:00:00Z' },
+        'u1',
+      );
+
+      expect(result.paymentStatus).toBe(PaymentStatus.partial);
     });
   });
 

@@ -113,4 +113,71 @@ describe('HolidaysService', () => {
       );
     });
   });
+
+  describe('list', () => {
+    it('filters by jurisdiction and date range', async () => {
+      prisma.holiday.findMany.mockResolvedValue([]);
+      await service.list({
+        jurisdiction: 'bg',
+        from: '2026-01-01',
+        to: '2026-12-31',
+      });
+      expect(prisma.holiday.findMany).toHaveBeenCalledWith({
+        where: {
+          jurisdiction: 'BG',
+          date: {
+            gte: new Date('2026-01-01'),
+            lte: new Date('2026-12-31'),
+          },
+        },
+        orderBy: [{ jurisdiction: 'asc' }, { date: 'asc' }],
+      });
+    });
+  });
+
+  describe('getHolidaySetAround', () => {
+    it('delegates to getHolidaySet with surrounding years', async () => {
+      prisma.holiday.findMany.mockResolvedValue([]);
+      await service.getHolidaySetAround('EU', new Date('2026-06-15'));
+      expect(prisma.holiday.findMany).toHaveBeenCalledWith({
+        where: { jurisdiction: 'EU' },
+        select: { date: true, isRecurring: true },
+      });
+    });
+  });
+
+  describe('update / remove', () => {
+    it('update trims fields after verifying holiday exists', async () => {
+      prisma.holiday.findUnique.mockResolvedValue({ id: 'h1' });
+      prisma.holiday.update.mockResolvedValue({ id: 'h1', name: 'Updated' });
+
+      await service.update('h1', {
+        name: ' Updated ',
+        jurisdiction: 'de',
+        date: '2026-12-25',
+        isRecurring: true,
+      });
+
+      expect(prisma.holiday.update).toHaveBeenCalledWith({
+        where: { id: 'h1' },
+        data: {
+          name: 'Updated',
+          jurisdiction: 'DE',
+          date: new Date('2026-12-25'),
+          isRecurring: true,
+        },
+      });
+    });
+
+    it('remove deletes holiday after lookup', async () => {
+      prisma.holiday.findUnique.mockResolvedValue({ id: 'h1' });
+      prisma.holiday.delete.mockResolvedValue({});
+
+      await expect(service.remove('h1')).resolves.toEqual({
+        id: 'h1',
+        deleted: true,
+      });
+      expect(prisma.holiday.delete).toHaveBeenCalledWith({ where: { id: 'h1' } });
+    });
+  });
 });

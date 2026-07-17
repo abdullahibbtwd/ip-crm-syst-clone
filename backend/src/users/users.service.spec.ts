@@ -30,6 +30,7 @@ describe('UsersService', () => {
     client: { findFirst: jest.Mock };
     user: {
       findUnique: jest.Mock;
+      findMany: jest.Mock;
       upsert: jest.Mock;
       findUniqueOrThrow: jest.Mock;
     };
@@ -43,6 +44,7 @@ describe('UsersService', () => {
       client: { findFirst: jest.fn() },
       user: {
         findUnique: jest.fn(),
+        findMany: jest.fn(),
         upsert: jest.fn(),
         findUniqueOrThrow: jest.fn(),
       },
@@ -50,6 +52,61 @@ describe('UsersService', () => {
       $transaction: jest.fn(async (fn) => fn(prisma)),
     };
     service = new UsersService(prisma as unknown as PrismaService);
+  });
+
+  describe('findAll', () => {
+    it('returns paginated team users', async () => {
+      prisma.user.findMany.mockResolvedValue([
+        listUser({ id: 'u1' }),
+        listUser({ id: 'u2' }),
+        listUser({ id: 'u3' }),
+      ]);
+
+      const result = await service.findAll({ limit: 2 } as never);
+
+      expect(result.items).toHaveLength(2);
+      expect(result.nextCursor).toBe('u2');
+      expect(result.items[0].authMethod).toBe('sso');
+    });
+  });
+
+  describe('listAttorneyAssignees', () => {
+    it('maps active attorneys', async () => {
+      prisma.user.findMany.mockResolvedValue([
+        {
+          id: 'u1',
+          fullName: 'Ada',
+          email: 'ada@example.com',
+          userRoles: [{ role: { name: SYSTEM_ROLES.IP_ATTORNEY } }],
+        },
+      ]);
+
+      await expect(service.listAttorneyAssignees()).resolves.toEqual([
+        {
+          id: 'u1',
+          fullName: 'Ada',
+          email: 'ada@example.com',
+          roles: [SYSTEM_ROLES.IP_ATTORNEY],
+        },
+      ]);
+    });
+  });
+
+  describe('listTeamMembers', () => {
+    it('maps active team members', async () => {
+      prisma.user.findMany.mockResolvedValue([
+        {
+          id: 'u2',
+          fullName: 'Bob',
+          email: 'bob@example.com',
+          userRoles: [{ role: { name: SYSTEM_ROLES.PARALEGAL } }],
+        },
+      ]);
+
+      await expect(service.listTeamMembers()).resolves.toEqual([
+        expect.objectContaining({ id: 'u2', roles: [SYSTEM_ROLES.PARALEGAL] }),
+      ]);
+    });
   });
 
   describe('invite', () => {
@@ -74,34 +131,95 @@ describe('UsersService', () => {
       ).rejects.toBeInstanceOf(BadRequestException);
     });
 
-    it('upserts a team user and replaces roles', async () => {
+    it('rejects unseeded role', async () => {
+      prisma.role.findUnique.mockResolvedValue(null);
+      await expect(
+        service.invite({
+          email: 'x@example.com',
+          fullName: 'X',
+          role: SYSTEM_ROLES.IP_ATTORNEY,
+        }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('rejects unknown client code for portal invite', async () => {
+      prisma.role.findUnique.mockResolvedValue({
+        id: 'portal-role',
+        name: SYSTEM_ROLES.PORTAL_CLIENT,
+      });
+      prisma.client.findFirst.mockResolvedValue(null);
+
+      await expect(
+        service.invite({
+          email: 'portal@x.com',
+          fullName: 'Portal User',
+          role: SYSTEM_ROLES.PORTAL_CLIENT,
+          clientCode: 'CL-MISSING',
+        }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('invites portal client and assigns portal role', async () => {
+      prisma.role.findUnique.mockResolvedValue({
+        id: 'portal-role',
+        name: SYSTEM_ROLES.PORTAL_CLIENT,
+      });
+      prisma.client.findFirst.mockResolvedValue({ id: 'c1' });
+      prisma.user.findUnique.mockResolvedValue(null);
+      prisma.user.upsert.mockResolvedValue(
+        listUser({
+          clientId: 'c1',
+          userRoles: [{ role: { name: SYSTEM_ROLES.PORTAL_CLIENT } }],
+        }),
+      );
+      prisma.user.findUniqueOrThrow.mockResolvedValue(
+        listUser({
+          clientId: 'c1',
+          userRoles: [{ role: { name: SYSTEM_ROLES.PORTAL_CLIENT } }],
+        }),
+      );
+
+      const result = await service.invite({
+        email: 'portal@x.com',
+        fullName: 'Portal User',
+        role: SYSTEM_ROLES.PORTAL_CLIENT,
+        clientCode: 'CL-2026-001',
+      });
+
+      expect(prisma.userRole.upsert).toHaveBeenCalled();
+      expect(result.roles).toContain(SYSTEM_ROLES.PORTAL_CLIENT);
+    });
+
+    it('rejects team invite for existing portal user email', async () => {
       prisma.role.findUnique.mockResolvedValue({
         id: 'role-1',
         name: SYSTEM_ROLES.IP_ATTORNEY,
       });
-      prisma.user.findUnique.mockResolvedValue(null);
-      prisma.user.upsert.mockResolvedValue(listUser());
-      prisma.user.findUniqueOrThrow.mockResolvedValue(listUser());
-      // replaceTeamRoles looks up role again + portal role
-      prisma.role.findUnique
-        .mockResolvedValueOnce({
-          id: 'role-1',
-          name: SYSTEM_ROLES.IP_ATTORNEY,
-        })
-        .mockResolvedValueOnce({
-          id: 'role-1',
-          name: SYSTEM_ROLES.IP_ATTORNEY,
-        })
-        .mockResolvedValueOnce({ id: 'portal-role' });
+      prisma.user.findUnique.mockResolvedValue({
+        id: 'u2',
+        clientId: 'c1',
+        userRoles: [{ role: { name: SYSTEM_ROLES.PORTAL_CLIENT } }],
+      });
 
-      // Actually invite calls findUnique once for role, then replaceTeamRoles calls twice
-      prisma.role.findUnique.mockReset();
+      await expect(
+        service.invite({
+          email: 'portal@x.com',
+          fullName: 'Portal User',
+          role: SYSTEM_ROLES.IP_ATTORNEY,
+        }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('upserts a team user and replaces roles', async () => {
       prisma.role.findUnique.mockImplementation(({ where: { name } }) => {
         if (name === SYSTEM_ROLES.PORTAL_CLIENT) {
           return Promise.resolve({ id: 'portal-role' });
         }
         return Promise.resolve({ id: 'role-1', name });
       });
+      prisma.user.findUnique.mockResolvedValue(null);
+      prisma.user.upsert.mockResolvedValue(listUser());
+      prisma.user.findUniqueOrThrow.mockResolvedValue(listUser());
 
       const result = await service.invite({
         email: ' Ada@Example.com ',
@@ -153,6 +271,48 @@ describe('UsersService', () => {
           'u1',
         ),
       ).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('updates team user role', async () => {
+      prisma.user.findUnique.mockResolvedValue({
+        id: 'u2',
+        userRoles: [{ role: { name: SYSTEM_ROLES.PARALEGAL } }],
+      });
+      prisma.role.findUnique.mockImplementation(({ where: { name } }) => {
+        if (name === SYSTEM_ROLES.PORTAL_CLIENT) {
+          return Promise.resolve({ id: 'portal-role' });
+        }
+        return Promise.resolve({ id: 'role-1', name });
+      });
+      prisma.user.findUniqueOrThrow.mockResolvedValue(
+        listUser({
+          id: 'u2',
+          userRoles: [{ role: { name: SYSTEM_ROLES.IP_ATTORNEY } }],
+        }),
+      );
+
+      const result = await service.updateRole(
+        'u2',
+        { role: SYSTEM_ROLES.IP_ATTORNEY },
+        'u1',
+      );
+
+      expect(result.roles).toContain(SYSTEM_ROLES.IP_ATTORNEY);
+    });
+
+    it('rejects invalid team role', async () => {
+      prisma.user.findUnique.mockResolvedValue({
+        id: 'u2',
+        userRoles: [{ role: { name: SYSTEM_ROLES.PARALEGAL } }],
+      });
+
+      await expect(
+        service.updateRole(
+          'u2',
+          { role: SYSTEM_ROLES.PORTAL_CLIENT },
+          'u1',
+        ),
+      ).rejects.toBeInstanceOf(BadRequestException);
     });
   });
 });

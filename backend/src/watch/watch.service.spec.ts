@@ -13,6 +13,11 @@ import { scoreMarkSimilarity } from './watch-similarity.util';
 describe('WatchService', () => {
   let service: WatchService;
   let prisma: Record<string, any>;
+  let matters: { create: jest.Mock };
+  let alertNotify: {
+    notifyAlertCreated: jest.Mock;
+    notifyAlertTriaged: jest.Mock;
+  };
 
   beforeEach(() => {
     prisma = {
@@ -33,14 +38,25 @@ describe('WatchService', () => {
       },
       $queryRaw: jest.fn(),
     };
+    matters = { create: jest.fn() };
+    alertNotify = {
+      notifyAlertCreated: jest.fn(),
+      notifyAlertTriaged: jest.fn(),
+    };
     service = new WatchService(
       prisma as unknown as PrismaService,
-      {} as never,
-      {
-        notifyAlertCreated: jest.fn(),
-        notifyAlertTriaged: jest.fn(),
-      } as never,
+      matters as never,
+      alertNotify as never,
     );
+  });
+
+  it('listProfilesForClient returns profiles', async () => {
+    prisma.client.findUnique.mockResolvedValue({ id: 'c1' });
+    prisma.watchProfile.findMany.mockResolvedValue([{ id: 'p1' }]);
+
+    await expect(service.listProfilesForClient('c1')).resolves.toEqual({
+      items: [{ id: 'p1' }],
+    });
   });
 
   it('listProfilesForClient requires client', async () => {
@@ -132,12 +148,262 @@ describe('WatchService', () => {
     );
   });
 
+  it('findAlert returns alert when present', async () => {
+    prisma.watchAlert.findUnique.mockResolvedValue({ id: 'a1' });
+    await expect(service.findAlert('a1')).resolves.toEqual({ id: 'a1' });
+  });
+
+  it('createMockAlert creates alert and notifies', async () => {
+    prisma.watchProfile.findFirst.mockResolvedValue({
+      id: 'p1',
+      clientId: 'c1',
+      markText: 'ACME',
+      jurisdictions: ['EU'],
+    });
+    prisma.$queryRaw.mockResolvedValue([{ score: 0.75 }]);
+    prisma.watchAlert.create.mockResolvedValue({ id: 'a1' });
+
+    await service.createMockAlert({ clientId: 'c1' } as never);
+
+    expect(prisma.watchAlert.create).toHaveBeenCalled();
+    expect(alertNotify.notifyAlertCreated).toHaveBeenCalledWith('a1');
+  });
+
+  it('acceptAlert creates opposition matter and triages alert', async () => {
+    prisma.watchAlert.findUnique.mockResolvedValue({
+      id: 'a1',
+      status: WatchAlertStatus.new,
+      clientId: 'c1',
+      conflictingMark: 'Koka-Cola',
+      source: 'EUIPO',
+      applicationNumber: '123',
+      jurisdiction: 'EU',
+      watchProfile: { markText: 'ACME', jurisdictions: ['EU'] },
+      client: { assignedUserId: 'u2' },
+    });
+    matters.create.mockResolvedValue({ id: 'm1' });
+    prisma.watchAlert.update.mockResolvedValue({
+      id: 'a1',
+      status: WatchAlertStatus.accepted,
+    });
+
+    const result = await service.acceptAlert('a1', 'u1');
+
+    expect(matters.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        clientId: 'c1',
+        title: 'Opposition: Koka-Cola',
+      }),
+      'u1',
+    );
+    expect(result.matter.id).toBe('m1');
+    expect(alertNotify.notifyAlertTriaged).toHaveBeenCalledWith(
+      'a1',
+      'accepted',
+    );
+  });
+
+  it('acceptAlert rejects already triaged alerts', async () => {
+    prisma.watchAlert.findUnique.mockResolvedValue({
+      id: 'a1',
+      status: WatchAlertStatus.rejected,
+    });
+
+    await expect(service.acceptAlert('a1', 'u1')).rejects.toBeInstanceOf(
+      BadRequestException,
+    );
+  });
+
+  it('rejectAlert throws when alert is missing', async () => {
+    prisma.watchAlert.findUnique.mockResolvedValue(null);
+    await expect(service.rejectAlert('missing', 'u1')).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+  });
+
   it('createMockAlert requires a profile', async () => {
     prisma.watchProfile.findUnique.mockResolvedValue(null);
     prisma.watchProfile.findFirst.mockResolvedValue(null);
     await expect(
       service.createMockAlert({ clientId: 'c1' } as never),
     ).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('createMockAlert rejects invalid jurisdiction', async () => {
+    prisma.watchProfile.findFirst.mockResolvedValue({
+      id: 'p1',
+      clientId: 'c1',
+      markText: 'ACME',
+      jurisdictions: ['EU'],
+    });
+
+    await expect(
+      service.createMockAlert({
+        clientId: 'c1',
+        jurisdiction: 'INVALID',
+      } as never),
+    ).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('listAlerts without cursor returns stats only page', async () => {
+    prisma.watchAlert.findMany.mockResolvedValue([{ id: '1' }]);
+    prisma.watchAlert.count
+      .mockResolvedValueOnce(0)
+      .mockResolvedValueOnce(1)
+      .mockResolvedValueOnce(0);
+
+    const result = await service.listAlerts({ limit: 10 } as never);
+    expect(result.items).toHaveLength(1);
+    expect(result.nextCursor).toBeNull();
+    expect(result.newCount).toBe(0);
+  });
+
+  describe('extended branch coverage', () => {
+    it('updateProfile rejects missing profile', async () => {
+      prisma.watchProfile.findUnique.mockResolvedValue(null);
+      await expect(
+        service.updateProfile('missing', { status: WatchProfileStatus.paused }),
+      ).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('listAlerts applies clientId and status filters', async () => {
+      prisma.watchAlert.findMany.mockResolvedValue([]);
+      prisma.watchAlert.count.mockResolvedValue(0);
+      await service.listAlerts({
+        clientId: 'c1',
+        status: WatchAlertStatus.new,
+        limit: 5,
+      } as never);
+      expect(prisma.watchAlert.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            clientId: 'c1',
+            status: WatchAlertStatus.new,
+          }),
+        }),
+      );
+    });
+
+    it('acceptAlert rejects when alert is missing', async () => {
+      prisma.watchAlert.findUnique.mockResolvedValue(null);
+      await expect(service.acceptAlert('missing', 'u1')).rejects.toBeInstanceOf(
+        NotFoundException,
+      );
+    });
+
+    it('createProfile normalizes jurisdictions to uppercase', async () => {
+      prisma.client.findUnique.mockResolvedValue({ id: 'c1' });
+      prisma.watchProfile.create.mockResolvedValue({ id: 'wp1' });
+      await service.createProfile(
+        'c1',
+        {
+          markText: 'ACME',
+          jurisdictions: ['eu', 'de'],
+          frequency: 'weekly',
+        } as never,
+        'u1',
+      );
+      expect(prisma.watchProfile.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ jurisdictions: ['EU', 'DE'] }),
+        }),
+      );
+    });
+
+    it('rejectAlert rejects already accepted alerts', async () => {
+      prisma.watchAlert.findUnique.mockResolvedValue({
+        id: 'a1',
+        status: WatchAlertStatus.accepted,
+      });
+      await expect(service.rejectAlert('a1', 'u1')).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
+    });
+
+    it('listAlerts returns nextCursor when more rows exist', async () => {
+      prisma.watchAlert.findMany.mockResolvedValue([
+        { id: 'a1' },
+        { id: 'a2' },
+        { id: 'a3' },
+      ]);
+      prisma.watchAlert.count.mockResolvedValue(1);
+      const result = await service.listAlerts({ limit: 2 } as never);
+      expect(result.nextCursor).toBe('a2');
+    });
+
+    it('createMockAlert creates alert for valid profile and jurisdiction', async () => {
+      prisma.watchProfile.findFirst.mockResolvedValue({
+        id: 'p1',
+        clientId: 'c1',
+        markText: 'ACME',
+        jurisdictions: ['EU'],
+      });
+      prisma.$queryRaw.mockResolvedValue([{ score: 0.75 }]);
+      prisma.watchAlert.create.mockResolvedValue({ id: 'a1' });
+      alertNotify.notifyAlertCreated.mockResolvedValue(undefined);
+
+      const alert = await service.createMockAlert({
+        clientId: 'c1',
+        jurisdiction: 'EU',
+        conflictingMark: 'ACME CLONE',
+      } as never);
+
+      expect(alert.id).toBe('a1');
+      expect(alertNotify.notifyAlertCreated).toHaveBeenCalledWith('a1');
+    });
+
+    it('findAlert returns alert with profile', async () => {
+      prisma.watchAlert.findUnique.mockResolvedValue({
+        id: 'a1',
+        status: WatchAlertStatus.new,
+        watchProfile: { id: 'p1', markText: 'ACME' },
+      });
+      const alert = await service.findAlert('a1');
+      expect(alert.watchProfile.markText).toBe('ACME');
+    });
+
+    it('listAlerts applies jurisdiction source and similarity filters', async () => {
+      prisma.watchAlert.findMany.mockResolvedValue([]);
+      prisma.watchAlert.count.mockResolvedValue(0);
+      await service.listAlerts({
+        jurisdiction: 'EU',
+        source: 'euipo',
+        minSimilarity: 0.7,
+        sortBy: 'similarity',
+        limit: 10,
+      } as never);
+      expect(prisma.watchAlert.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            jurisdiction: 'EU',
+            source: 'euipo',
+            similarityScore: { gte: 0.7 },
+          }),
+          orderBy: expect.arrayContaining([
+            expect.objectContaining({ similarityScore: expect.any(Object) }),
+          ]),
+        }),
+      );
+    });
+
+    it('createProfile defaults niceClasses to empty array', async () => {
+      prisma.client.findUnique.mockResolvedValue({ id: 'c1' });
+      prisma.watchProfile.create.mockResolvedValue({ id: 'wp1', niceClasses: [] });
+      await service.createProfile(
+        'c1',
+        {
+          markText: 'BRAND',
+          jurisdictions: ['EU'],
+          frequency: 'weekly',
+        } as never,
+        'u1',
+      );
+      expect(prisma.watchProfile.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ niceClasses: [] }),
+        }),
+      );
+    });
   });
 });
 

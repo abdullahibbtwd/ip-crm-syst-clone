@@ -168,4 +168,247 @@ describe('UnlinkedEmailService', () => {
       }),
     );
   });
+
+  it('dismiss rejects unauthorized roles', async () => {
+    prisma.unlinkedEmail.findUnique.mockResolvedValue(pendingRow);
+    await expect(
+      service.dismiss('ue1', 'u1', ['paralegal']),
+    ).rejects.toBeInstanceOf(ForbiddenException);
+  });
+
+  it('dismiss continues when storage delete fails', async () => {
+    prisma.unlinkedEmail.findUnique.mockResolvedValue(pendingRow);
+    storage.deleteObject.mockRejectedValue(new Error('minio down'));
+    prisma.unlinkedEmail.update.mockResolvedValue({
+      ...pendingRow,
+      status: UnlinkedEmailStatus.dismissed,
+    });
+
+    await expect(
+      service.dismiss('ue1', 'u1', [SYSTEM_ROLES.COORDINATOR]),
+    ).resolves.toMatchObject({ status: UnlinkedEmailStatus.dismissed });
+  });
+
+  it('linkToMatter rejects already processed email', async () => {
+    prisma.unlinkedEmail.findUnique.mockResolvedValue({
+      ...pendingRow,
+      status: UnlinkedEmailStatus.linked,
+    });
+    await expect(
+      service.linkToMatter('ue1', 'm1', 'u1', [SYSTEM_ROLES.COORDINATOR]),
+    ).rejects.toBeInstanceOf(NotFoundException);
+  });
+
+  it('linkToMatter blocks attorney on unassigned matter', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ assignedToId: 'other' });
+    await expect(
+      service.linkToMatter('ue1', 'm1', 'u1', [SYSTEM_ROLES.IP_ATTORNEY]),
+    ).rejects.toBeInstanceOf(ForbiddenException);
+  });
+
+  it('linkToMatter allows attorney on assigned matter', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ assignedToId: 'u1' });
+    prisma.unlinkedEmail.findUnique.mockResolvedValue(pendingRow);
+    storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+    prisma.matterDocument.create.mockResolvedValue({ id: 'doc1' });
+    prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'ver1' });
+    correspondence.create.mockResolvedValue({ id: 'corr1' });
+    prisma.unlinkedEmail.update.mockResolvedValue({});
+
+    await expect(
+      service.linkToMatter('ue1', 'm1', 'u1', [SYSTEM_ROLES.IP_ATTORNEY]),
+    ).resolves.toMatchObject({ unlinkedEmailId: 'ue1' });
+  });
+
+  it('getPreview falls back to row fields and detects attachments', async () => {
+    prisma.unlinkedEmail.findUnique.mockResolvedValue({
+      ...pendingRow,
+      bodyText: null,
+      hasAttachments: false,
+    });
+    storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+    emlParser.parseBuffer.mockResolvedValue({
+      sender: '',
+      recipient: '',
+      subject: '',
+      bodyText: null,
+      bodyHtml: '<p>html</p>',
+      attachments: [{ fileName: 'a.pdf' }],
+      messageId: null,
+    });
+
+    const preview = await service.getPreview('ue1');
+    expect(preview.sender).toBe(pendingRow.sender);
+    expect(preview.subject).toBe('Office action');
+    expect(preview.hasAttachments).toBe(true);
+  });
+
+  it('getDownloadUrl sanitizes empty subject filename', async () => {
+    prisma.unlinkedEmail.findUnique.mockResolvedValue({
+      ...pendingRow,
+      subject: '',
+    });
+    storage.getPresignedDownloadUrl.mockResolvedValue('https://signed');
+
+    const result = await service.getDownloadUrl('ue1');
+    expect(result.fileName).toBe('email.eml');
+  });
+
+  describe('extended branch coverage', () => {
+    it('listQueue filters by status enum', async () => {
+      prisma.unlinkedEmail.findMany.mockResolvedValue([]);
+      await service.listQueue(UnlinkedEmailStatus.pending);
+      expect(prisma.unlinkedEmail.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { status: UnlinkedEmailStatus.pending },
+        }),
+      );
+    });
+
+    it('linkToMatter allows managing partner on unassigned matter', async () => {
+      prisma.unlinkedEmail.findUnique.mockResolvedValue(pendingRow);
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1', assignedToId: null });
+      storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+      prisma.matterDocument.create.mockResolvedValue({ id: 'doc1' });
+      prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'ver1' });
+      correspondence.create.mockResolvedValue({ id: 'corr1' });
+      prisma.unlinkedEmail.update.mockResolvedValue({});
+
+      await service.linkToMatter(
+        'ue1',
+        'm1',
+        'mp1',
+        [SYSTEM_ROLES.MANAGING_PARTNER],
+        DocumentCategory.correspondence,
+      );
+
+      expect(correspondence.create).toHaveBeenCalled();
+    });
+
+    it('getStats returns pending count', async () => {
+      prisma.unlinkedEmail.count.mockResolvedValue(3);
+      await expect(service.getStats()).resolves.toEqual({ pending: 3 });
+    });
+
+    it('getById throws when row missing', async () => {
+      prisma.unlinkedEmail.findUnique.mockResolvedValue(null);
+      await expect(service.getById('missing')).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('linkToMatter allows trademark attorney on assigned matter', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ assignedToId: 'u1' });
+      prisma.unlinkedEmail.findUnique.mockResolvedValue(pendingRow);
+      storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+      prisma.matterDocument.create.mockResolvedValue({ id: 'doc1' });
+      prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'ver1' });
+      correspondence.create.mockResolvedValue({ id: 'corr1' });
+      prisma.unlinkedEmail.update.mockResolvedValue({});
+
+      await service.linkToMatter(
+        'ue1',
+        'm1',
+        'u1',
+        [SYSTEM_ROLES.TRADEMARK_ATTORNEY],
+      );
+      expect(correspondence.create).toHaveBeenCalled();
+    });
+
+    it('linkToMatter throws when matter is missing for attorney', async () => {
+      prisma.matter.findUnique.mockResolvedValue(null);
+      await expect(
+        service.linkToMatter('ue1', 'm1', 'u1', [SYSTEM_ROLES.IP_ATTORNEY]),
+      ).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('linkToMatter uses metadata bodyPreview when parser returns no text', async () => {
+      prisma.unlinkedEmail.findUnique.mockResolvedValue({
+        ...pendingRow,
+        bodyText: null,
+        metadata: { bodyPreview: 'Preview fallback text' },
+      });
+      storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+      emlParser.parseBuffer.mockResolvedValue({
+        sender: pendingRow.sender,
+        recipient: pendingRow.recipient,
+        subject: pendingRow.subject,
+        bodyText: null,
+        bodyHtml: null,
+        attachments: [],
+        messageId: null,
+      });
+      prisma.matterDocument.create.mockResolvedValue({ id: 'doc1' });
+      prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'ver1' });
+      correspondence.create.mockResolvedValue({ id: 'corr1' });
+      prisma.unlinkedEmail.update.mockResolvedValue({});
+
+      await service.linkToMatter(
+        'ue1',
+        'm1',
+        'u1',
+        [SYSTEM_ROLES.COORDINATOR],
+      );
+
+      expect(correspondence.create).toHaveBeenCalledWith(
+        'm1',
+        expect.objectContaining({ bodyText: 'Preview fallback text' }),
+        'u1',
+      );
+    });
+
+    it('getPreview uses Unknown sender when all sources empty', async () => {
+      prisma.unlinkedEmail.findUnique.mockResolvedValue({
+        ...pendingRow,
+        sender: '',
+        subject: '',
+      });
+      storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+      emlParser.parseBuffer.mockResolvedValue({
+        sender: '',
+        recipient: '',
+        subject: '',
+        bodyText: 'body',
+        bodyHtml: null,
+        attachments: [],
+        messageId: null,
+      });
+
+      const preview = await service.getPreview('ue1');
+      expect(preview.sender).toBe('Unknown sender');
+      expect(preview.subject).toBe('(No subject)');
+    });
+
+    it('linkToMatter uses parsed messageId when row internetMessageId absent', async () => {
+      prisma.unlinkedEmail.findUnique.mockResolvedValue({
+        ...pendingRow,
+        internetMessageId: null,
+      });
+      storage.getObjectBuffer.mockResolvedValue(Buffer.from('eml'));
+      emlParser.parseBuffer.mockResolvedValue({
+        sender: pendingRow.sender,
+        recipient: pendingRow.recipient,
+        subject: pendingRow.subject,
+        bodyText: pendingRow.bodyText,
+        bodyHtml: null,
+        attachments: [],
+        messageId: '<parsed-id>',
+      });
+      prisma.matterDocument.create.mockResolvedValue({ id: 'doc1' });
+      prisma.matterDocumentVersion.create.mockResolvedValue({ id: 'ver1' });
+      correspondence.create.mockResolvedValue({ id: 'corr1' });
+      prisma.unlinkedEmail.update.mockResolvedValue({});
+
+      await service.linkToMatter(
+        'ue1',
+        'm1',
+        'u1',
+        [SYSTEM_ROLES.COORDINATOR],
+      );
+
+      expect(correspondence.create).toHaveBeenCalledWith(
+        'm1',
+        expect.objectContaining({ messageId: '<parsed-id>' }),
+        'u1',
+      );
+    });
+  });
 });

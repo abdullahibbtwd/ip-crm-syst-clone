@@ -546,4 +546,402 @@ describe('BillingService', () => {
       ).rejects.toBeInstanceOf(NotFoundException);
     });
   });
+
+  describe('listAllTimeEntries', () => {
+    it('applies optional filters and caps limit', async () => {
+      prisma.timeEntry.findMany.mockResolvedValue([]);
+      await service.listAllTimeEntries({
+        matterId: 'm1',
+        loggedById: 'u1',
+        from: '2026-01-01',
+        to: '2026-01-31',
+        limit: 500,
+      });
+      expect(prisma.timeEntry.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            matterId: 'm1',
+            loggedById: 'u1',
+            date: expect.objectContaining({
+              gte: expect.any(Date),
+              lte: expect.any(Date),
+            }),
+          }),
+          take: 200,
+        }),
+      );
+    });
+
+    it('returns serialized entries with matter', async () => {
+      prisma.timeEntry.findMany.mockResolvedValue([
+        {
+          id: 'te1',
+          matterId: 'm1',
+          hours: new Prisma.Decimal('1'),
+          rateSnapshot: new Prisma.Decimal('100'),
+          costSnapshot: new Prisma.Decimal('40'),
+          amount: new Prisma.Decimal('100'),
+          isBillable: true,
+          loggedBy,
+          matter: { id: 'm1', title: 'Matter', client: null },
+        },
+      ]);
+      const rows = await service.listAllTimeEntries({});
+      expect(rows[0].hours).toBe(1);
+      expect(rows[0].matter.id).toBe('m1');
+    });
+  });
+
+  describe('listAllFixedFees', () => {
+    it('applies category and date filters', async () => {
+      prisma.fixedFee.findMany.mockResolvedValue([]);
+      await service.listAllFixedFees({
+        category: 'official',
+        matterId: 'm1',
+        from: '2026-01-01',
+        to: '2026-01-31',
+      });
+      expect(prisma.fixedFee.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            category: 'official',
+            matterId: 'm1',
+          }),
+        }),
+      );
+    });
+  });
+
+  describe('createTimeEntry edge cases', () => {
+    beforeEach(() => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    });
+
+    it('uses explicit rateSnapshot and resolves cost', async () => {
+      rateResolution.resolveForMatter.mockResolvedValue({
+        hourlyRate: 200,
+        internalCostPerHour: 75,
+        isUnrated: false,
+      });
+      prisma.timeEntry.create.mockResolvedValue({
+        id: 'te1',
+        matterId: 'm1',
+        hours: new Prisma.Decimal('2'),
+        rateSnapshot: new Prisma.Decimal('150'),
+        costSnapshot: new Prisma.Decimal('75'),
+        amount: new Prisma.Decimal('300'),
+        isBillable: true,
+        loggedBy,
+      });
+
+      await service.createTimeEntry(
+        'm1',
+        {
+          date: '2026-01-10',
+          hours: 2,
+          description: 'Review',
+          rateSnapshot: 150,
+          isBillable: true,
+        },
+        'u1',
+        ['ip_attorney'],
+      );
+
+      expect(prisma.timeEntry.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            rateSnapshot: 150,
+            costSnapshot: 75,
+            amount: 300,
+          }),
+        }),
+      );
+    });
+
+    it('rejects billable entry with zero explicit rate snapshot', async () => {
+      rateResolution.resolveForMatter.mockResolvedValue({
+        hourlyRate: 0,
+        internalCostPerHour: 0,
+        isUnrated: false,
+      });
+
+      await expect(
+        service.createTimeEntry(
+          'm1',
+          {
+            date: '2026-01-10',
+            hours: 1,
+            description: 'Pro bono',
+            rateSnapshot: 0,
+            isBillable: true,
+          },
+          'u1',
+          ['ip_attorney'],
+        ),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('allows non-billable entry with zero explicit rate', async () => {
+      rateResolution.resolveForMatter.mockResolvedValue({
+        hourlyRate: 0,
+        internalCostPerHour: 0,
+        isUnrated: false,
+      });
+      prisma.timeEntry.create.mockResolvedValue({
+        id: 'te1',
+        matterId: 'm1',
+        hours: new Prisma.Decimal('1'),
+        rateSnapshot: new Prisma.Decimal('0'),
+        costSnapshot: new Prisma.Decimal('0'),
+        amount: new Prisma.Decimal('0'),
+        isBillable: false,
+        loggedBy,
+      });
+
+      await service.createTimeEntry(
+        'm1',
+        {
+          date: '2026-01-10',
+          hours: 1,
+          description: 'Pro bono',
+          rateSnapshot: 0,
+          isBillable: false,
+        },
+        'u1',
+        ['ip_attorney'],
+      );
+
+      expect(prisma.timeEntry.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ isBillable: false, amount: 0 }),
+        }),
+      );
+    });
+  });
+
+  describe('updateTimeEntry validation', () => {
+    it('rejects invalid hours increment', async () => {
+      prisma.timeEntry.findUnique.mockResolvedValue({
+        id: 'te1',
+        invoiceId: null,
+        hours: new Prisma.Decimal('1'),
+        rateSnapshot: new Prisma.Decimal('200'),
+        isBillable: true,
+      });
+      await expect(
+        service.updateTimeEntry('te1', { hours: 0.3 }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('rejects billable update with zero rate', async () => {
+      prisma.timeEntry.findUnique.mockResolvedValue({
+        id: 'te1',
+        invoiceId: null,
+        hours: new Prisma.Decimal('1'),
+        rateSnapshot: new Prisma.Decimal('200'),
+        isBillable: true,
+      });
+      await expect(
+        service.updateTimeEntry('te1', { isBillable: true, rateSnapshot: 0 }),
+      ).rejects.toBeInstanceOf(BadRequestException);
+    });
+  });
+
+  describe('fixed fee mutations', () => {
+    it('updateFixedFee throws when missing', async () => {
+      prisma.fixedFee.findUnique.mockResolvedValue(null);
+      await expect(
+        service.updateFixedFee('missing', { amount: 100 }),
+      ).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('deleteFixedFee throws when missing', async () => {
+      prisma.fixedFee.findUnique.mockResolvedValue(null);
+      await expect(service.deleteFixedFee('missing')).rejects.toBeInstanceOf(
+        NotFoundException,
+      );
+    });
+
+    it('deleteFixedFee blocks invoiced fees', async () => {
+      prisma.fixedFee.findUnique.mockResolvedValue({
+        id: 'ff1',
+        invoiceId: 'inv-1',
+      });
+      await expect(service.deleteFixedFee('ff1')).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+    });
+  });
+
+  describe('rate card serialization', () => {
+    it('serializes null internalCostPerHour', async () => {
+      prisma.rateCard.findMany.mockResolvedValue([
+        {
+          id: 'rc1',
+          role: 'paralegal',
+          matterType: 'trademark',
+          clientId: 'c1',
+          hourlyRate: new Prisma.Decimal('120'),
+          internalCostPerHour: null,
+          currency: 'EUR',
+          effectiveFrom: new Date('2026-01-01'),
+          effectiveTo: new Date('2026-12-31'),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ]);
+      const rows = await service.listRateCards();
+      expect(rows[0].internalCostPerHour).toBeNull();
+    });
+
+    it('createRateCard with optional fields', async () => {
+      prisma.rateCard.create.mockResolvedValue({
+        id: 'rc1',
+        role: 'ip_attorney',
+        matterType: 'patent',
+        clientId: 'c1',
+        hourlyRate: new Prisma.Decimal('250'),
+        internalCostPerHour: new Prisma.Decimal('90'),
+        currency: 'USD',
+        effectiveFrom: new Date('2026-01-01'),
+        effectiveTo: new Date('2026-06-30'),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+
+      await service.createRateCard({
+        role: 'ip_attorney',
+        matterType: 'patent',
+        clientId: 'c1',
+        hourlyRate: 250,
+        internalCostPerHour: 90,
+        currency: 'USD',
+        effectiveFrom: '2026-01-01',
+        effectiveTo: '2026-06-30',
+      });
+
+      expect(prisma.rateCard.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            matterType: 'patent',
+            clientId: 'c1',
+            currency: 'USD',
+            effectiveTo: expect.any(Date),
+          }),
+        }),
+      );
+    });
+
+    it('createRateCard defaults currency to EUR', async () => {
+      prisma.rateCard.create.mockResolvedValue({
+        id: 'rc-eur',
+        role: 'paralegal',
+        matterType: null,
+        clientId: null,
+        hourlyRate: new Prisma.Decimal('100'),
+        internalCostPerHour: null,
+        currency: 'EUR',
+        effectiveFrom: new Date('2026-01-01'),
+        effectiveTo: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+      await service.createRateCard({
+        role: 'paralegal',
+        hourlyRate: 100,
+        effectiveFrom: '2026-01-01',
+      });
+      expect(prisma.rateCard.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({ currency: 'EUR' }),
+        }),
+      );
+    });
+
+    it('listAllTimeEntries applies from-only date filter', async () => {
+      prisma.timeEntry.findMany.mockResolvedValue([]);
+      await service.listAllTimeEntries({ from: '2026-02-01' });
+      expect(prisma.timeEntry.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            date: { gte: expect.any(Date) },
+          }),
+        }),
+      );
+    });
+
+    it('listAllFixedFees applies to-only date filter', async () => {
+      prisma.fixedFee.findMany.mockResolvedValue([]);
+      await service.listAllFixedFees({ to: '2026-02-28' });
+      expect(prisma.fixedFee.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            date: { lte: expect.any(Date) },
+          }),
+        }),
+      );
+    });
+
+    it('serializeTimeEntry marks unrated billable entries', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      prisma.timeEntry.findMany.mockResolvedValue([
+        {
+          id: 'te-unrated',
+          matterId: 'm1',
+          hours: new Prisma.Decimal('1'),
+          rateSnapshot: new Prisma.Decimal('0'),
+          costSnapshot: new Prisma.Decimal('0'),
+          amount: new Prisma.Decimal('0'),
+          isBillable: true,
+          loggedBy,
+        },
+      ]);
+      const rows = await service.listTimeEntries('m1');
+      expect(rows[0].isUnrated).toBe(true);
+    });
+
+    it('updateRateCard omits internalCostPerHour when undefined', async () => {
+      prisma.rateCard.findUnique.mockResolvedValue({ id: 'rc1' });
+      prisma.rateCard.update.mockResolvedValue({
+        id: 'rc1',
+        role: 'paralegal',
+        matterType: null,
+        clientId: null,
+        hourlyRate: new Prisma.Decimal('120'),
+        internalCostPerHour: new Prisma.Decimal('40'),
+        currency: 'EUR',
+        effectiveFrom: new Date(),
+        effectiveTo: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+      await service.updateRateCard('rc1', { hourlyRate: 130 });
+      expect(prisma.rateCard.update).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.not.objectContaining({
+            internalCostPerHour: expect.anything(),
+          }),
+        }),
+      );
+    });
+
+    it('getBillingSummary handles null summary row fields', async () => {
+      prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+      prisma.$queryRaw.mockResolvedValue([
+        {
+          matter_id: 'm1',
+          total_hours: null,
+          total_billable_hours: null,
+          total_billable_amount: null,
+          total_internal_cost: null,
+          total_fixed_fees: null,
+          total_amount: null,
+          unbilled_amount: null,
+        },
+      ]);
+      const summary = await service.getBillingSummary('m1');
+      expect(summary.totalHours).toBe(0);
+      expect(summary.totalAmount).toBe(0);
+    });
+  });
 });

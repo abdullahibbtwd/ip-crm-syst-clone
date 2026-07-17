@@ -245,4 +245,85 @@ describe('MailboxConnectionsService', () => {
       MailboxAuthError,
     );
   });
+
+  it('getAccessToken throws when connection inactive', async () => {
+    prisma.mailboxConnection.findUnique.mockResolvedValue({
+      id: 'conn-1',
+      provider: 'google',
+      status: MailboxConnectionStatus.revoked,
+      encryptedTokens: 'enc:{}',
+    });
+    await expect(service.getAccessToken('conn-1')).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+  });
+
+  it('ensureFreshAccessToken returns false for inactive connection', async () => {
+    prisma.mailboxConnection.findUnique.mockResolvedValue({
+      id: 'conn-1',
+      provider: 'google',
+      status: MailboxConnectionStatus.error,
+      encryptedTokens: 'enc:{}',
+      accessTokenExpiresAt: null,
+    });
+    await expect(service.ensureFreshAccessToken('conn-1')).resolves.toBe(false);
+  });
+
+  it('ensureFreshAccessToken refreshes expired token', async () => {
+    prisma.mailboxConnection.findUnique.mockResolvedValue({
+      id: 'conn-1',
+      provider: 'microsoft',
+      status: MailboxConnectionStatus.active,
+      encryptedTokens: 'enc:{}',
+      accessTokenExpiresAt: new Date(Date.now() - 1000),
+    });
+    tokens.decrypt.mockReturnValue({
+      refreshToken: 'refresh',
+      accessToken: 'stale',
+      accessTokenExpiresAt: Date.now() - 1000,
+    });
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        access_token: 'ms-access',
+        refresh_token: 'ms-refresh',
+        expires_in: 3600,
+      }),
+    });
+    prisma.mailboxConnection.update.mockResolvedValue({});
+
+    await expect(service.ensureFreshAccessToken('conn-1')).resolves.toBe(true);
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining('login.microsoftonline.com'),
+      expect.any(Object),
+    );
+  });
+
+  it('listActiveConnections and markSyncSuccess update cursor', async () => {
+    prisma.mailboxConnection.findMany.mockResolvedValue([connectionRow]);
+    await expect(service.listActiveConnections()).resolves.toEqual([connectionRow]);
+
+    prisma.mailboxConnection.update.mockResolvedValue({});
+    await service.markSyncSuccess('conn-1', 'cursor-1');
+    expect(prisma.mailboxConnection.update).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.objectContaining({
+          syncCursor: 'cursor-1',
+          status: MailboxConnectionStatus.active,
+        }),
+      }),
+    );
+  });
+
+  it('listConnectionsNeedingTokenRefresh finds expiring rows', async () => {
+    prisma.mailboxConnection.findMany.mockResolvedValue([
+      { id: 'c1', provider: 'google', emailAddress: 'a@x.com' },
+    ]);
+    await service.listConnectionsNeedingTokenRefresh();
+    expect(prisma.mailboxConnection.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        where: expect.objectContaining({ status: MailboxConnectionStatus.active }),
+      }),
+    );
+  });
 });
