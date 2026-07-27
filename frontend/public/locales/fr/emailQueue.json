@@ -1,0 +1,37 @@
+{
+  "title": "File d'attente de courrier électronique",
+  "subtitle": "E-mails non liés extraits des boîtes aux lettres connectées. Ouvrez un email, puis joignez-le au registre de correspondance d'un sujet.",
+  "fetchEmails": "Récupérer 5 e-mails",
+  "mailboxSettings": "Paramètres de la boîte aux lettres",
+  "fetchSuccess": "Récupéré jusqu'à {{limit}} message(s) de la boîte de réception — {{ingested}} nouveau dans la file d'attente{{emptyHint}}.",
+  "fetchEmptyHint": "(déjà importé ou boîte de réception vide)",
+  "fetchFailed": "Échec de la récupération des e-mails",
+  "columns": {
+    "received": "Reçue",
+    "from": "Depuis",
+    "subject": "Sujette",
+    "mailbox": "Boîte aux lettres",
+    "suggestion": "Suggestion",
+    "actions": "Actes"
+  },
+  "loading": "Chargement de la file d'attente…",
+  "loadFailed": "Échec du chargement de la file d'attente des e-mails.",
+  "emptyTitle": "La file d'attente est vide",
+  "emptyDescription": "Connectez une boîte aux lettres dans les paramètres et récupérez les e-mails pour importer de nouveaux messages.",
+  "noSubject": "(Aucun sujet)",
+  "suggestions": {
+    "subjectRef": "Référence client dans le sujet",
+    "bodyRef": "Référence client dans le corps",
+    "singleActiveMatter": "Matière active unique",
+    "contactMatch": "Correspondance de contact",
+    "default": "Sujet suggéré",
+    "officeAction": "Action de bureau",
+    "renewal": "Renouvellement"
+  },
+  "actions": {
+    "viewEmail": "Afficher l'e-mail",
+    "reply": "Répondre",
+    "attachToMatter": "Joindre à la correspondance du sujet",
+    "downloadEml": "Télécharger .eml"
+  }
+}

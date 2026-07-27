@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "提交新的备案查询并跟踪您组织下打开的事项。 您的投资组合一目了然。",
+    "eyebrow": "客户门户",
+    "filePatent": "申请专利",
+    "fileTrademark": "申请商标",
+    "stats": {
+      "activeMatters": "活跃事项",
+      "activeMattersHint": "组织组合",
+      "openDeadlines": "开放截止日期",
+      "openDeadlinesHint": "等待行动",
+      "overdue": "逾期",
+      "overdueCurrent": "所有当前",
+      "overdueUrgent": "紧急关注",
+      "renewals": "续订",
+      "renewalsCurrent": "维持电流",
+      "renewalsNeedAction_one": "{{count}} 需要采取行动",
+      "renewalsNeedAction_other": "{{count}} 需要采取行动"
+    },
+    "title": "欢迎回来"
+  },
+  "correspondence": {
+    "title": "留言",
+    "description": "您的公司与您分享的信件。",
+    "loading": "正在加载消息...",
+    "error": "无法加载消息。",
+    "empty": "还没有消息。 共享的信件将出现在这里。",
+    "table": {
+      "subject": "主题",
+      "date": "日期",
+      "direction": "方向",
+      "matter": "事情"
+    }
+  },
+  "messages": {
+    "title": "留言",
+    "description": "与您的组织共享的公司广播和重要消息。",
+    "loading": "正在加载消息...",
+    "loadingDetail": "开幕…",
+    "error": "无法加载消息。",
+    "empty": "还没有消息。 公司更新和共享信件将出现在这里。",
+    "selectHint": "选择一条消息进行阅读。",
+    "unread": "未读",
+    "relatedMatter": "事情",
+    "noBody": "无消息正文。",
+    "openLink": "打开消息链接",
+    "kindBroadcast": "播送",
+    "kindCorrespondence": "事情",
+    "table": {
+      "type": "类型",
+      "subject": "主题",
+      "date": "日期",
+      "matter": "事情"
+    }
+  },
+  "approvals": {
+    "title": "批准",
+    "description": "审查并决定贵公司的批准请求。",
+    "loading": "正在加载批准...",
+    "couldNotLoad": "无法加载批准",
+    "retry": "重试",
+    "decideError": "无法提交您的决定",
+    "approve": "批准",
+    "reject": "拒绝",
+    "notePlaceholder": "可选注释...",
+    "due": "截止日期 {{date}}",
+    "pendingSection": "等待您的决定",
+    "historySection": "之前的决定",
+    "empty": {
+      "title": "没有批准请求",
+      "description": "当您的公司提交批准请求时，它将显示在此处。"
+    },
+    "status": {
+      "draft": "草稿",
+      "pending": "待办的",
+      "approved": "得到正式认可的",
+      "rejected": "被拒绝"
+    }
+  },
+  "documentCategories": {
+    "application": "应用",
+    "certificate": "证书",
+    "correspondence": "一致",
+    "evidence": "证据",
+    "office_action": "办公室行动"
+  },
+  "documents": {
+    "allCategories": "所有类别",
+    "allMatters": "一切事宜",
+    "description": "在您的所有事务中共享的文档。",
+    "download": "下载",
+    "empty": "还没有文件。 当您的公司分享您的事务时，文件将出现在此处。",
+    "error": "无法加载文档。",
+    "loading": "正在加载文档...",
+    "searchPlaceholder": "搜索文档...",
+    "table": {
+      "category": "类别",
+      "document": "文档",
+      "matter": "事情",
+      "size": "尺寸",
+      "updated": "已更新"
+    },
+    "title": "我的文件"
+  },
+  "intake": {
+    "description": "提交新的备案请求或查看您已提交的查询。",
+    "empty": {
+      "action": "提出询问",
+      "description": "提交商标或专利查询即可开始。",
+      "title": "还没有询盘"
+    },
+    "error": "无法加载您的查询。",
+    "filed": "提交{{date}}",
+    "fileNew": "提交新询问",
+    "loading": "正在加载您的查询...",
+    "myEnquiries": "我的询问",
+    "status": {
+      "accepted": "公认",
+      "inReview": "审核中",
+      "matterOpened": "事情已展开",
+      "notAccepted": "不接受",
+      "submitted": "已提交"
+    },
+    "submitted": {
+      "description": "我们自动运行了初始冲突检查。 协调员将确认并打开您的问题。 您可以随时查看或编辑您的询问，直至其被接受。",
+      "reviewEnquiry": "查看此查询",
+      "title": "已提交询价"
+    },
+    "title": "查询",
+    "untitled": "无标题查询"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "返回我的询问",
+    "cancel": "取消",
+    "defaultTitle": "询问",
+    "edit": "编辑",
+    "editDescription": "保存将更新您的查询并自动重新运行冲突检查。",
+    "editTitle": "编辑查询",
+    "enquirer": "询问者",
+    "enquirerCompany": "公司",
+    "enquirerIndividual": "个人",
+    "enquiryDetails": "查询详情",
+    "error": "无法加载此查询。",
+    "fields": {
+      "companyName": "公司名称",
+      "country": "国家",
+      "description": "描述",
+      "email": "电子邮件",
+      "fullName": "姓名",
+      "matterType": "物质类型",
+      "otherParties": "其他各方",
+      "phone": "电话",
+      "urgency": "紧迫性"
+    },
+    "filed": "提交{{date}}",
+    "loading": "正在加载查询...",
+    "saveChanges": "保存更改",
+    "statusHints": {
+      "approved": "您的询问已被接受并正在处理中。",
+      "conflictFlagged": "协调员正在审核您的询问，然后才能接受您的询问。",
+      "converted": "案件已经立案。 您可以在“我的事务”下跟踪它。",
+      "new": "已收到。 冲突检查已自动运行，协调员将很快对其进行审查。",
+      "rejected": "该询问未获受理。 如有疑问请联系我们。",
+      "reviewing": "协调员正在审核您的询问。"
+    },
+    "urgency": {
+      "normal": "普通的",
+      "urgent": "紧迫的"
+    },
+    "viewMatter": "查看事项"
+  },
+  "invoices": {
+    "description": "您所有事务的发票和付款状态。",
+    "error": "无法加载发票。",
+    "loading": "正在加载发票...",
+    "title": "我的发票"
+  },
+  "matterTypes": {
+    "design": "设计",
+    "other": "其他",
+    "patent": "专利",
+    "trademark": "商标",
+    "utility_model": "实用新型"
+  },
+  "renewals": {
+    "couldNotLoad": "无法加载续订",
+    "cycle": "周期 {{number}}",
+    "decline": "衰退",
+    "description": "您的知识产权即将进行商标和设计续展。",
+    "due": "截止日期 {{date}}",
+    "empty": {
+      "description": "当您的公司就您的某一事务注册知识产权后，此处会显示续订。 在每个续订到期日之前，系统会要求您继续或拒绝。",
+      "title": "无需续订，需要您的关注",
+      "viewDeadlines": "查看我的截止日期",
+      "viewMatters": "查看我的事务"
+    },
+    "errorFallback": "如果权限发生变化，请重试或退出并重新登录。",
+    "instructionError": "无法提交指令",
+    "loading": "加载中…",
+    "proceed": "继续",
+    "retry": "重试",
+    "title": "续订"
+  },
+  "renewalStatus": {
+    "completed": "完全的",
+    "filed": "提起",
+    "instructed": "受指导",
+    "lapsed": "已失效",
+    "upcoming": "即将推出"
+  },
+  "help": {
+    "title": "帮助",
+    "subtitle": "如何使用您的知识产权组合的客户端门户。",
+    "enquiriesTitle": "提出询问",
+    "enquiriesBody": "使用查询提交新的事项请求。 该公司将审查冲突检查并将批准的线索转化为事项。",
+    "openEnquiries": "公开询问",
+    "approvalsTitle": "批准",
+    "approvalsBody": "当公司请求您批准（例如续订或指示）时，请从“批准”页面进行回复。",
+    "openApprovals": "开放审批",
+    "contactTitle": "需要更多帮助吗？",
+    "contactBody": "通过消息联系您指定的律师或协调员，或回复有关此事的公司信函。",
+    "openMessages": "打开消息"
+  }
+}

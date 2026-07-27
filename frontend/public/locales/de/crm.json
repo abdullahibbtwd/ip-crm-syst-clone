@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Verwalten Sie Unternehmens- und Einzelkundendatensätze. Über die Aufnahme werden neue Kunden gewonnen.",
+    "emptyDescription": "Versuchen Sie, Filter anzupassen oder über die Aufnahme einen Kunden zu erstellen.",
+    "emptyTitle": "Keine Kunden gefunden",
+    "error": "Clients konnten nicht geladen werden.",
+    "newViaIntake": "Neukunde über Aufnahme",
+    "perPage": "{{count}} pro Seite",
+    "searchPlaceholder": "Name oder Code suchen…",
+    "title": "Kunden",
+    "viewAria": "Anzeigen {{name}}"
+  },
+  "contacts": {
+    "add": "Kontakt hinzufügen",
+    "drawerTitle": "Kontakt hinzufügen",
+    "email": "E-Mail",
+    "empty": "Keine Kontakte gefunden.",
+    "firstName": "Vorname *",
+    "lastName": "Nachname *",
+    "loading": "Kontakte werden geladen…",
+    "remove": "Entfernen",
+    "role": {
+      "all": "Alle",
+      "billing": "Abrechnung",
+      "conflict": "Konflikt",
+      "general": "Allgemein",
+      "primary": "Primär"
+    },
+    "save": "Kontakt speichern",
+    "table": {
+      "email": "E-Mail",
+      "name": "Name",
+      "office": "Büro",
+      "phone": "Telefon",
+      "role": "Rolle"
+    }
+  },
+  "countrySelect": {
+    "empty": "Keine Länder gefunden",
+    "none": "Keiner",
+    "placeholder": "Land auswählen",
+    "search": "Länder durchsuchen…"
+  },
+  "drawer": {
+    "closeAria": "Schublade schließen"
+  },
+  "holdingGroups": {
+    "back": "← Zurück zu Holdinggruppen",
+    "clientsUnder": "Kunden dieser Gruppe",
+    "create": "Haltegruppe erstellen",
+    "creating": "Erstellen…",
+    "description": "Mutterschirme für verbundene Kundenunternehmen.",
+    "descriptionField": "Beschreibung",
+    "detailDescription": "Erstellen Sie ein übergeordnetes Dach für verwandte Kundeneinheiten.",
+    "empty": "Keine Haltegruppen gefunden",
+    "emptyClients": "Noch keine Kunden verlinkt.",
+    "emptyDescription": "Versuchen Sie, die Suche anzupassen oder eine neue Haltegruppe zu erstellen.",
+    "error": "Haltegruppen konnten nicht geladen werden.",
+    "formError": "Die Haltegruppe konnte nicht erstellt werden",
+    "name": "Name *",
+    "namePlaceholder": "z.B. Acme Group BV",
+    "new": "Neue Holdinggruppe",
+    "notesPlaceholder": "Optionale Hinweise zu dieser Holdingstruktur",
+    "notFound": "Holdinggruppe nicht gefunden.",
+    "allGroups": "Alle Holdinggruppen",
+    "perPage": "{{count}} pro Seite",
+    "searchPlaceholder": "Name oder Land suchen…",
+    "title": "Gruppen halten",
+    "viewAria": "Anzeigen {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Zurück zu den Kunden"
+  },
+  "offices": {
+    "add": "Büro hinzufügen",
+    "city": "Stadt",
+    "drawerTitle": "Büro hinzufügen",
+    "empty": "Noch keine Büros.",
+    "errorPrimary": "Hauptbüro konnte nicht festgelegt werden",
+    "label": "Etikett *",
+    "loading": "Büros werden geladen…",
+    "noAddress": "Keine Adresse",
+    "primary": "Primär",
+    "remove": "Entfernen",
+    "save": "Büro retten",
+    "setPrimary": "Als Hauptbüro festlegen",
+    "setPrimaryAction": "Primär festlegen",
+    "title": "Büros"
+  },
+  "overview": {
+    "assignedTo": "Zugewiesen an",
+    "cancel": "Stornieren",
+    "companyName": "Name der Firma *",
+    "country": "Land",
+    "edit": "Bearbeiten",
+    "exportClientData": "Kundendaten exportieren",
+    "error": "Das Laden des Client-Profils ist fehlgeschlagen.",
+    "errorSave": "Der Client konnte nicht gespeichert werden",
+    "firstName": "Vorname *",
+    "gdprConsent": "DSGVO-Einwilligung",
+    "holdingGroup": "Holding-Gruppe",
+    "lastName": "Nachname *",
+    "legalForm": "Rechtsform",
+    "loading": "Profil wird geladen…",
+    "none": "Keiner",
+    "notes": "Notizen",
+    "registrationNo": "Registrierungsnr.",
+    "save": "Änderungen speichern",
+    "saving": "Sparen…",
+    "status": "Status",
+    "type": "Typ",
+    "validation": {
+      "companyName": "Firmenname ist erforderlich",
+      "name": "Vor- und Nachname sind erforderlich",
+      "website": "Die Website muss mit http:// oder https:// beginnen."
+    },
+    "vatNo": "MwSt.-Nr.",
+    "website": "Webseite",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Fügen Sie ein verbundenes Unternehmen hinzu",
+    "drawerTitle": "Fügen Sie ein verbundenes Unternehmen hinzu",
+    "empty": "Keine verbundenen Unternehmen verlinkt.",
+    "externalName": "Externer Name",
+    "existingClient": "Bestehender Kunde",
+    "linkType": "Linktyp",
+    "loading": "Laden…",
+    "notes": "Notizen",
+    "notesPlaceholder": "Optionaler Kontext",
+    "relationship": "Beziehung *",
+    "remove": "Entfernen",
+    "save": "Zugehöriges Unternehmen speichern",
+    "searchClients": "Kunden suchen *",
+    "searchPlaceholder": "Suche nach Name oder Code…",
+    "noClients": "Keine Kunden gefunden",
+    "companyName": "Name der Firma *",
+    "table": {
+      "name": "Name",
+      "notes": "Notizen",
+      "relationship": "Beziehung"
+    },
+    "title": "Verwandte Unternehmen"
+  },
+  "relationship": {
+    "affiliate": "Partner",
+    "parent": "Elternteil",
+    "subsidiary": "Tochtergesellschaft"
+  },
+  "history": {
+    "empty": "Noch keine Geschichte.",
+    "loadMore": "Mehr laden",
+    "loading": "Verlauf wird geladen…",
+    "title": "Beziehungsgeschichte"
+  },
+  "matters": {
+    "empty": "Noch keine Angelegenheit. Eröffnen Sie eine Angelegenheit, um mit der Strafverfolgung für diesen Mandanten zu beginnen.",
+    "loading": "Angelegenheiten werden geladen…",
+    "openNew": "Neue Angelegenheit eröffnen",
+    "table": {
+      "assigned": "Zugewiesen",
+      "jurisdictions": "Gerichtsbarkeiten",
+      "status": "Status",
+      "title": "Titel",
+      "type": "Typ"
+    },
+    "title": "Angelegenheiten"
+  },
+  "accessHistory": {
+    "title": "Datenzugriffsverlauf",
+    "subtitle": "Mitarbeiter, die personenbezogene Daten für diesen Kunden angezeigt oder exportiert haben.",
+    "loading": "Zugriffsverlauf wird geladen…",
+    "loadFailed": "Der Zugriffsverlauf konnte nicht geladen werden.",
+    "empty": "Es wurden noch keine Zugriffsereignisse erfasst.",
+    "systemUser": "System",
+    "columns": {
+      "when": "Wann",
+      "user": "Benutzer",
+      "action": "Aktion",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "Durch Materie",
+    "error": "Rechnungsdaten konnten nicht geladen werden.",
+    "loading": "Abrechnung wird geladen…",
+    "noPermission": "Sie sind nicht berechtigt, die Abrechnung für diesen Kunden anzuzeigen.",
+    "title": "Abrechnung",
+    "wipDescription": "In Arbeit befindliche und nicht in Rechnung gestellte Beträge für diesen Kunden.",
+    "wipDescriptionLong": "In Bearbeitung befindliche Arbeiten und abrechnungsfähige Gesamtbeträge für alle Angelegenheiten dieses Kunden.",
+    "matterTable": {
+      "matter": "Gegenstand",
+      "type": "Typ",
+      "status": "Status",
+      "billableHours": "Abrechnungsfähige Stunden",
+      "total": "Gesamt",
+      "unbilled": "Nicht in Rechnung gestellt",
+      "empty": "Noch keine Angelegenheit. Öffnen Sie eine Angelegenheit, um mit der Verfolgung abrechenbarer Arbeit zu beginnen."
+    }
+  },
+  "sidebar": {
+    "country": "Land:",
+    "loading": "Laden…",
+    "primaryContact": "Hauptkontakt",
+    "primaryOffice": "Hauptbüro",
+    "viewProfile": "Vollständiges Profil ansehen"
+  },
+  "status": {
+    "active": "Aktiv",
+    "archived": "Archiviert",
+    "inactive": "Inaktiv",
+    "prospect": "Aussicht"
+  },
+  "table": {
+    "action": "Aktion",
+    "client": "Kunde",
+    "country": "Land",
+    "created": "Erstellt",
+    "holdingGroup": "Holding-Gruppe",
+    "status": "Status",
+    "type": "Typ"
+  },
+  "tabs": {
+    "accessHistory": "Zugriffsverlauf",
+    "billing": "Abrechnung",
+    "contacts": "Kontakte",
+    "history": "Geschichte",
+    "matters": "Angelegenheiten",
+    "watch": "Betrachten",
+    "offices": "Büros",
+    "overview": "Überblick",
+    "related": "Verwandt"
+  },
+  "type": {
+    "company": "Unternehmen",
+    "individual": "Person"
+  },
+  "unnamedClient": "Unbenannter Kunde"
+}

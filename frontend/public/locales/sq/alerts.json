@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alarmet",
+    "description": "Të vonuara, me afat sot dhe artikuj urgjentë, plus njoftime të palexuara."
+  },
+  "sections": {
+    "overdue": "I vonuar",
+    "today": "Afati sot",
+    "urgent": "Urgjente",
+    "notifications": "Njoftimet"
+  },
+  "empty": {
+    "notifications": "Nuk ka njoftime",
+    "urgent": "Nuk ka sende urgjente",
+    "overdue": "Nuk ka artikuj të vonuar",
+    "today": "Nuk ka artikuj që mbarojnë sot"
+  }
+}

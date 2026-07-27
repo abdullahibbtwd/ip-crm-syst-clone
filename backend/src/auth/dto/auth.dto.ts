@@ -1,12 +1,14 @@
 import {
   IsBoolean,
   IsEmail,
+  IsIn,
   IsOptional,
   IsString,
   Length,
   MinLength,
   Equals,
 } from 'class-validator';
+import { SUPPORTED_LOCALES } from '../../common/supported-locales';
 
 export class LoginDto {
   @IsEmail()
@@ -47,6 +49,15 @@ export class ResetPasswordDto {
   password!: string;
 }
 
+export class AcceptInviteDto {
+  @IsString()
+  token!: string;
+
+  @IsString()
+  @MinLength(8)
+  password!: string;
+}
+
 export class RegisterDto {
   @IsEmail()
   email!: string;
@@ -67,4 +78,10 @@ export class RegisterDto {
   @IsBoolean()
   @Equals(true, { message: 'GDPR consent is required to create an account' })
   gdprConsent!: boolean;
+}
+
+export class UpdateLocaleDto {
+  @IsString()
+  @IsIn(SUPPORTED_LOCALES)
+  preferredLocale!: string;
 }

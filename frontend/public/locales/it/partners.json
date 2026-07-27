@@ -1,0 +1,87 @@
+{
+  "title": "Partner stranieri",
+  "subtitle": "Agenti locali e consulenti legali associati utilizzati per la documentazione e le istruzioni sulla questione.",
+  "newPartner": "Nuovo socio",
+  "noPermission": "Non hai l'autorizzazione per visualizzare i partner.",
+  "loading": "Caricamento partner…",
+  "loadError": "Impossibile caricare i partner.",
+  "empty": "Nessun partner corrisponde a questi filtri.",
+  "searchPlaceholder": "Cerca nome, azienda, email...",
+  "filters": {
+    "all": "Tutti i partner",
+    "activeOnly": "Solo attivo"
+  },
+  "columns": {
+    "name": "Nome",
+    "company": "Azienda",
+    "email": "E-mail",
+    "jurisdictions": "Giurisdizioni",
+    "status": "Stato"
+  },
+  "status": {
+    "active": "Attiva",
+    "inactive": "Inattiva"
+  },
+  "editAria": "Modifica partner",
+  "deactivateAria": "Disattiva partner",
+  "confirmDeactivate": "Disattivare il partner \"{{name}}\"?",
+  "drawer": {
+    "createTitle": "Nuovo socio",
+    "editTitle": "Modifica partner",
+    "name": "Nome",
+    "company": "Azienda",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "countryCode": "Codice paese",
+    "jurisdictions": "Giurisdizioni",
+    "jurisdictionsHint": "Codici separati da virgole, ad es. Bulgaria, UE, PE",
+    "notes": "Note",
+    "status": "Stato",
+    "cancel": "Cancellare",
+    "create": "Crea socio",
+    "save": "Salva modifiche"
+  },
+  "errors": {
+    "nameRequired": "Il nome è obbligatorio",
+    "saveFailed": "Impossibile salvare il partner"
+  },
+  "instructions": {
+    "title": "Istruzioni per il partner",
+    "subtitle": "Redigere, inviare e tenere traccia delle istruzioni ai partner stranieri su questo argomento.",
+    "newDraft": "Nuova bozza",
+    "noPermission": "Non hai l'autorizzazione per visualizzare le istruzioni del partner.",
+    "loading": "Caricamento istruzioni...",
+    "loadError": "Impossibile caricare le istruzioni.",
+    "empty": "Nessuna istruzione per il partner ancora.",
+    "columns": {
+      "title": "Titolo",
+      "partner": "Partner",
+      "status": "Stato",
+      "created": "Creata"
+    },
+    "status": {
+      "draft": "Bozza",
+      "sent": "Inviata",
+      "acknowledged": "Riconosciuta",
+      "complete": "Completare"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Seleziona partner",
+      "title": "Titolo",
+      "body": "Istruzioni",
+      "cancel": "Cancellare",
+      "create": "Crea bozza"
+    },
+    "errors": {
+      "required": "Sono richiesti partner e titolo",
+      "saveFailed": "Impossibile creare l'istruzione"
+    }
+  },
+  "actions": {
+    "send": "Inviare",
+    "acknowledge": "Riconoscere",
+    "complete": "Completare"
+  }
+}

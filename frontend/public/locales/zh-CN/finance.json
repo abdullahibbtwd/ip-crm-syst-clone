@@ -1,0 +1,198 @@
+{
+  "clientFallback": "客户",
+  "disbursements": {
+    "title": "支出",
+    "subtitle": "公司范围内的固定费用归类为支出。",
+    "loadFailed": "无法加载付款。",
+    "empty": "未发现任何支出。",
+    "columns": {
+      "date": "日期",
+      "matter": "事情",
+      "description": "描述",
+      "amount": "数量"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "支出",
+    "expense": "费用",
+    "professional_fee": "专业费"
+  },
+  "invoices": {
+    "actions": {
+      "download": "下载",
+      "issue": "问题",
+      "pay": "支付",
+      "void": "空白"
+    },
+    "confirmIssue": "开具此发票吗？",
+    "confirmVoid": "这张发票作废吗？ 此操作无法撤消。",
+    "createFromUnbilled": "从未开票创建发票",
+    "description": "跟踪已开具的发票、付款状态和未清余额。",
+    "draft": "草稿",
+    "empty": "没有找到发票",
+    "emptyDescription": "尝试调整过滤器或根据未开票工作创建发票。",
+    "error": "无法加载发票。",
+    "invoiceStatus": {
+      "draft": "草稿",
+      "issued": "发布",
+      "void": "空白"
+    },
+    "loading": "正在加载发票...",
+    "noPermission": "您没有查看发票的权限。",
+    "searchPlaceholder": "搜索发票号码 或客户...",
+    "sectionTitle": "发票",
+    "table": {
+      "amount": "数量",
+      "client": "客户",
+      "due": "到期的",
+      "invoiceNo": "发票号码",
+      "issued": "发布",
+      "payment": "支付",
+      "status": "地位"
+    },
+    "title": "发票",
+    "listSubtitle": "公司范围内的发票登记涵盖所有事项。 从事项计费选项卡开具发票，然后在此处记录付款。",
+    "exportFrom": "导出自",
+    "exportTo": "导出到",
+    "exportFormats": {
+      "journal": "期刊 CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "出口…",
+    "exportFailed": "会计导出失败",
+    "syncXero": "同步Xero",
+    "syncQuickBooks": "同步 QuickBooks",
+    "syncFailed": "会计同步失败",
+    "searchListPlaceholder": "搜索发票号码、事项、客户...",
+    "filters": {
+      "allPayments": "所有付款",
+      "allStatuses": "所有状态"
+    }
+  },
+  "payment": {
+    "amount": "数量 *",
+    "balance": "未结余额",
+    "date": "付款日期 *",
+    "drawerTitle": "记录付款",
+    "error": "付款记录失败",
+    "method": "付款方式 *",
+    "methods": {
+      "bank_transfer": "银行转账",
+      "card": "卡片",
+      "cash": "现金",
+      "other": "其他"
+    },
+    "notes": "笔记",
+    "reference": "参考",
+    "save": "记录付款",
+    "success": "付款记录成功。",
+    "validation": {
+      "amount": "金额必须大于零",
+      "exceeds": "金额超过未清余额"
+    }
+  },
+  "paymentStatus": {
+    "paid": "有薪酬的",
+    "partial": "部分付款",
+    "unpaid": "未付"
+  },
+  "rateCards": {
+    "any": "任何",
+    "create": "创建价目表",
+    "description": "按角色、事项类型和生效日期配置计费费率。",
+    "drawerTitle": "新价目表",
+    "drawerTitleEdit": "编辑价目表",
+    "effectiveFrom": "生效日期：*",
+    "effectiveTo": "有效于",
+    "error": "保存价目表失败",
+    "firmWide": "全公司范围",
+    "internalCost": "内部成本/小时",
+    "matterType": "物质类型",
+    "new": "新价目表",
+    "noPermission": "您无权管理价目表。",
+    "viewNoPermission": "您无权查看价目表。",
+    "rate": "速率/小时 *",
+    "role": "角色 *",
+    "save": "保存更改",
+    "scope": "范围",
+    "table": {
+      "effective": "有效的",
+      "internalCost": "内部成本",
+      "matterType": "物质类型",
+      "rate": "速度",
+      "role": "角色",
+      "scope": "范围"
+    },
+    "title": "价目表",
+    "pageDescription": "按角色、事项类型和可选的客户覆盖列出固定价格表。 记录时间时使用计费费率； 可选的内部成本驱动真实利润率。",
+    "anyMatterType": "任何事项类型",
+    "clientOverride": "客户端覆盖",
+    "firmWideDefault": "全公司默认",
+    "editAria": "编辑价目表",
+    "loadFailed": "无法加载价目表。",
+    "loading": "正在加载价目表...",
+    "empty": "还没有价目表。",
+    "billable": "可计费",
+    "validation": {
+      "hourlyRate": "输入有效的小时费率",
+      "internalCost": "输入有效的内部成本或留空"
+    },
+    "internalCostHint": "选修的。 用于在价目表上设置时的真实利润率。",
+    "billableRate": "计费费率（欧元/小时）",
+    "internalCostOptional": "内部成本（欧元/小时）",
+    "internalCostPlaceholder": "可选 - 用于保证金报告",
+    "internalCostResolutionHint": "反映计费费率解析（客户→公司+事件类型→公司默认）。 将新时间条目快照为 cost_snapshot。",
+    "effectiveToOptional": "有效至（可选）"
+  },
+  "rateRole": {
+    "coordinator": "协调员",
+    "ip_attorney": "知识产权律师",
+    "managing_partner": "管理合伙人",
+    "paralegal": "律师助理",
+    "trademark_attorney": "商标代理人"
+  },
+  "billingOverview": {
+    "collectedHint": "期间收集",
+    "collectedLabel": "集",
+    "criticalHint": "逾期60天以上",
+    "criticalLabel": "严重风险",
+    "description": "收入状况（发票）加上价目表准备情况（价目表+内部成本覆盖范围）。",
+    "error": "无法加载账单概览。",
+    "invoicedHint": "{{count}} 期间的发票",
+    "invoicedLabel": "已开具发票",
+    "internalCostHintRevenue": "收入代理基础",
+    "internalCostHintTrueMargin": "启用真实保证金基础",
+    "internalCostLabel": "内部成本",
+    "manageRateCards": "管理价目表",
+    "nextStep": "下一步",
+    "nextStepFix": "修复/价目表中的费率覆盖范围",
+    "nextStepHealthy": "费率覆盖范围健康",
+    "nextStepHint": "当每个计费时间条目解析为费率时，计费摘要将更加准确。",
+    "noPermissionBilling": "您没有查看帐单的权限。",
+    "noPermissionInvoice": "您无权查看发票数据。",
+    "openFullReport": "打开完整报告",
+    "outstandingHint": "{{count}} 未清应收账款",
+    "outstandingLabel": "杰出的",
+    "rateCardHealth": "价目表健康状况",
+    "rateCardHealthDescription": "是否已配置计费费率以及准备好利润吗？",
+    "rateCardsHintConfigured": "可用价格",
+    "rateCardsHintMissing": "未配置价目表",
+    "rateCardsLabel": "价目表",
+    "receivablesAging": "应收账款账龄",
+    "receivablesHint": "使用完整报告的表格和详细信息。",
+    "tip": "提示：价目表上的内部成本控制系统是否可以计算真实利润率。",
+    "title": "计费概览",
+    "unratedHintBad": "一些计费条目的费率快照为 0 欧元",
+    "unratedHintGood": "看起来不错",
+    "unratedLabel": "未评级时间条目"
+  },
+  "summary": {
+    "billable": "可计费",
+    "billableAmount": "可计费金额",
+    "fixedFees": "固定费用",
+    "total": "全部的",
+    "totalHours": "总小时数",
+    "unbilled": "未开票"
+  }
+}

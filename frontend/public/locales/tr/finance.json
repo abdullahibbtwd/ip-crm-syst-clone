@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Müşteri",
+  "disbursements": {
+    "title": "Ödemeler",
+    "subtitle": "Harcama olarak kategorize edilen firma geneli sabit ücretler.",
+    "loadFailed": "Ödemeler yüklenemedi.",
+    "empty": "Hiçbir ödeme bulunamadı.",
+    "columns": {
+      "date": "Tarih",
+      "matter": "Konu",
+      "description": "Tanım",
+      "amount": "Miktar"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Ödeme",
+    "expense": "Gider",
+    "professional_fee": "Profesyonel ücret"
+  },
+  "invoices": {
+    "actions": {
+      "download": "İndirmek",
+      "issue": "Sorun",
+      "pay": "Ödemek",
+      "void": "Geçersiz"
+    },
+    "confirmIssue": "Bu fatura düzenlensin mi?",
+    "confirmVoid": "Bu fatura geçersiz kılınsın mı? Bu geri alınamaz.",
+    "createFromUnbilled": "Faturalandırılmayanlardan fatura oluştur",
+    "description": "Düzenlenen faturaları, ödeme durumunu ve ödenmemiş bakiyeleri takip edin.",
+    "draft": "Taslak",
+    "empty": "Fatura bulunamadı",
+    "emptyDescription": "Filtreleri ayarlamayı veya faturalandırılmamış işlerden fatura oluşturmayı deneyin.",
+    "error": "Faturalar yüklenemedi.",
+    "invoiceStatus": {
+      "draft": "Taslak",
+      "issued": "Veriliş",
+      "void": "Geçersiz"
+    },
+    "loading": "Faturalar yükleniyor…",
+    "noPermission": "Faturaları görüntüleme izniniz yok.",
+    "searchPlaceholder": "Fatura numarasını arayın. veya müşteri…",
+    "sectionTitle": "Faturalar",
+    "table": {
+      "amount": "Miktar",
+      "client": "Müşteri",
+      "due": "Vadesi dolmuş",
+      "invoiceNo": "Fatura no.",
+      "issued": "Veriliş",
+      "payment": "Ödeme",
+      "status": "Durum"
+    },
+    "title": "Faturalar",
+    "listSubtitle": "Tüm konularda firma çapında fatura kaydı. Konu faturalandırma sekmelerinden faturaları düzenleyin, ardından ödemeleri buraya kaydedin.",
+    "exportFrom": "Şuradan dışa aktar:",
+    "exportTo": "Şuraya aktar:",
+    "exportFormats": {
+      "journal": "Günlük CSV'si",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV'si"
+    },
+    "exporting": "Dışa aktarılıyor…",
+    "exportFailed": "Muhasebe dışa aktarımı başarısız oldu",
+    "syncXero": "Xero'yu senkronize et",
+    "syncQuickBooks": "QuickBooks'u senkronize et",
+    "syncFailed": "Hesap senkronizasyonu başarısız oldu",
+    "searchListPlaceholder": "Fatura numarasını, konuyu, müşteriyi arayın…",
+    "filters": {
+      "allPayments": "Tüm ödemeler",
+      "allStatuses": "Tüm durumlar"
+    }
+  },
+  "payment": {
+    "amount": "Miktar *",
+    "balance": "Ödenmemiş bakiye",
+    "date": "Ödeme tarihi *",
+    "drawerTitle": "Ödemeyi kaydet",
+    "error": "Ödeme kaydedilemedi",
+    "method": "Ödeme yöntemi *",
+    "methods": {
+      "bank_transfer": "Banka havalesi",
+      "card": "Kart",
+      "cash": "Peşin",
+      "other": "Diğer"
+    },
+    "notes": "Notlar",
+    "reference": "Referans",
+    "save": "Ödemeyi kaydet",
+    "success": "Ödeme başarıyla kaydedildi.",
+    "validation": {
+      "amount": "Tutar sıfırdan büyük olmalıdır",
+      "exceeds": "Tutar ödenmemiş bakiyeyi aşıyor"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Paralı",
+    "partial": "Kısmen ödendi",
+    "unpaid": "ödenmemiş"
+  },
+  "rateCards": {
+    "any": "Herhangi",
+    "create": "Ücret listesi oluştur",
+    "description": "Faturalandırma oranlarını role, konu türüne ve geçerlilik tarihine göre yapılandırın.",
+    "drawerTitle": "Yeni ücret listesi",
+    "drawerTitleEdit": "Ücret listesini düzenle",
+    "effectiveFrom": "Şu tarihten itibaren geçerli: *",
+    "effectiveTo": "Etkili",
+    "error": "Ücret listesi kaydedilemedi",
+    "firmWide": "Firma çapında",
+    "internalCost": "Dahili maliyet / saat",
+    "matterType": "Madde türü",
+    "new": "Yeni ücret listesi",
+    "noPermission": "Ücret listelerini yönetme izniniz yok.",
+    "viewNoPermission": "Ücret listelerini görüntüleme izniniz yok.",
+    "rate": "Ücret / saat *",
+    "role": "Rol *",
+    "save": "Değişiklikleri kaydet",
+    "scope": "Kapsam",
+    "table": {
+      "effective": "Etkili",
+      "internalCost": "İç maliyet",
+      "matterType": "Madde türü",
+      "rate": "Oran",
+      "role": "Rol",
+      "scope": "Kapsam"
+    },
+    "title": "Ücret listeleri",
+    "pageDescription": "Role, konu türüne ve isteğe bağlı istemci geçersiz kılmaya göre firma fiyat listesi. Kayıt süresi kaydedilirken faturalandırılabilir ücret kullanılır; isteğe bağlı dahili maliyet, gerçek marjlı karlılığı artırır.",
+    "anyMatterType": "Herhangi bir konu türü",
+    "clientOverride": "İstemci geçersiz kılma",
+    "firmWideDefault": "Firma genelinde temerrüt",
+    "editAria": "Ücret listesini düzenle",
+    "loadFailed": "Ücret listeleri yüklenemedi.",
+    "loading": "Ücret listeleri yükleniyor…",
+    "empty": "Henüz ücret listesi yok.",
+    "billable": "Faturalandırılabilir",
+    "validation": {
+      "hourlyRate": "Geçerli bir saatlik ücret girin",
+      "internalCost": "Geçerli bir dahili maliyet girin veya boş bırakın"
+    },
+    "internalCostHint": "İsteğe bağlı. Ücret listelerinde ayarlandığında gerçek marj kârlılığı için kullanılır.",
+    "billableRate": "Faturalandırılabilir ücret (EUR/saat)",
+    "internalCostOptional": "Dahili maliyet (EUR/saat)",
+    "internalCostPlaceholder": "İsteğe bağlı - marj raporlaması için",
+    "internalCostResolutionHint": "Faturalandırma oranı çözünürlüğünü yansıtır (müşteri → firma + konu türü → firma temerrüdü). Cost_snapshot olarak yeni zaman girişlerinin anlık görüntüsü alındı.",
+    "effectiveToOptional": "Geçerli (isteğe bağlı)"
+  },
+  "rateRole": {
+    "coordinator": "Koordinatör",
+    "ip_attorney": "fikri mülkiyet avukatı",
+    "managing_partner": "Yönetici ortak",
+    "paralegal": "Avukat Yardımcısı",
+    "trademark_attorney": "Ticari marka avukatı"
+  },
+  "billingOverview": {
+    "collectedHint": "Dönem içinde toplanan",
+    "collectedLabel": "Toplanan",
+    "criticalHint": "60+ gün gecikmiş",
+    "criticalLabel": "Kritik risk",
+    "description": "Gelir durumu (faturalar) artı ücret listesi hazırlığı (ücret listeleri + dahili maliyet kapsamı).",
+    "error": "Faturalandırmaya genel bakış yüklenemedi.",
+    "invoicedHint": "{{count}} dönemdeki faturalar",
+    "invoicedLabel": "Faturalandı",
+    "internalCostHintRevenue": "Gelir vekili esası",
+    "internalCostHintTrueMargin": "Gerçek marj temeli etkin",
+    "internalCostLabel": "İç maliyet",
+    "manageRateCards": "Ücret listelerini yönet",
+    "nextStep": "Sonraki adım",
+    "nextStepFix": "/Ücret listelerinde ücret kapsamını düzeltin",
+    "nextStepHealthy": "Oran kapsamı sağlıklı",
+    "nextStepHint": "Faturalandırılabilir her zaman girişi bir ücrete çözümlendiğinde faturalandırma özetleri daha doğru olacaktır.",
+    "noPermissionBilling": "Faturalandırmayı görüntüleme izniniz yok.",
+    "noPermissionInvoice": "Fatura verilerini görüntüleme izniniz yok.",
+    "openFullReport": "Raporun tamamını aç",
+    "outstandingHint": "{{count}} açık alacaklar",
+    "outstandingLabel": "Üstün",
+    "rateCardHealth": "Ücret listesi durumu",
+    "rateCardHealthDescription": "Faturalandırma oranları yapılandırılmış mı ve marjlar hazır mı?",
+    "rateCardsHintConfigured": "Mevcut fiyatlar",
+    "rateCardsHintMissing": "Hiçbir ücret listesi yapılandırılmadı",
+    "rateCardsLabel": "Ücret listeleri",
+    "receivablesAging": "Alacakların yaşlandırılması",
+    "receivablesHint": "Tablolar ve ayrıntılar için raporun tamamını kullanın.",
+    "tip": "İpucu: Ücret listelerindeki dahili maliyet, sistemin gerçek marj karlılığını hesaplayıp hesaplayamayacağını kontrol eder.",
+    "title": "Faturalandırmaya genel bakış",
+    "unratedHintBad": "Bazı faturalandırılabilir girişlerin 0 € tutarındaki anlık görüntüsü vardır",
+    "unratedHintGood": "İyi görünüyor",
+    "unratedLabel": "Derecelendirilmemiş zaman girişleri"
+  },
+  "summary": {
+    "billable": "Faturalandırılabilir",
+    "billableAmount": "Faturalandırılabilir tutar",
+    "fixedFees": "Sabit ücretler",
+    "total": "Toplam",
+    "totalHours": "Toplam saat",
+    "unbilled": "faturalandırılmamış"
+  }
+}

@@ -17,7 +17,7 @@ import { useIntakeLeads } from '@/features/intake/hooks/useIntake'
 import type { IntakeFilters, IntakeStatus } from '@/features/intake/types'
 import { intakeStatusLabel } from '@/features/intake/utils'
 
-const ALL_STATUSES = 'All'
+const ALL_STATUSES = 'all'
 const INTAKE_STATUSES: IntakeStatus[] = [
   'new',
   'reviewing',

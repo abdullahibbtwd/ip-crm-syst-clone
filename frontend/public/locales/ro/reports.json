@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Actual",
+      "overdue30": "1–30 de zile",
+      "overdue60": "31-60 de zile",
+      "overdue90plus": "90+ zile"
+    },
+    "bucketsShort": {
+      "current": "Actual",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Legenda îmbătrânirii",
+    "noOpenReceivables": "Fără creanțe deschise"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} grup de clienți",
+    "clientGroups_other": "{{count}} grupuri de clienți",
+    "clientMatters": "Clientul contează",
+    "clientsInWindow": "{{clients}} clienți · {{days}} orizont de zi",
+    "crossTabTitle": "Client × jurisdicție × avocat",
+    "description": "Viitoarele termene critice grupate după client, jurisdicție și avocat responsabil. Culorile de urgență se potrivesc cu listele de lucru cu termenul limită și etapele de notificări.",
+    "emptyDescription": "Încercați să extindeți fereastra portofoliului sau să ștergeți filtrele.",
+    "emptyTitle": "Nu există termene limită în această fereastră",
+    "error": "Nu s-a putut încărca raportul de risc privind termenul limită.",
+    "filters": {
+      "allAssignees": "Toți cesionații",
+      "allAttorneys": "Toți avocații",
+      "allJurisdictions": "Toate jurisdicțiile",
+      "jurisdiction": "Jurisdicția",
+      "portfolioWindow": "Fereastra portofoliu (zile)",
+      "responsibleAttorney": "Avocat responsabil"
+    },
+    "generated": "Generat {{date}}",
+    "loading": "Se încarcă riscul de portofoliu...",
+    "openWorklist": "Deschideți lista de lucru",
+    "stats": {
+      "critical": "Critic",
+      "criticalHint": "Întârziat, astăzi sau ≤7 zile",
+      "dueToday": "Datorită astăzi",
+      "dueTodayHint": "Acțiune necesară astăzi",
+      "inWindow": "În fereastră",
+      "overdue": "Întârziat",
+      "overdueHint": "Ulterior sau escaladat"
+    },
+    "table": {
+      "deadline": "Termen limită",
+      "due": "Datorită",
+      "matter": "materie",
+      "status": "Stare"
+    },
+    "title": "Risc de portofoliu de termen limită"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "După jurisdicție",
+    "byMonth": "Depuneri pe lună",
+    "description": "Cereri depuse - agregate din evenimentele de depunere a cronologiei problemei, grupate după lună, tip de problemă și jurisdicție.",
+    "error": "Nu s-au putut încărca volumele de înregistrare.",
+    "filters": {
+      "allJurisdictions": "Toate jurisdicțiile",
+      "allTypes": "Toate tipurile",
+      "jurisdiction": "Jurisdicția",
+      "matterType": "Tipul materiei",
+      "periodFrom": "Perioada de la",
+      "periodTo": "Perioada la"
+    },
+    "generated": "Generat {{date}}",
+    "loading": "Se încarcă volumele de înregistrare...",
+    "matterPortfolio": "Portofoliu de materie",
+    "noFilings": "Fără depuneri în perioada.",
+    "stats": {
+      "jurisdictions": "Jurisdicțiile",
+      "jurisdictionsHint": "Autoritățile de depunere",
+      "matterTypes": "Tipuri de materie",
+      "matterTypesHint": "Tipuri distincte depuse",
+      "totalFilings": "Total dosare",
+      "totalFilingsHint": "În perioada selectată"
+    },
+    "table": {
+      "filingDate": "Data depunerii",
+      "filings": "Pilitură",
+      "jurisdiction": "Jurisdicția",
+      "matter": "materie",
+      "month": "Lună",
+      "type": "Tip"
+    },
+    "title": "Volume de dosar"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Până la scadență",
+    "byJurisdiction": "După jurisdicție",
+    "cycle": "ciclu {{number}}",
+    "description": "Următoarele ferestre de reînnoire în funcție de statut, jurisdicție și lună scadentă - cu niveluri de urgență aliniate la raportarea riscurilor la termen.",
+    "dueBefore": "Datorită înainte",
+    "dueBeforeLabel": "Datorită înainte de {{date}}",
+    "error": "Nu s-a putut încărca rezumatul reînnoirilor.",
+    "filters": {
+      "allJurisdictions": "Toate jurisdicțiile",
+      "jurisdiction": "Jurisdicția"
+    },
+    "generated": "Generat {{date}}",
+    "loading": "Se încarcă rezumatul reînnoirilor...",
+    "noRenewals": "Fără reînnoiri în fereastră.",
+    "renewalsWorklist": "Lista de lucru pentru reînnoiri",
+    "stats": {
+      "critical": "Critic",
+      "criticalHint": "Întârziat sau scadent ≤7 zile",
+      "instructed": "Instruit",
+      "instructedHint": "Continuare confirmată",
+      "pipeline": "Conductă",
+      "pipelineHint": "Ferestre active de reînnoire",
+      "upcoming": "În viitor",
+      "upcomingHint": "Așteaptă instrucțiuni"
+    },
+    "table": {
+      "client": "Client",
+      "due": "Datorită",
+      "ipRight": "Dreptul de IP",
+      "month": "Lună",
+      "status": "Stare",
+      "windows": "Windows"
+    },
+    "title": "Rezumatul reînnoirilor"
+  },
+  "renewalUrgency": {
+    "legend": "Urgență de reînnoire",
+    "noPipeline": "Fără reînnoiri de conducte",
+    "overdue": "Întârziat",
+    "soon": "≤30 de zile",
+    "today": "Datorită astăzi",
+    "urgent": "≤7 zile"
+  },
+  "revenueSummary": {
+    "agingDetail": "Detaliu creante deschise",
+    "agingSection": {
+      "description": "Un instantaneu al tuturor creanțelor deschise în funcție de zilele restante",
+      "title": "Rezumatul îmbătrânirii"
+    },
+    "description": "Totalurile facturilor emise pe lună, încasări și creanțe deschise cu vechime în zilele restante - aliniate cu scenariul de urmărire a plăților din Finanțe.",
+    "error": "Nu s-a putut încărca rezumatul veniturilor.",
+    "filters": {
+      "periodFrom": "Perioada de la",
+      "periodTo": "Perioada la"
+    },
+    "generated": "Generat {{date}}",
+    "invoice_one": "{{count}} factură",
+    "invoice_other": "{{count}} facturi",
+    "invoiceRegister": "Registrul facturilor",
+    "issuedInPeriod_one": "revenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "revenueSummary.issuedInPeriod",
+    "loading": "Se încarcă rezumatul veniturilor...",
+    "noInvoices": "Nu s-au emis facturi în această perioadă.",
+    "noReceivables": "Fără creanțe restante.",
+    "openInvoices_one": "revenueSummary.openInvoices",
+    "openInvoices_other": "revenueSummary.openInvoices",
+    "period": "Perioada {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Totalurile facturilor emise grupate pe luna emiterii",
+      "title": "Venituri pe lună"
+    },
+    "stats": {
+      "collected": "Colectat",
+      "collectedHint": "Plăți înregistrate în perioada",
+      "criticalReceivables": "60+ zile întârziate",
+      "criticalReceivablesHint": "Creanțe care necesită urmărire",
+      "outstanding": "Remarcabil",
+      "totalInvoiced": "Total facturat"
+    },
+    "table": {
+      "aging": "Îmbătrânire",
+      "client": "Client",
+      "due": "Datorită",
+      "invoice": "Factura",
+      "invoiced": "Facturat",
+      "month": "Lună",
+      "open": "Deschide",
+      "outstanding": "Remarcabil",
+      "paid": "Plătit"
+    },
+    "title": "Venituri și creanțe"
+  },
+  "urgency": {
+    "legend": "Legendă de urgență",
+    "noActiveRisk": "Fără risc activ",
+    "overdue": "Întârziat",
+    "soon": "Datorită ≤30 de zile",
+    "soonShort": "≤30 de zile",
+    "today": "Datorită astăzi",
+    "todayShort": "Astăzi",
+    "urgent": "Datorită ≤7 zile",
+    "urgentShort": "≤7 zile"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Critic",
+      "criticalHint": "≤ 7 zile",
+      "overdue": "Întârziat",
+      "actionRequired": "Acțiune necesară",
+      "dueToday": "Datorită astăzi",
+      "requiresSignOff": "Necesită semnare",
+      "nextDays": "Următoarele {{days}} zile",
+      "clientsInWindow": "{{count}} clienți în fereastră",
+      "windowSummary": "Rezumatul ferestrei",
+      "priorityDeadlines": "Termenele prioritare",
+      "prioritySubtitle": "Cele mai urgente articole care necesită monitorizare",
+      "openReport": "Deschideți raportul",
+      "loading": "Se scanează vectorii de risc...",
+      "error": "Nu s-au putut încărca analiza de risc.",
+      "highestExposure": "Expunerea la cel mai mare risc",
+      "criticalCount": "{{count}} critic",
+      "portfolioClear": "Portofoliul clar",
+      "noCriticalInWindow": "Nu a fost detectat niciun risc critic în următoarele {{days}} zile.",
+      "table": {
+        "priorityDeadline": "Termen prioritar",
+        "clientJurisdiction": "Client și jurisdicție",
+        "dueDate": "Data scadenței"
+      },
+      "showingOf": "Se afișează {{shown}} din {{total}} articole prioritare",
+      "viewCrossTab": "Vedeți raportul complet încrucișat"
+    },
+    "filingVolumes": {
+      "title": "Volume de dosar",
+      "subtitle": "Cereri depuse în cadrul firmei (Ultimele 12 luni)",
+      "fullReport": "Raport complet",
+      "loading": "Se cumulează istoricul de înregistrare...",
+      "error": "Nu s-au putut încărca analizele de înregistrare.",
+      "totalFilings": "Total dosare",
+      "yearToDate": "De la începutul anului",
+      "primaryType": "Tipul primar",
+      "applications_one": "{{count}} aplicație",
+      "applications_other": "{{count}} aplicații",
+      "noData": "Fără date",
+      "topRegion": "Regiunea de top",
+      "monthActivity": "{{month}} Activitate:",
+      "newFiling_one": "{{count}} înregistrare nouă",
+      "newFiling_other": "{{count}} dosare noi",
+      "empty": "Nu au fost detectate dosare în istoria recentă.",
+      "table": {
+        "matterInfo": "Informații despre materie",
+        "type": "Tip",
+        "filingDate": "Data de depozit"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Facturat (12 luni)",
+      "issued_one": "{{count}} emis",
+      "issued_other": "{{count}} emis",
+      "collected": "Colectat",
+      "paidInPeriod": "Achitat in perioada",
+      "outstanding": "Remarcabil",
+      "open_one": "{{count}} deschis",
+      "open_other": "{{count}} deschis",
+      "criticalRisk": "Risc critic",
+      "overdue60Days": "60+ zile întârziate",
+      "receivablesAging": "Îmbătrânirea creanțelor",
+      "agingSubtitle": "Deschideți facturile emise cu zile restante",
+      "fullReport": "Raport complet",
+      "loading": "Se analizează datele de îmbătrânire...",
+      "error": "Nu s-au putut încărca datele vechi.",
+      "portfolioHealthy": "Portofoliu sănătos",
+      "noReceivables": "Nu s-au găsit creanțe restante.",
+      "draftRef": "Proiect ref",
+      "table": {
+        "invoiceInfo": "Informații despre factură",
+        "client": "Client",
+        "outstanding": "Remarcabil"
+      },
+      "showingOf": "Se afișează {{shown}} din {{total}} facturi deschise",
+      "viewPortfolio": "Vedeți întregul portofoliu"
+    },
+    "teamWorkload": {
+      "title": "Volumul de lucru în echipă",
+      "subtitle": "Probleme deschise, sarcini și termene limită per membru",
+      "viewTeam": "Vizualizați echipa",
+      "loading": "Se calculează distribuția volumului de muncă...",
+      "error": "Nu s-au putut încărca datele echipei.",
+      "matters": "Contează",
+      "members_one": "{{count}} membru",
+      "members_other": "{{count}} membri",
+      "tasks": "Sarcini",
+      "pendingAction": "Acțiune în așteptare",
+      "deadlines": "Termenele limită",
+      "activeWindow": "Fereastra activă",
+      "busiest": "Cel mai ocupat",
+      "items_one": "{{count}} articol",
+      "items_other": "{{count}} articole",
+      "clear": "Clar",
+      "empty": "Nu există date active ale echipei",
+      "table": {
+        "teamMember": "Membru al echipei",
+        "matters": "Contează",
+        "tasks": "Sarcini",
+        "deadlines": "Termenele limită",
+        "total": "Total"
+      }
+    },
+    "clientProfitability": {
+      "title": "Rentabilitatea clientului",
+      "subtitle": "Distribuția veniturilor facturate în funcție de portofoliul de clienți",
+      "viewAllClients": "Vedeți toți clienții",
+      "loading": "Se cumulează datele de profitabilitate...",
+      "error": "Nu s-au putut încărca analizele clientului.",
+      "trueMargin": "Marja adevărată:",
+      "revenueProxy": "Proxy de venit:",
+      "totalRevenue": "Venitul total",
+      "clients_one": "{{count}} client",
+      "clients_other": "{{count}} clienți",
+      "totalMargin": "Marja totală",
+      "topClient": "Client de top",
+      "internalCost": "{{amount}} cost intern",
+      "noBillingData": "Fără date de facturare",
+      "unbilledWip": "WIP nefacturat",
+      "pendingAccrual": "Acumulare în așteptare",
+      "firmBilled": "Firmă facturată",
+      "totalMatters": "Chestiuni totale",
+      "empty": "Nu au fost detectate date de facturare ale clientului.",
+      "table": {
+        "clientPortfolio": "Portofoliu de clienți",
+        "matters": "Contează",
+        "billable": "Facturabil",
+        "unbilled": "Nefacturat",
+        "margin": "Marja",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Se afișează cei mai buni {{shown}} dintre cei {{total}} clienți de {{basis}}",
+      "basisMargin": "marginea",
+      "basisRevenue": "venituri",
+      "viewLeaderboard": "Vedeți clasamentul complet"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "title": "Strani partneri",
+  "subtitle": "Lokalni agenti i pridruženi odvjetnici korišteni za podnošenje dokumenata i upute o stvarima.",
+  "newPartner": "Novi partner",
+  "noPermission": "Nemate dopuštenje za pregled partnera.",
+  "loading": "Učitavanje partnera...",
+  "loadError": "Učitavanje partnera nije uspjelo.",
+  "empty": "Nijedan partner ne odgovara ovim filtrima.",
+  "searchPlaceholder": "Pretraživanje imena, tvrtke, e-pošte…",
+  "filters": {
+    "all": "Svi partneri",
+    "activeOnly": "Samo aktivno"
+  },
+  "columns": {
+    "name": "Ime",
+    "company": "Tvrtka",
+    "email": "E-mail",
+    "jurisdictions": "Nadležnosti",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Aktivan",
+    "inactive": "Neaktivan"
+  },
+  "editAria": "Uredi partnera",
+  "deactivateAria": "Deaktiviraj partnera",
+  "confirmDeactivate": "Deaktivirati partnera “{{name}}”?",
+  "drawer": {
+    "createTitle": "Novi partner",
+    "editTitle": "Uredi partnera",
+    "name": "Ime",
+    "company": "Tvrtka",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "countryCode": "Pozivni broj zemlje",
+    "jurisdictions": "Nadležnosti",
+    "jurisdictionsHint": "Kodovi odvojeni zarezima, npr. BG, EU, EP",
+    "notes": "Bilješke",
+    "status": "Status",
+    "cancel": "Otkazati",
+    "create": "Stvorite partnera",
+    "save": "Spremite promjene"
+  },
+  "errors": {
+    "nameRequired": "Ime je potrebno",
+    "saveFailed": "Spremanje partnera nije uspjelo"
+  },
+  "instructions": {
+    "title": "Upute partnera",
+    "subtitle": "Izrada, slanje i praćenje uputa stranim partnerima o ovom pitanju.",
+    "newDraft": "Novi nacrt",
+    "noPermission": "Nemate dopuštenje za pregled uputa partnera.",
+    "loading": "Učitavanje uputa...",
+    "loadError": "Učitavanje uputa nije uspjelo.",
+    "empty": "Još nema uputa za partnere.",
+    "columns": {
+      "title": "Titula",
+      "partner": "Partner",
+      "status": "Status",
+      "created": "Stvoreno"
+    },
+    "status": {
+      "draft": "Nacrt",
+      "sent": "Poslano",
+      "acknowledged": "Primljeno na znanje",
+      "complete": "Kompletan"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Odaberite partnera",
+      "title": "Titula",
+      "body": "upute",
+      "cancel": "Otkazati",
+      "create": "Napravi nacrt"
+    },
+    "errors": {
+      "required": "Potrebni su partner i naslov",
+      "saveFailed": "Izrada upute nije uspjela"
+    }
+  },
+  "actions": {
+    "send": "Poslati",
+    "acknowledge": "Priznaj",
+    "complete": "Kompletan"
+  }
+}

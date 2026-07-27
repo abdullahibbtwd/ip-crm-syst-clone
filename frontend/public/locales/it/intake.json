@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Approva: nessun conflitto",
+    "checkedAt": "Controllato {{date}}",
+    "cleared": "Nessun conflitto rilevato",
+    "clearedForConversion": "Nessun nome simile trovato: autorizzato per la conversione",
+    "description": "Ricerca fuzzy tra clienti, contatti, società collegate e controparti registrate. Le corrispondenze superiori al 30% di somiglianza composita vengono contrassegnate per la revisione.",
+    "flaggedMatches": "{{count}} potenziali corrispondenze: revisione obbligatoria",
+    "entityType": {
+      "client": "Cliente",
+      "contact": "Contatto",
+      "counterparty": "Controparte",
+      "ip_right": "Registro dei diritti di proprietà intellettuale/marchi",
+      "matter": "Materia esistente",
+      "related_company": "Società correlata",
+      "sign": "Firmare/contrassegnare sul file"
+    },
+    "flagged": "Potenziali conflitti rilevati",
+    "matchedOn": "Corrispondente il {{field}}",
+    "matchedTerm": "Corrispondente a \"{{term}}\" su {{field}}",
+    "mpOverride": "Sostituzione MP",
+    "rejectLead": "Rifiuta l'iniziativa",
+    "reviewHint": "Nomi simili vengono visualizzati per la revisione umana. Approvare se non esiste un conflitto reale o rifiutare se il lead non può procedere.",
+    "run": "Esegui il controllo dei conflitti",
+    "running": "Corsa…",
+    "similarPct": "{{pct}} simile",
+    "similarity": "Somiglianza",
+    "title": "Controllo dei conflitti"
+  },
+  "convert": {
+    "button": "Convertirsi in materia",
+    "clientLabel": "Cliente:",
+    "conversionFailed": "Conversione non riuscita",
+    "converting": "Conversione…",
+    "existingPortalAccount": "(account del portale esistente)",
+    "invalidForm": "Modulo non valido",
+    "matterLabel": "Questione:",
+    "none": "Nessuno",
+    "portalDescription": "Apre una pratica con l'account esistente del cliente del portale: nessun record cliente duplicato.",
+    "standardDescription": "Crea un record cliente e apre una pratica in un solo passaggio, senza dover reinserire i dettagli della richiesta. In questa fase è richiesto il consenso GDPR.",
+    "willCreate": "Creerà",
+    "converted": "Convertito in materia",
+    "gdprConsent": "Confermo che il consenso GDPR è stato ottenuto da questo richiedente.",
+    "holdingGroup": "Gruppo di contenimento (opzionale)",
+    "openMatter": "Materia aperta",
+    "preview": "Anteprima dell'argomento",
+    "title": "Convertirsi in cliente e materia",
+    "viewClient": "Visualizza cliente"
+  },
+  "counterparty": {
+    "add": "Aggiungi festa",
+    "editor": {
+      "add": "Aggiungere parte avversa/concorrente",
+      "company": "Azienda",
+      "name": "Nome",
+      "notes": "Note",
+      "party": "Festa {{n}}",
+      "relationship": "Relazione *"
+    },
+    "relationship": {
+      "adverse_party": "Parte avversa",
+      "competitor": "Concorrente",
+      "licensee": "Licenziataria",
+      "licensor": "Licenziante"
+    },
+    "save": "Salva la festa",
+    "section": {
+      "description": "Soggetti che possono creare un conflitto di interessi.",
+      "title": "Parti avverse/concorrenti",
+      "unnamed": "Partito senza nome"
+    }
+  },
+  "create": {
+    "back": "← Torniamo all'assunzione",
+    "description": "Acquisisci una nuova richiesta prima del controllo e della conversione dei conflitti.",
+    "title": "Nuova inchiesta"
+  },
+  "detail": {
+    "back": "← Torniamo alla coda di ammissione",
+    "company": "Azienda",
+    "contactName": "Nome del contatto",
+    "country": "Paese",
+    "converted": "Questa richiesta è stata convertita.",
+    "description": "Descrizione",
+    "email": "E-mail",
+    "enquiryDetails": "Dettagli della richiesta",
+    "error": "Impossibile caricare il cavo di aspirazione.",
+    "fullName": "Nome e cognome",
+    "internalNotes": "Note interne",
+    "loading": "Caricamento…",
+    "loadingLead": "Caricamento del cavo di aspirazione...",
+    "notAssigned": "Non assegnato",
+    "matterType": "Tipo di materia",
+    "notFound": "Cavo di aspirazione non trovato.",
+    "phone": "Telefono",
+    "portalSubmission": "Invio al portale",
+    "referralSource": "Fonte di riferimento",
+    "referredBy": "Riferito da",
+    "responsibleAttorney": "Avvocato responsabile",
+    "type": "Tipa",
+    "urgency": "Urgenza",
+    "urgent": "Urgente"
+  },
+  "form": {
+    "companyName": "Nome dell'azienda *",
+    "description": "Descrizione",
+    "email": "E-mail",
+    "enquirerType": "Tipo di richiedente",
+    "error": "Impossibile creare un lead di assunzione",
+    "fullName": "Nome e cognome *",
+    "matterType": "Tipo di pratica *",
+    "phone": "Telefono",
+    "referralSource": "Fonte di riferimento",
+    "submit": "Invia richiesta",
+    "submitInternal": "Creare lead di assunzione",
+    "type": {
+      "company": "Azienda",
+      "individual": "Individuale"
+    },
+    "urgent": "Segna come urgente"
+  },
+  "list": {
+    "description": "Esamina le richieste in arrivo, esegui controlli sui conflitti e converti i lead approvati.",
+    "empty": "Nessun lead di assunzione trovato",
+    "emptyDescription": "Prova a modificare i filtri o crea una nuova richiesta.",
+    "error": "Impossibile caricare i lead di assunzione.",
+    "new": "Nuova inchiesta",
+    "searchPlaceholder": "Cerca nome o email...",
+    "title": "Coda di assunzione"
+  },
+  "matterType": {
+    "design": "Progetto",
+    "other": "Altra",
+    "patent": "Brevetto",
+    "trademark": "Marchio",
+    "utility_model": "Modello di utilità"
+  },
+  "referralSource": {
+    "email": "E-mail",
+    "other": "Altra",
+    "phone": "Telefono",
+    "referral": "Rinvio",
+    "walk_in": "Entra",
+    "website": "Sito web"
+  },
+  "status": {
+    "approved": "Approvata",
+    "conflict_check": "Controllo dei conflitti",
+    "conflict_flagged": "Conflitto segnalato",
+    "converted": "Convertito",
+    "new": "Nuova",
+    "rejected": "Respinto",
+    "reviewing": "Revisione"
+  },
+  "table": {
+    "date": "Ricevuto",
+    "matterType": "Tipo di materia",
+    "name": "Investigatrice",
+    "portal": "Portale",
+    "referral": "Fonte",
+    "status": "Stato",
+    "urgent": "Urgente",
+    "viewAria": "Visualizza {{name}}"
+  },
+  "unknownCompany": "Compagnia sconosciuta",
+  "unknownIndividual": "Individuo sconosciuto"
+}

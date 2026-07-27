@@ -1,0 +1,43 @@
+{
+  "title": "Pretsedendid",
+  "subtitle": "Taaskasutatava kirjavahetuse ja esitamiskeele teadmistebaas.",
+  "newDraft": "Uus mustand",
+  "searchPlaceholder": "Otsi kehateksti…",
+  "loading": "Pretsedentide laadimine…",
+  "loadFailed": "Pretsedentide laadimine ebaõnnestus.",
+  "empty": "Pole veel pretsedente. Loo mustand või korista kirjavahetusest.",
+  "columns": {
+    "title": "Pealkiri",
+    "category": "Kategooria",
+    "jurisdiction": "Jurisdiktsioon",
+    "status": "Olek",
+    "updated": "Uuendatud"
+  },
+  "filters": {
+    "allStatuses": "Kõik olekud"
+  },
+  "status": {
+    "draft": "Mustand",
+    "published": "Avaldatud",
+    "archived": "Arhiveeritud"
+  },
+  "editAria": "Muuda",
+  "drawer": {
+    "createTitle": "Uus pretsedent",
+    "editTitle": "Redigeeri pretsedenti",
+    "title": "Pealkiri",
+    "category": "Kategooria",
+    "matterType": "Aine tüüp",
+    "optional": "Valikuline",
+    "jurisdiction": "Jurisdiktsioon",
+    "tags": "Sildid",
+    "body": "Keha",
+    "bodyPlaceholder": "Kirjutage pretsedenditekst – paks, kaldkiri ja loendid on toetatud",
+    "publish": "Avalda",
+    "archive": "Arhiiv",
+    "publishFailed": "Avaldamine ebaõnnestus",
+    "archiveFailed": "Arhiivimine ebaõnnestus",
+    "saveFailed": "Pretsedenti ei õnnestunud salvestada",
+    "requiredFields": "Pealkiri, kategooria ja keha on kohustuslikud"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Märguanded",
+    "description": "Tähtaeg on hilinenud, tähtaeg on täna ja kiireloomulised üksused ning lugemata teatised."
+  },
+  "sections": {
+    "overdue": "Tähtaja ületanud",
+    "today": "Tähtaeg täna",
+    "urgent": "Kiireloomuline",
+    "notifications": "Märguanded"
+  },
+  "empty": {
+    "notifications": "Märguandeid pole",
+    "urgent": "Kiireloomulisi asju pole",
+    "overdue": "Tähtaja ületanud esemeid pole",
+    "today": "Täna ei tasu ühtegi kaupa"
+  }
+}

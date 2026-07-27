@@ -1,0 +1,15 @@
+{
+  "title": "Documents",
+  "subtitle": "Bibliothèque de documents à l'échelle de l'entreprise.",
+  "searchPlaceholder": "Rechercher des documents…",
+  "loading": "Chargement…",
+  "loadFailed": "Échec du chargement des documents.",
+  "empty": "Aucun document trouvé.",
+  "columns": {
+    "name": "Nom",
+    "matter": "Matière",
+    "category": "Catégorie",
+    "updated": "Mis à jour",
+    "by": "Par"
+  }
+}

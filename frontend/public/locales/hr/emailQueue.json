@@ -1,0 +1,37 @@
+{
+  "title": "Red e-pošte",
+  "subtitle": "Nepovezane e-poruke izvučene iz povezanih poštanskih sandučića. Otvorite e-poštu, a zatim je priložite u registar korespondencije predmeta.",
+  "fetchEmails": "Dohvati 5 e-poruka",
+  "mailboxSettings": "Postavke poštanskog sandučića",
+  "fetchSuccess": "Dohvaćeno do {{limit}} poruka u pristigloj pošti — {{ingested}} novih u redu{{emptyHint}}.",
+  "fetchEmptyHint": "(već uvezeno ili inbox prazan)",
+  "fetchFailed": "Dohvaćanje e-pošte nije uspjelo",
+  "columns": {
+    "received": "Primljeno",
+    "from": "Iz",
+    "subject": "Predmet",
+    "mailbox": "poštanski sandučić",
+    "suggestion": "Prijedlog",
+    "actions": "Radnje"
+  },
+  "loading": "Učitavanje reda…",
+  "loadFailed": "Učitavanje reda e-pošte nije uspjelo.",
+  "emptyTitle": "Red čekanja je prazan",
+  "emptyDescription": "Povežite poštanski sandučić u postavkama i dohvatite e-poštu za uvoz novih poruka.",
+  "noSubject": "(bez predmeta)",
+  "suggestions": {
+    "subjectRef": "Referenca klijenta u predmetu",
+    "bodyRef": "Referenca klijenta u tijelu",
+    "singleActiveMatter": "Jedna aktivna tvar",
+    "contactMatch": "Podudaranje kontakta",
+    "default": "Predložena stvar",
+    "officeAction": "Uredska akcija",
+    "renewal": "Obnova"
+  },
+  "actions": {
+    "viewEmail": "Pogledajte e-poštu",
+    "reply": "Odgovor",
+    "attachToMatter": "Priložiti predmetu korespondenciju",
+    "downloadEml": "Preuzmite .eml"
+  }
+}

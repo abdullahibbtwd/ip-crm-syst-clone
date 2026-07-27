@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Upravljajte evidencijom tvrtki i pojedinačnih klijenata. Novi klijenti nastaju unosom.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili stvoriti klijenta putem unosa.",
+    "emptyTitle": "Nema pronađenih klijenata",
+    "error": "Učitavanje klijenata nije uspjelo.",
+    "newViaIntake": "Novi klijent putem unosa",
+    "perPage": "{{count}} po stranici",
+    "searchPlaceholder": "Traži naziv ili kod…",
+    "title": "Klijenti",
+    "viewAria": "Prikaži {{name}}"
+  },
+  "contacts": {
+    "add": "Dodaj kontakt",
+    "drawerTitle": "Dodaj kontakt",
+    "email": "E-mail",
+    "empty": "Nema pronađenih kontakata.",
+    "firstName": "Ime *",
+    "lastName": "Prezime *",
+    "loading": "Učitavanje kontakata…",
+    "remove": "Ukloniti",
+    "role": {
+      "all": "Sve",
+      "billing": "Naplata",
+      "conflict": "Sukob",
+      "general": "General",
+      "primary": "Primarni"
+    },
+    "save": "Spremi kontakt",
+    "table": {
+      "email": "E-mail",
+      "name": "Ime",
+      "office": "Ured",
+      "phone": "Telefon",
+      "role": "Uloga"
+    }
+  },
+  "countrySelect": {
+    "empty": "Nema pronađenih zemalja",
+    "none": "Nijedan",
+    "placeholder": "Odaberite zemlju",
+    "search": "Traži zemlje…"
+  },
+  "drawer": {
+    "closeAria": "Zatvori ladicu"
+  },
+  "holdingGroups": {
+    "back": "← Povratak na grupe za držanje",
+    "clientsUnder": "Klijenti u ovoj grupi",
+    "create": "Stvorite grupu za zadržavanje",
+    "creating": "Izrada...",
+    "description": "Nadređeni kišobrani za povezane klijentske entitete.",
+    "descriptionField": "Opis",
+    "detailDescription": "Stvorite nadređeni kišobran za povezane klijentske entitete.",
+    "empty": "Nije pronađena nijedna grupa držanja",
+    "emptyClients": "Još nema povezanih klijenata.",
+    "emptyDescription": "Pokušajte prilagoditi pretraživanje ili stvoriti novu grupu za zadržavanje.",
+    "error": "Nije uspjelo učitavanje grupa zadržavanja.",
+    "formError": "Nije uspjelo stvaranje grupe za zadržavanje",
+    "name": "Ime *",
+    "namePlaceholder": "npr. Acme Group BV",
+    "new": "Nova holding grupa",
+    "notesPlaceholder": "Neobavezne bilješke o ovoj strukturi držanja",
+    "notFound": "Grupa držanja nije pronađena.",
+    "allGroups": "Sve grupe držanja",
+    "perPage": "{{count}} po stranici",
+    "searchPlaceholder": "Traži naziv ili državu…",
+    "title": "Držanje grupa",
+    "viewAria": "Prikaži {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Povratak na klijente"
+  },
+  "offices": {
+    "add": "Dodaj ured",
+    "city": "Grad",
+    "drawerTitle": "Dodaj ured",
+    "empty": "Još nema ureda.",
+    "errorPrimary": "Postavljanje primarnog ureda nije uspjelo",
+    "label": "Oznaka *",
+    "loading": "Učitavanje ureda…",
+    "noAddress": "Nema adrese",
+    "primary": "Primarni",
+    "remove": "Ukloniti",
+    "save": "Spremi ured",
+    "setPrimary": "Postavi kao primarni ured",
+    "setPrimaryAction": "Postavi primarni",
+    "title": "Uredi"
+  },
+  "overview": {
+    "assignedTo": "Dodijeljeno",
+    "cancel": "Otkazati",
+    "companyName": "Naziv tvrtke *",
+    "country": "Zemlja",
+    "edit": "Uredi",
+    "exportClientData": "Izvoz podataka klijenta",
+    "error": "Neuspješno učitavanje profila klijenta.",
+    "errorSave": "Spremanje klijenta nije uspjelo",
+    "firstName": "Ime *",
+    "gdprConsent": "GDPR suglasnost",
+    "holdingGroup": "Držanje grupe",
+    "lastName": "Prezime *",
+    "legalForm": "Pravni oblik",
+    "loading": "Učitavanje profila…",
+    "none": "Nijedan",
+    "notes": "Bilješke",
+    "registrationNo": "Registarski br.",
+    "save": "Spremite promjene",
+    "saving": "Spremanje...",
+    "status": "Status",
+    "type": "Tip",
+    "validation": {
+      "companyName": "Naziv tvrtke je obavezan",
+      "name": "Ime i prezime su obavezni",
+      "website": "Web stranica mora započeti s http:// ili https://"
+    },
+    "vatNo": "PDV br.",
+    "website": "Web stranica",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Dodajte povezano poduzeće",
+    "drawerTitle": "Dodajte povezano poduzeće",
+    "empty": "Nema povezanih tvrtki.",
+    "externalName": "Vanjski naziv",
+    "existingClient": "Postojeći klijent",
+    "linkType": "Vrsta veze",
+    "loading": "učitavanje...",
+    "notes": "Bilješke",
+    "notesPlaceholder": "Izborni kontekst",
+    "relationship": "Veza *",
+    "remove": "Ukloniti",
+    "save": "Spremite srodnu tvrtku",
+    "searchClients": "Traži klijente *",
+    "searchPlaceholder": "Traži po nazivu ili kodu…",
+    "noClients": "Nema pronađenih klijenata",
+    "companyName": "Naziv tvrtke *",
+    "table": {
+      "name": "Ime",
+      "notes": "Bilješke",
+      "relationship": "Odnos"
+    },
+    "title": "Povezane tvrtke"
+  },
+  "relationship": {
+    "affiliate": "Affiliate",
+    "parent": "Roditelj",
+    "subsidiary": "Podružnica"
+  },
+  "history": {
+    "empty": "Još nema povijesti.",
+    "loadMore": "Učitaj više",
+    "loading": "Učitavanje povijesti...",
+    "title": "Povijest veze"
+  },
+  "matters": {
+    "empty": "Još nije bitno. Otvorite predmet kako biste pokrenuli postupak protiv ovog klijenta.",
+    "loading": "Učitavanje pitanja...",
+    "openNew": "Otvorite novu temu",
+    "table": {
+      "assigned": "Dodijeljeno",
+      "jurisdictions": "Nadležnosti",
+      "status": "Status",
+      "title": "Titula",
+      "type": "Tip"
+    },
+    "title": "Pitanja"
+  },
+  "accessHistory": {
+    "title": "Povijest pristupa podacima",
+    "subtitle": "Osoblje koje je pregledavalo ili izvozilo osobne podatke za ovog klijenta.",
+    "loading": "Učitavanje povijesti pristupa…",
+    "loadFailed": "Učitavanje povijesti pristupa nije uspjelo.",
+    "empty": "Još nema zabilježenih događaja pristupa.",
+    "systemUser": "sustav",
+    "columns": {
+      "when": "Kada",
+      "user": "Korisnik",
+      "action": "Akcijski",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "Po materiji",
+    "error": "Učitavanje podataka o naplati nije uspjelo.",
+    "loading": "Učitavanje naplate...",
+    "noPermission": "Nemate dozvolu za pregled naplate za ovog klijenta.",
+    "title": "Naplata",
+    "wipDescription": "Radovi u tijeku i nenaplaćeni iznosi za ovog klijenta.",
+    "wipDescriptionLong": "Radovi u tijeku i naplativi ukupni iznosi za sva pitanja za ovog klijenta.",
+    "matterTable": {
+      "matter": "Materija",
+      "type": "Tip",
+      "status": "Status",
+      "billableHours": "Naplativi sati",
+      "total": "Ukupno",
+      "unbilled": "Nenaplaćeno",
+      "empty": "Još nije bitno. Otvorite predmet kako biste počeli pratiti naplativi rad."
+    }
+  },
+  "sidebar": {
+    "country": "Zemlja:",
+    "loading": "učitavanje...",
+    "primaryContact": "Primarni kontakt",
+    "primaryOffice": "Primarni ured",
+    "viewProfile": "Pogledaj cijeli profil"
+  },
+  "status": {
+    "active": "Aktivan",
+    "archived": "Arhivirano",
+    "inactive": "Neaktivan",
+    "prospect": "Prospekt"
+  },
+  "table": {
+    "action": "Akcijski",
+    "client": "Klijent",
+    "country": "Zemlja",
+    "created": "Stvoreno",
+    "holdingGroup": "Držanje grupe",
+    "status": "Status",
+    "type": "Tip"
+  },
+  "tabs": {
+    "accessHistory": "Povijest pristupa",
+    "billing": "Naplata",
+    "contacts": "Kontakti",
+    "history": "Povijest",
+    "matters": "Pitanja",
+    "watch": "Gledati",
+    "offices": "Uredi",
+    "overview": "Pregled",
+    "related": "Povezano"
+  },
+  "type": {
+    "company": "Tvrtka",
+    "individual": "Pojedinac"
+  },
+  "unnamedClient": "Neimenovani klijent"
+}

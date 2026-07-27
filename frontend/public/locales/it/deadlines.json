@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "In attesa di",
+    "in_progress": "In corso",
+    "completed": "Completato",
+    "missed": "Mancata",
+    "escalated": "Incrementata",
+    "superseded": "Sostituito"
+  },
+  "urgency": {
+    "dueToday": "Scadenza oggi",
+    "overdue": "In ritardo"
+  },
+  "allDeadlines": {
+    "title": "Tutte le scadenze",
+    "description": "Registro delle scadenze a livello aziendale per ogni questione e assegnatario.",
+    "newDeadline": "Nuova scadenza",
+    "firmDueToday_one": "Oggi scade una scadenza fissa per tutte le questioni.",
+    "firmDueToday_other": "Oggi scadono le {{count}} scadenze fisse per tutte le questioni.",
+    "filters": {
+      "attorney": "Avvocata",
+      "allAttorneys": "Tutti gli avvocati",
+      "matterType": "Tipo di materia",
+      "allTypes": "Tutti i tipi",
+      "jurisdiction": "Giurisdizione",
+      "allJurisdictions": "Tutte le giurisdizioni",
+      "status": "Stato",
+      "allStatuses": "Tutti gli stati",
+      "overdue": "In ritardo",
+      "dueFrom": "A causa di",
+      "dueTo": "A causa di"
+    },
+    "loading": "Caricamento scadenze…",
+    "error": "Impossibile caricare le scadenze.",
+    "table": {
+      "matter": "Questione",
+      "attorney": "Avvocata",
+      "type": "Tipa",
+      "jurisdiction": "Giurisdizione",
+      "dueDate": "Scadenza",
+      "grace": "Adornare",
+      "status": "Stato"
+    },
+    "empty": "Nessuna scadenza corrisponde ai tuoi filtri.",
+    "previous": "Precedente",
+    "next": "Prossima"
+  },
+  "myDeadlines": {
+    "title": "Le mie scadenze",
+    "descriptionStaff": "La tua lista di lavoro personale su tutte le questioni assegnate. Aggiorna lo stato qui senza aprire ciascuna pratica.",
+    "descriptionPortal": "Scadenze imminenti e scadute per le tue questioni.",
+    "tabs": {
+      "all": "Tutto",
+      "pending": "In attesa di",
+      "in_progress": "In corso",
+      "overdue": "In ritardo",
+      "completed": "Completato"
+    },
+    "loading": "Caricamento scadenze…",
+    "error": "Impossibile caricare le scadenze.",
+    "table": {
+      "matter": "Questione",
+      "type": "Tipa",
+      "jurisdiction": "Giurisdizione",
+      "dueDate": "Scadenza",
+      "grace": "Adornare",
+      "status": "Stato"
+    },
+    "empty": "Nessuna scadenza in questa visualizzazione.",
+    "previous": "Precedente",
+    "next": "Prossima"
+  },
+  "widget": {
+    "title": "Le mie scadenze",
+    "viewAll": "Visualizza tutto",
+    "loading": "Elaborazione dei dati sulle scadenze…",
+    "error": "Impossibile caricare le scadenze.",
+    "empty": "Nessuna scadenza imminente assegnata a te.",
+    "table": {
+      "matterClient": "Materia e cliente",
+      "deadline": "Scadenza",
+      "dueDateStatus": "Data di scadenza e stato"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Scadenza oggi",
+    "view": "Visualizzazione",
+    "personal_one": "Hai 1 scadenza in scadenza oggi.",
+    "personal_other": "Hai delle scadenze {{count}} in scadenza oggi."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Kthehu te paneli i kontrollit",
+    "cancel": "Anulo",
+    "edit": "Redakto",
+    "loadMore": "Ngarko më shumë",
+    "next": "Tjetra",
+    "previous": "E mëparshme",
+    "refresh": "Rifresko",
+    "remove": "Hiq",
+    "retry": "Provo sërish",
+    "save": "Ruaj",
+    "saveChanges": "Ruaj ndryshimet",
+    "view": "Shiko"
+  },
+  "errors": {
+    "loadFailed": "Ngarkimi dështoi.",
+    "retryHint": "Kontrollo lidhjen dhe lejet, më pas provo sërish."
+  },
+  "filters": {
+    "all": "Të gjitha",
+    "allStatuses": "Të gjitha statuset",
+    "allTypes": "Të gjitha llojet"
+  },
+  "language": {
+    "ar": "arabisht",
+    "bg": "bullgare",
+    "bs": "boshnjake",
+    "de": "gjermanisht",
+    "en": "anglisht",
+    "es": "spanjisht",
+    "et": "estoneze",
+    "fr": "frëngjisht",
+    "hr": "kroate",
+    "hy": "armene",
+    "it": "italisht",
+    "mk": "maqedonase",
+    "ms": "Malay",
+    "ro": "rumun",
+    "ru": "rusisht",
+    "sq": "shqiptare",
+    "sr": "serb",
+    "switch": "Ndërroni gjuhën",
+    "tr": "turqisht",
+    "zh-CN": "Kineze (e thjeshtuar)"
+  },
+  "loading": {
+    "default": "Po ngarkohet…",
+    "refreshing": "freskuese…",
+    "saving": "Po ruan…"
+  },
+  "nav": {
+    "breadcrumb": "Thërrim buke",
+    "closeMenu": "Mbyll menunë",
+    "openMenu": "Hap menunë"
+  },
+  "pagination": {
+    "noResults": "Nuk ka rezultate",
+    "page": "Faqe {{page}}",
+    "showing": "Po shfaq {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Raportet"
+  },
+  "noPermission": "Asnjë leje.",
+  "crm": "CRM",
+  "clientPortal": "Portali i klientit",
+  "tasks": "Detyrat",
+  "comingSoon": "Së shpejti",
+  "notifications": {
+    "title": "Njoftimet",
+    "unread": "i palexuar",
+    "markAllRead": "Shënoni të gjitha të lexuara",
+    "couldNotLoad": "Njoftimet nuk mund të ngarkoheshin.",
+    "noNotificationsYet": "Nuk ka ende njoftime."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Nr",
+    "none": "Asnjë",
+    "yes": "po"
+  }
+}

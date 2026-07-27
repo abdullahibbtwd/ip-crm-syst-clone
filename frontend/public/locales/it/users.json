@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Caricamento avvocati…",
+    "placeholder": "Seleziona l'avvocato responsabile",
+    "unassigned": "Non assegnato"
+  },
+  "filters": {
+    "activeOnly": "Solo attivo",
+    "allStatuses": "Tutti gli stati",
+    "inactiveOnly": "Solo inattivo",
+    "searchPortal": "Cerca utenti del portale…",
+    "searchTeam": "Cerca membri del team..."
+  },
+  "invite": {
+    "button": "Invita utente",
+    "cancel": "Cancellare",
+    "clientPlaceholder": "Seleziona il record del cliente...",
+    "clientRecord": "Registro del cliente",
+    "description": "Invita un membro del team o un cliente del portale. Riceveranno un'e-mail con un collegamento per impostare la password o accedere con Microsoft o Google.",
+    "email": "E-mail",
+    "emailFailed": "Impossibile inviare l'e-mail di invito",
+    "emailFailedContinue": "L'utente è stato creato: chiudi e invia di nuovo più tardi",
+    "emailFailedTitle": "L'utente è stato invitato, ma non è stato possibile inviare l'e-mail.",
+    "emailHint": "Viene inviata un'e-mail di invito con un collegamento per impostare una password. Possono anche accedere con Microsoft o Google utilizzando esattamente questo indirizzo email. Se l'email non riesce, l'utente viene comunque creato ed è possibile inviarlo nuovamente dall'elenco degli utenti.",
+    "emailPlaceholder": "nome@azienda.com",
+    "errors": {
+      "clientRequired": "Seleziona un record cliente per gli utenti del portale",
+      "failed": "Impossibile invitare l'utente",
+      "required": "E-mail e nome completo sono obbligatori"
+    },
+    "fullName": "Nome e cognome",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "L'ultimo tentativo di posta elettronica non è riuscito",
+    "resend": "Invia nuovamente l'invito",
+    "resendFailed": "Impossibile inviare nuovamente l'e-mail di invito",
+    "resendSuccess": "E-mail di invito inviata",
+    "role": "Ruolo",
+    "submit": "Invia invito",
+    "submitting": "Invitante…",
+    "title": "Invita utente",
+    "typePortal": "Cliente del portale",
+    "typeTeam": "Membro della squadra",
+    "userType": "Tipo di utente"
+  },
+  "layout": {
+    "accessRestricted": "Accesso limitato",
+    "description": "Gestire i membri del team interno e gli account cliente del portale esterno. L'SSO e l'accesso basato su password vengono visualizzati per utente.",
+    "noPermission": "Non hai l'autorizzazione per visualizzare utenti e membri del team.",
+    "title": "Utenti e squadra"
+  },
+  "portal": {
+    "description": "Account cliente esterni con accesso al portale per questioni e documenti condivisi.",
+    "title": "Utenti del portale"
+  },
+  "role": {
+    "errors": {
+      "failed": "Impossibile aggiornare il ruolo"
+    },
+    "ownRoleHint": "Non puoi cambiare il tuo ruolo"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Password",
+      "pending": "In attesa di",
+      "sso": "SSO"
+    },
+    "clientRecord": "Registro del cliente",
+    "empty": "Nessun utente trovato",
+    "emptyDescription": "Prova a modificare la ricerca o i filtri.",
+    "error": "Impossibile caricare gli utenti.",
+    "headers": {
+      "invite": "Invitare",
+      "lastLogin": "Ultimo accesso",
+      "mfa": "MAE",
+      "registered": "Registrata",
+      "role": "Ruolo",
+      "signIn": "Registrazione",
+      "status": "Stato",
+      "user": "Utente"
+    },
+    "mfa": {
+      "enabled": "Abilitata",
+      "off": "Spento"
+    },
+    "status": {
+      "active": "Attiva",
+      "inactive": "Inattiva",
+      "invited": "Invitato"
+    },
+    "viewAria": "Visualizza {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Conti cliente",
+      "label": "Utenti del portale"
+    },
+    "team": {
+      "description": "Personale interno",
+      "label": "Squadra"
+    }
+  },
+  "team": {
+    "description": "Personale interno con ruoli, metodo di accesso e stato MFA. I partner gestori e gli amministratori IT possono invitare utenti e modificare i ruoli.",
+    "title": "Membri del team"
+  },
+  "teamMemberSelect": {
+    "loading": "Caricamento…",
+    "placeholder": "Seleziona membro della squadra"
+  }
+}

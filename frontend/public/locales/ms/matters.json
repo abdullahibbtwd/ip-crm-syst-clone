@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "pejabat kastam"
+      },
+      "infringingGoods": {
+        "label": "Perihalan barangan yang melanggar"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Tarikh penciptaan"
+      },
+      "workTitle": {
+        "label": "Tajuk kerja"
+      },
+      "workType": {
+        "label": "Jenis kerja"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Ringkasan asas"
+      },
+      "disputeType": {
+        "label": "Jenis pertikaian"
+      },
+      "opponentName": {
+        "label": "Lawan / pihak lawan"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Ringkasan skop"
+      },
+      "technologyArea": {
+        "label": "Bidang teknologi"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Nama produk"
+      },
+      "region": {
+        "label": "Wilayah geografi"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Senaraikan atau huraikan pandangan reka bentuk yang difailkan",
+        "label": "Pandangan reka bentuk"
+      },
+      "locarnoClass": {
+        "label": "Kelas Locarno"
+      },
+      "productDescription": {
+        "label": "Penerangan produk"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Ringkasan tuntutan"
+      },
+      "pctNumber": {
+        "label": "nombor PCT"
+      },
+      "priorityDate": {
+        "label": "Tarikh keutamaan"
+      },
+      "technicalField": {
+        "label": "Bidang teknikal"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Warna dituntut"
+      },
+      "markDescription": {
+        "label": "Tandakan huraian"
+      },
+      "markType": {
+        "label": "Tandakan jenis"
+      },
+      "niceClasses": {
+        "label": "Kelas yang bagus",
+        "placeholder": "cth. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Ringkasan tuntutan"
+      },
+      "priorityDate": {
+        "label": "Tarikh keutamaan"
+      },
+      "technicalField": {
+        "label": "Bidang teknikal"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Perihalan aset"
+      },
+      "valuationPurpose": {
+        "label": "Tujuan penilaian"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Tambah yuran tetap",
+    "addTime": "Log masa",
+    "billableAria": "Boleh dibilkan",
+    "billableWithoutRate": "Boleh dibilkan tanpa kadar",
+    "confirmDeleteFee": "Padamkan yuran tetap?",
+    "confirmDeleteFeeMessage": "Bayaran ini akan dikeluarkan daripada perkara itu.",
+    "confirmDeleteFeeTitle": "Padamkan yuran tetap?",
+    "confirmDeleteTime": "Padamkan entri kali ini?",
+    "confirmDeleteTimeMessage": "Talian boleh bil ini akan dialih keluar daripada perkara itu.",
+    "confirmDeleteTimeTitle": "Padamkan entri masa?",
+    "description": "Catatan masa, yuran tetap dan invois untuk perkara ini.",
+    "emptyFees": "Tiada yuran tetap lagi.",
+    "emptyTime": "Tiada masa dilog lagi.",
+    "error": "Gagal memuatkan data pengebilan.",
+    "feeDrawer": {
+      "amount": "Jumlah (€)",
+      "billable": "Boleh dibilkan",
+      "createTitle": "Tambah yuran tetap",
+      "descriptionPlaceholder": "cth. Yuran pemfailan tanda dagangan BPO",
+      "editTitle": "Edit yuran tetap",
+      "errors": {
+        "amountMin": "Jumlah mestilah sifar atau lebih",
+        "descriptionRequired": "Penerangan diperlukan"
+      },
+      "saveFailed": "Gagal menyimpan yuran tetap"
+    },
+    "fixedFees": "Yuran tetap",
+    "loading": "Memuatkan pengebilan…",
+    "loadingInvoices": "Memuatkan invois…",
+    "loadInvoicesFailed": "Gagal memuatkan invois.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat pengebilan untuk perkara ini.",
+    "noRateCard": "Tiada kad kadar",
+    "nonBillableAria": "Tidak boleh dibilkan",
+    "portalDescription": "Invois dan status pembayaran untuk perkara ini.",
+    "timeDrawer": {
+      "amount": "Jumlah:",
+      "billable": "Boleh dibilkan",
+      "billableDisabledHint": "Boleh dibilkan dilumpuhkan manakala kadarnya ialah €0.",
+      "createTitle": "Log masa",
+      "descriptionPlaceholder": "Apa yang dilakukan",
+      "editTitle": "Edit entri masa",
+      "errors": {
+        "billableRequiresRate": "Masa yang boleh dibilkan memerlukan kadar setiap jam. Masukkan kadar atau tanda sebagai tidak boleh dibilkan.",
+        "descriptionRequired": "Penerangan diperlukan",
+        "hoursMin": "Jam mestilah sekurang-kurangnya 0.25",
+        "rateMin": "Kadar mestilah sifar atau lebih tinggi"
+      },
+      "hourlyRate": "Kadar setiap jam (€)",
+      "hoursHint": "Kenaikan suku jam (minimum 0.25)",
+      "noRateCardWarning": "Tiada kad kadar ditemui untuk peranan anda. Entri ini akan disimpan sebagai tidak boleh dibilkan sehingga kewangan menetapkan kadar atau anda memasukkannya secara manual.",
+      "resolvingRate": "Kadar penyelesaian…",
+      "saveFailed": "Gagal menjimatkan masa masuk"
+    },
+    "timeEntries": "Catatan masa",
+    "table": {
+      "amount": "Jumlah",
+      "attorney": "Peguam",
+      "billable": "Boleh dibilkan",
+      "category": "kategori",
+      "date": "tarikh",
+      "description": "Penerangan",
+      "hours": "jam",
+      "rate": "Kadar",
+      "user": "pengguna"
+    },
+    "title": "Pengebilan"
+  },
+  "correspondence": {
+    "add": "Log surat menyurat",
+    "attachFromQueue": "Lampirkan dari baris gilir",
+    "attachmentFallback": "Lampiran surat-menyurat",
+    "badges": {
+      "clientVisible": "Pelanggan kelihatan",
+      "email": "E-mel",
+      "synced": "disegerakkan"
+    },
+    "category": {
+      "application": "Permohonan",
+      "certificate": "Sijil",
+      "correspondence": "Surat-menyurat am",
+      "evidence": "Bukti",
+      "office_action": "Tindakan pejabat",
+      "renewal": "Pembaharuan"
+    },
+    "direction": {
+      "incoming": "masuk",
+      "outgoing": "Keluar"
+    },
+    "description": "Bilik mel digital — surat log, tindakan pejabat dan e-mel untuk perkara ini. Gunakan {{logEmail}} untuk fail .eml atau teks peti masuk yang ditampal; gunakan {{logCorrespondence}} untuk entri berstruktur, mel keluar dan lampiran dokumen.",
+    "documentReady": "Dokumen sedia",
+    "downloadAttachment": "Muat turun lampiran",
+    "downloadTitle": "Muat turun {{fileName}}",
+    "drawerTitle": "Log surat menyurat",
+    "empty": "Tiada surat-menyurat dilog lagi.",
+    "emptyHint": "Log surat-menyurat atau e-mel untuk membina rekod perkara ini.",
+    "emptyTitle": "Tiada surat menyurat lagi",
+    "error": "Gagal memuatkan surat-menyurat.",
+    "errorLog": "Gagal merekod surat-menyurat",
+    "fetchingDocument": "Mengambil dokumen…",
+    "from": "Daripada:",
+    "hideFromClient": "Sembunyikan daripada peti masuk pelanggan",
+    "hideFromClientTitle": "Sembunyikan daripada portal pelanggan",
+    "loading": "Memuatkan surat-menyurat…",
+    "logEmail": "Log e-mel",
+    "markReplied": "Mark membalas",
+    "markSent": "Mark dihantar",
+    "openEpoRegister": "Dibuka pada Daftar EPO",
+    "reply": "Balas",
+    "replyTitle": "Balas melalui peti mel yang disambungkan",
+    "replaceFile": "Gantikan fail",
+    "replaceFileTitle": "Gantikan fail yang dilampirkan",
+    "saveAsPrecedent": "Simpan sebagai duluan",
+    "saveAsPrecedentTitle": "Simpan sebagai draf duluan",
+    "savedUnder": "Disimpan di bawah subjek surat-menyurat di bawah",
+    "sendToClient": "Hantar ke peti masuk pelanggan",
+    "showInClientTitle": "Tunjukkan dalam portal pelanggan",
+    "status": {
+      "draft": "Draf",
+      "received": "Diterima",
+      "replied": "dibalas",
+      "sent": "Dihantar"
+    },
+    "table": {
+      "category": "kategori",
+      "date": "tarikh",
+      "direction": "Arah",
+      "file": "Fail",
+      "fromTo": "Dari / Kepada",
+      "status": "Status",
+      "subject": "Subjek"
+    },
+    "title": "Surat-menyurat",
+    "to": "Kepada:",
+    "uploadFailed": "Gagal memuat naik dan melampirkan fail",
+    "uploadFile": "Muat naik fail",
+    "uploadFileTitle": "Muat naik PDF atau dokumen untuk surat-menyurat ini",
+    "viewOnEpo": "Lihat pada EPO",
+    "viewOnEpoTitle": "Buka rekod rasmi pada Daftar EPO"
+  },
+  "createDrawer": {
+    "client": "Pelanggan *",
+    "creating": "Mencipta…",
+    "error": "Gagal mencipta jirim",
+    "jurisdictionHelp": "Pilih satu atau lebih bidang kuasa pemfailan.",
+    "jurisdictions": "Bidang kuasa",
+    "matterType": "Jenis jirim *",
+    "open": "Perkara terbuka",
+    "responsibleAttorney": "Peguam yang bertanggungjawab",
+    "title": "Buka perkara baru",
+    "titleField": "Tajuk *",
+    "titlePlaceholder": "cth. Tanda perkataan ACME – EU"
+  },
+  "deadlines": {
+    "complete": "lengkap",
+    "daysLeft": "{{count}} hari lagi",
+    "daysOverdue": "{{count}} hari tertunggak",
+    "dueToday": "Diperuntukkan hari ini",
+    "empty": "Tiada tarikh akhir mengenai perkara ini.",
+    "error": "Gagal memuatkan tarikh akhir.",
+    "loading": "Memuatkan tarikh akhir…",
+    "start": "Mulakan",
+    "table": {
+      "assigned": "Ditugaskan",
+      "due": "tarikh tamat tempoh",
+      "grace": "Rahmat",
+      "jurisdiction": "Bidang kuasa",
+      "status": "Status",
+      "title": "Tajuk",
+      "type": "taip"
+    },
+    "title": "Tarikh akhir"
+  },
+  "documents": {
+    "allCategories": "Semua kategori",
+    "browse": "semak imbas",
+    "category": "kategori",
+    "chooseFile": "Pilih fail untuk dimuat naik",
+    "chooseTemplate": "Pilih templat surat",
+    "description": "Kabinet pemfailan untuk perkara ini — muat naik PDF, fail Word dan bukti.",
+    "displayName": "Nama paparan",
+    "displayNamePlaceholder": "cth. Pakej Pemfailan BPO — Akhir",
+    "dragDrop": "Seret fail ke sini, atau",
+    "empty": "Tiada dokumen dimuat naik lagi.",
+    "error": "Gagal memuatkan dokumen.",
+    "errorGeneration": "Penjanaan dokumen gagal",
+    "errorNoDocx": "Templat ini tiada fail Word (.docx) yang dimuat naik",
+    "errorUpload": "Muat naik gagal",
+    "format": "Format",
+    "generate": "Hasilkan dokumen",
+    "generateDescription": "Pilih templat surat. Butiran perkara dan pelanggan diisi secara automatik dan disimpan dalam folder ini.",
+    "generatePdf": "Hasilkan PDF",
+    "generateWord": "Hasilkan Word",
+    "generating": "Menjana…",
+    "loading": "Memuatkan dokumen…",
+    "noTemplates": "Tiada templat tersedia.",
+    "notAvailable": "— tidak tersedia",
+    "search": "Cari nama atau tag…",
+    "table": {
+      "category": "kategori",
+      "displayName": "Nama paparan",
+      "name": "Nama",
+      "tags": "Tag",
+      "uploaded": "Dimuat naik",
+      "version": "Versi"
+    },
+    "tags": "Tag",
+    "tagsHint": "Kata kunci yang dipisahkan koma untuk carian",
+    "tagsPlaceholder": "segera, bpo, diluluskan oleh pelanggan",
+    "title": "Dokumen",
+    "upload": "Muat naik dokumen",
+    "uploadAction": "Muat naik",
+    "uploadNew": "Muat naik dokumen baharu",
+    "uploading": "Memuat naik…",
+    "word": "Firman"
+  },
+  "ipRightStatus": {
+    "cancelled": "Dibatalkan",
+    "expired": "Tamat tempoh",
+    "filed": "Difailkan",
+    "pending": "Menunggu pemfailan",
+    "registered": "Berdaftar"
+  },
+  "ipRights": {
+    "abandon": "tinggalkan",
+    "add": "Tambahkan IP dengan betul",
+    "addRight": "Tambah betul",
+    "addTitle": "Tambahkan IP dengan betul",
+    "annuitySchedule": "Jadual anuiti",
+    "applicationNumber": "Nombor permohonan",
+    "checkEpo": "Semak EPO",
+    "checkEpoAddNumber": "Tambah nombor permohonan sebelum menyemak EPO",
+    "checkEpoTitle": "Semak status undang-undang EPO (OPS)",
+    "complete": "lengkap",
+    "confirmFiling": "Sahkan pemfailan",
+    "confirmRegistration": "Sahkan pendaftaran",
+    "cycleDue": "Kitaran {{n}} · tamat tempoh {{date}}",
+    "cycleLabel": "Kitaran {{n}}",
+    "description": "Failkan hak draf sebaik sahaja pelanggan mengesahkan dan pakej pemfailan sudah sedia.",
+    "editSplit": "Edit pecahan",
+    "empty": "Tiada hak IP lagi. Draf dibuat secara automatik apabila pengambilan ditukar; menambah lebih banyak hak secara manual selepas pendakwaan.",
+    "epoCheckFailed": "Semakan status EPO gagal",
+    "error": "Gagal memuatkan hak IP.",
+    "errors": {
+      "addFailed": "Gagal menambah IP dengan betul",
+      "applicationNumberRequired": "Masukkan nombor permohonan rasmi",
+      "documentVersionRequired": "Pilih versi dokumen pakej pemfailan",
+      "fileFailed": "Gagal memfailkan permohonan",
+      "registerFailed": "Gagal mendaftarkan IP dengan betul",
+      "registrationNumberRequired": "Masukkan nombor pendaftaran",
+      "splitFailed": "Tidak dapat membahagikan pembaharuan",
+      "splitJurisdictionRequired": "Tambahkan sekurang-kurangnya satu bahagian dengan bidang kuasa",
+      "titleRequired": "Masukkan tajuk untuk hak IP"
+    },
+    "expiryDate": "tarikh luput",
+    "expiryDateOptional": "Tarikh luput (pilihan)",
+    "expiryDateHint": "Biarkan kosong untuk mengira daripada kitaran pembaharuan bidang kuasa.",
+    "file": "Fail",
+    "fileApplication": "Permohonan fail",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Nombor rasmi dari BPO / EUIPO / EPO",
+      "filingPackage": "Pakej pemfailan",
+      "filingPackageHint": "Pilih versi dokumen yang dimuat naik untuk pemfailan ini (biasanya di bawah Aplikasi).",
+      "jurisdictionHint": "Pilih EPO (EP) untuk membolehkan semakan status pendakwaan terhadap OPS.",
+      "noDocuments": "Tiada dokumen mengenai perkara ini lagi. Muat naik PDF pemfailan pada tab Dokumen dahulu.",
+      "selectDocument": "Pilih versi dokumen…"
+    },
+    "filing": "Memfailkan…",
+    "filingDate": "Tarikh pemfailan",
+    "filingOffice": "Pejabat pemfailan / bidang kuasa",
+    "jurisdictionHint": "Gunakan EPO (EP) untuk paten Eropah, EUIPO (EU) untuk tanda dagangan/reka bentuk EU, BPO (BG) untuk Bulgaria, WIPO (WO) untuk PCT.",
+    "loading": "Memuatkan hak IP…",
+    "loadingRenewals": "Memuatkan pembaharuan…",
+    "markFiled": "Mark difailkan",
+    "noAnnuityWindows": "Tiada tingkap anuiti lagi. Daftar paten untuk membuka tahun 1.",
+    "noRenewalWindows": "Tiada tetingkap pembaharuan lagi. Daftarkan hak IP untuk membuka kitaran 1.",
+    "partialRenewals": "Pembaharuan separa",
+    "partsCount": "({{count}} bahagian)",
+    "proceed": "Teruskan rekod",
+    "register": "Daftar",
+    "registerDrawerHint": "Membuka tetingkap pembaharuan kitaran 1 dan menjana tarikh akhir pembaharuan.",
+    "registerTitle": "Daftar IP dengan betul",
+    "registering": "Mendaftar…",
+    "registrationDate": "Tarikh pendaftaran",
+    "registrationNumber": "Nombor pendaftaran",
+    "renewalSchedule": "Tetingkap pembaharuan",
+    "renewalWindows": "Tetingkap pembaharuan",
+    "splitRenewal": "Pembaharuan berpecah",
+    "splitRenewalDescription": "Pisahkan pembaharuan ini kepada bidang kuasa / bahagian kelas bagus. Setiap bahagian diarahkan dan dilengkapkan secara berasingan; status tetingkap digulung dari bahagian.",
+    "splitRenewalTitle": "Pembaharuan berpecah",
+    "splitPart": "Bahagian {{n}}",
+    "splitAddPart": "Tambah bahagian",
+    "splitSaveParts": "Simpan bahagian",
+    "splitNiceClasses": "Kelas yang bagus (dipisahkan koma)",
+    "splitNotes": "Nota",
+    "splitJurisdiction": "Bidang kuasa",
+    "table": {
+      "actions": "Tindakan",
+      "applicationNo": "Permohonan no.",
+      "cycle": "Kitaran",
+      "dueDate": "tarikh tamat tempoh",
+      "jurisdiction": "Bidang kuasa",
+      "localRef": "Ruj tempatan",
+      "niceClasses": "Kelas yang bagus",
+      "status": "Status",
+      "title": "Tajuk",
+      "type": "taip",
+      "yearCycle": "Tahun / kitaran"
+    },
+    "title": "Hak IP",
+    "titleField": "Tajuk",
+    "titleRegister": "Daftar hak IP",
+    "yearLabel": "Tahun {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Tambah AFA",
+      "authority": "Kuasa",
+      "authorityRequired": "Kuasa diperlukan",
+      "createFailed": "Tidak dapat mencipta AFA",
+      "empty": "Tiada AFA direkodkan lagi.",
+      "linkedSeizure": "Kejang berkait (pilihan)",
+      "loading": "Memuatkan aplikasi…",
+      "none": "tiada",
+      "number": "Nombor permohonan",
+      "sectionDescription": "Aplikasi kastam melindungi hak di sempadan.",
+      "sectionTitle": "Permohonan untuk tindakan (AFA)",
+      "validUntil": "Sah sehingga"
+    },
+    "columns": {
+      "authority": "Kuasa",
+      "custody": "jagaan",
+      "date": "tarikh",
+      "goods": "barang",
+      "number": "Nombor",
+      "office": "Pejabat",
+      "status": "Status",
+      "validUntil": "Sah sehingga"
+    },
+    "custody": {
+      "addEntry": "Tambah catatan jagaan",
+      "append": "Lampirkan",
+      "empty": "Tiada catatan jagaan lagi.",
+      "notesPlaceholder": "Nota (pilihan)",
+      "timeline": "Garis masa jagaan"
+    },
+    "detail": {
+      "clearLink": "Kosongkan pautan",
+      "linkedMatter": "Perkara litigasi berkaitan",
+      "loading": "Memuatkan…",
+      "saveChanges": "Simpan perubahan",
+      "searchMatters": "Perkara carian untuk dipertingkatkan…",
+      "seizedOn": "Dirampas {{date}}",
+      "title": "Perincian sawan",
+      "updateFailed": "Tidak dapat mengemas kini sawan"
+    },
+    "errors": {
+      "addCustodyFailed": "Tidak dapat menambah catatan jagaan",
+      "createSeizureFailed": "Tidak dapat membuat sawan",
+      "officeAndGoodsRequired": "Pejabat kastam dan keterangan barang diperlukan"
+    },
+    "open": "Buka",
+    "seizures": {
+      "consignmentRef": "Ruj konsainan",
+      "create": "Buat sawan",
+      "createTitle": "Log rampasan kastam",
+      "deadlineHint": "Tarikh akhir respons dijana secara automatik (10 hari perniagaan dari tarikh rampasan).",
+      "empty": "Tiada sawan dicatatkan lagi.",
+      "goodsDescription": "Penerangan barang",
+      "loadFailed": "Gagal memuatkan sawan.",
+      "loading": "Memuatkan sawan…",
+      "logSeizure": "rampasan balak",
+      "office": "pejabat kastam",
+      "portOfEntry": "Pelabuhan masuk",
+      "quantity": "Kuantiti",
+      "sectionDescription": "Penahanan dan jagaan sempadan untuk perkara ini.",
+      "sectionTitle": "sawan",
+      "seizureDate": "Tarikh rampasan",
+      "status": "Status"
+    },
+    "wrongMatterType": "Rekod kastam hanya tersedia untuk urusan sempadan."
+  },
+  "jurisdictionStatus": {
+    "approved": "Diluluskan",
+    "filed": "Difailkan",
+    "pending": "Belum selesai",
+    "rejected": "ditolak"
+  },
+  "layout": {
+    "backToMatters": "← Kembali kepada perkara",
+    "loading": "Memuatkan perkara…",
+    "notFound": "Perkara tidak dijumpai."
+  },
+  "list": {
+    "description": "Pandangan portfolio semua perkara undang-undang — cari mengikut tajuk, pelanggan atau nombor permohonan.",
+    "descriptionPortal": "Perkara dibuka untuk organisasi anda selepas penukaran pengambilan.",
+    "filters": {
+      "allStatuses": "Semua status",
+      "allTypes": "Semua jenis"
+    },
+    "intakeQueue": "Barisan pengambilan",
+    "perPage": "{{count}} setiap halaman",
+    "searchPlaceholder": "Tajuk carian, pelanggan, no aplikasi…",
+    "title": "Perkara",
+    "titlePortal": "urusan saya"
+  },
+  "ipRightsRegister": {
+    "description": "Daftar seluruh firma hak IP dengan penapis mengikut pelanggan, bidang kuasa, jenis, status dan tamat tempoh.",
+    "empty": "Tiada hak IP ditemui untuk penapis ini.",
+    "filters": {
+      "all": "Semua",
+      "allClients": "Semua pelanggan",
+      "allJurisdictions": "Semua bidang kuasa",
+      "allStatuses": "Semua status",
+      "allTypes": "Semua jenis",
+      "client": "Pelanggan",
+      "expiryFrom": "Tamat tempoh dari",
+      "expiryTo": "Tamat tempoh ke",
+      "jurisdiction": "Bidang kuasa",
+      "matterType": "Jenis jirim",
+      "status": "Status"
+    },
+    "loading": "Memuatkan…",
+    "table": {
+      "applicationNo": "Permohonan no.",
+      "client": "Pelanggan",
+      "expiry": "tamat tempoh",
+      "ipRight": "IP betul",
+      "jurisdiction": "Bidang kuasa",
+      "matter": "Perkara",
+      "status": "Status",
+      "type": "taip"
+    },
+    "title": "Daftar Hak IP"
+  },
+  "markType": {
+    "combined": "digabungkan",
+    "figurative": "kiasan",
+    "sound": "Bunyi",
+    "three_dimensional": "3D",
+    "wordmark": "Tanda perkataan"
+  },
+  "overview": {
+    "assignedTo": "Peguam utama",
+    "description": "Penerangan",
+    "jurisdictions": "Bidang kuasa",
+    "jurisdictionsEmpty": "Tiada bidang kuasa direkodkan.",
+    "openedBy": "Dibuka oleh",
+    "status": "Status",
+    "table": {
+      "country": "Negara",
+      "localRef": "Ruj tempatan",
+      "status": "Status"
+    },
+    "title": "Perincian perkara",
+    "type": "taip",
+    "typeSpecific": "Atribut khusus jenis"
+  },
+  "status": {
+    "abandoned": "terbengkalai",
+    "active": "Aktif",
+    "closed": "tertutup",
+    "draft": "Draf",
+    "on_hold": "Di tahan"
+  },
+  "table": {
+    "assigned": "Ditugaskan",
+    "client": "Pelanggan",
+    "empty": "Tiada perkara ditemui",
+    "emptyDescription": "Cuba laraskan penapis atau buka perkara baharu.",
+    "emptyPortal": "Tiada perkara yang dikongsi dengan anda lagi.",
+    "error": "Gagal memuatkan perkara.",
+    "jurisdictions": "Bidang kuasa",
+    "status": "Status",
+    "title": "Tajuk",
+    "type": "taip",
+    "upcoming": "{{count}} akan datang",
+    "viewAria": "Lihat {{title}}"
+  },
+  "tabs": {
+    "billing": "Pengebilan",
+    "correspondence": "Surat-menyurat",
+    "deadlines": "Tarikh akhir",
+    "documents": "Dokumen",
+    "instructions": "Arahan",
+    "approvals": "Kelulusan",
+    "ipRights": "Hak IP",
+    "customs": "Kastam",
+    "overview": "Gambaran keseluruhan",
+    "tasks": "Tugasan",
+    "timeline": "Garis masa"
+  },
+  "approvals": {
+    "title": "Kelulusan pelanggan",
+    "subtitle": "Draf dan serahkan permintaan kelulusan untuk portal pelanggan.",
+    "newDraft": "Draf baharu",
+    "loading": "Memuatkan kelulusan…",
+    "loadError": "Gagal memuatkan kelulusan.",
+    "empty": "Tiada permintaan kelulusan lagi.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat kelulusan untuk perkara ini.",
+    "decisionNote": "Nota pelanggan: {{note}}",
+    "columns": {
+      "title": "Tajuk",
+      "status": "Status",
+      "dueDate": "kena bayar",
+      "created": "Dicipta"
+    },
+    "status": {
+      "draft": "Draf",
+      "pending": "Belum selesai",
+      "approved": "Diluluskan",
+      "rejected": "ditolak"
+    },
+    "actions": {
+      "submit": "Hantar"
+    },
+    "drawer": {
+      "createTitle": "Permintaan kelulusan baharu",
+      "title": "Tajuk",
+      "description": "Penerangan",
+      "dueDate": "tarikh tamat tempoh",
+      "cancel": "Batal",
+      "create": "Buat draf"
+    },
+    "errors": {
+      "titleRequired": "Tajuk diperlukan",
+      "saveFailed": "Gagal membuat kelulusan"
+    }
+  },
+  "tasks": {
+    "add": "Tambah tugasan",
+    "assignedTo": "Ditugaskan untuk",
+    "assignedToUser": "Ditugaskan kepada {{name}}",
+    "completed": "Selesai",
+    "completedByUser": "Diisi oleh {{name}}",
+    "confirmComplete": "Tandakan tugas ini sebagai selesai?",
+    "confirmDelete": "Padamkan tugasan ini?",
+    "delete": "Padam",
+    "deleteMessage": "Tugas ini akan dialih keluar secara kekal.",
+    "deleteTitle": "Padamkan tugasan?",
+    "description": "Kerja yang perlu dilakukan mengenai perkara ini — berasingan daripada tarikh akhir yang dijana sistem.",
+    "drawerTitle": "Tambah tugasan",
+    "dueOn": "Perlu dibayar {{date}}",
+    "empty": "Tiada tugas mengenai perkara ini.",
+    "emptyOpen": "Tiada tugas terbuka. Tambah satu apabila ada kerja untuk menjejaki perkara ini.",
+    "error": "Gagal memuatkan tugasan.",
+    "errorCreate": "Gagal membuat tugasan",
+    "form": {
+      "assigneeLabel": "Ditugaskan untuk",
+      "assigneeRequired": "Pilih siapa yang patut melakukan tugas ini",
+      "dueDateOptional": "Tarikh tamat (pilihan)",
+      "notesOptional": "Nota (pilihan)",
+      "notesPlaceholder": "Sebarang konteks tambahan untuk penerima serah hak",
+      "priorityLabel": "Keutamaan",
+      "titleLabel": "Apa yang perlu dilakukan",
+      "titlePlaceholder": "cth. Hubungi semula pelanggan: respons BPO",
+      "titleRequired": "Tajuk diperlukan"
+    },
+    "loading": "Memuatkan tugas…",
+    "markComplete": "Tandakan selesai",
+    "noDueDate": "Tiada tarikh akhir",
+    "open": "Buka",
+    "priority": {
+      "high": "tinggi",
+      "normal": "Biasalah"
+    },
+    "title": "Tugasan"
+  },
+  "timeline": {
+    "description": "Sejarah kronologi pendakwaan dan surat-menyurat mengenai perkara ini.",
+    "empty": "Tiada acara garis masa lagi. Log surat-menyurat atau failkan permohonan untuk melihat aktiviti di sini.",
+    "error": "Gagal memuatkan garis masa.",
+    "eventType": {
+      "correspondence": "Surat-menyurat",
+      "deadline": "Tarikh akhir",
+      "filing": "pemfailan",
+      "note": "Nota",
+      "task": "Tugasan"
+    },
+    "loading": "Memuatkan garis masa…",
+    "loggedBy": "Dilog oleh {{name}}",
+    "title": "Garis masa"
+  },
+  "type": {
+    "border_measures": "Langkah-langkah sempadan",
+    "copyright": "Hak Cipta",
+    "dispute_opposition": "Pertikaian / pembangkang",
+    "fto_analysis": "analisis FTO",
+    "geographical_indication": "Petunjuk geografi",
+    "industrial_design": "Reka bentuk perindustrian",
+    "patent": "Paten",
+    "trademark": "Tanda dagangan",
+    "utility_model": "Model utiliti",
+    "valuation": "Penilaian"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Pilih…",
+    "title": "Butiran khusus jenis"
+  }
+}

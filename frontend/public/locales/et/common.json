@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Tagasi armatuurlauale",
+    "cancel": "Tühista",
+    "edit": "Muuda",
+    "loadMore": "Laadige rohkem",
+    "next": "Edasi",
+    "previous": "Eelmine",
+    "refresh": "Värskenda",
+    "remove": "Eemalda",
+    "retry": "Proovi uuesti",
+    "save": "Salvesta",
+    "saveChanges": "Salvestage muudatused",
+    "view": "Vaade"
+  },
+  "errors": {
+    "loadFailed": "Laadimine ebaõnnestus.",
+    "retryHint": "Kontrollige ühendust ja lubasid ning proovige uuesti."
+  },
+  "filters": {
+    "all": "Kõik",
+    "allStatuses": "Kõik olekud",
+    "allTypes": "Kõik tüübid"
+  },
+  "language": {
+    "ar": "araabia keel",
+    "bg": "bulgaaria keel",
+    "bs": "bosnia keel",
+    "de": "saksa keel",
+    "en": "inglise keel",
+    "es": "hispaania keel",
+    "et": "eesti keel",
+    "fr": "prantsuse keel",
+    "hr": "Horvaatia",
+    "hy": "armeenlane",
+    "it": "itaalia keel",
+    "mk": "makedoonlane",
+    "ms": "malai",
+    "ro": "rumeenlane",
+    "ru": "vene keel",
+    "sq": "albaanlane",
+    "sr": "serblane",
+    "switch": "Keele vahetamine",
+    "tr": "türgi keel",
+    "zh-CN": "hiina (lihtsustatud)"
+  },
+  "loading": {
+    "default": "Laadimine…",
+    "refreshing": "värskendav…",
+    "saving": "Salvestamine…"
+  },
+  "nav": {
+    "breadcrumb": "Leivapuru",
+    "closeMenu": "Sule menüü",
+    "openMenu": "Ava menüü"
+  },
+  "pagination": {
+    "noResults": "Tulemusi pole",
+    "page": "Lehekülg {{page}}",
+    "showing": "Kuvatakse {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Aruanded"
+  },
+  "noPermission": "Pole luba.",
+  "crm": "CRM",
+  "clientPortal": "Kliendiportaal",
+  "tasks": "Ülesanded",
+  "comingSoon": "Varsti tulemas",
+  "notifications": {
+    "title": "Märguanded",
+    "unread": "lugemata",
+    "markAllRead": "Märgi kõik loetuks",
+    "couldNotLoad": "Märguandeid ei saanud laadida.",
+    "noNotificationsYet": "Märguandeid pole veel."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Ei",
+    "none": "Mitte ühtegi",
+    "yes": "Jah"
+  }
+}

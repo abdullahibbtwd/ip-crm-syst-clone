@@ -1,0 +1,87 @@
+{
+  "title": "Parteneri străini",
+  "subtitle": "Agenți locali și consilieri asociati folosiți pentru dosare și instrucțiuni.",
+  "newPartner": "Partener nou",
+  "noPermission": "Nu aveți permisiunea de a vedea partenerii.",
+  "loading": "Se încarcă partenerii…",
+  "loadError": "Nu s-au încărcat partenerii.",
+  "empty": "Niciun partener nu corespunde acestor filtre.",
+  "searchPlaceholder": "Căutați nume, companie, e-mail...",
+  "filters": {
+    "all": "Toți partenerii",
+    "activeOnly": "Numai activ"
+  },
+  "columns": {
+    "name": "Nume",
+    "company": "Companie",
+    "email": "E-mail",
+    "jurisdictions": "Jurisdicțiile",
+    "status": "Stare"
+  },
+  "status": {
+    "active": "Activ",
+    "inactive": "Inactiv"
+  },
+  "editAria": "Editați partenerul",
+  "deactivateAria": "Dezactivați partenerul",
+  "confirmDeactivate": "Dezactivați partenerul „{{name}}”?",
+  "drawer": {
+    "createTitle": "Partener nou",
+    "editTitle": "Editați partenerul",
+    "name": "Nume",
+    "company": "Companie",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "countryCode": "Codul țării",
+    "jurisdictions": "Jurisdicțiile",
+    "jurisdictionsHint": "Coduri separate prin virgulă, de ex. BG, UE, EP",
+    "notes": "Note",
+    "status": "Stare",
+    "cancel": "Anula",
+    "create": "Creați partener",
+    "save": "Salvați modificările"
+  },
+  "errors": {
+    "nameRequired": "Numele este obligatoriu",
+    "saveFailed": "Nu s-a salvat partenerul"
+  },
+  "instructions": {
+    "title": "Instrucțiuni pentru parteneri",
+    "subtitle": "Elaborarea, trimiterea și urmărirea instrucțiunilor către partenerii străini în această chestiune.",
+    "newDraft": "Schiță nouă",
+    "noPermission": "Nu aveți permisiunea de a vizualiza instrucțiunile pentru partener.",
+    "loading": "Se încarcă instrucțiunile...",
+    "loadError": "Nu s-au încărcat instrucțiunile.",
+    "empty": "Încă nu există instrucțiuni pentru partener.",
+    "columns": {
+      "title": "Titlu",
+      "partner": "Partener",
+      "status": "Stare",
+      "created": "Creat"
+    },
+    "status": {
+      "draft": "Proiect",
+      "sent": "Trimis",
+      "acknowledged": "Recunoscut",
+      "complete": "Complet"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partener",
+      "partnerPlaceholder": "Selectați partenerul",
+      "title": "Titlu",
+      "body": "Instrucţiuni",
+      "cancel": "Anula",
+      "create": "Creați schiță"
+    },
+    "errors": {
+      "required": "Partenerul și titlul sunt necesare",
+      "saveFailed": "Nu s-a putut crea instrucțiunea"
+    }
+  },
+  "actions": {
+    "send": "Trimite",
+    "acknowledge": "Recunoașteți",
+    "complete": "Complet"
+  }
+}

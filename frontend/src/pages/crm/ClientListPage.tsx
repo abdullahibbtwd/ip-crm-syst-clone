@@ -17,8 +17,8 @@ import { useClients } from '@/features/crm/hooks/useClients'
 import type { ClientFilters, ClientStatus, ClientType } from '@/features/crm/types'
 import { clientStatusLabel, clientTypeLabel } from '@/features/crm/utils'
 
-const ALL_STATUSES = 'All'
-const ALL_TYPES = 'All'
+const ALL_STATUSES = 'all'
+const ALL_TYPES = 'all'
 
 export function ClientListPage() {
   const { t } = useTranslation(['crm', 'common'])

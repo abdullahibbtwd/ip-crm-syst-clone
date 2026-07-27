@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Prochaine",
+    "instructed": "Instruite",
+    "filed": "Déposée",
+    "completed": "Complété",
+    "lapsed": "Péchu"
+  },
+  "page": {
+    "title": "Renouvellements",
+    "descriptionMy": "Fenêtres de renouvellement sur les sujets qui vous sont assignés.",
+    "descriptionFirm": "Liste de travail de renouvellement à l’échelle de l’entreprise pour tous les droits de propriété intellectuelle.",
+    "filters": {
+      "status": "Statut",
+      "allStatuses": "Tous les statuts",
+      "jurisdiction": "Juridiction",
+      "allJurisdictions": "Toutes les juridictions",
+      "assignee": "Cessionnaire",
+      "allAssignees": "Tous les assignés"
+    },
+    "loading": "Chargement des renouvellements…",
+    "empty": "Aucune fenêtre de renouvellement ne correspond à vos filtres.",
+    "table": {
+      "ipRight": "Droit de propriété intellectuelle",
+      "matter": "Matière",
+      "client": "Cliente",
+      "cycle": "Faire du vélo",
+      "due": "Exigible",
+      "status": "Statut",
+      "assignee": "Cessionnaire"
+    }
+  },
+  "widget": {
+    "title": "Renouvellements à venir",
+    "subtitle": "Pipeline d’instructions des 90 prochains jours",
+    "viewPipeline": "Afficher le pipeline",
+    "loading": "Calcul des fenêtres de renouvellement…",
+    "error": "Impossible de charger les analyses de renouvellements.",
+    "stats": {
+      "totalPipeline": "Pipeline total",
+      "activeWindows": "Fenêtres actives",
+      "awaiting": "En attente",
+      "noInstruction": "Aucune instruction pour l'instant",
+      "urgent": "Urgente",
+      "due7Days": "Exigible ≤ 7 jours",
+      "instructed": "Instruite",
+      "proceedConfirmed": "Continuer confirmé"
+    },
+    "empty": "Aucun renouvellement suivi dans cette fenêtre.",
+    "table": {
+      "ipAsset": "Actif de propriété intellectuelle",
+      "client": "Cliente",
+      "dueStatus": "Due / Statut"
+    },
+    "cycle": "Cycle {{number}}"
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Actuelle",
+      "overdue30": "1 à 30 jours",
+      "overdue60": "31 à 60 jours",
+      "overdue90plus": "90+ jours"
+    },
+    "bucketsShort": {
+      "current": "Actuelle",
+      "overdue30": "30j",
+      "overdue60": "60j",
+      "overdue90plus": "90j+"
+    },
+    "legend": "Légende vieillissante",
+    "noOpenReceivables": "Aucune créance ouverte"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "Groupe de clients {{count}}",
+    "clientGroups_other": "{{count}} groupes de clients",
+    "clientMatters": "Questions client",
+    "clientsInWindow": "{{clients}} clients · Horizon {{days}} jours",
+    "crossTabTitle": "Client × juridiction × avocat",
+    "description": "Délais critiques à venir regroupés par client, juridiction et avocat responsable. Les couleurs d’urgence correspondent aux listes de travail d’échéance et aux jalons de notification.",
+    "emptyDescription": "Essayez d'élargir la fenêtre du portefeuille ou de supprimer les filtres.",
+    "emptyTitle": "Aucune date limite dans cette fenêtre",
+    "error": "Impossible de charger le rapport sur les risques liés aux délais.",
+    "filters": {
+      "allAssignees": "Tous les assignés",
+      "allAttorneys": "Tous les avocats",
+      "allJurisdictions": "Toutes les juridictions",
+      "jurisdiction": "Juridiction",
+      "portfolioWindow": "Fenêtre du portefeuille (jours)",
+      "responsibleAttorney": "Avocat responsable"
+    },
+    "generated": "Généré {{date}}",
+    "loading": "Chargement du risque du portefeuille…",
+    "openWorklist": "Ouvrir la liste de travail",
+    "stats": {
+      "critical": "Critique",
+      "criticalHint": "En retard, aujourd'hui ou ≤ 7 jours",
+      "dueToday": "À rendre aujourd'hui",
+      "dueTodayHint": "Action requise aujourd’hui",
+      "inWindow": "Dans la fenêtre",
+      "overdue": "En retard",
+      "overdueHint": "En souffrance ou signalé"
+    },
+    "table": {
+      "deadline": "Date limite",
+      "due": "Exigible",
+      "matter": "Matière",
+      "status": "Statut"
+    },
+    "title": "Risque de portefeuille d’échéance"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Par juridiction",
+    "byMonth": "Dépôts par mois",
+    "description": "Demandes déposées : regroupées à partir des événements de dépôt de la chronologie des affaires, regroupées par mois, type d'affaire et juridiction.",
+    "error": "Impossible de charger les volumes de classement.",
+    "filters": {
+      "allJurisdictions": "Toutes les juridictions",
+      "allTypes": "Tous types",
+      "jurisdiction": "Juridiction",
+      "matterType": "Type de matière",
+      "periodFrom": "Période de",
+      "periodTo": "Période à"
+    },
+    "generated": "Généré {{date}}",
+    "loading": "Chargement des volumes de classement…",
+    "matterPortfolio": "Portefeuille de sujets",
+    "noFilings": "Aucun dépôt dans la période.",
+    "stats": {
+      "jurisdictions": "Juridictions",
+      "jurisdictionsHint": "Autorités de dépôt",
+      "matterTypes": "Types de sujets",
+      "matterTypesHint": "Types distincts déposés",
+      "totalFilings": "Total des dépôts",
+      "totalFilingsHint": "Dans la période sélectionnée"
+    },
+    "table": {
+      "filingDate": "Date de dépôt",
+      "filings": "Dépôts",
+      "jurisdiction": "Juridiction",
+      "matter": "Matière",
+      "month": "Mois",
+      "type": "Taper"
+    },
+    "title": "Volumes de classement"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Au mois d'échéance",
+    "byJurisdiction": "Par juridiction",
+    "cycle": "cycle {{number}}",
+    "description": "Fenêtres de renouvellement à venir par statut, juridiction et mois d'échéance - avec des niveaux d'urgence alignés sur les rapports sur les risques liés aux délais.",
+    "dueBefore": "À payer avant",
+    "dueBeforeLabel": "À payer avant le {{date}}",
+    "error": "Impossible de charger le résumé des renouvellements.",
+    "filters": {
+      "allJurisdictions": "Toutes les juridictions",
+      "jurisdiction": "Juridiction"
+    },
+    "generated": "Généré {{date}}",
+    "loading": "Chargement du résumé des renouvellements…",
+    "noRenewals": "Aucun renouvellement dans la fenêtre.",
+    "renewalsWorklist": "Liste de travail pour les renouvellements",
+    "stats": {
+      "critical": "Critique",
+      "criticalHint": "En retard ou dû ≤7 jours",
+      "instructed": "Instruite",
+      "instructedHint": "Continuer confirmé",
+      "pipeline": "Pipeline",
+      "pipelineHint": "Fenêtres de renouvellement actives",
+      "upcoming": "Prochaine",
+      "upcomingHint": "En attente d'instructions"
+    },
+    "table": {
+      "client": "Cliente",
+      "due": "Exigible",
+      "ipRight": "Droit de propriété intellectuelle",
+      "month": "Mois",
+      "status": "Statut",
+      "windows": "Fenêtres"
+    },
+    "title": "Résumé des renouvellements"
+  },
+  "renewalUrgency": {
+    "legend": "Urgence de renouvellement",
+    "noPipeline": "Aucun renouvellement de pipeline",
+    "overdue": "En retard",
+    "soon": "≤30 jours",
+    "today": "À rendre aujourd'hui",
+    "urgent": "≤7 jours"
+  },
+  "revenueSummary": {
+    "agingDetail": "Détail des créances en cours",
+    "agingSection": {
+      "description": "Aperçu de toutes les créances ouvertes par jours de retard",
+      "title": "Résumé du vieillissement"
+    },
+    "description": "Totaux des factures émises par mois, recouvrements et créances ouvertes classées par jours de retard - alignés sur le scénario de suivi des paiements Finance.",
+    "error": "Impossible de charger le récapitulatif des revenus.",
+    "filters": {
+      "periodFrom": "Période de",
+      "periodTo": "Période à"
+    },
+    "generated": "Généré {{date}}",
+    "invoice_one": "facture {{count}}",
+    "invoice_other": "factures {{count}}",
+    "invoiceRegister": "Registre des factures",
+    "issuedInPeriod_one": "revenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "revenueSummary.issuedInPeriod",
+    "loading": "Chargement du récapitulatif des revenus…",
+    "noInvoices": "Aucune facture émise au cours de cette période.",
+    "noReceivables": "Aucune créance impayée.",
+    "openInvoices_one": "revenueSummary.openInvoices",
+    "openInvoices_other": "revenueSummary.openInvoices",
+    "period": "Période {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Totaux des factures émises regroupés par mois d'émission",
+      "title": "Revenu par mois"
+    },
+    "stats": {
+      "collected": "Collecté",
+      "collectedHint": "Paiements enregistrés dans la période",
+      "criticalReceivables": "Plus de 60 jours de retard",
+      "criticalReceivablesHint": "Créances nécessitant un suivi",
+      "outstanding": "Remarquable",
+      "totalInvoiced": "Total facturé"
+    },
+    "table": {
+      "aging": "Vieillissement",
+      "client": "Cliente",
+      "due": "Exigible",
+      "invoice": "Facture",
+      "invoiced": "Facturé",
+      "month": "Mois",
+      "open": "Ouvrir",
+      "outstanding": "Remarquable",
+      "paid": "Payé"
+    },
+    "title": "Revenus et créances"
+  },
+  "urgency": {
+    "legend": "Légende d'urgence",
+    "noActiveRisk": "Aucun risque actif",
+    "overdue": "En retard",
+    "soon": "Exigible ≤30 jours",
+    "soonShort": "≤30 jours",
+    "today": "À rendre aujourd'hui",
+    "todayShort": "Aujourd'hui",
+    "urgent": "Exigible ≤7 jours",
+    "urgentShort": "≤7 jours"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Critique",
+      "criticalHint": "≤ 7 jours",
+      "overdue": "En retard",
+      "actionRequired": "Action requise",
+      "dueToday": "À rendre aujourd'hui",
+      "requiresSignOff": "Nécessite une approbation",
+      "nextDays": "{{days}} prochains jours",
+      "clientsInWindow": "{{count}} clients dans la fenêtre",
+      "windowSummary": "Résumé de la fenêtre",
+      "priorityDeadlines": "Délais prioritaires",
+      "prioritySubtitle": "Éléments les plus urgents nécessitant une surveillance",
+      "openReport": "Ouvrir le rapport",
+      "loading": "Scanner les vecteurs de risques…",
+      "error": "Impossible de charger l'analyse des risques.",
+      "highestExposure": "Exposition au risque le plus élevé",
+      "criticalCount": "{{count}} critique",
+      "portfolioClear": "Portefeuille clair",
+      "noCriticalInWindow": "Aucun risque critique détecté dans les {{days}} prochains jours.",
+      "table": {
+        "priorityDeadline": "Délai prioritaire",
+        "clientJurisdiction": "Client et juridiction",
+        "dueDate": "Date d'échéance"
+      },
+      "showingOf": "Affichage de {{shown}} sur {{total}} éléments prioritaires",
+      "viewCrossTab": "Afficher le rapport croisé complet"
+    },
+    "filingVolumes": {
+      "title": "Volumes de classement",
+      "subtitle": "Candidatures déposées dans l'ensemble du cabinet (12 derniers mois)",
+      "fullReport": "Rapport complet",
+      "loading": "Agrégation de l’historique des dépôts…",
+      "error": "Impossible de charger les analyses de classement.",
+      "totalFilings": "Total des dépôts",
+      "yearToDate": "Année à ce jour",
+      "primaryType": "Type principal",
+      "applications_one": "demande {{count}}",
+      "applications_other": "{{count}} candidatures",
+      "noData": "Aucune donnée",
+      "topRegion": "Région supérieure",
+      "monthActivity": "{{month}} Activité :",
+      "newFiling_one": "{{count}} nouveau dépôt",
+      "newFiling_other": "{{count}} nouveaux dépôts",
+      "empty": "Aucun dépôt détecté dans l'historique récent.",
+      "table": {
+        "matterInfo": "Informations sur le sujet",
+        "type": "Taper",
+        "filingDate": "Date de dépôt"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Facturé (12 mois)",
+      "issued_one": "{{count}} émis",
+      "issued_other": "{{count}} émis",
+      "collected": "Collecté",
+      "paidInPeriod": "Période de paiement",
+      "outstanding": "Remarquable",
+      "open_one": "{{count}} ouvert",
+      "open_other": "{{count}} ouvert",
+      "criticalRisk": "Risque critique",
+      "overdue60Days": "Plus de 60 jours de retard",
+      "receivablesAging": "Vieillissement des créances",
+      "agingSubtitle": "Factures émises ouvertes par jours de retard",
+      "fullReport": "Rapport complet",
+      "loading": "Analyser les données vieillissantes…",
+      "error": "Impossible de charger les données anciennes.",
+      "portfolioHealthy": "Portefeuille sain",
+      "noReceivables": "Aucune créance impayée trouvée.",
+      "draftRef": "Projet de référence",
+      "table": {
+        "invoiceInfo": "Informations sur la facture",
+        "client": "Cliente",
+        "outstanding": "Remarquable"
+      },
+      "showingOf": "Affichage de {{shown}} sur {{total}} factures ouvertes",
+      "viewPortfolio": "Voir l'ensemble du portefeuille"
+    },
+    "teamWorkload": {
+      "title": "Charge de travail de l'équipe",
+      "subtitle": "Questions en cours, tâches et délais par membre",
+      "viewTeam": "Voir l'équipe",
+      "loading": "Calcul de la répartition de la charge de travail…",
+      "error": "Impossible de charger les données de l'équipe.",
+      "matters": "Importe",
+      "members_one": "Membre {{count}}",
+      "members_other": "Membres {{count}}",
+      "tasks": "Tâches",
+      "pendingAction": "Action en attente",
+      "deadlines": "Délais",
+      "activeWindow": "Fenêtre active",
+      "busiest": "Le plus occupé",
+      "items_one": "{{count}} article",
+      "items_other": "{{count}} articles",
+      "clear": "Claire",
+      "empty": "Aucune donnée d'équipe active",
+      "table": {
+        "teamMember": "Membre de l'équipe",
+        "matters": "Importe",
+        "tasks": "Tâches",
+        "deadlines": "Délais",
+        "total": "Totale"
+      }
+    },
+    "clientProfitability": {
+      "title": "Rentabilité client",
+      "subtitle": "Répartition des revenus facturés par portefeuille clients",
+      "viewAllClients": "Voir tous les clients",
+      "loading": "Agrégation des données de rentabilité…",
+      "error": "Impossible de charger les analyses client.",
+      "trueMargin": "Marge vraie :",
+      "revenueProxy": "Indicateur de revenus :",
+      "totalRevenue": "Revenu total",
+      "clients_one": "Cliente {{count}}",
+      "clients_other": "Clients {{count}}",
+      "totalMargin": "Marge totale",
+      "topClient": "Meilleur client",
+      "internalCost": "{{amount}} coût interne",
+      "noBillingData": "Aucune donnée de facturation",
+      "unbilledWip": "En-cours non facturés",
+      "pendingAccrual": "En attente d'accumulation",
+      "firmBilled": "Facturé ferme",
+      "totalMatters": "Questions totales",
+      "empty": "Aucune donnée de facturation client détectée.",
+      "table": {
+        "clientPortfolio": "Portefeuille clients",
+        "matters": "Importe",
+        "billable": "Facturable",
+        "unbilled": "Non facturé",
+        "margin": "Marge",
+        "revenue": "Rév (EUR)"
+      },
+      "showingTop": "Affichage des {{shown}} meilleurs clients de {{total}} par {{basis}}",
+      "basisMargin": "marge",
+      "basisRevenue": "revenu",
+      "viewLeaderboard": "Voir le classement complet"
+    }
+  }
+}

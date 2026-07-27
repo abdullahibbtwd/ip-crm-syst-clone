@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import {
@@ -25,6 +26,8 @@ type FirmDocument = {
 }
 
 export function StaffDocumentsPage() {
+  const { t } = useTranslation('documents')
+  const { t: tCommon } = useTranslation('common')
   const [search, setSearch] = useState('')
   const { data, isLoading, isError } = useQuery({
     queryKey: ['documents', 'firm', search],
@@ -37,48 +40,46 @@ export function StaffDocumentsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-2xl text-foreground md:text-3xl">Documents</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Firm-wide matter documents library.
-        </p>
+        <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('title')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('subtitle')}</p>
       </div>
 
       <PermissionGate
         resource="document"
         action="read"
-        fallback={<p className="text-sm text-muted-foreground">No permission.</p>}
+        fallback={<p className="text-sm text-muted-foreground">{tCommon('noPermission')}</p>}
       >
         <div className="relative max-w-md">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             className="pl-9"
-            placeholder="Search documents…"
+            placeholder={t('searchPlaceholder')}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
 
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <p className="text-sm text-muted-foreground">{t('loading')}</p>
         ) : isError ? (
-          <p className="text-sm text-destructive">Failed to load documents.</p>
+          <p className="text-sm text-destructive">{t('loadFailed')}</p>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-border/80">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Matter</TableHead>
-                  <TableHead>Category</TableHead>
-                  <TableHead>Updated</TableHead>
-                  <TableHead>By</TableHead>
+                  <TableHead>{t('columns.name')}</TableHead>
+                  <TableHead>{t('columns.matter')}</TableHead>
+                  <TableHead>{t('columns.category')}</TableHead>
+                  <TableHead>{t('columns.updated')}</TableHead>
+                  <TableHead>{t('columns.by')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {(data ?? []).length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={5} className="py-10 text-center text-muted-foreground">
-                      No documents found.
+                      {t('empty')}
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -94,9 +95,7 @@ export function StaffDocumentsPage() {
                         </Link>
                       </TableCell>
                       <TableCell>{doc.category}</TableCell>
-                      <TableCell>
-                        {new Date(doc.updatedAt).toLocaleDateString()}
-                      </TableCell>
+                      <TableCell>{new Date(doc.updatedAt).toLocaleDateString()}</TableCell>
                       <TableCell>{doc.createdBy.fullName}</TableCell>
                     </TableRow>
                   ))

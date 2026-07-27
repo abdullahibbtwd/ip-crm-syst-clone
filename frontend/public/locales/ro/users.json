@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Se încarcă avocații...",
+    "placeholder": "Alegeți un avocat responsabil",
+    "unassigned": "Nealocat"
+  },
+  "filters": {
+    "activeOnly": "Numai activ",
+    "allStatuses": "Toate stările",
+    "inactiveOnly": "Numai inactiv",
+    "searchPortal": "Căutați utilizatorii portalului...",
+    "searchTeam": "Căutați membrii echipei..."
+  },
+  "invite": {
+    "button": "Invitați utilizator",
+    "cancel": "Anula",
+    "clientPlaceholder": "Selectați înregistrarea clientului...",
+    "clientRecord": "Fișa clientului",
+    "description": "Invitați un membru al echipei sau un client al portalului. Ei vor primi un e-mail cu un link pentru a-și seta parola sau pentru a se conecta cu Microsoft sau Google.",
+    "email": "E-mail",
+    "emailFailed": "E-mailul de invitație nu a putut fi trimis",
+    "emailFailedContinue": "Utilizatorul a fost creat - închideți și retrimiteți mai târziu",
+    "emailFailedTitle": "Utilizatorul a fost invitat, dar e-mailul nu a putut fi trimis.",
+    "emailHint": "Se trimite un e-mail de invitație cu un link pentru a seta o parolă. De asemenea, se pot conecta cu Microsoft sau Google folosind acest e-mail exact. Dacă e-mailul eșuează, utilizatorul este în continuare creat și puteți retrimite din lista de utilizatori.",
+    "emailPlaceholder": "nume@company.com",
+    "errors": {
+      "clientRequired": "Selectați o înregistrare client pentru utilizatorii portalului",
+      "failed": "Nu s-a putut invita utilizatorul",
+      "required": "E-mailul și numele complet sunt necesare"
+    },
+    "fullName": "Numele complet",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Ultima încercare de e-mail a eșuat",
+    "resend": "Retrimiteți invitația",
+    "resendFailed": "E-mailul de invitație a eșuat",
+    "resendSuccess": "E-mail de invitație trimis",
+    "role": "Rol",
+    "submit": "Trimite invitația",
+    "submitting": "Invită…",
+    "title": "Invitați utilizator",
+    "typePortal": "Client portal",
+    "typeTeam": "Membru al echipei",
+    "userType": "Tip de utilizator"
+  },
+  "layout": {
+    "accessRestricted": "Acces restricționat",
+    "description": "Gestionați membrii echipei interne și conturile clienților portalului extern. SSO și conectarea bazată pe parolă sunt afișate pentru fiecare utilizator.",
+    "noPermission": "Nu aveți permisiunea de a vedea utilizatorii și membrii echipei.",
+    "title": "Utilizatori și echipă"
+  },
+  "portal": {
+    "description": "Conturi de clienți externi cu acces la portal la chestiuni și documente partajate.",
+    "title": "Utilizatorii portalului"
+  },
+  "role": {
+    "errors": {
+      "failed": "Nu s-a putut actualiza rolul"
+    },
+    "ownRoleHint": "Nu-ți poți schimba propriul rol"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Parolă",
+      "pending": "În așteptare",
+      "sso": "SSO"
+    },
+    "clientRecord": "Fișa clientului",
+    "empty": "Nu s-au găsit utilizatori",
+    "emptyDescription": "Încercați să ajustați căutarea sau filtrele.",
+    "error": "Nu s-au încărcat utilizatorii.",
+    "headers": {
+      "invite": "Invita",
+      "lastLogin": "Ultima conectare",
+      "mfa": "MAE",
+      "registered": "Înregistrat",
+      "role": "Rol",
+      "signIn": "Conectare",
+      "status": "Stare",
+      "user": "Utilizator"
+    },
+    "mfa": {
+      "enabled": "Activat",
+      "off": "Oprit"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv",
+      "invited": "Invitat"
+    },
+    "viewAria": "Vedeți {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Conturi de client",
+      "label": "Utilizatorii portalului"
+    },
+    "team": {
+      "description": "Personalul intern",
+      "label": "Echipă"
+    }
+  },
+  "team": {
+    "description": "Personal intern cu roluri, metodă de conectare și statut MFA. Partenerii de gestionare și administratorii IT pot invita utilizatori și schimba rolurile.",
+    "title": "Membrii echipei"
+  },
+  "teamMemberSelect": {
+    "loading": "Încărcare…",
+    "placeholder": "Selectați membrul echipei"
+  }
+}

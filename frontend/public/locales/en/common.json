@@ -18,13 +18,31 @@
     "retryHint": "Check your connection and permissions, then try again."
   },
   "filters": {
+    "all": "All",
     "allStatuses": "All statuses",
     "allTypes": "All types"
   },
   "language": {
+    "ar": "Arabic",
     "bg": "Bulgarian",
+    "bs": "Bosnian",
+    "de": "German",
     "en": "English",
-    "switch": "Switch language"
+    "es": "Spanish",
+    "et": "Estonian",
+    "fr": "French",
+    "hr": "Croatian",
+    "hy": "Armenian",
+    "it": "Italian",
+    "mk": "Macedonian",
+    "ms": "Malay",
+    "ro": "Romanian",
+    "ru": "Russian",
+    "sq": "Albanian",
+    "sr": "Serbian",
+    "switch": "Switch language",
+    "tr": "Turkish",
+    "zh-CN": "Chinese (Simplified)"
   },
   "loading": {
     "default": "Loading…",
@@ -43,6 +61,18 @@
   },
   "reports": {
     "eyebrow": "Reports"
+  },
+  "noPermission": "No permission.",
+  "crm": "CRM",
+  "clientPortal": "Client portal",
+  "tasks": "Tasks",
+  "comingSoon": "Coming soon",
+  "notifications": {
+    "title": "Notifications",
+    "unread": "unread",
+    "markAllRead": "Mark all read",
+    "couldNotLoad": "Could not load notifications.",
+    "noNotificationsYet": "No notifications yet."
   },
   "yesNo": {
     "dash": "-",

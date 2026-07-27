@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Bureau de douane"
+      },
+      "infringingGoods": {
+        "label": "Description des marchandises contrefaites"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Date de création"
+      },
+      "workTitle": {
+        "label": "Titre de l'œuvre"
+      },
+      "workType": {
+        "label": "Type de travail"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Résumé de base"
+      },
+      "disputeType": {
+        "label": "Type de litige"
+      },
+      "opponentName": {
+        "label": "Adversaire / partie adverse"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Résumé de la portée"
+      },
+      "technologyArea": {
+        "label": "Domaine technologique"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Nom du produit"
+      },
+      "region": {
+        "label": "Région géographique"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Répertorier ou décrire les vues de conception déposées",
+        "label": "Vues de conception"
+      },
+      "locarnoClass": {
+        "label": "Classe Locarno"
+      },
+      "productDescription": {
+        "label": "Description du produit"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Résumé des réclamations"
+      },
+      "pctNumber": {
+        "label": "Numéro PCT"
+      },
+      "priorityDate": {
+        "label": "Date de priorité"
+      },
+      "technicalField": {
+        "label": "Domaine technique"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Couleurs revendiquées"
+      },
+      "markDescription": {
+        "label": "Description de la marque"
+      },
+      "markType": {
+        "label": "Type de marque"
+      },
+      "niceClasses": {
+        "label": "Des cours sympas",
+        "placeholder": "par ex. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Résumé des réclamations"
+      },
+      "priorityDate": {
+        "label": "Date de priorité"
+      },
+      "technicalField": {
+        "label": "Domaine technique"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Description de l'actif"
+      },
+      "valuationPurpose": {
+        "label": "Objectif de l'évaluation"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Ajouter des frais fixes",
+    "addTime": "Heure de journalisation",
+    "billableAria": "Facturable",
+    "billableWithoutRate": "Facturable sans tarif",
+    "confirmDeleteFee": "Supprimer les frais fixes ?",
+    "confirmDeleteFeeMessage": "Ces frais seront supprimés du dossier.",
+    "confirmDeleteFeeTitle": "Supprimer les frais fixes ?",
+    "confirmDeleteTime": "Supprimer cette entrée de temps ?",
+    "confirmDeleteTimeMessage": "Cette ligne facturable sera supprimée du dossier.",
+    "confirmDeleteTimeTitle": "Supprimer la saisie du temps ?",
+    "description": "Saisies des temps, honoraires fixes et factures à ce sujet.",
+    "emptyFees": "Pas encore de frais fixes.",
+    "emptyTime": "Aucun temps enregistré pour l'instant.",
+    "error": "Échec du chargement des données de facturation.",
+    "feeDrawer": {
+      "amount": "Montant (€)",
+      "billable": "Facturable",
+      "createTitle": "Ajouter des frais fixes",
+      "descriptionPlaceholder": "par ex. Frais de dépôt de marque BPO",
+      "editTitle": "Modifier les frais fixes",
+      "errors": {
+        "amountMin": "Le montant doit être nul ou supérieur",
+        "descriptionRequired": "Une description est requise"
+      },
+      "saveFailed": "Échec de l'enregistrement des frais fixes"
+    },
+    "fixedFees": "Frais fixes",
+    "loading": "Chargement de la facturation…",
+    "loadingInvoices": "Chargement des factures…",
+    "loadInvoicesFailed": "Échec du chargement des factures.",
+    "noPermission": "Vous n'êtes pas autorisé à consulter la facturation à ce sujet.",
+    "noRateCard": "Pas de grille tarifaire",
+    "nonBillableAria": "Non facturable",
+    "portalDescription": "Factures et statut de paiement à ce sujet.",
+    "timeDrawer": {
+      "amount": "Montante:",
+      "billable": "Facturable",
+      "billableDisabledHint": "Facturable est désactivé alors que le tarif est de 0 €.",
+      "createTitle": "Heure de journalisation",
+      "descriptionPlaceholder": "Ce qui a été fait",
+      "editTitle": "Modifier la saisie du temps",
+      "errors": {
+        "billableRequiresRate": "Le temps facturable nécessite un taux horaire. Saisissez un tarif ou marquez-le comme non facturable.",
+        "descriptionRequired": "Une description est requise",
+        "hoursMin": "Les heures doivent être d'au moins 0,25",
+        "rateMin": "Le taux doit être nul ou supérieur"
+      },
+      "hourlyRate": "Tarif horaire (€)",
+      "hoursHint": "Par tranches de quart d'heure (0,25 minimum)",
+      "noRateCardWarning": "Aucune grille tarifaire trouvée pour votre rôle. Cette entrée sera enregistrée comme non facturable jusqu'à ce que le service financier fixe un taux ou que vous en saisissiez un manuellement.",
+      "resolvingRate": "Taux de résolution…",
+      "saveFailed": "Échec de l'enregistrement de la saisie du temps"
+    },
+    "timeEntries": "Entrées de temps",
+    "table": {
+      "amount": "Montante",
+      "attorney": "Avocate",
+      "billable": "Facturable",
+      "category": "Catégorie",
+      "date": "Date",
+      "description": "Description",
+      "hours": "Heures",
+      "rate": "Taux",
+      "user": "Utilisatrice"
+    },
+    "title": "Facturation"
+  },
+  "correspondence": {
+    "add": "Correspondance du journal",
+    "attachFromQueue": "Joindre depuis la file d'attente",
+    "attachmentFallback": "Pièce jointe à la correspondance",
+    "badges": {
+      "clientVisible": "Client visible",
+      "email": "E-mail",
+      "synced": "Synchronisée"
+    },
+    "category": {
+      "application": "Application",
+      "certificate": "Certificat",
+      "correspondence": "Correspondance générale",
+      "evidence": "Preuve",
+      "office_action": "Action de bureau",
+      "renewal": "Renouvellement"
+    },
+    "direction": {
+      "incoming": "Entrante",
+      "outgoing": "Sortante"
+    },
+    "description": "Salle de courrier numérique : lettres de journal, actions de bureau et e-mails à ce sujet. Utilisez {{logEmail}} pour les fichiers .eml ou le texte collé de la boîte de réception ; utilisez {{logCorrespondence}} pour les entrées structurées, le courrier sortant et les pièces jointes de documents.",
+    "documentReady": "Document prêt",
+    "downloadAttachment": "Télécharger la pièce jointe",
+    "downloadTitle": "Télécharger {{fileName}}",
+    "drawerTitle": "Correspondance du journal",
+    "empty": "Aucune correspondance enregistrée pour l'instant.",
+    "emptyHint": "Enregistrez la correspondance ou un e-mail pour constituer le dossier de cette affaire.",
+    "emptyTitle": "Pas encore de correspondance",
+    "error": "Échec du chargement de la correspondance.",
+    "errorLog": "Échec de l'enregistrement de la correspondance",
+    "fetchingDocument": "Récupération du document…",
+    "from": "Depuis:",
+    "hideFromClient": "Masquer de la boîte de réception du client",
+    "hideFromClientTitle": "Masquer du portail client",
+    "loading": "Chargement de la correspondance…",
+    "logEmail": "E-mail de journalisation",
+    "markReplied": "Marc a répondu",
+    "markSent": "Marque envoyée",
+    "openEpoRegister": "Ouvert au registre de l'OEB",
+    "reply": "Répondre",
+    "replyTitle": "Répondre via la boîte mail connectée",
+    "replaceFile": "Remplacer le fichier",
+    "replaceFileTitle": "Remplacer le fichier joint",
+    "saveAsPrecedent": "Enregistrer comme précédent",
+    "saveAsPrecedentTitle": "Enregistrer comme projet de précédent",
+    "savedUnder": "Enregistré sous le sujet de la correspondance ci-dessous",
+    "sendToClient": "Envoyer à la boîte de réception du client",
+    "showInClientTitle": "Afficher dans le portail client",
+    "status": {
+      "draft": "Brouillon",
+      "received": "Reçue",
+      "replied": "A répondu",
+      "sent": "Envoyée"
+    },
+    "table": {
+      "category": "Catégorie",
+      "date": "Date",
+      "direction": "Direction",
+      "file": "Déposer",
+      "fromTo": "De / À",
+      "status": "Statut",
+      "subject": "Sujette"
+    },
+    "title": "Correspondance",
+    "to": "À:",
+    "uploadFailed": "Échec du téléchargement et de la pièce jointe du fichier",
+    "uploadFile": "Télécharger le fichier",
+    "uploadFileTitle": "Téléchargez un PDF ou un document pour cette correspondance",
+    "viewOnEpo": "Voir sur l'OEB",
+    "viewOnEpoTitle": "Ouvrir le dossier officiel au Registre de l'OEB"
+  },
+  "createDrawer": {
+    "client": "Client *",
+    "creating": "Création…",
+    "error": "Échec de la création du sujet",
+    "jurisdictionHelp": "Sélectionnez une ou plusieurs juridictions de dépôt.",
+    "jurisdictions": "Juridictions",
+    "matterType": "Type de sujet *",
+    "open": "Sujet ouvert",
+    "responsibleAttorney": "Avocat responsable",
+    "title": "Ouvrir un nouveau sujet",
+    "titleField": "Titre *",
+    "titlePlaceholder": "par ex. Marque verbale ACME – UE"
+  },
+  "deadlines": {
+    "complete": "Complète",
+    "daysLeft": "{{count}} jours restants",
+    "daysOverdue": "{{count}} jours de retard",
+    "dueToday": "À rendre aujourd'hui",
+    "empty": "Pas de délais à ce sujet.",
+    "error": "Échec du chargement des délais.",
+    "loading": "Délais de chargement…",
+    "start": "Commencer",
+    "table": {
+      "assigned": "Attribué",
+      "due": "Date d'échéance",
+      "grace": "Grâce",
+      "jurisdiction": "Juridiction",
+      "status": "Statut",
+      "title": "Titre",
+      "type": "Taper"
+    },
+    "title": "Délais"
+  },
+  "documents": {
+    "allCategories": "Toutes les catégories",
+    "browse": "parcourir",
+    "category": "Catégorie",
+    "chooseFile": "Choisissez un fichier à télécharger",
+    "chooseTemplate": "Choisissez un modèle de lettre",
+    "description": "Classeur à ce sujet : téléchargez des PDF, des fichiers Word et des preuves.",
+    "displayName": "Nom d'affichage",
+    "displayNamePlaceholder": "par ex. Dossier de dépôt BPO – Final",
+    "dragDrop": "Faites glisser un fichier ici, ou",
+    "empty": "Aucun document téléchargé pour l'instant.",
+    "error": "Échec du chargement des documents.",
+    "errorGeneration": "La génération du document a échoué",
+    "errorNoDocx": "Ce modèle n'a pas de fichier Word (.docx) téléchargé",
+    "errorUpload": "Échec du téléchargement",
+    "format": "Format",
+    "generate": "Générer un document",
+    "generateDescription": "Choisissez un modèle de lettre. Les détails du sujet et du client sont renseignés automatiquement et enregistrés dans ce dossier.",
+    "generatePdf": "Générer un PDF",
+    "generateWord": "Générer un mot",
+    "generating": "Génératrice…",
+    "loading": "Chargement de documents…",
+    "noTemplates": "Aucun modèle disponible.",
+    "notAvailable": "- pas disponible",
+    "search": "Rechercher un nom ou des tags…",
+    "table": {
+      "category": "Catégorie",
+      "displayName": "Nom d'affichage",
+      "name": "Nom",
+      "tags": "Balises",
+      "uploaded": "Téléchargé",
+      "version": "Version"
+    },
+    "tags": "Balises",
+    "tagsHint": "Mots-clés séparés par des virgules pour la recherche",
+    "tagsPlaceholder": "urgent, bpo, approuvé par le client",
+    "title": "Documents",
+    "upload": "Télécharger un document",
+    "uploadAction": "Télécharger",
+    "uploadNew": "Télécharger un nouveau document",
+    "uploading": "Téléchargement…",
+    "word": "Mot"
+  },
+  "ipRightStatus": {
+    "cancelled": "Annulé",
+    "expired": "Expiré",
+    "filed": "Déposée",
+    "pending": "En attente de dépôt",
+    "registered": "Inscrite"
+  },
+  "ipRights": {
+    "abandon": "Abandonner",
+    "add": "Ajouter un droit IP",
+    "addRight": "Ajouter le droit",
+    "addTitle": "Ajouter un droit IP",
+    "annuitySchedule": "Calendrier de rente",
+    "applicationNumber": "Numéro de demande",
+    "checkEpo": "Vérifier l'OEB",
+    "checkEpoAddNumber": "Ajoutez un numéro de demande avant de vérifier l'OEB",
+    "checkEpoTitle": "Vérifier le statut juridique de l'OEB (OPS)",
+    "complete": "Complète",
+    "confirmFiling": "Confirmer le dépôt",
+    "confirmRegistration": "Confirmer l'inscription",
+    "cycleDue": "Cycle {{n}} · dû {{date}}",
+    "cycleLabel": "Cycle {{n}}",
+    "description": "Déposez les droits de projet une fois que le client confirme et que le dossier de dépôt est prêt.",
+    "editSplit": "Modifier le partage",
+    "empty": "Aucun droit de propriété intellectuelle pour l'instant. Un brouillon est créé automatiquement lorsqu'une admission est convertie ; ajoutez plus de droits manuellement après la poursuite.",
+    "epoCheckFailed": "La vérification du statut de l'OEB a échoué",
+    "error": "Échec du chargement des droits IP.",
+    "errors": {
+      "addFailed": "Échec de l'ajout du droit IP",
+      "applicationNumberRequired": "Entrez le numéro de candidature officiel",
+      "documentVersionRequired": "Sélectionnez la version du document du dossier de dépôt",
+      "fileFailed": "Échec du dépôt de la demande",
+      "registerFailed": "Échec de l'enregistrement du droit de propriété intellectuelle",
+      "registrationNumberRequired": "Entrez le numéro d'enregistrement",
+      "splitFailed": "Impossible de diviser le renouvellement",
+      "splitJurisdictionRequired": "Ajouter au moins une partie avec une juridiction",
+      "titleRequired": "Saisissez un titre pour le droit de propriété intellectuelle"
+    },
+    "expiryDate": "Date d'expiration",
+    "expiryDateOptional": "Date d'expiration (facultatif)",
+    "expiryDateHint": "Laissez vide pour calculer à partir du cycle de renouvellement des juridictions.",
+    "file": "Déposer",
+    "fileApplication": "Demande de dossier",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Numéro officiel de BPO / EUIPO / EPO",
+      "filingPackage": "Dossier de dépôt",
+      "filingPackageHint": "Sélectionnez la version du document téléchargée pour ce dépôt (généralement sous Application).",
+      "jurisdictionHint": "Choisissez EPO (EP) pour activer les contrôles de l'état des poursuites contre OPS.",
+      "noDocuments": "Aucun document à ce sujet pour l'instant. Téléchargez d'abord le PDF de dépôt dans l'onglet Documents.",
+      "selectDocument": "Sélectionnez la version du document…"
+    },
+    "filing": "Dépôt…",
+    "filingDate": "Date de dépôt",
+    "filingOffice": "Bureau de dépôt / juridiction",
+    "jurisdictionHint": "Utilisez l'OEB (EP) pour les brevets européens, l'EUIPO (UE) pour les marques/dessins et modèles de l'UE, le BPO (BG) pour la Bulgarie, l'OMPI (WO) pour le PCT.",
+    "loading": "Chargement des droits de propriété intellectuelle…",
+    "loadingRenewals": "Chargement des renouvellements…",
+    "markFiled": "Marque déposée",
+    "noAnnuityWindows": "Pas encore de fenêtres de rente. Enregistrez le brevet pour ouvrir l'année 1.",
+    "noRenewalWindows": "Pas encore de fenêtres de renouvellement. Enregistrez le droit IP pour ouvrir le cycle 1.",
+    "partialRenewals": "Renouvellements partiels",
+    "partsCount": "(Pièces {{count}})",
+    "proceed": "Continuer l'enregistrement",
+    "register": "Registre",
+    "registerDrawerHint": "Ouvre la fenêtre de renouvellement du cycle 1 et génère les dates limites de renouvellement.",
+    "registerTitle": "Enregistrer le droit de propriété intellectuelle",
+    "registering": "Enregistrement…",
+    "registrationDate": "Date d'inscription",
+    "registrationNumber": "Numéro d'enregistrement",
+    "renewalSchedule": "Fenêtres de renouvellement",
+    "renewalWindows": "Fenêtres de renouvellement",
+    "splitRenewal": "Renouvellement fractionné",
+    "splitRenewalDescription": "Diviser ce renouvellement en parties juridiction/classe Nice. Chaque partie est instruite et complétée séparément ; l'état de la fenêtre remonte à partir des pièces.",
+    "splitRenewalTitle": "Renouvellement fractionné",
+    "splitPart": "Pièce {{n}}",
+    "splitAddPart": "Ajouter une pièce",
+    "splitSaveParts": "Enregistrer les pièces",
+    "splitNiceClasses": "Belles classes (séparées par des virgules)",
+    "splitNotes": "Remarques",
+    "splitJurisdiction": "Juridiction",
+    "table": {
+      "actions": "Actes",
+      "applicationNo": "Numéro de demande",
+      "cycle": "Faire du vélo",
+      "dueDate": "Date d'échéance",
+      "jurisdiction": "Juridiction",
+      "localRef": "Réf. locale.",
+      "niceClasses": "Des cours sympas",
+      "status": "Statut",
+      "title": "Titre",
+      "type": "Taper",
+      "yearCycle": "Année / cycle"
+    },
+    "title": "Droits de propriété intellectuelle",
+    "titleField": "Titre",
+    "titleRegister": "Registre des droits de propriété intellectuelle",
+    "yearLabel": "Année {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Ajouter l'AFA",
+      "authority": "Autorité",
+      "authorityRequired": "L'autorité est requise",
+      "createFailed": "Impossible de créer l'AFA",
+      "empty": "Aucun AFA n’a encore été enregistré.",
+      "linkedSeizure": "Saisie liée (facultatif)",
+      "loading": "Chargement des applications…",
+      "none": "Aucune",
+      "number": "Numéro de demande",
+      "sectionDescription": "Applications douanières protégeant les droits à la frontière.",
+      "sectionTitle": "Demandes d'action (AFA)",
+      "validUntil": "Valable jusqu'au"
+    },
+    "columns": {
+      "authority": "Autorité",
+      "custody": "Garde à vue",
+      "date": "Date",
+      "goods": "Marchandises",
+      "number": "Nombre",
+      "office": "Bureau",
+      "status": "Statut",
+      "validUntil": "Valable jusqu'au"
+    },
+    "custody": {
+      "addEntry": "Ajouter une entrée de garde",
+      "append": "Ajouter",
+      "empty": "Aucune entrée en garde à vue pour l'instant.",
+      "notesPlaceholder": "Remarques (facultatif)",
+      "timeline": "Chronologie de la garde"
+    },
+    "detail": {
+      "clearLink": "Effacer le lien",
+      "linkedMatter": "Litige lié",
+      "loading": "Chargement…",
+      "saveChanges": "Enregistrer les modifications",
+      "searchMatters": "Les questions de recherche doivent être intensifiées…",
+      "seizedOn": "Saisi {{date}}",
+      "title": "Détail de la saisie",
+      "updateFailed": "Impossible de mettre à jour la saisie"
+    },
+    "errors": {
+      "addCustodyFailed": "Impossible d'ajouter une entrée de garde",
+      "createSeizureFailed": "Impossible de créer une saisie",
+      "officeAndGoodsRequired": "Le bureau de douane et la description des marchandises sont requis"
+    },
+    "open": "Ouvrir",
+    "seizures": {
+      "consignmentRef": "Réf de l'envoi",
+      "create": "Créer une saisie",
+      "createTitle": "Saisie douanière du journal",
+      "deadlineHint": "Un délai de réponse est généré automatiquement (10 jours ouvrés à compter de la date de saisie).",
+      "empty": "Aucune saisie enregistrée pour l’instant.",
+      "goodsDescription": "Description des marchandises",
+      "loadFailed": "Échec du chargement des saisies.",
+      "loading": "Chargement des saisies…",
+      "logSeizure": "Saisie de journaux",
+      "office": "Bureau de douane",
+      "portOfEntry": "Port d'entrée",
+      "quantity": "Quantité",
+      "sectionDescription": "Détentions aux frontières et garde à vue pour cette affaire.",
+      "sectionTitle": "Saisies",
+      "seizureDate": "Date de saisie",
+      "status": "Statut"
+    },
+    "wrongMatterType": "Les registres douaniers ne sont disponibles que pour les questions de mesures aux frontières."
+  },
+  "jurisdictionStatus": {
+    "approved": "Approuvée",
+    "filed": "Déposée",
+    "pending": "En attente",
+    "rejected": "Rejetée"
+  },
+  "layout": {
+    "backToMatters": "← Retour aux sujets",
+    "loading": "Chargement de la question…",
+    "notFound": "Matière introuvable."
+  },
+  "list": {
+    "description": "Vue du portefeuille de toutes les questions juridiques : recherche par titre, client ou numéro de demande.",
+    "descriptionPortal": "Dossiers ouverts pour votre organisation après la conversion d'admission.",
+    "filters": {
+      "allStatuses": "Tous les statuts",
+      "allTypes": "Tous types"
+    },
+    "intakeQueue": "File d'attente d'admission",
+    "perPage": "{{count}} par page",
+    "searchPlaceholder": "Rechercher titre, client, numéro de candidature…",
+    "title": "Importe",
+    "titlePortal": "Mes affaires"
+  },
+  "ipRightsRegister": {
+    "description": "Registre des droits de propriété intellectuelle à l'échelle de l'entreprise avec filtres par client, juridiction, type, statut et expiration.",
+    "empty": "Aucun droit IP trouvé pour ces filtres.",
+    "filters": {
+      "all": "Toute",
+      "allClients": "Tous les clients",
+      "allJurisdictions": "Toutes les juridictions",
+      "allStatuses": "Tous les statuts",
+      "allTypes": "Tous types",
+      "client": "Cliente",
+      "expiryFrom": "Expiration à partir de",
+      "expiryTo": "Expiration à",
+      "jurisdiction": "Juridiction",
+      "matterType": "Type de matière",
+      "status": "Statut"
+    },
+    "loading": "Chargement…",
+    "table": {
+      "applicationNo": "Numéro de demande",
+      "client": "Cliente",
+      "expiry": "Expiration",
+      "ipRight": "Droit de propriété intellectuelle",
+      "jurisdiction": "Juridiction",
+      "matter": "Matière",
+      "status": "Statut",
+      "type": "Taper"
+    },
+    "title": "Registre des droits de propriété intellectuelle"
+  },
+  "markType": {
+    "combined": "Combinée",
+    "figurative": "Figurative",
+    "sound": "Son",
+    "three_dimensional": "3D",
+    "wordmark": "Marque verbale"
+  },
+  "overview": {
+    "assignedTo": "Avocat principal",
+    "description": "Description",
+    "jurisdictions": "Juridictions",
+    "jurisdictionsEmpty": "Aucune juridiction enregistrée.",
+    "openedBy": "Ouvert par",
+    "status": "Statut",
+    "table": {
+      "country": "Pays",
+      "localRef": "Réf. locale.",
+      "status": "Statut"
+    },
+    "title": "Détails du sujet",
+    "type": "Taper",
+    "typeSpecific": "Attributs spécifiques au type"
+  },
+  "status": {
+    "abandoned": "Abandonnée",
+    "active": "Active",
+    "closed": "Fermée",
+    "draft": "Brouillon",
+    "on_hold": "En attente"
+  },
+  "table": {
+    "assigned": "Attribué",
+    "client": "Cliente",
+    "empty": "Aucun sujet trouvé",
+    "emptyDescription": "Essayez d'ajuster les filtres ou ouvrez un nouveau sujet.",
+    "emptyPortal": "Aucun sujet partagé avec vous pour l'instant.",
+    "error": "Échec du chargement des dossiers.",
+    "jurisdictions": "Juridictions",
+    "status": "Statut",
+    "title": "Titre",
+    "type": "Taper",
+    "upcoming": "{{count}} à venir",
+    "viewAria": "Afficher {{title}}"
+  },
+  "tabs": {
+    "billing": "Facturation",
+    "correspondence": "Correspondance",
+    "deadlines": "Délais",
+    "documents": "Documents",
+    "instructions": "Instructions",
+    "approvals": "Approbations",
+    "ipRights": "Droits de propriété intellectuelle",
+    "customs": "Douane",
+    "overview": "Aperçu",
+    "tasks": "Tâches",
+    "timeline": "Chronologie"
+  },
+  "approvals": {
+    "title": "Approbations des clients",
+    "subtitle": "Rédiger et soumettre les demandes d'approbation pour le portail client.",
+    "newDraft": "Nouveau brouillon",
+    "loading": "Chargement des approbations…",
+    "loadError": "Échec du chargement des approbations.",
+    "empty": "Aucune demande d'approbation pour l'instant.",
+    "noPermission": "Vous n'êtes pas autorisé à afficher les approbations à ce sujet.",
+    "decisionNote": "Note client : {{note}}",
+    "columns": {
+      "title": "Titre",
+      "status": "Statut",
+      "dueDate": "Exigible",
+      "created": "Créé"
+    },
+    "status": {
+      "draft": "Brouillon",
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "rejected": "Rejetée"
+    },
+    "actions": {
+      "submit": "Soumettre"
+    },
+    "drawer": {
+      "createTitle": "Nouvelle demande d'approbation",
+      "title": "Titre",
+      "description": "Description",
+      "dueDate": "Date d'échéance",
+      "cancel": "Annuler",
+      "create": "Créer un brouillon"
+    },
+    "errors": {
+      "titleRequired": "Le titre est requis",
+      "saveFailed": "Échec de la création de l'approbation"
+    }
+  },
+  "tasks": {
+    "add": "Ajouter une tâche",
+    "assignedTo": "Attribué à",
+    "assignedToUser": "Attribué à {{name}}",
+    "completed": "Complété",
+    "completedByUser": "Complété par {{name}}",
+    "confirmComplete": "Marquer cette tâche comme terminée ?",
+    "confirmDelete": "Supprimer cette tâche ?",
+    "delete": "Supprimer",
+    "deleteMessage": "Cette tâche sera définitivement supprimée.",
+    "deleteTitle": "Supprimer la tâche ?",
+    "description": "Du travail à faire sur ce sujet – distinct des délais générés par le système.",
+    "drawerTitle": "Ajouter une tâche",
+    "dueOn": "À payer {{date}}",
+    "empty": "Aucune tâche à ce sujet.",
+    "emptyOpen": "Aucune tâche ouverte. Ajoutez-en un lorsqu'il y a du travail à suivre sur ce sujet.",
+    "error": "Échec du chargement des tâches.",
+    "errorCreate": "Échec de la création de la tâche",
+    "form": {
+      "assigneeLabel": "Attribué à",
+      "assigneeRequired": "Sélectionnez qui doit effectuer cette tâche",
+      "dueDateOptional": "Date d'échéance (facultatif)",
+      "notesOptional": "Remarques (facultatif)",
+      "notesPlaceholder": "Tout contexte supplémentaire pour le cessionnaire",
+      "priorityLabel": "Priorité",
+      "titleLabel": "Que faut-il faire",
+      "titlePlaceholder": "par ex. Appeler le client concernant : réponse BPO",
+      "titleRequired": "Le titre est requis"
+    },
+    "loading": "Chargement des tâches…",
+    "markComplete": "Marquer comme terminé",
+    "noDueDate": "Pas de date d'échéance",
+    "open": "Ouvrir",
+    "priority": {
+      "high": "Haut",
+      "normal": "Normale"
+    },
+    "title": "Tâches"
+  },
+  "timeline": {
+    "description": "Historique chronologique des poursuites et correspondance à ce sujet.",
+    "empty": "Aucun événement chronologique pour l'instant. Enregistrez la correspondance ou déposez une demande pour voir l’activité ici.",
+    "error": "Échec du chargement de la chronologie.",
+    "eventType": {
+      "correspondence": "Correspondance",
+      "deadline": "Date limite",
+      "filing": "Dépôt",
+      "note": "Note",
+      "task": "Tâche"
+    },
+    "loading": "Chargement de la chronologie…",
+    "loggedBy": "Enregistré par {{name}}",
+    "title": "Chronologie"
+  },
+  "type": {
+    "border_measures": "Mesures aux frontières",
+    "copyright": "Droit d'auteur",
+    "dispute_opposition": "Litige / opposition",
+    "fto_analysis": "Analyse FTO",
+    "geographical_indication": "Indication géographique",
+    "industrial_design": "Dessin industriel",
+    "patent": "Brevet",
+    "trademark": "Marque déposée",
+    "utility_model": "Modèle d'utilité",
+    "valuation": "Évaluation"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Sélectionner…",
+    "title": "Détails spécifiques au type"
+  }
+}

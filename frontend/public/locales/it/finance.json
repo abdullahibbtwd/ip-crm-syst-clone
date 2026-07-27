@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Cliente",
+  "disbursements": {
+    "title": "Erogazioni",
+    "subtitle": "Commissioni fisse a livello aziendale classificate come esborsi.",
+    "loadFailed": "Impossibile caricare gli esborsi.",
+    "empty": "Nessun esborso trovato.",
+    "columns": {
+      "date": "Data",
+      "matter": "Questione",
+      "description": "Descrizione",
+      "amount": "Quantità"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Erogazione",
+    "expense": "Spese",
+    "professional_fee": "Compenso professionale"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Scaricamento",
+      "issue": "Problema",
+      "pay": "Paga",
+      "void": "Vuota"
+    },
+    "confirmIssue": "Emettere questa fattura?",
+    "confirmVoid": "Annullare questa fattura? Questa operazione non può essere annullata.",
+    "createFromUnbilled": "Crea fattura da non fatturato",
+    "description": "Tieni traccia delle fatture emesse, dello stato dei pagamenti e dei saldi in sospeso.",
+    "draft": "Bozza",
+    "empty": "Nessuna fattura trovata",
+    "emptyDescription": "Prova a modificare i filtri o a creare una fattura dal lavoro non fatturato.",
+    "error": "Impossibile caricare le fatture.",
+    "invoiceStatus": {
+      "draft": "Bozza",
+      "issued": "Rilasciato",
+      "void": "Vuota"
+    },
+    "loading": "Caricamento fatture…",
+    "noPermission": "Non hai il permesso per visualizzare le fatture.",
+    "searchPlaceholder": "Cerca fattura n. o cliente…",
+    "sectionTitle": "Fatture",
+    "table": {
+      "amount": "Quantità",
+      "client": "Cliente",
+      "due": "Dovuta",
+      "invoiceNo": "Fattura n.",
+      "issued": "Rilasciato",
+      "payment": "Pagamento",
+      "status": "Stato"
+    },
+    "title": "Fatture",
+    "listSubtitle": "Registro delle fatture a livello aziendale per tutte le questioni. Emetti fatture dalle schede di fatturazione degli argomenti, quindi registra i pagamenti qui.",
+    "exportFrom": "Esporta da",
+    "exportTo": "Esporta in",
+    "exportFormats": {
+      "journal": "CSV del diario",
+      "xero": "XeroCSV",
+      "quickbooks": "CSV di QuickBooks"
+    },
+    "exporting": "Esportazione…",
+    "exportFailed": "Esportazione contabile non riuscita",
+    "syncXero": "Sincronizza Xero",
+    "syncQuickBooks": "Sincronizza QuickBooks",
+    "syncFailed": "Sincronizzazione della contabilità non riuscita",
+    "searchListPlaceholder": "Cerca n. fattura, materia, cliente…",
+    "filters": {
+      "allPayments": "Tutti i pagamenti",
+      "allStatuses": "Tutti gli stati"
+    }
+  },
+  "payment": {
+    "amount": "Quantità *",
+    "balance": "Equilibrio eccezionale",
+    "date": "Data del pagamento *",
+    "drawerTitle": "Registrare il pagamento",
+    "error": "Impossibile registrare il pagamento",
+    "method": "Metodo di pagamento *",
+    "methods": {
+      "bank_transfer": "Bonifico bancario",
+      "card": "Carta",
+      "cash": "Contanti",
+      "other": "Altra"
+    },
+    "notes": "Note",
+    "reference": "Riferimento",
+    "save": "Registrare il pagamento",
+    "success": "Pagamento registrato con successo.",
+    "validation": {
+      "amount": "L'importo deve essere maggiore di zero",
+      "exceeds": "L'importo supera il saldo dovuto"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Pagata",
+    "partial": "Parzialmente pagato",
+    "unpaid": "Non pagato"
+  },
+  "rateCards": {
+    "any": "Qualunque",
+    "create": "Crea tariffario",
+    "description": "Configura le tariffe di fatturazione in base al ruolo, al tipo di pratica e alla data di validità.",
+    "drawerTitle": "Nuovo tariffario",
+    "drawerTitleEdit": "Modifica tariffario",
+    "effectiveFrom": "Valido da *",
+    "effectiveTo": "Efficace a",
+    "error": "Impossibile salvare il tariffario",
+    "firmWide": "A livello aziendale",
+    "internalCost": "Costo interno/ora",
+    "matterType": "Tipo di materia",
+    "new": "Nuovo tariffario",
+    "noPermission": "Non hai l'autorizzazione per gestire i tariffari.",
+    "viewNoPermission": "Non hai l'autorizzazione per visualizzare i tariffari.",
+    "rate": "Tariffa/ora *",
+    "role": "Ruolo *",
+    "save": "Salva modifiche",
+    "scope": "Ambito",
+    "table": {
+      "effective": "Efficace",
+      "internalCost": "Costo interno",
+      "matterType": "Tipo di materia",
+      "rate": "Valutare",
+      "role": "Ruolo",
+      "scope": "Ambito"
+    },
+    "title": "Tariffari",
+    "pageDescription": "Listino prezzi fisso per ruolo, tipo di argomento e sostituzione client facoltativa. La tariffa fatturabile viene utilizzata durante la registrazione del tempo; i costi interni opzionali determinano la redditività del margine reale.",
+    "anyMatterType": "Qualsiasi tipo di questione",
+    "clientOverride": "Override del cliente",
+    "firmWideDefault": "Inadempienza a livello aziendale",
+    "editAria": "Modifica tariffario",
+    "loadFailed": "Impossibile caricare i tariffari.",
+    "loading": "Caricamento tariffari…",
+    "empty": "Ancora nessun tariffario.",
+    "billable": "Fatturabile",
+    "validation": {
+      "hourlyRate": "Inserisci una tariffa oraria valida",
+      "internalCost": "Inserisci un costo interno valido o lascia vuoto"
+    },
+    "internalCostHint": "Opzionale. Utilizzato per la redditività del margine reale quando impostato sui tariffari.",
+    "billableRate": "Tariffa fatturabile (EUR/ora)",
+    "internalCostOptional": "Costo interno (EUR/ora)",
+    "internalCostPlaceholder": "Facoltativo: per il reporting sui margini",
+    "internalCostResolutionHint": "Rispecchia la risoluzione della tariffa di fatturazione (cliente → azienda + tipo di pratica → impostazione predefinita dell'azienda). Snapshot sui nuovi inserimenti orari come cost_snapshot.",
+    "effectiveToOptional": "Efficace fino a (facoltativo)"
+  },
+  "rateRole": {
+    "coordinator": "Coordinatrice",
+    "ip_attorney": "Avvocato specializzato in proprietà intellettuale",
+    "managing_partner": "Socio amministratore",
+    "paralegal": "Paralegale",
+    "trademark_attorney": "Avvocato specializzato in marchi"
+  },
+  "billingOverview": {
+    "collectedHint": "Raccolto nel periodo",
+    "collectedLabel": "Raccolta",
+    "criticalHint": "In ritardo di oltre 60 giorni",
+    "criticalLabel": "Rischio critico",
+    "description": "Stato dei ricavi (fatture) più disponibilità dei tariffari (tariffari + copertura dei costi interni).",
+    "error": "Impossibile caricare la panoramica della fatturazione.",
+    "invoicedHint": "{{count}} fatture nel periodo",
+    "invoicedLabel": "Fatturato",
+    "internalCostHintRevenue": "Base proxy dei ricavi",
+    "internalCostHintTrueMargin": "Base con margine reale abilitata",
+    "internalCostLabel": "Costo interno",
+    "manageRateCards": "Gestisci tariffari",
+    "nextStep": "Prossimo passo",
+    "nextStepFix": "Fissa la copertura tariffaria in /tariffe",
+    "nextStepHealthy": "La copertura tariffaria è sana",
+    "nextStepHint": "I riepiloghi di fatturazione saranno più accurati quando ogni voce di tempo fatturabile si risolve in una tariffa.",
+    "noPermissionBilling": "Non hai l'autorizzazione per visualizzare la fatturazione.",
+    "noPermissionInvoice": "Non hai l'autorizzazione per visualizzare i dati della fattura.",
+    "openFullReport": "Apri il rapporto completo",
+    "outstandingHint": "{{count}} crediti aperti",
+    "outstandingLabel": "Eccezionale",
+    "rateCardHealth": "Salute del tariffario",
+    "rateCardHealthDescription": "Le tariffe di fatturazione sono configurate e i margini sono pronti?",
+    "rateCardsHintConfigured": "Tariffe disponibili",
+    "rateCardsHintMissing": "Nessun tariffario configurato",
+    "rateCardsLabel": "Tariffari",
+    "receivablesAging": "Invecchiamento dei crediti",
+    "receivablesHint": "Utilizza il rapporto completo per tabelle e dettagli.",
+    "tip": "Suggerimento: il costo interno sui tariffari controlla se il sistema può calcolare la redditività del margine reale.",
+    "title": "Panoramica della fatturazione",
+    "unratedHintBad": "Alcune voci fatturabili hanno un'istantanea della tariffa pari a € 0",
+    "unratedHintGood": "Sembra buono",
+    "unratedLabel": "Voci di tempo senza punteggio"
+  },
+  "summary": {
+    "billable": "Fatturabile",
+    "billableAmount": "Importo fatturabile",
+    "fixedFees": "Commissioni fisse",
+    "total": "Totale",
+    "totalHours": "Ore totali",
+    "unbilled": "Non fatturato"
+  }
+}

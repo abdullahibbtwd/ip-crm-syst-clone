@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Gestionați înregistrările companiei și ale clienților individuali. Noi clienți sunt creați prin aport.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un client prin aport.",
+    "emptyTitle": "Nu s-au găsit clienți",
+    "error": "Nu s-au încărcat clienții.",
+    "newViaIntake": "Client nou prin aport",
+    "perPage": "{{count}} pe pagină",
+    "searchPlaceholder": "Căutați numele sau codul...",
+    "title": "Clienții",
+    "viewAria": "Vedeți {{name}}"
+  },
+  "contacts": {
+    "add": "Adăugați contact",
+    "drawerTitle": "Adăugați contact",
+    "email": "E-mail",
+    "empty": "Nu s-au găsit persoane de contact.",
+    "firstName": "Prenume *",
+    "lastName": "Nume *",
+    "loading": "Se încarcă contactele...",
+    "remove": "Elimina",
+    "role": {
+      "all": "Toate",
+      "billing": "Facturare",
+      "conflict": "Conflict",
+      "general": "General",
+      "primary": "Primar"
+    },
+    "save": "Salvați contactul",
+    "table": {
+      "email": "E-mail",
+      "name": "Nume",
+      "office": "Birou",
+      "phone": "Telefon",
+      "role": "Rol"
+    }
+  },
+  "countrySelect": {
+    "empty": "Nu au fost găsite țări",
+    "none": "Nici unul",
+    "placeholder": "Selectați țara",
+    "search": "Căutați țări..."
+  },
+  "drawer": {
+    "closeAria": "Închideți sertarul"
+  },
+  "holdingGroups": {
+    "back": "← Înapoi la grupurile de organizare",
+    "clientsUnder": "Clienții din acest grup",
+    "create": "Creați grup de deținere",
+    "creating": "Se creează…",
+    "description": "Umbrele părinte pentru entitățile client afiliate.",
+    "descriptionField": "Descriere",
+    "detailDescription": "Creați o umbrelă părinte pentru entitățile client conexe.",
+    "empty": "Nu s-au găsit grupuri de deținere",
+    "emptyClients": "Încă nu s-a conectat niciun client.",
+    "emptyDescription": "Încercați să ajustați căutarea sau să creați un nou grup de deținere.",
+    "error": "Nu s-au încărcat grupurile de reținere.",
+    "formError": "Nu s-a putut crea grupul de deținere",
+    "name": "Nume *",
+    "namePlaceholder": "de ex. Acme Group BV",
+    "new": "Grup nou de deținere",
+    "notesPlaceholder": "Note opționale despre această structură de deținere",
+    "notFound": "Grupul de deținere nu a fost găsit.",
+    "allGroups": "Toate grupurile de deținere",
+    "perPage": "{{count}} pe pagină",
+    "searchPlaceholder": "Căutați numele sau țara...",
+    "title": "Grupuri de deținere",
+    "viewAria": "Vedeți {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Înapoi la clienți"
+  },
+  "offices": {
+    "add": "Adăugați birou",
+    "city": "Oraş",
+    "drawerTitle": "Adăugați birou",
+    "empty": "Încă nu există birouri.",
+    "errorPrimary": "Sediul principal nu a fost stabilit",
+    "label": "Eticheta *",
+    "loading": "Se încarcă birourile...",
+    "noAddress": "Fără adresă",
+    "primary": "Primar",
+    "remove": "Elimina",
+    "save": "Salvează biroul",
+    "setPrimary": "Setați ca sediu principal",
+    "setPrimaryAction": "Setați principalul",
+    "title": "Birouri"
+  },
+  "overview": {
+    "assignedTo": "Atribuit la",
+    "cancel": "Anula",
+    "companyName": "Numele companiei *",
+    "country": "Ţară",
+    "edit": "Edita",
+    "exportClientData": "Exportați datele clientului",
+    "error": "Nu s-a încărcat profilul clientului.",
+    "errorSave": "Nu s-a salvat clientul",
+    "firstName": "Prenume *",
+    "gdprConsent": "Consimțământul GDPR",
+    "holdingGroup": "Grup de detinere",
+    "lastName": "Nume *",
+    "legalForm": "Forma juridică",
+    "loading": "Se încarcă profilul...",
+    "none": "Nici unul",
+    "notes": "Note",
+    "registrationNo": "Nr.",
+    "save": "Salvați modificările",
+    "saving": "Economisire…",
+    "status": "Stare",
+    "type": "Tip",
+    "validation": {
+      "companyName": "Numele companiei este obligatoriu",
+      "name": "Numele și prenumele sunt obligatorii",
+      "website": "Site-ul trebuie să înceapă cu http:// sau https://"
+    },
+    "vatNo": "TVA nr.",
+    "website": "Site-ul web",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Adăugați o companie asociată",
+    "drawerTitle": "Adăugați o companie asociată",
+    "empty": "Nu sunt asociate companii asociate.",
+    "externalName": "Nume extern",
+    "existingClient": "Client existent",
+    "linkType": "Tip link",
+    "loading": "Încărcare…",
+    "notes": "Note",
+    "notesPlaceholder": "Context opțional",
+    "relationship": "Relatie *",
+    "remove": "Elimina",
+    "save": "Salvați compania afiliată",
+    "searchClients": "Cauta clienti *",
+    "searchPlaceholder": "Căutați după nume sau cod...",
+    "noClients": "Nu s-au găsit clienți",
+    "companyName": "Numele companiei *",
+    "table": {
+      "name": "Nume",
+      "notes": "Note",
+      "relationship": "Relaţie"
+    },
+    "title": "Firme afiliate"
+  },
+  "relationship": {
+    "affiliate": "Afiliat",
+    "parent": "Mamă",
+    "subsidiary": "Filială"
+  },
+  "history": {
+    "empty": "Nicio istorie încă.",
+    "loadMore": "Încărcați mai multe",
+    "loading": "Se încarcă istoricul...",
+    "title": "Istoria relațiilor"
+  },
+  "matters": {
+    "empty": "Nu contează încă. Deschideți o chestiune pentru a începe munca de urmărire penală pentru acest client.",
+    "loading": "Se încarcă problemele...",
+    "openNew": "Deschide o nouă materie",
+    "table": {
+      "assigned": "Alocat",
+      "jurisdictions": "Jurisdicțiile",
+      "status": "Stare",
+      "title": "Titlu",
+      "type": "Tip"
+    },
+    "title": "Contează"
+  },
+  "accessHistory": {
+    "title": "Istoricul accesului la date",
+    "subtitle": "Personalul care a vizualizat sau a exportat date personale pentru acest client.",
+    "loading": "Se încarcă istoricul accesului...",
+    "loadFailed": "Nu s-a încărcat istoricul accesului.",
+    "empty": "Nu au fost încă înregistrate evenimente de acces.",
+    "systemUser": "Sistem",
+    "columns": {
+      "when": "Când",
+      "user": "Utilizator",
+      "action": "Acţiune",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "După materie",
+    "error": "Nu s-au încărcat datele de facturare.",
+    "loading": "Se încarcă facturarea...",
+    "noPermission": "Nu aveți permisiunea de a vedea facturarea pentru acest client.",
+    "title": "Facturare",
+    "wipDescription": "Lucrări în curs și sume nefacturate pentru acest client.",
+    "wipDescriptionLong": "Lucrări în curs și totaluri facturabile pentru toate problemele pentru acest client.",
+    "matterTable": {
+      "matter": "materie",
+      "type": "Tip",
+      "status": "Stare",
+      "billableHours": "Ore facturabile",
+      "total": "Total",
+      "unbilled": "Nefacturat",
+      "empty": "Nu contează încă. Deschideți o chestiune pentru a începe urmărirea lucrărilor facturabile."
+    }
+  },
+  "sidebar": {
+    "country": "Ţară:",
+    "loading": "Încărcare…",
+    "primaryContact": "Contactul principal",
+    "primaryOffice": "Sediul principal",
+    "viewProfile": "Vizitați profilul complet"
+  },
+  "status": {
+    "active": "Activ",
+    "archived": "Arhivat",
+    "inactive": "Inactiv",
+    "prospect": "Perspectivă"
+  },
+  "table": {
+    "action": "Acţiune",
+    "client": "Client",
+    "country": "Ţară",
+    "created": "Creat",
+    "holdingGroup": "Grup de detinere",
+    "status": "Stare",
+    "type": "Tip"
+  },
+  "tabs": {
+    "accessHistory": "Istoricul accesului",
+    "billing": "Facturare",
+    "contacts": "Contacte",
+    "history": "Istorie",
+    "matters": "Contează",
+    "watch": "Ceas",
+    "offices": "Birouri",
+    "overview": "Prezentare generală",
+    "related": "Înrudit"
+  },
+  "type": {
+    "company": "Companie",
+    "individual": "Individual"
+  },
+  "unnamedClient": "Client fără nume"
+}

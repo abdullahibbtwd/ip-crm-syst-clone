@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# i18n machine-translation cache (regeneratable)
+scripts/.i18n-translate-cache/

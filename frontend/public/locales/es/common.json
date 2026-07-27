@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Volver al tablero",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "loadMore": "Cargar más",
+    "next": "Próxima",
+    "previous": "Previa",
+    "refresh": "Refrescar",
+    "remove": "Eliminar",
+    "retry": "Rever",
+    "save": "Ahorrar",
+    "saveChanges": "Guardar cambios",
+    "view": "Vista"
+  },
+  "errors": {
+    "loadFailed": "No se pudo cargar.",
+    "retryHint": "Verifique su conexión y permisos, luego intente nuevamente."
+  },
+  "filters": {
+    "all": "Toda",
+    "allStatuses": "Todos los estados",
+    "allTypes": "Todos los tipos"
+  },
+  "language": {
+    "ar": "árabe",
+    "bg": "Búlgara",
+    "bs": "Bosnia",
+    "de": "Alemana",
+    "en": "Inglesa",
+    "es": "Española",
+    "et": "Estonia",
+    "fr": "Francesa",
+    "hr": "croata",
+    "hy": "Armenia",
+    "it": "Italiana",
+    "mk": "macedónio",
+    "ms": "Malaya",
+    "ro": "Rumana",
+    "ru": "Rusa",
+    "sq": "Albanesa",
+    "sr": "Serbia",
+    "switch": "Cambiar idioma",
+    "tr": "Turca",
+    "zh-CN": "Chino (simplificado)"
+  },
+  "loading": {
+    "default": "Cargando…",
+    "refreshing": "refrescante…",
+    "saving": "Ahorro…"
+  },
+  "nav": {
+    "breadcrumb": "Migaja de pan",
+    "closeMenu": "Cerrar menú",
+    "openMenu": "abrir menú"
+  },
+  "pagination": {
+    "noResults": "Sin resultados",
+    "page": "Página {{page}}",
+    "showing": "Mostrando {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Informes"
+  },
+  "noPermission": "Sin permiso.",
+  "crm": "CRM",
+  "clientPortal": "Portal del cliente",
+  "tasks": "Tareas",
+  "comingSoon": "Muy pronto",
+  "notifications": {
+    "title": "Notificaciones",
+    "unread": "no leído",
+    "markAllRead": "Marcar todo como leído",
+    "couldNotLoad": "No se pudieron cargar las notificaciones.",
+    "noNotificationsYet": "Aún no hay notificaciones."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "No",
+    "none": "Ninguna",
+    "yes": "Sí"
+  }
+}

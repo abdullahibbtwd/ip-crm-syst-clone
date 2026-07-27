@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Klienti",
+  "disbursements": {
+    "title": "Disbursimet",
+    "subtitle": "Tarifat fikse në të gjithë firmën të kategorizuara si disbursime.",
+    "loadFailed": "Ngarkimi i disbursimeve dështoi.",
+    "empty": "Nuk u gjetën disbursime.",
+    "columns": {
+      "date": "Data",
+      "matter": "Materie",
+      "description": "Përshkrimi",
+      "amount": "Shuma"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Disbursimi",
+    "expense": "Shpenzimet",
+    "professional_fee": "Tarifa profesionale"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Shkarkoni",
+      "issue": "Çështja",
+      "pay": "Paguaj",
+      "void": "E pavlefshme"
+    },
+    "confirmIssue": "Të lëshohet kjo faturë?",
+    "confirmVoid": "Të anulohet kjo faturë? Kjo nuk mund të zhbëhet.",
+    "createFromUnbilled": "Krijo faturë nga pafaturuar",
+    "description": "Gjurmo faturat e lëshuara, statusin e pagesave dhe bilancet e papaguara.",
+    "draft": "Drafti",
+    "empty": "Nuk u gjetën fatura",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një faturë nga puna e pafaturuar.",
+    "error": "Ngarkimi i faturave dështoi.",
+    "invoiceStatus": {
+      "draft": "Drafti",
+      "issued": "Lëshuar",
+      "void": "E pavlefshme"
+    },
+    "loading": "Po ngarkon faturat…",
+    "noPermission": "Ju nuk keni leje për të parë faturat.",
+    "searchPlaceholder": "Kërkoni faturë nr. ose klient…",
+    "sectionTitle": "Faturat",
+    "table": {
+      "amount": "Shuma",
+      "client": "Klienti",
+      "due": "Për shkak",
+      "invoiceNo": "Fatura nr.",
+      "issued": "Lëshuar",
+      "payment": "Pagesa",
+      "status": "Statusi"
+    },
+    "title": "Faturat",
+    "listSubtitle": "Regjistrimi i faturave në të gjithë firmën për të gjitha çështjet. Lëshoni fatura nga skedat e faturimit të çështjeve, më pas regjistroni pagesat këtu.",
+    "exportFrom": "Eksporto nga",
+    "exportTo": "Eksporto në",
+    "exportFormats": {
+      "journal": "Ditari CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Po eksporton…",
+    "exportFailed": "Eksporti i kontabilitetit dështoi",
+    "syncXero": "Sinkronizoni Xero",
+    "syncQuickBooks": "Sinkronizoni QuickBooks",
+    "syncFailed": "Sinkronizimi i kontabilitetit dështoi",
+    "searchListPlaceholder": "Kërko nr. faturë, çështje, klient…",
+    "filters": {
+      "allPayments": "Të gjitha pagesat",
+      "allStatuses": "Të gjitha statuset"
+    }
+  },
+  "payment": {
+    "amount": "shuma *",
+    "balance": "Bilanci i papaguar",
+    "date": "data e pagesës *",
+    "drawerTitle": "Regjistro pagesën",
+    "error": "Regjistrimi i pagesës dështoi",
+    "method": "Mënyra e pagesës *",
+    "methods": {
+      "bank_transfer": "Transfertë bankare",
+      "card": "Kartelë",
+      "cash": "Paratë e gatshme",
+      "other": "Të tjera"
+    },
+    "notes": "Shënime",
+    "reference": "Referenca",
+    "save": "Regjistro pagesën",
+    "success": "Pagesa u regjistrua me sukses.",
+    "validation": {
+      "amount": "Shuma duhet të jetë më e madhe se zero",
+      "exceeds": "Shuma tejkalon gjendjen e papaguar"
+    }
+  },
+  "paymentStatus": {
+    "paid": "I paguar",
+    "partial": "Pjesërisht e paguar",
+    "unpaid": "E papaguar"
+  },
+  "rateCards": {
+    "any": "Çdo",
+    "create": "Krijo kartën e tarifave",
+    "description": "Konfiguro tarifat e faturimit sipas rolit, llojit të çështjes dhe datës së hyrjes në fuqi.",
+    "drawerTitle": "Kartë e re tarifore",
+    "drawerTitleEdit": "Redakto kartën e tarifave",
+    "effectiveFrom": "Efektive nga *",
+    "effectiveTo": "Efektive për",
+    "error": "Ruajtja e kartës së tarifave dështoi",
+    "firmWide": "E gjerë e fortë",
+    "internalCost": "Kostoja e brendshme / orë",
+    "matterType": "Lloji i materies",
+    "new": "Kartë e re tarifore",
+    "noPermission": "Ju nuk keni leje për të menaxhuar kartat e tarifave.",
+    "viewNoPermission": "Ju nuk keni leje për të parë kartat e tarifave.",
+    "rate": "Norma / orë *",
+    "role": "Roli *",
+    "save": "Ruaj ndryshimet",
+    "scope": "Fushëveprimi",
+    "table": {
+      "effective": "Efektive",
+      "internalCost": "Kostoja e brendshme",
+      "matterType": "Lloji i materies",
+      "rate": "Vlerësoni",
+      "role": "Roli",
+      "scope": "Fushëveprimi"
+    },
+    "title": "Kartat e vlerësimit",
+    "pageDescription": "Lista e çmimeve të firmës sipas rolit, llojit të çështjes dhe anashkalimit opsional të klientit. Norma e faturueshme përdoret gjatë kohës së regjistrimit; Kostoja e brendshme opsionale nxit përfitimin me marzh të vërtetë.",
+    "anyMatterType": "Çdo lloj materie",
+    "clientOverride": "Anulimi i klientit",
+    "firmWideDefault": "Parazgjedhje e gjerë e firmës",
+    "editAria": "Redakto kartën e tarifave",
+    "loadFailed": "Ngarkimi i kartave të tarifave dështoi.",
+    "loading": "Po ngarkon kartat e tarifave…",
+    "empty": "Ende nuk ka karta tarifore.",
+    "billable": "E faturueshme",
+    "validation": {
+      "hourlyRate": "Fut një tarifë të vlefshme për orë",
+      "internalCost": "Fut një kosto të brendshme të vlefshme ose lëre bosh"
+    },
+    "internalCostHint": "Fakultative. Përdoret për përfitimin e marzhit të vërtetë kur vendoset në kartat e tarifave.",
+    "billableRate": "Tarifa e faturueshme (EUR/orë)",
+    "internalCostOptional": "Kostoja e brendshme (EUR/orë)",
+    "internalCostPlaceholder": "Opsionale - për raportimin e marzhit",
+    "internalCostResolutionHint": "Pasqyron rezolucionin e normës së faturimit (klienti → firma + lloji i çështjes → parazgjedhja e firmës). Fotografuar në hyrjet e reja kohore si kosto_snapshot.",
+    "effectiveToOptional": "Efektive për (opsionale)"
+  },
+  "rateRole": {
+    "coordinator": "Koordinator",
+    "ip_attorney": "avokat IP",
+    "managing_partner": "Partneri menaxhues",
+    "paralegal": "Paraligjor",
+    "trademark_attorney": "avokat për markat tregtare"
+  },
+  "billingOverview": {
+    "collectedHint": "Të mbledhura në periudhë",
+    "collectedLabel": "Të mbledhura",
+    "criticalHint": "I vonuar 60+ ditë",
+    "criticalLabel": "Rreziku kritik",
+    "description": "Shëndeti i të ardhurave (faturat) plus gatishmëria e kartës së tarifave (kartat e tarifave + mbulimi i kostos së brendshme).",
+    "error": "Ngarkimi i përmbledhjes së faturimit dështoi.",
+    "invoicedHint": "{{count}} fatura në periudhë",
+    "invoicedLabel": "Faturuar",
+    "internalCostHintRevenue": "Baza e të ardhurave-prokurë",
+    "internalCostHintTrueMargin": "Baza e marzhit të vërtetë u aktivizua",
+    "internalCostLabel": "Kostoja e brendshme",
+    "manageRateCards": "Menaxho kartat e tarifave",
+    "nextStep": "Hapi tjetër",
+    "nextStepFix": "Rregulloni mbulimin e tarifave në /rate-cards",
+    "nextStepHealthy": "Mbulimi i tarifave është i shëndetshëm",
+    "nextStepHint": "Përmbledhjet e faturimit do të jenë më të sakta kur çdo hyrje në kohën e faturimit zgjidhet në një tarifë.",
+    "noPermissionBilling": "Ju nuk keni leje për të parë faturimin.",
+    "noPermissionInvoice": "Ju nuk keni leje për të parë të dhënat e faturës.",
+    "openFullReport": "Hap raportin e plotë",
+    "outstandingHint": "{{count}} të arkëtueshme të hapura",
+    "outstandingLabel": "I shquar",
+    "rateCardHealth": "Shëndeti i kartës së vlerës",
+    "rateCardHealthDescription": "A janë konfiguruar tarifat e faturimit dhe a janë gati marzhet?",
+    "rateCardsHintConfigured": "Çmimet në dispozicion",
+    "rateCardsHintMissing": "Nuk janë konfiguruar kartat e tarifave",
+    "rateCardsLabel": "Kartat e vlerësimit",
+    "receivablesAging": "Të arkëtueshmet vjetërohen",
+    "receivablesHint": "Përdorni raportin e plotë për tabela dhe detaje.",
+    "tip": "Këshillë: Kostoja e brendshme në kartat e tarifave kontrollon nëse sistemi mund të llogarisë përfitimin e marzhit të vërtetë.",
+    "title": "Pasqyrë e faturimit",
+    "unratedHintBad": "Disa hyrje të faturueshme kanë një përshkrim të tarifës prej 0 €",
+    "unratedHintGood": "Duket mirë",
+    "unratedLabel": "Regjistrimet kohore të pavlerësuara"
+  },
+  "summary": {
+    "billable": "E faturueshme",
+    "billableAmount": "Shuma e faturueshme",
+    "fixedFees": "Tarifat fikse",
+    "total": "Gjithsej",
+    "totalHours": "Orët totale",
+    "unbilled": "E pafaturuar"
+  }
+}

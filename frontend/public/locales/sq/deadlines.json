@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Në pritje",
+    "in_progress": "Në vazhdim",
+    "completed": "E përfunduar",
+    "missed": "I humbur",
+    "escalated": "E përshkallëzuar",
+    "superseded": "Zëvendësuar"
+  },
+  "urgency": {
+    "dueToday": "Afati sot",
+    "overdue": "I vonuar"
+  },
+  "allDeadlines": {
+    "title": "Të gjitha afatet",
+    "description": "Regjistrohu i afatit në të gjithë firmën për çdo çështje dhe të caktuar.",
+    "newDeadline": "Afati i ri",
+    "firmDueToday_one": "Sot pritet 1 afat i caktuar për të gjitha çështjet.",
+    "firmDueToday_other": "Afatet e përcaktuara {{count}} janë të përcaktuara sot për të gjitha çështjet.",
+    "filters": {
+      "attorney": "avokat",
+      "allAttorneys": "Të gjithë avokatët",
+      "matterType": "Lloji i materies",
+      "allTypes": "Të gjitha llojet",
+      "jurisdiction": "Juridiksioni",
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "status": "Statusi",
+      "allStatuses": "Të gjitha statuset",
+      "overdue": "I vonuar",
+      "dueFrom": "Për shkak nga",
+      "dueTo": "Për shkak të"
+    },
+    "loading": "Afatet po ngarkohen…",
+    "error": "Ngarkimi i afateve dështoi.",
+    "table": {
+      "matter": "Materie",
+      "attorney": "avokat",
+      "type": "Lloji",
+      "jurisdiction": "Juridiksioni",
+      "dueDate": "Data e duhur",
+      "grace": "Grace",
+      "status": "Statusi"
+    },
+    "empty": "Asnjë afat nuk përputhet me filtrat tuaj.",
+    "previous": "E mëparshme",
+    "next": "Tjetra"
+  },
+  "myDeadlines": {
+    "title": "Afatet e mia",
+    "descriptionStaff": "Lista juaj personale e punës për të gjitha çështjet e caktuara. Përditëso statusin këtu pa hapur çdo çështje.",
+    "descriptionPortal": "Afatet e ardhshme dhe të vonuara për çështjet tuaja.",
+    "tabs": {
+      "all": "Të gjitha",
+      "pending": "Në pritje",
+      "in_progress": "Në vazhdim",
+      "overdue": "I vonuar",
+      "completed": "E përfunduar"
+    },
+    "loading": "Afatet po ngarkohen…",
+    "error": "Ngarkimi i afateve dështoi.",
+    "table": {
+      "matter": "Materie",
+      "type": "Lloji",
+      "jurisdiction": "Juridiksioni",
+      "dueDate": "Data e duhur",
+      "grace": "Grace",
+      "status": "Statusi"
+    },
+    "empty": "Nuk ka afate në këtë pikëpamje.",
+    "previous": "E mëparshme",
+    "next": "Tjetra"
+  },
+  "widget": {
+    "title": "Afatet e mia",
+    "viewAll": "Shiko të gjitha",
+    "loading": "Po përmbledh të dhënat e afatit…",
+    "error": "Afatet nuk mund të ngarkoheshin.",
+    "empty": "Nuk ju janë caktuar afate të ardhshme.",
+    "table": {
+      "matterClient": "Çështja dhe Klienti",
+      "deadline": "Afati i fundit",
+      "dueDateStatus": "Data dhe statusi i afatit"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Afati sot",
+    "view": "Shiko",
+    "personal_one": "Ju keni 1 afat për sot.",
+    "personal_other": "Ju keni {{count}} afate të mbaruara sot."
+  }
+}

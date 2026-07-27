@@ -1,0 +1,15 @@
+{
+  "title": "Dokumendid",
+  "subtitle": "Kogu ettevõtet hõlmav dokumentide raamatukogu.",
+  "searchPlaceholder": "Otsi dokumente…",
+  "loading": "Laadimine…",
+  "loadFailed": "Dokumentide laadimine ebaõnnestus.",
+  "empty": "Dokumente ei leitud.",
+  "columns": {
+    "name": "Nimi",
+    "matter": "Asi",
+    "category": "Kategooria",
+    "updated": "Uuendatud",
+    "by": "Autor"
+  }
+}

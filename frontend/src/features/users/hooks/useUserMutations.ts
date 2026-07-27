@@ -12,6 +12,16 @@ export function useInviteUser() {
   })
 }
 
+export function useResendInvite() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (id: string) => usersApi.resendInvite(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: userKeys.lists() })
+    },
+  })
+}
+
 export function useUpdateUserRole() {
   const queryClient = useQueryClient()
   return useMutation({

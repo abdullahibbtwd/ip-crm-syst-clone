@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Yeni dosyalama sorgularını gönderin ve kuruluşunuz bünyesinde açılan konuları takip edin. Bir bakışta portföyünüz.",
+    "eyebrow": "Müşteri portalı",
+    "filePatent": "Patent başvurusu yapın",
+    "fileTrademark": "Ticari marka başvurusunda bulunun",
+    "stats": {
+      "activeMatters": "Aktif konular",
+      "activeMattersHint": "Organizasyon portföyü",
+      "openDeadlines": "Son teslim tarihlerini aç",
+      "openDeadlinesHint": "Eylem bekleniyor",
+      "overdue": "vadesi geçmiş",
+      "overdueCurrent": "Tüm güncel",
+      "overdueUrgent": "Acil dikkat",
+      "renewals": "Yenilemeler",
+      "renewalsCurrent": "Bakım akımı",
+      "renewalsNeedAction_one": "{{count}} işlem yapılması gerekiyor",
+      "renewalsNeedAction_other": "{{count}} işlem yapılması gerekiyor"
+    },
+    "title": "tekrar hoşgeldiniz"
+  },
+  "correspondence": {
+    "title": "Mesajlar",
+    "description": "Firmanızın sizinle paylaştığı yazışmalar.",
+    "loading": "Mesajlar yükleniyor…",
+    "error": "Mesajlar yüklenemedi.",
+    "empty": "Henüz mesaj yok. Paylaşılan yazışmalar burada görünecektir.",
+    "table": {
+      "subject": "Ders",
+      "date": "Tarih",
+      "direction": "Yön",
+      "matter": "Konu"
+    }
+  },
+  "messages": {
+    "title": "Mesajlar",
+    "description": "Kuruluşunuzla paylaşılan firma yayınları ve önemli mesajlar.",
+    "loading": "Mesajlar yükleniyor…",
+    "loadingDetail": "Açılıyor…",
+    "error": "Mesajlar yüklenemedi.",
+    "empty": "Henüz mesaj yok. Firma güncellemeleri ve paylaşılan yazışmalar burada görünecektir.",
+    "selectHint": "Okumak için bir mesaj seçin.",
+    "unread": "Okunmamış",
+    "relatedMatter": "Konu",
+    "noBody": "Mesaj gövdesi yok.",
+    "openLink": "Mesaj bağlantısını aç",
+    "kindBroadcast": "Yayın",
+    "kindCorrespondence": "Konu",
+    "table": {
+      "type": "Tip",
+      "subject": "Ders",
+      "date": "Tarih",
+      "matter": "Konu"
+    }
+  },
+  "approvals": {
+    "title": "Onaylar",
+    "description": "Firmanızdan gelen onay taleplerini inceleyin ve karar verin.",
+    "loading": "Onaylar yükleniyor…",
+    "couldNotLoad": "Onaylar yüklenemedi",
+    "retry": "Yeniden dene",
+    "decideError": "Kararınız gönderilemedi",
+    "approve": "Onaylamak",
+    "reject": "Reddetmek",
+    "notePlaceholder": "İsteğe bağlı not…",
+    "due": "Vade tarihi {{date}}",
+    "pendingSection": "Kararınızı bekliyorum",
+    "historySection": "Önceki kararlar",
+    "empty": {
+      "title": "Onay talebi yok",
+      "description": "Firmanız onay talebi gönderdiğinde burada görünecektir."
+    },
+    "status": {
+      "draft": "Taslak",
+      "pending": "Askıda olması",
+      "approved": "Onaylı",
+      "rejected": "Reddedilmiş"
+    }
+  },
+  "documentCategories": {
+    "application": "Başvuru",
+    "certificate": "Sertifika",
+    "correspondence": "Yazışma",
+    "evidence": "Kanıt",
+    "office_action": "Patent başvurusu"
+  },
+  "documents": {
+    "allCategories": "Tüm kategoriler",
+    "allMatters": "Her şey önemli",
+    "description": "Tüm konularınızla ilgili paylaşılan belgeler.",
+    "download": "İndirmek",
+    "empty": "Henüz belge yok. Firmanız konularınızla ilgili paylaştığında belgeler burada görünecektir.",
+    "error": "Dokümanlar yüklenemedi.",
+    "loading": "Belgeler yükleniyor…",
+    "searchPlaceholder": "Belgeleri arayın…",
+    "table": {
+      "category": "Kategori",
+      "document": "Belge",
+      "matter": "Konu",
+      "size": "Boyut",
+      "updated": "Güncellendi"
+    },
+    "title": "Belgelerim"
+  },
+  "intake": {
+    "description": "Yeni bir başvuru talebinde bulunun veya daha önce gönderdiğiniz soruları inceleyin.",
+    "empty": {
+      "action": "Bir soruşturma gönderin",
+      "description": "Başlamak için bir ticari marka veya patent soruşturması yapın.",
+      "title": "Henüz soruşturma yok"
+    },
+    "error": "Sorularınız yüklenemedi.",
+    "filed": "{{date}} Dosyalandı",
+    "fileNew": "Yeni soruşturma dosyala",
+    "loading": "Sorularınız yükleniyor…",
+    "myEnquiries": "Sorularım",
+    "status": {
+      "accepted": "Kabul edildi",
+      "inReview": "İnceleniyor",
+      "matterOpened": "Konu açıldı",
+      "notAccepted": "Kabul edilmedi",
+      "submitted": "Gönderildi"
+    },
+    "submitted": {
+      "description": "Otomatik olarak ilk çakışma kontrolünü çalıştırdık. Bir koordinatör konunuzu onaylayacak ve açacaktır. Sorgunuzu kabul edilene kadar istediğiniz zaman inceleyebilir veya düzenleyebilirsiniz.",
+      "reviewEnquiry": "Bu sorguyu inceleyin",
+      "title": "Sorgu gönderildi"
+    },
+    "title": "Sorular",
+    "untitled": "Başlıksız sorgulama"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Sorularıma geri dön",
+    "cancel": "İptal etmek",
+    "defaultTitle": "Sorgu",
+    "edit": "Düzenlemek",
+    "editDescription": "Kaydetme sorgunuzu güncelleyecek ve çakışma kontrolünü otomatik olarak yeniden çalıştıracaktır.",
+    "editTitle": "Sorguyu düzenle",
+    "enquirer": "Araştırmacı",
+    "enquirerCompany": "Şirket",
+    "enquirerIndividual": "Bireysel",
+    "enquiryDetails": "Sorgu ayrıntıları",
+    "error": "Bu sorgu yüklenemedi.",
+    "fields": {
+      "companyName": "Firma Adı",
+      "country": "Ülke",
+      "description": "Tanım",
+      "email": "E-posta",
+      "fullName": "Ad Soyad",
+      "matterType": "Madde türü",
+      "otherParties": "Diğer partiler",
+      "phone": "Telefon",
+      "urgency": "Aciliyet"
+    },
+    "filed": "{{date}} Dosyalandı",
+    "loading": "Sorgu yükleniyor…",
+    "saveChanges": "Değişiklikleri kaydet",
+    "statusHints": {
+      "approved": "Sorunuz kabul edildi ve konu olarak oluşturuluyor.",
+      "conflictFlagged": "Bir koordinatör talebinizi kabul edilmeden önce inceliyor.",
+      "converted": "Bir konu açıldı. Konularım altından takip edebilirsiniz.",
+      "new": "Kabul edilmiş. Otomatik olarak bir çakışma kontrolü gerçekleştirildi ve kısa süre içinde bir koordinatör bunu inceleyecek.",
+      "rejected": "Bu soruşturma kabul edilmedi. Sorularınız varsa bizimle iletişime geçin.",
+      "reviewing": "Bir koordinatör sorgunuzu inceliyor."
+    },
+    "urgency": {
+      "normal": "Normal",
+      "urgent": "Acil"
+    },
+    "viewMatter": "Konuyu görüntüle"
+  },
+  "invoices": {
+    "description": "Tüm konularınızda faturalar ve ödeme durumu.",
+    "error": "Faturalar yüklenemedi.",
+    "loading": "Faturalar yükleniyor…",
+    "title": "Faturalarım"
+  },
+  "matterTypes": {
+    "design": "Tasarım",
+    "other": "Diğer",
+    "patent": "Patent",
+    "trademark": "Ticari marka",
+    "utility_model": "Faydalı model"
+  },
+  "renewals": {
+    "couldNotLoad": "Yenilemeler yüklenemedi",
+    "cycle": "döngü {{number}}",
+    "decline": "Reddetmek",
+    "description": "Fikri mülkiyet haklarınız için yaklaşan ticari marka ve tasarım yenilemeleri.",
+    "due": "Vade tarihi {{date}}",
+    "empty": {
+      "description": "Firmanız konularınızdan biri üzerinde fikri mülkiyet hakkı kaydettikten sonra yenilemeler burada görünür. Her yenileme son tarihinden önce Devam etmeniz veya Reddetmeniz istenecektir.",
+      "title": "Hiçbir yenileme dikkatinizi gerektirmez",
+      "viewDeadlines": "Son teslim tarihlerimi görüntüle",
+      "viewMatters": "Konularımı görüntüle"
+    },
+    "errorFallback": "Lütfen tekrar deneyin veya izinler değiştiyse oturumu kapatıp tekrar açın.",
+    "instructionError": "Talimat gönderilemedi",
+    "loading": "Yükleniyor…",
+    "proceed": "İlerlemek",
+    "retry": "Yeniden dene",
+    "title": "Yenilemeler"
+  },
+  "renewalStatus": {
+    "completed": "Tamamlanmış",
+    "filed": "Dosyalanmış",
+    "instructed": "talimat verildi",
+    "lapsed": "Süresi dolmuş",
+    "upcoming": "Yaklaşan"
+  },
+  "help": {
+    "title": "Yardım",
+    "subtitle": "IP portföyünüz için müşteri portalını nasıl kullanabilirsiniz?",
+    "enquiriesTitle": "Bir soruşturma gönderin",
+    "enquiriesBody": "Yeni bir konu isteği göndermek için Sorular'ı kullanın. Firma, çakışma kontrollerini gözden geçirecek ve onaylanmış olası satışları konulara dönüştürecektir.",
+    "openEnquiries": "Açık sorular",
+    "approvalsTitle": "Onaylar",
+    "approvalsBody": "Firma onayınızı istediğinde (örneğin yenilemeler veya talimatlar), Onaylar sayfasından yanıt verin.",
+    "openApprovals": "Onayları aç",
+    "contactTitle": "Daha fazla yardıma mı ihtiyacınız var?",
+    "contactBody": "Görevlendirildiğiniz avukatınız veya koordinatörünüzle Mesajlar aracılığıyla iletişime geçin veya bir konuyla ilgili firma yazışmalarına yanıt verin.",
+    "openMessages": "Mesajları aç"
+  }
+}

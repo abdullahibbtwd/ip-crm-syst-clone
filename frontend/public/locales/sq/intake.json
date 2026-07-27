@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Mirato - nuk ka konflikt",
+    "checkedAt": "Kontrolluar {{date}}",
+    "cleared": "Nuk u zbuluan konflikte",
+    "clearedForConversion": "Nuk u gjetën emra të ngjashëm - u fshinë për konvertim",
+    "description": "Kërkim i paqartë midis klientëve, kontakteve, kompanive të lidhura dhe palëve të regjistruara. Përputhjet mbi 30% të ngjashmërisë së përbërë janë shënuar për shqyrtim.",
+    "flaggedMatches": "{{count}} përputhje(at) e mundshme - kërkohet rishikim",
+    "entityType": {
+      "client": "Klienti",
+      "contact": "Kontaktoni",
+      "counterparty": "Kundërpartia",
+      "ip_right": "E drejta e IP / regjistri i markës tregtare",
+      "matter": "Çështje ekzistuese",
+      "related_company": "Kompani e lidhur",
+      "sign": "Nënshkruani/shënoni në dosje"
+    },
+    "flagged": "U gjetën konflikte të mundshme",
+    "matchedOn": "Përputhet më {{field}}",
+    "matchedTerm": "Përputhet me \"{{term}}\" më {{field}}",
+    "mpOverride": "Anulimi i deputetit",
+    "rejectLead": "Refuzoni plumbin",
+    "reviewHint": "Emra të ngjashëm shfaqen për shqyrtim njerëzor. Mirato nëse nuk ka konflikt të vërtetë, ose refuzo nëse drejtimi nuk mund të vazhdojë.",
+    "run": "Kryeni kontrollin e konfliktit",
+    "running": "Po vrapon…",
+    "similarPct": "{{pct}} të ngjashme",
+    "similarity": "Ngjashmëria",
+    "title": "Kontrolli i konfliktit"
+  },
+  "convert": {
+    "button": "Konverto në materie",
+    "clientLabel": "Klienti:",
+    "conversionFailed": "Konvertimi dështoi",
+    "converting": "Po konvertohet…",
+    "existingPortalAccount": "(llogaria ekzistuese e portalit)",
+    "invalidForm": "Forma e pavlefshme",
+    "matterLabel": "Çështja:",
+    "none": "Asnjë",
+    "portalDescription": "Hap një çështje në llogarinë ekzistuese të klientit të portalit - nuk ka regjistrim të kopjuar të klientit.",
+    "standardDescription": "Krijon një rekord klienti dhe hap një çështje në një hap - pa rihyrje të detajeve të hetimit. Në këtë hap kërkohet pëlqimi i GDPR.",
+    "willCreate": "Do të krijojë",
+    "converted": "I konvertuar në materie",
+    "gdprConsent": "Konfirmoj se është marrë pëlqimi i GDPR nga ky kërkues.",
+    "holdingGroup": "Grupi mbajtës (opsionale)",
+    "openMatter": "Çështje e hapur",
+    "preview": "Pamja paraprake e çështjes",
+    "title": "Konverto në klient dhe çështje",
+    "viewClient": "Shiko klientin"
+  },
+  "counterparty": {
+    "add": "Shto parti",
+    "editor": {
+      "add": "Shto palën / konkurrentin e kundërt",
+      "company": "Kompania",
+      "name": "Emri",
+      "notes": "Shënime",
+      "party": "Partia {{n}}",
+      "relationship": "Marrëdhënia *"
+    },
+    "relationship": {
+      "adverse_party": "Palë e kundërt",
+      "competitor": "Konkurrent",
+      "licensee": "I licencuari",
+      "licensor": "Licencues"
+    },
+    "save": "Ruaj partinë",
+    "section": {
+      "description": "Palët që mund të krijojnë një konflikt interesi.",
+      "title": "Palët / konkurrentët e kundërt",
+      "unnamed": "Palë pa emër"
+    }
+  },
+  "create": {
+    "back": "← Kthehu te marrja",
+    "description": "Kapni një kërkesë të re përpara kontrollit dhe konvertimit të konfliktit.",
+    "title": "Hetim i ri"
+  },
+  "detail": {
+    "back": "← Kthehu në radhën e marrjes",
+    "company": "Kompania",
+    "contactName": "Emri i kontaktit",
+    "country": "Vendi",
+    "converted": "Ky hetim është konvertuar.",
+    "description": "Përshkrimi",
+    "email": "Email",
+    "enquiryDetails": "Detajet e hetimit",
+    "error": "Ngarkimi i plumbit të marrjes dështoi.",
+    "fullName": "Emri i plotë",
+    "internalNotes": "Shënime të brendshme",
+    "loading": "Po ngarkohet…",
+    "loadingLead": "Po ngarkon plumbin e marrjes…",
+    "notAssigned": "Nuk është caktuar",
+    "matterType": "Lloji i materies",
+    "notFound": "Plumbi i marrjes nuk u gjet.",
+    "phone": "Telefoni",
+    "portalSubmission": "Dorëzimi i portalit",
+    "referralSource": "Burimi i referimit",
+    "referredBy": "Referuar nga",
+    "responsibleAttorney": "Avokati përgjegjës",
+    "type": "Lloji",
+    "urgency": "Urgjenca",
+    "urgent": "Urgjente"
+  },
+  "form": {
+    "companyName": "Emri i kompanisë *",
+    "description": "Përshkrimi",
+    "email": "Email",
+    "enquirerType": "Lloji i pyetësit",
+    "error": "Krijimi i plumbit të marrjes dështoi",
+    "fullName": "Emri i plotë *",
+    "matterType": "Lloji i çështjes *",
+    "phone": "Telefoni",
+    "referralSource": "Burimi i referimit",
+    "submit": "Paraqisni një kërkesë",
+    "submitInternal": "Krijo plumbin e marrjes",
+    "type": {
+      "company": "Kompania",
+      "individual": "Individuale"
+    },
+    "urgent": "Shënoni si urgjente"
+  },
+  "list": {
+    "description": "Rishikoni kërkesat e ardhura, kryeni kontrolle konflikti dhe konvertoni të dhënat e miratuara.",
+    "empty": "Nuk u gjetën të dhëna për marrje",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një kërkesë të re.",
+    "error": "Dështoi në ngarkimin e prizave të marrjes.",
+    "new": "Hetim i ri",
+    "searchPlaceholder": "Kërko emrin ose emailin…",
+    "title": "Radha e marrjes"
+  },
+  "matterType": {
+    "design": "Dizajn",
+    "other": "Të tjera",
+    "patent": "Patenta",
+    "trademark": "Markë tregtare",
+    "utility_model": "Modeli i shërbimeve"
+  },
+  "referralSource": {
+    "email": "Email",
+    "other": "Të tjera",
+    "phone": "Telefoni",
+    "referral": "Referimi",
+    "walk_in": "Hyrja në këmbë",
+    "website": "Faqja e internetit"
+  },
+  "status": {
+    "approved": "Miratuar",
+    "conflict_check": "Kontrolli i konfliktit",
+    "conflict_flagged": "Konflikti i shënuar",
+    "converted": "I konvertuar",
+    "new": "E re",
+    "rejected": "Refuzuar",
+    "reviewing": "Rishikimi"
+  },
+  "table": {
+    "date": "Marrë",
+    "matterType": "Lloji i materies",
+    "name": "Pyetës",
+    "portal": "Portali",
+    "referral": "Burimi",
+    "status": "Statusi",
+    "urgent": "Urgjente",
+    "viewAria": "Shiko {{name}}"
+  },
+  "unknownCompany": "Kompani e panjohur",
+  "unknownIndividual": "Individ i panjohur"
+}

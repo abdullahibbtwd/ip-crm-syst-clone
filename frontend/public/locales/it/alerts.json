@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Avvisi",
+    "description": "Articoli in ritardo, in scadenza oggi e urgenti, oltre alle notifiche non lette."
+  },
+  "sections": {
+    "overdue": "In ritardo",
+    "today": "Scadenza oggi",
+    "urgent": "Urgente",
+    "notifications": "Notifiche"
+  },
+  "empty": {
+    "notifications": "Nessuna notifica",
+    "urgent": "Nessun articolo urgente",
+    "overdue": "Nessun articolo scaduto",
+    "today": "Nessun articolo in scadenza oggi"
+  }
+}

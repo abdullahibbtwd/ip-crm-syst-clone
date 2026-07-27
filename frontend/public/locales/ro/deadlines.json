@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "În așteptare",
+    "in_progress": "În curs",
+    "completed": "Terminat",
+    "missed": "ratat",
+    "escalated": "A escaladat",
+    "superseded": "Inlocuit"
+  },
+  "urgency": {
+    "dueToday": "Datorită astăzi",
+    "overdue": "Întârziat"
+  },
+  "allDeadlines": {
+    "title": "Toate termenele limită",
+    "description": "Înregistrați-vă termenul limită la nivelul întregii firme pentru fiecare chestiune și cesionar.",
+    "newDeadline": "Nou termen limită",
+    "firmDueToday_one": "1 termen limită ferm este valabil astăzi pentru toate problemele.",
+    "firmDueToday_other": "{{count}} termene ferme sunt valabile astăzi pentru toate problemele.",
+    "filters": {
+      "attorney": "Avocat",
+      "allAttorneys": "Toți avocații",
+      "matterType": "Tipul materiei",
+      "allTypes": "Toate tipurile",
+      "jurisdiction": "Jurisdicția",
+      "allJurisdictions": "Toate jurisdicțiile",
+      "status": "Stare",
+      "allStatuses": "Toate stările",
+      "overdue": "Întârziat",
+      "dueFrom": "Datorită de la",
+      "dueTo": "Datorită"
+    },
+    "loading": "Se încarcă termenele limită...",
+    "error": "Nu s-au încărcat termenele limită.",
+    "table": {
+      "matter": "materie",
+      "attorney": "Avocat",
+      "type": "Tip",
+      "jurisdiction": "Jurisdicția",
+      "dueDate": "Data scadenței",
+      "grace": "Graţie",
+      "status": "Stare"
+    },
+    "empty": "Niciun termen limită nu se potrivește cu filtrele dvs.",
+    "previous": "Anterior",
+    "next": "Următorul"
+  },
+  "myDeadlines": {
+    "title": "Termenele mele",
+    "descriptionStaff": "Lista dvs. personală de lucru pentru toate problemele atribuite. Actualizați starea aici fără a deschide fiecare chestiune.",
+    "descriptionPortal": "Termenele limită viitoare și întârziate în problemele dvs.",
+    "tabs": {
+      "all": "Toate",
+      "pending": "În așteptare",
+      "in_progress": "În curs",
+      "overdue": "Întârziat",
+      "completed": "Terminat"
+    },
+    "loading": "Se încarcă termenele limită...",
+    "error": "Nu s-au încărcat termenele limită.",
+    "table": {
+      "matter": "materie",
+      "type": "Tip",
+      "jurisdiction": "Jurisdicția",
+      "dueDate": "Data scadenței",
+      "grace": "Graţie",
+      "status": "Stare"
+    },
+    "empty": "Nu există termene limită în această vedere.",
+    "previous": "Anterior",
+    "next": "Următorul"
+  },
+  "widget": {
+    "title": "Termenele mele",
+    "viewAll": "Vezi toate",
+    "loading": "Scurgerea datelor limită...",
+    "error": "Nu s-au putut încărca termenele limită.",
+    "empty": "Nu ți-au fost atribuite termene limită viitoare.",
+    "table": {
+      "matterClient": "Materie și client",
+      "deadline": "Termen limită",
+      "dueDateStatus": "Data scadenței și starea"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Datorită astăzi",
+    "view": "Vedere",
+    "personal_one": "Ai 1 termen limită până astăzi.",
+    "personal_other": "Aveți {{count}} termene limită scadente astăzi."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Askıda olması",
+    "in_progress": "Devam etmekte",
+    "completed": "Tamamlanmış",
+    "missed": "Kaçırıldı",
+    "escalated": "İlerletildi",
+    "superseded": "Değiştirildi"
+  },
+  "urgency": {
+    "dueToday": "Bugün vadesi doluyor",
+    "overdue": "vadesi geçmiş"
+  },
+  "allDeadlines": {
+    "title": "Tüm son teslim tarihleri",
+    "description": "Her konu ve atanan kişi için firma çapında son teslim tarihi kaydı.",
+    "newDeadline": "Yeni son tarih",
+    "firmDueToday_one": "Bugün tüm konularda 1 kesin son teslim tarihi doluyor.",
+    "firmDueToday_other": "{{count}} tüm konularda kesin son teslim tarihleri ​​bugün sona erecek.",
+    "filters": {
+      "attorney": "Avukat",
+      "allAttorneys": "Tüm avukatlar",
+      "matterType": "Madde türü",
+      "allTypes": "Tüm türler",
+      "jurisdiction": "Yargı yetkisi",
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "status": "Durum",
+      "allStatuses": "Tüm durumlar",
+      "overdue": "vadesi geçmiş",
+      "dueFrom": "Şu tarihten itibaren:",
+      "dueTo": "Dolayı"
+    },
+    "loading": "Son teslim tarihleri ​​yükleniyor…",
+    "error": "Son teslim tarihleri ​​yüklenemedi.",
+    "table": {
+      "matter": "Konu",
+      "attorney": "Avukat",
+      "type": "Tip",
+      "jurisdiction": "Yargı yetkisi",
+      "dueDate": "Bitiş tarihi",
+      "grace": "Lütuf",
+      "status": "Durum"
+    },
+    "empty": "Filtrelerinizle eşleşen son tarih yok.",
+    "previous": "Öncesi",
+    "next": "Sonraki"
+  },
+  "myDeadlines": {
+    "title": "Son teslim tarihlerim",
+    "descriptionStaff": "Atanan tüm konularda kişisel çalışma listeniz. Her konuyu açmadan durumu buradan güncelleyin.",
+    "descriptionPortal": "Konularınızla ilgili yaklaşan ve gecikmiş son teslim tarihleri.",
+    "tabs": {
+      "all": "Tüm",
+      "pending": "Askıda olması",
+      "in_progress": "Devam etmekte",
+      "overdue": "vadesi geçmiş",
+      "completed": "Tamamlanmış"
+    },
+    "loading": "Son teslim tarihleri ​​yükleniyor…",
+    "error": "Son teslim tarihleri ​​yüklenemedi.",
+    "table": {
+      "matter": "Konu",
+      "type": "Tip",
+      "jurisdiction": "Yargı yetkisi",
+      "dueDate": "Bitiş tarihi",
+      "grace": "Lütuf",
+      "status": "Durum"
+    },
+    "empty": "Bu görünümde son tarih yok.",
+    "previous": "Öncesi",
+    "next": "Sonraki"
+  },
+  "widget": {
+    "title": "Son teslim tarihlerim",
+    "viewAll": "Tümünü görüntüle",
+    "loading": "Son teslim tarihi verileri çatırdıyor…",
+    "error": "Son teslim tarihleri ​​yüklenemedi.",
+    "empty": "Size atanan yaklaşan son tarih yok.",
+    "table": {
+      "matterClient": "Madde ve Müşteri",
+      "deadline": "Son teslim tarihi",
+      "dueDateStatus": "Son Tarih ve Durum"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Bugün vadesi doluyor",
+    "view": "Görüş",
+    "personal_one": "Bugün 1 son teslim tarihiniz var.",
+    "personal_other": "Bugün {{count}} teslim tarihiniz var."
+  }
+}

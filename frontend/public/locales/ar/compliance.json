@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "مسار التدقيق",
+    "subtitle": "سجل التدقيق على مستوى النظام لمراجعة الامتثال.",
+    "loading": "جارٍ تحميل مسار التدقيق…",
+    "loadFailed": "فشل تحميل مسار التدقيق.",
+    "empty": "لم يتم العثور على إدخالات التدقيق.",
+    "columns": {
+      "when": "متى",
+      "user": "مستخدم",
+      "action": "فعل",
+      "resource": "الموارد",
+      "module": "الوحدة النمطية"
+    }
+  },
+  "dataExports": {
+    "title": "سجل تصدير البيانات",
+    "subtitle": "يتم تتبع عمليات تصدير وتنزيل البيانات الشخصية للامتثال للقانون العام لحماية البيانات (GDPR).",
+    "loading": "جارٍ تحميل سجل التصدير…",
+    "loadFailed": "فشل تحميل سجل التصدير.",
+    "empty": "ولم يتم تسجيل أي صادرات حتى الآن.",
+    "columns": {
+      "when": "متى",
+      "user": "مستخدم",
+      "resource": "الموارد",
+      "clientId": "معرف العميل"
+    }
+  },
+  "retention": {
+    "title": "قواعد الاحتفاظ",
+    "subtitle": "يتم فرض سياسات الاحتفاظ باللائحة العامة لحماية البيانات (GDPR) من خلال مهمة الفحص الليلي (الافتراضي 3:00 صباحًا). استخدم التشغيل التجريبي لمعاينة عدد السجلات التي ستتأثر.",
+    "noPermission": "ليس لديك إذن لإدارة قواعد الاحتفاظ.",
+    "newRule": "قاعدة جديدة",
+    "loading": "جارٍ تحميل قواعد الاحتفاظ…",
+    "loadFailed": "فشل تحميل قواعد الاحتفاظ.",
+    "empty": "لا توجد قواعد للاحتفاظ حتى الآن.",
+    "dryRun": "التشغيل الجاف",
+    "dryRunAria": "قاعدة الاحتفاظ بالتشغيل الجاف",
+    "editAria": "تعديل قاعدة الاحتفاظ",
+    "dryRunResult": "التشغيل الجاف: سيؤثر على {{count}} السجل (السجلات) (القطع {{cutoff}}).",
+    "dryRunFailed": "فشل التشغيل الجاف",
+    "auditTrailHint": "عرض سجل التطهير في",
+    "auditTrailLink": "مسار التدقيق",
+    "auditTrailFilter": "(إجراء التصفية: الاحتفاظ بقاعدة_التنفيذ).",
+    "columns": {
+      "entity": "كيان",
+      "condition": "حالة",
+      "retention": "حفظ",
+      "action": "فعل",
+      "status": "حالة",
+      "description": "وصف"
+    },
+    "drawer": {
+      "createTitle": "قاعدة الاحتفاظ الجديدة",
+      "editTitle": "تعديل قاعدة الاحتفاظ",
+      "entityType": "نوع الكيان",
+      "condition": "حالة",
+      "conditionRejected": "الحالة = مرفوضة",
+      "conditionNotConverted": "لم يتم التحويل (باستثناء المرفوضة)",
+      "auditLogsHint": "تنطبق قواعد سجل التدقيق على كافة السجلات الأقدم من فترة الاستبقاء. الإجراء هو الحذف دائمًا.",
+      "retentionDays": "الاحتفاظ (بالأيام)",
+      "action": "فعل",
+      "description": "وصف",
+      "status": "حالة",
+      "createRule": "إنشاء القاعدة"
+    },
+    "entityTypes": {
+      "intake_leads": "يؤدي تناول",
+      "audit_logs": "سجلات التدقيق"
+    },
+    "actions": {
+      "anonymize": "إخفاء الهوية",
+      "delete": "يمسح"
+    },
+    "conditions": {
+      "allRecords": "جميع السجلات",
+      "rejected": "الحالة = مرفوضة",
+      "notConverted": "لم يتم التحويل (باستثناء المرفوضة)",
+      "noStatusFilter": "لا يوجد مرشح الحالة"
+    },
+    "status": {
+      "active": "نشيط",
+      "inactive": "غير نشط"
+    },
+    "errors": {
+      "invalidDays": "أدخل فترة احتفاظ صالحة بالأيام",
+      "saveFailed": "فشل حفظ قاعدة الاحتفاظ",
+      "confirmSave": "يتم تشغيل قواعد الاحتفاظ في مهمة الفحص الليلي (الافتراضي 3:00 صباحًا). هل تريد متابعة الحفظ؟"
+    },
+    "duration": {
+      "days": "{{days}} يومًا",
+      "daysWithYears_one": "{{days}} يوم ({{count}} سنة)",
+      "daysWithYears_other": "{{days}} يوم ({{count}} سنة)",
+      "daysWithMonths_one": "{{days}} يوم ({{count}} شهر)",
+      "daysWithMonths_other": "{{days}} يوم ({{count}} شهر)",
+      "daysApproxYears": "{{days}} يوم (~{{years}} سنة)",
+      "daysApproxMonths": "{{days}} يوم (~{{months}} شهر)"
+    }
+  }
+}

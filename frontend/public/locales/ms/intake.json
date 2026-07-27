@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Luluskan - tiada konflik",
+    "checkedAt": "Ditandai {{date}}",
+    "cleared": "Tiada konflik dikesan",
+    "clearedForConversion": "Tiada nama serupa ditemui - dibersihkan untuk penukaran",
+    "description": "Carian kabur merentas pelanggan, kenalan, syarikat berkaitan dan rakan niaga yang direkodkan. Padanan melebihi 30% persamaan komposit dibenderakan untuk semakan.",
+    "flaggedMatches": "{{count}} kemungkinan padanan - semakan diperlukan",
+    "entityType": {
+      "client": "Pelanggan",
+      "contact": "Kenalan",
+      "counterparty": "Pihak lawan",
+      "ip_right": "Daftar hak IP / tanda dagangan",
+      "matter": "Perkara sedia ada",
+      "related_company": "Syarikat berkaitan",
+      "sign": "Tandatangan / tanda pada fail"
+    },
+    "flagged": "Potensi konflik ditemui",
+    "matchedOn": "Dipadankan pada {{field}}",
+    "matchedTerm": "Memadankan \"{{term}}\" pada {{field}}",
+    "mpOverride": "MP menimpa",
+    "rejectLead": "Tolak petunjuk",
+    "reviewHint": "Nama serupa muncul untuk semakan manusia. Luluskan jika tiada konflik sebenar, atau tolak jika petunjuk tidak dapat diteruskan.",
+    "run": "Jalankan semakan konflik",
+    "running": "Berlari…",
+    "similarPct": "{{pct}} serupa",
+    "similarity": "persamaan",
+    "title": "Semakan konflik"
+  },
+  "convert": {
+    "button": "Tukar kepada jirim",
+    "clientLabel": "Pelanggan:",
+    "conversionFailed": "Penukaran gagal",
+    "converting": "Menukar…",
+    "existingPortalAccount": "(akaun portal sedia ada)",
+    "invalidForm": "Borang tidak sah",
+    "matterLabel": "Perkara:",
+    "none": "tiada",
+    "portalDescription": "Membuka perkara di bawah akaun sedia ada klien portal - tiada rekod pelanggan pendua.",
+    "standardDescription": "Mencipta rekod pelanggan dan membuka perkara dalam satu langkah - tiada memasukkan semula butiran pertanyaan. Keizinan GDPR diperlukan pada langkah ini.",
+    "willCreate": "Akan mencipta",
+    "converted": "Ditukarkan kepada jirim",
+    "gdprConsent": "Saya mengesahkan persetujuan GDPR telah diperoleh daripada penyiasat ini.",
+    "holdingGroup": "Kumpulan pegangan (pilihan)",
+    "openMatter": "Perkara terbuka",
+    "preview": "Pratonton perkara",
+    "title": "Tukar kepada klien & perkara",
+    "viewClient": "Lihat klien"
+  },
+  "counterparty": {
+    "add": "Tambah parti",
+    "editor": {
+      "add": "Tambah pihak lawan / pesaing",
+      "company": "Syarikat",
+      "name": "Nama",
+      "notes": "Nota",
+      "party": "Parti {{n}}",
+      "relationship": "Perhubungan *"
+    },
+    "relationship": {
+      "adverse_party": "Pihak yang merugikan",
+      "competitor": "Pesaing",
+      "licensee": "Pemegang lesen",
+      "licensor": "Pemberi lesen"
+    },
+    "save": "Selamatkan parti",
+    "section": {
+      "description": "Pihak yang boleh mewujudkan konflik kepentingan.",
+      "title": "Pihak lawan / pesaing",
+      "unnamed": "Pihak yang tidak dinamakan"
+    }
+  },
+  "create": {
+    "back": "← Kembali kepada pengambilan",
+    "description": "Tangkap pertanyaan baharu sebelum semakan dan penukaran konflik.",
+    "title": "Siasatan baru"
+  },
+  "detail": {
+    "back": "← Kembali ke baris gilir pengambilan",
+    "company": "Syarikat",
+    "contactName": "Nama kenalan",
+    "country": "Negara",
+    "converted": "Siasatan ini telah ditukar.",
+    "description": "Penerangan",
+    "email": "E-mel",
+    "enquiryDetails": "Butiran pertanyaan",
+    "error": "Gagal memuatkan petunjuk pengambilan.",
+    "fullName": "Nama penuh",
+    "internalNotes": "Nota dalaman",
+    "loading": "Memuatkan…",
+    "loadingLead": "Memuatkan petunjuk pengambilan…",
+    "notAssigned": "Tidak ditugaskan",
+    "matterType": "Jenis jirim",
+    "notFound": "Plumbum pengambilan tidak ditemui.",
+    "phone": "telefon",
+    "portalSubmission": "Penyerahan portal",
+    "referralSource": "Sumber rujukan",
+    "referredBy": "Dirujuk oleh",
+    "responsibleAttorney": "Peguam yang bertanggungjawab",
+    "type": "taip",
+    "urgency": "Terdesak",
+    "urgent": "mendesak"
+  },
+  "form": {
+    "companyName": "Nama syarikat *",
+    "description": "Penerangan",
+    "email": "E-mel",
+    "enquirerType": "Jenis penanya",
+    "error": "Gagal membuat petunjuk pengambilan",
+    "fullName": "Nama penuh *",
+    "matterType": "Jenis jirim *",
+    "phone": "telefon",
+    "referralSource": "Sumber rujukan",
+    "submit": "Hantar pertanyaan",
+    "submitInternal": "Buat petunjuk pengambilan",
+    "type": {
+      "company": "Syarikat",
+      "individual": "individu"
+    },
+    "urgent": "Tandakan sebagai mendesak"
+  },
+  "list": {
+    "description": "Semak pertanyaan masuk, jalankan semakan konflik dan tukar petunjuk yang diluluskan.",
+    "empty": "Tiada petunjuk pengambilan ditemui",
+    "emptyDescription": "Cuba laraskan penapis atau buat pertanyaan baharu.",
+    "error": "Gagal memuatkan petunjuk pengambilan.",
+    "new": "Siasatan baru",
+    "searchPlaceholder": "Cari nama atau e-mel…",
+    "title": "Barisan pengambilan"
+  },
+  "matterType": {
+    "design": "Reka bentuk",
+    "other": "Lain-lain",
+    "patent": "Paten",
+    "trademark": "Tanda dagangan",
+    "utility_model": "Model utiliti"
+  },
+  "referralSource": {
+    "email": "E-mel",
+    "other": "Lain-lain",
+    "phone": "telefon",
+    "referral": "Rujukan",
+    "walk_in": "Berjalan masuk",
+    "website": "laman web"
+  },
+  "status": {
+    "approved": "Diluluskan",
+    "conflict_check": "Semakan konflik",
+    "conflict_flagged": "Konflik dibenderakan",
+    "converted": "Ditukar",
+    "new": "baru",
+    "rejected": "ditolak",
+    "reviewing": "Mengkaji"
+  },
+  "table": {
+    "date": "Diterima",
+    "matterType": "Jenis jirim",
+    "name": "Penanya",
+    "portal": "Portal",
+    "referral": "Sumber",
+    "status": "Status",
+    "urgent": "mendesak",
+    "viewAria": "Lihat {{name}}"
+  },
+  "unknownCompany": "Syarikat tidak dikenali",
+  "unknownIndividual": "Individu yang tidak dikenali"
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Yayınlar",
+  "subtitle": "Müşteri iletişim e-postalarına firma SMTP aracılığıyla toplu bildirimler gönderin. Her gönderim, toplu_notifikasyon olarak denetlenir. Konu posta kutusu yanıtları E-posta Kuyruğunda/Yazışmalarda kalır.",
+  "compose": {
+    "title": "Yayın oluştur",
+    "recipientGroup": "Alıcı grubu",
+    "selectClients": "Müşterileri seçin",
+    "searchClientsPlaceholder": "İstemcileri arayın (en az 2 karakter)",
+    "selected": "Seçildi",
+    "add": "Eklemek",
+    "clientsSelected": "{{count}} müşteri seçildi",
+    "countingRecipients": "Alıcılar sayılıyor…",
+    "previewFailed": "Kitlenin önizlemesi yapılamadı",
+    "recipientMatched": "alıcı eşleşti",
+    "recipientsMatched": "alıcılar eşleşti",
+    "andMore": "…ve {{count}} daha",
+    "subject": "Ders",
+    "subjectPlaceholder": "örneğin Yaklaşan AB yenileme hatırlatmaları",
+    "message": "Mesaj",
+    "messagePlaceholder": "Müşterilerinizin alacağı bildirimi yazın…",
+    "queuing": "Sırada…",
+    "sendBroadcast": "Yayın gönder"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Konu ve mesaj gereklidir",
+    "selectClient": "En az bir müşteri seçin",
+    "queueFailed": "Yayın sıraya alınamadı"
+  },
+  "success": {
+    "queued": "Yayın {{count}} alıcıya/alıcılara sıraya alındı. Teslimat arka planda çalışır."
+  },
+  "history": {
+    "title": "Son yayınlar",
+    "when": "Ne zaman",
+    "subject": "Ders",
+    "audience": "Kitle",
+    "status": "Durum",
+    "sent": "Gönderilmiş",
+    "by": "İle",
+    "loading": "Yükleniyor…",
+    "empty": "Henüz yayın yok.",
+    "failedCount": "({{count}} başarısız oldu)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Tüm aktif müşteriler",
+      "description": "Her aktif müşteri için birincil iletişim e-postası"
+    },
+    "pending_eu_renewals": {
+      "label": "AB yenilemeleri bekleniyor",
+      "description": "Yaklaşan / talimat verilen / dosyalanan AB yenilemelerine sahip aktif müşteriler"
+    },
+    "trademark_matters": {
+      "label": "Ticari marka önemlidir",
+      "description": "En az bir aktif ticari marka konusuna sahip müşteriler"
+    },
+    "manual": {
+      "label": "Manuel seçim",
+      "description": "Aramadan belirli müşterileri seçin"
+    }
+  },
+  "status": {
+    "queued": "Sıraya alındı",
+    "sending": "Gönderiliyor",
+    "completed": "Tamamlanmış",
+    "failed": "Arızalı"
+  }
+}

@@ -12,12 +12,10 @@ import {
 import type { Notification } from '@/features/notifications/types'
 import { useShell } from '@/features/shell/ShellProvider'
 import i18n from '@/i18n'
+import { APP_LOCALES, isSupportedLocale } from '@/i18n/locales'
+import { updatePreferredLocale } from '@/features/auth/api'
+import { useAuth } from '@/features/auth/AuthProvider'
 import { cn } from '@/lib/utils'
-
-const LANGUAGES = [
-  { code: 'en', labelKey: 'language.en' as const },
-  { code: 'bg', labelKey: 'language.bg' as const },
-] as const
 
 type MenuTheme = {
   accent: string
@@ -163,8 +161,9 @@ export function LanguageMenu({ external }: { external?: boolean }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const { t } = useTranslation('common')
+  const { user } = useAuth()
   const theme = menuTheme(external)
-  const activeLanguage = i18n.language?.startsWith('bg') ? 'bg' : 'en'
+  const activeLanguage = isSupportedLocale(i18n.language) ? i18n.language : 'en'
 
   useEffect(() => {
     if (!open) return
@@ -176,6 +175,14 @@ export function LanguageMenu({ external }: { external?: boolean }) {
     document.addEventListener('mousedown', onClick)
     return () => document.removeEventListener('mousedown', onClick)
   }, [open])
+
+  const handleLanguageChange = (code: string) => {
+    void i18n.changeLanguage(code)
+    setOpen(false)
+    if (user) {
+      updatePreferredLocale(code).catch(() => undefined)
+    }
+  }
 
   return (
     <div className="relative" ref={ref}>
@@ -203,7 +210,7 @@ export function LanguageMenu({ external }: { external?: boolean }) {
 
       {open ? (
         <ShellDropdown
-          className="w-48 p-1.5"
+          className="w-52 p-1.5"
           external={external}
           role="listbox"
           aria-label={t('language.switch')}
@@ -216,20 +223,17 @@ export function LanguageMenu({ external }: { external?: boolean }) {
           >
             {t('language.switch')}
           </p>
-          <div className="flex flex-col gap-0.5 p-1">
-            {LANGUAGES.map((language) => {
-              const selected = activeLanguage === language.code
+          <div className="flex flex-col gap-0.5 p-1 max-h-64 overflow-y-auto shell-scrollbar">
+            {APP_LOCALES.map((locale) => {
+              const selected = activeLanguage === locale.code
               return (
                 <ShellMenuItem
-                  key={language.code}
+                  key={locale.code}
                   external={external}
                   active={selected}
-                  onClick={() => {
-                    void i18n.changeLanguage(language.code)
-                    setOpen(false)
-                  }}
+                  onClick={() => handleLanguageChange(locale.code)}
                 >
-                  <span className="flex-1 text-left">{t(language.labelKey)}</span>
+                  <span className="flex-1 text-left">{locale.nativeName}</span>
                   {selected ? (
                     <Check className={cn('size-3.5', theme.accent)} />
                   ) : (
@@ -471,10 +475,12 @@ export function NotificationsMenu({ external }: { external?: boolean }) {
         <ShellDropdown className="w-80" external={external}>
           <div className={cn('flex items-center justify-between gap-2 border-b px-4 py-3', theme.header)}>
             <div>
-              <p className={cn('text-sm font-bold', theme.headerTitle)}>Notifications</p>
+              <p className={cn('text-sm font-bold', theme.headerTitle)}>
+                {t('notifications.title')}
+              </p>
               {unreadCount > 0 ? (
                 <p className={cn('mt-0.5 text-[10px] font-medium uppercase tracking-wider', theme.accentMuted)}>
-                  {unreadCount} unread
+                  {unreadCount} {t('notifications.unread')}
                 </p>
               ) : null}
             </div>
@@ -492,17 +498,21 @@ export function NotificationsMenu({ external }: { external?: boolean }) {
                 onClick={() => markAllRead.mutate()}
                 disabled={markAllRead.isPending}
               >
-                Mark all read
+                {t('notifications.markAllRead')}
               </Button>
             ) : null}
           </div>
 
           <div className="max-h-80 overflow-y-auto p-1 shell-scrollbar">
             {isLoading ? (
-              <p className={cn('px-4 py-8 text-center text-sm italic', theme.headerMuted)}>Loading…</p>
+              <p className={cn('px-4 py-8 text-center text-sm italic', theme.headerMuted)}>
+                {t('loading.default')}
+              </p>
             ) : isError ? (
               <div className="px-4 py-8 text-center">
-                <p className={cn('text-sm', theme.headerMuted)}>Could not load notifications.</p>
+                <p className={cn('text-sm', theme.headerMuted)}>
+                  {t('notifications.couldNotLoad')}
+                </p>
                 <Button
                   type="button"
                   variant="ghost"
@@ -513,13 +523,15 @@ export function NotificationsMenu({ external }: { external?: boolean }) {
                     void refetchUnread()
                   }}
                 >
-                  Retry
+                  {t('actions.retry')}
                 </Button>
               </div>
             ) : notifications.length === 0 ? (
               <div className="px-4 py-10 text-center">
                 <Bell className={cn('mx-auto mb-2 size-8 opacity-20', theme.accent)} />
-                <p className={cn('text-sm', theme.headerMuted)}>No notifications yet.</p>
+                <p className={cn('text-sm', theme.headerMuted)}>
+                  {t('notifications.noNotificationsYet')}
+                </p>
               </div>
             ) : (
               <ul className="flex flex-col gap-0.5 p-1">

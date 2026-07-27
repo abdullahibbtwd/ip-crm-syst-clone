@@ -1,0 +1,43 @@
+{
+  "title": "Précédentes",
+  "subtitle": "Base de connaissances sur la correspondance réutilisable et le langage de classement.",
+  "newDraft": "Nouveau brouillon",
+  "searchPlaceholder": "Rechercher dans le corps du texte…",
+  "loading": "Chargement des précédents…",
+  "loadFailed": "Échec du chargement des précédents.",
+  "empty": "Pas encore de précédent. Créez un brouillon ou une récolte à partir de la correspondance.",
+  "columns": {
+    "title": "Titre",
+    "category": "Catégorie",
+    "jurisdiction": "Juridiction",
+    "status": "Statut",
+    "updated": "Mis à jour"
+  },
+  "filters": {
+    "allStatuses": "Tous les statuts"
+  },
+  "status": {
+    "draft": "Brouillon",
+    "published": "Publié",
+    "archived": "Archivé"
+  },
+  "editAria": "Modifier",
+  "drawer": {
+    "createTitle": "Nouveau précédent",
+    "editTitle": "Modifier le précédent",
+    "title": "Titre",
+    "category": "Catégorie",
+    "matterType": "Type de matière",
+    "optional": "Facultative",
+    "jurisdiction": "Juridiction",
+    "tags": "Balises",
+    "body": "Corps",
+    "bodyPlaceholder": "Écrivez le texte précédent : les caractères gras, italiques et les listes sont pris en charge",
+    "publish": "Publier",
+    "archive": "Archive",
+    "publishFailed": "Échec de la publication",
+    "archiveFailed": "L'archivage a échoué",
+    "saveFailed": "Impossible d'enregistrer le précédent",
+    "requiredFields": "Le titre, la catégorie et le corps sont obligatoires"
+  }
+}

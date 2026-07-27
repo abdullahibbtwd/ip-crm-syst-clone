@@ -13,7 +13,11 @@ export interface AuthenticatedUser extends JwtPayload {
 }
 
 export type LoginResult =
-  | { mfaRequired: true; pendingUserId: string }
+  | {
+      mfaRequired: true;
+      pendingUserId: string;
+      pendingMethod?: 'password' | 'sso';
+    }
   | {
       mfaRequired: false;
       user: PublicUser;
@@ -30,6 +34,7 @@ export type PublicUser = {
   permissions: string[];
   mfaEnabled: boolean;
   mfaEnrollmentRequired?: boolean;
+  preferredLocale: string | null;
 };
 
 export type TokenPair = {

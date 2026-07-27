@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Ootel",
+    "in_progress": "Pooleli",
+    "completed": "Lõpetatud",
+    "missed": "Jäi vahele",
+    "escalated": "Eskaleeritud",
+    "superseded": "Asendatud"
+  },
+  "urgency": {
+    "dueToday": "Tähtaeg täna",
+    "overdue": "Tähtaja ületanud"
+  },
+  "allDeadlines": {
+    "title": "Kõik tähtajad",
+    "description": "Kogu ettevõtet hõlmav tähtaegade register iga asja ja volitatud isiku kohta.",
+    "newDeadline": "Uus tähtaeg",
+    "firmDueToday_one": "Täna on kõigis küsimustes 1 kindel tähtaeg.",
+    "firmDueToday_other": "{{count}} kindlad tähtajad on täna kõikides küsimustes.",
+    "filters": {
+      "attorney": "Advokaat",
+      "allAttorneys": "Kõik advokaadid",
+      "matterType": "Aine tüüp",
+      "allTypes": "Kõik tüübid",
+      "jurisdiction": "Jurisdiktsioon",
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "status": "Olek",
+      "allStatuses": "Kõik olekud",
+      "overdue": "Tähtaja ületanud",
+      "dueFrom": "Tähtaeg alates",
+      "dueTo": "Tänu"
+    },
+    "loading": "Laadimistähtajad…",
+    "error": "Tähtaegade laadimine ebaõnnestus.",
+    "table": {
+      "matter": "Asi",
+      "attorney": "Advokaat",
+      "type": "Tüüp",
+      "jurisdiction": "Jurisdiktsioon",
+      "dueDate": "Tähtaeg",
+      "grace": "Grace",
+      "status": "Olek"
+    },
+    "empty": "Ükski tähtaeg ei vasta teie filtritele.",
+    "previous": "Eelmine",
+    "next": "Edasi"
+  },
+  "myDeadlines": {
+    "title": "Minu tähtajad",
+    "descriptionStaff": "Teie isiklik tööloend kõigi määratud asjade kohta. Värskendage olekut siin ilma iga asja avamata.",
+    "descriptionPortal": "Eelseisvad ja hilinenud tähtajad teie asjades.",
+    "tabs": {
+      "all": "Kõik",
+      "pending": "Ootel",
+      "in_progress": "Pooleli",
+      "overdue": "Tähtaja ületanud",
+      "completed": "Lõpetatud"
+    },
+    "loading": "Laadimistähtajad…",
+    "error": "Tähtaegade laadimine ebaõnnestus.",
+    "table": {
+      "matter": "Asi",
+      "type": "Tüüp",
+      "jurisdiction": "Jurisdiktsioon",
+      "dueDate": "Tähtaeg",
+      "grace": "Grace",
+      "status": "Olek"
+    },
+    "empty": "Sellel vaatel pole tähtaegu.",
+    "previous": "Eelmine",
+    "next": "Edasi"
+  },
+  "widget": {
+    "title": "Minu tähtajad",
+    "viewAll": "Kuva kõik",
+    "loading": "Tähtaja andmete krigistamine…",
+    "error": "Tähtaegu ei saanud laadida.",
+    "empty": "Teile ei ole määratud eelseisvaid tähtaegu.",
+    "table": {
+      "matterClient": "Aine ja klient",
+      "deadline": "Tähtaeg",
+      "dueDateStatus": "Tähtaeg ja olek"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Tähtaeg täna",
+    "view": "Vaade",
+    "personal_one": "Teil on täna 1 tähtaeg.",
+    "personal_other": "Teil on täna {{count}} tähtaega."
+  }
+}

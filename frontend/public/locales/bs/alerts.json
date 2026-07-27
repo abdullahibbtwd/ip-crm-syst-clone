@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alerts",
+    "description": "Kasne, dospjele danas i hitne stavke, plus nepročitana obavještenja."
+  },
+  "sections": {
+    "overdue": "Zakasnio",
+    "today": "Rok danas",
+    "urgent": "Hitno",
+    "notifications": "Obavještenja"
+  },
+  "empty": {
+    "notifications": "Nema obavještenja",
+    "urgent": "Nema hitnih stvari",
+    "overdue": "Nema zaostalih artikala",
+    "today": "Nema artikala za danas"
+  }
+}

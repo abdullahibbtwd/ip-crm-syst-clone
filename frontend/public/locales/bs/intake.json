@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Odobri - nema sukoba",
+    "checkedAt": "Provjereno {{date}}",
+    "cleared": "Nisu otkriveni sukobi",
+    "clearedForConversion": "Nisu pronađena slična imena - obrisano za konverziju",
+    "description": "Nejasna pretraga klijenata, kontakata, povezanih kompanija i evidentiranih strana. Podudaranja iznad 30% kompozitne sličnosti su označena za pregled.",
+    "flaggedMatches": "{{count}} potencijalno podudaranje(a) - potrebno je pregledati",
+    "entityType": {
+      "client": "Klijent",
+      "contact": "Kontakt",
+      "counterparty": "Counterparty",
+      "ip_right": "Registar prava intelektualne svojine / žigova",
+      "matter": "Postojeća materija",
+      "related_company": "Povezana kompanija",
+      "sign": "Potpišite / označite na fajlu"
+    },
+    "flagged": "Pronađeni potencijalni sukobi",
+    "matchedOn": "Upareno {{field}}",
+    "matchedTerm": "Poklapa \"{{term}}\" na {{field}}",
+    "mpOverride": "MP override",
+    "rejectLead": "Odbacite trag",
+    "reviewHint": "Slična imena se pojavljuju za ljudski pregled. Odobrite ako nema stvarnog sukoba ili odbijte ako se vođenje ne može nastaviti.",
+    "run": "Pokreni provjeru konflikta",
+    "running": "Trčanje…",
+    "similarPct": "{{pct}} slično",
+    "similarity": "Sličnost",
+    "title": "Provjera sukoba"
+  },
+  "convert": {
+    "button": "Pretvorite u materiju",
+    "clientLabel": "Klijent:",
+    "conversionFailed": "Konverzija nije uspjela",
+    "converting": "Pretvaranje…",
+    "existingPortalAccount": "(postojeći račun portala)",
+    "invalidForm": "Nevažeći obrazac",
+    "matterLabel": "materija:",
+    "none": "Nema",
+    "portalDescription": "Otvara predmet pod postojećim nalogom klijenta portala - nema duplikata klijentovog zapisa.",
+    "standardDescription": "Kreira zapis o klijentu i otvara predmet u jednom koraku - bez ponovnog unosa detalja upita. U ovom koraku potrebna je GDPR saglasnost.",
+    "willCreate": "Will create",
+    "converted": "Pretvoreno u materiju",
+    "gdprConsent": "Potvrđujem da je GDPR pristanak dobijen od ovog tražitelja.",
+    "holdingGroup": "Grupa za držanje (opciono)",
+    "openMatter": "Otvorena stvar",
+    "preview": "Pregled materije",
+    "title": "Pretvorite u klijenta i stvar",
+    "viewClient": "Pogledaj klijenta"
+  },
+  "counterparty": {
+    "add": "Dodaj zabavu",
+    "editor": {
+      "add": "Dodajte protivnu stranu / konkurenta",
+      "company": "Kompanija",
+      "name": "Ime",
+      "notes": "Bilješke",
+      "party": "Zabava {{n}}",
+      "relationship": "veza *"
+    },
+    "relationship": {
+      "adverse_party": "Suprotna strana",
+      "competitor": "Takmičar",
+      "licensee": "Imalac licence",
+      "licensor": "Davalac licence"
+    },
+    "save": "Sačuvaj zabavu",
+    "section": {
+      "description": "Strane koje mogu stvoriti sukob interesa.",
+      "title": "Suprotne strane / konkurenti",
+      "unnamed": "Neimenovana stranka"
+    }
+  },
+  "create": {
+    "back": "← Povratak na unos",
+    "description": "Snimite novi upit prije provjere sukoba i konverzije.",
+    "title": "Novi upit"
+  },
+  "detail": {
+    "back": "← Povratak na red za unos",
+    "company": "Kompanija",
+    "contactName": "Ime kontakta",
+    "country": "Država",
+    "converted": "Ovaj upit je pretvoren.",
+    "description": "Opis",
+    "email": "Email",
+    "enquiryDetails": "Detalji upita",
+    "error": "Učitavanje usisnog kabla nije uspjelo.",
+    "fullName": "Puno ime",
+    "internalNotes": "Interne napomene",
+    "loading": "Učitavanje…",
+    "loadingLead": "Učitavanje usisnog kabla…",
+    "notAssigned": "Nije dodeljeno",
+    "matterType": "Vrsta materije",
+    "notFound": "Usisni vod nije pronađen.",
+    "phone": "Telefon",
+    "portalSubmission": "Podnošenje portala",
+    "referralSource": "Izvor preporuke",
+    "referredBy": "Preporučeno od",
+    "responsibleAttorney": "Odgovorni advokat",
+    "type": "Tip",
+    "urgency": "Hitnost",
+    "urgent": "Hitno"
+  },
+  "form": {
+    "companyName": "Naziv kompanije *",
+    "description": "Opis",
+    "email": "Email",
+    "enquirerType": "Vrsta upitnika",
+    "error": "Kreiranje potencijalnog unosa nije uspjelo",
+    "fullName": "Puno ime *",
+    "matterType": "Vrsta materije *",
+    "phone": "Telefon",
+    "referralSource": "Izvor preporuke",
+    "submit": "Pošaljite upit",
+    "submitInternal": "Kreirajte intake olovo",
+    "type": {
+      "company": "Kompanija",
+      "individual": "Pojedinac"
+    },
+    "urgent": "Označi kao hitno"
+  },
+  "list": {
+    "description": "Pregledajte dolazne upite, pokrenite provjere sukoba i pretvorite odobrene potencijalne klijente.",
+    "empty": "Nisu pronađeni usisni vodovi",
+    "emptyDescription": "Pokušajte prilagoditi filtere ili kreirajte novi upit.",
+    "error": "Učitavanje vodova za unos nije uspjelo.",
+    "new": "Novi upit",
+    "searchPlaceholder": "Pretražite ime ili email…",
+    "title": "Intake queue"
+  },
+  "matterType": {
+    "design": "Dizajn",
+    "other": "Ostalo",
+    "patent": "Patent",
+    "trademark": "Trademark",
+    "utility_model": "Korisni model"
+  },
+  "referralSource": {
+    "email": "Email",
+    "other": "Ostalo",
+    "phone": "Telefon",
+    "referral": "Preporuka",
+    "walk_in": "Ulazak",
+    "website": "Website"
+  },
+  "status": {
+    "approved": "Odobreno",
+    "conflict_check": "Provjera sukoba",
+    "conflict_flagged": "Sukob je označen",
+    "converted": "Pretvoreno",
+    "new": "Novo",
+    "rejected": "Odbijeno",
+    "reviewing": "Pregledavanje"
+  },
+  "table": {
+    "date": "Primljeno",
+    "matterType": "Vrsta materije",
+    "name": "Enquirer",
+    "portal": "Portal",
+    "referral": "Izvor",
+    "status": "Status",
+    "urgent": "Hitno",
+    "viewAria": "Pogledaj {{name}}"
+  },
+  "unknownCompany": "Nepoznata kompanija",
+  "unknownIndividual": "Nepoznata osoba"
+}

@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Jam Tangan Tanda Dagangan",
+    "description": "Semak kemungkinan konflik yang dikesan terhadap profil jam tangan aktif.",
+    "empty": "Tiada makluman jam tangan yang sepadan dengan penapis anda.",
+    "loading": "Memuatkan makluman jam tangan…"
+  },
+  "detail": {
+    "title": "Amaran menonton",
+    "back": "Kembali ke senarai kerja tonton",
+    "loading": "Memuatkan makluman…",
+    "notFound": "Amaran tonton tidak ditemui.",
+    "watchedMark": "Tanda yang ditonton",
+    "conflictingMark": "Tanda bercanggah",
+    "registrySource": "Sumber pendaftaran",
+    "jurisdiction": "Bidang kuasa",
+    "applicationNumber": "Nombor permohonan",
+    "similarity": "persamaan",
+    "detectedAt": "Dikesan",
+    "client": "Pelanggan",
+    "profile": "Tonton profil",
+    "niceClasses": "Kelas yang bagus",
+    "reject": "Tolak makluman",
+    "accept": "Terima & cipta perkara",
+    "rejectConfirm": "Tandai makluman ini sebagai positif palsu?",
+    "acceptConfirm": "Buat perkara pembangkang daripada makluman ini?",
+    "triagedBy": "Dicuba oleh {{name}}",
+    "linkedMatter": "Perkara berkait"
+  },
+  "clientTab": {
+    "title": "Tonton profil",
+    "description": "Pantau tanda merentas pendaftaran menggunakan kod bidang kuasa kanonik (BG, EU, EP).",
+    "add": "Tambah jam tangan tanda dagangan",
+    "empty": "Tiada profil jam tangan lagi. Tambahkan profil untuk mula memantau tanda pelanggan ini.",
+    "loading": "Memuatkan profil jam tangan…",
+    "pause": "jeda",
+    "resume": "Sambung semula",
+    "archive": "Arkib",
+    "epoScan": "Imbas EPO untuk makluman",
+    "epoScanning": "Mengimbas EPO…",
+    "epoScanSuccess": "Mencipta {{alerts}} makluman EPO baharu daripada profil {{profiles}}.",
+    "epoScanFailed": "Imbasan jam tangan EPO gagal",
+    "viewAlerts": "Lihat makluman jam tangan"
+  },
+  "drawer": {
+    "title": "Tambah jam tangan tanda dagangan",
+    "markText": "Tandakan teks *",
+    "markPlaceholder": "cth. Coca-Cola",
+    "jurisdictions": "Bidang kuasa *",
+    "jurisdictionsHint": "Kod kanonik — bukan nama pendaftaran. Jam tangan BPO menggunakan BG; Jam tangan EUIPO menggunakan EU.",
+    "niceClasses": "Kelas yang bagus",
+    "niceClassesPlaceholder": "cth. 32, 33",
+    "frequency": "Kekerapan imbasan",
+    "save": "Simpan profil jam tangan"
+  },
+  "filters": {
+    "status": "Status",
+    "jurisdiction": "Bidang kuasa",
+    "source": "Sumber pendaftaran",
+    "minSimilarity": "Min persamaan",
+    "anySimilarity": "Sebarang persamaan",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Isih mengikut",
+    "sortDetected": "Terbaharu dahulu",
+    "sortSimilarity": "Persamaan tertinggi",
+    "all": "Semua"
+  },
+  "stats": {
+    "new": "Makluman baharu",
+    "accepted": "Diterima",
+    "rejected": "ditolak"
+  },
+  "profileStatus": {
+    "active": "Aktif",
+    "paused": "Dijeda",
+    "archived": "Diarkibkan"
+  },
+  "alertStatus": {
+    "new": "baru",
+    "rejected": "ditolak",
+    "accepted": "Diterima"
+  },
+  "frequency": {
+    "daily": "Setiap hari",
+    "weekly": "Mingguan"
+  },
+  "table": {
+    "mark": "Tanda yang ditonton",
+    "conflict": "Konflik",
+    "client": "Pelanggan",
+    "similarity": "persamaan",
+    "source": "Sumber",
+    "jurisdiction": "Bidang kuasa",
+    "status": "Status",
+    "detected": "Dikesan",
+    "frequency": "Kekerapan",
+    "classes": "Kelas",
+    "profiles": "Profil",
+    "actions": "Tindakan"
+  }
+}

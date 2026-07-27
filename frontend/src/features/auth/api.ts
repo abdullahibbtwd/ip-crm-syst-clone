@@ -49,12 +49,33 @@ export async function fetchMe() {
   return response.data
 }
 
+export async function updatePreferredLocale(preferredLocale: string) {
+  const response = await api.patch<AuthUser>('/auth/me/locale', { preferredLocale })
+  return response.data
+}
+
 export async function logoutRequest() {
   await api.post('/auth/logout')
 }
 
 export async function requestPasswordReset(data: ResetPasswordRequestData) {
   const response = await api.post<{ message: string }>('/auth/forgot-password', data)
+  return response.data
+}
+
+export async function acceptInvite(token: string, data: ResetPasswordFormData) {
+  const response = await api.post<{ message: string }>('/auth/accept-invite', {
+    token,
+    password: data.password,
+  })
+  return response.data
+}
+
+export async function validateInviteToken(token: string) {
+  const response = await api.get<{ email: string; fullName: string }>(
+    '/auth/invite/validate',
+    { params: { token } },
+  )
   return response.data
 }
 

@@ -1,0 +1,15 @@
+{
+  "title": "Documenti",
+  "subtitle": "Libreria di documenti relativi agli argomenti a livello aziendale.",
+  "searchPlaceholder": "Cerca documenti...",
+  "loading": "Caricamento…",
+  "loadFailed": "Impossibile caricare i documenti.",
+  "empty": "Nessun documento trovato.",
+  "columns": {
+    "name": "Nome",
+    "matter": "Questione",
+    "category": "Categoria",
+    "updated": "Aggiornata",
+    "by": "Di"
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "当前的",
+      "overdue30": "1–30 天",
+      "overdue60": "31–60 天",
+      "overdue90plus": "90+天"
+    },
+    "bucketsShort": {
+      "current": "当前的",
+      "overdue30": "30天",
+      "overdue60": "60天",
+      "overdue90plus": "90天+"
+    },
+    "legend": "衰老传奇",
+    "noOpenReceivables": "无未清应收账款"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} 客户群",
+    "clientGroups_other": "{{count}} 客户群体",
+    "clientMatters": "客户事务",
+    "clientsInWindow": "{{clients}} 客户 · {{days}} 天范围",
+    "crossTabTitle": "委托人×司法管辖区×代理人",
+    "description": "即将到来的关键截止日期按客户、司法管辖区和负责律师分组。 紧急颜色与截止日期工作列表和通知里程碑相匹配。",
+    "emptyDescription": "尝试扩大投资组合窗口或清除过滤器。",
+    "emptyTitle": "此窗口内没有截止日期",
+    "error": "无法加载截止日期风险报告。",
+    "filters": {
+      "allAssignees": "所有受让人",
+      "allAttorneys": "所有律师",
+      "allJurisdictions": "所有司法管辖区",
+      "jurisdiction": "管辖权",
+      "portfolioWindow": "投资组合窗口（天）",
+      "responsibleAttorney": "责任律师"
+    },
+    "generated": "生成 {{date}}",
+    "loading": "加载投资组合风险...",
+    "openWorklist": "打开工作清单",
+    "stats": {
+      "critical": "批判的",
+      "criticalHint": "逾期、今天或≤7 天",
+      "dueToday": "今天到期",
+      "dueTodayHint": "今天需要采取行动",
+      "inWindow": "在窗口内",
+      "overdue": "逾期",
+      "overdueHint": "逾期或升级"
+    },
+    "table": {
+      "deadline": "最后期限",
+      "due": "到期的",
+      "matter": "事情",
+      "status": "地位"
+    },
+    "title": "期限投资组合风险"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "按管辖范围",
+    "byMonth": "按月提交的文件",
+    "description": "提交的申请 - 根据案件时间线提交事件汇总，按月份、案件类型和司法管辖区分组。",
+    "error": "无法加载归档卷。",
+    "filters": {
+      "allJurisdictions": "所有司法管辖区",
+      "allTypes": "所有类型",
+      "jurisdiction": "管辖权",
+      "matterType": "物质类型",
+      "periodFrom": "期间从",
+      "periodTo": "期间至"
+    },
+    "generated": "生成 {{date}}",
+    "loading": "正在加载归档卷...",
+    "matterPortfolio": "事项组合",
+    "noFilings": "期间无备案。",
+    "stats": {
+      "jurisdictions": "司法管辖区",
+      "jurisdictionsHint": "备案机关",
+      "matterTypes": "物质类型",
+      "matterTypesHint": "提交的不同类型",
+      "totalFilings": "申请总数",
+      "totalFilingsHint": "在选定的时间段内"
+    },
+    "table": {
+      "filingDate": "申请日期",
+      "filings": "锉屑",
+      "jurisdiction": "管辖权",
+      "matter": "事情",
+      "month": "月",
+      "type": "类型"
+    },
+    "title": "归档量"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "按到期月份",
+    "byJurisdiction": "按管辖范围",
+    "cycle": "周期 {{number}}",
+    "description": "即将到来的续订窗口按状态、司法管辖区和到期月份划分 - 紧急程度与截止日期风险报告一致。",
+    "dueBefore": "截止日期之前",
+    "dueBeforeLabel": "{{date}} 之前到期",
+    "error": "无法加载续订摘要。",
+    "filters": {
+      "allJurisdictions": "所有司法管辖区",
+      "jurisdiction": "管辖权"
+    },
+    "generated": "生成 {{date}}",
+    "loading": "正在加载续订摘要...",
+    "noRenewals": "窗口中没有更新。",
+    "renewalsWorklist": "续约工作清单",
+    "stats": {
+      "critical": "批判的",
+      "criticalHint": "逾期或到期≤7天",
+      "instructed": "受指导",
+      "instructedHint": "确认继续进行",
+      "pipeline": "管道",
+      "pipelineHint": "主动续订窗口",
+      "upcoming": "即将推出",
+      "upcomingHint": "等待指示"
+    },
+    "table": {
+      "client": "客户",
+      "due": "到期的",
+      "ipRight": "知识产权",
+      "month": "月",
+      "status": "地位",
+      "windows": "视窗"
+    },
+    "title": "续订摘要"
+  },
+  "renewalUrgency": {
+    "legend": "续订紧迫性",
+    "noPipeline": "没有管道更新",
+    "overdue": "逾期",
+    "soon": "≤30天",
+    "today": "今天到期",
+    "urgent": "≤7天"
+  },
+  "revenueSummary": {
+    "agingDetail": "未清应收账款明细",
+    "agingSection": {
+      "description": "按逾期天数列出的所有未清应收账款概览",
+      "title": "老化总结"
+    },
+    "description": "按月开具的发票总额、收款和按逾期天数记账的未清应收账款 - 与财务付款跟踪场景保持一致。",
+    "error": "无法加载收入摘要。",
+    "filters": {
+      "periodFrom": "期间从",
+      "periodTo": "期间至"
+    },
+    "generated": "生成 {{date}}",
+    "invoice_one": "{{count}} 发票",
+    "invoice_other": "{{count}} 发票",
+    "invoiceRegister": "发票登记",
+    "issuedInPeriod_one": "RevenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "RevenueSummary.issuedInPeriod",
+    "loading": "正在加载收入摘要...",
+    "noInvoices": "期间未开具发票。",
+    "noReceivables": "无未清应收账款。",
+    "openInvoices_one": "RevenueSummary.openInvoices",
+    "openInvoices_other": "RevenueSummary.openInvoices",
+    "period": "期间 {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "按开具月份分组的开具发票总数",
+      "title": "按月收入"
+    },
+    "stats": {
+      "collected": "集",
+      "collectedHint": "期间记录的付款",
+      "criticalReceivables": "逾期 60 天以上",
+      "criticalReceivablesHint": "需要跟进的应收账款",
+      "outstanding": "杰出的",
+      "totalInvoiced": "发票总额"
+    },
+    "table": {
+      "aging": "老化",
+      "client": "客户",
+      "due": "到期的",
+      "invoice": "发票",
+      "invoiced": "已开具发票",
+      "month": "月",
+      "open": "打开",
+      "outstanding": "杰出的",
+      "paid": "有薪酬的"
+    },
+    "title": "收入和应收账款"
+  },
+  "urgency": {
+    "legend": "紧急传说",
+    "noActiveRisk": "无主动风险",
+    "overdue": "逾期",
+    "soon": "到期日≤30天",
+    "soonShort": "≤30天",
+    "today": "今天到期",
+    "todayShort": "今天",
+    "urgent": "到期日≤7天",
+    "urgentShort": "≤7天"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "批判的",
+      "criticalHint": "≤ 7 天",
+      "overdue": "逾期",
+      "actionRequired": "需要采取行动",
+      "dueToday": "今天到期",
+      "requiresSignOff": "需要签核",
+      "nextDays": "接下来 {{days}} 天",
+      "clientsInWindow": "{{count}} 窗口中的客户端",
+      "windowSummary": "窗口摘要",
+      "priorityDeadlines": "优先期限",
+      "prioritySubtitle": "需要监控的最紧急项目",
+      "openReport": "打开报告",
+      "loading": "扫描风险向量...",
+      "error": "无法加载风险分析。",
+      "highestExposure": "最高风险暴露",
+      "criticalCount": "{{count}} 严重",
+      "portfolioClear": "投资组合清晰",
+      "noCriticalInWindow": "在接下来的 {{days}} 天内没有检测到严重风险。",
+      "table": {
+        "priorityDeadline": "优先期限",
+        "clientJurisdiction": "客户及管辖权",
+        "dueDate": "到期日"
+      },
+      "showingOf": "显示 {{shown}} 个优先项目（共 {{total}} 个）",
+      "viewCrossTab": "查看完整的交叉表报告"
+    },
+    "filingVolumes": {
+      "title": "归档量",
+      "subtitle": "全公司提交的申请（过去 12 个月）",
+      "fullReport": "完整报告",
+      "loading": "正在汇总归档历史记录...",
+      "error": "无法加载归档分析。",
+      "totalFilings": "申请总数",
+      "yearToDate": "今年迄今为止",
+      "primaryType": "初级型",
+      "applications_one": "{{count}} 申请",
+      "applications_other": "{{count}} 应用程序",
+      "noData": "无数据",
+      "topRegion": "顶级地区",
+      "monthActivity": "{{month}} 活动：",
+      "newFiling_one": "{{count}} 新申请",
+      "newFiling_other": "{{count}} 新申请",
+      "empty": "最近的历史中没有发现任何文件。",
+      "table": {
+        "matterInfo": "事项信息",
+        "type": "类型",
+        "filingDate": "申请日期"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "已开具发票（12 个月）",
+      "issued_one": "{{count}} 已发布",
+      "issued_other": "{{count}} 已发布",
+      "collected": "集",
+      "paidInPeriod": "按期付款",
+      "outstanding": "杰出的",
+      "open_one": "{{count}} 开放",
+      "open_other": "{{count}} 开放",
+      "criticalRisk": "严重风险",
+      "overdue60Days": "逾期 60 天以上",
+      "receivablesAging": "应收账款账龄",
+      "agingSubtitle": "按逾期天数打开已开具的发票",
+      "fullReport": "完整报告",
+      "loading": "分析老化数据...",
+      "error": "无法加载老化数据。",
+      "portfolioHealthy": "投资组合健康",
+      "noReceivables": "未发现未清应收账款。",
+      "draftRef": "草案参考",
+      "table": {
+        "invoiceInfo": "发票信息",
+        "client": "客户",
+        "outstanding": "杰出的"
+      },
+      "showingOf": "显示 {{shown}} 份未结发票，共 {{total}} 份",
+      "viewPortfolio": "查看整个投资组合"
+    },
+    "teamWorkload": {
+      "title": "团队工作量",
+      "subtitle": "每个成员的未决事项、任务和截止日期",
+      "viewTeam": "查看团队",
+      "loading": "计算工作负载分配...",
+      "error": "无法加载团队数据。",
+      "matters": "事项",
+      "members_one": "{{count}} 成员",
+      "members_other": "{{count}} 成员",
+      "tasks": "任务",
+      "pendingAction": "待处理的行动",
+      "deadlines": "截止日期",
+      "activeWindow": "活动窗口",
+      "busiest": "最忙",
+      "items_one": "{{count}} 项目",
+      "items_other": "{{count}} 项目",
+      "clear": "清除",
+      "empty": "没有现役球队数据",
+      "table": {
+        "teamMember": "队员",
+        "matters": "事项",
+        "tasks": "任务",
+        "deadlines": "截止日期",
+        "total": "全部的"
+      }
+    },
+    "clientProfitability": {
+      "title": "客户盈利能力",
+      "subtitle": "按客户组合划分的计费收入分配",
+      "viewAllClients": "查看所有客户",
+      "loading": "汇总盈利能力数据...",
+      "error": "无法加载客户端分析。",
+      "trueMargin": "真实保证金：",
+      "revenueProxy": "收入代理：",
+      "totalRevenue": "总收入",
+      "clients_one": "{{count}} 客户端",
+      "clients_other": "{{count}} 客户",
+      "totalMargin": "总保证金",
+      "topClient": "顶级客户",
+      "internalCost": "{{amount}} 内部成本",
+      "noBillingData": "无计费数据",
+      "unbilledWip": "未开票在制品",
+      "pendingAccrual": "待计提",
+      "firmBilled": "固定计费",
+      "totalMatters": "总事项",
+      "empty": "未检测到客户计费数据。",
+      "table": {
+        "clientPortfolio": "客户组合",
+        "matters": "事项",
+        "billable": "可计费",
+        "unbilled": "未开票",
+        "margin": "利润",
+        "revenue": "修订版（欧元）"
+      },
+      "showingTop": "显示 {{basis}} 的前 {{shown}} 个 {{total}} 客户",
+      "basisMargin": "利润",
+      "basisRevenue": "收入",
+      "viewLeaderboard": "查看完整排行榜"
+    }
+  }
+}

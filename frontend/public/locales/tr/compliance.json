@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Denetim izi",
+    "subtitle": "Uyumluluk incelemesi için sistem çapında denetim günlüğü.",
+    "loading": "Denetim takibi yükleniyor…",
+    "loadFailed": "Denetim takibi yüklenemedi.",
+    "empty": "Hiçbir denetim girişi bulunamadı.",
+    "columns": {
+      "when": "Ne zaman",
+      "user": "Kullanıcı",
+      "action": "Aksiyon",
+      "resource": "Kaynak",
+      "module": "Modül"
+    }
+  },
+  "dataExports": {
+    "title": "Veri dışa aktarma günlüğü",
+    "subtitle": "GDPR uyumluluğu açısından takip edilen kişisel veri aktarımları ve indirmeleri.",
+    "loading": "Dışa aktarma günlüğü yükleniyor…",
+    "loadFailed": "Dışa aktarma günlüğü yüklenemedi.",
+    "empty": "Henüz ihracat kaydedilmedi.",
+    "columns": {
+      "when": "Ne zaman",
+      "user": "Kullanıcı",
+      "resource": "Kaynak",
+      "clientId": "Müşteri Kimliği"
+    }
+  },
+  "retention": {
+    "title": "Saklama kuralları",
+    "subtitle": "Gecelik tarama işi (varsayılan saat 3:00) tarafından uygulanan GDPR saklama politikaları. Kaç kaydın etkileneceğini önizlemek için provayı kullanın.",
+    "noPermission": "Saklama kurallarını yönetme izniniz yok.",
+    "newRule": "Yeni kural",
+    "loading": "Saklama kuralları yükleniyor…",
+    "loadFailed": "Saklama kuralları yüklenemedi.",
+    "empty": "Henüz saklama kuralı yok.",
+    "dryRun": "Deneme sürüşü",
+    "dryRunAria": "Prova saklama kuralı",
+    "editAria": "Saklama kuralını düzenle",
+    "dryRunResult": "Deneme çalışması: {{count}} kayıt(lar)ını etkiler (kesme {{cutoff}}).",
+    "dryRunFailed": "Deneme çalıştırması başarısız oldu",
+    "auditTrailHint": "Temizleme geçmişini şurada görüntüleyin:",
+    "auditTrailLink": "denetim izi",
+    "auditTrailFilter": "(filtre eylemi: keep_rule_executed).",
+    "columns": {
+      "entity": "Varlık",
+      "condition": "Durum",
+      "retention": "Tutulma",
+      "action": "Aksiyon",
+      "status": "Durum",
+      "description": "Tanım"
+    },
+    "drawer": {
+      "createTitle": "Yeni saklama kuralı",
+      "editTitle": "Saklama kuralını düzenle",
+      "entityType": "Varlık türü",
+      "condition": "Durum",
+      "conditionRejected": "Durum = reddedildi",
+      "conditionNotConverted": "Dönüştürülmedi (reddedilenler hariç)",
+      "auditLogsHint": "Denetim günlüğü kuralları, saklama süresinden daha eski olan tüm kayıtlara uygulanır. Eylem her zaman silmedir.",
+      "retentionDays": "Saklama (gün)",
+      "action": "Aksiyon",
+      "description": "Tanım",
+      "status": "Durum",
+      "createRule": "Kural oluştur"
+    },
+    "entityTypes": {
+      "intake_leads": "Giriş potansiyel müşterileri",
+      "audit_logs": "Denetim günlükleri"
+    },
+    "actions": {
+      "anonymize": "Anonimleştir",
+      "delete": "Silmek"
+    },
+    "conditions": {
+      "allRecords": "Tüm kayıtlar",
+      "rejected": "Durum = reddedildi",
+      "notConverted": "Dönüştürülmedi (reddedilenler hariç)",
+      "noStatusFilter": "Durum filtresi yok"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Etkin değil"
+    },
+    "errors": {
+      "invalidDays": "Gün cinsinden geçerli bir saklama süresi girin",
+      "saveFailed": "Saklama kuralı kaydedilemedi",
+      "confirmSave": "Saklama kuralları, gecelik tarama işinde çalıştırılır (varsayılan saat 03:00). Kaydetmeye devam etmek istiyor musunuz?"
+    },
+    "duration": {
+      "days": "{{days}} gün",
+      "daysWithYears_one": "{{days}} gün ({{count}} yıl)",
+      "daysWithYears_other": "{{days}} gün ({{count}} yıl)",
+      "daysWithMonths_one": "{{days}} gün ({{count}} ay)",
+      "daysWithMonths_other": "{{days}} gün ({{count}} ay)",
+      "daysApproxYears": "{{days}} gün (~{{years}} yıl)",
+      "daysApproxMonths": "{{days}} gün (~{{months}} ay)"
+    }
+  }
+}

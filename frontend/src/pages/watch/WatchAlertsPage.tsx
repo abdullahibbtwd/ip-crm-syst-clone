@@ -130,7 +130,7 @@ export function WatchAlertsPage() {
               <SelectValue placeholder={t('filters.status')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {STATUSES.map((s) => (
                 <SelectItem key={s} value={s}>
                   {watchAlertStatusLabel(s)}
@@ -147,7 +147,7 @@ export function WatchAlertsPage() {
               <SelectValue placeholder={t('filters.jurisdiction')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {JURISDICTION_OPTIONS.map((opt) => (
                 <SelectItem key={opt.value} value={opt.value}>
                   {opt.label}
@@ -164,7 +164,7 @@ export function WatchAlertsPage() {
               <SelectValue placeholder={t('filters.source')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {SOURCES.map((s) => (
                 <SelectItem key={s} value={s}>
                   {registrySourceLabel(s)}

@@ -1,0 +1,87 @@
+{
+  "title": "Ausländische Partner",
+  "subtitle": "Lokale Vertreter und assoziierte Anwälte, die für Einreichungen und Sachanweisungen eingesetzt werden.",
+  "newPartner": "Neuer Partner",
+  "noPermission": "Sie sind nicht berechtigt, Partner anzuzeigen.",
+  "loading": "Partner werden geladen…",
+  "loadError": "Partner konnten nicht geladen werden.",
+  "empty": "Keine Partner entsprechen diesen Filtern.",
+  "searchPlaceholder": "Suchen Sie nach Name, Firma, E-Mail …",
+  "filters": {
+    "all": "Alle Partner",
+    "activeOnly": "Nur aktiv"
+  },
+  "columns": {
+    "name": "Name",
+    "company": "Unternehmen",
+    "email": "E-Mail",
+    "jurisdictions": "Gerichtsbarkeiten",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv"
+  },
+  "editAria": "Partner bearbeiten",
+  "deactivateAria": "Partner deaktivieren",
+  "confirmDeactivate": "Partner „{{name}}“ deaktivieren?",
+  "drawer": {
+    "createTitle": "Neuer Partner",
+    "editTitle": "Partner bearbeiten",
+    "name": "Name",
+    "company": "Unternehmen",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "countryCode": "Landesvorwahl",
+    "jurisdictions": "Gerichtsbarkeiten",
+    "jurisdictionsHint": "Durch Kommas getrennte Codes, z.B. BG, EU, EP",
+    "notes": "Notizen",
+    "status": "Status",
+    "cancel": "Stornieren",
+    "create": "Partner erstellen",
+    "save": "Änderungen speichern"
+  },
+  "errors": {
+    "nameRequired": "Name ist erforderlich",
+    "saveFailed": "Partner konnte nicht gespeichert werden"
+  },
+  "instructions": {
+    "title": "Partneranweisungen",
+    "subtitle": "Entwerfen, senden und verfolgen Sie diesbezügliche Anweisungen an ausländische Partner.",
+    "newDraft": "Neuer Entwurf",
+    "noPermission": "Sie sind nicht berechtigt, Partneranweisungen anzuzeigen.",
+    "loading": "Anweisungen werden geladen…",
+    "loadError": "Anweisungen konnten nicht geladen werden.",
+    "empty": "Noch keine Partneranweisungen.",
+    "columns": {
+      "title": "Titel",
+      "partner": "Partner",
+      "status": "Status",
+      "created": "Erstellt"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "sent": "Gesendet",
+      "acknowledged": "Anerkannt",
+      "complete": "Vollständig"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Partner auswählen",
+      "title": "Titel",
+      "body": "Anweisungen",
+      "cancel": "Stornieren",
+      "create": "Entwurf erstellen"
+    },
+    "errors": {
+      "required": "Partner und Titel sind erforderlich",
+      "saveFailed": "Anleitung konnte nicht erstellt werden"
+    }
+  },
+  "actions": {
+    "send": "Schicken",
+    "acknowledge": "Anerkennen",
+    "complete": "Vollständig"
+  }
+}

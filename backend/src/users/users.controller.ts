@@ -58,6 +58,13 @@ export class UsersController {
     return this.usersService.invite(dto);
   }
 
+  @Post(':id/resend-invite')
+  @RequirePermissions('user:create')
+  @Audit({ action: 'user.invite_resend', resource: 'user', module: 'users' })
+  resendInvite(@Param('id') id: string) {
+    return this.usersService.resendInvite(id);
+  }
+
   @Patch(':id/role')
   @RequirePermissions('user:update')
   @Audit({ action: 'user.role_update', resource: 'user', module: 'users' })

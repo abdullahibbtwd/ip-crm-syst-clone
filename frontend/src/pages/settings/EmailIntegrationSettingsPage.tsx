@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   AlertCircle,
   CheckCircle2,
@@ -27,21 +28,27 @@ const PROVIDER_ACCENTS: Record<MailboxProviderId, string> = {
   google: 'border-emerald-500/30 bg-emerald-500/5',
 }
 
-function formatSyncTime(iso: string | null) {
-  if (!iso) return 'Never synced'
-  return new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  }).format(new Date(iso))
-}
-
 export function EmailIntegrationSettingsPage() {
+  const { t } = useTranslation(['settings', 'common'])
   const [searchParams, setSearchParams] = useSearchParams()
   const { data: providers } = useMailboxProviders()
   const { data: connections, isLoading } = useMailboxConnections()
   const revoke = useRevokeMailboxConnection()
   const fetchEmails = useFetchMailboxEmails()
   const [banner, setBanner] = useState<string | null>(null)
+
+  const formatSyncTime = (iso: string | null) => {
+    if (!iso) return t('settings:emailIntegration.neverSynced')
+    return new Intl.DateTimeFormat(undefined, {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    }).format(new Date(iso))
+  }
+
+  const providerLabel = (id: MailboxProviderId) =>
+    id === 'microsoft'
+      ? t('settings:emailIntegration.microsoft365')
+      : t('settings:emailIntegration.googleWorkspace')
 
   const connectionByProvider = useMemo(() => {
     const map = new Map<MailboxProviderId, MailboxConnection>()
@@ -55,13 +62,17 @@ export function EmailIntegrationSettingsPage() {
     const connected = searchParams.get('connected')
     const error = searchParams.get('error')
     if (connected) {
-      setBanner(`Connected ${connected === 'microsoft' ? 'Microsoft 365' : 'Google Workspace'} successfully.`)
+      setBanner(
+        t('settings:emailIntegration.connectedSuccess', {
+          provider: providerLabel(connected as MailboxProviderId),
+        }),
+      )
       setSearchParams({}, { replace: true })
     } else if (error) {
       setBanner(decodeURIComponent(error))
       setSearchParams({}, { replace: true })
     }
-  }, [searchParams, setSearchParams])
+  }, [searchParams, setSearchParams, t])
 
   const connect = (provider: MailboxProviderId) => {
     window.location.href = `/api/email-integration/connect/${provider}`
@@ -73,16 +84,16 @@ export function EmailIntegrationSettingsPage() {
         <div>
           <p className="text-sm text-muted-foreground">
             <Link to="/settings" className="hover:text-foreground">
-              Settings
+              {t('settings:emailIntegration.breadcrumbSettings')}
             </Link>
             <span className="mx-2">/</span>
-            Email integration
+            {t('settings:emailIntegration.title')}
           </p>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Email integration</h1>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">
+            {t('settings:emailIntegration.title')}
+          </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Connect your work mailbox to sync inbound mail into the Email Queue and send replies
-            from the CRM. Requires Mail.Read + Mail.Send (Microsoft) or gmail.readonly + gmail.send
-            (Google). Reconnect after scope updates to grant send permission.
+            {t('settings:emailIntegration.description')}
           </p>
         </div>
         <Button
@@ -99,7 +110,7 @@ export function EmailIntegrationSettingsPage() {
           ) : (
             <RefreshCw className="size-4" />
           )}
-          Fetch 5 emails
+          {t('settings:emailIntegration.fetchEmails')}
         </Button>
       </div>
 
@@ -122,26 +133,26 @@ export function EmailIntegrationSettingsPage() {
                   <CardTitle className="text-base">{provider.name}</CardTitle>
                   {connection?.status === 'active' ? (
                     <Badge variant="outline" className="border-emerald-500/40 text-emerald-700">
-                      Connected
+                      {t('settings:emailIntegration.connected')}
                     </Badge>
                   ) : connection?.status === 'error' ? (
                     <Badge variant="outline" className="border-destructive/40 text-destructive">
-                      Error
+                      {t('settings:emailIntegration.error')}
                     </Badge>
                   ) : (
-                    <Badge variant="outline">Not connected</Badge>
+                    <Badge variant="outline">{t('settings:emailIntegration.notConnected')}</Badge>
                   )}
                 </div>
                 <CardDescription>
                   {provider.enabled
-                    ? 'Pull new inbox messages into the Email Queue.'
-                    : 'Not configured on this server (missing OAuth credentials).'}
+                    ? t('settings:emailIntegration.providerEnabledDescription')
+                    : t('settings:emailIntegration.providerDisabledDescription')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 {provider.enabled && provider.redirectUri ? (
                   <p className="rounded-md border border-dashed bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
-                    Register this redirect URI in your {provider.name} OAuth app:{' '}
+                    {t('settings:emailIntegration.redirectUriHint', { provider: provider.name })}{' '}
                     <code className="break-all font-mono text-foreground">
                       {provider.redirectUri}
                     </code>
@@ -151,7 +162,9 @@ export function EmailIntegrationSettingsPage() {
                   <>
                     <p className="text-sm font-medium">{connection.emailAddress}</p>
                     <p className="text-xs text-muted-foreground">
-                      Last sync: {formatSyncTime(connection.lastSyncAt)}
+                      {t('settings:emailIntegration.lastSync', {
+                        time: formatSyncTime(connection.lastSyncAt),
+                      })}
                     </p>
                     {connection.lastSyncError ? (
                       <p className="flex items-start gap-2 text-xs text-destructive">
@@ -167,7 +180,7 @@ export function EmailIntegrationSettingsPage() {
                         onClick={() => connect(provider.id)}
                       >
                         <Plug className="size-4" />
-                        Reconnect
+                        {t('settings:emailIntegration.reconnect')}
                       </Button>
                       <Button
                         size="sm"
@@ -177,7 +190,7 @@ export function EmailIntegrationSettingsPage() {
                         onClick={() => revoke.mutate(connection.id)}
                       >
                         <Unplug className="size-4" />
-                        Disconnect
+                        {t('settings:emailIntegration.disconnect')}
                       </Button>
                     </div>
                   </>
@@ -188,7 +201,7 @@ export function EmailIntegrationSettingsPage() {
                     onClick={() => connect(provider.id)}
                   >
                     <Mail className="size-4" />
-                    Connect {provider.name}
+                    {t('settings:emailIntegration.connect', { provider: provider.name })}
                   </Button>
                 )}
               </CardContent>
@@ -198,19 +211,23 @@ export function EmailIntegrationSettingsPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading connections…</p>
+        <p className="text-sm text-muted-foreground">
+          {t('settings:emailIntegration.loadingConnections')}
+        </p>
       ) : null}
 
       {fetchEmails.isSuccess ? (
         <p className="flex items-center gap-2 text-sm text-emerald-700">
           <CheckCircle2 className="size-4" />
-          Fetched up to {fetchEmails.data?.limit ?? 5} message(s) —{' '}
-          {fetchEmails.data?.ingested ?? 0} new in queue.
+          {t('settings:emailIntegration.fetchSuccess', {
+            limit: fetchEmails.data?.limit ?? 5,
+            ingested: fetchEmails.data?.ingested ?? 0,
+          })}
         </p>
       ) : null}
       {fetchEmails.isError ? (
         <p className="text-sm text-destructive">
-          {getApiErrorMessage(fetchEmails.error, 'Failed to fetch emails')}
+          {getApiErrorMessage(fetchEmails.error, t('settings:emailIntegration.fetchFailed'))}
         </p>
       ) : null}
     </div>

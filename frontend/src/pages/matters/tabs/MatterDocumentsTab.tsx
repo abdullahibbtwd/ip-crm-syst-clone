@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Download, FileText, Plus, Upload } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -30,7 +31,6 @@ import {
 } from '@/features/documents/hooks/useDocuments'
 import type { DocumentCategory } from '@/features/documents/types'
 import {
-  DOCUMENT_CATEGORY_LABELS,
   formatDocumentDate,
   formatFileSize,
 } from '@/features/documents/utils'
@@ -38,9 +38,17 @@ import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 import type { MatterTabContext } from '../MatterLayout'
 
-const CATEGORIES = Object.keys(DOCUMENT_CATEGORY_LABELS) as DocumentCategory[]
+const CATEGORIES: DocumentCategory[] = [
+  'application',
+  'office_action',
+  'evidence',
+  'certificate',
+  'correspondence',
+  'renewal',
+]
 
 export function MatterDocumentsTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
   const [categoryFilter, setCategoryFilter] = useState<DocumentCategory | 'all'>('all')
   const [searchInput, setSearchInput] = useState('')
@@ -94,7 +102,7 @@ export function MatterDocumentsTab() {
     e.preventDefault()
     setError(null)
     if (!file) {
-      setError('Choose a file to upload')
+      setError(t('documents.chooseFile'))
       return
     }
     try {
@@ -107,7 +115,7 @@ export function MatterDocumentsTab() {
       resetForm()
       setDrawerOpen(false)
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Upload failed'))
+      setError(getApiErrorMessage(err, t('documents.errorUpload')))
     }
   }
 
@@ -118,11 +126,11 @@ export function MatterDocumentsTab() {
     e.preventDefault()
     setError(null)
     if (!selectedTemplateId) {
-      setError('Choose a letter template')
+      setError(t('documents.chooseTemplate'))
       return
     }
     if (generateFormat === 'docx' && !canGenerateDocx) {
-      setError('This template has no Word (.docx) file uploaded')
+      setError(t('documents.errorNoDocx'))
       return
     }
     try {
@@ -134,11 +142,11 @@ export function MatterDocumentsTab() {
       setSelectedTemplateId('')
       setGenerateFormat('pdf')
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Document generation failed'))
+      setError(getApiErrorMessage(err, t('documents.errorGeneration')))
     }
   }
 
-  if (isError) return <p className="text-sm text-destructive">Failed to load documents.</p>
+  if (isError) return <p className="text-sm text-destructive">{t('documents.error')}</p>
 
   const rows = documents ?? []
   const showInitialLoading = isLoading && rows.length === 0
@@ -147,10 +155,8 @@ export function MatterDocumentsTab() {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="font-medium">Documents</h2>
-          <p className="text-sm text-muted-foreground">
-            Filing cabinet for this matter - upload PDFs, Word files, and evidence.
-          </p>
+          <h2 className="font-medium">{t('documents.title')}</h2>
+          <p className="text-sm text-muted-foreground">{t('documents.description')}</p>
         </div>
         <PermissionGate resource="document" action="create">
           <div className="flex flex-wrap gap-2">
@@ -166,7 +172,7 @@ export function MatterDocumentsTab() {
               disabled={!templates?.length}
             >
               <FileText className="size-4" />
-              Generate document
+              {t('documents.generate')}
             </Button>
             <Button
               size="sm"
@@ -176,7 +182,7 @@ export function MatterDocumentsTab() {
               }}
             >
               <Plus className="size-4" />
-              Upload new document
+              {t('documents.uploadNew')}
             </Button>
           </div>
         </PermissionGate>
@@ -184,7 +190,7 @@ export function MatterDocumentsTab() {
 
       <div className="flex flex-wrap gap-3">
         <Input
-          placeholder="Search name or tags…"
+          placeholder={t('documents.search')}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           className="max-w-xs"
@@ -194,13 +200,13 @@ export function MatterDocumentsTab() {
           onValueChange={(v) => setCategoryFilter((v as DocumentCategory | 'all') ?? 'all')}
         >
           <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="All categories" />
+            <SelectValue placeholder={t('documents.allCategories')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All categories</SelectItem>
+            <SelectItem value="all">{t('documents.allCategories')}</SelectItem>
             {CATEGORIES.map((c) => (
               <SelectItem key={c} value={c}>
-                {DOCUMENT_CATEGORY_LABELS[c]}
+                {t(`correspondence.category.${c}`)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -210,11 +216,11 @@ export function MatterDocumentsTab() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Display name</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Tags</TableHead>
-            <TableHead>Version</TableHead>
-            <TableHead>Uploaded</TableHead>
+            <TableHead>{t('documents.table.displayName')}</TableHead>
+            <TableHead>{t('documents.table.category')}</TableHead>
+            <TableHead>{t('documents.table.tags')}</TableHead>
+            <TableHead>{t('documents.table.version')}</TableHead>
+            <TableHead>{t('documents.table.uploaded')}</TableHead>
             <TableHead className="w-[100px]" />
           </TableRow>
         </TableHeader>
@@ -222,13 +228,13 @@ export function MatterDocumentsTab() {
           {showInitialLoading ? (
             <TableRow>
               <TableCell colSpan={6} className="py-12 text-center text-muted-foreground">
-                Loading documents…
+                {t('documents.loading')}
               </TableCell>
             </TableRow>
           ) : rows.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6} className="py-12 text-center text-muted-foreground">
-                No documents yet. Upload your first filing package or office action.
+                {t('documents.empty')}
               </TableCell>
             </TableRow>
           ) : (
@@ -244,7 +250,7 @@ export function MatterDocumentsTab() {
                 </TableCell>
                 <TableCell>
                   <Badge variant="outline" className="normal-case">
-                    {DOCUMENT_CATEGORY_LABELS[doc.category]}
+                    {t(`correspondence.category.${doc.category}`)}
                   </Badge>
                 </TableCell>
                 <TableCell>
@@ -257,7 +263,7 @@ export function MatterDocumentsTab() {
                       ))}
                     </div>
                   ) : (
-                    <span className="text-muted-foreground">-</span>
+                    <span className="text-muted-foreground">{t('yesNo.dash', { ns: 'common' })}</span>
                   )}
                 </TableCell>
                 <TableCell className="text-muted-foreground">
@@ -266,7 +272,7 @@ export function MatterDocumentsTab() {
                 <TableCell className="text-muted-foreground">
                   {doc.latestVersion
                     ? formatDocumentDate(doc.latestVersion.createdAt)
-                    : '-'}
+                    : t('yesNo.dash', { ns: 'common' })}
                 </TableCell>
                 <TableCell>
                   <Button
@@ -284,7 +290,7 @@ export function MatterDocumentsTab() {
         </TableBody>
       </Table>
 
-      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} title="Upload document">
+      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} title={t('documents.upload')}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div
             className={cn(
@@ -308,13 +314,13 @@ export function MatterDocumentsTab() {
               <p className="text-sm font-medium">{file.name}</p>
             ) : (
               <p className="text-sm text-muted-foreground">
-                Drag a file here, or{' '}
+                {t('documents.dragDrop')}{' '}
                 <button
                   type="button"
                   className="text-primary underline"
                   onClick={() => fileInputRef.current?.click()}
                 >
-                  browse
+                  {t('documents.browse')}
                 </button>
               </p>
             )}
@@ -328,16 +334,16 @@ export function MatterDocumentsTab() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Display name</label>
+            <label className="text-sm text-muted-foreground">{t('documents.displayName')}</label>
             <Input
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
-              placeholder="e.g. BPO Filing Package - Final"
+              placeholder={t('documents.displayNamePlaceholder')}
             />
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Category</label>
+            <label className="text-sm text-muted-foreground">{t('documents.category')}</label>
             <Select value={category} onValueChange={(v) => v && setCategory(v as DocumentCategory)}>
               <SelectTrigger>
                 <SelectValue />
@@ -345,7 +351,7 @@ export function MatterDocumentsTab() {
               <SelectContent>
                 {CATEGORIES.map((c) => (
                   <SelectItem key={c} value={c}>
-                    {DOCUMENT_CATEGORY_LABELS[c]}
+                    {t(`correspondence.category.${c}`)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -353,23 +359,23 @@ export function MatterDocumentsTab() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Tags</label>
+            <label className="text-sm text-muted-foreground">{t('documents.tags')}</label>
             <Input
               value={tags}
               onChange={(e) => setTags(e.target.value)}
-              placeholder="urgent, bpo, client-approved"
+              placeholder={t('documents.tagsPlaceholder')}
             />
-            <p className="text-xs text-muted-foreground">Comma-separated keywords for search</p>
+            <p className="text-xs text-muted-foreground">{t('documents.tagsHint')}</p>
           </div>
 
           {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
           <div className="flex justify-end gap-2 border-t pt-4">
             <Button type="button" variant="outline" onClick={() => setDrawerOpen(false)}>
-              Cancel
+              {t('actions.cancel', { ns: 'common' })}
             </Button>
             <Button type="submit" disabled={uploadDocument.isPending}>
-              {uploadDocument.isPending ? 'Uploading…' : 'Upload'}
+              {uploadDocument.isPending ? t('documents.uploading') : t('documents.uploadAction')}
             </Button>
           </div>
         </form>
@@ -378,13 +384,10 @@ export function MatterDocumentsTab() {
       <Drawer
         open={generateOpen}
         onClose={() => setGenerateOpen(false)}
-        title="Generate document"
+        title={t('documents.generate')}
       >
         <form onSubmit={handleGenerate} className="space-y-4">
-          <p className="text-sm text-muted-foreground">
-            Pick a letter template. Matter and client details are filled in automatically and saved
-            in this folder.
-          </p>
+          <p className="text-sm text-muted-foreground">{t('documents.generateDescription')}</p>
 
           <div className="space-y-2">
             {(templates ?? []).map((template) => (
@@ -414,7 +417,7 @@ export function MatterDocumentsTab() {
                     <span className="font-medium">{template.name}</span>
                     {template.hasDocx ? (
                       <Badge variant="info" className="font-normal normal-case">
-                        Word
+                        {t('documents.word')}
                       </Badge>
                     ) : null}
                   </span>
@@ -427,12 +430,12 @@ export function MatterDocumentsTab() {
               </label>
             ))}
             {!templates?.length ? (
-              <p className="text-sm text-muted-foreground">No templates available.</p>
+              <p className="text-sm text-muted-foreground">{t('documents.noTemplates')}</p>
             ) : null}
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Format</label>
+            <label className="text-sm text-muted-foreground">{t('documents.format')}</label>
             <Select
               value={generateFormat}
               onValueChange={(v) => setGenerateFormat((v as 'pdf' | 'docx') ?? 'pdf')}
@@ -443,7 +446,7 @@ export function MatterDocumentsTab() {
               <SelectContent>
                 <SelectItem value="pdf">PDF</SelectItem>
                 <SelectItem value="docx" disabled={!canGenerateDocx}>
-                  Word (.docx){!canGenerateDocx ? ' — not available' : ''}
+                  Word (.docx){!canGenerateDocx ? t('documents.notAvailable') : ''}
                 </SelectItem>
               </SelectContent>
             </Select>
@@ -453,14 +456,14 @@ export function MatterDocumentsTab() {
 
           <div className="flex justify-end gap-2 border-t pt-4">
             <Button type="button" variant="outline" onClick={() => setGenerateOpen(false)}>
-              Cancel
+              {t('actions.cancel', { ns: 'common' })}
             </Button>
             <Button type="submit" disabled={generateDocument.isPending || !selectedTemplateId}>
               {generateDocument.isPending
-                ? 'Generating…'
+                ? t('documents.generating')
                 : generateFormat === 'docx'
-                  ? 'Generate Word'
-                  : 'Generate PDF'}
+                  ? t('documents.generateWord')
+                  : t('documents.generatePdf')}
             </Button>
           </div>
         </form>

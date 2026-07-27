@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Genehmigen – kein Konflikt",
+    "checkedAt": "Geprüft {{date}}",
+    "cleared": "Keine Konflikte festgestellt",
+    "clearedForConversion": "Keine ähnlichen Namen gefunden – zur Konvertierung freigegeben",
+    "description": "Fuzzy-Suche über Kunden, Kontakte, verbundene Unternehmen und erfasste Gegenparteien hinweg. Übereinstimmungen mit mehr als 30 % zusammengesetzter Ähnlichkeit werden zur Überprüfung markiert.",
+    "flaggedMatches": "{{count}} potenzielle Übereinstimmung(en) – Überprüfung erforderlich",
+    "entityType": {
+      "client": "Kunde",
+      "contact": "Kontakt",
+      "counterparty": "Gegenpartei",
+      "ip_right": "Schutzrechts-/Markenregister",
+      "matter": "Vorhandene Materie",
+      "related_company": "Verbundenes Unternehmen",
+      "sign": "Unterzeichnen/vermerken Sie die Datei"
+    },
+    "flagged": "Mögliche Konflikte gefunden",
+    "matchedOn": "Abgestimmt am {{field}}",
+    "matchedTerm": "Entspricht „{{term}}“ auf {{field}}",
+    "mpOverride": "MP-Überschreibung",
+    "rejectLead": "Lead ablehnen",
+    "reviewHint": "Ähnliche Namen werden zur menschlichen Überprüfung angezeigt. Genehmigen Sie, wenn kein echter Konflikt besteht, oder lehnen Sie ab, wenn der Lead nicht fortfahren kann.",
+    "run": "Führen Sie eine Konfliktprüfung durch",
+    "running": "Läuft…",
+    "similarPct": "{{pct}} ähnlich",
+    "similarity": "Ähnlichkeit",
+    "title": "Konfliktprüfung"
+  },
+  "convert": {
+    "button": "In Materie umwandeln",
+    "clientLabel": "Kunde:",
+    "conversionFailed": "Die Konvertierung ist fehlgeschlagen",
+    "converting": "Konvertieren…",
+    "existingPortalAccount": "(bestehendes Portalkonto)",
+    "invalidForm": "Ungültiges Formular",
+    "matterLabel": "Gegenstand:",
+    "none": "Keiner",
+    "portalDescription": "Öffnet eine Angelegenheit unter dem bestehenden Konto des Portalkunden – kein doppelter Kundendatensatz.",
+    "standardDescription": "Erstellt einen Kundendatensatz und öffnet eine Angelegenheit in einem Schritt – keine erneute Eingabe von Anfragedetails. In diesem Schritt ist eine DSGVO-Zustimmung erforderlich.",
+    "willCreate": "Werde schaffen",
+    "converted": "In Materie umgewandelt",
+    "gdprConsent": "Ich bestätige, dass von diesem Anfragenden die DSGVO-Zustimmung eingeholt wurde.",
+    "holdingGroup": "Holding-Gruppe (optional)",
+    "openMatter": "Offene Angelegenheit",
+    "preview": "Materievorschau",
+    "title": "In Kunde und Angelegenheit umwandeln",
+    "viewClient": "Kunden ansehen"
+  },
+  "counterparty": {
+    "add": "Party hinzufügen",
+    "editor": {
+      "add": "Gegenpartei/Konkurrent hinzufügen",
+      "company": "Unternehmen",
+      "name": "Name",
+      "notes": "Notizen",
+      "party": "Party {{n}}",
+      "relationship": "Beziehung *"
+    },
+    "relationship": {
+      "adverse_party": "Gegenpartei",
+      "competitor": "Wettbewerberin",
+      "licensee": "Lizenznehmer",
+      "licensor": "Lizenzgeber"
+    },
+    "save": "Party retten",
+    "section": {
+      "description": "Parteien, die einen Interessenkonflikt verursachen können.",
+      "title": "Gegenparteien/Konkurrenten",
+      "unnamed": "Unbenannte Partei"
+    }
+  },
+  "create": {
+    "back": "← Zurück zur Aufnahme",
+    "description": "Erfassen Sie eine neue Anfrage vor der Konfliktprüfung und Konvertierung.",
+    "title": "Neue Anfrage"
+  },
+  "detail": {
+    "back": "← Zurück zur Einlasswarteschlange",
+    "company": "Unternehmen",
+    "contactName": "Kontaktname",
+    "country": "Land",
+    "converted": "Diese Anfrage wurde umgewandelt.",
+    "description": "Beschreibung",
+    "email": "E-Mail",
+    "enquiryDetails": "Anfragedetails",
+    "error": "Das Laden des Einlasskabels ist fehlgeschlagen.",
+    "fullName": "Vollständiger Name",
+    "internalNotes": "Interne Notizen",
+    "loading": "Laden…",
+    "loadingLead": "Einlassleitung wird geladen…",
+    "notAssigned": "Nicht zugewiesen",
+    "matterType": "Materietyp",
+    "notFound": "Ansaugleitung nicht gefunden.",
+    "phone": "Telefon",
+    "portalSubmission": "Portaleinreichung",
+    "referralSource": "Empfehlungsquelle",
+    "referredBy": "Empfohlen von",
+    "responsibleAttorney": "Verantwortlicher Anwalt",
+    "type": "Typ",
+    "urgency": "Dringlichkeit",
+    "urgent": "Dringend"
+  },
+  "form": {
+    "companyName": "Name der Firma *",
+    "description": "Beschreibung",
+    "email": "E-Mail",
+    "enquirerType": "Typ des Anfragenden",
+    "error": "Fehler beim Erstellen des Einlass-Leads",
+    "fullName": "Vollständiger Name *",
+    "matterType": "Materietyp *",
+    "phone": "Telefon",
+    "referralSource": "Empfehlungsquelle",
+    "submit": "Anfrage absenden",
+    "submitInternal": "Erstellen Sie einen Einlass-Lead",
+    "type": {
+      "company": "Unternehmen",
+      "individual": "Person"
+    },
+    "urgent": "Als dringend markieren"
+  },
+  "list": {
+    "description": "Überprüfen Sie eingehende Anfragen, führen Sie Konfliktprüfungen durch und konvertieren Sie genehmigte Leads.",
+    "empty": "Keine Einlassleitungen gefunden",
+    "emptyDescription": "Versuchen Sie, Filter anzupassen oder eine neue Anfrage zu erstellen.",
+    "error": "Die Einlassleitungen konnten nicht geladen werden.",
+    "new": "Neue Anfrage",
+    "searchPlaceholder": "Name oder E-Mail suchen…",
+    "title": "Einlasswarteschlange"
+  },
+  "matterType": {
+    "design": "Design",
+    "other": "Andere",
+    "patent": "Patent",
+    "trademark": "Warenzeichen",
+    "utility_model": "Gebrauchsmuster"
+  },
+  "referralSource": {
+    "email": "E-Mail",
+    "other": "Andere",
+    "phone": "Telefon",
+    "referral": "Verweisung",
+    "walk_in": "Begehbar",
+    "website": "Webseite"
+  },
+  "status": {
+    "approved": "Genehmigt",
+    "conflict_check": "Konfliktprüfung",
+    "conflict_flagged": "Konflikt gekennzeichnet",
+    "converted": "Konvertiert",
+    "new": "Neu",
+    "rejected": "Abgelehnt",
+    "reviewing": "Überprüfung"
+  },
+  "table": {
+    "date": "Erhalten",
+    "matterType": "Materietyp",
+    "name": "Nachfrager",
+    "portal": "Portal",
+    "referral": "Quelle",
+    "status": "Status",
+    "urgent": "Dringend",
+    "viewAria": "Anzeigen {{name}}"
+  },
+  "unknownCompany": "Unbekanntes Unternehmen",
+  "unknownIndividual": "Unbekannte Person"
+}

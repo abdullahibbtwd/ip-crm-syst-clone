@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Klient",
+  "disbursements": {
+    "title": "Väljamaksed",
+    "subtitle": "Kogu ettevõtet hõlmavad fikseeritud tasud, mis liigitatakse väljamakseteks.",
+    "loadFailed": "Väljamaksete laadimine ebaõnnestus.",
+    "empty": "Väljamakseid ei leitud.",
+    "columns": {
+      "date": "Kuupäev",
+      "matter": "Asi",
+      "description": "Kirjeldus",
+      "amount": "Summa"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Väljamakse",
+    "expense": "Kulu",
+    "professional_fee": "Professionaalne tasu"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Laadi alla",
+      "issue": "probleem",
+      "pay": "Maksa",
+      "void": "Tühine"
+    },
+    "confirmIssue": "Kas väljastada see arve?",
+    "confirmVoid": "Kas tühistada see arve? Seda ei saa tagasi võtta.",
+    "createFromUnbilled": "Loo arve arveta",
+    "description": "Jälgige väljastatud arveid, makse olekut ja jooksvaid saldosid.",
+    "draft": "Mustand",
+    "empty": "Arveid ei leitud",
+    "emptyDescription": "Proovige kohandada filtreid või koostada arveta tööst arve.",
+    "error": "Arvete laadimine ebaõnnestus.",
+    "invoiceStatus": {
+      "draft": "Mustand",
+      "issued": "Välja antud",
+      "void": "Tühine"
+    },
+    "loading": "Arvete laadimine…",
+    "noPermission": "Teil pole luba arveid vaadata.",
+    "searchPlaceholder": "Otsi arve nr. või klient...",
+    "sectionTitle": "Arved",
+    "table": {
+      "amount": "Summa",
+      "client": "Klient",
+      "due": "Tähtaeg",
+      "invoiceNo": "Arve nr.",
+      "issued": "Välja antud",
+      "payment": "Makse",
+      "status": "Olek"
+    },
+    "title": "Arved",
+    "listSubtitle": "Ettevõtteülene arvete register kõigis küsimustes. Väljastage arveid asjaarvelduse vahekaartidelt, seejärel salvestage maksed siia.",
+    "exportFrom": "Ekspordi asukohast",
+    "exportTo": "Ekspordi asukohta",
+    "exportFormats": {
+      "journal": "Ajakiri CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooksi CSV"
+    },
+    "exporting": "Eksportimine…",
+    "exportFailed": "Raamatupidamise eksport ebaõnnestus",
+    "syncXero": "Sünkrooni Xero",
+    "syncQuickBooks": "Sünkrooni QuickBooks",
+    "syncFailed": "Raamatupidamise sünkroonimine ebaõnnestus",
+    "searchListPlaceholder": "Otsi arve nr, asja, klient…",
+    "filters": {
+      "allPayments": "Kõik maksed",
+      "allStatuses": "Kõik olekud"
+    }
+  },
+  "payment": {
+    "amount": "Summa *",
+    "balance": "Silmapaistev tasakaal",
+    "date": "Makse kuupäev*",
+    "drawerTitle": "Registreeri makse",
+    "error": "Makse registreerimine ebaõnnestus",
+    "method": "Makseviis*",
+    "methods": {
+      "bank_transfer": "Pangaülekanne",
+      "card": "Kaart",
+      "cash": "sularaha",
+      "other": "muud"
+    },
+    "notes": "Märkmed",
+    "reference": "Viide",
+    "save": "Registreeri makse",
+    "success": "Makse registreerimine õnnestus.",
+    "validation": {
+      "amount": "Summa peab olema suurem kui null",
+      "exceeds": "Summa ületab tasumata saldot"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Tasuline",
+    "partial": "Osaliselt tasutud",
+    "unpaid": "Tasumata"
+  },
+  "rateCards": {
+    "any": "Ükskõik milline",
+    "create": "Loo hinnakaart",
+    "description": "Seadistage arveldusmäärad rolli, asja tüübi ja jõustumiskuupäeva järgi.",
+    "drawerTitle": "Uus hinnakaart",
+    "drawerTitleEdit": "Muutke hinnakaarti",
+    "effectiveFrom": "Kehtib alates *",
+    "effectiveTo": "Tõhus, et",
+    "error": "Hinnakaardi salvestamine ebaõnnestus",
+    "firmWide": "Ettevõtte lai",
+    "internalCost": "Sisekulu / h",
+    "matterType": "Aine tüüp",
+    "new": "Uus hinnakaart",
+    "noPermission": "Teil pole hinnakaartide haldamise luba.",
+    "viewNoPermission": "Teil pole luba hinnakaarte vaadata.",
+    "rate": "Hind tunnis*",
+    "role": "Roll*",
+    "save": "Salvestage muudatused",
+    "scope": "Ulatus",
+    "table": {
+      "effective": "Tõhus",
+      "internalCost": "Sisekulu",
+      "matterType": "Aine tüüp",
+      "rate": "Hinda",
+      "role": "Roll",
+      "scope": "Ulatus"
+    },
+    "title": "Hindamiskaardid",
+    "pageDescription": "Kindel hinnakiri rolli, asja tüübi ja valikulise kliendi alistamise järgi. Logimise aja puhul kasutatakse arveldatavat määra; valikulised sisekulud suurendavad tõelist kasumlikkust.",
+    "anyMatterType": "Mis tahes tüüpi aine",
+    "clientOverride": "Kliendi alistamine",
+    "firmWideDefault": "Vaikimisi kogu ettevõttes",
+    "editAria": "Muutke hinnakaarti",
+    "loadFailed": "Hinnakaartide laadimine ebaõnnestus.",
+    "loading": "Hinnakaartide laadimine…",
+    "empty": "Hinnakaarte veel pole.",
+    "billable": "Arveldatav",
+    "validation": {
+      "hourlyRate": "Sisestage kehtiv tunnihind",
+      "internalCost": "Sisestage kehtiv sisekulu või jätke tühjaks"
+    },
+    "internalCostHint": "Valikuline. Kasutatakse tõelise marginaali kasumlikkuse tagamiseks, kui see on määratud hinnakaartidel.",
+    "billableRate": "Arveldatav määr (EUR/h)",
+    "internalCostOptional": "Sisekulu (EUR/h)",
+    "internalCostPlaceholder": "Valikuline – marginaali aruandluse jaoks",
+    "internalCostResolutionHint": "Peegeldab arveldusmäära eraldusvõimet (klient → firma + asja tüüp → kindel vaikimisi). Uutest ajakirjetest tehtud hetktõmmis kui kulu_hetktõmmis.",
+    "effectiveToOptional": "Kehtib kuni (valikuline)"
+  },
+  "rateRole": {
+    "coordinator": "Koordinaator",
+    "ip_attorney": "IP-advokaat",
+    "managing_partner": "Juhtiv partner",
+    "paralegal": "Paralegal",
+    "trademark_attorney": "Kaubamärgiadvokaat"
+  },
+  "billingOverview": {
+    "collectedHint": "Kogutud perioodil",
+    "collectedLabel": "Kogutud",
+    "criticalHint": "Viivis 60+ päeva",
+    "criticalLabel": "Kriitiline risk",
+    "description": "Tulude tervis (arved) pluss hinnakaardi valmidus (hinnakaardid + sisekulude kate).",
+    "error": "Arvelduse ülevaate laadimine ebaõnnestus.",
+    "invoicedHint": "{{count}} arveid perioodis",
+    "invoicedLabel": "Arve",
+    "internalCostHintRevenue": "Tulu-puhverserveri alus",
+    "internalCostHintTrueMargin": "Tõelise marginaali alus on lubatud",
+    "internalCostLabel": "Sisekulu",
+    "manageRateCards": "Hinnakaartide haldamine",
+    "nextStep": "Järgmine samm",
+    "nextStepFix": "Fikseerige määrade katvus /rate-kaartides",
+    "nextStepHealthy": "Hindade katvus on tervislik",
+    "nextStepHint": "Arvelduskokkuvõtted on täpsemad, kui iga arveldatava aja kanne lahendab määra.",
+    "noPermissionBilling": "Teil pole arvelduse vaatamise luba.",
+    "noPermissionInvoice": "Teil pole luba arvete andmete vaatamiseks.",
+    "openFullReport": "Ava täielik aruanne",
+    "outstandingHint": "{{count}} avatud nõuded",
+    "outstandingLabel": "Silmapaistev",
+    "rateCardHealth": "Hinnakaardi tervis",
+    "rateCardHealthDescription": "Kas arveldusmäärad on seadistatud ja kas marginaalid on valmis?",
+    "rateCardsHintConfigured": "Hinnad saadaval",
+    "rateCardsHintMissing": "Hinnakaarte pole konfigureeritud",
+    "rateCardsLabel": "Hindamiskaardid",
+    "receivablesAging": "Nõuded vananevad",
+    "receivablesHint": "Kasutage tabelite ja üksikasjade jaoks täielikku aruannet.",
+    "tip": "Näpunäide. Hinnakaartide sisekulud juhivad seda, kas süsteem suudab arvutada tõelise marginaali kasumlikkuse.",
+    "title": "Arvelduse ülevaade",
+    "unratedHintBad": "Mõnel arveldataval kirjel on 0-eurose määra hetketõmmis",
+    "unratedHintGood": "Näeb hea välja",
+    "unratedLabel": "Hindamata ajakirjed"
+  },
+  "summary": {
+    "billable": "Arveldatav",
+    "billableAmount": "Arveldatav summa",
+    "fixedFees": "Fikseeritud tasud",
+    "total": "Kokku",
+    "totalHours": "Tunnid kokku",
+    "unbilled": "Arveta"
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Actual",
+      "overdue30": "1 a 30 días",
+      "overdue60": "31–60 días",
+      "overdue90plus": "90+ días"
+    },
+    "bucketsShort": {
+      "current": "Actual",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Leyenda del envejecimiento",
+    "noOpenReceivables": "No hay cuentas por cobrar abiertas"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} grupo de clientes",
+    "clientGroups_other": "{{count}} grupos de clientes",
+    "clientMatters": "Asuntos del cliente",
+    "clientsInWindow": "{{clients}} clientes · {{days}} horizonte diurno",
+    "crossTabTitle": "Cliente × jurisdicción × abogado",
+    "description": "Próximos plazos críticos agrupados por cliente, jurisdicción y abogado responsable. Los colores de urgencia coinciden con las listas de trabajo de fechas límite y los hitos de notificación.",
+    "emptyDescription": "Intente ampliar la ventana del portafolio o borrar los filtros.",
+    "emptyTitle": "No hay fechas límite en esta ventana",
+    "error": "No se pudo cargar el informe de riesgo de fecha límite.",
+    "filters": {
+      "allAssignees": "Todas las cesionarias",
+      "allAttorneys": "Todas las abogadas",
+      "allJurisdictions": "Todas las jurisdicciones",
+      "jurisdiction": "Jurisdicción",
+      "portfolioWindow": "Ventana de cartera (días)",
+      "responsibleAttorney": "abogado responsable"
+    },
+    "generated": "Generado {{date}}",
+    "loading": "Cargando riesgo de cartera…",
+    "openWorklist": "Abrir lista de trabajo",
+    "stats": {
+      "critical": "Crítica",
+      "criticalHint": "Vencido, hoy o ≤7 días",
+      "dueToday": "Vencimiento hoy",
+      "dueTodayHint": "Se requiere acción hoy",
+      "inWindow": "en ventana",
+      "overdue": "Atrasada",
+      "overdueHint": "Vencido o escalado"
+    },
+    "table": {
+      "deadline": "Fecha límite",
+      "due": "Pendiente",
+      "matter": "Asunto",
+      "status": "Estado"
+    },
+    "title": "Riesgo de cartera de plazo"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Por jurisdicción",
+    "byMonth": "Presentaciones por mes",
+    "description": "Solicitudes presentadas: agregadas a partir de eventos de presentación del cronograma de asuntos, agrupadas por mes, tipo de asunto y jurisdicción.",
+    "error": "No se pudieron cargar los volúmenes de archivo.",
+    "filters": {
+      "allJurisdictions": "Todas las jurisdicciones",
+      "allTypes": "Todos los tipos",
+      "jurisdiction": "Jurisdicción",
+      "matterType": "tipo de asunto",
+      "periodFrom": "Periodo desde",
+      "periodTo": "Periodo hasta"
+    },
+    "generated": "Generado {{date}}",
+    "loading": "Cargando volúmenes de archivo…",
+    "matterPortfolio": "cartera de asuntos",
+    "noFilings": "No hay presentaciones en el período.",
+    "stats": {
+      "jurisdictions": "Jurisdicciones",
+      "jurisdictionsHint": "Autoridades de presentación",
+      "matterTypes": "tipos de materia",
+      "matterTypesHint": "Tipos distintos archivados",
+      "totalFilings": "Presentaciones totales",
+      "totalFilingsHint": "En el periodo seleccionado"
+    },
+    "table": {
+      "filingDate": "Fecha de presentación",
+      "filings": "Limaduras",
+      "jurisdiction": "Jurisdicción",
+      "matter": "Asunto",
+      "month": "Mes",
+      "type": "Tipo"
+    },
+    "title": "Volúmenes de presentación"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Por mes de vencimiento",
+    "byJurisdiction": "Por jurisdicción",
+    "cycle": "ciclo {{number}}",
+    "description": "Próximos períodos de renovación por estado, jurisdicción y mes de vencimiento, con niveles de urgencia alineados con los informes de riesgo de fecha límite.",
+    "dueBefore": "Vencimiento antes",
+    "dueBeforeLabel": "Vencimiento antes del {{date}}",
+    "error": "No se pudo cargar el resumen de renovaciones.",
+    "filters": {
+      "allJurisdictions": "Todas las jurisdicciones",
+      "jurisdiction": "Jurisdicción"
+    },
+    "generated": "Generado {{date}}",
+    "loading": "Cargando resumen de renovaciones…",
+    "noRenewals": "No hay renovaciones en ventana.",
+    "renewalsWorklist": "Lista de trabajo de renovaciones",
+    "stats": {
+      "critical": "Crítica",
+      "criticalHint": "Vencido o vencido ≤7 días",
+      "instructed": "Instruida",
+      "instructedHint": "Proceder confirmada",
+      "pipeline": "Tubería",
+      "pipelineHint": "Ventanas de renovación activa",
+      "upcoming": "Próxima",
+      "upcomingHint": "Esperando instrucción"
+    },
+    "table": {
+      "client": "Cliente",
+      "due": "Pendiente",
+      "ipRight": "derecho de propiedad intelectual",
+      "month": "Mes",
+      "status": "Estado",
+      "windows": "ventanas"
+    },
+    "title": "Resumen de renovaciones"
+  },
+  "renewalUrgency": {
+    "legend": "Urgencia de renovación",
+    "noPipeline": "Sin renovaciones de oleoductos",
+    "overdue": "Atrasada",
+    "soon": "≤30 días",
+    "today": "Vencimiento hoy",
+    "urgent": "≤7 días"
+  },
+  "revenueSummary": {
+    "agingDetail": "Detalle de cuentas por cobrar abiertas",
+    "agingSection": {
+      "description": "Resumen de todas las cuentas por cobrar abiertas por días de vencimiento",
+      "title": "Resumen de envejecimiento"
+    },
+    "description": "Totales de facturas emitidas por mes, cobros y cuentas por cobrar abiertas con antigüedad por días de vencimiento, alineados con el escenario de seguimiento de pagos de Finanzas.",
+    "error": "No se pudo cargar el resumen de ingresos.",
+    "filters": {
+      "periodFrom": "Periodo desde",
+      "periodTo": "Periodo hasta"
+    },
+    "generated": "Generado {{date}}",
+    "invoice_one": "{{count}} factura",
+    "invoice_other": "{{count}} facturas",
+    "invoiceRegister": "registro de facturas",
+    "issuedInPeriod_one": "resumendeingresos.emitidoEnPeriodo",
+    "issuedInPeriod_other": "resumendeingresos.emitidoEnPeriodo",
+    "loading": "Cargando resumen de ingresos…",
+    "noInvoices": "No se han emitido facturas en este periodo.",
+    "noReceivables": "No hay cuentas por cobrar pendientes.",
+    "openInvoices_one": "ingresosSummary.openInvoices",
+    "openInvoices_other": "ingresosSummary.openInvoices",
+    "period": "Período {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Totales de facturas emitidas agrupados por mes de emisión",
+      "title": "Ingresos por mes"
+    },
+    "stats": {
+      "collected": "Coleccionada",
+      "collectedHint": "Pagos registrados en el período",
+      "criticalReceivables": "Más de 60 días de retraso",
+      "criticalReceivablesHint": "Cuentas por cobrar que requieren seguimiento",
+      "outstanding": "Pendiente",
+      "totalInvoiced": "Total facturada"
+    },
+    "table": {
+      "aging": "Envejecimiento",
+      "client": "Cliente",
+      "due": "Pendiente",
+      "invoice": "Factura",
+      "invoiced": "Facturada",
+      "month": "Mes",
+      "open": "Abierta",
+      "outstanding": "Pendiente",
+      "paid": "Pagada"
+    },
+    "title": "Ingresos y cuentas por cobrar"
+  },
+  "urgency": {
+    "legend": "Leyenda de urgencia",
+    "noActiveRisk": "Sin riesgo activo",
+    "overdue": "Atrasada",
+    "soon": "Vencimiento ≤30 días",
+    "soonShort": "≤30 días",
+    "today": "Vencimiento hoy",
+    "todayShort": "Hoy",
+    "urgent": "Vencimiento ≤7 días",
+    "urgentShort": "≤7 días"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Crítica",
+      "criticalHint": "≤ 7 días",
+      "overdue": "Atrasada",
+      "actionRequired": "Acción requerida",
+      "dueToday": "Vencimiento hoy",
+      "requiresSignOff": "Requiere aprobación",
+      "nextDays": "Próximos {{days}} días",
+      "clientsInWindow": "{{count}} clientes en ventana",
+      "windowSummary": "Resumen de ventana",
+      "priorityDeadlines": "Plazos prioritarios",
+      "prioritySubtitle": "Artículos más urgentes que requieren seguimiento",
+      "openReport": "Abrir informe",
+      "loading": "Escaneando vectores de riesgo…",
+      "error": "No se pudo cargar el análisis de riesgos.",
+      "highestExposure": "Mayor exposición al riesgo",
+      "criticalCount": "{{count}} crítica",
+      "portfolioClear": "Cartera clara",
+      "noCriticalInWindow": "No se detectó ningún riesgo crítico en los próximos {{days}} días.",
+      "table": {
+        "priorityDeadline": "Fecha límite de prioridad",
+        "clientJurisdiction": "Cliente y jurisdicción",
+        "dueDate": "Fecha de vencimiento"
+      },
+      "showingOf": "Mostrando {{shown}} de {{total}} elementos prioritarios",
+      "viewCrossTab": "Ver informe completo de tablas cruzadas"
+    },
+    "filingVolumes": {
+      "title": "Volúmenes de presentación",
+      "subtitle": "Solicitudes presentadas en toda la empresa (últimos 12 meses)",
+      "fullReport": "Informe completo",
+      "loading": "Agregando historial de presentación...",
+      "error": "No se pudo cargar el análisis de archivos.",
+      "totalFilings": "Presentaciones totales",
+      "yearToDate": "El año hasta la fecha",
+      "primaryType": "tipo primario",
+      "applications_one": "Aplicación {{count}}",
+      "applications_other": "{{count}} aplicaciones",
+      "noData": "Sin datos",
+      "topRegion": "Región superior",
+      "monthActivity": "{{month}} Actividad:",
+      "newFiling_one": "{{count}} nueva presentación",
+      "newFiling_other": "{{count}} nuevas presentaciones",
+      "empty": "No se han detectado presentaciones en el historial reciente.",
+      "table": {
+        "matterInfo": "información de la materia",
+        "type": "Tipo",
+        "filingDate": "Fecha de presentación"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Facturada (12 meses)",
+      "issued_one": "{{count}} emitida",
+      "issued_other": "{{count}} emitida",
+      "collected": "Coleccionada",
+      "paidInPeriod": "Pagado en el periodo",
+      "outstanding": "Pendiente",
+      "open_one": "{{count}} abierta",
+      "open_other": "{{count}} abierta",
+      "criticalRisk": "Riesgo crítico",
+      "overdue60Days": "Más de 60 días de retraso",
+      "receivablesAging": "Antigüedad de cuentas por cobrar",
+      "agingSubtitle": "Facturas emitidas abiertas por días vencidos",
+      "fullReport": "Informe completo",
+      "loading": "Analizando datos de antigüedad...",
+      "error": "No se pudieron cargar datos antiguos.",
+      "portfolioHealthy": "Cartera saludable",
+      "noReceivables": "No se encontraron cuentas por cobrar pendientes.",
+      "draftRef": "Borrador de referencia",
+      "table": {
+        "invoiceInfo": "Información de factura",
+        "client": "Cliente",
+        "outstanding": "Pendiente"
+      },
+      "showingOf": "Mostrando {{shown}} de {{total}} facturas abiertas",
+      "viewPortfolio": "Ver todo el portafolio"
+    },
+    "teamWorkload": {
+      "title": "Carga de trabajo del equipo",
+      "subtitle": "Asuntos abiertos, tareas y plazos por miembro",
+      "viewTeam": "Ver equipo",
+      "loading": "Calculando la distribución de la carga de trabajo...",
+      "error": "No se pudieron cargar los datos del equipo.",
+      "matters": "Asuntos",
+      "members_one": "{{count}} miembro",
+      "members_other": "{{count}} miembros",
+      "tasks": "Tareas",
+      "pendingAction": "Acción pendiente",
+      "deadlines": "Plazos",
+      "activeWindow": "ventana activa",
+      "busiest": "Más ocupado",
+      "items_one": "{{count}} artículo",
+      "items_other": "{{count}} elementos",
+      "clear": "Clara",
+      "empty": "No hay datos del equipo activo",
+      "table": {
+        "teamMember": "Miembro del equipo",
+        "matters": "Asuntos",
+        "tasks": "Tareas",
+        "deadlines": "Plazos",
+        "total": "Total"
+      }
+    },
+    "clientProfitability": {
+      "title": "Rentabilidad del cliente",
+      "subtitle": "Distribución de ingresos facturados por cartera de clientes",
+      "viewAllClients": "Ver todas las clientas",
+      "loading": "Agregando datos de rentabilidad...",
+      "error": "No se pudieron cargar los análisis del cliente.",
+      "trueMargin": "Margen verdadero:",
+      "revenueProxy": "Proxy de ingresos:",
+      "totalRevenue": "Ingresos totales",
+      "clients_one": "{{count}} cliente",
+      "clients_other": "{{count}} clientes",
+      "totalMargin": "Margen total",
+      "topClient": "Cliente superior",
+      "internalCost": "{{amount}} costo interno",
+      "noBillingData": "Sin datos de facturación",
+      "unbilledWip": "WIP no facturado",
+      "pendingAccrual": "Pendiente de devengo",
+      "firmBilled": "Facturación firme",
+      "totalMatters": "Asuntos totales",
+      "empty": "No se detectaron datos de facturación del cliente.",
+      "table": {
+        "clientPortfolio": "Cartera de clientes",
+        "matters": "Asuntos",
+        "billable": "facturable",
+        "unbilled": "No facturado",
+        "margin": "Margen",
+        "revenue": "rev (EUR)"
+      },
+      "showingTop": "Mostrando los principales {{shown}} de {{total}} clientes por {{basis}}",
+      "basisMargin": "margen",
+      "basisRevenue": "ganancia",
+      "viewLeaderboard": "Ver clasificación completa"
+    }
+  }
+}

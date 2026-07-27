@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Kontrol paneline geri dön",
+    "cancel": "İptal etmek",
+    "edit": "Düzenlemek",
+    "loadMore": "Daha fazlasını yükle",
+    "next": "Sonraki",
+    "previous": "Öncesi",
+    "refresh": "Yenile",
+    "remove": "Kaldırmak",
+    "retry": "Yeniden dene",
+    "save": "Kaydetmek",
+    "saveChanges": "Değişiklikleri kaydet",
+    "view": "Görüş"
+  },
+  "errors": {
+    "loadFailed": "Yüklenemedi.",
+    "retryHint": "Bağlantınızı ve izinlerinizi kontrol edip tekrar deneyin."
+  },
+  "filters": {
+    "all": "Tüm",
+    "allStatuses": "Tüm durumlar",
+    "allTypes": "Tüm türler"
+  },
+  "language": {
+    "ar": "Arapça",
+    "bg": "Bulgarca",
+    "bs": "Boşnakça",
+    "de": "Almanca",
+    "en": "İngilizce",
+    "es": "İspanyol",
+    "et": "Estonyalı",
+    "fr": "Fransızca",
+    "hr": "Hırvat",
+    "hy": "Ermeni",
+    "it": "İtalyan",
+    "mk": "Makedonca",
+    "ms": "Malayca",
+    "ro": "Romen",
+    "ru": "Rusça",
+    "sq": "Arnavut",
+    "sr": "Sırpça",
+    "switch": "Dili değiştir",
+    "tr": "Türkçe",
+    "zh-CN": "Çince (Basitleştirilmiş)"
+  },
+  "loading": {
+    "default": "Yükleniyor…",
+    "refreshing": "canlandırıcı…",
+    "saving": "Kaydediliyor…"
+  },
+  "nav": {
+    "breadcrumb": "Ekmek kırıntısı",
+    "closeMenu": "Menüyü kapat",
+    "openMenu": "Menüyü aç"
+  },
+  "pagination": {
+    "noResults": "Sonuç yok",
+    "page": "Sayfa {{page}}",
+    "showing": "Gösterilen {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Raporlar"
+  },
+  "noPermission": "İzin yok.",
+  "crm": "CRM",
+  "clientPortal": "Müşteri portalı",
+  "tasks": "Görevler",
+  "comingSoon": "Yakında gelecek",
+  "notifications": {
+    "title": "Bildirimler",
+    "unread": "okunmamış",
+    "markAllRead": "Tümünü okundu olarak işaretle",
+    "couldNotLoad": "Bildirimler yüklenemedi.",
+    "noNotificationsYet": "Henüz bildirim yok."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "HAYIR",
+    "none": "Hiçbiri",
+    "yes": "Evet"
+  }
+}

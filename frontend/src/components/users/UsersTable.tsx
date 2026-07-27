@@ -6,6 +6,7 @@ import {
   ChevronRight,
   KeyRound,
   Loader2,
+  Mail,
   ShieldCheck,
   UserRound,
   UsersRound,
@@ -29,7 +30,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { useAuth } from '@/features/auth/AuthProvider'
-import { useUpdateUserRole } from '@/features/users/hooks/useUserMutations'
+import { useUpdateUserRole, useResendInvite } from '@/features/users/hooks/useUserMutations'
 import type { UserListItem, UserSegment } from '@/features/users/types'
 import {
   TEAM_ASSIGNABLE_ROLES,
@@ -76,11 +77,22 @@ function AuthMethodBadge({
   method,
   passwordLabel,
   ssoLabel,
+  pendingLabel,
 }: {
   method: UserListItem['authMethod']
   passwordLabel: string
   ssoLabel: string
+  pendingLabel: string
 }) {
+  if (method === 'pending') {
+    return (
+      <Badge variant="warning" className="gap-1 normal-case">
+        <Mail className="size-3" />
+        {pendingLabel}
+      </Badge>
+    )
+  }
+
   const isSso = method === 'sso'
   return (
     <Badge variant={isSso ? 'info' : 'outline'} className="gap-1 normal-case">
@@ -92,18 +104,24 @@ function AuthMethodBadge({
 
 function StatusBadge({
   isActive,
+  neverSignedIn,
   activeLabel,
   inactiveLabel,
+  invitedLabel,
 }: {
   isActive: boolean
+  neverSignedIn: boolean
   activeLabel: string
   inactiveLabel: string
+  invitedLabel: string
 }) {
-  return (
-    <Badge variant={isActive ? 'success' : 'secondary'}>
-      {isActive ? activeLabel : inactiveLabel}
-    </Badge>
-  )
+  if (!isActive) {
+    return <Badge variant="secondary">{inactiveLabel}</Badge>
+  }
+  if (neverSignedIn) {
+    return <Badge variant="warning">{invitedLabel}</Badge>
+  }
+  return <Badge variant="success">{activeLabel}</Badge>
 }
 
 function RoleBadges({ roles }: { roles: string[] }) {
@@ -183,6 +201,54 @@ function TeamRoleSelect({ user }: { user: UserListItem }) {
   )
 }
 
+function ResendInviteButton({ user }: { user: UserListItem }) {
+  const { t } = useTranslation('users')
+  const resend = useResendInvite()
+  const [feedback, setFeedback] = useState<string | null>(null)
+
+  if (!user.invitePending) return null
+
+  const handleResend = async () => {
+    setFeedback(null)
+    try {
+      const result = await resend.mutateAsync(user.id)
+      if (result.inviteEmailSent) {
+        setFeedback(t('invite.resendSuccess'))
+      } else {
+        setFeedback(result.inviteEmailError ?? t('invite.emailFailed'))
+      }
+    } catch (err) {
+      setFeedback(getApiErrorMessage(err, t('invite.resendFailed')))
+    }
+  }
+
+  return (
+    <div className="space-y-1">
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        className="h-7 gap-1 text-xs"
+        disabled={resend.isPending}
+        onClick={() => void handleResend()}
+      >
+        {resend.isPending ? (
+          <Loader2 className="size-3 animate-spin" />
+        ) : (
+          <Mail className="size-3" />
+        )}
+        {t('invite.resend')}
+      </Button>
+      {user.inviteEmailLastError && !feedback && (
+        <p className="text-[10px] text-amber-700">{t('invite.lastEmailFailed')}</p>
+      )}
+      {feedback && (
+        <p className="text-[10px] text-muted-foreground">{feedback}</p>
+      )}
+    </div>
+  )
+}
+
 function TableSkeleton({ cols }: { cols: number }) {
   return (
     <>
@@ -211,17 +277,20 @@ export function UsersTable({
 }: UsersTableProps) {
   const { t } = useTranslation(['users', 'common'])
   const canUpdateRole = usePermission('user', 'update')
+  const canInvite = usePermission('user', 'create')
 
   const isPortal = segment === 'portal'
-  const colCount = isPortal ? 7 : 6
+  const colCount = isPortal ? 8 : 7
 
   const rangeStart = items.length === 0 ? 0 : pageIndex * USERS_PAGE_SIZE + 1
   const rangeEnd = pageIndex * USERS_PAGE_SIZE + items.length
 
   const passwordLabel = t('table.authMethod.password', { ns: 'users' })
   const ssoLabel = t('table.authMethod.sso', { ns: 'users' })
+  const pendingAuthLabel = t('table.authMethod.pending', { ns: 'users' })
   const activeLabel = t('table.status.active', { ns: 'users' })
   const inactiveLabel = t('table.status.inactive', { ns: 'users' })
+  const invitedLabel = t('table.status.invited', { ns: 'users' })
   const mfaEnabledLabel = t('table.mfa.enabled', { ns: 'users' })
   const mfaOffLabel = t('table.mfa.off', { ns: 'users' })
 
@@ -241,6 +310,7 @@ export function UsersTable({
                 ? t('table.headers.registered', { ns: 'users' })
                 : t('table.headers.mfa', { ns: 'users' })}
             </TableHead>
+            <TableHead>{t('table.headers.invite', { ns: 'users' })}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -332,14 +402,17 @@ export function UsersTable({
                     method={user.authMethod}
                     passwordLabel={passwordLabel}
                     ssoLabel={ssoLabel}
+                    pendingLabel={pendingAuthLabel}
                   />
                 </TableCell>
 
                 <TableCell>
                   <StatusBadge
                     isActive={user.isActive}
+                    neverSignedIn={user.neverSignedIn}
                     activeLabel={activeLabel}
                     inactiveLabel={inactiveLabel}
+                    invitedLabel={invitedLabel}
                   />
                 </TableCell>
 
@@ -357,6 +430,10 @@ export function UsersTable({
                   ) : (
                     <span className="text-muted-foreground">{mfaOffLabel}</span>
                   )}
+                </TableCell>
+
+                <TableCell>
+                  {canInvite ? <ResendInviteButton user={user} /> : null}
                 </TableCell>
               </TableRow>
             ))}

@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Développer la barre latérale",
+    "collapse": "Réduire la barre latérale",
+    "close": "Fermer la barre latérale"
+  },
+  "sections": {
+    "overview": "Aperçu",
+    "clients": "Clientèle",
+    "matters": "Importe",
+    "ipRights": "Droits de propriété intellectuelle",
+    "finance": "Finance",
+    "reports": "Rapports",
+    "myWork": "Mon travail",
+    "rights": "Droits",
+    "communication": "Communication",
+    "trademarks": "Marques déposées",
+    "deadlines": "Délais",
+    "correspondence": "Correspondance",
+    "documentsAndMail": "Documents et courrier",
+    "billing": "Facturation",
+    "compliance": "Conformité",
+    "gdpr": "RGPD",
+    "audit": "Audit",
+    "usersAndAccess": "Utilisateurs et accès",
+    "system": "Système",
+    "myPortfolio": "Mon portefeuille",
+    "myMatters": "Mes affaires"
+  },
+  "items": {
+    "dashboard": "Tableau de bord",
+    "deadlines": "Délais",
+    "alerts": "Alertes",
+    "clients": "Clientèle",
+    "holdingGroups": "Groupes de maintien",
+    "allMatters": "Toutes les questions",
+    "matters": "Importe",
+    "intakeQueue": "File d'attente d'admission",
+    "rightsRegister": "Registre des droits",
+    "renewals": "Renouvellements",
+    "watch": "Montre",
+    "billingOverview": "Aperçu de la facturation",
+    "deadlineRisk": "Risque de délai",
+    "filingVolumes": "Volumes de classement",
+    "renewalsSummary": "Résumé des renouvellements",
+    "revenueReceivables": "Revenus et créances",
+    "team": "Équipe",
+    "settings": "Paramètres",
+    "myDashboard": "Mon tableau de bord",
+    "myDeadlines": "Mes délais",
+    "myMatters": "Mes affaires",
+    "patentFilings": "Dépôts de brevet",
+    "officeActions": "Actions de bureau",
+    "documents": "Documents",
+    "correspondence": "Correspondance",
+    "myTmMatters": "Ma MT compte",
+    "oppositions": "Oppositions",
+    "watchAlerts": "Regarder les alertes",
+    "conflictCheck": "Vérification des conflits",
+    "allDeadlines": "Tous les délais",
+    "escalations": "Escalades",
+    "gracePeriods": "Délais de grâce",
+    "addDeadline": "Ajouter une date limite",
+    "incomingMail": "Courrier entrant",
+    "emailQueue": "File d'attente de courrier électronique",
+    "broadcasts": "Diffusions",
+    "outgoingMail": "Courrier sortant",
+    "myTasks": "Mes tâches",
+    "assignedMatters": "Questions assignées",
+    "financeDashboard": "Tableau de bord financier",
+    "invoices": "Factures",
+    "timeEntries": "Entrées de temps",
+    "payments": "Paiements",
+    "rateCards": "Cartes tarifaires",
+    "disbursements": "Déboursés",
+    "complianceDashboard": "Tableau de bord de conformité",
+    "personalDataRegister": "Registre des données personnelles",
+    "dataExportsLog": "Journal des exportations de données",
+    "retentionRules": "Règles de conservation",
+    "deadlineRules": "Règles de délai",
+    "holidays": "Calendrier des jours fériés",
+    "documentTemplates": "Modèles de documents",
+    "precedents": "Précédentes",
+    "partners": "Partenaires",
+    "consentRecords": "Dossiers de consentement",
+    "auditTrail": "Piste d'audit",
+    "accessLog": "Journal d'accès",
+    "systemDashboard": "Tableau de bord du système",
+    "users": "Utilisatrices",
+    "rolesPermissions": "Rôles et autorisations",
+    "ssoMfaConfig": "Configuration SSO/MFA",
+    "integrations": "Intégrations",
+    "systemHealth": "Santé du système",
+    "auditLog": "Journal d'audit",
+    "overview": "Aperçu",
+    "enquiries": "Demandes de renseignements",
+    "myDocuments": "Mes documents",
+    "myInvoices": "Mes factures",
+    "messages": "Messages",
+    "approvals": "Approbations",
+    "help": "Aide",
+    "myPortfolio": "Mon portefeuille"
+  },
+  "roles": {
+    "managing_partner": "Associé gérant",
+    "ip_attorney": "Conseil en propriété intellectuelle/brevets",
+    "trademark_attorney": "Avocat en marques",
+    "coordinator": "Coordonnateur / Accueil",
+    "docketing_admin": "Administrateur du dossier",
+    "paralegal": "Parajuriste",
+    "finance": "Finance",
+    "dpo_compliance": "DPO / Conformité",
+    "it_admin": "Informatique/Administrateur",
+    "portal_client": "Client (portail)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Bientôt disponible : cette zone affichera les données en direct une fois le module connecté."
+    },
+    "managing_partner": {
+      "eyebrow": "Aperçu de l'entreprise",
+      "title": "Aperçu de l'entreprise",
+      "description": "Risque lié aux échéances du portefeuille, volumes de dépôts, pipeline de renouvellements, revenus, charge de travail de l'équipe et rentabilité des clients : rapports à l'échelle de l'entreprise à partir d'un seul emplacement."
+    },
+    "coordinator": {
+      "eyebrow": "Coordination",
+      "title": "Accueil et coordination",
+      "description": "Pipeline d'admission, volumes de dépôts et renouvellements à venir - coordonnez les enquêtes jusqu'aux poursuites."
+    },
+    "docketing_admin": {
+      "eyebrow": "Dossier",
+      "title": "Tableau des délais",
+      "description": "Risques liés aux délais et aux dossiers à l'échelle de l'entreprise - regroupés par client, juridiction et cessionnaire avec mise en évidence de l'urgence."
+    },
+    "finance": {
+      "eyebrow": "Finance",
+      "title": "Aperçu des finances",
+      "description": "Chronologie des revenus émis, des recouvrements et des créances : émettez des factures et suivez les paiements à partir d'un seul endroit."
+    },
+    "portal_client": {
+      "eyebrow": "Portail clients",
+      "title": "Content de te revoir",
+      "description": "Soumettez des demandes de dépôt et suivez les dossiers de votre organisation."
+    },
+    "myDashboard": {
+      "title": "Mon tableau de bord"
+    },
+    "myTasks": {
+      "title": "Mes tâches"
+    },
+    "compliance": {
+      "eyebrow": "RGPD et conformité",
+      "title": "Conformité",
+      "description": "Politiques de rétention, registres d’accès et exportations d’accès par sujet."
+    },
+    "systemDashboard": {
+      "title": "Tableau de bord du système"
+    }
+  }
+}

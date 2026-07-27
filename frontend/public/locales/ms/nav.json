@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Kembangkan bar sisi",
+    "collapse": "Runtuhkan bar sisi",
+    "close": "Tutup bar sisi"
+  },
+  "sections": {
+    "overview": "Gambaran keseluruhan",
+    "clients": "Pelanggan",
+    "matters": "Perkara",
+    "ipRights": "Hak IP",
+    "finance": "Kewangan",
+    "reports": "Laporan",
+    "myWork": "kerja saya",
+    "rights": "Hak",
+    "communication": "Komunikasi",
+    "trademarks": "Tanda dagangan",
+    "deadlines": "Tarikh akhir",
+    "correspondence": "Surat-menyurat",
+    "documentsAndMail": "Dokumen & mel",
+    "billing": "Pengebilan",
+    "compliance": "Pematuhan",
+    "gdpr": "GDPR",
+    "audit": "Audit",
+    "usersAndAccess": "Pengguna & akses",
+    "system": "Sistem",
+    "myPortfolio": "Portfolio saya",
+    "myMatters": "urusan saya"
+  },
+  "items": {
+    "dashboard": "Papan pemuka",
+    "deadlines": "Tarikh akhir",
+    "alerts": "Makluman",
+    "clients": "Pelanggan",
+    "holdingGroups": "Mengadakan kumpulan",
+    "allMatters": "Semua perkara",
+    "matters": "Perkara",
+    "intakeQueue": "Barisan pengambilan",
+    "rightsRegister": "Daftar hak",
+    "renewals": "Pembaharuan",
+    "watch": "Tonton",
+    "billingOverview": "Gambaran keseluruhan pengebilan",
+    "deadlineRisk": "Risiko tarikh akhir",
+    "filingVolumes": "Jumlah pemfailan",
+    "renewalsSummary": "Ringkasan pembaharuan",
+    "revenueReceivables": "Hasil & belum terima",
+    "team": "Pasukan",
+    "settings": "tetapan",
+    "myDashboard": "papan pemuka saya",
+    "myDeadlines": "Tarikh akhir saya",
+    "myMatters": "urusan saya",
+    "patentFilings": "Pemfailan paten",
+    "officeActions": "Tindakan pejabat",
+    "documents": "Dokumen",
+    "correspondence": "Surat-menyurat",
+    "myTmMatters": "TM saya penting",
+    "oppositions": "Pembangkang",
+    "watchAlerts": "Tonton makluman",
+    "conflictCheck": "Semakan konflik",
+    "allDeadlines": "Semua tarikh akhir",
+    "escalations": "Peningkatan",
+    "gracePeriods": "Tempoh tangguh",
+    "addDeadline": "Tambah tarikh akhir",
+    "incomingMail": "Mel masuk",
+    "emailQueue": "Baris gilir e-mel",
+    "broadcasts": "Siaran",
+    "outgoingMail": "Mel keluar",
+    "myTasks": "tugas saya",
+    "assignedMatters": "Perkara yang ditugaskan",
+    "financeDashboard": "Papan pemuka kewangan",
+    "invoices": "Invois",
+    "timeEntries": "Catatan masa",
+    "payments": "Pembayaran",
+    "rateCards": "Kad kadar",
+    "disbursements": "Pengeluaran",
+    "complianceDashboard": "Papan pemuka pematuhan",
+    "personalDataRegister": "Daftar data peribadi",
+    "dataExportsLog": "Log eksport data",
+    "retentionRules": "Peraturan pengekalan",
+    "deadlineRules": "Peraturan tarikh akhir",
+    "holidays": "Kalendar cuti",
+    "documentTemplates": "Templat dokumen",
+    "precedents": "Preseden",
+    "partners": "rakan kongsi",
+    "consentRecords": "Rekod persetujuan",
+    "auditTrail": "Jejak audit",
+    "accessLog": "Log akses",
+    "systemDashboard": "Papan pemuka sistem",
+    "users": "Pengguna",
+    "rolesPermissions": "Peranan & kebenaran",
+    "ssoMfaConfig": "Konfigurasi SSO / MFA",
+    "integrations": "Integrasi",
+    "systemHealth": "Kesihatan sistem",
+    "auditLog": "Log audit",
+    "overview": "Gambaran keseluruhan",
+    "enquiries": "Pertanyaan",
+    "myDocuments": "dokumen saya",
+    "myInvoices": "Invois saya",
+    "messages": "Mesej",
+    "approvals": "Kelulusan",
+    "help": "Tolong",
+    "myPortfolio": "Portfolio saya"
+  },
+  "roles": {
+    "managing_partner": "Rakan Kongsi Urusan",
+    "ip_attorney": "IP / Peguam Paten",
+    "trademark_attorney": "Peguam Tanda Dagangan",
+    "coordinator": "Penyelaras / Pengambilan",
+    "docketing_admin": "Pentadbiran Doket",
+    "paralegal": "Paralegal",
+    "finance": "Kewangan",
+    "dpo_compliance": "DPO / Pematuhan",
+    "it_admin": "IT / Pentadbir",
+    "portal_client": "Pelanggan (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Akan datang - kawasan ini akan menunjukkan data langsung setelah modul disambungkan."
+    },
+    "managing_partner": {
+      "eyebrow": "Gambaran keseluruhan firma",
+      "title": "Gambaran keseluruhan firma",
+      "description": "Risiko tarikh akhir portfolio, volum pemfailan, saluran paip pembaharuan, hasil, beban kerja pasukan dan keuntungan pelanggan - pelaporan seluruh firma dari satu rumah."
+    },
+    "coordinator": {
+      "eyebrow": "Penyelarasan",
+      "title": "Pengambilan & koordinasi",
+      "description": "Saluran paip pengambilan, volum pemfailan dan pembaharuan yang akan datang - menyelaraskan pertanyaan hingga ke pendakwaan."
+    },
+    "docketing_admin": {
+      "eyebrow": "Mendokumentasikan",
+      "title": "Papan tarikh akhir",
+      "description": "Tarikh akhir seluruh firma dan risiko doket - dikumpulkan mengikut pelanggan, bidang kuasa dan penerima serah hak dengan penonjolan segera."
+    },
+    "finance": {
+      "eyebrow": "Kewangan",
+      "title": "Gambaran keseluruhan kewangan",
+      "description": "Hasil keluaran, kutipan dan penuaan penghutang - keluarkan invois dan jejak pembayaran dari satu tempat."
+    },
+    "portal_client": {
+      "eyebrow": "Portal pelanggan",
+      "title": "Selamat kembali",
+      "description": "Hantar pertanyaan pemfailan dan jejaki perkara untuk organisasi anda."
+    },
+    "myDashboard": {
+      "title": "papan pemuka saya"
+    },
+    "myTasks": {
+      "title": "tugas saya"
+    },
+    "compliance": {
+      "eyebrow": "GDPR & pematuhan",
+      "title": "Pematuhan",
+      "description": "Dasar pengekalan, daftar akses dan eksport akses subjek."
+    },
+    "systemDashboard": {
+      "title": "Papan pemuka sistem"
+    }
+  }
+}

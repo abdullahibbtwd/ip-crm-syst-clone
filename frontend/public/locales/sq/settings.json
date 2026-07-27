@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Anulo",
+      "confirm": "Konfirmo dhe aktivizo 2FA",
+      "enable": "Aktivizo 2FA",
+      "preparing": "Po përgatitet…",
+      "verifying": "Po verifikon…"
+    },
+    "authCode": "Kodi i vërtetimit",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktiv",
+      "description": "Llogaria juaj kërkon një kod nga aplikacioni juaj i vërtetuesit kur identifikoheni.",
+      "title": "Autentifikimi me dy faktorë është i aktivizuar"
+    },
+    "errors": {
+      "enableFailed": "Aktivizimi i 2FA dështoi",
+      "invalidCode": "Kodi i pavlefshëm",
+      "setupFailed": "Nisja e konfigurimit të 2FA dështoi"
+    },
+    "setup": {
+      "description": "Shto një shtresë shtesë sigurie duke kërkuar një kod 6-shifror nga një aplikacion vërtetuesi (Google Authenticator, Authy, etj.) kur identifikohesh.",
+      "manualKey": "Ose futeni manualisht këtë çelës",
+      "scanQr": "1. Skanoni këtë kod QR",
+      "scanQrHint": "Hapni aplikacionin tuaj të vërtetuesit dhe skanoni kodin më poshtë.",
+      "verify": "2. Konfirmo me një kod 6-shifror",
+      "verifyHint": "Futni kodin e shfaqur në aplikacionin tuaj për të verifikuar konfigurimin."
+    }
+  },
+  "security": {
+    "description": "Autentifikimi me dy faktorë mbron llogarinë tuaj edhe nëse fjalëkalimi juaj është i rrezikuar.",
+    "title": "Siguria"
+  },
+  "subtitle": "Menaxhoni preferencat dhe sigurinë e llogarisë suaj.",
+  "title": "Cilësimet",
+  "links": {
+    "email": {
+      "title": "Integrimi me email",
+      "description": "Lidhni Microsoft 365 ose Google Workspace për të sinkronizuar mesazhet e kutisë hyrëse në radhën e postës elektronike.",
+      "action": "Menaxho kutitë postare"
+    },
+    "deadlineRules": {
+      "title": "Rregullat e afatit",
+      "description": "Konfiguro kompensimet e juridiksionit dhe të llojit të lëndës për afatet e krijuara automatikisht.",
+      "action": "Menaxhoni rregullat e afatit"
+    },
+    "holidays": {
+      "title": "Kalendari i festave",
+      "description": "Pushimet e juridiksionit përdoren kur numërohen ditët e punës për afatet.",
+      "action": "Menaxhoni pushimet"
+    },
+    "documentTemplates": {
+      "title": "Modelet e dokumenteve",
+      "description": "Redaktoni shabllonet e letrave, bashkoni fushat dhe shikoni paraprakisht PDF-të e krijuara.",
+      "action": "Menaxhoni shabllonet"
+    },
+    "integrations": {
+      "title": "Integrimet e regjistrit",
+      "description": "Lidhni EPO OPS dhe regjistrat e tjerë IP për skanimet e orëve dhe kërkimet bibliografike.",
+      "action": "Menaxhoni integrimet"
+    },
+    "ssoMfa": {
+      "title": "ZSHS & MPJ",
+      "description": "Konfiguro aplikacionet e identifikimit të Google/Microsoft dhe politikën e firmës MPJ. Sekretet janë të koduara në bazën e të dhënave.",
+      "action": "Menaxhoni ZSHS dhe MPJ"
+    },
+    "roles": {
+      "title": "Rolet dhe lejet",
+      "description": "Matrica e roleve të sistemit vetëm për lexim dhe lejet e tyre të dhëna.",
+      "action": "Shikoni matricën e roleve"
+    },
+    "systemHealth": {
+      "title": "Shëndeti i sistemit",
+      "description": "Kontrolle të drejtpërdrejta për bazën e të dhënave, Redis dhe ruajtjen e objekteve.",
+      "action": "Shikoni shëndetin e sistemit"
+    }
+  },
+  "ssoMfa": {
+    "title": "ZSHS & MPJ",
+    "subtitle": "Ofruesit e identitetit dhe politika e vërtetimit me shumë faktorë për firmën.",
+    "noPermission": "Ju nuk keni leje për të menaxhuar cilësimet e SSO ose MPJ.",
+    "loading": "Po ngarkon cilësimet e SSO…",
+    "saveButton": "Ruaj cilësimet",
+    "saveSuccess": "Cilësimet e SSO dhe MFA u ruajtën në mënyrë të sigurt.",
+    "saveFailed": "Ruajtja e cilësimeve të SSO dhe MPJ dështoi",
+    "securityHint": "Sekretet e klientit janë të koduara në pushim (AES-256-GCM). Sekretet e plota nuk kthehen kurrë nga API.",
+    "leaveBlankToKeep": "Lëreni bosh për të mbajtur sekret aktual",
+    "clientId": "ID-ja e klientit",
+    "clientSecret": "Sekreti i klientit",
+    "tenantId": "ID e qiramarrësit",
+    "redirectUri": "Ridrejto URI (regjistrohu në tastierën e ofruesit)",
+    "sourceDatabase": "Baza e të dhënave",
+    "sourceEnv": "Mjedisi (.env)",
+    "sourceNone": "Nuk është konfiguruar",
+    "editButton": "Redakto",
+    "cancelEdit": "Anulo",
+    "configuredViaEnv": "Konfiguruar nëpërmjet mjedisit",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / Aplikacioni Microsoft 365 OIDC i përdorur për hyrjen e stafit dhe portalit SSO.",
+      "saveButton": "Ruani Microsoft-in",
+      "saveSuccess": "Cilësimet e Microsoft SSO u ruajtën."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Klienti i Google OAuth përdoret për identifikimin e SSO.",
+      "saveButton": "Ruaje Google",
+      "saveSuccess": "Cilësimet e Google SSO u ruajtën."
+    },
+    "mfa": {
+      "title": "Politika e MPJ-së",
+      "description": "Cilësimet e MPJ-së në mbarë vendin. Përdoruesit ende regjistrohen nga faqja e tyre e cilësimeve.",
+      "requireInternal": "Kërkohet MPJ për stafin e brendshëm",
+      "requireInternalHint": "Kur aktivizohet, përdoruesit e brendshëm duhet të regjistrojnë MFA nën Cilësimet → Siguria. Zbatimi i hyrjes mund të forcohet në një vazhdim.",
+      "saveButton": "Ruaj politikën e MPJ-së",
+      "saveSuccess": "Politika e MPJ-së u ruajt."
+    }
+  },
+  "roles": {
+    "title": "Rolet dhe lejet",
+    "subtitle": "Matrica vetëm për lexim të roleve të sistemit dhe lejeve të dhëna (RBAC i mbjellë).",
+    "noPermission": "Ju nuk keni leje për të parë rolet.",
+    "loading": "Po ngarkon rolet…",
+    "error": "Ngarkimi i roleve dështoi.",
+    "system": "Sistemi",
+    "columns": {
+      "role": "Roli",
+      "description": "Përshkrimi",
+      "permissions": "Lejet"
+    }
+  },
+  "systemHealth": {
+    "title": "Shëndeti i sistemit",
+    "subtitle": "Kontrolle të drejtpërdrejta për bazën e të dhënave, Redis dhe ruajtjen e objekteve.",
+    "noPermission": "Ju nuk keni leje për të parë shëndetin e sistemit.",
+    "loading": "Po kontrollon shërbimet…",
+    "error": "Ngarkimi i gjendjes shëndetësore dështoi.",
+    "overall": "Në përgjithësi",
+    "statusOk": "Të shëndetshëm",
+    "statusDegraded": "I degraduar",
+    "database": "Baza e të dhënave",
+    "redis": "Redis",
+    "storage": "Ruajtja e objekteve",
+    "checkOk": "E arritshme",
+    "checkFailed": "E paarritshme",
+    "refresh": "Rifresko",
+    "refreshing": "Po rifreskohet…"
+  },
+  "integrations": {
+    "title": "Integrimet",
+    "subtitle": "Lidhjet e regjistrit të jashtëm dhe të ofruesve të të dhënave të përdorura nga flukset e punës së shikimit dhe regjistrimit.",
+    "noPermission": "Ju nuk keni leje për të parë integrimet e regjistrit.",
+    "epo": {
+      "title": "Regjistri EPO (OPS)",
+      "description": "Hapni Shërbimet e Patentave v3.2. Shenjat e aksesit rifreskohen automatikisht nga çelësi dhe sekreti juaj i konsumatorit.",
+      "statusConfigured": "Konfiguruar",
+      "statusNotConfigured": "Nuk është konfiguruar",
+      "statusLoading": "Po kontrollon…",
+      "testButton": "Testoni lidhjen",
+      "testing": "Po teston…",
+      "testSuccess": "Lidhja EPO e suksesshme. Patenta e marrë: {{title}}",
+      "testFailed": "Lidhja EPO dështoi",
+      "envHint": "Vendos EPO_CONSUMER_KEY dhe EPO_CONSUMER_SECRET në serverin .env, më pas rinis API-në.",
+      "consumerKey": "Çelësi i konsumatorit",
+      "consumerSecret": "Sekreti i konsumatorit",
+      "consumerKeyPlaceholder": "Fut çelësin e konsumatorit EPO",
+      "consumerSecretPlaceholder": "Fut sekretin e konsumatorit EPO",
+      "leaveBlankToKeep": "Lëreni bosh për të mbajtur vlerën aktuale",
+      "apiBaseUrl": "URL-ja e bazës së API-së (opsionale)",
+      "authUrl": "URL-ja e vërtetimit (opsionale)",
+      "saveButton": "Ruaj kredencialet",
+      "clearButton": "Pastro kredencialet e ruajtura",
+      "saveSuccess": "Kredencialet EPO ruhen në mënyrë të sigurt.",
+      "saveFailed": "Ruajtja e kredencialeve EPO dështoi",
+      "clearSuccess": "Kredencialet e ruajtura EPO u pastruan. Rikthimi i env zbatohet ende nëse është caktuar.",
+      "clearFailed": "Pastrimi i kredencialeve EPO dështoi",
+      "securityHint": "Sekretet janë të koduara në pushim (AES-256-GCM). Vlerat e plota nuk kthehen kurrë nga API.",
+      "sourceLabel": "Burim aktiv",
+      "sourceDatabase": "Baza e të dhënave",
+      "sourceEnv": "Mjedisi (.env)",
+      "sourceNone": "Nuk është konfiguruar",
+      "keyHint": "çelësi …{{lastFour}}",
+      "editButton": "Redakto",
+      "cancelEdit": "Anulo",
+      "configuredViaEnv": "Konfiguruar nëpërmjet mjedisit",
+      "defaultEndpoint": "Pika përfundimtare e parazgjedhur EPO"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Shtyni faturat e lëshuara te Xero Accounting nëpërmjet API. Vetëm faturat kanë ndryshuar që nga sinkronizimi i fundit i suksesshëm.",
+      "quickbooksTitle": "QuickBooks Online",
+      "quickbooksDescription": "Shtyni faturat e lëshuara te QuickBooks. Klientët përputhen (ose krijohen) sipas emrit të shfaqur.",
+      "xeroTenantId": "ID e qiramarrësit Xero",
+      "quickbooksRealmId": "Sfera e QuickBooks / ID e kompanisë",
+      "statusConfigured": "Konfiguruar",
+      "statusNotConfigured": "Nuk është konfiguruar",
+      "loading": "Po ngarkohet…",
+      "clientId": "ID-ja e klientit (opsionale)",
+      "clientSecret": "Sekreti i klientit (opsionale)",
+      "accessToken": "Shenja e hyrjes",
+      "leaveBlankToKeep": "Lëreni bosh për të mbajtur vlerën aktuale",
+      "saveButton": "Ruaj kredencialet",
+      "clearButton": "E qartë",
+      "editButton": "Redakto",
+      "cancelEdit": "Anulo",
+      "syncNow": "Sinkronizoni tani",
+      "lastSync": "Sinkronizimi i fundit",
+      "neverSynced": "kurrë",
+      "saveSuccess": "Kredencialet e kontabilitetit ruhen në mënyrë të sigurt.",
+      "saveFailed": "Dështoi në ruajtjen e kredencialeve të kontabilitetit",
+      "clearSuccess": "Kredencialet e kontabilitetit u pastruan.",
+      "clearFailed": "Dështoi për të pastruar kredencialet e kontabilitetit",
+      "syncFailed": "Sinkronizimi i kontabilitetit në radhë dështoi"
+    }
+  },
+  "deadlineRules": {
+    "title": "Rregullat e afatit",
+    "subtitle": "Kompensimet e juridiksionit dhe të llojit të lëndës përdoren kur krijohen automatikisht afatet nga krijimi i lëndës, veprimet e zyrës dhe rinovimet.",
+    "newRule": "Rregull i ri",
+    "noPermission": "Ju nuk keni leje për të parë rregullat e afatit.",
+    "loading": "Rregullat e afatit po ngarkohen…",
+    "loadError": "Ngarkimi i rregullave të afatit dështoi.",
+    "empty": "Asnjë rregull afati nuk përputhet me këto filtra.",
+    "allJurisdictions": "Të gjitha juridiksionet",
+    "allMatterTypes": "Të gjitha llojet e lëndëve",
+    "filters": {
+      "jurisdiction": "Juridiksioni",
+      "matterType": "Lloji i materies"
+    },
+    "columns": {
+      "jurisdiction": "Juridiksioni",
+      "matterType": "Lloji i materies",
+      "event": "Ngjarje",
+      "trigger": "Kthesë",
+      "offset": "Kompensimi",
+      "grace": "Grace",
+      "priority": "Prioriteti",
+      "status": "Statusi"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Joaktiv"
+    },
+    "editAria": "Redakto rregullin e afatit",
+    "drawer": {
+      "createTitle": "Rregulli i ri i afatit",
+      "editTitle": "Redakto rregullin e afatit",
+      "jurisdiction": "Juridiksioni",
+      "matterType": "Lloji i materies",
+      "eventType": "Lloji i ngjarjes",
+      "triggerType": "Lloji i këmbëzës",
+      "daysOffset": "Kompensimi i ditëve",
+      "dayCounting": "Numërimi i ditëve",
+      "businessDays": "Ditë pune",
+      "calendarDays": "Ditët kalendarike",
+      "gracePeriod": "Periudha e hirit (ditë)",
+      "priority": "Prioriteti (1–10)",
+      "description": "Përshkrimi",
+      "status": "Statusi",
+      "cancel": "Anulo",
+      "create": "Krijo rregull",
+      "save": "Ruaj ndryshimet"
+    },
+    "errors": {
+      "daysOffset": "Fut një kompensim të vlefshëm të ditëve",
+      "grace": "Fut një periudhë të vlefshme mospagimi",
+      "priority": "Prioriteti duhet të jetë ndërmjet 1 dhe 10",
+      "saveFailed": "Ruajtja e rregullit të afatit dështoi"
+    },
+    "offset": {
+      "businessDay": "ditë pune",
+      "businessDays": "ditë pune",
+      "calendarDay": "ditë kalendarike",
+      "calendarDays": "ditëve kalendarike",
+      "sameDay": "Të njëjtën ditë ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Regjistrimi",
+      "examination_response": "Përgjigja e provimit",
+      "renewal": "Rinovimi",
+      "opposition": "Opozita",
+      "grace_period": "Periudha e mospagimit"
+    },
+    "triggerType": {
+      "matter_created": "Materia e krijuar",
+      "office_action": "Veprimi i zyrës",
+      "renewal_due": "Rinovimi i duhur"
+    }
+  },
+  "documentTemplates": {
+    "title": "Modelet e dokumenteve",
+    "subtitle": "Modelet e letrave dhe skedarëve me fushat e bashkimit. Gjeneroni PDF nga çështjet ose shikoni paraprakisht me të dhëna të mostrës.",
+    "newTemplate": "Model i ri",
+    "noPermission": "Ju nuk keni leje për të parë shabllonet e dokumenteve.",
+    "loading": "Modelet po ngarkohen…",
+    "loadError": "Ngarkimi i shablloneve të dokumenteve dështoi.",
+    "empty": "Nuk ka ende shabllone dokumentesh.",
+    "columns": {
+      "name": "Emri",
+      "slug": "Slug",
+      "category": "Kategoria",
+      "status": "Statusi",
+      "docx": "fjalë",
+      "updated": "Përditësuar"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Joaktiv"
+    },
+    "editAria": "Redaktoni shabllonin e dokumentit",
+    "uploadDocx": "Ngarko .docx",
+    "removeDocx": "Hiq .docx",
+    "uploadDocxAria": "Ngarko shabllonin e Word-it",
+    "removeDocxAria": "Hiq shabllonin e Word-it",
+    "confirmRemoveDocx": "Të hiqet shablloni Word (.docx) nga ky shabllon i shkronjave?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Modeli i ri i dokumentit",
+      "editTitle": "Redaktoni shabllonin e dokumentit",
+      "loading": "Modeli po ngarkohet…",
+      "slug": "Slug",
+      "slugHint": "Qebap-kebap i vogël, unike.",
+      "slugReadonly": "Slug:",
+      "name": "Emri",
+      "category": "Kategoria",
+      "description": "Përshkrimi",
+      "referenceLine": "Linja e referencës",
+      "mergeFields": "Bashkoni fushat",
+      "insertIntoReference": "Futeni në linjën e referencës",
+      "insertIntoHtml": "Futeni në trupin e HTML",
+      "htmlBody": "Trupi HTML",
+      "livePreview": "Paraafishimi i drejtpërdrejtë",
+      "status": "Statusi",
+      "previewPdf": "Shikoni paraprakisht PDF",
+      "cancel": "Anulo",
+      "create": "Krijo shabllon",
+      "save": "Ruaj ndryshimet"
+    },
+    "errors": {
+      "required": "Kërkohet emri dhe trupi HTML",
+      "slugRequired": "Slug është i nevojshëm",
+      "saveFailed": "Ruajtja e shabllonit të dokumentit dështoi",
+      "previewFailed": "Gjenerimi i pamjes paraprake të PDF-së dështoi",
+      "docxUploadFailed": "Dështoi në ngarkimin e shabllonit të Word",
+      "docxDeleteFailed": "Heqja e shabllonit të Word dështoi"
+    }
+  },
+  "holidays": {
+    "title": "Kalendari i festave",
+    "subtitle": "Festat publike sipas juridiksionit. Pushimet e përsëritura zbatohen çdo vit në të njëjtin muaj dhe ditë kur numërohen ditët e punës.",
+    "newHoliday": "Festa e re",
+    "noPermission": "Ju nuk keni leje për të parë pushimet.",
+    "loading": "Po ngarkon pushimet…",
+    "loadError": "Ngarkimi i pushimeve dështoi.",
+    "empty": "Asnjë festë nuk përputhet me këtë filtër.",
+    "allJurisdictions": "Të gjitha juridiksionet",
+    "filters": {
+      "jurisdiction": "Juridiksioni"
+    },
+    "columns": {
+      "jurisdiction": "Juridiksioni",
+      "date": "Data",
+      "name": "Emri",
+      "recurring": "Të përsëritura"
+    },
+    "recurring": {
+      "yes": "Të përsëritura",
+      "no": "Një herë"
+    },
+    "editAria": "Redakto festën",
+    "deleteAria": "Fshi pushimet",
+    "confirmDelete": "Të fshihet pushimi \"{{name}}\"?",
+    "drawer": {
+      "createTitle": "Festa e re",
+      "editTitle": "Redakto festën",
+      "jurisdiction": "Juridiksioni",
+      "date": "Data",
+      "name": "Emri",
+      "recurring": "Të përsëritura çdo vit",
+      "cancel": "Anulo",
+      "create": "Krijo pushime",
+      "save": "Ruaj ndryshimet"
+    },
+    "errors": {
+      "required": "Kërkohet emri dhe data",
+      "saveFailed": "Pushimi nuk u ruajt"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Cilësimet",
+    "title": "Integrimi me email",
+    "description": "Lidhni kutinë tuaj postare të punës për të sinkronizuar postën hyrëse në radhën e postës elektronike dhe dërgoni përgjigje nga CRM. Kërkon Mail.Read + Mail.Send (Microsoft) ose gmail.readonly + gmail.send (Google). Rilidheni pas përditësimeve të fushës për të dhënë lejen e dërgimit.",
+    "fetchEmails": "Merr 5 email",
+    "connectedSuccess": "U lidh me sukses {{provider}}.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Lidhur",
+    "error": "Gabim",
+    "notConnected": "Nuk është i lidhur",
+    "providerEnabledDescription": "Tërhiqni mesazhe të reja në kutinë hyrëse në radhën e postës elektronike.",
+    "providerDisabledDescription": "Nuk është konfiguruar në këtë server (mungojnë kredencialet OAuth).",
+    "redirectUriHint": "Regjistrojeni këtë URI të ridrejtimit në aplikacionin tuaj {{provider}} OAuth:",
+    "lastSync": "Sinkronizimi i fundit: {{time}}",
+    "neverSynced": "Nuk u sinkronizua kurrë",
+    "reconnect": "Rilidheni",
+    "disconnect": "Shkëputeni",
+    "connect": "Lidhe {{provider}}",
+    "loadingConnections": "Po ngarkon lidhjet…",
+    "fetchSuccess": "U mora deri në {{limit}} mesazh(e) — {{ingested}} të reja në radhë.",
+    "fetchFailed": "Marrja e emaileve dështoi"
+  },
+  "consent": {
+    "title": "Të dhënat e pëlqimit",
+    "subtitle": "Statusi i pëlqimit të GDPR për klientët.",
+    "filters": {
+      "all": "Të gjitha",
+      "consented": "Pëlqyer",
+      "missing": "Mungon"
+    },
+    "failedToLoad": "Ngarkimi i të dhënave të pëlqimit dështoi.",
+    "noClientsFound": "Nuk u gjet asnjë klient.",
+    "table": {
+      "client": "Klienti",
+      "code": "Kodi",
+      "consent": "Pëlqimi",
+      "date": "Data"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "文件",
+  "subtitle": "公司范围内的事项文档库。",
+  "searchPlaceholder": "搜索文档...",
+  "loading": "加载中…",
+  "loadFailed": "无法加载文档。",
+  "empty": "没有找到文件。",
+  "columns": {
+    "name": "姓名",
+    "matter": "事情",
+    "category": "类别",
+    "updated": "已更新",
+    "by": "经过"
+  }
+}

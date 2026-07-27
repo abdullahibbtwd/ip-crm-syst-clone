@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Check, Plus, Trash2 } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -24,11 +25,7 @@ import {
   useUpdateTask,
 } from '@/features/tasks/hooks/useTasks'
 import type { Task, TaskPriority } from '@/features/tasks/types'
-import {
-  formatTaskDate,
-  TASK_PRIORITY_LABELS,
-  TASK_STATUS_LABELS,
-} from '@/features/tasks/utils'
+import { formatTaskDate } from '@/features/tasks/utils'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { usePermission } from '@/hooks/usePermission'
@@ -46,6 +43,7 @@ function TaskRow({
   currentUserId: string
   canDelete: boolean
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const { confirm } = useAppAlert()
   const updateTask = useUpdateTask(matterId)
   const deleteTask = useDeleteTask(matterId)
@@ -54,6 +52,10 @@ function TaskRow({
     task.status === 'pending' &&
     task.dueDate &&
     new Date(task.dueDate) < new Date(new Date().toISOString().slice(0, 10))
+
+  const dueLabel = task.dueDate
+    ? t('tasks.dueOn', { date: formatTaskDate(task.dueDate) })
+    : t('tasks.noDueDate')
 
   return (
     <div
@@ -69,11 +71,11 @@ function TaskRow({
             variant={task.priority === 'high' ? 'default' : 'outline'}
             className="normal-case"
           >
-            {TASK_PRIORITY_LABELS[task.priority]}
+            {t(`tasks.priority.${task.priority}`)}
           </Badge>
           {task.status === 'completed' ? (
             <Badge variant="secondary" className="normal-case">
-              {TASK_STATUS_LABELS.completed}
+              {t('tasks.completed')}
             </Badge>
           ) : null}
           <span className={cn('font-medium', task.status === 'completed' && 'line-through')}>
@@ -81,15 +83,14 @@ function TaskRow({
           </span>
         </div>
         <p className="text-sm text-muted-foreground">
-          Assigned to {task.assignedTo.fullName}
-          {task.dueDate ? ` · Due ${formatTaskDate(task.dueDate)}` : ' · No due date'}
+          {t('tasks.assignedToUser', { name: task.assignedTo.fullName })} · {dueLabel}
         </p>
         {task.notes ? (
           <p className="text-sm text-muted-foreground">{task.notes}</p>
         ) : null}
         {task.status === 'completed' && task.completedBy ? (
           <p className="text-xs text-muted-foreground">
-            Completed by {task.completedBy.fullName}
+            {t('tasks.completedByUser', { name: task.completedBy.fullName })}
           </p>
         ) : null}
       </div>
@@ -103,7 +104,7 @@ function TaskRow({
             onClick={() => updateTask.mutate({ id: task.id, data: { status: 'completed' } })}
           >
             <Check className="mr-1 size-4" />
-            Mark complete
+            {t('tasks.markComplete')}
           </Button>
         ) : null}
         {canDelete ? (
@@ -114,10 +115,10 @@ function TaskRow({
             disabled={deleteTask.isPending}
             onClick={async () => {
               const ok = await confirm({
-                title: 'Delete task?',
-                message: 'This task will be permanently removed.',
+                title: t('tasks.deleteTitle'),
+                message: t('tasks.deleteMessage'),
                 variant: 'danger',
-                confirmLabel: 'Delete',
+                confirmLabel: t('tasks.delete'),
               })
               if (ok) deleteTask.mutate(task.id)
             }}
@@ -139,6 +140,7 @@ function TaskDrawer({
   open: boolean
   onClose: () => void
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const createTask = useCreateTask(matterId)
 
   const [title, setTitle] = useState('')
@@ -162,11 +164,11 @@ function TaskDrawer({
     e.preventDefault()
     setError(null)
     if (!title.trim()) {
-      setError('Title is required')
+      setError(t('tasks.form.titleRequired'))
       return
     }
     if (!assignedToId) {
-      setError('Select who should do this task')
+      setError(t('tasks.form.assigneeRequired'))
       return
     }
     try {
@@ -179,26 +181,26 @@ function TaskDrawer({
       })
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to create task'))
+      setError(getApiErrorMessage(err, t('tasks.errorCreate')))
     }
   }
 
   return (
-    <Drawer open={open} onClose={onClose} title="Add task">
+    <Drawer open={open} onClose={onClose} title={t('tasks.drawerTitle')}>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="space-y-2">
-          <Label htmlFor="task-title">What needs to be done</Label>
+          <Label htmlFor="task-title">{t('tasks.form.titleLabel')}</Label>
           <Input
             id="task-title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="e.g. Call client re: BPO response"
+            placeholder={t('tasks.form.titlePlaceholder')}
             required
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="task-assignee">Assigned to</Label>
+          <Label htmlFor="task-assignee">{t('tasks.form.assigneeLabel')}</Label>
           <TeamMemberSelect
             id="task-assignee"
             value={assignedToId}
@@ -208,7 +210,7 @@ function TaskDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="task-due">Due date (optional)</Label>
+          <Label htmlFor="task-due">{t('tasks.form.dueDateOptional')}</Label>
           <Input
             id="task-due"
             type="date"
@@ -218,26 +220,26 @@ function TaskDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="task-priority">Priority</Label>
+          <Label htmlFor="task-priority">{t('tasks.form.priorityLabel')}</Label>
           <Select value={priority} onValueChange={(v) => setPriority(v as TaskPriority)}>
             <SelectTrigger id="task-priority">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="high">{TASK_PRIORITY_LABELS.high}</SelectItem>
-              <SelectItem value="normal">{TASK_PRIORITY_LABELS.normal}</SelectItem>
+              <SelectItem value="high">{t('tasks.priority.high')}</SelectItem>
+              <SelectItem value="normal">{t('tasks.priority.normal')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="task-notes">Notes (optional)</Label>
+          <Label htmlFor="task-notes">{t('tasks.form.notesOptional')}</Label>
           <Textarea
             id="task-notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             rows={3}
-            placeholder="Any extra context for the assignee"
+            placeholder={t('tasks.form.notesPlaceholder')}
           />
         </div>
 
@@ -245,10 +247,10 @@ function TaskDrawer({
 
         <div className="flex gap-2 pt-2">
           <Button type="submit" disabled={createTask.isPending}>
-            {createTask.isPending ? 'Saving…' : 'Add task'}
+            {createTask.isPending ? t('loading.saving', { ns: 'common' }) : t('tasks.add')}
           </Button>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('actions.cancel', { ns: 'common' })}
           </Button>
         </div>
       </form>
@@ -257,6 +259,7 @@ function TaskDrawer({
 }
 
 export function MatterTasksTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
   const { user } = useAuth()
   const { data: tasks, isLoading, isError } = useMatterTasks(matterId)
@@ -266,26 +269,24 @@ export function MatterTasksTab() {
   const { pending, completed } = useMemo(() => {
     const all = tasks ?? []
     return {
-      pending: all.filter((t) => t.status === 'pending'),
-      completed: all.filter((t) => t.status === 'completed'),
+      pending: all.filter((task) => task.status === 'pending'),
+      completed: all.filter((task) => task.status === 'completed'),
     }
   }, [tasks])
 
   if (isLoading && !tasks) {
-    return <p className="text-sm text-muted-foreground">Loading tasks…</p>
+    return <p className="text-sm text-muted-foreground">{t('tasks.loading')}</p>
   }
   if (isError) {
-    return <p className="text-sm text-destructive">Failed to load tasks.</p>
+    return <p className="text-sm text-destructive">{t('tasks.error')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="font-medium">Tasks</h2>
-          <p className="text-sm text-muted-foreground">
-            Work to be done on this matter - separate from system-generated deadlines.
-          </p>
+          <h2 className="font-medium">{t('tasks.title')}</h2>
+          <p className="text-sm text-muted-foreground">{t('tasks.description')}</p>
         </div>
         <PermissionGate resource="task" action="create">
           <Button
@@ -295,16 +296,16 @@ export function MatterTasksTab() {
             onClick={() => setDrawerOpen(true)}
           >
             <Plus className="mr-1 size-4" />
-            Add task
+            {t('tasks.add')}
           </Button>
         </PermissionGate>
       </div>
 
       <section className="space-y-3">
-        <h3 className="text-sm font-medium">Open</h3>
+        <h3 className="text-sm font-medium">{t('tasks.open')}</h3>
         {pending.length === 0 ? (
           <p className="rounded-lg border border-dashed py-10 text-center text-sm text-muted-foreground">
-            No open tasks. Add one when there is work to track on this matter.
+            {t('tasks.emptyOpen')}
           </p>
         ) : (
           pending.map((task) => (
@@ -321,7 +322,7 @@ export function MatterTasksTab() {
 
       {completed.length > 0 ? (
         <section className="space-y-3">
-          <h3 className="text-sm font-medium text-muted-foreground">Completed</h3>
+          <h3 className="text-sm font-medium text-muted-foreground">{t('tasks.completed')}</h3>
           {completed.map((task) => (
             <TaskRow
               key={task.id}

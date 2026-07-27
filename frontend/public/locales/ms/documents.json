@@ -1,0 +1,15 @@
+{
+  "title": "Dokumen",
+  "subtitle": "Perpustakaan dokumen perkara seluruh firma.",
+  "searchPlaceholder": "Cari dokumen…",
+  "loading": "Memuatkan…",
+  "loadFailed": "Gagal memuatkan dokumen.",
+  "empty": "Tiada dokumen ditemui.",
+  "columns": {
+    "name": "Nama",
+    "matter": "Perkara",
+    "category": "kategori",
+    "updated": "dikemas kini",
+    "by": "Oleh"
+  }
+}

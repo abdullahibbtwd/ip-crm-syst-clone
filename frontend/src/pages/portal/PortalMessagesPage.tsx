@@ -86,32 +86,27 @@ export function PortalMessagesPage() {
     <div className="space-y-6">
       <div>
         <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-          {t('messages.title', { defaultValue: 'Messages' })}
+          {t('messages.title')}
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          {t('messages.description', {
-            defaultValue:
-              'Firm broadcasts and matter messages shared with your organisation.',
-          })}
+          {t('messages.description')}
         </p>
       </div>
 
       {isLoading && (
         <p className="text-sm text-muted-foreground">
-          {t('messages.loading', { defaultValue: 'Loading messages…' })}
+          {t('messages.loading')}
         </p>
       )}
       {isError && (
         <p className="text-sm text-destructive">
-          {t('messages.error', { defaultValue: 'Failed to load messages.' })}
+          {t('messages.error')}
         </p>
       )}
 
       {rows.length === 0 && !isLoading && !isError && (
         <p className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">
-          {t('messages.empty', {
-            defaultValue: 'No messages yet. Firm updates and shared correspondence will appear here.',
-          })}
+          {t('messages.empty')}
         </p>
       )}
 
@@ -140,10 +135,10 @@ export function PortalMessagesPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>{t('messages.table.type', { defaultValue: 'Type' })}</TableHead>
-                    <TableHead>{t('messages.table.subject', { defaultValue: 'Subject' })}</TableHead>
-                    <TableHead>{t('messages.table.date', { defaultValue: 'Date' })}</TableHead>
-                    <TableHead>{t('messages.table.matter', { defaultValue: 'Matter' })}</TableHead>
+                    <TableHead>{t('messages.table.type')}</TableHead>
+                    <TableHead>{t('messages.table.subject')}</TableHead>
+                    <TableHead>{t('messages.table.date')}</TableHead>
+                    <TableHead>{t('messages.table.matter')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -161,7 +156,10 @@ export function PortalMessagesPage() {
                         <div className="flex items-center gap-2">
                           <KindBadge kind={item.kind} />
                           {!item.readAt ? (
-                            <span className="size-1.5 rounded-full bg-primary" aria-label="Unread" />
+                            <span
+                              className="size-1.5 rounded-full bg-primary"
+                              aria-label={t('messages.unread')}
+                            />
                           ) : null}
                         </div>
                       </TableCell>
@@ -186,14 +184,12 @@ export function PortalMessagesPage() {
           <div className="min-h-[240px] rounded-lg border p-4">
             {!selected && (
               <p className="text-sm text-muted-foreground">
-                {t('messages.selectHint', {
-                  defaultValue: 'Select a message to read it.',
-                })}
+                {t('messages.selectHint')}
               </p>
             )}
             {selected && detailLoading && !detail && (
               <p className="text-sm text-muted-foreground">
-                {t('messages.loadingDetail', { defaultValue: 'Opening…' })}
+                {t('messages.loadingDetail')}
               </p>
             )}
             {selected && detail && (
@@ -207,7 +203,7 @@ export function PortalMessagesPage() {
                 <h2 className="font-serif text-xl text-foreground">{detail.subject}</h2>
                 {detail.matter ? (
                   <p className="text-sm text-muted-foreground">
-                    {t('messages.relatedMatter', { defaultValue: 'Matter' })}:{' '}
+                    {t('messages.relatedMatter')}:{' '}
                     <Link
                       to={`/matters/${detail.matter.id}`}
                       className="text-primary hover:underline"
@@ -224,7 +220,7 @@ export function PortalMessagesPage() {
                 ) : (
                   <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-foreground">
                     {detail.bodyText ||
-                      t('messages.noBody', { defaultValue: 'No message body.' })}
+                      t('messages.noBody')}
                   </pre>
                 )}
               </article>
@@ -242,25 +238,29 @@ function KindBadge({ kind }: { kind: PortalInboxMessage['kind'] }) {
     return (
       <Badge variant="info" className="normal-case gap-1">
         <Megaphone className="size-3" />
-        {t('messages.kindBroadcast', { defaultValue: 'Broadcast' })}
+        {t('messages.kindBroadcast')}
       </Badge>
     )
   }
   return (
     <Badge variant="outline" className="normal-case gap-1">
       <Mail className="size-3" />
-      {t('messages.kindCorrespondence', { defaultValue: 'Matter' })}
+      {t('messages.kindCorrespondence')}
     </Badge>
   )
 }
 
 function MessageRowSummary({ item }: { item: PortalInboxMessage }) {
+  const { t } = useTranslation('portal')
   return (
     <div>
       <div className="mb-1 flex items-center gap-2">
         <KindBadge kind={item.kind} />
         {!item.readAt ? (
-          <span className="size-1.5 rounded-full bg-primary" aria-label="Unread" />
+          <span
+            className="size-1.5 rounded-full bg-primary"
+            aria-label={t('messages.unread')}
+          />
         ) : null}
       </div>
       <p

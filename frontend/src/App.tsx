@@ -4,6 +4,7 @@ import { AppLayout } from './layouts/AppLayout'
 import { DashboardPage } from './pages/DashboardPage'
 import { LoginPage } from './pages/LoginPage'
 import { ResetPasswordPage } from './pages/ResetPasswordPage'
+import { AcceptInvitePage } from './pages/AcceptInvitePage'
 import { ClientListPage } from './pages/crm/ClientListPage'
 import { CreateHoldingGroupPage } from './pages/crm/CreateHoldingGroupPage'
 import { HoldingGroupDetailPage } from './pages/crm/HoldingGroupDetailPage'
@@ -89,6 +90,7 @@ export default function App() {
       <Route element={<GuestRoute />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/accept-invite" element={<AcceptInvitePage />} />
       </Route>
 
       <Route element={<ProtectedRoute />}>

@@ -1,0 +1,37 @@
+{
+  "title": "Coada de e-mailuri",
+  "subtitle": "E-mailuri deconectate extrase din cutiile poștale conectate. Deschideți un e-mail, apoi atașați-l la registrul de corespondență al unei probleme.",
+  "fetchEmails": "Preluați 5 e-mailuri",
+  "mailboxSettings": "Setări cutie poștală",
+  "fetchSuccess": "S-au preluat până la {{limit}} mesaje primite — {{ingested}} nou în coadă{{emptyHint}}.",
+  "fetchEmptyHint": "(deja importat sau inbox gol)",
+  "fetchFailed": "E-mailurile nu au fost preluate",
+  "columns": {
+    "received": "Primit",
+    "from": "Din",
+    "subject": "Subiect",
+    "mailbox": "Cutia poștală",
+    "suggestion": "Sugestie",
+    "actions": "Acțiuni"
+  },
+  "loading": "Se încarcă coada...",
+  "loadFailed": "Nu s-a încărcat coada de e-mailuri.",
+  "emptyTitle": "Coada este goală",
+  "emptyDescription": "Conectați o cutie poștală în setări și preluați e-mailuri pentru a importa mesaje noi.",
+  "noSubject": "(Fără subiect)",
+  "suggestions": {
+    "subjectRef": "Ref client în subiect",
+    "bodyRef": "Ref client în corp",
+    "singleActiveMatter": "Unică materie activă",
+    "contactMatch": "Contact potrivire",
+    "default": "Chestiune sugerată",
+    "officeAction": "Acțiune de birou",
+    "renewal": "Reînnoire"
+  },
+  "actions": {
+    "viewEmail": "Vizualizați e-mailul",
+    "reply": "Răspuns",
+    "attachToMatter": "Atașați la materie corespondența",
+    "downloadEml": "Descărcați .eml"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "title": "Socios extranjeros",
+  "subtitle": "Agentes locales y abogados asociados utilizados para presentaciones e instrucciones de asuntos.",
+  "newPartner": "Nuevo socio",
+  "noPermission": "No tienes permiso para ver socios.",
+  "loading": "Cargando socios…",
+  "loadError": "No se pudieron cargar los socios.",
+  "empty": "Ningún socio coincide con estos filtros.",
+  "searchPlaceholder": "Buscar nombre, empresa, correo electrónico…",
+  "filters": {
+    "all": "Todos los socios",
+    "activeOnly": "Solo activa"
+  },
+  "columns": {
+    "name": "Nombre",
+    "company": "Compañía",
+    "email": "Correo electrónico",
+    "jurisdictions": "Jurisdicciones",
+    "status": "Estado"
+  },
+  "status": {
+    "active": "Activa",
+    "inactive": "Inactiva"
+  },
+  "editAria": "Editar compañera",
+  "deactivateAria": "Desactivar socio",
+  "confirmDeactivate": "¿Desactivar socio “{{name}}”?",
+  "drawer": {
+    "createTitle": "Nuevo socio",
+    "editTitle": "Editar compañera",
+    "name": "Nombre",
+    "company": "Compañía",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "countryCode": "Código del país",
+    "jurisdictions": "Jurisdicciones",
+    "jurisdictionsHint": "Códigos separados por comas, p. BG, UE, PE",
+    "notes": "Notas",
+    "status": "Estado",
+    "cancel": "Cancelar",
+    "create": "Crear socio",
+    "save": "Guardar cambios"
+  },
+  "errors": {
+    "nameRequired": "El nombre es obligatorio",
+    "saveFailed": "No se pudo guardar el socio"
+  },
+  "instructions": {
+    "title": "Instrucciones para socios",
+    "subtitle": "Redactar, enviar y dar seguimiento a instrucciones a socios extranjeros en esta materia.",
+    "newDraft": "Nuevo borrador",
+    "noPermission": "No tienes permiso para ver las instrucciones de los socios.",
+    "loading": "Cargando instrucciones…",
+    "loadError": "No se pudieron cargar las instrucciones.",
+    "empty": "Aún no hay instrucciones para socios.",
+    "columns": {
+      "title": "Título",
+      "partner": "Pareja",
+      "status": "Estado",
+      "created": "Creada"
+    },
+    "status": {
+      "draft": "Borrador",
+      "sent": "Enviada",
+      "acknowledged": "Admitida",
+      "complete": "Completa"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Pareja",
+      "partnerPlaceholder": "Seleccionar socio",
+      "title": "Título",
+      "body": "Instrucciones",
+      "cancel": "Cancelar",
+      "create": "Crear borrador"
+    },
+    "errors": {
+      "required": "Se requiere socio y título",
+      "saveFailed": "No se pudo crear la instrucción"
+    }
+  },
+  "actions": {
+    "send": "Enviar",
+    "acknowledge": "Reconocer",
+    "complete": "Completa"
+  }
+}

@@ -7,6 +7,7 @@ export type AuthUser = {
   permissions: string[]
   mfaEnabled: boolean
   mfaEnrollmentRequired?: boolean
+  preferredLocale: string | null
 }
 
 export type LoginResponse = {

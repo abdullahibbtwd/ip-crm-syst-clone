@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Klijent",
+  "disbursements": {
+    "title": "Isplate",
+    "subtitle": "Fiksne naknade za cijelu tvrtku kategorizirane kao isplate.",
+    "loadFailed": "Učitavanje isplata nije uspjelo.",
+    "empty": "Nisu pronađene isplate.",
+    "columns": {
+      "date": "Datum",
+      "matter": "Materija",
+      "description": "Opis",
+      "amount": "Iznositi"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Isplata",
+    "expense": "Trošak",
+    "professional_fee": "Profesionalna naknada"
+  },
+  "invoices": {
+    "actions": {
+      "download": "preuzimanje",
+      "issue": "Izdati",
+      "pay": "Platiti",
+      "void": "Poništiti"
+    },
+    "confirmIssue": "Izdati ovu fakturu?",
+    "confirmVoid": "Poništiti ovu fakturu? Ovo se ne može poništiti.",
+    "createFromUnbilled": "Izrada fakture iz nenaplaćenog",
+    "description": "Pratite izdane fakture, status plaćanja i nepodmirena dugovanja.",
+    "draft": "Nacrt",
+    "empty": "Nisu pronađene fakture",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite fakturu iz neobračunatog rada.",
+    "error": "Učitavanje faktura nije uspjelo.",
+    "invoiceStatus": {
+      "draft": "Nacrt",
+      "issued": "Izdan",
+      "void": "Poništiti"
+    },
+    "loading": "Učitavanje faktura…",
+    "noPermission": "Nemate dopuštenje za pregled faktura.",
+    "searchPlaceholder": "Pretraži fakturu br. ili klijent…",
+    "sectionTitle": "Fakture",
+    "table": {
+      "amount": "Iznositi",
+      "client": "Klijent",
+      "due": "Duge",
+      "invoiceNo": "Faktura br.",
+      "issued": "Izdan",
+      "payment": "Plaćanje",
+      "status": "Status"
+    },
+    "title": "Fakture",
+    "listSubtitle": "Registar faktura u cijeloj tvrtki za sva pitanja. Izdajte fakture sa značajnih kartica naplate, a zatim ovdje zabilježite plaćanja.",
+    "exportFrom": "Izvoz iz",
+    "exportTo": "Izvezi u",
+    "exportFormats": {
+      "journal": "Časopis CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Izvoz…",
+    "exportFailed": "Računovodstveni izvoz nije uspio",
+    "syncXero": "Sinkroniziraj Xero",
+    "syncQuickBooks": "Sinkronizirajte QuickBooks",
+    "syncFailed": "Sinkronizacija računovodstva nije uspjela",
+    "searchListPlaceholder": "Pretraživanje fakture br., predmet, klijent…",
+    "filters": {
+      "allPayments": "Sva plaćanja",
+      "allStatuses": "Svi statusi"
+    }
+  },
+  "payment": {
+    "amount": "iznos *",
+    "balance": "Izvanredno stanje",
+    "date": "Datum plaćanja *",
+    "drawerTitle": "Rekordno plaćanje",
+    "error": "Evidentiranje plaćanja nije uspjelo",
+    "method": "Način plaćanja *",
+    "methods": {
+      "bank_transfer": "Bankovni transfer",
+      "card": "Kartica",
+      "cash": "Unovčiti",
+      "other": "ostalo"
+    },
+    "notes": "Bilješke",
+    "reference": "Referenca",
+    "save": "Rekordno plaćanje",
+    "success": "Plaćanje je uspješno evidentirano.",
+    "validation": {
+      "amount": "Iznos mora biti veći od nule",
+      "exceeds": "Iznos premašuje nepodmireni dug"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Plaćeno",
+    "partial": "Djelomično plaćeno",
+    "unpaid": "Neplaćeno"
+  },
+  "rateCards": {
+    "any": "Bilo koje",
+    "create": "Izradite cjenik",
+    "description": "Konfigurirajte stope naplate prema ulozi, vrsti predmeta i datumu stupanja na snagu.",
+    "drawerTitle": "Novi cjenik",
+    "drawerTitleEdit": "Uredi cjenik",
+    "effectiveFrom": "Na snazi ​​od *",
+    "effectiveTo": "Djelotvorno za",
+    "error": "Spremanje cjenika nije uspjelo",
+    "firmWide": "Za cijelu tvrtku",
+    "internalCost": "Interni trošak / sat",
+    "matterType": "Vrsta materije",
+    "new": "Novi cjenik",
+    "noPermission": "Nemate dozvolu za upravljanje cjenicima.",
+    "viewNoPermission": "Nemate dozvolu za pregled cjenika.",
+    "rate": "Stopa / sat *",
+    "role": "uloga *",
+    "save": "Spremite promjene",
+    "scope": "Opseg",
+    "table": {
+      "effective": "Učinkovito",
+      "internalCost": "Interni trošak",
+      "matterType": "Vrsta materije",
+      "rate": "Stopa",
+      "role": "Uloga",
+      "scope": "Opseg"
+    },
+    "title": "Cjenici",
+    "pageDescription": "Čvrsti cjenik prema ulozi, vrsti predmeta i izbornom nadjačavanju klijenta. Naplativa stopa koristi se kada se bilježi vrijeme; izborni interni trošak pokreće profitabilnost stvarne marže.",
+    "anyMatterType": "Bilo koja vrsta materije",
+    "clientOverride": "Nadjačavanje klijenta",
+    "firmWideDefault": "Zadana vrijednost cijele tvrtke",
+    "editAria": "Uredi cjenik",
+    "loadFailed": "Učitavanje cjenika nije uspjelo.",
+    "loading": "Učitavanje cjenika...",
+    "empty": "Još nema cjenika.",
+    "billable": "Naplativo",
+    "validation": {
+      "hourlyRate": "Unesite važeću satnicu",
+      "internalCost": "Unesite važeći interni trošak ili ostavite prazno"
+    },
+    "internalCostHint": "Neobavezno. Koristi se za stvarnu profitabilnost marže kada je postavljena na cjenicima.",
+    "billableRate": "Naplativa stopa (EUR/sat)",
+    "internalCostOptional": "Interni trošak (EUR/sat)",
+    "internalCostPlaceholder": "Izborno - za izvješćivanje o marži",
+    "internalCostResolutionHint": "Zrcalna razlučivost stope naplate (klijent → tvrtka + vrsta predmeta → zadana tvrtka). Snimljeno na novim vremenskim unosima kao cost_snapshot.",
+    "effectiveToOptional": "Na snazi ​​do (nije obavezno)"
+  },
+  "rateRole": {
+    "coordinator": "Koordinator",
+    "ip_attorney": "IP odvjetnik",
+    "managing_partner": "Partner za upravljanje",
+    "paralegal": "Pomoćni pravnik",
+    "trademark_attorney": "Odvjetnik za zaštitne znakove"
+  },
+  "billingOverview": {
+    "collectedHint": "Prikupljeno u razdoblju",
+    "collectedLabel": "Prikupljeno",
+    "criticalHint": "Kasni 60+ dana",
+    "criticalLabel": "Kritični rizik",
+    "description": "Stanje prihoda (fakture) plus spremnost za cjenik (cjenik + interno pokrivanje troškova).",
+    "error": "Učitavanje pregleda naplate nije uspjelo.",
+    "invoicedHint": "{{count}} faktura u razdoblju",
+    "invoicedLabel": "Fakturirano",
+    "internalCostHintRevenue": "Osnova zamjene prihoda",
+    "internalCostHintTrueMargin": "Osnova stvarne marže omogućena",
+    "internalCostLabel": "Interni trošak",
+    "manageRateCards": "Upravljajte cjenicima",
+    "nextStep": "Sljedeći korak",
+    "nextStepFix": "Popravite pokrivenost cijena u /rate-cards",
+    "nextStepHealthy": "Pokrivenost stopa je zdrava",
+    "nextStepHint": "Sažeci naplate bit će točniji kada se svaki unos naplativog vremena riješi stopom.",
+    "noPermissionBilling": "Nemate dozvolu za pregled naplate.",
+    "noPermissionInvoice": "Nemate dozvolu za pregled podataka fakture.",
+    "openFullReport": "Otvori cijelo izvješće",
+    "outstandingHint": "{{count}} otvorena potraživanja",
+    "outstandingLabel": "Izvanredan",
+    "rateCardHealth": "Zdravlje cjenika",
+    "rateCardHealthDescription": "Jesu li stope naplate konfigurirane i jesu li marže spremne?",
+    "rateCardsHintConfigured": "Cijene dostupne",
+    "rateCardsHintMissing": "Nema konfiguriranih cjenika",
+    "rateCardsLabel": "Cjenici",
+    "receivablesAging": "Starost potraživanja",
+    "receivablesHint": "Koristite cijelo izvješće za tablice i detalje.",
+    "tip": "Savjet: Interni trošak na cjenicima kontrolira može li sustav izračunati stvarnu profitabilnost marže.",
+    "title": "Pregled naplate",
+    "unratedHintBad": "Neki naplativi unosi imaju snimku tečaja od 0 €",
+    "unratedHintGood": "dobro izgleda",
+    "unratedLabel": "Neocjenjeni vremenski unosi"
+  },
+  "summary": {
+    "billable": "Naplativo",
+    "billableAmount": "Naplativi iznos",
+    "fixedFees": "Fiksne naknade",
+    "total": "Ukupno",
+    "totalHours": "Ukupno sati",
+    "unbilled": "Nenaplaćeno"
+  }
+}

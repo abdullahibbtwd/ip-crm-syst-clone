@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Paraqisni kërkesa të reja për dosje dhe gjurmoni çështjet e hapura nën organizatën tuaj. Portofoli juaj me një shikim.",
+    "eyebrow": "Portali i klientit",
+    "filePatent": "Paraqisni një patentë",
+    "fileTrademark": "Paraqisni një markë tregtare",
+    "stats": {
+      "activeMatters": "Çështjet aktive",
+      "activeMattersHint": "Portofoli i organizatës",
+      "openDeadlines": "Afatet e hapura",
+      "openDeadlinesHint": "Në pritje të veprimit",
+      "overdue": "I vonuar",
+      "overdueCurrent": "E gjitha aktuale",
+      "overdueUrgent": "Vëmendje urgjente",
+      "renewals": "Rinovimet",
+      "renewalsCurrent": "Rryma e mirëmbajtjes",
+      "renewalsNeedAction_one": "{{count}} kam nevojë për veprim",
+      "renewalsNeedAction_other": "{{count}} kam nevojë për veprim"
+    },
+    "title": "Mirë se vini përsëri"
+  },
+  "correspondence": {
+    "title": "Mesazhet",
+    "description": "Korrespondenca që firma juaj ka ndarë me ju.",
+    "loading": "Mesazhet po ngarkohen…",
+    "error": "Ngarkimi i mesazheve dështoi.",
+    "empty": "Nuk ka ende mesazhe. Korrespondenca e përbashkët do të shfaqet këtu.",
+    "table": {
+      "subject": "Subjekti",
+      "date": "Data",
+      "direction": "Drejtimi",
+      "matter": "Materie"
+    }
+  },
+  "messages": {
+    "title": "Mesazhet",
+    "description": "Transmetimet e firmave dhe mesazhet kanë rëndësi të ndara me organizatën tuaj.",
+    "loading": "Mesazhet po ngarkohen…",
+    "loadingDetail": "Po hapet…",
+    "error": "Ngarkimi i mesazheve dështoi.",
+    "empty": "Nuk ka ende mesazhe. Përditësimet e firmës dhe korrespondenca e përbashkët do të shfaqen këtu.",
+    "selectHint": "Zgjidhni një mesazh për ta lexuar.",
+    "unread": "Të palexuara",
+    "relatedMatter": "Materie",
+    "noBody": "Asnjë trup mesazhi.",
+    "openLink": "Hap lidhjen e mesazhit",
+    "kindBroadcast": "Transmetimi",
+    "kindCorrespondence": "Materie",
+    "table": {
+      "type": "Lloji",
+      "subject": "Subjekti",
+      "date": "Data",
+      "matter": "Materie"
+    }
+  },
+  "approvals": {
+    "title": "Miratimet",
+    "description": "Rishikoni dhe vendosni për kërkesat e miratimit nga firma juaj.",
+    "loading": "Po ngarkon miratimet…",
+    "couldNotLoad": "Aprovimet nuk mund të ngarkoheshin",
+    "retry": "Provo sërish",
+    "decideError": "Vendimi juaj nuk mund të dorëzohej",
+    "approve": "Mirato",
+    "reject": "Refuzo",
+    "notePlaceholder": "Shënim opsional…",
+    "due": "Afati {{date}}",
+    "pendingSection": "Në pritje të vendimit tuaj",
+    "historySection": "Vendimet e mëparshme",
+    "empty": {
+      "title": "Nuk ka kërkesa për miratim",
+      "description": "Kur firma juaj dorëzon një kërkesë miratimi, ajo do të shfaqet këtu."
+    },
+    "status": {
+      "draft": "Drafti",
+      "pending": "Në pritje",
+      "approved": "Miratuar",
+      "rejected": "Refuzuar"
+    }
+  },
+  "documentCategories": {
+    "application": "Aplikimi",
+    "certificate": "Certifikata",
+    "correspondence": "Korrespondencë",
+    "evidence": "Dëshmi",
+    "office_action": "Veprimi i zyrës"
+  },
+  "documents": {
+    "allCategories": "Të gjitha kategoritë",
+    "allMatters": "Të gjitha çështjet",
+    "description": "Dokumentet e ndara për të gjitha çështjet tuaja.",
+    "download": "Shkarkoni",
+    "empty": "Nuk ka ende dokumente. Dokumentet do të shfaqen këtu kur firma juaj t'i ndajë ato për çështjet tuaja.",
+    "error": "Ngarkimi i dokumenteve dështoi.",
+    "loading": "Po ngarkon dokumentet…",
+    "searchPlaceholder": "Kërko dokumente…",
+    "table": {
+      "category": "Kategoria",
+      "document": "Dokumenti",
+      "matter": "Materie",
+      "size": "Madhësia",
+      "updated": "Përditësuar"
+    },
+    "title": "Dokumentet e mia"
+  },
+  "intake": {
+    "description": "Paraqisni një kërkesë të re depozitimi ose rishikoni kërkesat që keni paraqitur tashmë.",
+    "empty": {
+      "action": "Paraqisni një kërkesë",
+      "description": "Paraqisni një kërkesë për markë tregtare ose patentë për të filluar.",
+      "title": "Nuk ka ende pyetje"
+    },
+    "error": "Kërkesat tuaja nuk mund të ngarkoheshin.",
+    "filed": "Paraqitur {{date}}",
+    "fileNew": "Paraqisni një kërkesë të re",
+    "loading": "Po ngarkon kërkesat tuaja…",
+    "myEnquiries": "Kërkimet e mia",
+    "status": {
+      "accepted": "Pranuar",
+      "inReview": "Në shqyrtim",
+      "matterOpened": "Çështja u hap",
+      "notAccepted": "Nuk pranohet",
+      "submitted": "dorëzuar"
+    },
+    "submitted": {
+      "description": "Kemi kryer automatikisht një kontroll fillestar të konfliktit. Një koordinator do të konfirmojë dhe hapë çështjen tuaj. Ju mund ta rishikoni ose modifikoni kërkesën tuaj në çdo kohë derisa të pranohet.",
+      "reviewEnquiry": "Rishikoni këtë kërkesë",
+      "title": "Kërkimi u dorëzua"
+    },
+    "title": "Hetimet",
+    "untitled": "Hetim pa titull"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Kthehu tek pyetjet e mia",
+    "cancel": "Anulo",
+    "defaultTitle": "hetim",
+    "edit": "Redakto",
+    "editDescription": "Ruajtja do të përditësojë kërkesën tuaj dhe do të rihap automatikisht kontrollin e konfliktit.",
+    "editTitle": "Redakto kërkesën",
+    "enquirer": "Pyetës",
+    "enquirerCompany": "Kompania",
+    "enquirerIndividual": "Individuale",
+    "enquiryDetails": "Detajet e hetimit",
+    "error": "Ky kërkim nuk mund të ngarkohej.",
+    "fields": {
+      "companyName": "Emri i kompanisë",
+      "country": "Vendi",
+      "description": "Përshkrimi",
+      "email": "Email",
+      "fullName": "Emri i plotë",
+      "matterType": "Lloji i materies",
+      "otherParties": "Parti të tjera",
+      "phone": "Telefoni",
+      "urgency": "Urgjenca"
+    },
+    "filed": "Paraqitur {{date}}",
+    "loading": "Po ngarkon kërkesën…",
+    "saveChanges": "Ruaj ndryshimet",
+    "statusHints": {
+      "approved": "Kërkesa juaj është pranuar dhe po vendoset si çështje.",
+      "conflictFlagged": "Një koordinator po shqyrton kërkesën tuaj përpara se të pranohet.",
+      "converted": "Është hapur një çështje. Mund ta gjurmosh nën Çështjet e mia.",
+      "new": "Marrë. Një kontroll konflikti është kryer automatikisht dhe një koordinator do ta shqyrtojë atë së shpejti.",
+      "rejected": "Ky hetim nuk u pranua. Na kontaktoni nëse keni pyetje.",
+      "reviewing": "Një koordinator po shqyrton kërkesën tuaj."
+    },
+    "urgency": {
+      "normal": "Normale",
+      "urgent": "Urgjente"
+    },
+    "viewMatter": "Shiko çështjen"
+  },
+  "invoices": {
+    "description": "Faturat dhe statusi i pagesës për të gjitha çështjet tuaja.",
+    "error": "Ngarkimi i faturave dështoi.",
+    "loading": "Po ngarkon faturat…",
+    "title": "Faturat e mia"
+  },
+  "matterTypes": {
+    "design": "Dizajn",
+    "other": "Të tjera",
+    "patent": "Patenta",
+    "trademark": "Markë tregtare",
+    "utility_model": "Modeli i shërbimeve"
+  },
+  "renewals": {
+    "couldNotLoad": "Rinovimet nuk mund të ngarkoheshin",
+    "cycle": "cikli {{number}}",
+    "decline": "Rënia",
+    "description": "Rinovimet e ardhshme të markave tregtare dhe dizajnit për të drejtat tuaja IP.",
+    "due": "Afati {{date}}",
+    "empty": {
+      "description": "Rinovimet shfaqen këtu pasi firma juaj regjistron një IP të drejtë për një nga çështjet tuaja. Do t'ju kërkohet të vazhdoni ose të refuzoni përpara çdo afati të rinovimit.",
+      "title": "Asnjë rinovim nuk kërkon vëmendjen tuaj",
+      "viewDeadlines": "Shiko afatet e mia",
+      "viewMatters": "Shikoni çështjet e mia"
+    },
+    "errorFallback": "Ju lutemi, provoni përsëri ose dilni dhe hyni përsëri nëse lejet kanë ndryshuar.",
+    "instructionError": "Udhëzimet nuk mund të dorëzoheshin",
+    "loading": "Po ngarkohet…",
+    "proceed": "Vazhdoni",
+    "retry": "Provo sërish",
+    "title": "Rinovimet"
+  },
+  "renewalStatus": {
+    "completed": "E përfunduar",
+    "filed": "Paraqitur",
+    "instructed": "I udhëzuar",
+    "lapsed": "I skaduar",
+    "upcoming": "E ardhme"
+  },
+  "help": {
+    "title": "Ndihmë",
+    "subtitle": "Si të përdorni portalin e klientit për portofolin tuaj IP.",
+    "enquiriesTitle": "Paraqisni një kërkesë",
+    "enquiriesBody": "Përdorni Kërkimet për të paraqitur një kërkesë të re për çështje. Firma do të shqyrtojë kontrollet e konfliktit dhe do t'i shndërrojë të dhënat e miratuara në çështje.",
+    "openEnquiries": "Hapni pyetjet",
+    "approvalsTitle": "Miratimet",
+    "approvalsBody": "Kur firma kërkon miratimin tuaj (për shembull rinovimet ose udhëzimet), përgjigjuni nga faqja e miratimeve.",
+    "openApprovals": "Hap miratimet",
+    "contactTitle": "Keni nevojë për më shumë ndihmë?",
+    "contactBody": "Kontaktoni avokatin ose koordinatorin tuaj të caktuar përmes Mesazheve ose përgjigjuni korrespondencës së fortë për një çështje.",
+    "openMessages": "Hapni mesazhet"
+  }
+}

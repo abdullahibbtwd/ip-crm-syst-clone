@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Memuatkan peguam…",
+    "placeholder": "Pilih peguam yang bertanggungjawab",
+    "unassigned": "Tidak ditugaskan"
+  },
+  "filters": {
+    "activeOnly": "Aktif sahaja",
+    "allStatuses": "Semua status",
+    "inactiveOnly": "Tidak aktif sahaja",
+    "searchPortal": "Cari pengguna portal…",
+    "searchTeam": "Cari ahli pasukan…"
+  },
+  "invite": {
+    "button": "Jemput pengguna",
+    "cancel": "Batal",
+    "clientPlaceholder": "Pilih rekod pelanggan…",
+    "clientRecord": "Rekod pelanggan",
+    "description": "Jemput ahli pasukan atau pelanggan portal. Mereka akan menerima e-mel dengan pautan untuk menetapkan kata laluan mereka atau log masuk dengan Microsoft atau Google.",
+    "email": "E-mel",
+    "emailFailed": "E-mel jemputan tidak dapat dihantar",
+    "emailFailedContinue": "Pengguna telah dibuat — tutup dan hantar semula kemudian",
+    "emailFailedTitle": "Pengguna dijemput, tetapi e-mel tidak dapat dihantar.",
+    "emailHint": "E-mel jemputan dihantar dengan pautan untuk menetapkan kata laluan. Mereka juga boleh log masuk dengan Microsoft atau Google menggunakan e-mel yang tepat ini. Jika e-mel gagal, pengguna masih dibuat dan anda boleh menghantar semula daripada senarai pengguna.",
+    "emailPlaceholder": "nama@syarikat.com",
+    "errors": {
+      "clientRequired": "Pilih rekod pelanggan untuk pengguna portal",
+      "failed": "Gagal menjemput pengguna",
+      "required": "E-mel dan nama penuh diperlukan"
+    },
+    "fullName": "Nama penuh",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Percubaan e-mel terakhir gagal",
+    "resend": "Hantar semula jemputan",
+    "resendFailed": "Gagal menghantar semula e-mel jemputan",
+    "resendSuccess": "E-mel jemputan dihantar",
+    "role": "Peranan",
+    "submit": "Hantar jemputan",
+    "submitting": "Menjemput…",
+    "title": "Jemput pengguna",
+    "typePortal": "Pelanggan portal",
+    "typeTeam": "ahli pasukan",
+    "userType": "Jenis pengguna"
+  },
+  "layout": {
+    "accessRestricted": "Akses terhad",
+    "description": "Urus ahli pasukan dalaman dan akaun pelanggan portal luaran. SSO dan log masuk berasaskan kata laluan ditunjukkan bagi setiap pengguna.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat pengguna dan ahli pasukan.",
+    "title": "Pengguna & pasukan"
+  },
+  "portal": {
+    "description": "Akaun pelanggan luaran dengan akses portal kepada perkara dan dokumen yang dikongsi.",
+    "title": "Pengguna portal"
+  },
+  "role": {
+    "errors": {
+      "failed": "Gagal mengemas kini peranan"
+    },
+    "ownRoleHint": "Anda tidak boleh menukar peranan anda sendiri"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Kata laluan",
+      "pending": "Belum selesai",
+      "sso": "SSO"
+    },
+    "clientRecord": "Rekod pelanggan",
+    "empty": "Tiada pengguna ditemui",
+    "emptyDescription": "Cuba laraskan carian atau penapis.",
+    "error": "Gagal memuatkan pengguna.",
+    "headers": {
+      "invite": "Jemput",
+      "lastLogin": "Log masuk terakhir",
+      "mfa": "MFA",
+      "registered": "Berdaftar",
+      "role": "Peranan",
+      "signIn": "Log masuk",
+      "status": "Status",
+      "user": "pengguna"
+    },
+    "mfa": {
+      "enabled": "Didayakan",
+      "off": "Mati"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Tidak aktif",
+      "invited": "dijemput"
+    },
+    "viewAria": "Lihat {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Akaun pelanggan",
+      "label": "Pengguna portal"
+    },
+    "team": {
+      "description": "Kakitangan dalaman",
+      "label": "Pasukan"
+    }
+  },
+  "team": {
+    "description": "Kakitangan dalaman dengan peranan, kaedah log masuk dan status MFA. Rakan kongsi pengurusan dan pentadbir IT boleh menjemput pengguna dan menukar peranan.",
+    "title": "Ahli pasukan"
+  },
+  "teamMemberSelect": {
+    "loading": "Memuatkan…",
+    "placeholder": "Pilih ahli pasukan"
+  }
+}

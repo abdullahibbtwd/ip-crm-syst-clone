@@ -1,0 +1,68 @@
+{
+  "title": "Saated",
+  "subtitle": "Saatke ettevõtte SMTP kaudu klientide kontaktmeilidele hulgiteatisi. Iga saatmist auditeeritakse kui hulgimärguannet. Asjade postkasti vastused jäävad e-posti järjekorda / kirjavahetusse.",
+  "compose": {
+    "title": "Saate koostada",
+    "recipientGroup": "Saajate rühm",
+    "selectClients": "Valige kliendid",
+    "searchClientsPlaceholder": "Otsi kliente (min 2 tähemärki)",
+    "selected": "Valitud",
+    "add": "Lisa",
+    "clientsSelected": "{{count}} klient(id) on valitud",
+    "countingRecipients": "Saajate loendamine…",
+    "previewFailed": "Vaatajaskonna eelvaadet ei saanud vaadata",
+    "recipientMatched": "adressaat sobis",
+    "recipientsMatched": "adressaadid sobisid",
+    "andMore": "…ja veel {{count}}",
+    "subject": "Teema",
+    "subjectPlaceholder": "nt. Tulevased EL-i uuendamise meeldetuletused",
+    "message": "Sõnum",
+    "messagePlaceholder": "Kirjutage teade, mille teie kliendid saavad…",
+    "queuing": "Järjekorras…",
+    "sendBroadcast": "Saada ülekanne"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Teema ja sõnum on kohustuslikud",
+    "selectClient": "Valige vähemalt üks klient",
+    "queueFailed": "Saate järjekorda seadmine ebaõnnestus"
+  },
+  "success": {
+    "queued": "Edastus on järjekorras {{count}} adressaadile. Kohaletoimetamine toimub taustal."
+  },
+  "history": {
+    "title": "Viimased saated",
+    "when": "Millal",
+    "subject": "Teema",
+    "audience": "Publik",
+    "status": "Olek",
+    "sent": "Saadetud",
+    "by": "Autor",
+    "loading": "Laadimine…",
+    "empty": "Saateid pole veel.",
+    "failedCount": "({{count}} ebaõnnestus)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Kõik aktiivsed kliendid",
+      "description": "Iga aktiivse kliendi esmane kontakte-posti aadress"
+    },
+    "pending_eu_renewals": {
+      "label": "EL-i uuendamise ootel",
+      "description": "Aktiivsed kliendid, kellel on eelseisvad / juhendatud / esitatud EL-i uuendamised"
+    },
+    "trademark_matters": {
+      "label": "Kaubamärk on oluline",
+      "description": "Kliendid, kellel on vähemalt üks aktiivne kaubamärk"
+    },
+    "manual": {
+      "label": "Käsitsi valik",
+      "description": "Valige otsingust konkreetsed kliendid"
+    }
+  },
+  "status": {
+    "queued": "Järjekorras",
+    "sending": "Saatmine",
+    "completed": "Lõpetatud",
+    "failed": "Ebaõnnestunud"
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Aktuale",
+      "overdue30": "1-30 ditë",
+      "overdue60": "31-60 ditë",
+      "overdue90plus": "90+ ditë"
+    },
+    "bucketsShort": {
+      "current": "Aktuale",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Legjenda e plakjes",
+    "noOpenReceivables": "Nuk ka të arkëtueshme të hapura"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} grup klientësh",
+    "clientGroups_other": "{{count}} grupe klientësh",
+    "clientMatters": "Klienti ka rëndësi",
+    "clientsInWindow": "{{clients}} klientë · {{days}} horizont ditor",
+    "crossTabTitle": "Klienti × juridiksioni × avokati",
+    "description": "Afatet e ardhshme kritike të grupuara sipas klientit, juridiksionit dhe avokatit përgjegjës. Ngjyrat e urgjencës përputhen me listat e punës së afateve dhe momentet e njoftimeve.",
+    "emptyDescription": "Provoni të zgjeroni dritaren e portofolit ose të pastroni filtrat.",
+    "emptyTitle": "Nuk ka afate në këtë dritare",
+    "error": "Raporti i rrezikut të afatit nuk mund të ngarkohej.",
+    "filters": {
+      "allAssignees": "Të gjithë të ngarkuarit",
+      "allAttorneys": "Të gjithë avokatët",
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "jurisdiction": "Juridiksioni",
+      "portfolioWindow": "Dritarja e portofolit (ditë)",
+      "responsibleAttorney": "Avokati përgjegjës"
+    },
+    "generated": "Krijuar {{date}}",
+    "loading": "Po ngarkohet rreziku i portofolit…",
+    "openWorklist": "Hapni listën e punës",
+    "stats": {
+      "critical": "Kritike",
+      "criticalHint": "E vonuar, sot ose ≤7 ditë",
+      "dueToday": "Afati sot",
+      "dueTodayHint": "Kërkohet veprim sot",
+      "inWindow": "Në dritare",
+      "overdue": "I vonuar",
+      "overdueHint": "E kaluara ose e përshkallëzuar"
+    },
+    "table": {
+      "deadline": "Afati i fundit",
+      "due": "Për shkak",
+      "matter": "Materie",
+      "status": "Statusi"
+    },
+    "title": "Afati i rrezikut të portofolit"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Sipas juridiksionit",
+    "byMonth": "Regjistrimet sipas muajve",
+    "description": "Aplikimet e paraqitura - të grumbulluara nga ngjarjet e paraqitjes së afatit kohor të çështjeve, të grupuara sipas muajit, llojit të çështjes dhe juridiksionit.",
+    "error": "Vëllimet e dosjeve nuk mund të ngarkoheshin.",
+    "filters": {
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "allTypes": "Të gjitha llojet",
+      "jurisdiction": "Juridiksioni",
+      "matterType": "Lloji i materies",
+      "periodFrom": "Periudha nga",
+      "periodTo": "Periudha për të"
+    },
+    "generated": "Krijuar {{date}}",
+    "loading": "Po ngarkon vëllimet e dosjeve…",
+    "matterPortfolio": "Portofoli i çështjeve",
+    "noFilings": "Asnjë paraqitje në periudhë.",
+    "stats": {
+      "jurisdictions": "Juridiksionet",
+      "jurisdictionsHint": "Autoritetet e dosjeve",
+      "matterTypes": "Llojet e lëndës",
+      "matterTypesHint": "Llojet e ndryshme të paraqitura",
+      "totalFilings": "Totali i dosjeve",
+      "totalFilingsHint": "Në periudhën e zgjedhur"
+    },
+    "table": {
+      "filingDate": "Data e depozitimit",
+      "filings": "Regjistrimet",
+      "jurisdiction": "Juridiksioni",
+      "matter": "Materie",
+      "month": "muaj",
+      "type": "Lloji"
+    },
+    "title": "Vëllimet e depozitimit"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Deri në muajin e caktuar",
+    "byJurisdiction": "Sipas juridiksionit",
+    "cycle": "cikli {{number}}",
+    "description": "Dritaret e ardhshme të rinovimit sipas statusit, juridiksionit dhe muajit të caktuar - me nivelet e urgjencës në përputhje me raportimin e rrezikut në afat.",
+    "dueBefore": "Afati paraprak",
+    "dueBeforeLabel": "Afati përpara {{date}}",
+    "error": "Përmbledhja e rinovimeve nuk mund të ngarkohej.",
+    "filters": {
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "jurisdiction": "Juridiksioni"
+    },
+    "generated": "Krijuar {{date}}",
+    "loading": "Po ngarkohet përmbledhja e rinovimeve…",
+    "noRenewals": "Nuk ka rinovime në dritare.",
+    "renewalsWorklist": "Lista e punës për rinovimet",
+    "stats": {
+      "critical": "Kritike",
+      "criticalHint": "I vonuar ose i vonuar ≤7 ditë",
+      "instructed": "I udhëzuar",
+      "instructedHint": "Vazhdoni i konfirmuar",
+      "pipeline": "Tubacioni",
+      "pipelineHint": "Dritare aktive të rinovimit",
+      "upcoming": "E ardhme",
+      "upcomingHint": "Në pritje të udhëzimit"
+    },
+    "table": {
+      "client": "Klienti",
+      "due": "Për shkak",
+      "ipRight": "IP e drejtë",
+      "month": "muaj",
+      "status": "Statusi",
+      "windows": "Dritaret"
+    },
+    "title": "Përmbledhja e rinovimeve"
+  },
+  "renewalUrgency": {
+    "legend": "Urgjenca e rinovimit",
+    "noPipeline": "Asnjë rinovim tubacioni",
+    "overdue": "I vonuar",
+    "soon": "≤30 ditë",
+    "today": "Afati sot",
+    "urgent": "≤7 ditë"
+  },
+  "revenueSummary": {
+    "agingDetail": "Hap detajet e të arkëtueshmeve",
+    "agingSection": {
+      "description": "Foto e të gjitha të arkëtueshmeve të hapura sipas ditëve të vonuara",
+      "title": "Përmbledhje e plakjes"
+    },
+    "description": "Totalet e faturave të lëshuara sipas muajve, arkëtimet dhe arkëtimet e hapura të vjetra sipas ditëve të vonuara - në përputhje me skenarin e ndjekjes së pagesave të financave.",
+    "error": "Përmbledhja e të ardhurave nuk mund të ngarkohej.",
+    "filters": {
+      "periodFrom": "Periudha nga",
+      "periodTo": "Periudha për të"
+    },
+    "generated": "Krijuar {{date}}",
+    "invoice_one": "{{count}} faturë",
+    "invoice_other": "{{count}} fatura",
+    "invoiceRegister": "Regjistri i faturave",
+    "issuedInPeriod_one": "Përmbledhja e të ardhurave.lëshuarNëPeriudha",
+    "issuedInPeriod_other": "Përmbledhja e të ardhurave.lëshuarNëPeriudha",
+    "loading": "Po ngarkohet përmbledhja e të ardhurave…",
+    "noInvoices": "Nuk ka fatura të lëshuara në këtë periudhë.",
+    "noReceivables": "Nuk ka të arkëtueshme të papaguara.",
+    "openInvoices_one": "Përmbledhje e të ardhurave.faturat e hapura",
+    "openInvoices_other": "Përmbledhje e të ardhurave.faturat e hapura",
+    "period": "Periudha {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Totalet e faturave të lëshuara të grupuara sipas muajit të lëshimit",
+      "title": "Të ardhurat sipas muajit"
+    },
+    "stats": {
+      "collected": "Të mbledhura",
+      "collectedHint": "Pagesat e regjistruara në periudhë",
+      "criticalReceivables": "Mbi 60 ditë vonesë",
+      "criticalReceivablesHint": "Të arkëtueshmet që kërkojnë ndjekje",
+      "outstanding": "I shquar",
+      "totalInvoiced": "Totali i faturuar"
+    },
+    "table": {
+      "aging": "Plakja",
+      "client": "Klienti",
+      "due": "Për shkak",
+      "invoice": "Fatura",
+      "invoiced": "Faturuar",
+      "month": "muaj",
+      "open": "Hapur",
+      "outstanding": "I shquar",
+      "paid": "I paguar"
+    },
+    "title": "Të ardhurat dhe të arkëtueshmet"
+  },
+  "urgency": {
+    "legend": "Legjenda e urgjencës",
+    "noActiveRisk": "Asnjë rrezik aktiv",
+    "overdue": "I vonuar",
+    "soon": "Afati ≤30 ditë",
+    "soonShort": "≤30 ditë",
+    "today": "Afati sot",
+    "todayShort": "Sot",
+    "urgent": "Afati ≤7 ditë",
+    "urgentShort": "≤7 ditë"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Kritike",
+      "criticalHint": "≤ 7 ditë",
+      "overdue": "I vonuar",
+      "actionRequired": "Kërkohet veprim",
+      "dueToday": "Afati sot",
+      "requiresSignOff": "Kërkon regjistrim",
+      "nextDays": "{{days}} ditët e ardhshme",
+      "clientsInWindow": "{{count}} klientë në dritare",
+      "windowSummary": "Përmbledhja e dritares",
+      "priorityDeadlines": "Afatet prioritare",
+      "prioritySubtitle": "Gjërat më urgjente që kërkojnë monitorim",
+      "openReport": "Hap raportin",
+      "loading": "Po skanon vektorët e rrezikut…",
+      "error": "Analizat e rrezikut nuk mund të ngarkoheshin.",
+      "highestExposure": "Ekspozimi më i lartë i rrezikut",
+      "criticalCount": "{{count}} kritike",
+      "portfolioClear": "Portofoli i qartë",
+      "noCriticalInWindow": "Nuk u zbulua asnjë rrezik kritik në {{days}} ditët e ardhshme.",
+      "table": {
+        "priorityDeadline": "Afati prioritar",
+        "clientJurisdiction": "Klienti dhe juridiksioni",
+        "dueDate": "Data e Afatit"
+      },
+      "showingOf": "Po shfaqen {{shown}} nga {{total}} artikuj me përparësi",
+      "viewCrossTab": "Shikoni raportin e plotë të ndërfaqeve"
+    },
+    "filingVolumes": {
+      "title": "Vëllimet e depozitimit",
+      "subtitle": "Aplikimet e dorëzuara në të gjithë firmën (12 muajt e fundit)",
+      "fullReport": "Raporti i plotë",
+      "loading": "Po grumbullohet historiku i dosjeve…",
+      "error": "Analitika e dosjeve nuk mund të ngarkohej.",
+      "totalFilings": "Totali i dosjeve",
+      "yearToDate": "Viti deri më sot",
+      "primaryType": "Lloji primar",
+      "applications_one": "{{count}} aplikacion",
+      "applications_other": "{{count}} aplikacione",
+      "noData": "Nuk ka të dhëna",
+      "topRegion": "Rajoni i lartë",
+      "monthActivity": "{{month}} Aktiviteti:",
+      "newFiling_one": "{{count}} depozitim i ri",
+      "newFiling_other": "{{count}} dosje të reja",
+      "empty": "Asnjë dosje nuk është zbuluar në historinë e fundit.",
+      "table": {
+        "matterInfo": "Informacion për çështjen",
+        "type": "Lloji",
+        "filingDate": "Data e depozitimit"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Faturuar (12 muaj)",
+      "issued_one": "{{count}} lëshuar",
+      "issued_other": "{{count}} lëshuar",
+      "collected": "Të mbledhura",
+      "paidInPeriod": "Të paguara në periudhë",
+      "outstanding": "I shquar",
+      "open_one": "{{count}} hapur",
+      "open_other": "{{count}} hapur",
+      "criticalRisk": "Rreziku Kritik",
+      "overdue60Days": "Mbi 60 ditë vonesë",
+      "receivablesAging": "Të arkëtueshmet vjetërohen",
+      "agingSubtitle": "Hapni faturat e lëshuara sipas ditëve të vonuara",
+      "fullReport": "Raporti i plotë",
+      "loading": "Duke analizuar të dhënat e plakjes…",
+      "error": "Të dhënat e vjetruara nuk mund të ngarkoheshin.",
+      "portfolioHealthy": "Portofoli i shëndetshëm",
+      "noReceivables": "Nuk u gjetën të arkëtueshme të papaguara.",
+      "draftRef": "Drafti ref",
+      "table": {
+        "invoiceInfo": "Informacioni i faturës",
+        "client": "Klienti",
+        "outstanding": "I shquar"
+      },
+      "showingOf": "Duke shfaqur {{shown}} nga {{total}} fatura të hapura",
+      "viewPortfolio": "Shikoni të gjithë portofolin"
+    },
+    "teamWorkload": {
+      "title": "Ngarkesa e punës në ekip",
+      "subtitle": "Çështjet e hapura, detyrat dhe afatet për anëtar",
+      "viewTeam": "Shiko ekipin",
+      "loading": "Po llogarit shpërndarjen e ngarkesës së punës…",
+      "error": "Të dhënat e ekipit nuk mund të ngarkoheshin.",
+      "matters": "Çështjet",
+      "members_one": "{{count}} anëtar",
+      "members_other": "{{count}} anëtarë",
+      "tasks": "Detyrat",
+      "pendingAction": "Veprim në pritje",
+      "deadlines": "Afatet",
+      "activeWindow": "Dritarja aktive",
+      "busiest": "Më i ngarkuari",
+      "items_one": "{{count}} artikull",
+      "items_other": "{{count}} artikuj",
+      "clear": "E qartë",
+      "empty": "Nuk ka të dhëna aktive të ekipit",
+      "table": {
+        "teamMember": "Anëtar i ekipit",
+        "matters": "Çështjet",
+        "tasks": "Detyrat",
+        "deadlines": "Afatet",
+        "total": "Gjithsej"
+      }
+    },
+    "clientProfitability": {
+      "title": "Rentabiliteti i klientit",
+      "subtitle": "Shpërndarja e të ardhurave të faturuara sipas portofolit të klientit",
+      "viewAllClients": "Shikoni të gjithë klientët",
+      "loading": "Të dhënat e përfitueshmërisë po grumbullohen…",
+      "error": "Analitika e klientit nuk mund të ngarkohej.",
+      "trueMargin": "Marzhi i vërtetë:",
+      "revenueProxy": "Përfaqësuesi i të ardhurave:",
+      "totalRevenue": "Të ardhurat totale",
+      "clients_one": "{{count}} klient",
+      "clients_other": "{{count}} klientë",
+      "totalMargin": "Marzhi total",
+      "topClient": "Klienti kryesor",
+      "internalCost": "{{amount}} kosto e brendshme",
+      "noBillingData": "Nuk ka të dhëna faturimi",
+      "unbilledWip": "WIP e pafaturuar",
+      "pendingAccrual": "Akrualizim në pritje",
+      "firmBilled": "Firma e faturuar",
+      "totalMatters": "Çështje totale",
+      "empty": "Nuk u zbuluan të dhëna faturimi të klientit.",
+      "table": {
+        "clientPortfolio": "Portofoli i klientit",
+        "matters": "Çështjet",
+        "billable": "E faturueshme",
+        "unbilled": "E pafaturuar",
+        "margin": "Marzhi",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Duke shfaqur {{shown}} klientët kryesorë nga {{total}} nga {{basis}}",
+      "basisMargin": "diferencë",
+      "basisRevenue": "të ardhurat",
+      "viewLeaderboard": "Shiko tabelën e plotë të drejtuesve"
+    }
+  }
+}

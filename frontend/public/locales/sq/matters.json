@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Zyra doganore"
+      },
+      "infringingGoods": {
+        "label": "Përshkrimi i mallrave me shkelje"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Data e krijimit"
+      },
+      "workTitle": {
+        "label": "Titulli i punës"
+      },
+      "workType": {
+        "label": "Lloji i punës"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Përmbledhja e bazës"
+      },
+      "disputeType": {
+        "label": "Lloji i mosmarrëveshjes"
+      },
+      "opponentName": {
+        "label": "Kundërshtari/pala kundërshtare"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Përmbledhja e fushëveprimit"
+      },
+      "technologyArea": {
+        "label": "Fusha e teknologjisë"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Emri i produktit"
+      },
+      "region": {
+        "label": "Rajoni gjeografik"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Listoni ose përshkruani pamjet e dizajnit të paraqitura",
+        "label": "Pamje të projektimit"
+      },
+      "locarnoClass": {
+        "label": "Klasa e Lokarnos"
+      },
+      "productDescription": {
+        "label": "Përshkrimi i produktit"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Përmbledhja e kërkesave"
+      },
+      "pctNumber": {
+        "label": "Numri i PCT"
+      },
+      "priorityDate": {
+        "label": "Data e prioritetit"
+      },
+      "technicalField": {
+        "label": "Fusha teknike"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Ngjyrat e pretenduara"
+      },
+      "markDescription": {
+        "label": "Shënoni përshkrimin"
+      },
+      "markType": {
+        "label": "Shënoni llojin"
+      },
+      "niceClasses": {
+        "label": "Klasa të këndshme",
+        "placeholder": "p.sh. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Përmbledhja e kërkesave"
+      },
+      "priorityDate": {
+        "label": "Data e prioritetit"
+      },
+      "technicalField": {
+        "label": "Fusha teknike"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Përshkrimi i pasurisë"
+      },
+      "valuationPurpose": {
+        "label": "Qëllimi i vlerësimit"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Shto tarifë fikse",
+    "addTime": "Koha e regjistrimit",
+    "billableAria": "E faturueshme",
+    "billableWithoutRate": "E faturueshme pa tarifë",
+    "confirmDeleteFee": "Të fshihet tarifa fikse?",
+    "confirmDeleteFeeMessage": "Kjo tarifë do të hiqet nga çështja.",
+    "confirmDeleteFeeTitle": "Të fshihet tarifa fikse?",
+    "confirmDeleteTime": "Të fshihet kjo hyrje orare?",
+    "confirmDeleteTimeMessage": "Kjo linjë e faturueshme do të hiqet nga çështja.",
+    "confirmDeleteTimeTitle": "Të fshihet hyrja në orar?",
+    "description": "Regjistrimet në kohë, tarifat fikse dhe faturat për këtë çështje.",
+    "emptyFees": "Ende nuk ka tarifa fikse.",
+    "emptyTime": "Nuk është regjistruar ende kohë.",
+    "error": "Ngarkimi i të dhënave të faturimit dështoi.",
+    "feeDrawer": {
+      "amount": "Shuma (€)",
+      "billable": "E faturueshme",
+      "createTitle": "Shto tarifë fikse",
+      "descriptionPlaceholder": "p.sh. Tarifa e regjistrimit të markës tregtare BPO",
+      "editTitle": "Redakto tarifën fikse",
+      "errors": {
+        "amountMin": "Shuma duhet të jetë zero ose më e madhe",
+        "descriptionRequired": "Kërkohet përshkrim"
+      },
+      "saveFailed": "Ruajtja e tarifës fikse dështoi"
+    },
+    "fixedFees": "Tarifat fikse",
+    "loading": "Faturimi po ngarkohet…",
+    "loadingInvoices": "Po ngarkon faturat…",
+    "loadInvoicesFailed": "Ngarkimi i faturave dështoi.",
+    "noPermission": "Ju nuk keni leje për të parë faturimin për këtë çështje.",
+    "noRateCard": "Nuk ka kartë tarifash",
+    "nonBillableAria": "E pafaturueshme",
+    "portalDescription": "Faturat dhe statusi i pagesës për këtë çështje.",
+    "timeDrawer": {
+      "amount": "Shuma:",
+      "billable": "E faturueshme",
+      "billableDisabledHint": "Faturimi është i çaktivizuar ndërsa tarifa është 0 €.",
+      "createTitle": "Koha e regjistrimit",
+      "descriptionPlaceholder": "Çfarë u bë",
+      "editTitle": "Redakto hyrjen e kohës",
+      "errors": {
+        "billableRequiresRate": "Koha e faturueshme kërkon një tarifë për orë. Fut një tarifë ose shëno si të pafaturueshme.",
+        "descriptionRequired": "Kërkohet përshkrim",
+        "hoursMin": "Orari duhet të jetë së paku 0.25",
+        "rateMin": "Norma duhet të jetë zero ose më e madhe"
+      },
+      "hourlyRate": "Tarifa për orë (€)",
+      "hoursHint": "Rritje çerekore (minimumi 0,25)",
+      "noRateCardWarning": "Nuk u gjet asnjë kartë çmimi për rolin tuaj. Kjo hyrje do të ruhet si e pafaturueshme derisa financat të caktojnë një tarifë ose ta vendosni manualisht.",
+      "resolvingRate": "Shkalla e zgjidhjes…",
+      "saveFailed": "Futja e kursimit të kohës dështoi"
+    },
+    "timeEntries": "Regjistrimet në kohë",
+    "table": {
+      "amount": "Shuma",
+      "attorney": "avokat",
+      "billable": "E faturueshme",
+      "category": "Kategoria",
+      "date": "Data",
+      "description": "Përshkrimi",
+      "hours": "orët",
+      "rate": "Vlerësoni",
+      "user": "Përdoruesi"
+    },
+    "title": "Faturimi"
+  },
+  "correspondence": {
+    "add": "Regjistro korrespondencën",
+    "attachFromQueue": "Bashkangjit nga radha",
+    "attachmentFallback": "Shtojca e korrespondencës",
+    "badges": {
+      "clientVisible": "Klienti i dukshëm",
+      "email": "Email",
+      "synced": "Sinkronizuar"
+    },
+    "category": {
+      "application": "Aplikimi",
+      "certificate": "Certifikata",
+      "correspondence": "Korrespondencë e përgjithshme",
+      "evidence": "Dëshmi",
+      "office_action": "Veprimi i zyrës",
+      "renewal": "Rinovimi"
+    },
+    "direction": {
+      "incoming": "Në hyrje",
+      "outgoing": "Në dalje"
+    },
+    "description": "Dhoma e postës dixhitale - letrat e regjistrit, veprimet e zyrës dhe emailet për këtë çështje. Përdorni {{logEmail}} për skedarët .eml ose tekstin e ngjitur të kutisë hyrëse; përdorni {{logCorrespondence}} për hyrjet e strukturuara, postën dalëse dhe bashkëngjitjet e dokumenteve.",
+    "documentReady": "Dokumenti gati",
+    "downloadAttachment": "Shkarkoni shtojcën",
+    "downloadTitle": "Shkarko {{fileName}}",
+    "drawerTitle": "Regjistro korrespondencën",
+    "empty": "Asnjë korrespondencë nuk është regjistruar ende.",
+    "emptyHint": "Regjistroni korrespondencën ose një email për të krijuar rekordin e kësaj çështjeje.",
+    "emptyTitle": "Nuk ka ende korrespondencë",
+    "error": "Ngarkimi i korrespondencës dështoi.",
+    "errorLog": "Regjistrimi i korrespondencës dështoi",
+    "fetchingDocument": "Po merr dokumentin…",
+    "from": "Nga:",
+    "hideFromClient": "Fshih nga kutia hyrëse e klientit",
+    "hideFromClientTitle": "Fshih nga portali i klientit",
+    "loading": "Po ngarkon korrespondencën…",
+    "logEmail": "Regjistro emailin",
+    "markReplied": "U përgjigj Marku",
+    "markSent": "Marku i dërguar",
+    "openEpoRegister": "Hapur në Regjistrin EPO",
+    "reply": "Përgjigju",
+    "replyTitle": "Përgjigju përmes kutisë postare të lidhur",
+    "replaceFile": "Zëvendësoni skedarin",
+    "replaceFileTitle": "Zëvendësoni skedarin e bashkangjitur",
+    "saveAsPrecedent": "Ruaje si precedent",
+    "saveAsPrecedentTitle": "Ruaje si draft precedent",
+    "savedUnder": "Ruajtur nën temën e korrespondencës më poshtë",
+    "sendToClient": "Dërgo në kutinë hyrëse të klientit",
+    "showInClientTitle": "Shfaq në portalin e klientit",
+    "status": {
+      "draft": "Drafti",
+      "received": "Marrë",
+      "replied": "U përgjigj",
+      "sent": "Dërguar"
+    },
+    "table": {
+      "category": "Kategoria",
+      "date": "Data",
+      "direction": "Drejtimi",
+      "file": "Skedari",
+      "fromTo": "Nga / Deri",
+      "status": "Statusi",
+      "subject": "Subjekti"
+    },
+    "title": "Korrespondencë",
+    "to": "Tek:",
+    "uploadFailed": "Ngarkimi dhe bashkëngjitja e skedarit dështoi",
+    "uploadFile": "Ngarko skedarin",
+    "uploadFileTitle": "Ngarko PDF ose dokument për këtë korrespondencë",
+    "viewOnEpo": "Shikoni në EPO",
+    "viewOnEpoTitle": "Hapni rekordin zyrtar në Regjistrin EPO"
+  },
+  "createDrawer": {
+    "client": "Klient *",
+    "creating": "Po krijohet…",
+    "error": "Dështoi në krijimin e lëndës",
+    "jurisdictionHelp": "Zgjidhni një ose më shumë juridiksione të paraqitjes.",
+    "jurisdictions": "Juridiksionet",
+    "matterType": "Lloji i çështjes *",
+    "open": "Çështje e hapur",
+    "responsibleAttorney": "Avokati përgjegjës",
+    "title": "Hap një çështje të re",
+    "titleField": "Titulli *",
+    "titlePlaceholder": "p.sh. Shenja e fjalës ACME – BE"
+  },
+  "deadlines": {
+    "complete": "Kompletuar",
+    "daysLeft": "{{count}} ditë të mbetura",
+    "daysOverdue": "{{count}} ditë të vonuara",
+    "dueToday": "Afati sot",
+    "empty": "Nuk ka afate për këtë çështje.",
+    "error": "Ngarkimi i afateve dështoi.",
+    "loading": "Afatet po ngarkohen…",
+    "start": "Filloni",
+    "table": {
+      "assigned": "Caktuar",
+      "due": "Data e duhur",
+      "grace": "Grace",
+      "jurisdiction": "Juridiksioni",
+      "status": "Statusi",
+      "title": "Titulli",
+      "type": "Lloji"
+    },
+    "title": "Afatet"
+  },
+  "documents": {
+    "allCategories": "Të gjitha kategoritë",
+    "browse": "shfletoni",
+    "category": "Kategoria",
+    "chooseFile": "Zgjidhni një skedar për të ngarkuar",
+    "chooseTemplate": "Zgjidhni një model letre",
+    "description": "Kabineti i dosjeve për këtë çështje - ngarkoni skedarë PDF, skedarë Word dhe prova.",
+    "displayName": "Emri i shfaqur",
+    "displayNamePlaceholder": "p.sh. Paketa e Regjistrimit BPO - Përfundimtare",
+    "dragDrop": "Zvarritni një skedar këtu ose",
+    "empty": "Asnjë dokument nuk është ngarkuar ende.",
+    "error": "Ngarkimi i dokumenteve dështoi.",
+    "errorGeneration": "Prodhimi i dokumentit dështoi",
+    "errorNoDocx": "Ky shabllon nuk ka asnjë skedar Word (.docx) të ngarkuar",
+    "errorUpload": "Ngarkimi dështoi",
+    "format": "Formati",
+    "generate": "Krijo dokument",
+    "generateDescription": "Zgjidhni një shabllon letre. Detajet e çështjes dhe klientit plotësohen automatikisht dhe ruhen në këtë dosje.",
+    "generatePdf": "Gjeneroni PDF",
+    "generateWord": "Krijo Word",
+    "generating": "Po gjenerohet…",
+    "loading": "Po ngarkon dokumentet…",
+    "noTemplates": "Nuk ka shabllone të disponueshme.",
+    "notAvailable": "- nuk disponohet",
+    "search": "Kërko emrin ose etiketat…",
+    "table": {
+      "category": "Kategoria",
+      "displayName": "Emri i shfaqur",
+      "name": "Emri",
+      "tags": "Etiketat",
+      "uploaded": "Ngarkuar",
+      "version": "Versioni"
+    },
+    "tags": "Etiketat",
+    "tagsHint": "Fjalë kyçe të ndara me presje për kërkim",
+    "tagsPlaceholder": "urgjente, bpo, miratuar nga klienti",
+    "title": "Dokumentet",
+    "upload": "Ngarko dokument",
+    "uploadAction": "Ngarko",
+    "uploadNew": "Ngarko dokument të ri",
+    "uploading": "Po ngarkohet…",
+    "word": "fjalë"
+  },
+  "ipRightStatus": {
+    "cancelled": "Anuluar",
+    "expired": "I skaduar",
+    "filed": "Paraqitur",
+    "pending": "Regjistrimi në pritje",
+    "registered": "I regjistruar"
+  },
+  "ipRights": {
+    "abandon": "Braktisni",
+    "add": "Shto IP të drejtë",
+    "addRight": "Shto djathtas",
+    "addTitle": "Shto IP të drejtë",
+    "annuitySchedule": "Orari i anuitetit",
+    "applicationNumber": "Numri i aplikimit",
+    "checkEpo": "Kontrolloni EPO",
+    "checkEpoAddNumber": "Shtoni një numër aplikacioni përpara se të kontrolloni EPO",
+    "checkEpoTitle": "Kontrollo statusin ligjor EPO (OPS)",
+    "complete": "Kompletuar",
+    "confirmFiling": "Konfirmo paraqitjen",
+    "confirmRegistration": "Konfirmo regjistrimin",
+    "cycleDue": "Cikli {{n}} · afati {{date}}",
+    "cycleLabel": "Cikli {{n}}",
+    "description": "Paraqisni të drejtat e draftit pasi klienti të konfirmojë dhe paketa e depozitimit të jetë gati.",
+    "editSplit": "Redakto ndarjen",
+    "empty": "Nuk ka ende të drejta IP. Një draft krijohet automatikisht kur një hyrje konvertohet; shtoni më shumë të drejta manualisht pas ndjekjes penale.",
+    "epoCheckFailed": "Kontrolli i statusit të EPO dështoi",
+    "error": "Ngarkimi i të drejtave IP dështoi.",
+    "errors": {
+      "addFailed": "Shtimi i IP-së djathtas dështoi",
+      "applicationNumberRequired": "Futni numrin zyrtar të aplikimit",
+      "documentVersionRequired": "Zgjidhni versionin e dokumentit të paketës së dosjes",
+      "fileFailed": "Aplikimi dështoi",
+      "registerFailed": "Dështoi në regjistrimin e duhur të IP-së",
+      "registrationNumberRequired": "Futni numrin e regjistrimit",
+      "splitFailed": "Rinovimi nuk mund të ndahej",
+      "splitJurisdictionRequired": "Shto të paktën një pjesë me një juridiksion",
+      "titleRequired": "Futni një titull për IP-në e djathtë"
+    },
+    "expiryDate": "Data e skadencës",
+    "expiryDateOptional": "Data e skadencës (opsionale)",
+    "expiryDateHint": "Lëreni bosh për të llogaritur nga cikli i rinovimit të juridiksionit.",
+    "file": "Skedari",
+    "fileApplication": "Aplikimi i skedarit",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Numër zyrtar nga BPO / EUIPO / EPO",
+      "filingPackage": "Paketa e depozitimit",
+      "filingPackageHint": "Zgjidhni versionin e dokumentit të ngarkuar për këtë skedar (zakonisht nën Aplikacionin).",
+      "jurisdictionHint": "Zgjidhni EPO (EP) për të mundësuar kontrollet e statusit të prokurorisë kundër OPS.",
+      "noDocuments": "Ende nuk ka dokumente për këtë çështje. Fillimisht ngarkoni skedarin PDF në skedën \"Dokumentet\".",
+      "selectDocument": "Zgjidh versionin e dokumentit…"
+    },
+    "filing": "Po depoziton…",
+    "filingDate": "Data e depozitimit",
+    "filingOffice": "Zyra e dosjeve / juridiksioni",
+    "jurisdictionHint": "Përdorni EPO (EP) për patentat evropiane, EUIPO (EU) për markat/dizenjot e BE-së, BPO (BG) për Bullgarinë, WIPO (WO) për PCT.",
+    "loading": "Po ngarkohen të drejtat IP…",
+    "loadingRenewals": "Po ngarkon rinovimet…",
+    "markFiled": "Marku i paraqitur",
+    "noAnnuityWindows": "Nuk ka ende dritare pensioni. Regjistroni patentën për të hapur vitin 1.",
+    "noRenewalWindows": "Nuk ka ende dritare rinovimi. Regjistroni të drejtën IP për të hapur ciklin 1.",
+    "partialRenewals": "Rinovime të pjesshme",
+    "partsCount": "({{count}} pjesë)",
+    "proceed": "Regjistro të vazhdojë",
+    "register": "Regjistrohu",
+    "registerDrawerHint": "Hap dritaren e rinovimit të ciklit 1 dhe gjeneron afatet e rinovimit.",
+    "registerTitle": "Regjistroni IP të drejtë",
+    "registering": "Po regjistrohet…",
+    "registrationDate": "Data e regjistrimit",
+    "registrationNumber": "Numri i regjistrimit",
+    "renewalSchedule": "Dritare rinovuese",
+    "renewalWindows": "Dritare rinovuese",
+    "splitRenewal": "Rinovimi i ndarjes",
+    "splitRenewalDescription": "Ndani këtë rinovim në juridiksion / pjesë të klasit të bukur. Çdo pjesë udhëzohet dhe plotësohet veçmas; statusi i dritares rrokulliset nga pjesët.",
+    "splitRenewalTitle": "Rinovimi i ndarjes",
+    "splitPart": "Pjesa {{n}}",
+    "splitAddPart": "Shto një pjesë",
+    "splitSaveParts": "Ruani pjesë",
+    "splitNiceClasses": "Klasa të këndshme (të ndara me presje)",
+    "splitNotes": "Shënime",
+    "splitJurisdiction": "Juridiksioni",
+    "table": {
+      "actions": "Veprimet",
+      "applicationNo": "Aplikimi nr.",
+      "cycle": "Cikli",
+      "dueDate": "Data e duhur",
+      "jurisdiction": "Juridiksioni",
+      "localRef": "Ref lokal.",
+      "niceClasses": "Klasa të këndshme",
+      "status": "Statusi",
+      "title": "Titulli",
+      "type": "Lloji",
+      "yearCycle": "Viti / cikli"
+    },
+    "title": "Të drejtat e IP",
+    "titleField": "Titulli",
+    "titleRegister": "Regjistri i të drejtave të IP",
+    "yearLabel": "Viti {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Shto AFA",
+      "authority": "Autoriteti",
+      "authorityRequired": "Kërkohet autoriteti",
+      "createFailed": "AFA nuk mund të krijohej",
+      "empty": "Asnjë AFA nuk është regjistruar ende.",
+      "linkedSeizure": "Konfiskim i lidhur (opsionale)",
+      "loading": "Po ngarkon aplikacionet…",
+      "none": "Asnjë",
+      "number": "Numri i aplikimit",
+      "sectionDescription": "Aplikacionet doganore për mbrojtjen e të drejtave në kufi.",
+      "sectionTitle": "Aplikimet për veprim (AFA)",
+      "validUntil": "E vlefshme deri në"
+    },
+    "columns": {
+      "authority": "Autoriteti",
+      "custody": "Kujdestaria",
+      "date": "Data",
+      "goods": "Mallrat",
+      "number": "Numri",
+      "office": "Zyra",
+      "status": "Statusi",
+      "validUntil": "E vlefshme deri në"
+    },
+    "custody": {
+      "addEntry": "Shto hyrjen e kujdestarisë",
+      "append": "Shtoji",
+      "empty": "Nuk ka ende hyrje në kujdestari.",
+      "notesPlaceholder": "Shënime (opsionale)",
+      "timeline": "Afati kohor i kujdestarisë"
+    },
+    "detail": {
+      "clearLink": "Pastro lidhjen",
+      "linkedMatter": "Çështje gjyqësore e lidhur",
+      "loading": "Po ngarkohet…",
+      "saveChanges": "Ruaj ndryshimet",
+      "searchMatters": "Çështjet e kërkimit duhet të përshkallëzohen…",
+      "seizedOn": "Sekuestruar {{date}}",
+      "title": "Detajet e sekuestrimit",
+      "updateFailed": "Konfiskimi nuk mund të përditësohej"
+    },
+    "errors": {
+      "addCustodyFailed": "Nuk mund të shtohej hyrja e kujdestarisë",
+      "createSeizureFailed": "Nuk mundi të krijonte konfiskim",
+      "officeAndGoodsRequired": "Kërkohet zyra doganore dhe përshkrimi i mallit"
+    },
+    "open": "Hapur",
+    "seizures": {
+      "consignmentRef": "ref",
+      "create": "Krijo konfiskim",
+      "createTitle": "Sekuestrimi doganor i trungut",
+      "deadlineHint": "Afati i përgjigjes gjenerohet automatikisht (10 ditë pune nga data e konfiskimit).",
+      "empty": "Ende nuk është regjistruar konfiskime.",
+      "goodsDescription": "Përshkrimi i mallrave",
+      "loadFailed": "Ngarkimi i konfiskimeve dështoi.",
+      "loading": "Po ngarkon konfiskimet…",
+      "logSeizure": "Konfiskimi i regjistrit",
+      "office": "Zyra doganore",
+      "portOfEntry": "Porti i hyrjes",
+      "quantity": "Sasia",
+      "sectionDescription": "Ndalimet dhe paraburgimi në kufi për këtë çështje.",
+      "sectionTitle": "Konvulsione",
+      "seizureDate": "Data e konfiskimit",
+      "status": "Statusi"
+    },
+    "wrongMatterType": "Të dhënat doganore janë të disponueshme vetëm për çështjet e masave kufitare."
+  },
+  "jurisdictionStatus": {
+    "approved": "Miratuar",
+    "filed": "Paraqitur",
+    "pending": "Në pritje",
+    "rejected": "Refuzuar"
+  },
+  "layout": {
+    "backToMatters": "← Kthehu te çështjet",
+    "loading": "Po ngarkon çështjen…",
+    "notFound": "Materia nuk u gjet."
+  },
+  "list": {
+    "description": "Pamja e portofolit të të gjitha çështjeve ligjore - kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
+    "descriptionPortal": "Çështjet u hapën për organizatën tuaj pas konvertimit të marrjes.",
+    "filters": {
+      "allStatuses": "Të gjitha statuset",
+      "allTypes": "Të gjitha llojet"
+    },
+    "intakeQueue": "Radha e marrjes",
+    "perPage": "{{count}} për faqe",
+    "searchPlaceholder": "Kërkoni titullin, klientin, aplikacionin nr…",
+    "title": "Çështjet",
+    "titlePortal": "Çështjet e mia"
+  },
+  "ipRightsRegister": {
+    "description": "Regjistri gjithëpërfshirës i të drejtave IP me filtra sipas klientit, juridiksionit, llojit, statusit dhe skadimit.",
+    "empty": "Nuk u gjetën të drejta IP për këto filtra.",
+    "filters": {
+      "all": "Të gjitha",
+      "allClients": "Të gjithë klientët",
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "allStatuses": "Të gjitha statuset",
+      "allTypes": "Të gjitha llojet",
+      "client": "Klienti",
+      "expiryFrom": "Skadimi nga",
+      "expiryTo": "Skadimi në",
+      "jurisdiction": "Juridiksioni",
+      "matterType": "Lloji i materies",
+      "status": "Statusi"
+    },
+    "loading": "Po ngarkohet…",
+    "table": {
+      "applicationNo": "Aplikimi nr.",
+      "client": "Klienti",
+      "expiry": "Skadimi",
+      "ipRight": "IP e drejtë",
+      "jurisdiction": "Juridiksioni",
+      "matter": "Materie",
+      "status": "Statusi",
+      "type": "Lloji"
+    },
+    "title": "Regjistri i të Drejtave të IP"
+  },
+  "markType": {
+    "combined": "Të kombinuara",
+    "figurative": "Figurative",
+    "sound": "Tingull",
+    "three_dimensional": "3D",
+    "wordmark": "Shenjë fjalësh"
+  },
+  "overview": {
+    "assignedTo": "Avokati kryesor",
+    "description": "Përshkrimi",
+    "jurisdictions": "Juridiksionet",
+    "jurisdictionsEmpty": "Nuk janë regjistruar juridiksione.",
+    "openedBy": "U hap nga",
+    "status": "Statusi",
+    "table": {
+      "country": "Vendi",
+      "localRef": "Ref lokal.",
+      "status": "Statusi"
+    },
+    "title": "Detajet e çështjes",
+    "type": "Lloji",
+    "typeSpecific": "Atributet specifike të tipit"
+  },
+  "status": {
+    "abandoned": "I braktisur",
+    "active": "Aktiv",
+    "closed": "Mbyllur",
+    "draft": "Drafti",
+    "on_hold": "Në pritje"
+  },
+  "table": {
+    "assigned": "Caktuar",
+    "client": "Klienti",
+    "empty": "Nuk u gjetën çështje",
+    "emptyDescription": "Provoni të rregulloni filtrat ose hapni një çështje të re.",
+    "emptyPortal": "Nuk ka ende çështje të përbashkëta me ju.",
+    "error": "Ngarkimi i çështjeve dështoi.",
+    "jurisdictions": "Juridiksionet",
+    "status": "Statusi",
+    "title": "Titulli",
+    "type": "Lloji",
+    "upcoming": "{{count}} e ardhshme",
+    "viewAria": "Shiko {{title}}"
+  },
+  "tabs": {
+    "billing": "Faturimi",
+    "correspondence": "Korrespondencë",
+    "deadlines": "Afatet",
+    "documents": "Dokumentet",
+    "instructions": "Udhëzimet",
+    "approvals": "Miratimet",
+    "ipRights": "Të drejtat e IP",
+    "customs": "Doganat",
+    "overview": "Vështrim i përgjithshëm",
+    "tasks": "Detyrat",
+    "timeline": "Afati kohor"
+  },
+  "approvals": {
+    "title": "Miratimet e klientëve",
+    "subtitle": "Hartoni dhe dorëzoni kërkesat e miratimit për portalin e klientit.",
+    "newDraft": "Drafti i ri",
+    "loading": "Po ngarkon miratimet…",
+    "loadError": "Ngarkimi i miratimeve dështoi.",
+    "empty": "Nuk ka ende kërkesa për miratim.",
+    "noPermission": "Ju nuk keni leje për të parë miratimet për këtë çështje.",
+    "decisionNote": "Shënimi i klientit: {{note}}",
+    "columns": {
+      "title": "Titulli",
+      "status": "Statusi",
+      "dueDate": "Për shkak",
+      "created": "Krijuar"
+    },
+    "status": {
+      "draft": "Drafti",
+      "pending": "Në pritje",
+      "approved": "Miratuar",
+      "rejected": "Refuzuar"
+    },
+    "actions": {
+      "submit": "Paraqisni"
+    },
+    "drawer": {
+      "createTitle": "Kërkesë e re për miratim",
+      "title": "Titulli",
+      "description": "Përshkrimi",
+      "dueDate": "Data e duhur",
+      "cancel": "Anulo",
+      "create": "Krijo draft"
+    },
+    "errors": {
+      "titleRequired": "Kërkohet titulli",
+      "saveFailed": "Dështoi në krijimin e miratimit"
+    }
+  },
+  "tasks": {
+    "add": "Shto detyrë",
+    "assignedTo": "Caktuar për",
+    "assignedToUser": "Caktuar për {{name}}",
+    "completed": "E përfunduar",
+    "completedByUser": "Përfunduar nga {{name}}",
+    "confirmComplete": "Të shënohet kjo detyrë si e përfunduar?",
+    "confirmDelete": "Të fshihet kjo detyrë?",
+    "delete": "Fshije",
+    "deleteMessage": "Kjo detyrë do të hiqet përgjithmonë.",
+    "deleteTitle": "Të fshihet detyra?",
+    "description": "Puna për t'u bërë për këtë çështje - veçmas nga afatet e gjeneruara nga sistemi.",
+    "drawerTitle": "Shto detyrë",
+    "dueOn": "Afati {{date}}",
+    "empty": "Nuk ka detyra për këtë çështje.",
+    "emptyOpen": "Asnjë detyrë e hapur. Shto një kur ka punë për të gjurmuar për këtë çështje.",
+    "error": "Ngarkimi i detyrave dështoi.",
+    "errorCreate": "Krijimi i detyrës dështoi",
+    "form": {
+      "assigneeLabel": "Caktuar për",
+      "assigneeRequired": "Zgjidhni kush duhet ta bëjë këtë detyrë",
+      "dueDateOptional": "Data e skadimit (opsionale)",
+      "notesOptional": "Shënime (opsionale)",
+      "notesPlaceholder": "Çdo kontekst shtesë për të caktuarin",
+      "priorityLabel": "Prioriteti",
+      "titleLabel": "Çfarë duhet bërë",
+      "titlePlaceholder": "p.sh. Telefononi klientin re: Përgjigja e BPO",
+      "titleRequired": "Kërkohet titulli"
+    },
+    "loading": "Po ngarkon detyrat…",
+    "markComplete": "Shënoni të plotë",
+    "noDueDate": "Asnjë datë afati",
+    "open": "Hapur",
+    "priority": {
+      "high": "Lartë",
+      "normal": "Normale"
+    },
+    "title": "Detyrat"
+  },
+  "timeline": {
+    "description": "Historia kronologjike e ndjekjes penale dhe korrespondencës për këtë çështje.",
+    "empty": "Ende nuk ka asnjë ngjarje kohor. Regjistro korrespondencën ose dorëzo një aplikacion për të parë aktivitetin këtu.",
+    "error": "Ngarkimi i afatit kohor dështoi.",
+    "eventType": {
+      "correspondence": "Korrespondencë",
+      "deadline": "Afati i fundit",
+      "filing": "Regjistrimi",
+      "note": "Shënim",
+      "task": "Detyrë"
+    },
+    "loading": "Afati kohor po ngarkohet…",
+    "loggedBy": "Regjistruar nga {{name}}",
+    "title": "Afati kohor"
+  },
+  "type": {
+    "border_measures": "Masat kufitare",
+    "copyright": "E drejta e autorit",
+    "dispute_opposition": "Mosmarrëveshje / kundërshtim",
+    "fto_analysis": "Analiza FTO",
+    "geographical_indication": "Treguesi gjeografik",
+    "industrial_design": "Dizajni industrial",
+    "patent": "Patenta",
+    "trademark": "Markë tregtare",
+    "utility_model": "Modeli i shërbimeve",
+    "valuation": "Vlerësimi"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Zgjidh…",
+    "title": "Detaje specifike për llojin"
+  }
+}

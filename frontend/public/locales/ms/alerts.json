@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Makluman",
+    "description": "Tertunggak, perlu dibayar hari ini dan item mendesak, serta pemberitahuan yang belum dibaca."
+  },
+  "sections": {
+    "overdue": "Tertunggak",
+    "today": "Diperuntukkan hari ini",
+    "urgent": "mendesak",
+    "notifications": "Pemberitahuan"
+  },
+  "empty": {
+    "notifications": "Tiada pemberitahuan",
+    "urgent": "Tiada barang urgent",
+    "overdue": "Tiada barang tertunggak",
+    "today": "Tiada item yang perlu dibayar hari ini"
+  }
+}

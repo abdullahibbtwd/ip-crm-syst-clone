@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Avokatët po ngarkohen…",
+    "placeholder": "Zgjidhni një avokat përgjegjës",
+    "unassigned": "E pacaktuar"
+  },
+  "filters": {
+    "activeOnly": "Vetëm aktive",
+    "allStatuses": "Të gjitha statuset",
+    "inactiveOnly": "Vetëm joaktive",
+    "searchPortal": "Kërkoni përdoruesit e portalit…",
+    "searchTeam": "Kërko anëtarët e ekipit…"
+  },
+  "invite": {
+    "button": "Fto përdorues",
+    "cancel": "Anulo",
+    "clientPlaceholder": "Zgjidh rekordin e klientit…",
+    "clientRecord": "Regjistrimi i klientit",
+    "description": "Ftoni një anëtar të ekipit ose klient portal. Ata do të marrin një email me një lidhje për të vendosur fjalëkalimin e tyre ose për t'u identifikuar me Microsoft ose Google.",
+    "email": "Email",
+    "emailFailed": "Email-i i ftesës nuk mund të dërgohej",
+    "emailFailedContinue": "Përdoruesi u krijua - mbylleni dhe ridërgojeni më vonë",
+    "emailFailedTitle": "Përdoruesi u ftua, por emaili nuk mund të dërgohej.",
+    "emailHint": "Dërgohet një email ftese me një lidhje për të vendosur një fjalëkalim. Ata gjithashtu mund të identifikohen me Microsoft ose Google duke përdorur pikërisht këtë email. Nëse emaili dështon, përdoruesi është krijuar ende dhe ju mund ta ridërgoni nga lista e përdoruesve.",
+    "emailPlaceholder": "name@company.com",
+    "errors": {
+      "clientRequired": "Zgjidhni një rekord klienti për përdoruesit e portalit",
+      "failed": "Ftesa e përdoruesit dështoi",
+      "required": "Kërkohet email dhe emri i plotë"
+    },
+    "fullName": "Emri i plotë",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Përpjekja e fundit e emailit dështoi",
+    "resend": "Ridërgo ftesën",
+    "resendFailed": "Ridërgimi i email-it të ftesës dështoi",
+    "resendSuccess": "Email-i i ftesës u dërgua",
+    "role": "Roli",
+    "submit": "Dërgo ftesë",
+    "submitting": "Duke ftuar…",
+    "title": "Fto përdorues",
+    "typePortal": "Klient i portalit",
+    "typeTeam": "Anëtar i ekipit",
+    "userType": "Lloji i përdoruesit"
+  },
+  "layout": {
+    "accessRestricted": "Qasja e kufizuar",
+    "description": "Menaxhoni anëtarët e brendshëm të ekipit dhe llogaritë e klientëve të portalit të jashtëm. SSO dhe identifikimi i bazuar në fjalëkalim shfaqen për përdorues.",
+    "noPermission": "Ju nuk keni leje për të parë përdoruesit dhe anëtarët e ekipit.",
+    "title": "Përdoruesit dhe ekipi"
+  },
+  "portal": {
+    "description": "Llogaritë e jashtme të klientëve me akses në portal për çështje dhe dokumente të përbashkëta.",
+    "title": "Përdoruesit e portalit"
+  },
+  "role": {
+    "errors": {
+      "failed": "Përditësimi i rolit dështoi"
+    },
+    "ownRoleHint": "Ju nuk mund ta ndryshoni rolin tuaj"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Fjalëkalimi",
+      "pending": "Në pritje",
+      "sso": "ZSO"
+    },
+    "clientRecord": "Regjistrimi i klientit",
+    "empty": "Nuk u gjet asnjë përdorues",
+    "emptyDescription": "Provoni të rregulloni kërkimin ose filtrat.",
+    "error": "Ngarkimi i përdoruesve dështoi.",
+    "headers": {
+      "invite": "Fto",
+      "lastLogin": "Hyrja e fundit",
+      "mfa": "MPJ",
+      "registered": "I regjistruar",
+      "role": "Roli",
+      "signIn": "Identifikimi",
+      "status": "Statusi",
+      "user": "Përdoruesi"
+    },
+    "mfa": {
+      "enabled": "Aktivizuar",
+      "off": "Joaktiv"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Joaktiv",
+      "invited": "I ftuar"
+    },
+    "viewAria": "Shiko {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Llogaritë e klientëve",
+      "label": "Përdoruesit e portalit"
+    },
+    "team": {
+      "description": "Stafi i brendshëm",
+      "label": "Ekipi"
+    }
+  },
+  "team": {
+    "description": "Stafi i brendshëm me role, mënyra e hyrjes dhe statusi i MPJ-së. Partnerët menaxhues dhe administratorët e IT-së mund të ftojnë përdoruesit dhe të ndryshojnë rolet.",
+    "title": "Anëtarët e ekipit"
+  },
+  "teamMemberSelect": {
+    "loading": "Po ngarkohet…",
+    "placeholder": "Zgjidhni një anëtar të ekipit"
+  }
+}

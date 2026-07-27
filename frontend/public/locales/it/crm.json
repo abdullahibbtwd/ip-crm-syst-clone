@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Gestire le anagrafiche aziendali e dei singoli clienti. I nuovi clienti vengono creati tramite l'assunzione.",
+    "emptyDescription": "Prova a modificare i filtri o a creare un cliente tramite l'assunzione.",
+    "emptyTitle": "Nessun cliente trovato",
+    "error": "Impossibile caricare i client.",
+    "newViaIntake": "Nuovo cliente tramite assunzione",
+    "perPage": "{{count}} per pagina",
+    "searchPlaceholder": "Cerca nome o codice...",
+    "title": "Clienti",
+    "viewAria": "Visualizza {{name}}"
+  },
+  "contacts": {
+    "add": "Aggiungi contatto",
+    "drawerTitle": "Aggiungi contatto",
+    "email": "E-mail",
+    "empty": "Nessun contatto trovato.",
+    "firstName": "Nome di battesimo *",
+    "lastName": "Cognome *",
+    "loading": "Caricamento contatti...",
+    "remove": "Rimuovere",
+    "role": {
+      "all": "Tutto",
+      "billing": "Fatturazione",
+      "conflict": "Conflitto",
+      "general": "Generale",
+      "primary": "Primario"
+    },
+    "save": "Salva contatto",
+    "table": {
+      "email": "E-mail",
+      "name": "Nome",
+      "office": "Ufficio",
+      "phone": "Telefono",
+      "role": "Ruolo"
+    }
+  },
+  "countrySelect": {
+    "empty": "Nessun paese trovato",
+    "none": "Nessuno",
+    "placeholder": "Seleziona il paese",
+    "search": "Cerca paesi…"
+  },
+  "drawer": {
+    "closeAria": "Chiudere il cassetto"
+  },
+  "holdingGroups": {
+    "back": "← Torniamo allo svolgimento dei gruppi",
+    "clientsUnder": "Clienti in questo gruppo",
+    "create": "Crea gruppo di partecipazione",
+    "creating": "Creazione…",
+    "description": "Ombrelli principali per entità cliente correlate.",
+    "descriptionField": "Descrizione",
+    "detailDescription": "Creare un ombrello padre per le entità cliente correlate.",
+    "empty": "Nessun gruppo di partecipazione trovato",
+    "emptyClients": "Nessun cliente ancora collegato.",
+    "emptyDescription": "Prova a modificare la ricerca o a creare un nuovo gruppo di partecipazione.",
+    "error": "Impossibile caricare i gruppi di partecipazione.",
+    "formError": "Impossibile creare il gruppo di partecipazione",
+    "name": "Nome *",
+    "namePlaceholder": "per esempio. Gruppo Acme BV",
+    "new": "Nuovo gruppo societario",
+    "notesPlaceholder": "Note facoltative su questa struttura holding",
+    "notFound": "Gruppo di partecipazione non trovato.",
+    "allGroups": "Tutti i gruppi di partecipazione",
+    "perPage": "{{count}} per pagina",
+    "searchPlaceholder": "Cerca nome o paese...",
+    "title": "Gruppi di tenuta",
+    "viewAria": "Visualizza {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Torniamo ai clienti"
+  },
+  "offices": {
+    "add": "Aggiungi ufficio",
+    "city": "Città",
+    "drawerTitle": "Aggiungi ufficio",
+    "empty": "Ancora nessun ufficio.",
+    "errorPrimary": "Impossibile impostare l'ufficio principale",
+    "label": "Etichetta *",
+    "loading": "Caricamento uffici...",
+    "noAddress": "Nessun indirizzo",
+    "primary": "Primario",
+    "remove": "Rimuovere",
+    "save": "Salva ufficio",
+    "setPrimary": "Imposta come ufficio principale",
+    "setPrimaryAction": "Imposta primario",
+    "title": "Uffici"
+  },
+  "overview": {
+    "assignedTo": "Assegnato a",
+    "cancel": "Cancellare",
+    "companyName": "Nome dell'azienda *",
+    "country": "Paese",
+    "edit": "Modificare",
+    "exportClientData": "Esporta i dati del cliente",
+    "error": "Impossibile caricare il profilo cliente.",
+    "errorSave": "Impossibile salvare il cliente",
+    "firstName": "Nome di battesimo *",
+    "gdprConsent": "Consenso GDPR",
+    "holdingGroup": "Gruppo di detenzione",
+    "lastName": "Cognome *",
+    "legalForm": "Forma giuridica",
+    "loading": "Caricamento profilo…",
+    "none": "Nessuno",
+    "notes": "Note",
+    "registrationNo": "Registrazione n.",
+    "save": "Salva modifiche",
+    "saving": "Risparmio…",
+    "status": "Stato",
+    "type": "Tipa",
+    "validation": {
+      "companyName": "Il nome dell'azienda è obbligatorio",
+      "name": "Nome e cognome sono obbligatori",
+      "website": "Il sito web deve iniziare con http:// o https://"
+    },
+    "vatNo": "Partita IVA",
+    "website": "Sito web",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Aggiungi società correlata",
+    "drawerTitle": "Aggiungi società correlata",
+    "empty": "Nessuna società correlata collegata.",
+    "externalName": "Nome esterno",
+    "existingClient": "Cliente esistente",
+    "linkType": "Tipo di collegamento",
+    "loading": "Caricamento…",
+    "notes": "Note",
+    "notesPlaceholder": "Contesto facoltativo",
+    "relationship": "Relazione *",
+    "remove": "Rimuovere",
+    "save": "Salva la società correlata",
+    "searchClients": "Cerca clienti *",
+    "searchPlaceholder": "Cerca per nome o codice...",
+    "noClients": "Nessun cliente trovato",
+    "companyName": "Nome dell'azienda *",
+    "table": {
+      "name": "Nome",
+      "notes": "Note",
+      "relationship": "Relazione"
+    },
+    "title": "Società collegate"
+  },
+  "relationship": {
+    "affiliate": "Affiliato",
+    "parent": "Genitore",
+    "subsidiary": "Filiale"
+  },
+  "history": {
+    "empty": "Nessuna storia ancora.",
+    "loadMore": "Carica di più",
+    "loading": "Caricamento cronologia…",
+    "title": "Storia delle relazioni"
+  },
+  "matters": {
+    "empty": "Non importa ancora. Apri una pratica per avviare il lavoro dell'accusa per questo cliente.",
+    "loading": "Caricamento argomenti...",
+    "openNew": "Apri una nuova questione",
+    "table": {
+      "assigned": "Assegnato",
+      "jurisdictions": "Giurisdizioni",
+      "status": "Stato",
+      "title": "Titolo",
+      "type": "Tipa"
+    },
+    "title": "Importa"
+  },
+  "accessHistory": {
+    "title": "Cronologia degli accessi ai dati",
+    "subtitle": "Personale che ha visualizzato o esportato dati personali per questo cliente.",
+    "loading": "Caricamento cronologia accessi…",
+    "loadFailed": "Impossibile caricare la cronologia degli accessi.",
+    "empty": "Nessun evento di accesso ancora registrato.",
+    "systemUser": "Sistema",
+    "columns": {
+      "when": "Quando",
+      "user": "Utente",
+      "action": "Azione",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "Per materia",
+    "error": "Impossibile caricare i dati di fatturazione.",
+    "loading": "Caricamento fatturazione…",
+    "noPermission": "Non hai l'autorizzazione per visualizzare la fatturazione per questo cliente.",
+    "title": "Fatturazione",
+    "wipDescription": "Lavori in corso e importi non fatturati per questo cliente.",
+    "wipDescriptionLong": "Lavori in corso e totali fatturabili per tutte le questioni per questo cliente.",
+    "matterTable": {
+      "matter": "Questione",
+      "type": "Tipa",
+      "status": "Stato",
+      "billableHours": "Ore fatturabili",
+      "total": "Totale",
+      "unbilled": "Non fatturato",
+      "empty": "Non importa ancora. Apri una pratica per iniziare a monitorare il lavoro fatturabile."
+    }
+  },
+  "sidebar": {
+    "country": "Paese:",
+    "loading": "Caricamento…",
+    "primaryContact": "Contatto primario",
+    "primaryOffice": "Sede primaria",
+    "viewProfile": "Visualizza il profilo completo"
+  },
+  "status": {
+    "active": "Attiva",
+    "archived": "Archiviata",
+    "inactive": "Inattiva",
+    "prospect": "Prospettiva"
+  },
+  "table": {
+    "action": "Azione",
+    "client": "Cliente",
+    "country": "Paese",
+    "created": "Creata",
+    "holdingGroup": "Gruppo di detenzione",
+    "status": "Stato",
+    "type": "Tipa"
+  },
+  "tabs": {
+    "accessHistory": "Accedi alla cronologia",
+    "billing": "Fatturazione",
+    "contacts": "Contatti",
+    "history": "Storia",
+    "matters": "Importa",
+    "watch": "Orologio",
+    "offices": "Uffici",
+    "overview": "Panoramica",
+    "related": "Imparentato"
+  },
+  "type": {
+    "company": "Azienda",
+    "individual": "Individuale"
+  },
+  "unnamedClient": "Cliente senza nome"
+}

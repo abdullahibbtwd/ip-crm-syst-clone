@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Cliente",
+  "disbursements": {
+    "title": "Déboursés",
+    "subtitle": "Honoraires fixes à l’échelle de l’entreprise classés comme débours.",
+    "loadFailed": "Échec du chargement des décaissements.",
+    "empty": "Aucun décaissement trouvé.",
+    "columns": {
+      "date": "Date",
+      "matter": "Matière",
+      "description": "Description",
+      "amount": "Montante"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Décaissement",
+    "expense": "Frais",
+    "professional_fee": "Honoraires professionnels"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Télécharger",
+      "issue": "Problème",
+      "pay": "Payer",
+      "void": "Vide"
+    },
+    "confirmIssue": "Émettre cette facture ?",
+    "confirmVoid": "Annuler cette facture ? Cela ne peut pas être annulé.",
+    "createFromUnbilled": "Créer une facture à partir de non facturé",
+    "description": "Suivez les factures émises, l’état des paiements et les soldes impayés.",
+    "draft": "Brouillon",
+    "empty": "Aucune facture trouvée",
+    "emptyDescription": "Essayez d'ajuster les filtres ou de créer une facture à partir du travail non facturé.",
+    "error": "Échec du chargement des factures.",
+    "invoiceStatus": {
+      "draft": "Brouillon",
+      "issued": "Émis",
+      "void": "Vide"
+    },
+    "loading": "Chargement des factures…",
+    "noPermission": "Vous n'êtes pas autorisé à consulter les factures.",
+    "searchPlaceholder": "Rechercher le numéro de facture. ou client…",
+    "sectionTitle": "Factures",
+    "table": {
+      "amount": "Montante",
+      "client": "Cliente",
+      "due": "Exigible",
+      "invoiceNo": "Numéro de facture.",
+      "issued": "Émis",
+      "payment": "Paiement",
+      "status": "Statut"
+    },
+    "title": "Factures",
+    "listSubtitle": "Registre des factures à l’échelle de l’entreprise pour tous les sujets. Émettez des factures à partir des onglets de facturation du sujet, puis enregistrez les paiements ici.",
+    "exportFrom": "Exporter depuis",
+    "exportTo": "Exporter vers",
+    "exportFormats": {
+      "journal": "Journal CSV",
+      "xero": "Xéro CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Exporter…",
+    "exportFailed": "Échec de l'exportation comptable",
+    "syncXero": "Synchroniser Xero",
+    "syncQuickBooks": "Synchroniser QuickBooks",
+    "syncFailed": "Échec de la synchronisation comptable",
+    "searchListPlaceholder": "Rechercher n° de facture, affaire, client…",
+    "filters": {
+      "allPayments": "Tous les paiements",
+      "allStatuses": "Tous les statuts"
+    }
+  },
+  "payment": {
+    "amount": "Montante *",
+    "balance": "Solde impayé",
+    "date": "Date de paiement *",
+    "drawerTitle": "Enregistrer le paiement",
+    "error": "Échec de l'enregistrement du paiement",
+    "method": "Mode de paiement *",
+    "methods": {
+      "bank_transfer": "Virement bancaire",
+      "card": "Carte",
+      "cash": "Espèces",
+      "other": "Autre"
+    },
+    "notes": "Remarques",
+    "reference": "Référence",
+    "save": "Enregistrer le paiement",
+    "success": "Paiement enregistré avec succès.",
+    "validation": {
+      "amount": "Le montant doit être supérieur à zéro",
+      "exceeds": "Le montant dépasse le solde impayé"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Payé",
+    "partial": "Partiellement payé",
+    "unpaid": "Non rémunéré"
+  },
+  "rateCards": {
+    "any": "N'importe lequel",
+    "create": "Créer une grille tarifaire",
+    "description": "Configurez les taux de facturation par rôle, type de sujet et date d'effet.",
+    "drawerTitle": "Nouvelle grille tarifaire",
+    "drawerTitleEdit": "Modifier la grille des tarifs",
+    "effectiveFrom": "En vigueur à partir de *",
+    "effectiveTo": "Efficace pour",
+    "error": "Échec de l'enregistrement du tableau des tarifs",
+    "firmWide": "À l’échelle de l’entreprise",
+    "internalCost": "Coût interne / heure",
+    "matterType": "Type de matière",
+    "new": "Nouvelle grille tarifaire",
+    "noPermission": "Vous n'êtes pas autorisé à gérer les tableaux de tarifs.",
+    "viewNoPermission": "Vous n'êtes pas autorisé à consulter les tableaux de tarifs.",
+    "rate": "Tarif / heure *",
+    "role": "Rôle *",
+    "save": "Enregistrer les modifications",
+    "scope": "Portée",
+    "table": {
+      "effective": "Efficace",
+      "internalCost": "Coût interne",
+      "matterType": "Type de matière",
+      "rate": "Taux",
+      "role": "Rôle",
+      "scope": "Portée"
+    },
+    "title": "Cartes tarifaires",
+    "pageDescription": "Liste de prix ferme par rôle, type de sujet et remplacement facultatif du client. Le taux facturable est utilisé lors de l'enregistrement du temps ; le coût interne optionnel génère une rentabilité réelle.",
+    "anyMatterType": "Tout type de sujet",
+    "clientOverride": "Remplacement du client",
+    "firmWideDefault": "Valeur par défaut à l'échelle de l'entreprise",
+    "editAria": "Modifier la grille des tarifs",
+    "loadFailed": "Échec du chargement des grilles tarifaires.",
+    "loading": "Chargement des grilles tarifaires…",
+    "empty": "Pas encore de grilles tarifaires.",
+    "billable": "Facturable",
+    "validation": {
+      "hourlyRate": "Entrez un taux horaire valide",
+      "internalCost": "Saisissez un coût interne valide ou laissez vide"
+    },
+    "internalCostHint": "Facultatif. Utilisé pour la rentabilité de la marge réelle lorsqu'il est défini sur les grilles tarifaires.",
+    "billableRate": "Tarif facturable (EUR/h)",
+    "internalCostOptional": "Coût interne (EUR/h)",
+    "internalCostPlaceholder": "Facultatif - pour les rapports sur les marges",
+    "internalCostResolutionHint": "Reflète la résolution du taux de facturation (client → entreprise + type d'affaire → entreprise par défaut). Instantané des nouvelles entrées de temps en tant que cost_snapshot.",
+    "effectiveToOptional": "En vigueur jusqu'à (facultatif)"
+  },
+  "rateRole": {
+    "coordinator": "Coordinatrice",
+    "ip_attorney": "Avocat en propriété intellectuelle",
+    "managing_partner": "Associé gérant",
+    "paralegal": "Parajuriste",
+    "trademark_attorney": "Avocat en marques"
+  },
+  "billingOverview": {
+    "collectedHint": "Collecté en période",
+    "collectedLabel": "Collecté",
+    "criticalHint": "En retard de plus de 60 jours",
+    "criticalLabel": "Risque critique",
+    "description": "Santé des revenus (factures) et préparation à la carte tarifaire (cartes tarifaires + couverture des coûts internes).",
+    "error": "Échec du chargement de l'aperçu de la facturation.",
+    "invoicedHint": "{{count}} factures dans la période",
+    "invoicedLabel": "Facturé",
+    "internalCostHintRevenue": "Base de proxy des revenus",
+    "internalCostHintTrueMargin": "Base de marge réelle activée",
+    "internalCostLabel": "Coût interne",
+    "manageRateCards": "Gérer les grilles tarifaires",
+    "nextStep": "Étape suivante",
+    "nextStepFix": "Correction de la couverture tarifaire dans /rate-cards",
+    "nextStepHealthy": "La couverture tarifaire est saine",
+    "nextStepHint": "Les résumés de facturation seront plus précis lorsque chaque entrée de temps facturable se résoudra en un taux.",
+    "noPermissionBilling": "Vous n'êtes pas autorisé à consulter la facturation.",
+    "noPermissionInvoice": "Vous n'êtes pas autorisé à afficher les données de facturation.",
+    "openFullReport": "Ouvrir le rapport complet",
+    "outstandingHint": "{{count}} créances ouvertes",
+    "outstandingLabel": "Remarquable",
+    "rateCardHealth": "Santé de la carte tarifaire",
+    "rateCardHealthDescription": "Les taux de facturation sont-ils configurés et les marges sont-elles prêtes ?",
+    "rateCardsHintConfigured": "Tarifs disponibles",
+    "rateCardsHintMissing": "Aucune grille tarifaire configurée",
+    "rateCardsLabel": "Cartes tarifaires",
+    "receivablesAging": "Vieillissement des créances",
+    "receivablesHint": "Utilisez le rapport complet pour les tableaux et les détails.",
+    "tip": "Astuce : Le coût interne sur les grilles tarifaires contrôle si le système peut calculer la rentabilité de la marge réelle.",
+    "title": "Aperçu de la facturation",
+    "unratedHintBad": "Certaines entrées facturables ont un instantané du tarif à 0 €",
+    "unratedHintGood": "Ça a l'air bien",
+    "unratedLabel": "Entrées de temps non classées"
+  },
+  "summary": {
+    "billable": "Facturable",
+    "billableAmount": "Montant facturable",
+    "fixedFees": "Frais fixes",
+    "total": "Totale",
+    "totalHours": "Heures totales",
+    "unbilled": "Non facturé"
+  }
+}

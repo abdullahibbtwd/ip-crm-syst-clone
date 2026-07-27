@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Stornieren",
+      "confirm": "Bestätigen und aktivieren Sie 2FA",
+      "enable": "Aktivieren Sie 2FA",
+      "preparing": "Vorbereiten…",
+      "verifying": "Überprüfen…"
+    },
+    "authCode": "Authentifizierungscode",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktiv",
+      "description": "Für Ihr Konto ist bei der Anmeldung ein Code von Ihrer Authentifizierungs-App erforderlich.",
+      "title": "Die Zwei-Faktor-Authentifizierung ist aktiviert"
+    },
+    "errors": {
+      "enableFailed": "2FA konnte nicht aktiviert werden",
+      "invalidCode": "Ungültiger Code",
+      "setupFailed": "Das 2FA-Setup konnte nicht gestartet werden"
+    },
+    "setup": {
+      "description": "Fügen Sie eine zusätzliche Sicherheitsebene hinzu, indem Sie bei der Anmeldung einen 6-stelligen Code von einer Authentifizierungs-App (Google Authenticator, Authy usw.) anfordern.",
+      "manualKey": "Oder geben Sie diesen Schlüssel manuell ein",
+      "scanQr": "1. Scannen Sie diesen QR-Code",
+      "scanQrHint": "Öffnen Sie Ihre Authentifizierungs-App und scannen Sie den folgenden Code.",
+      "verify": "2. Bestätigen Sie mit einem 6-stelligen Code",
+      "verifyHint": "Geben Sie den in Ihrer App angezeigten Code ein, um die Einrichtung zu überprüfen."
+    }
+  },
+  "security": {
+    "description": "Die Zwei-Faktor-Authentifizierung schützt Ihr Konto, selbst wenn Ihr Passwort kompromittiert wird.",
+    "title": "Sicherheit"
+  },
+  "subtitle": "Verwalten Sie Ihre Kontoeinstellungen und Sicherheit.",
+  "title": "Einstellungen",
+  "links": {
+    "email": {
+      "title": "E-Mail-Integration",
+      "description": "Verbinden Sie Microsoft 365 oder Google Workspace, um Posteingangsnachrichten mit der E-Mail-Warteschlange zu synchronisieren.",
+      "action": "Postfächer verwalten"
+    },
+    "deadlineRules": {
+      "title": "Fristregeln",
+      "description": "Konfigurieren Sie Zuständigkeits- und Sachverhaltsversätze für automatisch erstellte Fristen.",
+      "action": "Fristenregeln verwalten"
+    },
+    "holidays": {
+      "title": "Feiertagskalender",
+      "description": "Bei der Zählung von Werktagen für Fristen werden die Gerichtsstandstage verwendet.",
+      "action": "Feiertage verwalten"
+    },
+    "documentTemplates": {
+      "title": "Dokumentvorlagen",
+      "description": "Bearbeiten Sie Briefvorlagen, fügen Sie Felder zusammen und zeigen Sie eine Vorschau der generierten PDFs an.",
+      "action": "Vorlagen verwalten"
+    },
+    "integrations": {
+      "title": "Registrierungsintegrationen",
+      "description": "Verbinden Sie EPO OPS und andere IP-Register für Uhrenscans und bibliografische Nachschlagewerke.",
+      "action": "Integrationen verwalten"
+    },
+    "ssoMfa": {
+      "title": "SSO und MFA",
+      "description": "Konfigurieren Sie Google/Microsoft-Anmelde-Apps und feste MFA-Richtlinien. Geheimnisse werden in der Datenbank verschlüsselt.",
+      "action": "Verwalten Sie SSO und MFA"
+    },
+    "roles": {
+      "title": "Rollen und Berechtigungen",
+      "description": "Schreibgeschützte Matrix der Systemrollen und der ihnen gewährten Berechtigungen.",
+      "action": "Rollenmatrix anzeigen"
+    },
+    "systemHealth": {
+      "title": "Systemgesundheit",
+      "description": "Live-Prüfungen für Datenbank, Redis und Objektspeicher.",
+      "action": "Systemzustand anzeigen"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO und MFA",
+    "subtitle": "Identitätsanbieter und Multi-Faktor-Authentifizierungsrichtlinie für das Unternehmen.",
+    "noPermission": "Sie sind nicht berechtigt, SSO- oder MFA-Einstellungen zu verwalten.",
+    "loading": "SSO-Einstellungen werden geladen…",
+    "saveButton": "Einstellungen speichern",
+    "saveSuccess": "SSO- und MFA-Einstellungen sicher gespeichert.",
+    "saveFailed": "SSO- und MFA-Einstellungen konnten nicht gespeichert werden",
+    "securityHint": "Client-Geheimnisse werden im Ruhezustand verschlüsselt (AES-256-GCM). Vollständige Geheimnisse werden von der API niemals zurückgegeben.",
+    "leaveBlankToKeep": "Lassen Sie das Feld leer, um das aktuelle Geheimnis zu wahren",
+    "clientId": "Kunden-ID",
+    "clientSecret": "Kundengeheimnis",
+    "tenantId": "Mieter-ID",
+    "redirectUri": "Umleitungs-URI (in der Anbieterkonsole registrieren)",
+    "sourceDatabase": "Datenbank",
+    "sourceEnv": "Umgebung (.env)",
+    "sourceNone": "Nicht konfiguriert",
+    "editButton": "Bearbeiten",
+    "cancelEdit": "Stornieren",
+    "configuredViaEnv": "Konfiguriert über die Umgebung",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID/Microsoft 365 OIDC-App, die für die SSO-Anmeldung von Mitarbeitern und Portalen verwendet wird.",
+      "saveButton": "Speichern Sie Microsoft",
+      "saveSuccess": "Microsoft SSO-Einstellungen gespeichert."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Google OAuth-Client, der für die SSO-Anmeldung verwendet wird.",
+      "saveButton": "Speichern Sie Google",
+      "saveSuccess": "Google SSO-Einstellungen gespeichert."
+    },
+    "mfa": {
+      "title": "MFA-Richtlinie",
+      "description": "Organisationsweite MFA-Einstellungen. Benutzer registrieren sich weiterhin über ihre eigene Einstellungsseite.",
+      "requireInternal": "Erfordern Sie MFA für internes Personal",
+      "requireInternalHint": "Wenn diese Option aktiviert ist, sollten interne Benutzer MFA unter Einstellungen → Sicherheit registrieren. Die Login-Durchsetzung kann im Nachhinein verschärft werden.",
+      "saveButton": "Speichern Sie die MFA-Richtlinie",
+      "saveSuccess": "MFA-Richtlinie gespeichert."
+    }
+  },
+  "roles": {
+    "title": "Rollen und Berechtigungen",
+    "subtitle": "Schreibgeschützte Matrix von Systemrollen und erteilten Berechtigungen (Seed-RBAC).",
+    "noPermission": "Sie sind nicht berechtigt, Rollen anzuzeigen.",
+    "loading": "Rollen werden geladen…",
+    "error": "Rollen konnten nicht geladen werden.",
+    "system": "System",
+    "columns": {
+      "role": "Rolle",
+      "description": "Beschreibung",
+      "permissions": "Berechtigungen"
+    }
+  },
+  "systemHealth": {
+    "title": "Systemgesundheit",
+    "subtitle": "Live-Prüfungen für Datenbank, Redis und Objektspeicher.",
+    "noPermission": "Sie sind nicht berechtigt, den Systemzustand anzuzeigen.",
+    "loading": "Prüfdienstleistungen…",
+    "error": "Der Gesundheitsstatus konnte nicht geladen werden.",
+    "overall": "Gesamt",
+    "statusOk": "Gesund",
+    "statusDegraded": "Degradiert",
+    "database": "Datenbank",
+    "redis": "Redis",
+    "storage": "Objektspeicher",
+    "checkOk": "Erreichbar",
+    "checkFailed": "Unerreichbar",
+    "refresh": "Aktualisieren",
+    "refreshing": "Erfrischend…"
+  },
+  "integrations": {
+    "title": "Integrationen",
+    "subtitle": "Externe Registrierungs- und Datenanbieterverbindungen, die von Überwachungs- und Ablageworkflows verwendet werden.",
+    "noPermission": "Sie sind nicht berechtigt, Registrierungsintegrationen anzuzeigen.",
+    "epo": {
+      "title": "EPA-Register (OPS)",
+      "description": "Offene Patentdienste v3.2. Zugriffstoken werden automatisch anhand Ihres Verbraucherschlüssels und -geheimnisses aktualisiert.",
+      "statusConfigured": "Konfiguriert",
+      "statusNotConfigured": "Nicht konfiguriert",
+      "statusLoading": "Überprüfung…",
+      "testButton": "Testverbindung",
+      "testing": "Testen…",
+      "testSuccess": "EPO-Verbindung erfolgreich. Abgerufenes Patent: {{title}}",
+      "testFailed": "EPO-Verbindung fehlgeschlagen",
+      "envHint": "Legen Sie EPO_CONSUMER_KEY und EPO_CONSUMER_SECRET in der Server-ENV fest und starten Sie dann die API neu.",
+      "consumerKey": "Verbraucherschlüssel",
+      "consumerSecret": "Verbrauchergeheimnis",
+      "consumerKeyPlaceholder": "Geben Sie den EPO-Verbraucherschlüssel ein",
+      "consumerSecretPlaceholder": "Geben Sie das EPA-Verbrauchergeheimnis ein",
+      "leaveBlankToKeep": "Lassen Sie das Feld leer, um den aktuellen Wert beizubehalten",
+      "apiBaseUrl": "API-Basis-URL (optional)",
+      "authUrl": "Authentifizierungs-URL (optional)",
+      "saveButton": "Anmeldedaten speichern",
+      "clearButton": "Gespeicherte Anmeldeinformationen löschen",
+      "saveSuccess": "EPA-Zugangsdaten sicher gespeichert.",
+      "saveFailed": "EPA-Zugangsdaten konnten nicht gespeichert werden",
+      "clearSuccess": "Gespeicherte EPA-Zugangsdaten gelöscht. Env-Fallback gilt weiterhin, wenn es festgelegt ist.",
+      "clearFailed": "EPA-Zugangsdaten konnten nicht gelöscht werden",
+      "securityHint": "Geheimnisse werden im Ruhezustand verschlüsselt (AES-256-GCM). Die API gibt niemals vollständige Werte zurück.",
+      "sourceLabel": "Aktive Quelle",
+      "sourceDatabase": "Datenbank",
+      "sourceEnv": "Umgebung (.env)",
+      "sourceNone": "Nicht konfiguriert",
+      "keyHint": "Schlüssel …{{lastFour}}",
+      "editButton": "Bearbeiten",
+      "cancelEdit": "Stornieren",
+      "configuredViaEnv": "Konfiguriert über die Umgebung",
+      "defaultEndpoint": "Standard-EPO-Endpunkt"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Übertragen Sie ausgestellte Rechnungen per API an Xero Accounting. Es werden nur Rechnungen gesendet, die seit der letzten erfolgreichen Synchronisierung geändert wurden.",
+      "quickbooksTitle": "QuickBooks Online",
+      "quickbooksDescription": "Übertragen Sie ausgestellte Rechnungen an QuickBooks. Kunden werden anhand ihres Anzeigenamens zugeordnet (oder erstellt).",
+      "xeroTenantId": "Xero-Mandanten-ID",
+      "quickbooksRealmId": "QuickBooks-Realm-/Firmen-ID",
+      "statusConfigured": "Konfiguriert",
+      "statusNotConfigured": "Nicht konfiguriert",
+      "loading": "Laden…",
+      "clientId": "Kunden-ID (optional)",
+      "clientSecret": "Client-Geheimnis (optional)",
+      "accessToken": "Zugriffstoken",
+      "leaveBlankToKeep": "Lassen Sie das Feld leer, um den aktuellen Wert beizubehalten",
+      "saveButton": "Anmeldedaten speichern",
+      "clearButton": "Klar",
+      "editButton": "Bearbeiten",
+      "cancelEdit": "Stornieren",
+      "syncNow": "Jetzt synchronisieren",
+      "lastSync": "Letzte Synchronisierung",
+      "neverSynced": "Niemals",
+      "saveSuccess": "Buchhaltungsdaten sicher gespeichert.",
+      "saveFailed": "Die Anmeldeinformationen für die Buchhaltung konnten nicht gespeichert werden",
+      "clearSuccess": "Buchhaltungsdaten gelöscht.",
+      "clearFailed": "Die Buchhaltungsdaten konnten nicht gelöscht werden",
+      "syncFailed": "Die Synchronisierung der Buchhaltung konnte nicht in die Warteschlange gestellt werden"
+    }
+  },
+  "deadlineRules": {
+    "title": "Fristregeln",
+    "subtitle": "Zuständigkeits- und Sachverhaltstyp-Offsets, die bei der automatischen Erstellung von Fristen aus der Rechtsangelegenheitserstellung, Amtshandlungen und Verlängerungen verwendet werden.",
+    "newRule": "Neue Regel",
+    "noPermission": "Sie sind nicht berechtigt, Fristenregeln anzuzeigen.",
+    "loading": "Fristregeln werden geladen…",
+    "loadError": "Fristregeln konnten nicht geladen werden.",
+    "empty": "Keine Fristregeln entsprechen diesen Filtern.",
+    "allJurisdictions": "Alle Gerichtsbarkeiten",
+    "allMatterTypes": "Alle Materietypen",
+    "filters": {
+      "jurisdiction": "Zuständigkeit",
+      "matterType": "Materietyp"
+    },
+    "columns": {
+      "jurisdiction": "Zuständigkeit",
+      "matterType": "Materietyp",
+      "event": "Ereignis",
+      "trigger": "Auslösen",
+      "offset": "Versatz",
+      "grace": "Anmut",
+      "priority": "Priorität",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "editAria": "Fristenregel bearbeiten",
+    "drawer": {
+      "createTitle": "Neue Fristenregelung",
+      "editTitle": "Fristenregel bearbeiten",
+      "jurisdiction": "Zuständigkeit",
+      "matterType": "Materietyp",
+      "eventType": "Ereignistyp",
+      "triggerType": "Triggertyp",
+      "daysOffset": "Tage versetzt",
+      "dayCounting": "Tageszählung",
+      "businessDays": "Werktage",
+      "calendarDays": "Kalendertage",
+      "gracePeriod": "Kulanzfrist (Tage)",
+      "priority": "Priorität (1–10)",
+      "description": "Beschreibung",
+      "status": "Status",
+      "cancel": "Stornieren",
+      "create": "Regel erstellen",
+      "save": "Änderungen speichern"
+    },
+    "errors": {
+      "daysOffset": "Geben Sie einen gültigen Tagesversatz ein",
+      "grace": "Geben Sie eine gültige Kulanzfrist ein",
+      "priority": "Die Priorität muss zwischen 1 und 10 liegen",
+      "saveFailed": "Fristregel konnte nicht gespeichert werden"
+    },
+    "offset": {
+      "businessDay": "Werktag",
+      "businessDays": "Werktage",
+      "calendarDay": "Kalendertag",
+      "calendarDays": "Kalendertage",
+      "sameDay": "Am selben Tag ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Einreichung",
+      "examination_response": "Prüfungsantwort",
+      "renewal": "Erneuerung",
+      "opposition": "Opposition",
+      "grace_period": "Gnadenfrist"
+    },
+    "triggerType": {
+      "matter_created": "Materie geschaffen",
+      "office_action": "Amtshandlung",
+      "renewal_due": "Verlängerung fällig"
+    }
+  },
+  "documentTemplates": {
+    "title": "Dokumentvorlagen",
+    "subtitle": "Brief- und Ablagevorlagen mit Zusammenführungsfeldern. Generieren Sie PDFs aus Angelegenheiten oder zeigen Sie eine Vorschau mit Beispieldaten an.",
+    "newTemplate": "Neue Vorlage",
+    "noPermission": "Sie sind nicht berechtigt, Dokumentvorlagen anzuzeigen.",
+    "loading": "Vorlagen werden geladen…",
+    "loadError": "Dokumentvorlagen konnten nicht geladen werden.",
+    "empty": "Noch keine Dokumentvorlagen.",
+    "columns": {
+      "name": "Name",
+      "slug": "Schnecke",
+      "category": "Kategorie",
+      "status": "Status",
+      "docx": "Wort",
+      "updated": "Aktualisiert"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "editAria": "Dokumentvorlage bearbeiten",
+    "uploadDocx": "Laden Sie .docx hoch",
+    "removeDocx": "Entfernen Sie .docx",
+    "uploadDocxAria": "Word-Vorlage hochladen",
+    "removeDocxAria": "Word-Vorlage entfernen",
+    "confirmRemoveDocx": "Word-Vorlage (.docx) aus dieser Briefvorlage entfernen?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Neue Dokumentvorlage",
+      "editTitle": "Dokumentvorlage bearbeiten",
+      "loading": "Vorlage wird geladen…",
+      "slug": "Schnecke",
+      "slugHint": "Kleiner Kebab-Fall, einzigartig.",
+      "slugReadonly": "Schnecke:",
+      "name": "Name",
+      "category": "Kategorie",
+      "description": "Beschreibung",
+      "referenceLine": "Referenzlinie",
+      "mergeFields": "Felder zusammenführen",
+      "insertIntoReference": "In Referenzlinie einfügen",
+      "insertIntoHtml": "In den HTML-Text einfügen",
+      "htmlBody": "HTML-Körper",
+      "livePreview": "Live-Vorschau",
+      "status": "Status",
+      "previewPdf": "PDF-Vorschau anzeigen",
+      "cancel": "Stornieren",
+      "create": "Vorlage erstellen",
+      "save": "Änderungen speichern"
+    },
+    "errors": {
+      "required": "Name und HTML-Text sind erforderlich",
+      "slugRequired": "Slug ist erforderlich",
+      "saveFailed": "Dokumentvorlage konnte nicht gespeichert werden",
+      "previewFailed": "PDF-Vorschau konnte nicht generiert werden",
+      "docxUploadFailed": "Hochladen der Word-Vorlage fehlgeschlagen",
+      "docxDeleteFailed": "Word-Vorlage konnte nicht entfernt werden"
+    }
+  },
+  "holidays": {
+    "title": "Feiertagskalender",
+    "subtitle": "Feiertage je nach Gerichtsbarkeit. Wiederkehrende Feiertage gelten jedes Jahr am selben Monat und Tag, wenn die Werktage gezählt werden.",
+    "newHoliday": "Neuer Feiertag",
+    "noPermission": "Sie sind nicht berechtigt, Feiertage anzuzeigen.",
+    "loading": "Feiertage werden geladen…",
+    "loadError": "Feiertage konnten nicht geladen werden.",
+    "empty": "Keine Feiertage entsprechen diesem Filter.",
+    "allJurisdictions": "Alle Gerichtsbarkeiten",
+    "filters": {
+      "jurisdiction": "Zuständigkeit"
+    },
+    "columns": {
+      "jurisdiction": "Zuständigkeit",
+      "date": "Datum",
+      "name": "Name",
+      "recurring": "Wiederkehrend"
+    },
+    "recurring": {
+      "yes": "Wiederkehrend",
+      "no": "Einmalig"
+    },
+    "editAria": "Feiertag bearbeiten",
+    "deleteAria": "Feiertag löschen",
+    "confirmDelete": "Feiertag „{{name}}“ löschen?",
+    "drawer": {
+      "createTitle": "Neuer Feiertag",
+      "editTitle": "Feiertag bearbeiten",
+      "jurisdiction": "Zuständigkeit",
+      "date": "Datum",
+      "name": "Name",
+      "recurring": "Jährlich wiederkehrend",
+      "cancel": "Stornieren",
+      "create": "Urlaub erstellen",
+      "save": "Änderungen speichern"
+    },
+    "errors": {
+      "required": "Name und Datum sind erforderlich",
+      "saveFailed": "Feiertag konnte nicht gespeichert werden"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Einstellungen",
+    "title": "E-Mail-Integration",
+    "description": "Verbinden Sie Ihr Arbeitspostfach, um eingehende E-Mails mit der E-Mail-Warteschlange zu synchronisieren und Antworten aus dem CRM zu senden. Erfordert Mail.Read + Mail.Send (Microsoft) oder gmail.readonly + gmail.send (Google). Stellen Sie nach Bereichsaktualisierungen erneut eine Verbindung her, um die Sendeberechtigung zu erteilen.",
+    "fetchEmails": "Rufen Sie 5 E-Mails ab",
+    "connectedSuccess": "{{provider}} erfolgreich verbunden.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Verbunden",
+    "error": "Fehler",
+    "notConnected": "Nicht verbunden",
+    "providerEnabledDescription": "Ziehen Sie neue Posteingangsnachrichten in die E-Mail-Warteschlange.",
+    "providerDisabledDescription": "Auf diesem Server nicht konfiguriert (fehlende OAuth-Anmeldeinformationen).",
+    "redirectUriHint": "Registrieren Sie diesen Weiterleitungs-URI in Ihrer {{provider}} OAuth-App:",
+    "lastSync": "Letzte Synchronisierung: {{time}}",
+    "neverSynced": "Nie synchronisiert",
+    "reconnect": "Wieder verbinden",
+    "disconnect": "Trennen",
+    "connect": "Verbinden Sie {{provider}}",
+    "loadingConnections": "Verbindungen werden geladen…",
+    "fetchSuccess": "Bis zu {{limit}} Nachricht(en) abgerufen – {{ingested}} neu in der Warteschlange.",
+    "fetchFailed": "E-Mails konnten nicht abgerufen werden"
+  },
+  "consent": {
+    "title": "Einwilligungsaufzeichnungen",
+    "subtitle": "DSGVO-Zustimmungsstatus für alle Kunden.",
+    "filters": {
+      "all": "Alle",
+      "consented": "Zugestimmt",
+      "missing": "Fehlen"
+    },
+    "failedToLoad": "Einwilligungsdatensätze konnten nicht geladen werden.",
+    "noClientsFound": "Keine Kunden gefunden.",
+    "table": {
+      "client": "Kunde",
+      "code": "Code",
+      "consent": "Zustimmung",
+      "date": "Datum"
+    }
+  }
+}

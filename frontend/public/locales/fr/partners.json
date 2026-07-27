@@ -1,0 +1,87 @@
+{
+  "title": "Partenaires étrangers",
+  "subtitle": "Agents locaux et avocats associés utilisés pour les dépôts et les instructions relatives aux affaires.",
+  "newPartner": "Nouveau partenaire",
+  "noPermission": "Vous n'êtes pas autorisé à afficher les partenaires.",
+  "loading": "Chargement des partenaires…",
+  "loadError": "Échec du chargement des partenaires.",
+  "empty": "Aucun partenaire ne correspond à ces filtres.",
+  "searchPlaceholder": "Rechercher nom, entreprise, email…",
+  "filters": {
+    "all": "Tous les partenaires",
+    "activeOnly": "Actif uniquement"
+  },
+  "columns": {
+    "name": "Nom",
+    "company": "Entreprise",
+    "email": "E-mail",
+    "jurisdictions": "Juridictions",
+    "status": "Statut"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "editAria": "Modifier le partenaire",
+  "deactivateAria": "Désactiver le partenaire",
+  "confirmDeactivate": "Désactiver le partenaire « {{name}} » ?",
+  "drawer": {
+    "createTitle": "Nouveau partenaire",
+    "editTitle": "Modifier le partenaire",
+    "name": "Nom",
+    "company": "Entreprise",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "countryCode": "Code du pays",
+    "jurisdictions": "Juridictions",
+    "jurisdictionsHint": "Codes séparés par des virgules, par ex. BG, UE, PE",
+    "notes": "Remarques",
+    "status": "Statut",
+    "cancel": "Annuler",
+    "create": "Créer un partenaire",
+    "save": "Enregistrer les modifications"
+  },
+  "errors": {
+    "nameRequired": "Le nom est requis",
+    "saveFailed": "Échec de l'enregistrement du partenaire"
+  },
+  "instructions": {
+    "title": "Instructions pour les partenaires",
+    "subtitle": "Rédiger, envoyer et suivre les instructions aux partenaires étrangers à ce sujet.",
+    "newDraft": "Nouveau brouillon",
+    "noPermission": "Vous n'êtes pas autorisé à afficher les instructions du partenaire.",
+    "loading": "Instructions de chargement…",
+    "loadError": "Échec du chargement des instructions.",
+    "empty": "Aucune instruction du partenaire pour l'instant.",
+    "columns": {
+      "title": "Titre",
+      "partner": "Partenaire",
+      "status": "Statut",
+      "created": "Créé"
+    },
+    "status": {
+      "draft": "Brouillon",
+      "sent": "Envoyée",
+      "acknowledged": "Reconnue",
+      "complete": "Complète"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partenaire",
+      "partnerPlaceholder": "Sélectionner un partenaire",
+      "title": "Titre",
+      "body": "Instructions",
+      "cancel": "Annuler",
+      "create": "Créer un brouillon"
+    },
+    "errors": {
+      "required": "Le partenaire et le titre sont requis",
+      "saveFailed": "Échec de la création de l'instruction"
+    }
+  },
+  "actions": {
+    "send": "Envoyer",
+    "acknowledge": "Reconnaître",
+    "complete": "Complète"
+  }
+}

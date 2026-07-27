@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Текущий",
+      "overdue30": "1–30 дней",
+      "overdue60": "31–60 дней",
+      "overdue90plus": "90+ дней"
+    },
+    "bucketsShort": {
+      "current": "Текущий",
+      "overdue30": "30 дней",
+      "overdue60": "60 дней",
+      "overdue90plus": "90д+"
+    },
+    "legend": "Стареющая легенда",
+    "noOpenReceivables": "Нет открытой дебиторской задолженности"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} группа клиентов",
+    "clientGroups_other": "{{count}} групп клиентов",
+    "clientMatters": "Клиент имеет значение",
+    "clientsInWindow": "{{clients}} клиентов · {{days}} горизонт дня",
+    "crossTabTitle": "Клиент × юрисдикция × адвокат",
+    "description": "Ближайшие критические сроки сгруппированы по клиенту, юрисдикции и ответственному адвокату. Цвета срочности соответствуют рабочим спискам сроков и контрольным точкам уведомлений.",
+    "emptyDescription": "Попробуйте расширить окно портфолио или очистить фильтры.",
+    "emptyTitle": "В этом окне нет сроков",
+    "error": "Не удалось загрузить отчет о рисках в срок.",
+    "filters": {
+      "allAssignees": "Все правопреемники",
+      "allAttorneys": "Все адвокаты",
+      "allJurisdictions": "Все юрисдикции",
+      "jurisdiction": "Юрисдикция",
+      "portfolioWindow": "Окно портфеля (дни)",
+      "responsibleAttorney": "Ответственный адвокат"
+    },
+    "generated": "Сгенерировано {{date}}",
+    "loading": "Загрузка риска портфеля…",
+    "openWorklist": "Открыть рабочий список",
+    "stats": {
+      "critical": "Критический",
+      "criticalHint": "Просрочено, сегодня или ≤7 дней",
+      "dueToday": "Срок оплаты сегодня",
+      "dueTodayHint": "Требуется действие сегодня",
+      "inWindow": "В окне",
+      "overdue": "Просрочено",
+      "overdueHint": "Просрочка или обострение"
+    },
+    "table": {
+      "deadline": "Крайний срок",
+      "due": "Должный",
+      "matter": "Иметь значение",
+      "status": "Статус"
+    },
+    "title": "Срок портфельного риска"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "По юрисдикции",
+    "byMonth": "Документы по месяцам",
+    "description": "Поданные заявки — совокупность событий, связанных с подачей дел в графике, сгруппированных по месяцам, типам дел и юрисдикции.",
+    "error": "Не удалось загрузить тома документов.",
+    "filters": {
+      "allJurisdictions": "Все юрисдикции",
+      "allTypes": "Все типы",
+      "jurisdiction": "Юрисдикция",
+      "matterType": "Тип дела",
+      "periodFrom": "Период с",
+      "periodTo": "Период до"
+    },
+    "generated": "Сгенерировано {{date}}",
+    "loading": "Загрузка томов документов…",
+    "matterPortfolio": "Портфель вопросов",
+    "noFilings": "Никаких заявок за период.",
+    "stats": {
+      "jurisdictions": "Юрисдикции",
+      "jurisdictionsHint": "Органы регистрации",
+      "matterTypes": "Типы материй",
+      "matterTypesHint": "Отдельные типы зарегистрированы",
+      "totalFilings": "Всего заявок",
+      "totalFilingsHint": "В выбранный период"
+    },
+    "table": {
+      "filingDate": "Дата подачи",
+      "filings": "Документы",
+      "jurisdiction": "Юрисдикция",
+      "matter": "Иметь значение",
+      "month": "Месяц",
+      "type": "Тип"
+    },
+    "title": "Объемы отчетности"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "К сроку месяца",
+    "byJurisdiction": "По юрисдикции",
+    "cycle": "цикл {{number}}",
+    "description": "Предстоящие периоды продления по статусу, юрисдикции и месяцу выполнения — с уровнями срочности, соответствующими срокам отчетности о рисках.",
+    "dueBefore": "Срок погашения до",
+    "dueBeforeLabel": "Срок оплаты до {{date}}",
+    "error": "Не удалось загрузить сводку продлений.",
+    "filters": {
+      "allJurisdictions": "Все юрисдикции",
+      "jurisdiction": "Юрисдикция"
+    },
+    "generated": "Сгенерировано {{date}}",
+    "loading": "Загрузка сводки продлений…",
+    "noRenewals": "Никаких обновлений в окне.",
+    "renewalsWorklist": "Рабочий список продлений",
+    "stats": {
+      "critical": "Критический",
+      "criticalHint": "Просрочка или срок оплаты ≤7 дней",
+      "instructed": "Проинструктирован",
+      "instructedHint": "Продолжение подтверждено",
+      "pipeline": "Трубопровод",
+      "pipelineHint": "Окна активного продления",
+      "upcoming": "Предстоящие",
+      "upcomingHint": "Ожидание инструкций"
+    },
+    "table": {
+      "client": "Клиент",
+      "due": "Должный",
+      "ipRight": "IP-права",
+      "month": "Месяц",
+      "status": "Статус",
+      "windows": "Окна"
+    },
+    "title": "Сводка продлений"
+  },
+  "renewalUrgency": {
+    "legend": "Срочность продления",
+    "noPipeline": "Никаких обновлений трубопровода",
+    "overdue": "Просрочено",
+    "soon": "≤30 дней",
+    "today": "Срок оплаты сегодня",
+    "urgent": "≤7 дней"
+  },
+  "revenueSummary": {
+    "agingDetail": "Детализация открытой дебиторской задолженности",
+    "agingSection": {
+      "description": "Снимок всей открытой дебиторской задолженности по дням просрочки",
+      "title": "Резюме по старению"
+    },
+    "description": "Итоговые суммы выставленных счетов по месяцам, поступления и открытая дебиторская задолженность по дням просрочки — в соответствии со сценарием отслеживания платежей Finance.",
+    "error": "Не удалось загрузить сводку доходов.",
+    "filters": {
+      "periodFrom": "Период с",
+      "periodTo": "Период до"
+    },
+    "generated": "Сгенерировано {{date}}",
+    "invoice_one": "{{count}} счет-фактура",
+    "invoice_other": "{{count}} счета-фактуры",
+    "invoiceRegister": "Регистр счетов",
+    "issuedInPeriod_one": "доходСуммари.issuedInPeriod",
+    "issuedInPeriod_other": "доходСуммари.issuedInPeriod",
+    "loading": "Загрузка сводки доходов…",
+    "noInvoices": "За этот период счетов-фактур не выставлялось.",
+    "noReceivables": "Отсутствие просроченной дебиторской задолженности.",
+    "openInvoices_one": "доходСуммари.openInvoices",
+    "openInvoices_other": "доходСуммари.openInvoices",
+    "period": "Период {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Итоговые суммы выставленных счетов сгруппированы по месяцам выставления",
+      "title": "Выручка по месяцам"
+    },
+    "stats": {
+      "collected": "Собрано",
+      "collectedHint": "Платежи, зафиксированные за период",
+      "criticalReceivables": "просрочка более 60 дней",
+      "criticalReceivablesHint": "Дебиторская задолженность, требующая дальнейшего контроля",
+      "outstanding": "Выдающийся",
+      "totalInvoiced": "Общая сумма выставленных счетов"
+    },
+    "table": {
+      "aging": "Старение",
+      "client": "Клиент",
+      "due": "Должный",
+      "invoice": "Счет",
+      "invoiced": "выставлен счет",
+      "month": "Месяц",
+      "open": "Открыть",
+      "outstanding": "Выдающийся",
+      "paid": "Оплаченный"
+    },
+    "title": "Выручка и дебиторская задолженность"
+  },
+  "urgency": {
+    "legend": "Легенда срочности",
+    "noActiveRisk": "Нет активного риска",
+    "overdue": "Просрочено",
+    "soon": "Срок погашения ≤30 дней",
+    "soonShort": "≤30 дней",
+    "today": "Срок оплаты сегодня",
+    "todayShort": "Сегодня",
+    "urgent": "Срок погашения ≤7 дней",
+    "urgentShort": "≤7 дней"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Критический",
+      "criticalHint": "≤ 7 дней",
+      "overdue": "Просрочено",
+      "actionRequired": "Требуется действие",
+      "dueToday": "Срок оплаты сегодня",
+      "requiresSignOff": "Требуется подпись",
+      "nextDays": "Следующие {{days}} дней",
+      "clientsInWindow": "{{count}} клиентов в окне",
+      "windowSummary": "Сводка окна",
+      "priorityDeadlines": "Приоритетные сроки",
+      "prioritySubtitle": "Наиболее срочные дела, требующие контроля",
+      "openReport": "Открыть отчет",
+      "loading": "Сканирование векторов риска…",
+      "error": "Не удалось загрузить аналитику рисков.",
+      "highestExposure": "Самый высокий риск",
+      "criticalCount": "{{count}} критический",
+      "portfolioClear": "Портфолио очистить",
+      "noCriticalInWindow": "В ближайшие {{days}} дней критического риска не обнаружено.",
+      "table": {
+        "priorityDeadline": "Приоритетный срок",
+        "clientJurisdiction": "Клиент и юрисдикция",
+        "dueDate": "Срок оплаты"
+      },
+      "showingOf": "Показаны {{shown}} из {{total}} приоритетных элементов",
+      "viewCrossTab": "Посмотреть полный кросс-табличный отчет"
+    },
+    "filingVolumes": {
+      "title": "Объемы отчетности",
+      "subtitle": "Заявки, поданные по всей фирме (последние 12 мес.)",
+      "fullReport": "Полный отчет",
+      "loading": "Объединение истории подачи заявок…",
+      "error": "Не удалось загрузить аналитику файлов.",
+      "totalFilings": "Всего заявок",
+      "yearToDate": "С начала года",
+      "primaryType": "Первичный тип",
+      "applications_one": "{{count}} приложение",
+      "applications_other": "{{count}} приложений",
+      "noData": "Нет данных",
+      "topRegion": "Лучший регион",
+      "monthActivity": "{{month}} Деятельность:",
+      "newFiling_one": "{{count}} новая запись",
+      "newFiling_other": "{{count}} новых заявок",
+      "empty": "За последнее время никаких заявлений не обнаружено.",
+      "table": {
+        "matterInfo": "Информация по делу",
+        "type": "Тип",
+        "filingDate": "Дата подачи"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Выставлен счет (12 мес.)",
+      "issued_one": "{{count}} выдано",
+      "issued_other": "{{count}} выдано",
+      "collected": "Собрано",
+      "paidInPeriod": "Оплачено в период",
+      "outstanding": "Выдающийся",
+      "open_one": "{{count}} открыто",
+      "open_other": "{{count}} открыто",
+      "criticalRisk": "Критический риск",
+      "overdue60Days": "просрочка более 60 дней",
+      "receivablesAging": "Старение дебиторской задолженности",
+      "agingSubtitle": "Открыть выставленные счета по дням просрочки",
+      "fullReport": "Полный отчет",
+      "loading": "Анализ данных о старении…",
+      "error": "Не удалось загрузить устаревшие данные.",
+      "portfolioHealthy": "Портфолио здоровое",
+      "noReceivables": "Просроченной дебиторской задолженности не обнаружено.",
+      "draftRef": "Проект ссылки",
+      "table": {
+        "invoiceInfo": "Информация о счете",
+        "client": "Клиент",
+        "outstanding": "Выдающийся"
+      },
+      "showingOf": "Показаны {{shown}} из {{total}} открытых счетов-фактур.",
+      "viewPortfolio": "Посмотреть все портфолио"
+    },
+    "teamWorkload": {
+      "title": "Рабочая нагрузка команды",
+      "subtitle": "Открытые вопросы, задачи и сроки для каждого участника",
+      "viewTeam": "Посмотреть команду",
+      "loading": "Расчет распределения рабочей нагрузки…",
+      "error": "Не удалось загрузить данные команды.",
+      "matters": "Имеет значение",
+      "members_one": "{{count}} участник",
+      "members_other": "{{count}} участников",
+      "tasks": "Задачи",
+      "pendingAction": "Ожидание действия",
+      "deadlines": "Сроки",
+      "activeWindow": "Активное окно",
+      "busiest": "Самый загруженный",
+      "items_one": "{{count}} предмет",
+      "items_other": "{{count}} шт.",
+      "clear": "Прозрачный",
+      "empty": "Нет активных данных о команде",
+      "table": {
+        "teamMember": "Член команды",
+        "matters": "Имеет значение",
+        "tasks": "Задачи",
+        "deadlines": "Сроки",
+        "total": "Общий"
+      }
+    },
+    "clientProfitability": {
+      "title": "Доходность клиента",
+      "subtitle": "Распределение выставленного дохода по клиентскому портфелю",
+      "viewAllClients": "Посмотреть всех клиентов",
+      "loading": "Агрегирование данных о рентабельности…",
+      "error": "Не удалось загрузить аналитику клиента.",
+      "trueMargin": "Реальная маржа:",
+      "revenueProxy": "Доходный прокси:",
+      "totalRevenue": "Общий доход",
+      "clients_one": "{{count}} клиент",
+      "clients_other": "{{count}} клиентов",
+      "totalMargin": "Общая маржа",
+      "topClient": "Лучший клиент",
+      "internalCost": "{{amount}} внутренняя стоимость",
+      "noBillingData": "Нет платежных данных",
+      "unbilledWip": "Незавершенное незавершенное производство",
+      "pendingAccrual": "Ожидается начисление",
+      "firmBilled": "Твердый счет",
+      "totalMatters": "Всего вопросов",
+      "empty": "Платежные данные клиента не обнаружены.",
+      "table": {
+        "clientPortfolio": "Клиентский портфель",
+        "matters": "Имеет значение",
+        "billable": "подлежащий оплате",
+        "unbilled": "Не выставлен счет",
+        "margin": "Допуск",
+        "revenue": "Оборот (евро)"
+      },
+      "showingTop": "Показаны лучшие {{shown}} из {{total}} клиентов по {{basis}}",
+      "basisMargin": "допуск",
+      "basisRevenue": "доход",
+      "viewLeaderboard": "Посмотреть полную таблицу лидеров"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Emisiuni",
+  "subtitle": "Trimiteți notificări în bloc către e-mailurile de contact ale clienților prin SMTP firmă. Fiecare trimitere este auditată ca bulk_notification. Răspunsurile la căsuța poștală Matter rămân în coada de e-mail / corespondență.",
+  "compose": {
+    "title": "Compune transmisie",
+    "recipientGroup": "Grup de destinatari",
+    "selectClients": "Selectați clienți",
+    "searchClientsPlaceholder": "Căutați clienți (min 2 caractere)",
+    "selected": "Selectat",
+    "add": "Adăuga",
+    "clientsSelected": "{{count}} client(i) selectat(i).",
+    "countingRecipients": "Se numără destinatarii...",
+    "previewFailed": "Nu s-a putut previzualiza audiența",
+    "recipientMatched": "destinatarul potrivit",
+    "recipientsMatched": "destinatarii potriviți",
+    "andMore": "…și încă {{count}}",
+    "subject": "Subiect",
+    "subjectPlaceholder": "de ex. Mementouri viitoare de reînnoire a UE",
+    "message": "Mesaj",
+    "messagePlaceholder": "Scrieți notificarea pe care o vor primi clienții dvs....",
+    "queuing": "În coadă…",
+    "sendBroadcast": "Trimite transmisie"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Subiectul și mesajul sunt obligatorii",
+    "selectClient": "Selectați cel puțin un client",
+    "queueFailed": "Nu s-a putut pune în coadă difuzarea"
+  },
+  "success": {
+    "queued": "Difuzare în coadă către {{count}} destinatari. Livrarea rulează în fundal."
+  },
+  "history": {
+    "title": "Emisiuni recente",
+    "when": "Când",
+    "subject": "Subiect",
+    "audience": "Public",
+    "status": "Stare",
+    "sent": "Trimis",
+    "by": "De",
+    "loading": "Încărcare…",
+    "empty": "Nu există încă emisiuni.",
+    "failedCount": "({{count}} a eșuat)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Toți clienții activi",
+      "description": "E-mail de contact principal pentru fiecare client activ"
+    },
+    "pending_eu_renewals": {
+      "label": "În așteptarea reînnoirilor UE",
+      "description": "Clienți activi cu reînnoiri UE viitoare / instruite / depuse"
+    },
+    "trademark_matters": {
+      "label": "Mărcile comerciale contează",
+      "description": "Clienții cu cel puțin o marcă activă contează"
+    },
+    "manual": {
+      "label": "Selectare manuală",
+      "description": "Alegeți anumiți clienți din căutare"
+    }
+  },
+  "status": {
+    "queued": "În coadă",
+    "sending": "Trimiterea",
+    "completed": "Terminat",
+    "failed": "A eșuat"
+  }
+}

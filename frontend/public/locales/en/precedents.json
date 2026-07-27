@@ -1,0 +1,43 @@
+{
+  "title": "Precedents",
+  "subtitle": "Knowledge base of reusable correspondence and filing language.",
+  "newDraft": "New draft",
+  "searchPlaceholder": "Search body text…",
+  "loading": "Loading precedents…",
+  "loadFailed": "Failed to load precedents.",
+  "empty": "No precedents yet. Create a draft or harvest from correspondence.",
+  "columns": {
+    "title": "Title",
+    "category": "Category",
+    "jurisdiction": "Jurisdiction",
+    "status": "Status",
+    "updated": "Updated"
+  },
+  "filters": {
+    "allStatuses": "All statuses"
+  },
+  "status": {
+    "draft": "Draft",
+    "published": "Published",
+    "archived": "Archived"
+  },
+  "editAria": "Edit",
+  "drawer": {
+    "createTitle": "New precedent",
+    "editTitle": "Edit precedent",
+    "title": "Title",
+    "category": "Category",
+    "matterType": "Matter type",
+    "optional": "Optional",
+    "jurisdiction": "Jurisdiction",
+    "tags": "Tags",
+    "body": "Body",
+    "bodyPlaceholder": "Write the precedent text — bold, italic, and lists are supported",
+    "publish": "Publish",
+    "archive": "Archive",
+    "publishFailed": "Publish failed",
+    "archiveFailed": "Archive failed",
+    "saveFailed": "Could not save precedent",
+    "requiredFields": "Title, category, and body are required"
+  }
+}

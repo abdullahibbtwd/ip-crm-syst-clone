@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Praegune",
+      "overdue30": "1-30 päeva",
+      "overdue60": "31-60 päeva",
+      "overdue90plus": "90+ päeva"
+    },
+    "bucketsShort": {
+      "current": "Praegune",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Vananemise legend",
+    "noOpenReceivables": "Avatud nõudeid pole"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} kliendigrupp",
+    "clientGroups_other": "{{count}} kliendirühmad",
+    "clientMatters": "Klient on oluline",
+    "clientsInWindow": "{{clients}} klienti · {{days}} päeva horisont",
+    "crossTabTitle": "Klient × jurisdiktsioon × advokaat",
+    "description": "Eelseisvad kriitilised tähtajad, mis on rühmitatud kliendi, jurisdiktsiooni ja vastutava advokaadi järgi. Kiireloomulised värvid vastavad tähtaegade tööloendite ja teavituste verstapostidele.",
+    "emptyDescription": "Proovige portfelli akent laiendada või filtreid tühjendada.",
+    "emptyTitle": "Selles aknas pole tähtaegu",
+    "error": "Tähtaja riskiaruannet ei saanud laadida.",
+    "filters": {
+      "allAssignees": "Kõik volitatud isikud",
+      "allAttorneys": "Kõik advokaadid",
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "jurisdiction": "Jurisdiktsioon",
+      "portfolioWindow": "Portfelli aken (päevades)",
+      "responsibleAttorney": "Vastutav advokaat"
+    },
+    "generated": "Loodud {{date}}",
+    "loading": "Portfelli riski laadimine…",
+    "openWorklist": "Ava tööloend",
+    "stats": {
+      "critical": "Kriitiline",
+      "criticalHint": "Tähtaeg hilinenud, täna või ≤7 päeva",
+      "dueToday": "Tähtaeg täna",
+      "dueTodayHint": "Täna on vaja tegutseda",
+      "inWindow": "Aknas",
+      "overdue": "Tähtaja ületanud",
+      "overdueHint": "Tähtaja ületanud või eskaleerunud"
+    },
+    "table": {
+      "deadline": "Tähtaeg",
+      "due": "Tähtaeg",
+      "matter": "Asi",
+      "status": "Olek"
+    },
+    "title": "Tähtaeg portfelli risk"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Jurisdiktsiooni järgi",
+    "byMonth": "Esitused kuude kaupa",
+    "description": "Esitatud taotlused – koondatud asjade ajaskaala esitamise sündmustest, rühmitatud kuude, asja tüübi ja jurisdiktsiooni järgi.",
+    "error": "Esitusköiteid ei saanud laadida.",
+    "filters": {
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "allTypes": "Kõik tüübid",
+      "jurisdiction": "Jurisdiktsioon",
+      "matterType": "Aine tüüp",
+      "periodFrom": "Periood alates",
+      "periodTo": "Periood kuni"
+    },
+    "generated": "Loodud {{date}}",
+    "loading": "Failimahtude laadimine…",
+    "matterPortfolio": "Asjade portfell",
+    "noFilings": "Perioodil taotlusi ei ole.",
+    "stats": {
+      "jurisdictions": "Jurisdiktsioonid",
+      "jurisdictionsHint": "Esitamisasutused",
+      "matterTypes": "Aine liigid",
+      "matterTypesHint": "Esitatud on erinevad tüübid",
+      "totalFilings": "Taotlusi kokku",
+      "totalFilingsHint": "Valitud perioodil"
+    },
+    "table": {
+      "filingDate": "Esitamise kuupäev",
+      "filings": "Viilid",
+      "jurisdiction": "Jurisdiktsioon",
+      "matter": "Asi",
+      "month": "Kuu",
+      "type": "Tüüp"
+    },
+    "title": "Esitamismahud"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Tähtkuuks",
+    "byJurisdiction": "Jurisdiktsiooni järgi",
+    "cycle": "tsükkel {{number}}",
+    "description": "Eelseisvad uuendamisaknad oleku, jurisdiktsiooni ja tähtkuu järgi – kiireloomulisuse tasemed on vastavusse viidud tähtaja riskiaruandlusega.",
+    "dueBefore": "Tähtaeg enne",
+    "dueBeforeLabel": "Tähtaeg enne {{date}}",
+    "error": "Pikendamise kokkuvõtet ei saanud laadida.",
+    "filters": {
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "jurisdiction": "Jurisdiktsioon"
+    },
+    "generated": "Loodud {{date}}",
+    "loading": "Pikendamise kokkuvõtte laadimine…",
+    "noRenewals": "Aknas ei uuendata.",
+    "renewalsWorklist": "Uuendab tööloendit",
+    "stats": {
+      "critical": "Kriitiline",
+      "criticalHint": "Viivis või tähtaeg ≤7 päeva",
+      "instructed": "Juhendatud",
+      "instructedHint": "Jätkamine on kinnitatud",
+      "pipeline": "Torujuhe",
+      "pipelineHint": "Aktiivsed uuendusaknad",
+      "upcoming": "Tulemas",
+      "upcomingHint": "Ootab juhiseid"
+    },
+    "table": {
+      "client": "Klient",
+      "due": "Tähtaeg",
+      "ipRight": "IP õige",
+      "month": "Kuu",
+      "status": "Olek",
+      "windows": "Windows"
+    },
+    "title": "Pikendamise kokkuvõte"
+  },
+  "renewalUrgency": {
+    "legend": "Kiireloomuline uuendamine",
+    "noPipeline": "Torujuhtme uuendamist ei toimu",
+    "overdue": "Tähtaja ületanud",
+    "soon": "≤30 päeva",
+    "today": "Tähtaeg täna",
+    "urgent": "≤7 päeva"
+  },
+  "revenueSummary": {
+    "agingDetail": "Avatud nõuete üksikasjad",
+    "agingSection": {
+      "description": "Ülevaade kõigist avatud nõuetest tähtaja ületanud päevade kaupa",
+      "title": "Vananemise kokkuvõte"
+    },
+    "description": "Väljastatud arvete kogusummad kuude lõikes, sissenõudmised ja avatud nõuded tähtaja ületanud päevade kaupa – kooskõlas finantsmaksete jälgimise stsenaariumiga.",
+    "error": "Tulude kokkuvõtet ei saanud laadida.",
+    "filters": {
+      "periodFrom": "Periood alates",
+      "periodTo": "Periood kuni"
+    },
+    "generated": "Loodud {{date}}",
+    "invoice_one": "{{count}} arve",
+    "invoice_other": "{{count}} arveid",
+    "invoiceRegister": "Arvete register",
+    "issuedInPeriod_one": "tuluSummary.issuedInPeriod",
+    "issuedInPeriod_other": "tuluSummary.issuedInPeriod",
+    "loading": "Tulude kokkuvõtte laadimine…",
+    "noInvoices": "Sellel perioodil ei ole väljastatud arveid.",
+    "noReceivables": "Tasumata nõuded puuduvad.",
+    "openInvoices_one": "tuluSummary.openInvoices",
+    "openInvoices_other": "tuluSummary.openInvoices",
+    "period": "Periood {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Väljastatud arvete kogusummad rühmitatud väljastamiskuu järgi",
+      "title": "Tulu kuude lõikes"
+    },
+    "stats": {
+      "collected": "Kogutud",
+      "collectedHint": "Perioodil registreeritud maksed",
+      "criticalReceivables": "60+ päeva hilinenud",
+      "criticalReceivablesHint": "Järelkontrolli nõudvad nõuded",
+      "outstanding": "Silmapaistev",
+      "totalInvoiced": "Arve kokku"
+    },
+    "table": {
+      "aging": "Vananemine",
+      "client": "Klient",
+      "due": "Tähtaeg",
+      "invoice": "Arve",
+      "invoiced": "Arve",
+      "month": "Kuu",
+      "open": "Avatud",
+      "outstanding": "Silmapaistev",
+      "paid": "Tasuline"
+    },
+    "title": "Tulud ja nõuded"
+  },
+  "urgency": {
+    "legend": "Kiireloomuline legend",
+    "noActiveRisk": "Aktiivne risk puudub",
+    "overdue": "Tähtaja ületanud",
+    "soon": "Tähtaeg ≤30 päeva",
+    "soonShort": "≤30 päeva",
+    "today": "Tähtaeg täna",
+    "todayShort": "Täna",
+    "urgent": "Tähtaeg ≤7 päeva",
+    "urgentShort": "≤7 päeva"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Kriitiline",
+      "criticalHint": "≤ 7 päeva",
+      "overdue": "Tähtaja ületanud",
+      "actionRequired": "Vajalik toiming",
+      "dueToday": "Tähtaeg täna",
+      "requiresSignOff": "Nõuab väljaregistreerimist",
+      "nextDays": "Järgmised {{days}} päeva",
+      "clientsInWindow": "{{count}} kliente aknas",
+      "windowSummary": "Akna kokkuvõte",
+      "priorityDeadlines": "Prioriteetsed tähtajad",
+      "prioritySubtitle": "Kõige pakilisemad esemed, mis vajavad jälgimist",
+      "openReport": "Ava aruanne",
+      "loading": "Riskivektorite skaneerimine…",
+      "error": "Riskianalüütikat ei saanud laadida.",
+      "highestExposure": "Suurim kokkupuude riskiga",
+      "criticalCount": "{{count}} kriitiline",
+      "portfolioClear": "Portfell selge",
+      "noCriticalInWindow": "Järgmise {{days}} päeva jooksul kriitilist ohtu ei tuvastatud.",
+      "table": {
+        "priorityDeadline": "Prioriteedi tähtaeg",
+        "clientJurisdiction": "Klient ja jurisdiktsioon",
+        "dueDate": "Tähtaeg"
+      },
+      "showingOf": "Kuvatakse {{shown}} {{total}} prioriteetsest üksusest",
+      "viewCrossTab": "Vaadake täielikku vahelehtedevahelist aruannet"
+    },
+    "filingVolumes": {
+      "title": "Esitamismahud",
+      "subtitle": "Kogu ettevõttes esitatud taotlused (viimased 12 kuud)",
+      "fullReport": "Täielik aruanne",
+      "loading": "Esitamisajaloo koondamine…",
+      "error": "Esitamisanalüüsi ei saanud laadida.",
+      "totalFilings": "Taotlusi kokku",
+      "yearToDate": "Aasta kuni tänaseni",
+      "primaryType": "Esmane tüüp",
+      "applications_one": "{{count}} rakendus",
+      "applications_other": "{{count}} rakendusi",
+      "noData": "Andmed puuduvad",
+      "topRegion": "Tipppiirkond",
+      "monthActivity": "{{month}} Tegevus:",
+      "newFiling_one": "{{count}} uus fail",
+      "newFiling_other": "{{count}} uut dokumenti",
+      "empty": "Lähiajaloos ei tuvastatud ühtegi esitamist.",
+      "table": {
+        "matterInfo": "Asjakohane teave",
+        "type": "Tüüp",
+        "filingDate": "Esitamise kuupäev"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Arve (12 kuud)",
+      "issued_one": "{{count}} välja antud",
+      "issued_other": "{{count}} välja antud",
+      "collected": "Kogutud",
+      "paidInPeriod": "Tasutud perioodil",
+      "outstanding": "Silmapaistev",
+      "open_one": "{{count}} avatud",
+      "open_other": "{{count}} avatud",
+      "criticalRisk": "Kriitiline risk",
+      "overdue60Days": "60+ päeva hilinenud",
+      "receivablesAging": "Nõuded vananevad",
+      "agingSubtitle": "Avatud väljastatud arved tähtaja ületanud päevade kaupa",
+      "fullReport": "Täielik aruanne",
+      "loading": "Vananemisandmete analüüsimine…",
+      "error": "Vananemisandmeid ei saanud laadida.",
+      "portfolioHealthy": "Portfell terve",
+      "noReceivables": "Tasumata nõudeid ei leitud.",
+      "draftRef": "Eelnõu viide",
+      "table": {
+        "invoiceInfo": "Arveteave",
+        "client": "Klient",
+        "outstanding": "Silmapaistev"
+      },
+      "showingOf": "Kuvatud on {{shown}} {{total}}-st avatud arvest",
+      "viewPortfolio": "Vaadake kogu portfelli"
+    },
+    "teamWorkload": {
+      "title": "Meeskonna töökoormus",
+      "subtitle": "Avatud küsimused, ülesanded ja tähtajad liikme kohta",
+      "viewTeam": "Vaata meeskonda",
+      "loading": "Töökoormuse jaotuse arvutamine…",
+      "error": "Meeskonna andmeid ei saanud laadida.",
+      "matters": "Küsimused",
+      "members_one": "{{count}} liige",
+      "members_other": "{{count}} liiget",
+      "tasks": "Ülesanded",
+      "pendingAction": "Ootel toiming",
+      "deadlines": "Tähtajad",
+      "activeWindow": "Aktiivne aken",
+      "busiest": "Kõige aktiivsem",
+      "items_one": "{{count}} üksus",
+      "items_other": "{{count}} üksust",
+      "clear": "Selge",
+      "empty": "Aktiivseid meeskonnaandmeid pole",
+      "table": {
+        "teamMember": "Meeskonna liige",
+        "matters": "Küsimused",
+        "tasks": "Ülesanded",
+        "deadlines": "Tähtajad",
+        "total": "Kokku"
+      }
+    },
+    "clientProfitability": {
+      "title": "Kliendi kasumlikkus",
+      "subtitle": "Arveldatud tulude jaotus kliendiportfelli järgi",
+      "viewAllClients": "Vaata kõiki kliente",
+      "loading": "Kasumlikkuse andmete koondamine…",
+      "error": "Kliendi analüütikat ei saanud laadida.",
+      "trueMargin": "Tegelik marginaal:",
+      "revenueProxy": "Tulu puhverserver:",
+      "totalRevenue": "Kogutulu",
+      "clients_one": "{{count}} klient",
+      "clients_other": "{{count}} kliente",
+      "totalMargin": "Kogumarginaal",
+      "topClient": "Tippklient",
+      "internalCost": "{{amount}} sisekulu",
+      "noBillingData": "Arveldusandmed puuduvad",
+      "unbilledWip": "Arveldamata WIP",
+      "pendingAccrual": "Ootel tekkepõhine",
+      "firmBilled": "Firma arveldatud",
+      "totalMatters": "Kõik asjad",
+      "empty": "Kliendi arveldusandmeid ei tuvastatud.",
+      "table": {
+        "clientPortfolio": "Kliendiportfell",
+        "matters": "Küsimused",
+        "billable": "Arveldatav",
+        "unbilled": "Arveta",
+        "margin": "Marginaali",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Kuvatakse {{shown}} parimat {{total}} klienti kasutajalt {{basis}}",
+      "basisMargin": "marginaal",
+      "basisRevenue": "tulu",
+      "viewLeaderboard": "Vaadake täielikku edetabelit"
+    }
+  }
+}

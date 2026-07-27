@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Invia nuove richieste di archiviazione e tieni traccia delle questioni aperte nella tua organizzazione. Il tuo portafoglio a colpo d'occhio.",
+    "eyebrow": "Portale clienti",
+    "filePatent": "Deposita un brevetto",
+    "fileTrademark": "Deposita un marchio",
+    "stats": {
+      "activeMatters": "Questioni attive",
+      "activeMattersHint": "Portafoglio organizzativo",
+      "openDeadlines": "Scadenze aperte",
+      "openDeadlinesHint": "In attesa di azione",
+      "overdue": "In ritardo",
+      "overdueCurrent": "Tutto attuale",
+      "overdueUrgent": "Attenzione urgente",
+      "renewals": "Rinnovi",
+      "renewalsCurrent": "Corrente di mantenimento",
+      "renewalsNeedAction_one": "{{count}} serve azione",
+      "renewalsNeedAction_other": "{{count}} serve azione"
+    },
+    "title": "Bentornato"
+  },
+  "correspondence": {
+    "title": "Messaggi",
+    "description": "Corrispondenza che la tua azienda ha condiviso con te.",
+    "loading": "Caricamento messaggi...",
+    "error": "Impossibile caricare i messaggi.",
+    "empty": "Nessun messaggio ancora. La corrispondenza condivisa apparirà qui.",
+    "table": {
+      "subject": "Soggetta",
+      "date": "Data",
+      "direction": "Direzione",
+      "matter": "Questione"
+    }
+  },
+  "messages": {
+    "title": "Messaggi",
+    "description": "Trasmissioni aziendali e messaggi importanti condivisi con la tua organizzazione.",
+    "loading": "Caricamento messaggi...",
+    "loadingDetail": "Apertura…",
+    "error": "Impossibile caricare i messaggi.",
+    "empty": "Nessun messaggio ancora. Gli aggiornamenti aziendali e la corrispondenza condivisa verranno visualizzati qui.",
+    "selectHint": "Seleziona un messaggio per leggerlo.",
+    "unread": "Non letto",
+    "relatedMatter": "Questione",
+    "noBody": "Nessun corpo del messaggio.",
+    "openLink": "Apri il collegamento al messaggio",
+    "kindBroadcast": "Trasmissione",
+    "kindCorrespondence": "Questione",
+    "table": {
+      "type": "Tipa",
+      "subject": "Soggetta",
+      "date": "Data",
+      "matter": "Questione"
+    }
+  },
+  "approvals": {
+    "title": "Approvazioni",
+    "description": "Esamina e decidi in merito alle richieste di approvazione della tua azienda.",
+    "loading": "Caricamento approvazioni…",
+    "couldNotLoad": "Impossibile caricare le approvazioni",
+    "retry": "Riprova",
+    "decideError": "Impossibile inviare la tua decisione",
+    "approve": "Approvare",
+    "reject": "Rifiutare",
+    "notePlaceholder": "Nota facoltativa...",
+    "due": "Scadenza {{date}}",
+    "pendingSection": "In attesa della tua decisione",
+    "historySection": "Decisioni precedenti",
+    "empty": {
+      "title": "Nessuna richiesta di approvazione",
+      "description": "Quando la tua azienda invia una richiesta di approvazione, questa verrà visualizzata qui."
+    },
+    "status": {
+      "draft": "Bozza",
+      "pending": "In attesa di",
+      "approved": "Approvata",
+      "rejected": "Respinto"
+    }
+  },
+  "documentCategories": {
+    "application": "Applicazione",
+    "certificate": "Certificato",
+    "correspondence": "Corrispondenza",
+    "evidence": "Prova",
+    "office_action": "Azione d'ufficio"
+  },
+  "documents": {
+    "allCategories": "Tutte le categorie",
+    "allMatters": "Tutto conta",
+    "description": "Documenti condivisi su tutte le tue questioni.",
+    "download": "Scaricamento",
+    "empty": "Nessun documento ancora. I documenti verranno visualizzati qui quando la tua azienda li condivide sulle tue questioni.",
+    "error": "Impossibile caricare i documenti.",
+    "loading": "Caricamento documenti...",
+    "searchPlaceholder": "Cerca documenti...",
+    "table": {
+      "category": "Categoria",
+      "document": "Documento",
+      "matter": "Questione",
+      "size": "Misurare",
+      "updated": "Aggiornata"
+    },
+    "title": "I miei documenti"
+  },
+  "intake": {
+    "description": "Presenta una nuova richiesta di archiviazione o rivedi le domande che hai già inviato.",
+    "empty": {
+      "action": "Invia una richiesta",
+      "description": "Per iniziare, invia una richiesta su un marchio o un brevetto.",
+      "title": "Nessuna richiesta ancora"
+    },
+    "error": "Impossibile caricare le tue richieste.",
+    "filed": "Archiviato {{date}}",
+    "fileNew": "Invia nuova richiesta",
+    "loading": "Caricamento delle tue richieste...",
+    "myEnquiries": "Le mie domande",
+    "status": {
+      "accepted": "Accettata",
+      "inReview": "In revisione",
+      "matterOpened": "La questione si è aperta",
+      "notAccepted": "Non accettato",
+      "submitted": "Inviato"
+    },
+    "submitted": {
+      "description": "Abbiamo eseguito automaticamente un controllo iniziale dei conflitti. Un coordinatore confermerà e aprirà la tua pratica. Puoi rivedere o modificare la tua richiesta in qualsiasi momento finché non viene accettata.",
+      "reviewEnquiry": "Esamina questa richiesta",
+      "title": "Richiesta inviata"
+    },
+    "title": "Richieste",
+    "untitled": "Richiesta senza titolo"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Torniamo alle mie domande",
+    "cancel": "Cancellare",
+    "defaultTitle": "Inchiesta",
+    "edit": "Modificare",
+    "editDescription": "Il salvataggio aggiornerà la tua richiesta e rieseguirà automaticamente il controllo dei conflitti.",
+    "editTitle": "Modifica richiesta",
+    "enquirer": "Investigatrice",
+    "enquirerCompany": "Azienda",
+    "enquirerIndividual": "Individuale",
+    "enquiryDetails": "Dettagli della richiesta",
+    "error": "Impossibile caricare questa richiesta.",
+    "fields": {
+      "companyName": "Nome dell'azienda",
+      "country": "Paese",
+      "description": "Descrizione",
+      "email": "E-mail",
+      "fullName": "Nome e cognome",
+      "matterType": "Tipo di materia",
+      "otherParties": "Altri partiti",
+      "phone": "Telefono",
+      "urgency": "Urgenza"
+    },
+    "filed": "Archiviato {{date}}",
+    "loading": "Caricamento richiesta...",
+    "saveChanges": "Salva modifiche",
+    "statusHints": {
+      "approved": "La tua richiesta è stata accettata e viene impostata come pratica.",
+      "conflictFlagged": "Un coordinatore sta esaminando la tua richiesta prima che possa essere accettata.",
+      "converted": "È stata aperta una questione. Puoi monitorarlo nella sezione Le mie questioni.",
+      "new": "Ricevuto. Un controllo del conflitto è stato eseguito automaticamente e un coordinatore lo esaminerà a breve.",
+      "rejected": "Questa richiesta non è stata accettata. Contattaci se hai domande.",
+      "reviewing": "Un coordinatore sta esaminando la tua richiesta."
+    },
+    "urgency": {
+      "normal": "Normale",
+      "urgent": "Urgente"
+    },
+    "viewMatter": "Visualizza la questione"
+  },
+  "invoices": {
+    "description": "Fatture e stato dei pagamenti per tutte le tue questioni.",
+    "error": "Impossibile caricare le fatture.",
+    "loading": "Caricamento fatture…",
+    "title": "Le mie fatture"
+  },
+  "matterTypes": {
+    "design": "Progetto",
+    "other": "Altra",
+    "patent": "Brevetto",
+    "trademark": "Marchio",
+    "utility_model": "Modello di utilità"
+  },
+  "renewals": {
+    "couldNotLoad": "Impossibile caricare i rinnovi",
+    "cycle": "ciclo {{number}}",
+    "decline": "Declino",
+    "description": "Prossimi rinnovi di marchi e design per i tuoi diritti di proprietà intellettuale.",
+    "due": "Scadenza {{date}}",
+    "empty": {
+      "description": "I rinnovi vengono visualizzati qui dopo che la tua azienda ha registrato un diritto di proprietà intellettuale su una delle tue questioni. Ti verrà chiesto di Procedere o Rifiutare prima di ogni data di scadenza del rinnovo.",
+      "title": "Nessun rinnovo richiede la tua attenzione",
+      "viewDeadlines": "Visualizza le mie scadenze",
+      "viewMatters": "Visualizza le mie questioni"
+    },
+    "errorFallback": "Riprova o esci e accedi nuovamente se le autorizzazioni sono cambiate.",
+    "instructionError": "Impossibile inviare istruzioni",
+    "loading": "Caricamento…",
+    "proceed": "Procedere",
+    "retry": "Riprova",
+    "title": "Rinnovi"
+  },
+  "renewalStatus": {
+    "completed": "Completato",
+    "filed": "Archiviata",
+    "instructed": "Istruito",
+    "lapsed": "Decaduta",
+    "upcoming": "Prossimamente"
+  },
+  "help": {
+    "title": "Aiuto",
+    "subtitle": "Come utilizzare il portale clienti per il tuo portafoglio IP.",
+    "enquiriesTitle": "Invia una richiesta",
+    "enquiriesBody": "Utilizzare Richieste per inviare una nuova richiesta di argomento. L'azienda esaminerà i controlli sui conflitti e convertirà i lead approvati in pratiche.",
+    "openEnquiries": "Domande aperte",
+    "approvalsTitle": "Approvazioni",
+    "approvalsBody": "Quando l'azienda richiede la tua approvazione (ad esempio rinnovi o istruzioni), rispondi dalla pagina Approvazioni.",
+    "openApprovals": "Approvazioni aperte",
+    "contactTitle": "Hai bisogno di ulteriore aiuto?",
+    "contactBody": "Contatta il tuo avvocato o coordinatore assegnato tramite Messaggi o rispondi alla corrispondenza aziendale su una questione.",
+    "openMessages": "Apri i messaggi"
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Pencil, Plus } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -29,24 +30,36 @@ import {
 import type { BillingRateRole, RateCard } from '@/features/billing/types'
 import {
   BILLING_RATE_ROLES,
-  BILLING_RATE_ROLE_LABELS,
+  billingRateRoleLabel,
   formatBillingDate,
   formatMoney,
 } from '@/features/billing/utils'
 import { useClients } from '@/features/crm/hooks/useClients'
-import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { matterTypeLabel } from '@/features/matters/utils'
 import type { MatterType } from '@/features/matters/types'
 import { getApiErrorMessage } from '@/lib/api-client'
+import i18n from '@/i18n'
 
-const MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
+const MATTER_TYPES = [
+  'trademark',
+  'patent',
+  'utility_model',
+  'industrial_design',
+  'copyright',
+  'geographical_indication',
+  'border_measures',
+  'dispute_opposition',
+  'fto_analysis',
+  'valuation',
+] as MatterType[]
 
 function clientLabel(card: RateCard) {
-  if (!card.client) return 'Firm-wide'
+  if (!card.client) return i18n.t('rateCards.firmWide', { ns: 'finance' })
   return (
     card.client.companyName ||
     [card.client.firstName, card.client.lastName].filter(Boolean).join(' ') ||
     card.client.internalCode ||
-    'Client'
+    i18n.t('clientFallback', { ns: 'finance' })
   )
 }
 
@@ -59,6 +72,7 @@ function RateCardDrawer({
   onClose: () => void
   card: RateCard | null
 }) {
+  const { t } = useTranslation(['finance', 'common'])
   const isEdit = Boolean(card)
   const createRateCard = useCreateRateCard()
   const updateRateCard = useUpdateRateCard()
@@ -103,7 +117,7 @@ function RateCardDrawer({
     setError(null)
     const rate = Number(hourlyRate)
     if (!rate || rate < 0) {
-      setError('Enter a valid hourly rate')
+      setError(t('finance:rateCards.validation.hourlyRate'))
       return
     }
     const parsedInternalCost =
@@ -112,7 +126,7 @@ function RateCardDrawer({
       parsedInternalCost !== undefined &&
       (Number.isNaN(parsedInternalCost) || parsedInternalCost < 0)
     ) {
-      setError('Enter a valid internal cost or leave blank')
+      setError(t('finance:rateCards.validation.internalCost'))
       return
     }
 
@@ -140,19 +154,23 @@ function RateCardDrawer({
       }
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to save rate card'))
+      setError(getApiErrorMessage(err, t('finance:rateCards.error')))
     }
   }
 
   const pending = createRateCard.isPending || updateRateCard.isPending
 
   return (
-    <Drawer open={open} onClose={onClose} title={isEdit ? 'Edit rate card' : 'New rate card'}>
+    <Drawer
+      open={open}
+      onClose={onClose}
+      title={isEdit ? t('finance:rateCards.drawerTitleEdit') : t('finance:rateCards.drawerTitle')}
+    >
       <form className="space-y-4" onSubmit={handleSubmit}>
         {!isEdit && (
           <>
             <div className="space-y-2">
-              <Label>Role</Label>
+              <Label>{t('finance:rateCards.role')}</Label>
               <Select value={role} onValueChange={(v) => setRole(v as BillingRateRole)}>
                 <SelectTrigger>
                   <SelectValue />
@@ -160,7 +178,7 @@ function RateCardDrawer({
                 <SelectContent>
                   {BILLING_RATE_ROLES.map((item) => (
                     <SelectItem key={item} value={item}>
-                      {BILLING_RATE_ROLE_LABELS[item]}
+                      {billingRateRoleLabel(item)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -168,16 +186,16 @@ function RateCardDrawer({
             </div>
 
             <div className="space-y-2">
-              <Label>Matter type</Label>
+              <Label>{t('finance:rateCards.matterType')}</Label>
               <Select value={matterType} onValueChange={(v) => setMatterType(v ?? 'any')}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Any matter type</SelectItem>
+                  <SelectItem value="any">{t('finance:rateCards.anyMatterType')}</SelectItem>
                   {MATTER_TYPES.map((type) => (
                     <SelectItem key={type} value={type}>
-                      {MATTER_TYPE_LABELS[type]}
+                      {matterTypeLabel(type)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -185,13 +203,13 @@ function RateCardDrawer({
             </div>
 
             <div className="space-y-2">
-              <Label>Client override</Label>
+              <Label>{t('finance:rateCards.clientOverride')}</Label>
               <Select value={clientId} onValueChange={(v) => setClientId(v ?? 'firm')}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="firm">Firm-wide default</SelectItem>
+                  <SelectItem value="firm">{t('finance:rateCards.firmWideDefault')}</SelectItem>
                   {clients.map((client) => (
                     <SelectItem key={client.id} value={client.id}>
                       {client.companyName ||
@@ -204,7 +222,7 @@ function RateCardDrawer({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="effective-from">Effective from</Label>
+              <Label htmlFor="effective-from">{t('finance:rateCards.effectiveFrom')}</Label>
               <Input
                 id="effective-from"
                 type="date"
@@ -216,7 +234,7 @@ function RateCardDrawer({
         )}
 
         <div className="space-y-2">
-          <Label htmlFor="hourly-rate">Billable rate (EUR/hr)</Label>
+          <Label htmlFor="hourly-rate">{t('finance:rateCards.billableRate')}</Label>
           <Input
             id="hourly-rate"
             type="number"
@@ -228,24 +246,23 @@ function RateCardDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="internal-cost">Internal cost (EUR/hr)</Label>
+          <Label htmlFor="internal-cost">{t('finance:rateCards.internalCostOptional')}</Label>
           <Input
             id="internal-cost"
             type="number"
             min="0"
             step="0.01"
-            placeholder="Optional - for margin reporting"
+            placeholder={t('finance:rateCards.internalCostPlaceholder')}
             value={internalCostPerHour}
             onChange={(e) => setInternalCostPerHour(e.target.value)}
           />
           <p className="text-xs text-muted-foreground">
-            Mirrors billing rate resolution (client → firm + matter type → firm default). Snapshotted
-            on new time entries as cost_snapshot.
+            {t('finance:rateCards.internalCostResolutionHint')}
           </p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="effective-to">Effective to (optional)</Label>
+          <Label htmlFor="effective-to">{t('finance:rateCards.effectiveToOptional')}</Label>
           <Input
             id="effective-to"
             type="date"
@@ -258,10 +275,10 @@ function RateCardDrawer({
 
         <div className="flex justify-end gap-2 pt-2">
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
           <Button type="submit" disabled={pending}>
-            {isEdit ? 'Save changes' : 'Create rate card'}
+            {isEdit ? t('common:actions.saveChanges') : t('finance:rateCards.create')}
           </Button>
         </div>
       </form>
@@ -270,6 +287,7 @@ function RateCardDrawer({
 }
 
 export function RateCardsPage() {
+  const { t } = useTranslation(['finance', 'common'])
   const { data: cards, isLoading, isError } = useRateCards()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [editingCard, setEditingCard] = useState<RateCard | null>(null)
@@ -279,16 +297,17 @@ export function RateCardsPage() {
       resource="billing"
       action="read"
       fallback={
-        <p className="text-sm text-muted-foreground">You do not have permission to view rate cards.</p>
+        <p className="text-sm text-muted-foreground">{t('finance:rateCards.viewNoPermission')}</p>
       }
     >
       <div className="space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="font-serif text-2xl text-foreground md:text-3xl">Rate cards</h1>
+            <h1 className="font-serif text-2xl text-foreground md:text-3xl">
+              {t('finance:rateCards.title')}
+            </h1>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              Firm price list by role, matter type, and optional client override. Billable rate is
-              used when logging time; optional internal cost drives true-margin profitability.
+              {t('finance:rateCards.pageDescription')}
             </p>
           </div>
           <PermissionGate resource="billing" action="create">
@@ -300,24 +319,30 @@ export function RateCardsPage() {
               }}
             >
               <Plus className="mr-1 size-4" />
-              New rate card
+              {t('finance:rateCards.new')}
             </Button>
           </PermissionGate>
         </div>
 
-        {isLoading && <p className="text-sm text-muted-foreground">Loading rate cards…</p>}
-        {isError && <p className="text-sm text-destructive">Failed to load rate cards.</p>}
+        {isLoading && (
+          <p className="text-sm text-muted-foreground">{t('finance:rateCards.loading')}</p>
+        )}
+        {isError && (
+          <p className="text-sm text-destructive">{t('finance:rateCards.loadFailed')}</p>
+        )}
 
         {cards && (
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Role</TableHead>
-                <TableHead>Matter type</TableHead>
-                <TableHead>Scope</TableHead>
-                <TableHead className="text-right">Billable</TableHead>
-                <TableHead className="text-right">Internal cost</TableHead>
-                <TableHead>Effective</TableHead>
+                <TableHead>{t('finance:rateCards.table.role')}</TableHead>
+                <TableHead>{t('finance:rateCards.table.matterType')}</TableHead>
+                <TableHead>{t('finance:rateCards.table.scope')}</TableHead>
+                <TableHead className="text-right">{t('finance:rateCards.billable')}</TableHead>
+                <TableHead className="text-right">
+                  {t('finance:rateCards.table.internalCost')}
+                </TableHead>
+                <TableHead>{t('finance:rateCards.table.effective')}</TableHead>
                 <TableHead className="w-[80px]" />
               </TableRow>
             </TableHeader>
@@ -325,15 +350,17 @@ export function RateCardsPage() {
               {cards.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={7} className="text-center text-muted-foreground">
-                    No rate cards yet.
+                    {t('finance:rateCards.empty')}
                   </TableCell>
                 </TableRow>
               ) : (
                 cards.map((card) => (
                   <TableRow key={card.id}>
-                    <TableCell>{BILLING_RATE_ROLE_LABELS[card.role]}</TableCell>
+                    <TableCell>{billingRateRoleLabel(card.role)}</TableCell>
                     <TableCell className="text-muted-foreground">
-                      {card.matterType ? MATTER_TYPE_LABELS[card.matterType as MatterType] : 'Any'}
+                      {card.matterType
+                        ? matterTypeLabel(card.matterType as MatterType)
+                        : t('finance:rateCards.any')}
                     </TableCell>
                     <TableCell>
                       <Badge variant={card.clientId ? 'info' : 'secondary'}>
@@ -362,7 +389,7 @@ export function RateCardsPage() {
                             setEditingCard(card)
                             setDrawerOpen(true)
                           }}
-                          aria-label="Edit rate card"
+                          aria-label={t('finance:rateCards.editAria')}
                         >
                           <Pencil className="size-3.5" />
                         </Button>

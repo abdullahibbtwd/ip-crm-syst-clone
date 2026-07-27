@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Anwälte werden geladen…",
+    "placeholder": "Wählen Sie einen verantwortlichen Anwalt",
+    "unassigned": "Nicht zugewiesen"
+  },
+  "filters": {
+    "activeOnly": "Nur aktiv",
+    "allStatuses": "Alle Status",
+    "inactiveOnly": "Nur inaktiv",
+    "searchPortal": "Portalbenutzer suchen…",
+    "searchTeam": "Teammitglieder suchen…"
+  },
+  "invite": {
+    "button": "Benutzer einladen",
+    "cancel": "Stornieren",
+    "clientPlaceholder": "Kundendatensatz auswählen…",
+    "clientRecord": "Kundendatensatz",
+    "description": "Laden Sie ein Teammitglied oder einen Portalkunden ein. Sie erhalten eine E-Mail mit einem Link zum Festlegen ihres Passworts oder zur Anmeldung bei Microsoft oder Google.",
+    "email": "E-Mail",
+    "emailFailed": "Die Einladungs-E-Mail konnte nicht gesendet werden",
+    "emailFailedContinue": "Benutzer wurde erstellt – schließen und später erneut senden",
+    "emailFailedTitle": "Der Benutzer wurde eingeladen, die E-Mail konnte jedoch nicht gesendet werden.",
+    "emailHint": "Es wird eine Einladungs-E-Mail mit einem Link zum Festlegen eines Passworts gesendet. Sie können sich auch mit genau dieser E-Mail-Adresse bei Microsoft oder Google anmelden. Wenn die E-Mail fehlschlägt, wird der Benutzer weiterhin erstellt und Sie können ihn über die Benutzerliste erneut senden.",
+    "emailPlaceholder": "name@company.com",
+    "errors": {
+      "clientRequired": "Wählen Sie einen Kundendatensatz für Portalbenutzer aus",
+      "failed": "Benutzer konnte nicht eingeladen werden",
+      "required": "E-Mail und vollständiger Name sind erforderlich"
+    },
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Der letzte E-Mail-Versuch ist fehlgeschlagen",
+    "resend": "Einladung erneut senden",
+    "resendFailed": "Die Einladungs-E-Mail konnte nicht erneut gesendet werden",
+    "resendSuccess": "Einladungs-E-Mail gesendet",
+    "role": "Rolle",
+    "submit": "Einladung senden",
+    "submitting": "Einladend…",
+    "title": "Benutzer einladen",
+    "typePortal": "Portal-Client",
+    "typeTeam": "Teammitglied",
+    "userType": "Benutzertyp"
+  },
+  "layout": {
+    "accessRestricted": "Zugang eingeschränkt",
+    "description": "Verwalten Sie interne Teammitglieder und externe Portal-Kundenkonten. SSO und passwortbasierte Anmeldung werden pro Benutzer angezeigt.",
+    "noPermission": "Sie sind nicht berechtigt, Benutzer und Teammitglieder anzuzeigen.",
+    "title": "Benutzer und Team"
+  },
+  "portal": {
+    "description": "Externe Kundenkonten mit Portalzugriff auf gemeinsame Angelegenheiten und Dokumente.",
+    "title": "Portalbenutzer"
+  },
+  "role": {
+    "errors": {
+      "failed": "Die Rolle konnte nicht aktualisiert werden"
+    },
+    "ownRoleHint": "Sie können Ihre eigene Rolle nicht ändern"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Passwort",
+      "pending": "Ausstehend",
+      "sso": "SSO"
+    },
+    "clientRecord": "Kundendatensatz",
+    "empty": "Keine Benutzer gefunden",
+    "emptyDescription": "Versuchen Sie, die Suche oder Filter anzupassen.",
+    "error": "Benutzer konnten nicht geladen werden.",
+    "headers": {
+      "invite": "Einladen",
+      "lastLogin": "Letzter Login",
+      "mfa": "MFA",
+      "registered": "Eingetragen",
+      "role": "Rolle",
+      "signIn": "Anmelden",
+      "status": "Status",
+      "user": "Benutzer"
+    },
+    "mfa": {
+      "enabled": "Ermöglicht",
+      "off": "Aus"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "invited": "Eingeladen"
+    },
+    "viewAria": "Anzeigen {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Kundenkonten",
+      "label": "Portalbenutzer"
+    },
+    "team": {
+      "description": "Internes Personal",
+      "label": "Team"
+    }
+  },
+  "team": {
+    "description": "Interne Mitarbeiter mit Rollen, Anmeldemethode und MFA-Status. Geschäftsführende Partner und IT-Administratoren können Benutzer einladen und Rollen ändern.",
+    "title": "Teammitglieder"
+  },
+  "teamMemberSelect": {
+    "loading": "Laden…",
+    "placeholder": "Teammitglied auswählen"
+  }
+}

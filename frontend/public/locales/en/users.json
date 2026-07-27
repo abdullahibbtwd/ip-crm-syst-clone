@@ -14,20 +14,33 @@
   "invite": {
     "button": "Invite user",
     "cancel": "Cancel",
-    "description": "Add a team member so they can sign in with Microsoft or Google SSO using this exact email. No password is set.",
-    "email": "Work email",
+    "clientPlaceholder": "Select client record…",
+    "clientRecord": "Client record",
+    "description": "Invite a team member or portal client. They will receive an email with a link to set their password or sign in with Microsoft or Google.",
+    "email": "Email",
+    "emailFailed": "Invite email could not be sent",
+    "emailFailedContinue": "User was created — close and resend later",
+    "emailFailedTitle": "User invited, but the email could not be sent.",
+    "emailHint": "An invitation email is sent with a link to set a password. They can also sign in with Microsoft or Google using this exact email. If email fails, the user is still created and you can resend from the users list.",
     "emailPlaceholder": "name@company.com",
     "errors": {
+      "clientRequired": "Select a client record for portal users",
       "failed": "Failed to invite user",
       "required": "Email and full name are required"
     },
     "fullName": "Full name",
     "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Last email attempt failed",
+    "resend": "Resend invite",
+    "resendFailed": "Failed to resend invite email",
+    "resendSuccess": "Invite email sent",
     "role": "Role",
-    "ssoHint": "After inviting, ask them to sign in with SSO using this email. They must sign out and back in if their role changes later.",
-    "submit": "Invite for SSO",
+    "submit": "Send invite",
     "submitting": "Inviting…",
-    "title": "Invite team user"
+    "title": "Invite user",
+    "typePortal": "Portal client",
+    "typeTeam": "Team member",
+    "userType": "User type"
   },
   "layout": {
     "accessRestricted": "Access restricted",
@@ -48,6 +61,7 @@
   "table": {
     "authMethod": {
       "password": "Password",
+      "pending": "Pending",
       "sso": "SSO"
     },
     "clientRecord": "Client record",
@@ -55,6 +69,7 @@
     "emptyDescription": "Try adjusting search or filters.",
     "error": "Failed to load users.",
     "headers": {
+      "invite": "Invite",
       "lastLogin": "Last login",
       "mfa": "MFA",
       "registered": "Registered",
@@ -69,7 +84,8 @@
     },
     "status": {
       "active": "Active",
-      "inactive": "Inactive"
+      "inactive": "Inactive",
+      "invited": "Invited"
     },
     "viewAria": "View {{name}}"
   },

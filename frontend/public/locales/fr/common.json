@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Retour au tableau de bord",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "loadMore": "Charger plus",
+    "next": "Suivante",
+    "previous": "Précédente",
+    "refresh": "Rafraîchir",
+    "remove": "Retirer",
+    "retry": "Réessayer",
+    "save": "Sauvegarder",
+    "saveChanges": "Enregistrer les modifications",
+    "view": "Voir"
+  },
+  "errors": {
+    "loadFailed": "Échec du chargement.",
+    "retryHint": "Vérifiez votre connexion et vos autorisations, puis réessayez."
+  },
+  "filters": {
+    "all": "Toute",
+    "allStatuses": "Tous les statuts",
+    "allTypes": "Tous types"
+  },
+  "language": {
+    "ar": "arabe",
+    "bg": "bulgare",
+    "bs": "bosniaque",
+    "de": "Allemande",
+    "en": "Anglaise",
+    "es": "Espagnole",
+    "et": "Estonienne",
+    "fr": "Français",
+    "hr": "croate",
+    "hy": "Arménienne",
+    "it": "Italienne",
+    "mk": "Macédonien",
+    "ms": "Malaise",
+    "ro": "Roumaine",
+    "ru": "russe",
+    "sq": "Albanaise",
+    "sr": "serbe",
+    "switch": "Changer de langue",
+    "tr": "Turque",
+    "zh-CN": "Chinois (simplifié)"
+  },
+  "loading": {
+    "default": "Chargement…",
+    "refreshing": "rafraîchissante…",
+    "saving": "Économie…"
+  },
+  "nav": {
+    "breadcrumb": "Fil d'Ariane",
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu"
+  },
+  "pagination": {
+    "noResults": "Aucun résultat",
+    "page": "Page {{page}}",
+    "showing": "Affichage de {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Rapports"
+  },
+  "noPermission": "Aucune autorisation.",
+  "crm": "GRC",
+  "clientPortal": "Portail clients",
+  "tasks": "Tâches",
+  "comingSoon": "À venir",
+  "notifications": {
+    "title": "Notifications",
+    "unread": "non lu",
+    "markAllRead": "Marquer tout comme lu",
+    "couldNotLoad": "Impossible de charger les notifications.",
+    "noNotificationsYet": "Aucune notification pour l'instant."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Non",
+    "none": "Aucune",
+    "yes": "Oui"
+  }
+}

@@ -40,6 +40,7 @@
     "error": "Failed to load messages.",
     "empty": "No messages yet. Firm updates and shared correspondence will appear here.",
     "selectHint": "Select a message to read it.",
+    "unread": "Unread",
     "relatedMatter": "Matter",
     "noBody": "No message body.",
     "openLink": "Open message link",

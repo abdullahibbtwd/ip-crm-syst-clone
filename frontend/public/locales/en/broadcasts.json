@@ -1,0 +1,68 @@
+{
+  "title": "Broadcasts",
+  "subtitle": "Send bulk notifications to client contact emails via firm SMTP. Each send is audited as bulk_notification. Matter mailbox replies stay on Email Queue / Correspondence.",
+  "compose": {
+    "title": "Compose broadcast",
+    "recipientGroup": "Recipient group",
+    "selectClients": "Select clients",
+    "searchClientsPlaceholder": "Search clients (min 2 characters)",
+    "selected": "Selected",
+    "add": "Add",
+    "clientsSelected": "{{count}} client(s) selected",
+    "countingRecipients": "Counting recipients…",
+    "previewFailed": "Could not preview audience",
+    "recipientMatched": "recipient matched",
+    "recipientsMatched": "recipients matched",
+    "andMore": "…and {{count}} more",
+    "subject": "Subject",
+    "subjectPlaceholder": "e.g. Upcoming EU renewal reminders",
+    "message": "Message",
+    "messagePlaceholder": "Write the notification your clients will receive…",
+    "queuing": "Queuing…",
+    "sendBroadcast": "Send broadcast"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Subject and message are required",
+    "selectClient": "Select at least one client",
+    "queueFailed": "Failed to queue broadcast"
+  },
+  "success": {
+    "queued": "Broadcast queued to {{count}} recipient(s). Delivery runs in the background."
+  },
+  "history": {
+    "title": "Recent broadcasts",
+    "when": "When",
+    "subject": "Subject",
+    "audience": "Audience",
+    "status": "Status",
+    "sent": "Sent",
+    "by": "By",
+    "loading": "Loading…",
+    "empty": "No broadcasts yet.",
+    "failedCount": "({{count}} failed)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "All active clients",
+      "description": "Primary contact email for every active client"
+    },
+    "pending_eu_renewals": {
+      "label": "Pending EU renewals",
+      "description": "Active clients with upcoming / instructed / filed EU renewals"
+    },
+    "trademark_matters": {
+      "label": "Trademark matters",
+      "description": "Clients with at least one active trademark matter"
+    },
+    "manual": {
+      "label": "Manual selection",
+      "description": "Pick specific clients from search"
+    }
+  },
+  "status": {
+    "queued": "Queued",
+    "sending": "Sending",
+    "completed": "Completed",
+    "failed": "Failed"
+  }
+}

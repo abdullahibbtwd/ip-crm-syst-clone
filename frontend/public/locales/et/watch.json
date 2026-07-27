@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Kaubamärgi kell",
+    "description": "Vaadake üle aktiivsete kellaprofiilide võimalikud konfliktid.",
+    "empty": "Teie filtritele ei vasta ükski kellahoiatus.",
+    "loading": "Kella märguannete laadimine…"
+  },
+  "detail": {
+    "title": "Vaata märguannet",
+    "back": "Tagasi vaatamise tööloendisse",
+    "loading": "Hoiatuse laadimine…",
+    "notFound": "Vaata hoiatust ei leitud.",
+    "watchedMark": "Vaadatud märk",
+    "conflictingMark": "Vastuoluline märk",
+    "registrySource": "Registri allikas",
+    "jurisdiction": "Jurisdiktsioon",
+    "applicationNumber": "Taotluse number",
+    "similarity": "Sarnasus",
+    "detectedAt": "Tuvastati",
+    "client": "Klient",
+    "profile": "Vaata profiili",
+    "niceClasses": "Toredad klassid",
+    "reject": "Keeldu hoiatusest",
+    "accept": "Aktsepteerige ja looge aine",
+    "rejectConfirm": "Kas märkida see hoiatus valepositiivseks?",
+    "acceptConfirm": "Kas luua selle hoiatuse põhjal vastulause?",
+    "triagedBy": "Triageeris {{name}}",
+    "linkedMatter": "Seotud asi"
+  },
+  "clientTab": {
+    "title": "Vaata profiile",
+    "description": "Jälgige registrites kanoonilisi jurisdiktsiooni koode (BG, EL, EP).",
+    "add": "Lisage kaubamärgiga kell",
+    "empty": "Vaatamisprofiile pole veel. Lisage profiil, et alustada selle kliendi märkide jälgimist.",
+    "loading": "Kellaprofiilide laadimine…",
+    "pause": "Paus",
+    "resume": "Jätka",
+    "archive": "Arhiiv",
+    "epoScan": "Kontrollige hoiatusteadete jaoks EPO-d",
+    "epoScanning": "EPO skannimine…",
+    "epoScanSuccess": "Loodud {{alerts}} uut EPO hoiatust {{profiles}} profiilist.",
+    "epoScanFailed": "EPO kella skannimine ebaõnnestus",
+    "viewAlerts": "Vaata kellade märguandeid"
+  },
+  "drawer": {
+    "title": "Lisage kaubamärgiga kell",
+    "markText": "Märgi tekst *",
+    "markPlaceholder": "nt. Coca-Cola",
+    "jurisdictions": "Jurisdiktsioonid *",
+    "jurisdictionsHint": "Kanoonilised koodid - mitte registrinimed. BPO kellad kasutavad BG-d; EUIPO kellad kasutavad EL-i.",
+    "niceClasses": "Toredad klassid",
+    "niceClassesPlaceholder": "nt. 32, 33",
+    "frequency": "Skaneerimise sagedus",
+    "save": "Salvesta kellaprofiil"
+  },
+  "filters": {
+    "status": "Olek",
+    "jurisdiction": "Jurisdiktsioon",
+    "source": "Registri allikas",
+    "minSimilarity": "Minimaalne sarnasus",
+    "anySimilarity": "Igasugune sarnasus",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Sorteeri",
+    "sortDetected": "Kõige uuemad enne",
+    "sortSimilarity": "Suurim sarnasus",
+    "all": "Kõik"
+  },
+  "stats": {
+    "new": "Uued märguanded",
+    "accepted": "Vastu võetud",
+    "rejected": "Tagasi lükatud"
+  },
+  "profileStatus": {
+    "active": "Aktiivne",
+    "paused": "Peatatud",
+    "archived": "Arhiveeritud"
+  },
+  "alertStatus": {
+    "new": "Uus",
+    "rejected": "Tagasi lükatud",
+    "accepted": "Vastu võetud"
+  },
+  "frequency": {
+    "daily": "Igapäevane",
+    "weekly": "Iganädalane"
+  },
+  "table": {
+    "mark": "Vaadatud märk",
+    "conflict": "Konflikt",
+    "client": "Klient",
+    "similarity": "Sarnasus",
+    "source": "Allikas",
+    "jurisdiction": "Jurisdiktsioon",
+    "status": "Olek",
+    "detected": "Tuvastati",
+    "frequency": "Sagedus",
+    "classes": "klassid",
+    "profiles": "Profiilid",
+    "actions": "Tegevused"
+  }
+}

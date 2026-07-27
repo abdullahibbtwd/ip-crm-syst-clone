@@ -9,6 +9,8 @@ import {
 } from 'react'
 import { fetchMe, logoutRequest } from './api'
 import type { AuthUser } from './types'
+import i18n from '@/i18n'
+import { applyDocumentDirection, isSupportedLocale } from '@/i18n/locales'
 
 type AuthContextValue = {
   user: AuthUser | null
@@ -35,7 +37,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     fetchMe()
-      .then((profile) => setUser(profile))
+      .then((profile) => {
+        setUser(profile)
+        if (profile.preferredLocale && isSupportedLocale(profile.preferredLocale)) {
+          void i18n.changeLanguage(profile.preferredLocale)
+          applyDocumentDirection(profile.preferredLocale)
+        }
+      })
       .catch(() => setUser(null))
       .finally(() => setIsLoading(false))
   }, [])

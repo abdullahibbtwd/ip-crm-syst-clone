@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Trimiteți noi întrebări de depunere și urmăriți problemele deschise în cadrul organizației dvs. Portofoliul dvs. dintr-o privire.",
+    "eyebrow": "Portalul clientului",
+    "filePatent": "Depuneți un brevet",
+    "fileTrademark": "Depuneți o marcă comercială",
+    "stats": {
+      "activeMatters": "Chestiuni active",
+      "activeMattersHint": "Portofoliul organizației",
+      "openDeadlines": "Termene deschise",
+      "openDeadlinesHint": "În așteptarea acțiunii",
+      "overdue": "Întârziat",
+      "overdueCurrent": "Toate actuale",
+      "overdueUrgent": "Atenție urgentă",
+      "renewals": "Reînnoiri",
+      "renewalsCurrent": "Curent de întreținere",
+      "renewalsNeedAction_one": "{{count}} au nevoie de acțiune",
+      "renewalsNeedAction_other": "{{count}} au nevoie de acțiune"
+    },
+    "title": "Bine ai revenit"
+  },
+  "correspondence": {
+    "title": "Mesaje",
+    "description": "Corespondența pe care firma dumneavoastră v-a împărtășit-o.",
+    "loading": "Se încarcă mesajele…",
+    "error": "Nu s-au încărcat mesajele.",
+    "empty": "Încă nu există mesaje. Corespondența partajată va apărea aici.",
+    "table": {
+      "subject": "Subiect",
+      "date": "Data",
+      "direction": "Direcţie",
+      "matter": "materie"
+    }
+  },
+  "messages": {
+    "title": "Mesaje",
+    "description": "Transmisiuni ferme și mesaje importante partajate cu organizația dvs.",
+    "loading": "Se încarcă mesajele…",
+    "loadingDetail": "Deschidere…",
+    "error": "Nu s-au încărcat mesajele.",
+    "empty": "Încă nu există mesaje. Actualizări ferme și corespondență partajată vor apărea aici.",
+    "selectHint": "Selectați un mesaj pentru a-l citi.",
+    "unread": "Necitit",
+    "relatedMatter": "materie",
+    "noBody": "Fără corp de mesaj.",
+    "openLink": "Deschideți linkul mesajului",
+    "kindBroadcast": "Difuzare",
+    "kindCorrespondence": "materie",
+    "table": {
+      "type": "Tip",
+      "subject": "Subiect",
+      "date": "Data",
+      "matter": "materie"
+    }
+  },
+  "approvals": {
+    "title": "Aprobari",
+    "description": "Examinați și decideți cu privire la cererile de aprobare din partea firmei dvs.",
+    "loading": "Se încarcă aprobările…",
+    "couldNotLoad": "Nu s-au putut încărca aprobările",
+    "retry": "Reîncercați",
+    "decideError": "Nu am putut trimite decizia dvs",
+    "approve": "Aproba",
+    "reject": "Respinge",
+    "notePlaceholder": "Notă opțională…",
+    "due": "Datorită {{date}}",
+    "pendingSection": "Astept decizia ta",
+    "historySection": "Deciziile anterioare",
+    "empty": {
+      "title": "Fără solicitări de aprobare",
+      "description": "Când firma dvs. trimite o cerere de aprobare, aceasta va apărea aici."
+    },
+    "status": {
+      "draft": "Proiect",
+      "pending": "În așteptare",
+      "approved": "Aprobat",
+      "rejected": "Respins"
+    }
+  },
+  "documentCategories": {
+    "application": "Aplicație",
+    "certificate": "Certificat",
+    "correspondence": "Corespondenţă",
+    "evidence": "Dovezi",
+    "office_action": "Acțiune de birou"
+  },
+  "documents": {
+    "allCategories": "Toate categoriile",
+    "allMatters": "Toate contează",
+    "description": "Documente partajate în toate problemele dvs.",
+    "download": "Descărcați",
+    "empty": "Încă nu există documente. Documentele vor apărea aici atunci când firma dvs. le distribuie cu privire la problemele dvs.",
+    "error": "Nu s-au încărcat documentele.",
+    "loading": "Se încarcă documentele...",
+    "searchPlaceholder": "Căutați documente...",
+    "table": {
+      "category": "Categorie",
+      "document": "Document",
+      "matter": "materie",
+      "size": "Dimensiune",
+      "updated": "Actualizat"
+    },
+    "title": "Documentele mele"
+  },
+  "intake": {
+    "description": "Trimiteți o nouă cerere de depunere sau examinați întrebările pe care le-ați trimis deja.",
+    "empty": {
+      "action": "Depuneți o anchetă",
+      "description": "Depuneți o cerere de marcă comercială sau brevet pentru a începe.",
+      "title": "Încă nu există întrebări"
+    },
+    "error": "Nu s-au putut încărca întrebările dvs.",
+    "filed": "Depus {{date}}",
+    "fileNew": "Trimiteți o nouă anchetă",
+    "loading": "Se încarcă întrebările dvs....",
+    "myEnquiries": "Întrebările mele",
+    "status": {
+      "accepted": "Acceptat",
+      "inReview": "În revizuire",
+      "matterOpened": "S-a deschis materia",
+      "notAccepted": "Nu este acceptat",
+      "submitted": "Trimis"
+    },
+    "submitted": {
+      "description": "Am efectuat automat o verificare inițială a conflictului. Un coordonator vă va confirma și deschide problema. Vă puteți revizui sau edita solicitarea oricând până când este acceptată.",
+      "reviewEnquiry": "Examinați această întrebare",
+      "title": "Cerere depusă"
+    },
+    "title": "Întrebări",
+    "untitled": "Anchetă fără titlu"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Înapoi la întrebările mele",
+    "cancel": "Anula",
+    "defaultTitle": "Anchetă",
+    "edit": "Edita",
+    "editDescription": "Salvarea vă va actualiza interogarea și va relua automat verificarea conflictelor.",
+    "editTitle": "Editați întrebarea",
+    "enquirer": "Solicitant",
+    "enquirerCompany": "Companie",
+    "enquirerIndividual": "Individual",
+    "enquiryDetails": "Detalii de anchetă",
+    "error": "Nu s-a putut încărca această întrebare.",
+    "fields": {
+      "companyName": "Numele companiei",
+      "country": "Ţară",
+      "description": "Descriere",
+      "email": "E-mail",
+      "fullName": "Numele complet",
+      "matterType": "Tipul materiei",
+      "otherParties": "Alte partide",
+      "phone": "Telefon",
+      "urgency": "Urgenţă"
+    },
+    "filed": "Depus {{date}}",
+    "loading": "Se încarcă întrebarea...",
+    "saveChanges": "Salvați modificările",
+    "statusHints": {
+      "approved": "Solicitarea dvs. a fost acceptată și este în curs de configurare.",
+      "conflictFlagged": "Un coordonator examinează solicitarea dumneavoastră înainte de a putea fi acceptată.",
+      "converted": "S-a deschis o chestiune. Îl puteți urmări în chestiunile mele.",
+      "new": "Primit. O verificare a conflictului a fost efectuată automat și un coordonator o va revizui în scurt timp.",
+      "rejected": "Această anchetă nu a fost acceptată. Contactați-ne dacă aveți întrebări.",
+      "reviewing": "Un coordonator examinează solicitarea dvs."
+    },
+    "urgency": {
+      "normal": "Normal",
+      "urgent": "Urgent"
+    },
+    "viewMatter": "Vedeți problema"
+  },
+  "invoices": {
+    "description": "Facturi și starea plăților pentru toate problemele dvs.",
+    "error": "Nu s-au încărcat facturile.",
+    "loading": "Se încarcă facturile...",
+    "title": "Facturile mele"
+  },
+  "matterTypes": {
+    "design": "Proiecta",
+    "other": "Alte",
+    "patent": "Brevet",
+    "trademark": "Marcă comercială",
+    "utility_model": "Model de utilitate"
+  },
+  "renewals": {
+    "couldNotLoad": "Nu s-au putut încărca reînnoiri",
+    "cycle": "ciclu {{number}}",
+    "decline": "Declin",
+    "description": "Reînnoiri viitoare de mărci comerciale și design pentru drepturile dvs. de proprietate intelectuală.",
+    "due": "Datorită {{date}}",
+    "empty": {
+      "description": "Reînnoirile apar aici după ce firma dvs. înregistrează un drept de proprietate asupra uneia dintre problemele dvs. Vi se va cere să continuați sau să refuzați înainte de fiecare dată scadentă de reînnoire.",
+      "title": "Nicio reînnoire nu necesită atenția dvs",
+      "viewDeadlines": "Vezi termenele mele limită",
+      "viewMatters": "Vezi problemele mele"
+    },
+    "errorFallback": "Încercați din nou sau deconectați-vă și reconectați-vă dacă permisiunile s-au schimbat.",
+    "instructionError": "Nu s-a putut trimite instrucțiunea",
+    "loading": "Încărcare…",
+    "proceed": "Continuă",
+    "retry": "Reîncercați",
+    "title": "Reînnoiri"
+  },
+  "renewalStatus": {
+    "completed": "Terminat",
+    "filed": "Depus",
+    "instructed": "Instruit",
+    "lapsed": "Decăzut",
+    "upcoming": "În viitor"
+  },
+  "help": {
+    "title": "Ajutor",
+    "subtitle": "Cum să utilizați portalul client pentru portofoliul dvs. de IP.",
+    "enquiriesTitle": "Depuneți o anchetă",
+    "enquiriesBody": "Utilizați Întrebări pentru a trimite o nouă solicitare. Firma va revizui verificările de conflict și va transforma clienții potențiali aprobati în probleme.",
+    "openEnquiries": "Cereri deschise",
+    "approvalsTitle": "Aprobari",
+    "approvalsBody": "Când firma vă solicită aprobarea (de exemplu, reînnoiri sau instrucțiuni), răspundeți din pagina Aprobări.",
+    "openApprovals": "Aprobari deschise",
+    "contactTitle": "Ai nevoie de mai mult ajutor?",
+    "contactBody": "Contactați avocatul sau coordonatorul desemnat prin Mesaje sau răspundeți la o corespondență fermă cu privire la o problemă.",
+    "openMessages": "Deschideți mesajele"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Kenar çubuğunu genişlet",
+    "collapse": "Kenar çubuğunu daralt",
+    "close": "Kenar çubuğunu kapat"
+  },
+  "sections": {
+    "overview": "Genel Bakış",
+    "clients": "Müşteriler",
+    "matters": "Önemlidir",
+    "ipRights": "Fikri Mülkiyet Hakları",
+    "finance": "Finans",
+    "reports": "Raporlar",
+    "myWork": "benim işim",
+    "rights": "Haklar",
+    "communication": "İletişim",
+    "trademarks": "Ticari markalar",
+    "deadlines": "Son teslim tarihleri",
+    "correspondence": "Yazışma",
+    "documentsAndMail": "Belgeler ve posta",
+    "billing": "Faturalandırma",
+    "compliance": "Uyumluluk",
+    "gdpr": "GDPR",
+    "audit": "Denetim",
+    "usersAndAccess": "Kullanıcılar ve erişim",
+    "system": "Sistem",
+    "myPortfolio": "Portföyüm",
+    "myMatters": "benim konularım"
+  },
+  "items": {
+    "dashboard": "Kontrol Paneli",
+    "deadlines": "Son teslim tarihleri",
+    "alerts": "Uyarılar",
+    "clients": "Müşteriler",
+    "holdingGroups": "Holding grupları",
+    "allMatters": "Her şey önemli",
+    "matters": "Önemlidir",
+    "intakeQueue": "Giriş kuyruğu",
+    "rightsRegister": "Hak kaydı",
+    "renewals": "Yenilemeler",
+    "watch": "Kol saati",
+    "billingOverview": "Faturalandırmaya genel bakış",
+    "deadlineRisk": "Son tarih riski",
+    "filingVolumes": "Dosyalama hacimleri",
+    "renewalsSummary": "Yenileme özeti",
+    "revenueReceivables": "Gelir ve alacaklar",
+    "team": "Takım",
+    "settings": "Ayarlar",
+    "myDashboard": "Gösterge tablom",
+    "myDeadlines": "Son teslim tarihlerim",
+    "myMatters": "benim konularım",
+    "patentFilings": "Patent başvuruları",
+    "officeActions": "Ofis eylemleri",
+    "documents": "Belgeler",
+    "correspondence": "Yazışma",
+    "myTmMatters": "TM'im önemli",
+    "oppositions": "Muhalefetler",
+    "watchAlerts": "Uyarıları izle",
+    "conflictCheck": "Uyuşmazlık kontrolü",
+    "allDeadlines": "Tüm son teslim tarihleri",
+    "escalations": "İlerletmeler",
+    "gracePeriods": "Ek süreler",
+    "addDeadline": "Son tarih ekle",
+    "incomingMail": "Gelen posta",
+    "emailQueue": "E-posta kuyruğu",
+    "broadcasts": "Yayınlar",
+    "outgoingMail": "Giden posta",
+    "myTasks": "Görevlerim",
+    "assignedMatters": "Atanan konular",
+    "financeDashboard": "Finans kontrol paneli",
+    "invoices": "Faturalar",
+    "timeEntries": "Zaman girişleri",
+    "payments": "Ödemeler",
+    "rateCards": "Ücret listeleri",
+    "disbursements": "Ödemeler",
+    "complianceDashboard": "Uyumluluk kontrol paneli",
+    "personalDataRegister": "Kişisel veri kaydı",
+    "dataExportsLog": "Veri dışa aktarma günlüğü",
+    "retentionRules": "Saklama kuralları",
+    "deadlineRules": "Son tarih kuralları",
+    "holidays": "Tatil takvimi",
+    "documentTemplates": "Belge şablonları",
+    "precedents": "emsaller",
+    "partners": "Ortaklar",
+    "consentRecords": "Onay kayıtları",
+    "auditTrail": "Denetim izi",
+    "accessLog": "Erişim günlüğü",
+    "systemDashboard": "Sistem kontrol paneli",
+    "users": "Kullanıcılar",
+    "rolesPermissions": "Roller ve izinler",
+    "ssoMfaConfig": "SSO/MFA yapılandırması",
+    "integrations": "Entegrasyonlar",
+    "systemHealth": "Sistem sağlığı",
+    "auditLog": "Denetim günlüğü",
+    "overview": "Genel Bakış",
+    "enquiries": "Sorular",
+    "myDocuments": "Belgelerim",
+    "myInvoices": "Faturalarım",
+    "messages": "Mesajlar",
+    "approvals": "Onaylar",
+    "help": "Yardım",
+    "myPortfolio": "Portföyüm"
+  },
+  "roles": {
+    "managing_partner": "Yönetici Ortak",
+    "ip_attorney": "Fikri Mülkiyet / Patent Vekili",
+    "trademark_attorney": "Marka Vekili",
+    "coordinator": "Koordinatör / Alım",
+    "docketing_admin": "Yerleştirme Yöneticisi",
+    "paralegal": "Avukat Yardımcısı",
+    "finance": "Finans",
+    "dpo_compliance": "DPO / Uyumluluk",
+    "it_admin": "BT / Yönetici",
+    "portal_client": "İstemci (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Çok yakında - modül bağlandığında bu alan canlı verileri gösterecektir."
+    },
+    "managing_partner": {
+      "eyebrow": "Firmaya genel bakış",
+      "title": "Firmaya genel bakış",
+      "description": "Portföy son teslim tarihi riski, dosyalama hacimleri, yenileme hattı, gelir, ekip iş yükü ve müşteri karlılığı - tek bir evden firma çapında raporlama."
+    },
+    "coordinator": {
+      "eyebrow": "Koordinasyon",
+      "title": "Giriş ve koordinasyon",
+      "description": "Alım hattı, dosyalama hacimleri ve yaklaşan yenilemeler - soruşturmaları kovuşturmaya kadar koordine edin."
+    },
+    "docketing_admin": {
+      "eyebrow": "Yerleştirme",
+      "title": "Son tarih panosu",
+      "description": "Firma çapında son teslim tarihi ve dosya riski - aciliyet vurgulanarak müşteri, yetki alanı ve atanan kişiye göre gruplandırılmıştır."
+    },
+    "finance": {
+      "eyebrow": "Finans",
+      "title": "Finansa genel bakış",
+      "description": "Verilen gelir, tahsilatlar ve alacakların yaşlanması - faturaları düzenleyin ve ödemeleri tek yerden takip edin."
+    },
+    "portal_client": {
+      "eyebrow": "Müşteri portalı",
+      "title": "tekrar hoşgeldiniz",
+      "description": "Dosyalama sorgularını gönderin ve kuruluşunuzla ilgili konuları takip edin."
+    },
+    "myDashboard": {
+      "title": "Gösterge tablom"
+    },
+    "myTasks": {
+      "title": "Görevlerim"
+    },
+    "compliance": {
+      "eyebrow": "GDPR ve uyumluluk",
+      "title": "Uyumluluk",
+      "description": "Saklama ilkeleri, erişim kayıtları ve konu erişim aktarımları."
+    },
+    "systemDashboard": {
+      "title": "Sistem kontrol paneli"
+    }
+  }
+}

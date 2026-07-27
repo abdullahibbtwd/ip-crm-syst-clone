@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { Plus, Search } from 'lucide-react'
@@ -62,6 +63,7 @@ function CreateSeizureDrawer({
   onClose: () => void
   matterId: string
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const create = useCreateCustomsSeizure(matterId)
   const [seizureDate, setSeizureDate] = useState(() => new Date().toISOString().slice(0, 10))
   const [customsOffice, setCustomsOffice] = useState('')
@@ -75,7 +77,7 @@ function CreateSeizureDrawer({
     e.preventDefault()
     setError(null)
     if (!customsOffice.trim() || !goodsDescription.trim()) {
-      setError('Customs office and goods description are required')
+      setError(t('matters:customs.errors.officeAndGoodsRequired'))
       return
     }
     try {
@@ -89,20 +91,18 @@ function CreateSeizureDrawer({
       })
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not create seizure'))
+      setError(getApiErrorMessage(err, t('matters:customs.errors.createSeizureFailed')))
     }
   }
 
   if (!open) return null
 
   return (
-    <Drawer open={open} onClose={onClose} title="Log customs seizure" className="max-w-lg">
+    <Drawer open={open} onClose={onClose} title={t('matters:customs.seizures.createTitle')} className="max-w-lg">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <p className="text-sm text-muted-foreground">
-          A response deadline is generated automatically (10 business days from seizure date).
-        </p>
+        <p className="text-sm text-muted-foreground">{t('matters:customs.seizures.deadlineHint')}</p>
         <div className="space-y-1.5">
-          <Label htmlFor="seizure-date">Seizure date</Label>
+          <Label htmlFor="seizure-date">{t('matters:customs.seizures.seizureDate')}</Label>
           <Input
             id="seizure-date"
             type="date"
@@ -112,7 +112,7 @@ function CreateSeizureDrawer({
           />
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="office">Customs office</Label>
+          <Label htmlFor="office">{t('matters:customs.seizures.office')}</Label>
           <Input
             id="office"
             value={customsOffice}
@@ -121,7 +121,7 @@ function CreateSeizureDrawer({
           />
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="goods">Goods description</Label>
+          <Label htmlFor="goods">{t('matters:customs.seizures.goodsDescription')}</Label>
           <Textarea
             id="goods"
             rows={3}
@@ -132,7 +132,7 @@ function CreateSeizureDrawer({
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
-            <Label htmlFor="consignment">Consignment ref</Label>
+            <Label htmlFor="consignment">{t('matters:customs.seizures.consignmentRef')}</Label>
             <Input
               id="consignment"
               value={consignmentReference}
@@ -140,12 +140,12 @@ function CreateSeizureDrawer({
             />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="qty">Quantity</Label>
+            <Label htmlFor="qty">{t('matters:customs.seizures.quantity')}</Label>
             <Input id="qty" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
           </div>
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="port">Port of entry</Label>
+          <Label htmlFor="port">{t('matters:customs.seizures.portOfEntry')}</Label>
           <Input
             id="port"
             value={portOfEntry}
@@ -155,10 +155,10 @@ function CreateSeizureDrawer({
         {error ? <p className="text-sm text-destructive">{error}</p> : null}
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
           <Button type="submit" disabled={create.isPending}>
-            {create.isPending ? 'Saving…' : 'Create seizure'}
+            {create.isPending ? t('common:loading.saving') : t('matters:customs.seizures.create')}
           </Button>
         </div>
       </form>
@@ -177,6 +177,7 @@ function SeizureDetailDrawer({
   matterId: string
   seizureId: string | null
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const { data: detail, isLoading } = useCustomsSeizure(seizureId)
   const update = useUpdateCustomsSeizure(matterId)
   const addCustody = useAddCustodyLog(matterId)
@@ -218,7 +219,7 @@ function SeizureDetailDrawer({
         data: { status, linkedMatterId },
       })
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not update seizure'))
+      setError(getApiErrorMessage(err, t('matters:customs.detail.updateFailed')))
     }
   }
 
@@ -237,23 +238,23 @@ function SeizureDetailDrawer({
       })
       setCustodyNotes('')
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not add custody entry'))
+      setError(getApiErrorMessage(err, t('matters:customs.errors.addCustodyFailed')))
     }
   }
 
   if (!open) return null
 
   return (
-    <Drawer open={open} onClose={onClose} title="Seizure detail" className="max-w-xl">
+    <Drawer open={open} onClose={onClose} title={t('matters:customs.detail.title')} className="max-w-xl">
       {isLoading || !detail ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <p className="text-sm text-muted-foreground">{t('matters:customs.detail.loading')}</p>
       ) : (
         <div className="space-y-6">
           <div className="space-y-1">
             <p className="text-sm font-medium">{detail.customsOffice}</p>
             <p className="text-sm text-muted-foreground">{detail.goodsDescription}</p>
             <p className="text-xs text-muted-foreground">
-              Seized {formatDate(detail.seizureDate)}
+              {t('matters:customs.detail.seizedOn', { date: formatDate(detail.seizureDate) })}
               {detail.portOfEntry ? ` · ${detail.portOfEntry}` : ''}
             </p>
           </div>
@@ -261,7 +262,7 @@ function SeizureDetailDrawer({
           <PermissionGate resource="customs" action="update">
             <div className="space-y-3 rounded-md border p-3">
               <div className="space-y-1.5">
-                <Label>Status</Label>
+                <Label>{t('matters:customs.seizures.status')}</Label>
                 <Select
                   value={status}
                   onValueChange={(v) => setStatus((v as CustomsSeizureStatus) ?? 'active')}
@@ -279,7 +280,7 @@ function SeizureDetailDrawer({
                 </Select>
               </div>
               <div className="space-y-1.5">
-                <Label>Linked litigation matter</Label>
+                <Label>{t('matters:customs.detail.linkedMatter')}</Label>
                 <div className="relative">
                   <Search className="pointer-events-none absolute top-2.5 left-2 size-3.5 text-muted-foreground" />
                   <Input
@@ -289,7 +290,7 @@ function SeizureDetailDrawer({
                       setLinkedSearch(e.target.value)
                       setLinkedMatterId(null)
                     }}
-                    placeholder="Search matters to escalate…"
+                    placeholder={t('matters:customs.detail.searchMatters')}
                   />
                 </div>
                 {debouncedLinked.length >= 2 && mattersData?.items?.length ? (
@@ -321,20 +322,20 @@ function SeizureDetailDrawer({
                       setLinkedSearch('')
                     }}
                   >
-                    Clear link
+                    {t('matters:customs.detail.clearLink')}
                   </Button>
                 ) : null}
               </div>
               <Button type="button" size="sm" onClick={saveMeta} disabled={update.isPending}>
-                Save changes
+                {t('matters:customs.detail.saveChanges')}
               </Button>
             </div>
           </PermissionGate>
 
           <div>
-            <h3 className="mb-2 text-sm font-medium">Custody timeline</h3>
+            <h3 className="mb-2 text-sm font-medium">{t('matters:customs.custody.timeline')}</h3>
             {detail.custodyLogs.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No custody entries yet.</p>
+              <p className="text-sm text-muted-foreground">{t('matters:customs.custody.empty')}</p>
             ) : (
               <ul className="space-y-2">
                 {detail.custodyLogs.map((log) => (
@@ -354,7 +355,7 @@ function SeizureDetailDrawer({
 
             <PermissionGate resource="customs" action="update">
               <form onSubmit={submitCustody} className="mt-3 space-y-2 rounded-md border p-3">
-                <p className="text-xs font-medium text-muted-foreground">Add custody entry</p>
+                <p className="text-xs font-medium text-muted-foreground">{t('matters:customs.custody.addEntry')}</p>
                 <Select
                   value={custodyAction}
                   onValueChange={(v) => setCustodyAction((v as CustodyAction) ?? 'received')}
@@ -376,12 +377,12 @@ function SeizureDetailDrawer({
                   onChange={(e) => setCustodyAt(e.target.value)}
                 />
                 <Input
-                  placeholder="Notes (optional)"
+                  placeholder={t('matters:customs.custody.notesPlaceholder')}
                   value={custodyNotes}
                   onChange={(e) => setCustodyNotes(e.target.value)}
                 />
                 <Button type="submit" size="sm" disabled={addCustody.isPending}>
-                  Append
+                  {t('matters:customs.custody.append')}
                 </Button>
               </form>
             </PermissionGate>
@@ -395,6 +396,7 @@ function SeizureDetailDrawer({
 }
 
 function CreateApplicationForm({ matterId }: { matterId: string }) {
+  const { t } = useTranslation(['matters', 'common'])
   const create = useCreateCustomsApplication(matterId)
   const { data: seizures } = useCustomsSeizures(matterId)
   const [authority, setAuthority] = useState('')
@@ -407,7 +409,7 @@ function CreateApplicationForm({ matterId }: { matterId: string }) {
     e.preventDefault()
     setError(null)
     if (!authority.trim()) {
-      setError('Authority is required')
+      setError(t('matters:customs.afa.authorityRequired'))
       return
     }
     try {
@@ -422,32 +424,32 @@ function CreateApplicationForm({ matterId }: { matterId: string }) {
       setSeizureId('')
       setValidUntil('')
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not create AFA'))
+      setError(getApiErrorMessage(err, t('matters:customs.afa.createFailed')))
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-3 rounded-md border p-3 sm:grid-cols-2">
       <div className="space-y-1.5 sm:col-span-2">
-        <Label>Authority</Label>
+        <Label>{t('matters:customs.afa.authority')}</Label>
         <Input value={authority} onChange={(e) => setAuthority(e.target.value)} required />
       </div>
       <div className="space-y-1.5">
-        <Label>Application number</Label>
+        <Label>{t('matters:customs.afa.number')}</Label>
         <Input
           value={applicationNumber}
           onChange={(e) => setApplicationNumber(e.target.value)}
         />
       </div>
       <div className="space-y-1.5">
-        <Label>Valid until</Label>
+        <Label>{t('matters:customs.afa.validUntil')}</Label>
         <Input type="date" value={validUntil} onChange={(e) => setValidUntil(e.target.value)} />
       </div>
       <div className="space-y-1.5 sm:col-span-2">
-        <Label>Linked seizure (optional)</Label>
+        <Label>{t('matters:customs.afa.linkedSeizure')}</Label>
         <Select value={seizureId || undefined} onValueChange={(v) => setSeizureId(v ?? '')}>
           <SelectTrigger>
-            <SelectValue placeholder="None" />
+            <SelectValue placeholder={t('matters:customs.afa.none')} />
           </SelectTrigger>
           <SelectContent>
             {(seizures ?? []).map((s) => (
@@ -461,7 +463,7 @@ function CreateApplicationForm({ matterId }: { matterId: string }) {
       {error ? <p className="text-sm text-destructive sm:col-span-2">{error}</p> : null}
       <div className="sm:col-span-2">
         <Button type="submit" size="sm" disabled={create.isPending}>
-          Add AFA
+          {t('matters:customs.afa.add')}
         </Button>
       </div>
     </form>
@@ -469,6 +471,7 @@ function CreateApplicationForm({ matterId }: { matterId: string }) {
 }
 
 export function MatterCustomsTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId, matter } = useOutletContext<MatterTabContext>()
   const { data: seizures, isLoading, isError } = useCustomsSeizures(matterId)
   const { data: applications, isLoading: appsLoading } = useCustomsApplications(matterId)
@@ -482,9 +485,7 @@ export function MatterCustomsTab() {
 
   if (matter.matterType !== 'border_measures') {
     return (
-      <p className="text-sm text-muted-foreground">
-        Customs records are only available on border measures matters.
-      </p>
+      <p className="text-sm text-muted-foreground">{t('matters:customs.wrongMatterType')}</p>
     )
   }
 
@@ -493,36 +494,36 @@ export function MatterCustomsTab() {
       <section className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <h2 className="text-lg font-medium">Seizures</h2>
+            <h2 className="text-lg font-medium">{t('matters:customs.seizures.sectionTitle')}</h2>
             <p className="text-sm text-muted-foreground">
-              Border detentions and custody for this matter.
+              {t('matters:customs.seizures.sectionDescription')}
             </p>
           </div>
           <PermissionGate resource="customs" action="create">
             <Button onClick={() => setCreateOpen(true)}>
               <Plus className="size-4" />
-              Log seizure
+              {t('matters:customs.seizures.logSeizure')}
             </Button>
           </PermissionGate>
         </div>
 
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading seizures…</p>
+          <p className="text-sm text-muted-foreground">{t('matters:customs.seizures.loading')}</p>
         ) : isError ? (
-          <p className="text-sm text-destructive">Failed to load seizures.</p>
+          <p className="text-sm text-destructive">{t('matters:customs.seizures.loadFailed')}</p>
         ) : sortedSeizures.length === 0 ? (
           <p className="rounded-md border border-dashed px-4 py-6 text-center text-sm text-muted-foreground">
-            No seizures logged yet.
+            {t('matters:customs.seizures.empty')}
           </p>
         ) : (
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Office</TableHead>
-                <TableHead>Goods</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Custody</TableHead>
+                <TableHead>{t('matters:customs.columns.date')}</TableHead>
+                <TableHead>{t('matters:customs.columns.office')}</TableHead>
+                <TableHead>{t('matters:customs.columns.goods')}</TableHead>
+                <TableHead>{t('matters:customs.columns.status')}</TableHead>
+                <TableHead>{t('matters:customs.columns.custody')}</TableHead>
                 <TableHead />
               </TableRow>
             </TableHeader>
@@ -544,7 +545,7 @@ export function MatterCustomsTab() {
                   </TableCell>
                   <TableCell>
                     <Button size="sm" variant="outline" onClick={() => setDetailId(row.id)}>
-                      Open
+                      {t('matters:customs.open')}
                     </Button>
                   </TableCell>
                 </TableRow>
@@ -556,24 +557,24 @@ export function MatterCustomsTab() {
 
       <section className="space-y-4">
         <div>
-          <h2 className="text-lg font-medium">Applications for action (AFA)</h2>
+          <h2 className="text-lg font-medium">{t('matters:customs.afa.sectionTitle')}</h2>
           <p className="text-sm text-muted-foreground">
-            Customs applications protecting rights at the border.
+            {t('matters:customs.afa.sectionDescription')}
           </p>
         </div>
 
         {appsLoading ? (
-          <p className="text-sm text-muted-foreground">Loading applications…</p>
+          <p className="text-sm text-muted-foreground">{t('matters:customs.afa.loading')}</p>
         ) : !(applications?.length) ? (
-          <p className="text-sm text-muted-foreground">No AFAs recorded yet.</p>
+          <p className="text-sm text-muted-foreground">{t('matters:customs.afa.empty')}</p>
         ) : (
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Authority</TableHead>
-                <TableHead>Number</TableHead>
-                <TableHead>Valid until</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('matters:customs.columns.authority')}</TableHead>
+                <TableHead>{t('matters:customs.columns.number')}</TableHead>
+                <TableHead>{t('matters:customs.columns.validUntil')}</TableHead>
+                <TableHead>{t('matters:customs.columns.status')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

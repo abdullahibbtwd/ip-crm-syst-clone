@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import {
   Loader2,
   Megaphone,
@@ -56,6 +57,7 @@ function formatWhen(iso: string) {
 }
 
 export function BroadcastsPage() {
+  const { t } = useTranslation('broadcasts')
   const { data: history, isLoading: historyLoading } = useBroadcasts()
   const createBroadcast = useCreateBroadcast()
 
@@ -80,10 +82,7 @@ export function BroadcastsPage() {
     enabled: audience === 'manual' && clientSearch.trim().length >= 2,
   })
 
-  const audienceMeta = useMemo(
-    () => BROADCAST_AUDIENCE_OPTIONS.find((o) => o.value === audience),
-    [audience],
-  )
+  const audienceLabel = (value: BroadcastAudience) => t(`audience.${value}.label`)
 
   const toggleClient = (id: string) => {
     setSelectedClientIds((prev) =>
@@ -95,11 +94,11 @@ export function BroadcastsPage() {
     setError(null)
     setSuccess(null)
     if (!subject.trim() || !bodyText.trim()) {
-      setError('Subject and message are required')
+      setError(t('errors.subjectAndMessageRequired'))
       return
     }
     if (audience === 'manual' && selectedClientIds.length === 0) {
-      setError('Select at least one client')
+      setError(t('errors.selectClient'))
       return
     }
     try {
@@ -109,26 +108,22 @@ export function BroadcastsPage() {
         bodyText: bodyText.trim(),
         clientIds: audience === 'manual' ? selectedClientIds : undefined,
       })
-      setSuccess(
-        `Broadcast queued to ${result.totalRecipients} recipient(s). Delivery runs in the background.`,
-      )
+      setSuccess(t('success.queued', { count: result.totalRecipients }))
       setSubject('')
       setBodyText('')
       setSelectedClientIds([])
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to queue broadcast'))
+      setError(getApiErrorMessage(err, t('errors.queueFailed')))
     }
   }
+
+  const recipientCount = preview.data?.count ?? 0
 
   return (
     <div className="mx-auto max-w-5xl space-y-8">
       <div>
-        <h1 className="font-serif text-2xl text-foreground md:text-3xl">Broadcasts</h1>
-        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-          Send bulk notifications to client contact emails via firm SMTP. Each send is audited as{' '}
-          <code className="text-xs">bulk_notification</code>. Matter mailbox replies stay on Email
-          Queue / Correspondence.
-        </p>
+        <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('title')}</h1>
+        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{t('subtitle')}</p>
       </div>
 
       <PermissionGate resource="broadcast" action="create">
@@ -138,15 +133,15 @@ export function BroadcastsPage() {
               <Megaphone className="size-4" />
             </div>
             <div>
-              <h2 className="font-medium">Compose broadcast</h2>
+              <h2 className="font-medium">{t('compose.title')}</h2>
               <p className="text-xs text-muted-foreground">
-                {audienceMeta?.description}
+                {t(`audience.${audience}.description`)}
               </p>
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label>Recipient group</Label>
+            <Label>{t('compose.recipientGroup')}</Label>
             <div className="grid gap-2 sm:grid-cols-2">
               {BROADCAST_AUDIENCE_OPTIONS.map((opt) => (
                 <button
@@ -164,8 +159,10 @@ export function BroadcastsPage() {
                       : 'hover:bg-muted/40',
                   )}
                 >
-                  <p className="text-sm font-medium">{opt.label}</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{opt.description}</p>
+                  <p className="text-sm font-medium">{audienceLabel(opt.value)}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    {t(`audience.${opt.value}.description`)}
+                  </p>
                 </button>
               ))}
             </div>
@@ -173,13 +170,13 @@ export function BroadcastsPage() {
 
           {audience === 'manual' ? (
             <div className="space-y-2">
-              <Label htmlFor="broadcast-client-search">Select clients</Label>
+              <Label htmlFor="broadcast-client-search">{t('compose.selectClients')}</Label>
               <div className="relative">
                 <Input
                   id="broadcast-client-search"
                   value={clientSearch}
                   onChange={(e) => setClientSearch(e.target.value)}
-                  placeholder="Search clients (min 2 characters)"
+                  placeholder={t('compose.searchClientsPlaceholder')}
                 />
                 {searchingClients ? (
                   <Loader2 className="absolute right-3 top-2.5 size-4 animate-spin text-muted-foreground" />
@@ -206,7 +203,7 @@ export function BroadcastsPage() {
                         >
                           <span>{label}</span>
                           <span className="text-xs text-muted-foreground">
-                            {checked ? 'Selected' : 'Add'}
+                            {checked ? t('compose.selected') : t('compose.add')}
                           </span>
                         </button>
                       </li>
@@ -216,7 +213,7 @@ export function BroadcastsPage() {
               ) : null}
               {selectedClientIds.length > 0 ? (
                 <p className="text-xs text-muted-foreground">
-                  {selectedClientIds.length} client(s) selected
+                  {t('compose.clientsSelected', { count: selectedClientIds.length })}
                 </p>
               ) : null}
             </div>
@@ -225,13 +222,15 @@ export function BroadcastsPage() {
           <div className="flex items-center gap-2 rounded-lg border bg-muted/20 px-3 py-2 text-sm">
             <Users className="size-4 text-muted-foreground" />
             {preview.isFetching ? (
-              <span className="text-muted-foreground">Counting recipients…</span>
+              <span className="text-muted-foreground">{t('compose.countingRecipients')}</span>
             ) : preview.isError ? (
-              <span className="text-destructive">Could not preview audience</span>
+              <span className="text-destructive">{t('compose.previewFailed')}</span>
             ) : (
               <span>
-                <strong>{preview.data?.count ?? 0}</strong> recipient
-                {(preview.data?.count ?? 0) === 1 ? '' : 's'} matched
+                <strong>{recipientCount}</strong>{' '}
+                {recipientCount === 1
+                  ? t('compose.recipientMatched')
+                  : t('compose.recipientsMatched')}
               </span>
             )}
           </div>
@@ -248,33 +247,33 @@ export function BroadcastsPage() {
                   ))}
                 </tbody>
               </table>
-              {(preview.data.count ?? 0) > 40 ? (
+              {recipientCount > 40 ? (
                 <p className="border-t px-3 py-1.5 text-muted-foreground">
-                  …and {(preview.data.count ?? 0) - 40} more
+                  {t('compose.andMore', { count: recipientCount - 40 })}
                 </p>
               ) : null}
             </div>
           ) : null}
 
           <div className="space-y-2">
-            <Label htmlFor="broadcast-subject">Subject</Label>
+            <Label htmlFor="broadcast-subject">{t('compose.subject')}</Label>
             <Input
               id="broadcast-subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              placeholder="e.g. Upcoming EU renewal reminders"
+              placeholder={t('compose.subjectPlaceholder')}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="broadcast-body">Message</Label>
+            <Label htmlFor="broadcast-body">{t('compose.message')}</Label>
             <Textarea
               id="broadcast-body"
               value={bodyText}
               onChange={(e) => setBodyText(e.target.value)}
               rows={10}
               className="min-h-[200px]"
-              placeholder="Write the notification your clients will receive…"
+              placeholder={t('compose.messagePlaceholder')}
             />
           </div>
 
@@ -286,7 +285,7 @@ export function BroadcastsPage() {
               createBroadcast.isPending ||
               !subject.trim() ||
               !bodyText.trim() ||
-              (preview.data?.count ?? 0) < 1
+              recipientCount < 1
             }
             onClick={() => void handleSend()}
           >
@@ -295,35 +294,35 @@ export function BroadcastsPage() {
             ) : (
               <Send className="size-4" />
             )}
-            {createBroadcast.isPending ? 'Queuing…' : 'Send broadcast'}
+            {createBroadcast.isPending ? t('compose.queuing') : t('compose.sendBroadcast')}
           </Button>
         </section>
       </PermissionGate>
 
       <section className="space-y-3">
-        <h2 className="font-medium">Recent broadcasts</h2>
+        <h2 className="font-medium">{t('history.title')}</h2>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>When</TableHead>
-              <TableHead>Subject</TableHead>
-              <TableHead>Audience</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Sent</TableHead>
-              <TableHead>By</TableHead>
+              <TableHead>{t('history.when')}</TableHead>
+              <TableHead>{t('history.subject')}</TableHead>
+              <TableHead>{t('history.audience')}</TableHead>
+              <TableHead>{t('history.status')}</TableHead>
+              <TableHead className="text-right">{t('history.sent')}</TableHead>
+              <TableHead>{t('history.by')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {historyLoading ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
-                  Loading…
+                  {t('history.loading')}
                 </TableCell>
               </TableRow>
             ) : !(history?.length) ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
-                  No broadcasts yet.
+                  {t('history.empty')}
                 </TableCell>
               </TableRow>
             ) : (
@@ -336,18 +335,20 @@ export function BroadcastsPage() {
                     <span className="line-clamp-2">{row.subject}</span>
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">
-                    {BROADCAST_AUDIENCE_OPTIONS.find((o) => o.value === row.audience)?.label ??
-                      row.audience}
+                    {audienceLabel(row.audience)}
                   </TableCell>
                   <TableCell>
                     <Badge variant="outline" className={cn('normal-case', statusBadge(row.status))}>
-                      {row.status}
+                      {t(`status.${row.status}`)}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-right tabular-nums text-sm">
                     {row.sentCount}/{row.totalRecipients}
                     {row.failedCount > 0 ? (
-                      <span className="text-destructive"> ({row.failedCount} failed)</span>
+                      <span className="text-destructive">
+                        {' '}
+                        {t('history.failedCount', { count: row.failedCount })}
+                      </span>
                     ) : null}
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">

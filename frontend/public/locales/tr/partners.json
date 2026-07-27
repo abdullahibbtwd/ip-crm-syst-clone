@@ -1,0 +1,87 @@
+{
+  "title": "Yabancı ortaklar",
+  "subtitle": "Dosyalama ve konu talimatları için yerel temsilciler ve ortak danışmanlar kullanılır.",
+  "newPartner": "Yeni ortak",
+  "noPermission": "Ortakları görüntüleme izniniz yok.",
+  "loading": "Ortaklar yükleniyor…",
+  "loadError": "İş ortakları yüklenemedi.",
+  "empty": "Bu filtrelerle eşleşen iş ortağı yok.",
+  "searchPlaceholder": "Ad, şirket, e-posta arayın…",
+  "filters": {
+    "all": "Tüm ortaklar",
+    "activeOnly": "Yalnızca etkin"
+  },
+  "columns": {
+    "name": "İsim",
+    "company": "Şirket",
+    "email": "E-posta",
+    "jurisdictions": "Yargı bölgeleri",
+    "status": "Durum"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Etkin değil"
+  },
+  "editAria": "İş ortağını düzenle",
+  "deactivateAria": "İş ortağını devre dışı bırak",
+  "confirmDeactivate": "“{{name}}” iş ortağı devre dışı bırakılsın mı?",
+  "drawer": {
+    "createTitle": "Yeni ortak",
+    "editTitle": "İş ortağını düzenle",
+    "name": "İsim",
+    "company": "Şirket",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "countryCode": "Ülke kodu",
+    "jurisdictions": "Yargı bölgeleri",
+    "jurisdictionsHint": "Virgülle ayrılmış kodlar, ör. BG, AB, EP",
+    "notes": "Notlar",
+    "status": "Durum",
+    "cancel": "İptal etmek",
+    "create": "İş ortağı oluştur",
+    "save": "Değişiklikleri kaydet"
+  },
+  "errors": {
+    "nameRequired": "Ad gerekli",
+    "saveFailed": "İş ortağı kaydedilemedi"
+  },
+  "instructions": {
+    "title": "İş ortağı talimatları",
+    "subtitle": "Bu konuyla ilgili yabancı ortaklara talimatlar hazırlayın, gönderin ve takip edin.",
+    "newDraft": "Yeni taslak",
+    "noPermission": "İş ortağı talimatlarını görüntüleme izniniz yok.",
+    "loading": "Talimatlar yükleniyor…",
+    "loadError": "Talimatlar yüklenemedi.",
+    "empty": "Henüz iş ortağı talimatı yok.",
+    "columns": {
+      "title": "Başlık",
+      "partner": "Ortak",
+      "status": "Durum",
+      "created": "Oluşturuldu"
+    },
+    "status": {
+      "draft": "Taslak",
+      "sent": "Gönderilmiş",
+      "acknowledged": "Onaylandı",
+      "complete": "Tamamlamak"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Ortak",
+      "partnerPlaceholder": "İş ortağı seçin",
+      "title": "Başlık",
+      "body": "Talimatlar",
+      "cancel": "İptal etmek",
+      "create": "Taslak oluştur"
+    },
+    "errors": {
+      "required": "Ortak ve unvan gerekli",
+      "saveFailed": "Talimat oluşturulamadı"
+    }
+  },
+  "actions": {
+    "send": "Göndermek",
+    "acknowledge": "Kabullenmek",
+    "complete": "Tamamlamak"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Audit trail",
+    "subtitle": "System-wide audit log for compliance review.",
+    "loading": "Loading audit trail…",
+    "loadFailed": "Failed to load audit trail.",
+    "empty": "No audit entries found.",
+    "columns": {
+      "when": "When",
+      "user": "User",
+      "action": "Action",
+      "resource": "Resource",
+      "module": "Module"
+    }
+  },
+  "dataExports": {
+    "title": "Data exports log",
+    "subtitle": "Personal data exports and downloads tracked for GDPR compliance.",
+    "loading": "Loading export log…",
+    "loadFailed": "Failed to load export log.",
+    "empty": "No exports recorded yet.",
+    "columns": {
+      "when": "When",
+      "user": "User",
+      "resource": "Resource",
+      "clientId": "Client ID"
+    }
+  },
+  "retention": {
+    "title": "Retention rules",
+    "subtitle": "GDPR retention policies enforced by the nightly scan job (default 3:00 AM). Use dry-run to preview how many records would be affected.",
+    "noPermission": "You do not have permission to manage retention rules.",
+    "newRule": "New rule",
+    "loading": "Loading retention rules…",
+    "loadFailed": "Failed to load retention rules.",
+    "empty": "No retention rules yet.",
+    "dryRun": "Dry run",
+    "dryRunAria": "Dry-run retention rule",
+    "editAria": "Edit retention rule",
+    "dryRunResult": "Dry run: would affect {{count}} record(s) (cutoff {{cutoff}}).",
+    "dryRunFailed": "Dry run failed",
+    "auditTrailHint": "View purge history in the",
+    "auditTrailLink": "audit trail",
+    "auditTrailFilter": "(filter action: retention_rule_executed).",
+    "columns": {
+      "entity": "Entity",
+      "condition": "Condition",
+      "retention": "Retention",
+      "action": "Action",
+      "status": "Status",
+      "description": "Description"
+    },
+    "drawer": {
+      "createTitle": "New retention rule",
+      "editTitle": "Edit retention rule",
+      "entityType": "Entity type",
+      "condition": "Condition",
+      "conditionRejected": "Status = rejected",
+      "conditionNotConverted": "Not converted (excl. rejected)",
+      "auditLogsHint": "Audit log rules apply to all records older than the retention period. Action is always delete.",
+      "retentionDays": "Retention (days)",
+      "action": "Action",
+      "description": "Description",
+      "status": "Status",
+      "createRule": "Create rule"
+    },
+    "entityTypes": {
+      "intake_leads": "Intake leads",
+      "audit_logs": "Audit logs"
+    },
+    "actions": {
+      "anonymize": "Anonymize",
+      "delete": "Delete"
+    },
+    "conditions": {
+      "allRecords": "All records",
+      "rejected": "Status = rejected",
+      "notConverted": "Not converted (excl. rejected)",
+      "noStatusFilter": "No status filter"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "errors": {
+      "invalidDays": "Enter a valid retention period in days",
+      "saveFailed": "Failed to save retention rule",
+      "confirmSave": "Retention rules run on the nightly scan job (default 3:00 AM). Continue saving?"
+    },
+    "duration": {
+      "days": "{{days}} days",
+      "daysWithYears_one": "{{days}} days ({{count}} year)",
+      "daysWithYears_other": "{{days}} days ({{count}} years)",
+      "daysWithMonths_one": "{{days}} days ({{count}} month)",
+      "daysWithMonths_other": "{{days}} days ({{count}} months)",
+      "daysApproxYears": "{{days}} days (~{{years}} years)",
+      "daysApproxMonths": "{{days}} days (~{{months}} months)"
+    }
+  }
+}

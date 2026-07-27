@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Surveillance des marques",
+    "description": "Examinez les conflits potentiels détectés par rapport aux profils de surveillance actifs.",
+    "empty": "Aucune alerte de montre ne correspond à vos filtres.",
+    "loading": "Chargement des alertes de surveillance…"
+  },
+  "detail": {
+    "title": "Regarder l'alerte",
+    "back": "Retour à la liste de travail à regarder",
+    "loading": "Alerte de chargement…",
+    "notFound": "Alerte montre introuvable.",
+    "watchedMark": "Marque surveillée",
+    "conflictingMark": "Marque contradictoire",
+    "registrySource": "Source du registre",
+    "jurisdiction": "Juridiction",
+    "applicationNumber": "Numéro de demande",
+    "similarity": "Similarité",
+    "detectedAt": "Détecté",
+    "client": "Cliente",
+    "profile": "Regarder le profil",
+    "niceClasses": "Des cours sympas",
+    "reject": "Rejeter l'alerte",
+    "accept": "Accepter et créer du sujet",
+    "rejectConfirm": "Marquer cette alerte comme faux positif ?",
+    "acceptConfirm": "Créer un dossier d'opposition à partir de cette alerte ?",
+    "triagedBy": "Trié par {{name}}",
+    "linkedMatter": "Sujet lié"
+  },
+  "clientTab": {
+    "title": "Regarder les profils",
+    "description": "Surveillez les marques dans les registres à l’aide des codes de juridiction canoniques (BG, EU, EP).",
+    "add": "Ajouter une montre de marque",
+    "empty": "Aucun profil de surveillance pour l'instant. Ajoutez un profil pour commencer à surveiller les notes de ce client.",
+    "loading": "Chargement des profils de montre…",
+    "pause": "Pause",
+    "resume": "CV",
+    "archive": "Archive",
+    "epoScan": "Scanner l'EPO pour des alertes",
+    "epoScanning": "Numérisation de l'EPO…",
+    "epoScanSuccess": "Création de {{alerts}} nouvelles alertes OEB à partir de {{profiles}} profil(s).",
+    "epoScanFailed": "Échec de l'analyse de la surveillance EPO",
+    "viewAlerts": "Afficher les alertes de surveillance"
+  },
+  "drawer": {
+    "title": "Ajouter une montre de marque",
+    "markText": "Marquer le texte *",
+    "markPlaceholder": "par ex. Coca Cola",
+    "jurisdictions": "Juridictions *",
+    "jurisdictionsHint": "Codes canoniques – pas de noms de registre. Les montres BPO utilisent BG ; Les montres EUIPO utilisent l’UE.",
+    "niceClasses": "Des cours sympas",
+    "niceClassesPlaceholder": "par ex. 32, 33",
+    "frequency": "Fréquence de balayage",
+    "save": "Enregistrer le profil de la montre"
+  },
+  "filters": {
+    "status": "Statut",
+    "jurisdiction": "Juridiction",
+    "source": "Source du registre",
+    "minSimilarity": "Similitude minimale",
+    "anySimilarity": "Toute similitude",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Trier par",
+    "sortDetected": "Le plus récent en premier",
+    "sortSimilarity": "Similitude la plus élevée",
+    "all": "Toute"
+  },
+  "stats": {
+    "new": "Nouvelles alertes",
+    "accepted": "Accepté",
+    "rejected": "Rejetée"
+  },
+  "profileStatus": {
+    "active": "Active",
+    "paused": "En pause",
+    "archived": "Archivé"
+  },
+  "alertStatus": {
+    "new": "Nouvelle",
+    "rejected": "Rejetée",
+    "accepted": "Accepté"
+  },
+  "frequency": {
+    "daily": "Tous les jours",
+    "weekly": "Hebdomadaire"
+  },
+  "table": {
+    "mark": "Marque surveillée",
+    "conflict": "Conflit",
+    "client": "Cliente",
+    "similarity": "Similarité",
+    "source": "Source",
+    "jurisdiction": "Juridiction",
+    "status": "Statut",
+    "detected": "Détecté",
+    "frequency": "Fréquence",
+    "classes": "Cours",
+    "profiles": "Profils",
+    "actions": "Actes"
+  }
+}

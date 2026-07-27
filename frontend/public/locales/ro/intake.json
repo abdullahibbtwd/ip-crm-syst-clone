@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Aprobare - fără conflict",
+    "checkedAt": "Bifat {{date}}",
+    "cleared": "Nu au fost detectate conflicte",
+    "clearedForConversion": "Nu s-au găsit nume similare - șters pentru conversie",
+    "description": "Căutare neclară între clienți, contacte, companii afiliate și contrapărți înregistrate. Potrivirile de peste 30% similaritate compozită sunt semnalate pentru examinare.",
+    "flaggedMatches": "{{count}} potriviri potențiale - este necesară examinarea",
+    "entityType": {
+      "client": "Client",
+      "contact": "Contact",
+      "counterparty": "Contrapartidă",
+      "ip_right": "Dreptul de proprietate intelectuală/registrul mărcilor",
+      "matter": "Materia existenta",
+      "related_company": "Firma afiliata",
+      "sign": "Semnează/marca pe dosar"
+    },
+    "flagged": "Conflicte potențiale găsite",
+    "matchedOn": "S-a potrivit pe {{field}}",
+    "matchedTerm": "S-a potrivit cu „{{term}}” pe {{field}}",
+    "mpOverride": "anulare MP",
+    "rejectLead": "Respingeți plumbul",
+    "reviewHint": "Nume similare apar pentru revizuire umană. Aprobați dacă nu există un conflict real sau respingeți dacă liderul nu poate continua.",
+    "run": "Rulați verificarea conflictelor",
+    "running": "Funcţionare…",
+    "similarPct": "{{pct}} similar",
+    "similarity": "Similitudine",
+    "title": "Verificarea conflictului"
+  },
+  "convert": {
+    "button": "Transformă-te în materie",
+    "clientLabel": "Client:",
+    "conversionFailed": "Conversia a eșuat",
+    "converting": "Se convertește…",
+    "existingPortalAccount": "(cont de portal existent)",
+    "invalidForm": "Formular nevalid",
+    "matterLabel": "materie:",
+    "none": "Nici unul",
+    "portalDescription": "Deschide o chestiune în contul existent al clientului portalului - fără înregistrare client duplicat.",
+    "standardDescription": "Creează o înregistrare a clientului și deschide o chestiune într-un singur pas - fără reintroducerea detaliilor de solicitare. Consimțământul GDPR este necesar la acest pas.",
+    "willCreate": "Va crea",
+    "converted": "Transformat în materie",
+    "gdprConsent": "Confirm că a fost obținut consimțământul GDPR de la acest solicitant.",
+    "holdingGroup": "Grup de păstrare (opțional)",
+    "openMatter": "Materia deschisă",
+    "preview": "Previzualizarea materiei",
+    "title": "Convertiți în client și contează",
+    "viewClient": "Vizualizați clientul"
+  },
+  "counterparty": {
+    "add": "Adăugați o petrecere",
+    "editor": {
+      "add": "Adăugați partea adversă/concurentul",
+      "company": "Companie",
+      "name": "Nume",
+      "notes": "Note",
+      "party": "Petrecere {{n}}",
+      "relationship": "Relatie *"
+    },
+    "relationship": {
+      "adverse_party": "Partid advers",
+      "competitor": "Concurent",
+      "licensee": "Licențiat",
+      "licensor": "Licențiatorul"
+    },
+    "save": "Salvați petrecerea",
+    "section": {
+      "description": "Părți care pot crea un conflict de interese.",
+      "title": "Părți adverse/concurenți",
+      "unnamed": "Partid fără nume"
+    }
+  },
+  "create": {
+    "back": "← Înapoi la aport",
+    "description": "Capturați o nouă întrebare înainte de verificarea conflictului și de conversie.",
+    "title": "Noua ancheta"
+  },
+  "detail": {
+    "back": "← Înapoi la coada de admisie",
+    "company": "Companie",
+    "contactName": "Nume de contact",
+    "country": "Ţară",
+    "converted": "Această interogare a fost convertită.",
+    "description": "Descriere",
+    "email": "E-mail",
+    "enquiryDetails": "Detalii de anchetă",
+    "error": "Nu s-a încărcat cablul de admisie.",
+    "fullName": "Numele complet",
+    "internalNotes": "Note interne",
+    "loading": "Încărcare…",
+    "loadingLead": "Se încarcă cablul de admisie...",
+    "notAssigned": "Nu este atribuit",
+    "matterType": "Tipul materiei",
+    "notFound": "Plumbul de admisie nu a fost găsit.",
+    "phone": "Telefon",
+    "portalSubmission": "Trimiterea portalului",
+    "referralSource": "Sursa de trimitere",
+    "referredBy": "Referit de",
+    "responsibleAttorney": "Avocat responsabil",
+    "type": "Tip",
+    "urgency": "Urgenţă",
+    "urgent": "Urgent"
+  },
+  "form": {
+    "companyName": "Numele companiei *",
+    "description": "Descriere",
+    "email": "E-mail",
+    "enquirerType": "Tip de solicitant",
+    "error": "Nu s-a putut crea lead-ul de admisie",
+    "fullName": "Numele complet *",
+    "matterType": "tipul materiei *",
+    "phone": "Telefon",
+    "referralSource": "Sursa de trimitere",
+    "submit": "Trimiteți întrebarea",
+    "submitInternal": "Creați plumb de admisie",
+    "type": {
+      "company": "Companie",
+      "individual": "Individual"
+    },
+    "urgent": "Marcați ca urgent"
+  },
+  "list": {
+    "description": "Examinați întrebările primite, efectuați verificări de conflict și convertiți clienții potențiali aprobati.",
+    "empty": "Nu s-au găsit cabluri de admisie",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați o nouă întrebare.",
+    "error": "Nu s-au încărcat cablurile de admisie.",
+    "new": "Noua ancheta",
+    "searchPlaceholder": "Căutați numele sau adresa de e-mail...",
+    "title": "Coada de admisie"
+  },
+  "matterType": {
+    "design": "Proiecta",
+    "other": "Alte",
+    "patent": "Brevet",
+    "trademark": "Marcă comercială",
+    "utility_model": "Model de utilitate"
+  },
+  "referralSource": {
+    "email": "E-mail",
+    "other": "Alte",
+    "phone": "Telefon",
+    "referral": "Sesizare",
+    "walk_in": "Walk-in",
+    "website": "Site-ul web"
+  },
+  "status": {
+    "approved": "Aprobat",
+    "conflict_check": "Verificarea conflictului",
+    "conflict_flagged": "Conflict semnalat",
+    "converted": "Convertit",
+    "new": "Nou",
+    "rejected": "Respins",
+    "reviewing": "Revizuirea"
+  },
+  "table": {
+    "date": "Primit",
+    "matterType": "Tipul materiei",
+    "name": "Solicitant",
+    "portal": "Portal",
+    "referral": "Sursă",
+    "status": "Stare",
+    "urgent": "Urgent",
+    "viewAria": "Vedeți {{name}}"
+  },
+  "unknownCompany": "Firma necunoscuta",
+  "unknownIndividual": "Individ necunoscut"
+}

@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "يلغي",
+      "confirm": "تأكيد وتمكين 2FA",
+      "enable": "تمكين 2FA",
+      "preparing": "جارٍ التحضير…",
+      "verifying": "جارٍ التحقق…"
+    },
+    "authCode": "رمز المصادقة",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "نشيط",
+      "description": "يتطلب حسابك رمزًا من تطبيق المصادقة الخاص بك عند تسجيل الدخول.",
+      "title": "تم تمكين المصادقة الثنائية"
+    },
+    "errors": {
+      "enableFailed": "فشل في تمكين المصادقة الثنائية (2FA).",
+      "invalidCode": "رمز غير صالح",
+      "setupFailed": "فشل في بدء إعداد المصادقة الثنائية (2FA)."
+    },
+    "setup": {
+      "description": "أضف طبقة إضافية من الأمان عن طريق طلب رمز مكون من 6 أرقام من تطبيق المصادقة (Google Authenticator، Authy، وما إلى ذلك) عند تسجيل الدخول.",
+      "manualKey": "أو أدخل هذا المفتاح يدويًا",
+      "scanQr": "1. قم بمسح رمز الاستجابة السريعة هذا ضوئيًا",
+      "scanQrHint": "افتح تطبيق المصادقة الخاص بك وقم بمسح الرمز أدناه.",
+      "verify": "2. قم بالتأكيد باستخدام رمز مكون من 6 أرقام",
+      "verifyHint": "أدخل الرمز الموضح في تطبيقك للتحقق من الإعداد."
+    }
+  },
+  "security": {
+    "description": "تعمل المصادقة الثنائية على حماية حسابك حتى لو تم اختراق كلمة المرور الخاصة بك.",
+    "title": "حماية"
+  },
+  "subtitle": "إدارة تفضيلات حسابك وأمانه.",
+  "title": "إعدادات",
+  "links": {
+    "email": {
+      "title": "تكامل البريد الإلكتروني",
+      "description": "قم بتوصيل Microsoft 365 أو Google Workspace لمزامنة رسائل البريد الوارد في قائمة انتظار البريد الإلكتروني.",
+      "action": "إدارة صناديق البريد"
+    },
+    "deadlineRules": {
+      "title": "قواعد الموعد النهائي",
+      "description": "قم بتكوين إزاحة الاختصاص القضائي ونوع المسألة القانونية للمواعيد النهائية التي تم إنشاؤها تلقائيًا.",
+      "action": "إدارة قواعد الموعد النهائي"
+    },
+    "holidays": {
+      "title": "تقويم العطلة",
+      "description": "يتم استخدام عطلات الولاية القضائية عند حساب أيام العمل للمواعيد النهائية.",
+      "action": "إدارة العطلات"
+    },
+    "documentTemplates": {
+      "title": "قوالب المستندات",
+      "description": "تحرير قوالب الرسائل ودمج الحقول ومعاينة ملفات PDF التي تم إنشاؤها.",
+      "action": "إدارة القوالب"
+    },
+    "integrations": {
+      "title": "تكاملات التسجيل",
+      "description": "قم بتوصيل EPO OPS وسجلات IP الأخرى لعمليات فحص المشاهدة وعمليات البحث الببليوغرافية.",
+      "action": "إدارة عمليات التكامل"
+    },
+    "ssoMfa": {
+      "title": "تسجيل الدخول الموحّد ووزارة الخارجية",
+      "description": "قم بتكوين تطبيقات تسجيل الدخول إلى Google/Microsoft وسياسة MFA الثابتة. يتم تشفير الأسرار في قاعدة البيانات.",
+      "action": "إدارة الدخول الموحّد (SSO) وMFA"
+    },
+    "roles": {
+      "title": "الأدوار والأذونات",
+      "description": "مصفوفة للقراءة فقط لأدوار النظام والأذونات الممنوحة لها.",
+      "action": "عرض مصفوفة الأدوار"
+    },
+    "systemHealth": {
+      "title": "صحة النظام",
+      "description": "اختبارات مباشرة لقاعدة البيانات وRedis وتخزين الكائنات.",
+      "action": "عرض صحة النظام"
+    }
+  },
+  "ssoMfa": {
+    "title": "تسجيل الدخول الموحّد ووزارة الخارجية",
+    "subtitle": "موفري الهوية وسياسة المصادقة متعددة العوامل للشركة.",
+    "noPermission": "ليس لديك إذن لإدارة إعدادات الدخول الموحّد (SSO) أو MFA.",
+    "loading": "جارٍ تحميل إعدادات الدخول الموحّد (SSO)…",
+    "saveButton": "حفظ الإعدادات",
+    "saveSuccess": "تم حفظ إعدادات الدخول الموحّد (SSO) وMFA بشكل آمن.",
+    "saveFailed": "فشل في حفظ إعدادات الدخول الموحّد (SSO) وMFA",
+    "securityHint": "يتم تشفير أسرار العميل أثناء عدم النشاط (AES-256-GCM). لا يتم إرجاع الأسرار الكاملة أبدًا بواسطة واجهة برمجة التطبيقات (API).",
+    "leaveBlankToKeep": "اتركه فارغًا للحفاظ على السر الحالي",
+    "clientId": "معرف العميل",
+    "clientSecret": "سر العميل",
+    "tenantId": "معرف المستأجر",
+    "redirectUri": "إعادة توجيه URI (التسجيل في وحدة تحكم الموفر)",
+    "sourceDatabase": "قاعدة البيانات",
+    "sourceEnv": "البيئة (.env)",
+    "sourceNone": "لم يتم تكوينه",
+    "editButton": "يحرر",
+    "cancelEdit": "يلغي",
+    "configuredViaEnv": "تم تكوينه عبر البيئة",
+    "microsoft": {
+      "title": "مايكروسوفت",
+      "description": "تطبيق Entra ID / Microsoft 365 OIDC يستخدم للموظفين وتسجيل الدخول الموحد (SSO) للبوابة.",
+      "saveButton": "احفظ مايكروسوفت",
+      "saveSuccess": "تم حفظ إعدادات Microsoft SSO."
+    },
+    "google": {
+      "title": "جوجل",
+      "description": "عميل Google OAuth المستخدم لتسجيل الدخول الموحّد (SSO).",
+      "saveButton": "احفظ جوجل",
+      "saveSuccess": "تم حفظ إعدادات Google SSO."
+    },
+    "mfa": {
+      "title": "سياسة وزارة الخارجية",
+      "description": "إعدادات MFA على مستوى المؤسسة. لا يزال المستخدمون يقومون بالتسجيل من صفحة الإعدادات الخاصة بهم.",
+      "requireInternal": "تتطلب وزارة الخارجية للموظفين الداخليين",
+      "requireInternalHint": "عند التمكين، يجب على المستخدمين الداخليين تسجيل MFA ضمن الإعدادات → الأمان. يمكن تشديد فرض تسجيل الدخول في المتابعة.",
+      "saveButton": "حفظ سياسة وزارة الخارجية",
+      "saveSuccess": "تم حفظ سياسة MFA."
+    }
+  },
+  "roles": {
+    "title": "الأدوار والأذونات",
+    "subtitle": "مصفوفة للقراءة فقط لأدوار النظام والأذونات الممنوحة (RBAC المصنف).",
+    "noPermission": "ليس لديك إذن لعرض الأدوار.",
+    "loading": "جارٍ تحميل الأدوار…",
+    "error": "فشل تحميل الأدوار.",
+    "system": "نظام",
+    "columns": {
+      "role": "دور",
+      "description": "وصف",
+      "permissions": "الأذونات"
+    }
+  },
+  "systemHealth": {
+    "title": "صحة النظام",
+    "subtitle": "اختبارات مباشرة لقاعدة البيانات وRedis وتخزين الكائنات.",
+    "noPermission": "ليس لديك إذن لعرض صحة النظام.",
+    "loading": "فحص الخدمات…",
+    "error": "فشل تحميل الحالة الصحية.",
+    "overall": "إجمالي",
+    "statusOk": "صحيح",
+    "statusDegraded": "متدهورة",
+    "database": "قاعدة البيانات",
+    "redis": "ريديس",
+    "storage": "تخزين الكائنات",
+    "checkOk": "يمكن الوصول إليها",
+    "checkFailed": "لا يمكن الوصول إليه",
+    "refresh": "ينعش",
+    "refreshing": "منعش…"
+  },
+  "integrations": {
+    "title": "التكامل",
+    "subtitle": "اتصالات التسجيل الخارجية وموفر البيانات المستخدمة من خلال سير عمل المراقبة وحفظ الملفات.",
+    "noPermission": "ليس لديك إذن لعرض عمليات تكامل التسجيل.",
+    "epo": {
+      "title": "سجل EPO (OPS)",
+      "description": "افتح خدمات براءات الاختراع v3.2. يتم تحديث رموز الوصول تلقائيًا من مفتاح المستهلك والسر.",
+      "statusConfigured": "تم تكوينه",
+      "statusNotConfigured": "لم يتم تكوينه",
+      "statusLoading": "جارٍ التحقق…",
+      "testButton": "اتصال الاختبار",
+      "testing": "اختبار…",
+      "testSuccess": "تم اتصال EPO بنجاح. براءة الاختراع المستردة: {{title}}",
+      "testFailed": "فشل اتصال EPO",
+      "envHint": "قم بتعيين EPO_CONSUMER_KEY وEPO_CONSUMER_SECRET في الخادم .env، ثم أعد تشغيل واجهة برمجة التطبيقات.",
+      "consumerKey": "مفتاح المستهلك",
+      "consumerSecret": "سر المستهلك",
+      "consumerKeyPlaceholder": "أدخل مفتاح عميل EPO",
+      "consumerSecretPlaceholder": "أدخل سر المستهلك EPO",
+      "leaveBlankToKeep": "اتركه فارغًا للحفاظ على القيمة الحالية",
+      "apiBaseUrl": "عنوان URL الأساسي لواجهة برمجة التطبيقات (اختياري)",
+      "authUrl": "عنوان URL للمصادقة (اختياري)",
+      "saveButton": "حفظ بيانات الاعتماد",
+      "clearButton": "مسح بيانات الاعتماد المخزنة",
+      "saveSuccess": "تم حفظ بيانات اعتماد EPO بشكل آمن.",
+      "saveFailed": "فشل في حفظ بيانات اعتماد EPO",
+      "clearSuccess": "تم مسح بيانات اعتماد EPO المخزنة. لا يزال الإجراء الاحتياطي Env مطبقًا في حالة تعيينه.",
+      "clearFailed": "فشل في مسح بيانات اعتماد EPO",
+      "securityHint": "يتم تشفير الأسرار أثناء الراحة (AES-256-GCM). لا يتم إرجاع القيم الكاملة أبدًا بواسطة واجهة برمجة التطبيقات.",
+      "sourceLabel": "مصدر نشط",
+      "sourceDatabase": "قاعدة البيانات",
+      "sourceEnv": "البيئة (.env)",
+      "sourceNone": "لم يتم تكوينه",
+      "keyHint": "المفتاح …{{lastFour}}",
+      "editButton": "يحرر",
+      "cancelEdit": "يلغي",
+      "configuredViaEnv": "تم تكوينه عبر البيئة",
+      "defaultEndpoint": "نقطة نهاية EPO الافتراضية"
+    },
+    "accounting": {
+      "xeroTitle": "زيرو",
+      "xeroDescription": "دفع الفواتير الصادرة إلى Xero Accounting عبر واجهة برمجة التطبيقات (API). يتم فقط إرسال الفواتير التي تم تغييرها منذ آخر مزامنة ناجحة.",
+      "quickbooksTitle": "الكتب السريعة على الانترنت",
+      "quickbooksDescription": "دفع الفواتير الصادرة إلى QuickBooks. تتم مطابقة (أو إنشاء) العملاء حسب اسم العرض.",
+      "xeroTenantId": "معرف المستأجر Xero",
+      "quickbooksRealmId": "مجال QuickBooks / معرف الشركة",
+      "statusConfigured": "تم تكوينه",
+      "statusNotConfigured": "لم يتم تكوينه",
+      "loading": "تحميل…",
+      "clientId": "معرف العميل (اختياري)",
+      "clientSecret": "سر العميل (اختياري)",
+      "accessToken": "رمز الوصول",
+      "leaveBlankToKeep": "اتركه فارغًا للحفاظ على القيمة الحالية",
+      "saveButton": "حفظ بيانات الاعتماد",
+      "clearButton": "واضح",
+      "editButton": "يحرر",
+      "cancelEdit": "يلغي",
+      "syncNow": "مزامنة الآن",
+      "lastSync": "آخر مزامنة",
+      "neverSynced": "أبداً",
+      "saveSuccess": "تم حفظ بيانات اعتماد المحاسبة بشكل آمن.",
+      "saveFailed": "فشل في حفظ بيانات اعتماد المحاسبة",
+      "clearSuccess": "تم مسح بيانات اعتماد المحاسبة.",
+      "clearFailed": "فشل في مسح بيانات اعتماد المحاسبة",
+      "syncFailed": "فشل في وضع مزامنة المحاسبة في قائمة الانتظار"
+    }
+  },
+  "deadlineRules": {
+    "title": "قواعد الموعد النهائي",
+    "subtitle": "تُستخدم إزاحات الولاية القضائية ونوع المسألة القانونية عند إنشاء المواعيد النهائية تلقائيًا من إنشاء المسألة القانونية وإجراءات المكتب والتجديدات.",
+    "newRule": "قاعدة جديدة",
+    "noPermission": "ليس لديك إذن لعرض قواعد الموعد النهائي.",
+    "loading": "جارٍ تحميل قواعد الموعد النهائي...",
+    "loadError": "فشل تحميل قواعد الموعد النهائي.",
+    "empty": "لا توجد قواعد للمواعيد النهائية تتطابق مع عوامل التصفية هذه.",
+    "allJurisdictions": "جميع الولايات القضائية",
+    "allMatterTypes": "جميع أنواع المسألة",
+    "filters": {
+      "jurisdiction": "الولاية القضائية",
+      "matterType": "نوع المسألة"
+    },
+    "columns": {
+      "jurisdiction": "الولاية القضائية",
+      "matterType": "نوع المسألة",
+      "event": "حدث",
+      "trigger": "مشغل",
+      "offset": "إزاحة",
+      "grace": "جمال",
+      "priority": "أولوية",
+      "status": "حالة"
+    },
+    "status": {
+      "active": "نشيط",
+      "inactive": "غير نشط"
+    },
+    "editAria": "تعديل قاعدة الموعد النهائي",
+    "drawer": {
+      "createTitle": "قاعدة الموعد النهائي الجديدة",
+      "editTitle": "تعديل قاعدة الموعد النهائي",
+      "jurisdiction": "الولاية القضائية",
+      "matterType": "نوع المسألة",
+      "eventType": "نوع الحدث",
+      "triggerType": "نوع الزناد",
+      "daysOffset": "تعويض الأيام",
+      "dayCounting": "عد اليوم",
+      "businessDays": "أيام العمل",
+      "calendarDays": "أيام التقويم",
+      "gracePeriod": "فترة السماح (أيام)",
+      "priority": "الأولوية (1-10)",
+      "description": "وصف",
+      "status": "حالة",
+      "cancel": "يلغي",
+      "create": "إنشاء القاعدة",
+      "save": "حفظ التغييرات"
+    },
+    "errors": {
+      "daysOffset": "أدخل إزاحة أيام صالحة",
+      "grace": "أدخل فترة سماح صالحة",
+      "priority": "يجب أن تكون الأولوية بين 1 و10",
+      "saveFailed": "فشل في حفظ قاعدة الموعد النهائي"
+    },
+    "offset": {
+      "businessDay": "يوم عمل",
+      "businessDays": "أيام العمل",
+      "calendarDay": "يوم التقويم",
+      "calendarDays": "الأيام التقويمية",
+      "sameDay": "نفس اليوم ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "الايداع",
+      "examination_response": "استجابة الامتحان",
+      "renewal": "تجديد",
+      "opposition": "معارضة",
+      "grace_period": "فترة السماح"
+    },
+    "triggerType": {
+      "matter_created": "خلقت المادة",
+      "office_action": "عمل المكتب",
+      "renewal_due": "التجديد مستحق"
+    }
+  },
+  "documentTemplates": {
+    "title": "قوالب المستندات",
+    "subtitle": "قوالب الرسائل والإيداع مع حقول الدمج. أنشئ ملفات PDF من المسائل القانونية أو قم بمعاينتها باستخدام بيانات نموذجية.",
+    "newTemplate": "قالب جديد",
+    "noPermission": "ليس لديك الإذن لعرض قوالب المستندات.",
+    "loading": "جارٍ تحميل النماذج…",
+    "loadError": "فشل تحميل قوالب المستندات.",
+    "empty": "لا توجد قوالب وثيقة حتى الآن.",
+    "columns": {
+      "name": "اسم",
+      "slug": "سبيكة",
+      "category": "فئة",
+      "status": "حالة",
+      "docx": "كلمة",
+      "updated": "تم التحديث"
+    },
+    "status": {
+      "active": "نشيط",
+      "inactive": "غير نشط"
+    },
+    "editAria": "تحرير قالب الوثيقة",
+    "uploadDocx": "تحميل .docx",
+    "removeDocx": "قم بإزالة .docx",
+    "uploadDocxAria": "تحميل قالب Word",
+    "removeDocxAria": "إزالة قالب Word",
+    "confirmRemoveDocx": "هل تريد إزالة قالب Word (.docx) من قالب الرسالة هذا؟",
+    "docx": {
+      "attached": "دوكإكس",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "قالب مستند جديد",
+      "editTitle": "تحرير قالب الوثيقة",
+      "loading": "جارٍ تحميل النموذج…",
+      "slug": "سبيكة",
+      "slugHint": "حالة كباب صغيرة، فريدة من نوعها.",
+      "slugReadonly": "سبيكة:",
+      "name": "اسم",
+      "category": "فئة",
+      "description": "وصف",
+      "referenceLine": "الخط المرجعي",
+      "mergeFields": "دمج الحقول",
+      "insertIntoReference": "إدراج في السطر المرجعي",
+      "insertIntoHtml": "أدخل في نص HTML",
+      "htmlBody": "نص HTML",
+      "livePreview": "معاينة حية",
+      "status": "حالة",
+      "previewPdf": "معاينة قوات الدفاع الشعبي",
+      "cancel": "يلغي",
+      "create": "إنشاء قالب",
+      "save": "حفظ التغييرات"
+    },
+    "errors": {
+      "required": "الاسم ونص HTML مطلوبان",
+      "slugRequired": "مطلوب سبيكة",
+      "saveFailed": "فشل في حفظ قالب المستند",
+      "previewFailed": "فشل في إنشاء معاينة PDF",
+      "docxUploadFailed": "فشل تحميل قالب Word",
+      "docxDeleteFailed": "فشل في إزالة قالب Word"
+    }
+  },
+  "holidays": {
+    "title": "تقويم العطلة",
+    "subtitle": "العطل الرسمية حسب الولاية القضائية. تنطبق العطلات المتكررة كل عام في نفس الشهر واليوم عند حساب أيام العمل.",
+    "newHoliday": "عطلة جديدة",
+    "noPermission": "ليس لديك إذن لعرض أيام العطل.",
+    "loading": "جارٍ تحميل العطلات…",
+    "loadError": "فشل تحميل العطلات.",
+    "empty": "لا توجد عطلات تطابق هذا الفلتر.",
+    "allJurisdictions": "جميع الولايات القضائية",
+    "filters": {
+      "jurisdiction": "الولاية القضائية"
+    },
+    "columns": {
+      "jurisdiction": "الولاية القضائية",
+      "date": "تاريخ",
+      "name": "اسم",
+      "recurring": "يتكرر"
+    },
+    "recurring": {
+      "yes": "يتكرر",
+      "no": "لمرة واحدة"
+    },
+    "editAria": "تحرير عطلة",
+    "deleteAria": "حذف العطلة",
+    "confirmDelete": "هل تريد حذف العطلة \"{{name}}\"؟",
+    "drawer": {
+      "createTitle": "عطلة جديدة",
+      "editTitle": "تحرير عطلة",
+      "jurisdiction": "الولاية القضائية",
+      "date": "تاريخ",
+      "name": "اسم",
+      "recurring": "يتكرر سنويا",
+      "cancel": "يلغي",
+      "create": "إنشاء عطلة",
+      "save": "حفظ التغييرات"
+    },
+    "errors": {
+      "required": "الاسم والتاريخ مطلوبان",
+      "saveFailed": "فشل حفظ العطلة"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "إعدادات",
+    "title": "تكامل البريد الإلكتروني",
+    "description": "قم بتوصيل صندوق بريد العمل الخاص بك لمزامنة البريد الوارد في قائمة انتظار البريد الإلكتروني وإرسال ردود من CRM. يتطلب Mail.Read + Mail.Send (Microsoft) أو gmail.readonly + gmail.send (Google). أعد الاتصال بعد تحديثات النطاق لمنح إذن الإرسال.",
+    "fetchEmails": "جلب 5 ايميلات",
+    "connectedSuccess": "تم الاتصال بـ {{provider}} بنجاح.",
+    "microsoft365": "مايكروسوفت 365",
+    "googleWorkspace": "مساحة عمل جوجل",
+    "connected": "متصل",
+    "error": "خطأ",
+    "notConnected": "غير متصل",
+    "providerEnabledDescription": "اسحب رسائل البريد الوارد الجديدة إلى قائمة انتظار البريد الإلكتروني.",
+    "providerDisabledDescription": "لم يتم تكوينه على هذا الخادم (بيانات اعتماد OAuth مفقودة).",
+    "redirectUriHint": "قم بتسجيل URI لإعادة التوجيه هذا في تطبيق {{provider}} OAuth:",
+    "lastSync": "آخر مزامنة: {{time}}",
+    "neverSynced": "لم تتم مزامنتها مطلقًا",
+    "reconnect": "أعد الاتصال",
+    "disconnect": "قطع الاتصال",
+    "connect": "الاتصال {{provider}}",
+    "loadingConnections": "جارٍ تحميل الاتصالات…",
+    "fetchSuccess": "تم جلب ما يصل إلى {{limit}} رسالة (رسائل) — {{ingested}} جديدة في قائمة الانتظار.",
+    "fetchFailed": "فشل في جلب رسائل البريد الإلكتروني"
+  },
+  "consent": {
+    "title": "سجلات الموافقة",
+    "subtitle": "حالة موافقة القانون العام لحماية البيانات (GDPR) عبر العملاء.",
+    "filters": {
+      "all": "الجميع",
+      "consented": "تمت الموافقة",
+      "missing": "مفتقد"
+    },
+    "failedToLoad": "فشل تحميل سجلات الموافقة.",
+    "noClientsFound": "لم يتم العثور على عملاء.",
+    "table": {
+      "client": "عميل",
+      "code": "شفرة",
+      "consent": "موافقة",
+      "date": "تاريخ"
+    }
+  }
+}

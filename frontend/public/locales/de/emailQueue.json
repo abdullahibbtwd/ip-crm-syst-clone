@@ -1,0 +1,37 @@
+{
+  "title": "E-Mail-Warteschlange",
+  "subtitle": "Nicht verknüpfte E-Mails aus verbundenen Postfächern. Öffnen Sie eine E-Mail und hängen Sie sie dann an das Korrespondenzregister einer Angelegenheit an.",
+  "fetchEmails": "Rufen Sie 5 E-Mails ab",
+  "mailboxSettings": "Postfacheinstellungen",
+  "fetchSuccess": "Bis zu {{limit}} Posteingangsnachricht(en) abgerufen – {{ingested}} neu in der Warteschlange{{emptyHint}}.",
+  "fetchEmptyHint": "(bereits importiert oder Posteingang leer)",
+  "fetchFailed": "E-Mails konnten nicht abgerufen werden",
+  "columns": {
+    "received": "Erhalten",
+    "from": "Aus",
+    "subject": "Thema",
+    "mailbox": "Briefkasten",
+    "suggestion": "Anregung",
+    "actions": "Aktionen"
+  },
+  "loading": "Warteschlange wird geladen…",
+  "loadFailed": "E-Mail-Warteschlange konnte nicht geladen werden.",
+  "emptyTitle": "Die Warteschlange ist leer",
+  "emptyDescription": "Verknüpfen Sie in den Einstellungen ein Postfach und rufen Sie E-Mails ab, um neue Nachrichten zu importieren.",
+  "noSubject": "(Kein Thema)",
+  "suggestions": {
+    "subjectRef": "Kundenreferenz im Betreff",
+    "bodyRef": "Kundenreferenz im Text",
+    "singleActiveMatter": "Einzelne aktive Materie",
+    "contactMatch": "Kontaktübereinstimmung",
+    "default": "Vorgeschlagene Angelegenheit",
+    "officeAction": "Amtshandlung",
+    "renewal": "Erneuerung"
+  },
+  "actions": {
+    "viewEmail": "E-Mail anzeigen",
+    "reply": "Antwort",
+    "attachToMatter": "Dem Sachverhalt Korrespondenz beifügen",
+    "downloadEml": "Laden Sie .eml herunter"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "商标观察",
+    "description": "检查针对活动手表配置文件检测到的潜在冲突。",
+    "empty": "没有手表提醒符合您的过滤条件。",
+    "loading": "正在加载手表警报..."
+  },
+  "detail": {
+    "title": "观看警报",
+    "back": "返回观看工作列表",
+    "loading": "正在加载警报...",
+    "notFound": "未找到手表警报。",
+    "watchedMark": "观看标记",
+    "conflictingMark": "冲突商标",
+    "registrySource": "注册表来源",
+    "jurisdiction": "管辖权",
+    "applicationNumber": "申请号",
+    "similarity": "相似",
+    "detectedAt": "检测到",
+    "client": "客户",
+    "profile": "观看简介",
+    "niceClasses": "不错的课程",
+    "reject": "拒绝警报",
+    "accept": "接受并创造物质",
+    "rejectConfirm": "将此警报标记为误报吗？",
+    "acceptConfirm": "从此警报创建异议事项？",
+    "triagedBy": "由 {{name}} 进行分类",
+    "linkedMatter": "关联事项"
+  },
+  "clientTab": {
+    "title": "观看个人资料",
+    "description": "使用规范管辖区代码（BG、EU、EP）监控各个注册机构的商标。",
+    "add": "添加商标手表",
+    "empty": "尚无手表配置文件。 添加个人资料以开始监控该客户的标记。",
+    "loading": "正在加载手表配置文件...",
+    "pause": "暂停",
+    "resume": "恢复",
+    "archive": "档案",
+    "epoScan": "扫描 EPO 以获得警报",
+    "epoScanning": "扫描 EPO...",
+    "epoScanSuccess": "从 {{profiles}} 配置文件创建了 {{alerts}} 新 EPO 警报。",
+    "epoScanFailed": "EPO 手表扫描失败",
+    "viewAlerts": "查看手表提醒"
+  },
+  "drawer": {
+    "title": "添加商标手表",
+    "markText": "标记文字*",
+    "markPlaceholder": "例如 可口可乐",
+    "jurisdictions": "司法管辖区 *",
+    "jurisdictionsHint": "规范代码 — 不是注册表名称。 BPO手表使用BG； EUIPO 手表使用 EU。",
+    "niceClasses": "不错的课程",
+    "niceClassesPlaceholder": "例如 32, 33",
+    "frequency": "扫描频率",
+    "save": "保存手表配置文件"
+  },
+  "filters": {
+    "status": "地位",
+    "jurisdiction": "管辖权",
+    "source": "注册表来源",
+    "minSimilarity": "最小相似度",
+    "anySimilarity": "任何相似之处",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "排序方式",
+    "sortDetected": "最新的优先",
+    "sortSimilarity": "最高相似度",
+    "all": "全部"
+  },
+  "stats": {
+    "new": "新警报",
+    "accepted": "公认",
+    "rejected": "被拒绝"
+  },
+  "profileStatus": {
+    "active": "积极的",
+    "paused": "已暂停",
+    "archived": "已存档"
+  },
+  "alertStatus": {
+    "new": "新的",
+    "rejected": "被拒绝",
+    "accepted": "公认"
+  },
+  "frequency": {
+    "daily": "日常的",
+    "weekly": "每周"
+  },
+  "table": {
+    "mark": "观看标记",
+    "conflict": "冲突",
+    "client": "客户",
+    "similarity": "相似",
+    "source": "来源",
+    "jurisdiction": "管辖权",
+    "status": "地位",
+    "detected": "检测到",
+    "frequency": "频率",
+    "classes": "课程",
+    "profiles": "型材",
+    "actions": "行动"
+  }
+}

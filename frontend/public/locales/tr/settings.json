@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "İptal etmek",
+      "confirm": "2FA'yı onaylayın ve etkinleştirin",
+      "enable": "2FA'yı etkinleştir",
+      "preparing": "Hazırlanıyor…",
+      "verifying": "Doğrulanıyor…"
+    },
+    "authCode": "Kimlik doğrulama kodu",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktif",
+      "description": "Hesabınızda oturum açarken kimlik doğrulayıcı uygulamanızdan bir kod alınması gerekiyor.",
+      "title": "İki faktörlü kimlik doğrulama etkin"
+    },
+    "errors": {
+      "enableFailed": "2FA etkinleştirilemedi",
+      "invalidCode": "Geçersiz kod",
+      "setupFailed": "2FA kurulumu başlatılamadı"
+    },
+    "setup": {
+      "description": "Oturum açtığınızda bir kimlik doğrulama uygulamasından (Google Authenticator, Authy vb.) 6 basamaklı bir kod isteyerek ekstra bir güvenlik katmanı ekleyin.",
+      "manualKey": "Veya bu anahtarı manuel olarak girin",
+      "scanQr": "1. Bu QR kodunu tarayın",
+      "scanQrHint": "Kimlik doğrulayıcı uygulamanızı açın ve aşağıdaki kodu tarayın.",
+      "verify": "2. 6 haneli kodla onaylayın",
+      "verifyHint": "Kurulumu doğrulamak için uygulamanızda gösterilen kodu girin."
+    }
+  },
+  "security": {
+    "description": "İki faktörlü kimlik doğrulama, şifreniz ele geçirilse bile hesabınızı korur.",
+    "title": "Güvenlik"
+  },
+  "subtitle": "Hesap tercihlerinizi ve güvenliğinizi yönetin.",
+  "title": "Ayarlar",
+  "links": {
+    "email": {
+      "title": "E-posta entegrasyonu",
+      "description": "Gelen kutusu iletilerini E-posta Kuyruğuyla senkronize etmek için Microsoft 365 veya Google Workspace'e bağlanın.",
+      "action": "Posta kutularını yönet"
+    },
+    "deadlineRules": {
+      "title": "Son tarih kuralları",
+      "description": "Otomatik olarak oluşturulan son tarihler için yetki alanı ve konu türü denkleştirmelerini yapılandırın.",
+      "action": "Son tarih kurallarını yönetin"
+    },
+    "holidays": {
+      "title": "Tatil takvimi",
+      "description": "Son teslim tarihlerine ilişkin iş günlerini sayarken yargı tatilleri kullanılır.",
+      "action": "Tatilleri yönet"
+    },
+    "documentTemplates": {
+      "title": "Belge şablonları",
+      "description": "Mektup şablonlarını düzenleyin, alanları birleştirin ve oluşturulan PDF'leri önizleyin.",
+      "action": "Şablonları yönet"
+    },
+    "integrations": {
+      "title": "Kayıt defteri entegrasyonları",
+      "description": "Saat taramaları ve bibliyografik aramalar için EPO OPS'yi ve diğer IP kayıtlarını bağlayın.",
+      "action": "Entegrasyonları yönet"
+    },
+    "ssoMfa": {
+      "title": "TOA ve MFA",
+      "description": "Google/Microsoft oturum açma uygulamalarını ve sağlam MFA politikasını yapılandırın. Sırlar veritabanında şifrelenir.",
+      "action": "SSO ve MFA'yı yönetin"
+    },
+    "roles": {
+      "title": "Roller ve izinler",
+      "description": "Sistem rollerinin ve bunlara verilen izinlerin salt okunur matrisi.",
+      "action": "Roller matrisini görüntüle"
+    },
+    "systemHealth": {
+      "title": "Sistem sağlığı",
+      "description": "Veritabanı, Redis ve nesne depolama için canlı kontroller.",
+      "action": "Sistem sağlığını görüntüle"
+    }
+  },
+  "ssoMfa": {
+    "title": "TOA ve MFA",
+    "subtitle": "Firma için kimlik sağlayıcıları ve çok faktörlü kimlik doğrulama politikası.",
+    "noPermission": "TOA veya MFA ayarlarını yönetme izniniz yok.",
+    "loading": "TOA ayarları yükleniyor…",
+    "saveButton": "Ayarları kaydet",
+    "saveSuccess": "SSO ve MFA ayarları güvenli bir şekilde kaydedildi.",
+    "saveFailed": "SSO ve MFA ayarları kaydedilemedi",
+    "securityHint": "İstemci sırları beklemedeyken şifrelenir (AES-256-GCM). Tam sırlar API tarafından asla döndürülmez.",
+    "leaveBlankToKeep": "Mevcut sırrı saklamak için boş bırakın",
+    "clientId": "Müşteri Kimliği",
+    "clientSecret": "İstemci sırrı",
+    "tenantId": "Kiracı Kimliği",
+    "redirectUri": "Yönlendirme URI'si (sağlayıcı konsoluna kaydolun)",
+    "sourceDatabase": "Veritabanı",
+    "sourceEnv": "Ortam (.env)",
+    "sourceNone": "Yapılandırılmadı",
+    "editButton": "Düzenlemek",
+    "cancelEdit": "İptal etmek",
+    "configuredViaEnv": "Ortam aracılığıyla yapılandırıldı",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Personel ve portal SSO girişi için kullanılan Entra ID / Microsoft 365 OIDC uygulaması.",
+      "saveButton": "Microsoft'u Kaydet",
+      "saveSuccess": "Microsoft SSO ayarları kaydedildi."
+    },
+    "google": {
+      "title": "Google",
+      "description": "SSO girişi için kullanılan Google OAuth istemcisi.",
+      "saveButton": "Google'ı kaydet",
+      "saveSuccess": "Google TOA ayarları kaydedildi."
+    },
+    "mfa": {
+      "title": "MFA politikası",
+      "description": "Kuruluş çapında MFA ayarları. Kullanıcılar yine de kendi Ayarlar sayfalarından kaydolurlar.",
+      "requireInternal": "Dahili personel için MFA'yı zorunlu kılın",
+      "requireInternalHint": "Etkinleştirildiğinde, dahili kullanıcıların Ayarlar → Güvenlik altında MFA'ya kaydolmaları gerekir. Bir takipte giriş yaptırımı sıkılaştırılabilir.",
+      "saveButton": "MFA politikasını kaydet",
+      "saveSuccess": "MFA politikası kaydedildi."
+    }
+  },
+  "roles": {
+    "title": "Roller ve izinler",
+    "subtitle": "Sistem rollerinin ve verilen izinlerin salt okunur matrisi (başlangıçlı RBAC).",
+    "noPermission": "Rolleri görüntüleme izniniz yok.",
+    "loading": "Roller yükleniyor…",
+    "error": "Roller yüklenemedi.",
+    "system": "Sistem",
+    "columns": {
+      "role": "Rol",
+      "description": "Tanım",
+      "permissions": "İzinler"
+    }
+  },
+  "systemHealth": {
+    "title": "Sistem sağlığı",
+    "subtitle": "Veritabanı, Redis ve nesne depolama için canlı kontroller.",
+    "noPermission": "Sistem durumunu görüntüleme izniniz yok.",
+    "loading": "Hizmetler kontrol ediliyor…",
+    "error": "Sağlık durumu yüklenemedi.",
+    "overall": "Etraflı",
+    "statusOk": "Sağlıklı",
+    "statusDegraded": "Bozulmuş",
+    "database": "Veritabanı",
+    "redis": "Redis",
+    "storage": "Nesne depolama",
+    "checkOk": "Ulaşılabilir",
+    "checkFailed": "Ulaşılamaz",
+    "refresh": "Yenile",
+    "refreshing": "Yenileniyor…"
+  },
+  "integrations": {
+    "title": "Entegrasyonlar",
+    "subtitle": "İzleme ve dosyalama iş akışları tarafından kullanılan harici kayıt defteri ve veri sağlayıcı bağlantıları.",
+    "noPermission": "Kayıt defteri entegrasyonlarını görüntüleme izniniz yok.",
+    "epo": {
+      "title": "EPO Kaydı (OPS)",
+      "description": "Açık Patent Hizmetleri v3.2. Erişim belirteçleri, tüketici anahtarınızdan ve sırrınızdan otomatik olarak yenilenir.",
+      "statusConfigured": "Yapılandırılmış",
+      "statusNotConfigured": "Yapılandırılmadı",
+      "statusLoading": "Kontrol ediliyor…",
+      "testButton": "Bağlantıyı test edin",
+      "testing": "Test…",
+      "testSuccess": "EPO bağlantısı başarılı. Alınan patent: {{title}}",
+      "testFailed": "EPO bağlantısı başarısız oldu",
+      "envHint": "Sunucu .env'de EPO_CONSUMER_KEY ve EPO_CONSUMER_SECRET'i ayarlayın, ardından API'yi yeniden başlatın.",
+      "consumerKey": "Tüketici anahtarı",
+      "consumerSecret": "Tüketici sırrı",
+      "consumerKeyPlaceholder": "EPO tüketici anahtarını girin",
+      "consumerSecretPlaceholder": "EPO tüketici sırrını girin",
+      "leaveBlankToKeep": "Mevcut değeri korumak için boş bırakın",
+      "apiBaseUrl": "API temel URL'si (isteğe bağlı)",
+      "authUrl": "Kimlik Doğrulama URL'si (isteğe bağlı)",
+      "saveButton": "Kimlik bilgilerini kaydet",
+      "clearButton": "Saklanan kimlik bilgilerini temizle",
+      "saveSuccess": "EPO kimlik bilgileri güvenli bir şekilde kaydedildi.",
+      "saveFailed": "EPO kimlik bilgileri kaydedilemedi",
+      "clearSuccess": "Saklanan EPO kimlik bilgileri temizlendi. Ayarlanmışsa Env geri dönüşü hala geçerlidir.",
+      "clearFailed": "EPO kimlik bilgileri temizlenemedi",
+      "securityHint": "Gizli diziler beklemedeyken şifrelenir (AES-256-GCM). Tam değerler hiçbir zaman API tarafından döndürülmez.",
+      "sourceLabel": "Aktif kaynak",
+      "sourceDatabase": "Veritabanı",
+      "sourceEnv": "Ortam (.env)",
+      "sourceNone": "Yapılandırılmadı",
+      "keyHint": "anahtar …{{lastFour}}",
+      "editButton": "Düzenlemek",
+      "cancelEdit": "İptal etmek",
+      "configuredViaEnv": "Ortam aracılığıyla yapılandırıldı",
+      "defaultEndpoint": "Varsayılan EPO uç noktası"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Düzenlenen faturaları API aracılığıyla Xero Accounting'e aktarın. Yalnızca son başarılı senkronizasyondan bu yana değiştirilen faturalar gönderilir.",
+      "quickbooksTitle": "QuickBooks Çevrimiçi",
+      "quickbooksDescription": "Verilen faturaları QuickBooks'a aktarın. Müşteriler görünen ada göre eşleştirilir (veya oluşturulur).",
+      "xeroTenantId": "Xero kiracı kimliği",
+      "quickbooksRealmId": "QuickBooks bölgesi / şirket kimliği",
+      "statusConfigured": "Yapılandırılmış",
+      "statusNotConfigured": "Yapılandırılmadı",
+      "loading": "Yükleniyor…",
+      "clientId": "İstemci Kimliği (isteğe bağlı)",
+      "clientSecret": "İstemci sırrı (isteğe bağlı)",
+      "accessToken": "Erişim jetonu",
+      "leaveBlankToKeep": "Mevcut değeri korumak için boş bırakın",
+      "saveButton": "Kimlik bilgilerini kaydet",
+      "clearButton": "Temizlemek",
+      "editButton": "Düzenlemek",
+      "cancelEdit": "İptal etmek",
+      "syncNow": "Şimdi senkronize et",
+      "lastSync": "Son senkronizasyon",
+      "neverSynced": "Asla",
+      "saveSuccess": "Muhasebe kimlik bilgileri güvenli bir şekilde kaydedildi.",
+      "saveFailed": "Muhasebe kimlik bilgileri kaydedilemedi",
+      "clearSuccess": "Muhasebe kimlik bilgileri temizlendi.",
+      "clearFailed": "Muhasebe kimlik bilgileri temizlenemedi",
+      "syncFailed": "Muhasebe senkronizasyonu sıraya alınamadı"
+    }
+  },
+  "deadlineRules": {
+    "title": "Son tarih kuralları",
+    "subtitle": "Konu oluşturma, ofis işlemleri ve yenilemelerden son tarihleri ​​otomatik olarak oluştururken kullanılan yargı yetkisi ve konu türü denkleştirmeleri.",
+    "newRule": "Yeni kural",
+    "noPermission": "Son tarih kurallarını görüntüleme izniniz yok.",
+    "loading": "Son tarih kuralları yükleniyor…",
+    "loadError": "Son tarih kuralları yüklenemedi.",
+    "empty": "Bu filtrelerle eşleşen son tarih kuralı yok.",
+    "allJurisdictions": "Tüm yargı bölgeleri",
+    "allMatterTypes": "Tüm madde türleri",
+    "filters": {
+      "jurisdiction": "Yargı yetkisi",
+      "matterType": "Madde türü"
+    },
+    "columns": {
+      "jurisdiction": "Yargı yetkisi",
+      "matterType": "Madde türü",
+      "event": "Etkinlik",
+      "trigger": "Tetiklemek",
+      "offset": "Telafi etmek",
+      "grace": "Lütuf",
+      "priority": "Öncelik",
+      "status": "Durum"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Etkin değil"
+    },
+    "editAria": "Son tarih kuralını düzenle",
+    "drawer": {
+      "createTitle": "Yeni son tarih kuralı",
+      "editTitle": "Son tarih kuralını düzenle",
+      "jurisdiction": "Yargı yetkisi",
+      "matterType": "Madde türü",
+      "eventType": "Etkinlik türü",
+      "triggerType": "Tetikleyici türü",
+      "daysOffset": "Gün farkı",
+      "dayCounting": "Gün sayımı",
+      "businessDays": "İş günleri",
+      "calendarDays": "Takvim günleri",
+      "gracePeriod": "Ek süre (gün)",
+      "priority": "Öncelik (1–10)",
+      "description": "Tanım",
+      "status": "Durum",
+      "cancel": "İptal etmek",
+      "create": "Kural oluştur",
+      "save": "Değişiklikleri kaydet"
+    },
+    "errors": {
+      "daysOffset": "Geçerli bir gün farkı girin",
+      "grace": "Geçerli bir ek süre girin",
+      "priority": "Öncelik 1 ile 10 arasında olmalıdır",
+      "saveFailed": "Son tarih kuralı kaydedilemedi"
+    },
+    "offset": {
+      "businessDay": "iş günü",
+      "businessDays": "iş günleri",
+      "calendarDay": "takvim günü",
+      "calendarDays": "takvim günleri",
+      "sameDay": "Aynı gün ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Dosyalama",
+      "examination_response": "Muayene yanıtı",
+      "renewal": "Yenileme",
+      "opposition": "Muhalefet",
+      "grace_period": "Ek süre"
+    },
+    "triggerType": {
+      "matter_created": "Madde oluşturuldu",
+      "office_action": "Patent başvurusu",
+      "renewal_due": "Yenileme zamanı"
+    }
+  },
+  "documentTemplates": {
+    "title": "Belge şablonları",
+    "subtitle": "Birleştirme alanlarına sahip mektup ve dosyalama şablonları. Konulardan PDF'ler oluşturun veya örnek verilerle önizleyin.",
+    "newTemplate": "Yeni şablon",
+    "noPermission": "Belge şablonlarını görüntüleme izniniz yok.",
+    "loading": "Şablonlar yükleniyor…",
+    "loadError": "Belge şablonları yüklenemedi.",
+    "empty": "Henüz belge şablonu yok.",
+    "columns": {
+      "name": "İsim",
+      "slug": "Sümüklüböcek",
+      "category": "Kategori",
+      "status": "Durum",
+      "docx": "Kelime",
+      "updated": "Güncellendi"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Etkin değil"
+    },
+    "editAria": "Belge şablonunu düzenle",
+    "uploadDocx": ".docx dosyasını yükle",
+    "removeDocx": ".docx'i kaldır",
+    "uploadDocxAria": "Word şablonunu yükle",
+    "removeDocxAria": "Word şablonunu kaldır",
+    "confirmRemoveDocx": "Bu mektup şablonundan Word (.docx) şablonu kaldırılsın mı?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Yeni belge şablonu",
+      "editTitle": "Belge şablonunu düzenle",
+      "loading": "Şablon yükleniyor…",
+      "slug": "Sümüklüböcek",
+      "slugHint": "Küçük harfli kebap kutusu, benzersiz.",
+      "slugReadonly": "Sümüklüböcek:",
+      "name": "İsim",
+      "category": "Kategori",
+      "description": "Tanım",
+      "referenceLine": "Referans çizgisi",
+      "mergeFields": "Alanları birleştir",
+      "insertIntoReference": "Referans çizgisine ekle",
+      "insertIntoHtml": "HTML gövdesine ekle",
+      "htmlBody": "HTML gövdesi",
+      "livePreview": "Canlı önizleme",
+      "status": "Durum",
+      "previewPdf": "PDF'yi önizle",
+      "cancel": "İptal etmek",
+      "create": "Şablon oluştur",
+      "save": "Değişiklikleri kaydet"
+    },
+    "errors": {
+      "required": "Ad ve HTML gövdesi gerekli",
+      "slugRequired": "Sümüklüböcek gerekli",
+      "saveFailed": "Belge şablonu kaydedilemedi",
+      "previewFailed": "PDF önizlemesi oluşturulamadı",
+      "docxUploadFailed": "Word şablonu yüklenemedi",
+      "docxDeleteFailed": "Word şablonu kaldırılamadı"
+    }
+  },
+  "holidays": {
+    "title": "Tatil takvimi",
+    "subtitle": "Yargı yetkisine göre resmi tatiller. Tekrarlanan tatiller, iş günlerini sayarken her yıl aynı ay ve günde uygulanır.",
+    "newHoliday": "Yeni tatil",
+    "noPermission": "Tatilleri görüntüleme izniniz yok.",
+    "loading": "Tatiller yükleniyor…",
+    "loadError": "Tatiller yüklenemedi.",
+    "empty": "Bu filtreyle eşleşen tatil yok.",
+    "allJurisdictions": "Tüm yargı bölgeleri",
+    "filters": {
+      "jurisdiction": "Yargı yetkisi"
+    },
+    "columns": {
+      "jurisdiction": "Yargı yetkisi",
+      "date": "Tarih",
+      "name": "İsim",
+      "recurring": "Tekrarlanan"
+    },
+    "recurring": {
+      "yes": "Tekrarlanan",
+      "no": "Bir kerelik"
+    },
+    "editAria": "Tatili düzenle",
+    "deleteAria": "Tatili sil",
+    "confirmDelete": "“{{name}}” tatili silinsin mi?",
+    "drawer": {
+      "createTitle": "Yeni tatil",
+      "editTitle": "Tatili düzenle",
+      "jurisdiction": "Yargı yetkisi",
+      "date": "Tarih",
+      "name": "İsim",
+      "recurring": "Her yıl yinelenen",
+      "cancel": "İptal etmek",
+      "create": "Tatil oluştur",
+      "save": "Değişiklikleri kaydet"
+    },
+    "errors": {
+      "required": "İsim ve tarih gerekli",
+      "saveFailed": "Tatil kaydedilemedi"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Ayarlar",
+    "title": "E-posta entegrasyonu",
+    "description": "Gelen postayı E-posta Kuyruğuna senkronize etmek ve CRM'den yanıtlar göndermek için iş posta kutunuzu bağlayın. Mail.Read + Mail.Send (Microsoft) veya gmail.readonly + gmail.send (Google) gerektirir. Gönderme izni vermek için kapsam güncellemelerinden sonra yeniden bağlanın.",
+    "fetchEmails": "5 e-postayı getir",
+    "connectedSuccess": "{{provider}} başarıyla bağlandı.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Bağlı",
+    "error": "Hata",
+    "notConnected": "Bağlı değil",
+    "providerEnabledDescription": "Yeni gelen kutusu mesajlarını E-posta Sırasına çekin.",
+    "providerDisabledDescription": "Bu sunucuda yapılandırılmadı (OAuth kimlik bilgileri eksik).",
+    "redirectUriHint": "Bu yönlendirme URI'sini {{provider}} OAuth uygulamanıza kaydedin:",
+    "lastSync": "Son senkronizasyon: {{time}}",
+    "neverSynced": "Hiçbir zaman senkronize edilmedi",
+    "reconnect": "Yeniden bağlan",
+    "disconnect": "Bağlantıyı kes",
+    "connect": "Bağlan {{provider}}",
+    "loadingConnections": "Bağlantılar yükleniyor…",
+    "fetchSuccess": "En fazla {{limit}} ileti getirildi — {{ingested}} sırada yeni var.",
+    "fetchFailed": "E-postalar alınamadı"
+  },
+  "consent": {
+    "title": "Onay kayıtları",
+    "subtitle": "İstemciler arasında GDPR izin durumu.",
+    "filters": {
+      "all": "Tüm",
+      "consented": "Onaylandı",
+      "missing": "Eksik"
+    },
+    "failedToLoad": "İzin kayıtları yüklenemedi.",
+    "noClientsFound": "Hiçbir müşteri bulunamadı.",
+    "table": {
+      "client": "Müşteri",
+      "code": "Kod",
+      "consent": "Onay",
+      "date": "Tarih"
+    }
+  }
+}

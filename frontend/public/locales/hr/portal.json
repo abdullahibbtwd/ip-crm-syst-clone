@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Pošaljite nove upite za podnošenje i pratite predmete otvorene u vašoj organizaciji. Vaš portfelj na prvi pogled.",
+    "eyebrow": "Portal za klijente",
+    "filePatent": "Prijavite patent",
+    "fileTrademark": "Prijavite zaštitni znak",
+    "stats": {
+      "activeMatters": "Aktivne stvari",
+      "activeMattersHint": "Portfelj organizacije",
+      "openDeadlines": "Otvoreni rokovi",
+      "openDeadlinesHint": "Čeka akciju",
+      "overdue": "Zakašnjelo",
+      "overdueCurrent": "Sve aktualno",
+      "overdueUrgent": "Hitna pozornost",
+      "renewals": "Obnove",
+      "renewalsCurrent": "Struja održavanja",
+      "renewalsNeedAction_one": "{{count}} treba radnja",
+      "renewalsNeedAction_other": "{{count}} treba radnja"
+    },
+    "title": "Dobro došao nazad"
+  },
+  "correspondence": {
+    "title": "Poruke",
+    "description": "Prepiska koju je vaša tvrtka podijelila s vama.",
+    "loading": "Učitavanje poruka…",
+    "error": "Učitavanje poruka nije uspjelo.",
+    "empty": "Još nema poruka. Ovdje će se pojaviti zajedničko dopisivanje.",
+    "table": {
+      "subject": "Predmet",
+      "date": "Datum",
+      "direction": "Smjer",
+      "matter": "Materija"
+    }
+  },
+  "messages": {
+    "title": "Poruke",
+    "description": "Čvrsto emitiranje i važne poruke podijeljene s vašom organizacijom.",
+    "loading": "Učitavanje poruka…",
+    "loadingDetail": "Otvor…",
+    "error": "Učitavanje poruka nije uspjelo.",
+    "empty": "Još nema poruka. Ažuriranja tvrtke i zajedničko dopisivanje pojavit će se ovdje.",
+    "selectHint": "Odaberite poruku da biste je pročitali.",
+    "unread": "Nepročitano",
+    "relatedMatter": "Materija",
+    "noBody": "Nema tijela poruke.",
+    "openLink": "Otvori vezu za poruku",
+    "kindBroadcast": "Emitiranje",
+    "kindCorrespondence": "Materija",
+    "table": {
+      "type": "Tip",
+      "subject": "Predmet",
+      "date": "Datum",
+      "matter": "Materija"
+    }
+  },
+  "approvals": {
+    "title": "Odobrenja",
+    "description": "Pregledajte i odlučite o zahtjevima za odobrenje vaše tvrtke.",
+    "loading": "Učitavanje odobrenja...",
+    "couldNotLoad": "Nije moguće učitati odobrenja",
+    "retry": "Pokušaj ponovo",
+    "decideError": "Nije moguće poslati svoju odluku",
+    "approve": "Odobriti",
+    "reject": "Odbiti",
+    "notePlaceholder": "Neobavezna napomena…",
+    "due": "Rok {{date}}",
+    "pendingSection": "Čekamo vašu odluku",
+    "historySection": "Prethodne odluke",
+    "empty": {
+      "title": "Nema zahtjeva za odobrenje",
+      "description": "Kada vaša tvrtka podnese zahtjev za odobrenje, on će se pojaviti ovdje."
+    },
+    "status": {
+      "draft": "Nacrt",
+      "pending": "Na čekanju",
+      "approved": "Odobreno",
+      "rejected": "Odbijen"
+    }
+  },
+  "documentCategories": {
+    "application": "Primjena",
+    "certificate": "Potvrda",
+    "correspondence": "dopisivanje",
+    "evidence": "Dokaz",
+    "office_action": "Uredska akcija"
+  },
+  "documents": {
+    "allCategories": "Sve kategorije",
+    "allMatters": "Sve je bitno",
+    "description": "Dokumenti koji se dijele u svim vašim predmetima.",
+    "download": "preuzimanje",
+    "empty": "Još nema dokumenata. Dokumenti će se pojaviti ovdje kada ih vaša tvrtka podijeli s vašim predmetima.",
+    "error": "Učitavanje dokumenata nije uspjelo.",
+    "loading": "Učitavanje dokumenata...",
+    "searchPlaceholder": "Pretraživanje dokumenata…",
+    "table": {
+      "category": "Kategorija",
+      "document": "Dokument",
+      "matter": "Materija",
+      "size": "Veličina",
+      "updated": "Ažurirano"
+    },
+    "title": "Moji dokumenti"
+  },
+  "intake": {
+    "description": "Podnesite novi zahtjev za podnošenje ili pregledajte upite koje ste već poslali.",
+    "empty": {
+      "action": "Podnesite upit",
+      "description": "Za početak podnesite zahtjev za zaštitni znak ili patent.",
+      "title": "Još nema upita"
+    },
+    "error": "Nije moguće učitati vaše upite.",
+    "filed": "Podneseno {{date}}",
+    "fileNew": "Podnesite novi upit",
+    "loading": "Učitavanje vaših upita…",
+    "myEnquiries": "Moji upiti",
+    "status": {
+      "accepted": "Prihvaćeno",
+      "inReview": "U pregledu",
+      "matterOpened": "Stvar je otvorena",
+      "notAccepted": "Nije prihvaćeno",
+      "submitted": "Poslano"
+    },
+    "submitted": {
+      "description": "Automatski smo pokrenuli početnu provjeru sukoba. Koordinator će potvrditi i otvoriti vaš predmet. Svoj upit možete pregledati ili urediti bilo kada dok ne bude prihvaćen.",
+      "reviewEnquiry": "Pregledajte ovaj upit",
+      "title": "Upit poslan"
+    },
+    "title": "Upiti",
+    "untitled": "Upit bez naslova"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Povratak na moje upite",
+    "cancel": "Otkazati",
+    "defaultTitle": "Upit",
+    "edit": "Uredi",
+    "editDescription": "Spremanjem će se ažurirati vaš upit i automatski ponovno pokrenuti provjera sukoba.",
+    "editTitle": "Uredi upit",
+    "enquirer": "Upitnik",
+    "enquirerCompany": "Tvrtka",
+    "enquirerIndividual": "Pojedinac",
+    "enquiryDetails": "Detalji upita",
+    "error": "Nije moguće učitati ovaj upit.",
+    "fields": {
+      "companyName": "Naziv tvrtke",
+      "country": "Zemlja",
+      "description": "Opis",
+      "email": "E-mail",
+      "fullName": "Puno ime",
+      "matterType": "Vrsta materije",
+      "otherParties": "Druge stranke",
+      "phone": "Telefon",
+      "urgency": "Hitnost"
+    },
+    "filed": "Podneseno {{date}}",
+    "loading": "Učitavanje upita…",
+    "saveChanges": "Spremite promjene",
+    "statusHints": {
+      "approved": "Vaš upit je prihvaćen i postavlja se kao predmet.",
+      "conflictFlagged": "Koordinator pregledava vaš upit prije nego što može biti prihvaćen.",
+      "converted": "Predmet je otvoren. Možete ga pratiti pod Moji poslovi.",
+      "new": "Primljeno. Provjera sukoba pokrenuta je automatski i koordinator će je uskoro pregledati.",
+      "rejected": "Ovaj upit nije prihvaćen. Kontaktirajte nas ako imate pitanja.",
+      "reviewing": "Koordinator pregledava vaš upit."
+    },
+    "urgency": {
+      "normal": "Normalan",
+      "urgent": "Hitno"
+    },
+    "viewMatter": "Pogledaj stvar"
+  },
+  "invoices": {
+    "description": "Fakture i status plaćanja u svim vašim stvarima.",
+    "error": "Učitavanje faktura nije uspjelo.",
+    "loading": "Učitavanje faktura…",
+    "title": "Moje fakture"
+  },
+  "matterTypes": {
+    "design": "Dizajn",
+    "other": "ostalo",
+    "patent": "Patent",
+    "trademark": "Zaštitni znak",
+    "utility_model": "Korisni model"
+  },
+  "renewals": {
+    "couldNotLoad": "Nije moguće učitati obnove",
+    "cycle": "ciklus {{number}}",
+    "decline": "Pad",
+    "description": "Nadolazeće obnove zaštitnih znakova i dizajna za vaša IP prava.",
+    "due": "Rok {{date}}",
+    "empty": {
+      "description": "Obnove se pojavljuju ovdje nakon što vaša tvrtka registrira IP pravo na jedan od vaših predmeta. Od vas će se tražiti da Nastavite ili Odbijete prije svakog roka obnove.",
+      "title": "Nijedna obnova ne zahtijeva vašu pozornost",
+      "viewDeadlines": "Pogledaj moje rokove",
+      "viewMatters": "Pogledaj moje stvari"
+    },
+    "errorFallback": "Pokušajte ponovno ili se odjavite i ponovno prijavite ako su se dopuštenja promijenila.",
+    "instructionError": "Nije moguće poslati upute",
+    "loading": "učitavanje...",
+    "proceed": "Nastavi",
+    "retry": "Pokušaj ponovo",
+    "title": "Obnove"
+  },
+  "renewalStatus": {
+    "completed": "Završeno",
+    "filed": "Podneseno",
+    "instructed": "Upućen",
+    "lapsed": "Isteklo",
+    "upcoming": "Nadolazeće"
+  },
+  "help": {
+    "title": "Pomoć",
+    "subtitle": "Kako koristiti klijentski portal za svoj IP portfelj.",
+    "enquiriesTitle": "Podnesite upit",
+    "enquiriesBody": "Upotrijebite upite za podnošenje novog zahtjeva za predmet. Tvrtka će pregledati provjere sukoba i pretvoriti odobrene potencijalne klijente u predmete.",
+    "openEnquiries": "Otvoreni upiti",
+    "approvalsTitle": "Odobrenja",
+    "approvalsBody": "Kada tvrtka zatraži vaše odobrenje (na primjer obnove ili upute), odgovorite sa stranice Odobrenja.",
+    "openApprovals": "Otvorena odobrenja",
+    "contactTitle": "Trebate još pomoći?",
+    "contactBody": "Obratite se svom dodijeljenom odvjetniku ili koordinatoru putem poruka ili odgovorite na čvrstu prepisku o određenom pitanju.",
+    "openMessages": "Otvorene poruke"
+  }
+}

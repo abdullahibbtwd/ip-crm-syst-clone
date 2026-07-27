@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Belum selesai",
+    "in_progress": "Sedang berlangsung",
+    "completed": "Selesai",
+    "missed": "terlepas",
+    "escalated": "Ditingkatkan",
+    "superseded": "Digantikan"
+  },
+  "urgency": {
+    "dueToday": "Diperuntukkan hari ini",
+    "overdue": "Tertunggak"
+  },
+  "allDeadlines": {
+    "title": "Semua tarikh akhir",
+    "description": "Daftar tarikh akhir seluruh firma merentasi setiap perkara dan penerima serah hak.",
+    "newDeadline": "Tarikh akhir baharu",
+    "firmDueToday_one": "1 tarikh akhir firma perlu dibuat hari ini dalam semua perkara.",
+    "firmDueToday_other": "{{count}} tarikh akhir firma perlu dibuat hari ini dalam semua perkara.",
+    "filters": {
+      "attorney": "Peguam",
+      "allAttorneys": "Semua peguam",
+      "matterType": "Jenis jirim",
+      "allTypes": "Semua jenis",
+      "jurisdiction": "Bidang kuasa",
+      "allJurisdictions": "Semua bidang kuasa",
+      "status": "Status",
+      "allStatuses": "Semua status",
+      "overdue": "Tertunggak",
+      "dueFrom": "Disebabkan daripada",
+      "dueTo": "Disebabkan"
+    },
+    "loading": "Memuatkan tarikh akhir…",
+    "error": "Gagal memuatkan tarikh akhir.",
+    "table": {
+      "matter": "Perkara",
+      "attorney": "Peguam",
+      "type": "taip",
+      "jurisdiction": "Bidang kuasa",
+      "dueDate": "tarikh tamat tempoh",
+      "grace": "Rahmat",
+      "status": "Status"
+    },
+    "empty": "Tiada tarikh akhir yang sepadan dengan penapis anda.",
+    "previous": "Sebelumnya",
+    "next": "Seterusnya"
+  },
+  "myDeadlines": {
+    "title": "Tarikh akhir saya",
+    "descriptionStaff": "Senarai kerja peribadi anda merentas semua urusan yang diberikan. Kemas kini status di sini tanpa membuka setiap perkara.",
+    "descriptionPortal": "Tarikh akhir yang akan datang dan tertunggak sepanjang urusan anda.",
+    "tabs": {
+      "all": "Semua",
+      "pending": "Belum selesai",
+      "in_progress": "Sedang berlangsung",
+      "overdue": "Tertunggak",
+      "completed": "Selesai"
+    },
+    "loading": "Memuatkan tarikh akhir…",
+    "error": "Gagal memuatkan tarikh akhir.",
+    "table": {
+      "matter": "Perkara",
+      "type": "taip",
+      "jurisdiction": "Bidang kuasa",
+      "dueDate": "tarikh tamat tempoh",
+      "grace": "Rahmat",
+      "status": "Status"
+    },
+    "empty": "Tiada tarikh akhir dalam pandangan ini.",
+    "previous": "Sebelumnya",
+    "next": "Seterusnya"
+  },
+  "widget": {
+    "title": "Tarikh akhir saya",
+    "viewAll": "Lihat semua",
+    "loading": "Menghancurkan data tarikh akhir…",
+    "error": "Tidak dapat memuatkan tarikh akhir.",
+    "empty": "Tiada tarikh akhir akan datang diberikan kepada anda.",
+    "table": {
+      "matterClient": "Perkara & Klien",
+      "deadline": "Tarikh akhir",
+      "dueDateStatus": "Tarikh Akhir & Status"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Diperuntukkan hari ini",
+    "view": "Lihat",
+    "personal_one": "Anda mempunyai 1 tarikh akhir yang perlu dibayar hari ini.",
+    "personal_other": "Anda mempunyai {{count}} tarikh akhir yang perlu dibayar hari ini."
+  }
+}

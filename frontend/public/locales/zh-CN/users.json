@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "正在加载律师...",
+    "placeholder": "选择负责律师",
+    "unassigned": "未分配"
+  },
+  "filters": {
+    "activeOnly": "仅活动",
+    "allStatuses": "所有状态",
+    "inactiveOnly": "仅不活动",
+    "searchPortal": "搜索门户用户...",
+    "searchTeam": "搜索团队成员..."
+  },
+  "invite": {
+    "button": "邀请用户",
+    "cancel": "取消",
+    "clientPlaceholder": "选择客户记录...",
+    "clientRecord": "客户记录",
+    "description": "邀请团队成员或门户客户。 他们将收到一封电子邮件，其中包含用于设置密码或使用 Microsoft 或 Google 登录的链接。",
+    "email": "电子邮件",
+    "emailFailed": "无法发送邀请电子邮件",
+    "emailFailedContinue": "用户已创建 - 关闭并稍后重新发送",
+    "emailFailedTitle": "用户已收到邀请，但无法发送电子邮件。",
+    "emailHint": "将发送一封邀请电子邮件，其中包含用于设置密码的链接。 他们还可以使用此确切的电子邮件登录 Microsoft 或 Google。 如果电子邮件失败，仍会创建用户，您可以从用户列表中重新发送。",
+    "emailPlaceholder": "姓名@company.com",
+    "errors": {
+      "clientRequired": "为门户用户选择客户记录",
+      "failed": "邀请用户失败",
+      "required": "需要电子邮件和全名"
+    },
+    "fullName": "姓名",
+    "fullNamePlaceholder": "简·无名氏",
+    "lastEmailFailed": "上次电子邮件尝试失败",
+    "resend": "重新发送邀请",
+    "resendFailed": "重新发送邀请邮件失败",
+    "resendSuccess": "邀请邮件已发送",
+    "role": "角色",
+    "submit": "发送邀请",
+    "submitting": "邀请…",
+    "title": "邀请用户",
+    "typePortal": "门户客户端",
+    "typeTeam": "队员",
+    "userType": "用户类型"
+  },
+  "layout": {
+    "accessRestricted": "访问受限",
+    "description": "管理内部团队成员和外部门户客户帐户。 按用户显示 SSO 和基于密码的登录。",
+    "noPermission": "您无权查看用户和团队成员。",
+    "title": "用户与团队"
+  },
+  "portal": {
+    "description": "具有对共享事务和文档的门户访问权限的外部客户帐户。",
+    "title": "门户用户"
+  },
+  "role": {
+    "errors": {
+      "failed": "更新角色失败"
+    },
+    "ownRoleHint": "你无法改变自己的角色"
+  },
+  "table": {
+    "authMethod": {
+      "password": "密码",
+      "pending": "待办的",
+      "sso": "单点登录"
+    },
+    "clientRecord": "客户记录",
+    "empty": "没有找到用户",
+    "emptyDescription": "尝试调整搜索或过滤器。",
+    "error": "无法加载用户。",
+    "headers": {
+      "invite": "邀请",
+      "lastLogin": "上次登录",
+      "mfa": "艺术硕士",
+      "registered": "挂号的",
+      "role": "角色",
+      "signIn": "登入",
+      "status": "地位",
+      "user": "用户"
+    },
+    "mfa": {
+      "enabled": "启用",
+      "off": "离开"
+    },
+    "status": {
+      "active": "积极的",
+      "inactive": "不活跃",
+      "invited": "受邀"
+    },
+    "viewAria": "查看{{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "客户账户",
+      "label": "门户用户"
+    },
+    "team": {
+      "description": "内部人员",
+      "label": "团队"
+    }
+  },
+  "team": {
+    "description": "内部员工的角色、登录方法和 MFA 状态。 管理合作伙伴和 IT 管理员可以邀请用户并更改角色。",
+    "title": "团队成员"
+  },
+  "teamMemberSelect": {
+    "loading": "加载中…",
+    "placeholder": "选择团队成员"
+  }
+}

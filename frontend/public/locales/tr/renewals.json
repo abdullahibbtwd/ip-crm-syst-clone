@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Yaklaşan",
+    "instructed": "talimat verildi",
+    "filed": "Dosyalanmış",
+    "completed": "Tamamlanmış",
+    "lapsed": "Süresi dolmuş"
+  },
+  "page": {
+    "title": "Yenilemeler",
+    "descriptionMy": "Size atanan konulardaki yenileme aralıkları.",
+    "descriptionFirm": "Tüm fikri mülkiyet haklarına ilişkin firma çapında yenileme iş listesi.",
+    "filters": {
+      "status": "Durum",
+      "allStatuses": "Tüm durumlar",
+      "jurisdiction": "Yargı yetkisi",
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "assignee": "Vekil",
+      "allAssignees": "Tüm atananlar"
+    },
+    "loading": "Yenilemeler yükleniyor…",
+    "empty": "Filtrelerinizle eşleşen yenileme aralığı yok.",
+    "table": {
+      "ipRight": "IP hakkı",
+      "matter": "Konu",
+      "client": "Müşteri",
+      "cycle": "Döngü",
+      "due": "Vadesi dolmuş",
+      "status": "Durum",
+      "assignee": "Vekil"
+    }
+  },
+  "widget": {
+    "title": "Yaklaşan yenilemeler",
+    "subtitle": "Sonraki 90 günlük talimat hattı",
+    "viewPipeline": "Ardışık düzeni görüntüle",
+    "loading": "Yenileme aralıkları hesaplanıyor…",
+    "error": "Yenileme analizleri yüklenemedi.",
+    "stats": {
+      "totalPipeline": "Toplam Boru Hattı",
+      "activeWindows": "Etkin pencereler",
+      "awaiting": "Bekleniyor",
+      "noInstruction": "Henüz talimat yok",
+      "urgent": "Acil",
+      "due7Days": "Vadesi ≤ 7 gün",
+      "instructed": "talimat verildi",
+      "proceedConfirmed": "Devam onaylandı"
+    },
+    "empty": "Bu pencerede takip edilen yenileme yok.",
+    "table": {
+      "ipAsset": "IP varlığı",
+      "client": "Müşteri",
+      "dueStatus": "Vade / Durum"
+    },
+    "cycle": "Döngü {{number}}"
+  }
+}

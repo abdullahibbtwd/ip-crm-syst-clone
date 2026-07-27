@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Ticari Marka İzleme",
+    "description": "Aktif izleme profillerinde tespit edilen olası çakışmaları inceleyin.",
+    "empty": "Filtrelerinizle eşleşen izleme uyarısı yok.",
+    "loading": "Saat uyarıları yükleniyor…"
+  },
+  "detail": {
+    "title": "Uyarıyı izle",
+    "back": "İzleme çalışma listesine geri dön",
+    "loading": "Uyarı yükleniyor…",
+    "notFound": "Saat uyarısı bulunamadı.",
+    "watchedMark": "İzlendi işareti",
+    "conflictingMark": "Çelişkili işaret",
+    "registrySource": "Kayıt defteri kaynağı",
+    "jurisdiction": "Yargı yetkisi",
+    "applicationNumber": "Başvuru numarası",
+    "similarity": "Benzerlik",
+    "detectedAt": "Saptanmış",
+    "client": "Müşteri",
+    "profile": "Profili izle",
+    "niceClasses": "Güzel dersler",
+    "reject": "Uyarıyı reddet",
+    "accept": "Kabul et ve konuyu oluştur",
+    "rejectConfirm": "Bu uyarı yanlış pozitif olarak işaretlensin mi?",
+    "acceptConfirm": "Bu uyarıdan bir itiraz konusu oluşturulsun mu?",
+    "triagedBy": "{{name}} tarafından tetiklendi",
+    "linkedMatter": "Bağlantılı konu"
+  },
+  "clientTab": {
+    "title": "Profilleri izle",
+    "description": "Kanonik yetki kodlarını (BG, AB, EP) kullanarak kayıtlardaki markaları izleyin.",
+    "add": "Ticari marka izleme ekle",
+    "empty": "Henüz izleme profili yok. Bu müşterinin notlarını izlemeye başlamak için bir profil ekleyin.",
+    "loading": "İzleme profilleri yükleniyor…",
+    "pause": "Duraklat",
+    "resume": "Sürdürmek",
+    "archive": "Arşiv",
+    "epoScan": "Uyarılar için EPO'yu tarayın",
+    "epoScanning": "EPO taranıyor…",
+    "epoScanSuccess": "{{profiles}} profillerinden {{alerts}} yeni EPO uyarısı oluşturuldu.",
+    "epoScanFailed": "EPO izleme taraması başarısız oldu",
+    "viewAlerts": "Saat uyarılarını görüntüle"
+  },
+  "drawer": {
+    "title": "Ticari marka izleme ekle",
+    "markText": "Metni işaretle *",
+    "markPlaceholder": "örneğin Coca-Cola",
+    "jurisdictions": "Yargı bölgeleri *",
+    "jurisdictionsHint": "Kanonik kodlar – kayıt defteri adları değil. BPO saatleri BG kullanır; EUIPO saatleri AB'yi kullanıyor.",
+    "niceClasses": "Güzel dersler",
+    "niceClassesPlaceholder": "örneğin 32, 33",
+    "frequency": "Tarama frekansı",
+    "save": "İzleme profilini kaydet"
+  },
+  "filters": {
+    "status": "Durum",
+    "jurisdiction": "Yargı yetkisi",
+    "source": "Kayıt defteri kaynağı",
+    "minSimilarity": "Minimum benzerlik",
+    "anySimilarity": "Herhangi bir benzerlik",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Göre sırala",
+    "sortDetected": "Önce en yeni",
+    "sortSimilarity": "En yüksek benzerlik",
+    "all": "Tüm"
+  },
+  "stats": {
+    "new": "Yeni uyarılar",
+    "accepted": "Kabul edildi",
+    "rejected": "Reddedilmiş"
+  },
+  "profileStatus": {
+    "active": "Aktif",
+    "paused": "Duraklatıldı",
+    "archived": "Arşivlendi"
+  },
+  "alertStatus": {
+    "new": "Yeni",
+    "rejected": "Reddedilmiş",
+    "accepted": "Kabul edildi"
+  },
+  "frequency": {
+    "daily": "Günlük",
+    "weekly": "Haftalık"
+  },
+  "table": {
+    "mark": "İzlendi işareti",
+    "conflict": "Anlaşmazlık",
+    "client": "Müşteri",
+    "similarity": "Benzerlik",
+    "source": "Kaynak",
+    "jurisdiction": "Yargı yetkisi",
+    "status": "Durum",
+    "detected": "Saptanmış",
+    "frequency": "Sıklık",
+    "classes": "Sınıflar",
+    "profiles": "Profiller",
+    "actions": "Eylemler"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "管理公司和个人客户记录。 新客户是通过吸收而创建的。",
+    "emptyDescription": "尝试调整过滤器或通过摄入创建客户。",
+    "emptyTitle": "没有找到客户",
+    "error": "无法加载客户端。",
+    "newViaIntake": "通过吸纳新客户",
+    "perPage": "每页 {{count}}",
+    "searchPlaceholder": "搜索名称或代码...",
+    "title": "客户",
+    "viewAria": "查看{{name}}"
+  },
+  "contacts": {
+    "add": "添加联系人",
+    "drawerTitle": "添加联系人",
+    "email": "电子邮件",
+    "empty": "未找到联系人。",
+    "firstName": "名 *",
+    "lastName": "姓 *",
+    "loading": "正在加载联系人...",
+    "remove": "消除",
+    "role": {
+      "all": "全部",
+      "billing": "计费",
+      "conflict": "冲突",
+      "general": "一般的",
+      "primary": "基本的"
+    },
+    "save": "保存联系方式",
+    "table": {
+      "email": "电子邮件",
+      "name": "姓名",
+      "office": "办公室",
+      "phone": "电话",
+      "role": "角色"
+    }
+  },
+  "countrySelect": {
+    "empty": "没有找到国家",
+    "none": "没有任何",
+    "placeholder": "选择国家",
+    "search": "搜索国家..."
+  },
+  "drawer": {
+    "closeAria": "关闭抽屉"
+  },
+  "holdingGroups": {
+    "back": "← 返回控股集团",
+    "clientsUnder": "该组下的客户",
+    "create": "创建控股集团",
+    "creating": "创造……",
+    "description": "相关客户实体的父保护伞。",
+    "descriptionField": "描述",
+    "detailDescription": "为相关客户端实体创建父保护伞。",
+    "empty": "未找到控股集团",
+    "emptyClients": "尚未链接任何客户。",
+    "emptyDescription": "尝试调整搜索或创建新的保留组。",
+    "error": "无法加载保留组。",
+    "formError": "创建控股组失败",
+    "name": "姓名 *",
+    "namePlaceholder": "例如 艾克米集团有限公司",
+    "new": "新控股集团",
+    "notesPlaceholder": "有关此控股结构的可选说明",
+    "notFound": "未找到持有组。",
+    "allGroups": "所有控股集团",
+    "perPage": "每页 {{count}}",
+    "searchPlaceholder": "搜索名称或国家/地区...",
+    "title": "控股集团",
+    "viewAria": "查看{{name}}"
+  },
+  "layout": {
+    "backToClients": "← 返回客户"
+  },
+  "offices": {
+    "add": "添加办公室",
+    "city": "城市",
+    "drawerTitle": "添加办公室",
+    "empty": "还没有办公室。",
+    "errorPrimary": "设置主要办公室失败",
+    "label": "标签 *",
+    "loading": "正在加载办公室...",
+    "noAddress": "无地址",
+    "primary": "基本的",
+    "remove": "消除",
+    "save": "节省办公室",
+    "setPrimary": "设为主要办公室",
+    "setPrimaryAction": "设置主要",
+    "title": "办事处"
+  },
+  "overview": {
+    "assignedTo": "分配给",
+    "cancel": "取消",
+    "companyName": "公司名称 *",
+    "country": "国家",
+    "edit": "编辑",
+    "exportClientData": "导出客户数据",
+    "error": "无法加载客户端配置文件。",
+    "errorSave": "保存客户端失败",
+    "firstName": "名 *",
+    "gdprConsent": "GDPR 同意",
+    "holdingGroup": "控股集团",
+    "lastName": "姓 *",
+    "legalForm": "法律形式",
+    "loading": "正在加载个人资料...",
+    "none": "没有任何",
+    "notes": "笔记",
+    "registrationNo": "注册号",
+    "save": "保存更改",
+    "saving": "保存…",
+    "status": "地位",
+    "type": "类型",
+    "validation": {
+      "companyName": "公司名称为必填项",
+      "name": "姓名为必填项",
+      "website": "网站必须以 http:// 或 https:// 开头"
+    },
+    "vatNo": "增值税号",
+    "website": "网站",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "添加关联公司",
+    "drawerTitle": "添加关联公司",
+    "empty": "没有关联的相关公司。",
+    "externalName": "外部名称",
+    "existingClient": "现有客户",
+    "linkType": "链接类型",
+    "loading": "加载中…",
+    "notes": "笔记",
+    "notesPlaceholder": "可选上下文",
+    "relationship": "关系 *",
+    "remove": "消除",
+    "save": "保存关联公司",
+    "searchClients": "搜索客户 *",
+    "searchPlaceholder": "按名称或代码搜索...",
+    "noClients": "没有找到客户",
+    "companyName": "公司名称 *",
+    "table": {
+      "name": "姓名",
+      "notes": "笔记",
+      "relationship": "关系"
+    },
+    "title": "相关公司"
+  },
+  "relationship": {
+    "affiliate": "附属机构",
+    "parent": "家长",
+    "subsidiary": "子公司"
+  },
+  "history": {
+    "empty": "还没有历史记录。",
+    "loadMore": "加载更多",
+    "loading": "加载历史记录...",
+    "title": "关系史"
+  },
+  "matters": {
+    "empty": "还没有什么关系。 立案以开始对该客户的起诉工作。",
+    "loading": "加载事宜...",
+    "openNew": "开启新事",
+    "table": {
+      "assigned": "已分配",
+      "jurisdictions": "司法管辖区",
+      "status": "地位",
+      "title": "标题",
+      "type": "类型"
+    },
+    "title": "事项"
+  },
+  "accessHistory": {
+    "title": "数据访问历史记录",
+    "subtitle": "查看或导出该客户的个人数据的员工。",
+    "loading": "正在加载访问历史记录...",
+    "loadFailed": "无法加载访问历史记录。",
+    "empty": "尚未记录访问事件。",
+    "systemUser": "系统",
+    "columns": {
+      "when": "什么时候",
+      "user": "用户",
+      "action": "行动",
+      "ip": "知识产权"
+    }
+  },
+  "billing": {
+    "byMatter": "按物质",
+    "error": "无法加载账单数据。",
+    "loading": "正在加载帐单...",
+    "noPermission": "您无权查看该客户的帐单。",
+    "title": "计费",
+    "wipDescription": "该客户的正在进行的工作和未开票金额。",
+    "wipDescriptionLong": "该客户所有事务的正在进行的工作和可计费总计。",
+    "matterTable": {
+      "matter": "事情",
+      "type": "类型",
+      "status": "地位",
+      "billableHours": "计费时间",
+      "total": "全部的",
+      "unbilled": "未开票",
+      "empty": "还没有什么关系。 打开问题以开始跟踪计费工作。"
+    }
+  },
+  "sidebar": {
+    "country": "国家：",
+    "loading": "加载中…",
+    "primaryContact": "主要联系人",
+    "primaryOffice": "主要办公室",
+    "viewProfile": "查看完整档案"
+  },
+  "status": {
+    "active": "积极的",
+    "archived": "已存档",
+    "inactive": "不活跃",
+    "prospect": "前景"
+  },
+  "table": {
+    "action": "行动",
+    "client": "客户",
+    "country": "国家",
+    "created": "已创建",
+    "holdingGroup": "控股集团",
+    "status": "地位",
+    "type": "类型"
+  },
+  "tabs": {
+    "accessHistory": "访问历史记录",
+    "billing": "计费",
+    "contacts": "联系方式",
+    "history": "历史",
+    "matters": "事项",
+    "watch": "手表",
+    "offices": "办事处",
+    "overview": "概述",
+    "related": "有关的"
+  },
+  "type": {
+    "company": "公司",
+    "individual": "个人"
+  },
+  "unnamedClient": "未透露姓名的客户"
+}

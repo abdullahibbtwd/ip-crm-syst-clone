@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Client",
+  "disbursements": {
+    "title": "Debursări",
+    "subtitle": "Taxe fixe la nivel de firmă clasificate ca plăți.",
+    "loadFailed": "Nu s-au încărcat plățile.",
+    "empty": "Nu s-au găsit plăți.",
+    "columns": {
+      "date": "Data",
+      "matter": "materie",
+      "description": "Descriere",
+      "amount": "Cantitate"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Debursare",
+    "expense": "Cheltuiala",
+    "professional_fee": "Onorariu profesional"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Descărcați",
+      "issue": "Emisiune",
+      "pay": "Plată",
+      "void": "Vidul"
+    },
+    "confirmIssue": "Emiteți această factură?",
+    "confirmVoid": "Anulați această factură? Acest lucru nu poate fi anulat.",
+    "createFromUnbilled": "Creați factură din nefacturat",
+    "description": "Urmăriți facturile emise, starea plăților și soldurile restante.",
+    "draft": "Proiect",
+    "empty": "Nu au fost găsite facturi",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați o factură din munca nefacturată.",
+    "error": "Nu s-au încărcat facturile.",
+    "invoiceStatus": {
+      "draft": "Proiect",
+      "issued": "Emis",
+      "void": "Vidul"
+    },
+    "loading": "Se încarcă facturile...",
+    "noPermission": "Nu aveți permisiunea de a vizualiza facturile.",
+    "searchPlaceholder": "Cauta factura nr. sau client...",
+    "sectionTitle": "Facturi",
+    "table": {
+      "amount": "Cantitate",
+      "client": "Client",
+      "due": "Datorită",
+      "invoiceNo": "Factura nr.",
+      "issued": "Emis",
+      "payment": "Plată",
+      "status": "Stare"
+    },
+    "title": "Facturi",
+    "listSubtitle": "Registrul de facturi la nivel de firmă pentru toate problemele. Emiteți facturi din filele de facturare, apoi înregistrați plățile aici.",
+    "exportFrom": "Export de la",
+    "exportTo": "Exportați către",
+    "exportFormats": {
+      "journal": "Jurnalul CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Exportator…",
+    "exportFailed": "Exportul contabil nu a reușit",
+    "syncXero": "Sincronizați Xero",
+    "syncQuickBooks": "Sincronizați QuickBooks",
+    "syncFailed": "Sincronizarea contabilă a eșuat",
+    "searchListPlaceholder": "Cauta factura nr., chestiune, client...",
+    "filters": {
+      "allPayments": "Toate plățile",
+      "allStatuses": "Toate stările"
+    }
+  },
+  "payment": {
+    "amount": "Suma *",
+    "balance": "Echilibrul remarcabil",
+    "date": "Data platii *",
+    "drawerTitle": "Înregistrează plata",
+    "error": "Nu s-a înregistrat plata",
+    "method": "Modalitate de plată *",
+    "methods": {
+      "bank_transfer": "Transfer bancar",
+      "card": "Card",
+      "cash": "Numerar",
+      "other": "Alte"
+    },
+    "notes": "Note",
+    "reference": "Referinţă",
+    "save": "Înregistrează plata",
+    "success": "Plata a fost înregistrată cu succes.",
+    "validation": {
+      "amount": "Suma trebuie să fie mai mare decât zero",
+      "exceeds": "Suma depășește soldul restant"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Plătit",
+    "partial": "Plătit parțial",
+    "unpaid": "Neplătit"
+  },
+  "rateCards": {
+    "any": "Orice",
+    "create": "Creați tariful",
+    "description": "Configurați tarifele de facturare în funcție de rol, tip de subiect și data de intrare în vigoare.",
+    "drawerTitle": "Noul tarif",
+    "drawerTitleEdit": "Editați cardul de prețuri",
+    "effectiveFrom": "În vigoare de la *",
+    "effectiveTo": "Eficient pentru",
+    "error": "Nu s-a salvat tariful",
+    "firmWide": "Întreaga firmă",
+    "internalCost": "Cost intern/h",
+    "matterType": "Tipul materiei",
+    "new": "Noul tarif",
+    "noPermission": "Nu aveți permisiunea de a gestiona tarifele.",
+    "viewNoPermission": "Nu aveți permisiunea de a vizualiza listele de tarife.",
+    "rate": "Tarif/h*",
+    "role": "Rol *",
+    "save": "Salvați modificările",
+    "scope": "Domeniul de aplicare",
+    "table": {
+      "effective": "Eficient",
+      "internalCost": "Costul intern",
+      "matterType": "Tipul materiei",
+      "rate": "Rata",
+      "role": "Rol",
+      "scope": "Domeniul de aplicare"
+    },
+    "title": "Carduri de cote",
+    "pageDescription": "Listă de prețuri fermă în funcție de rol, tip de problemă și de modificare opțională a clientului. Rata facturabilă este utilizată la înregistrarea timpului; costurile interne opționale generează o marjă reală de profitabilitate.",
+    "anyMatterType": "Orice tip de materie",
+    "clientOverride": "Suprascrierea clientului",
+    "firmWideDefault": "Implicit la nivel de firmă",
+    "editAria": "Editați cardul de prețuri",
+    "loadFailed": "Nu s-au încărcat tarifele.",
+    "loading": "Se încarcă tarifele...",
+    "empty": "Încă nu există liste de tarife.",
+    "billable": "Facturabil",
+    "validation": {
+      "hourlyRate": "Introduceți un tarif orar valid",
+      "internalCost": "Introduceți un cost intern valid sau lăsați necompletat"
+    },
+    "internalCostHint": "Opțional. Folosit pentru profitabilitate cu marja reală atunci când este stabilită pe listele de tarife.",
+    "billableRate": "Rată facturabilă (EUR/h)",
+    "internalCostOptional": "Cost intern (EUR/h)",
+    "internalCostPlaceholder": "Opțional - pentru raportarea marjei",
+    "internalCostResolutionHint": "Oglindește rezoluția ratei de facturare (client → firmă + tip de problemă → implicită firmă). Instantaneu pentru noile intrări de timp ca cost_snapshot.",
+    "effectiveToOptional": "Eficient pentru (opțional)"
+  },
+  "rateRole": {
+    "coordinator": "Coordonator",
+    "ip_attorney": "avocat IP",
+    "managing_partner": "Partener de conducere",
+    "paralegal": "Paralegal",
+    "trademark_attorney": "Avocat în mărci comerciale"
+  },
+  "billingOverview": {
+    "collectedHint": "Adunate în perioada",
+    "collectedLabel": "Colectat",
+    "criticalHint": "Întârziat de peste 60 de zile",
+    "criticalLabel": "Risc critic",
+    "description": "Sănătatea veniturilor (facturi) plus gradul de pregătire pentru tarife (tarifele + acoperirea costurilor interne).",
+    "error": "Nu s-a încărcat prezentarea generală a facturării.",
+    "invoicedHint": "{{count}} facturi în perioada",
+    "invoicedLabel": "Facturat",
+    "internalCostHintRevenue": "Baza de proxy venituri",
+    "internalCostHintTrueMargin": "Baza de marjă reală este activată",
+    "internalCostLabel": "Costul intern",
+    "manageRateCards": "Gestionați tarifele",
+    "nextStep": "Următorul pas",
+    "nextStepFix": "Fixați acoperirea ratelor în /rate-cards",
+    "nextStepHealthy": "Acoperirea tarifelor este sănătoasă",
+    "nextStepHint": "Rezumatele de facturare vor fi mai precise atunci când fiecare intrare de timp facturabil se rezolvă la o rată.",
+    "noPermissionBilling": "Nu aveți permisiunea de a vedea facturarea.",
+    "noPermissionInvoice": "Nu aveți permisiunea de a vizualiza datele facturii.",
+    "openFullReport": "Deschideți raportul complet",
+    "outstandingHint": "{{count}} creanțe deschise",
+    "outstandingLabel": "Remarcabil",
+    "rateCardHealth": "Sănătatea cardului de tarife",
+    "rateCardHealthDescription": "Sunt configurate ratele de facturare și sunt gata marjele?",
+    "rateCardsHintConfigured": "Tarife disponibile",
+    "rateCardsHintMissing": "Nu au fost configurate tarife",
+    "rateCardsLabel": "Carduri de cote",
+    "receivablesAging": "Îmbătrânirea creanțelor",
+    "receivablesHint": "Utilizați raportul complet pentru tabele și detalii.",
+    "tip": "Sfat: costul intern de pe ratele controlează dacă sistemul poate calcula profitabilitatea marjei reale.",
+    "title": "Prezentare generală a facturării",
+    "unratedHintBad": "Unele intrări facturabile au un instantaneu al ratei de 0 EUR",
+    "unratedHintGood": "Arată bine",
+    "unratedLabel": "Intrări de timp neevaluate"
+  },
+  "summary": {
+    "billable": "Facturabil",
+    "billableAmount": "Sumă facturabilă",
+    "fixedFees": "Taxe fixe",
+    "total": "Total",
+    "totalHours": "Total ore",
+    "unbilled": "Nefacturat"
+  }
+}

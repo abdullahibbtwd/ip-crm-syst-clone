@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Warnungen",
+    "description": "Überfällige, heute fällige und dringende Elemente sowie ungelesene Benachrichtigungen."
+  },
+  "sections": {
+    "overdue": "Überfällig",
+    "today": "Heute fällig",
+    "urgent": "Dringend",
+    "notifications": "Benachrichtigungen"
+  },
+  "empty": {
+    "notifications": "Keine Benachrichtigungen",
+    "urgent": "Keine dringenden Artikel",
+    "overdue": "Keine überfälligen Artikel",
+    "today": "Heute sind keine Artikel fällig"
+  }
+}

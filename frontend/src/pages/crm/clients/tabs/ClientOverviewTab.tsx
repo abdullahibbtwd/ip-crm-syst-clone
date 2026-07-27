@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useOutletContext } from 'react-router-dom'
 import { Download, Pencil, X } from 'lucide-react'
 import { ClientStatusBadge } from '@/components/crm/ClientStatusBadge'
@@ -21,7 +22,7 @@ import { useExportClientData } from '@/features/compliance/hooks/useCompliance'
 import { useClient, useUpdateClient } from '@/features/crm/hooks/useClients'
 import { useHoldingGroups } from '@/features/crm/hooks/useHoldingGroups'
 import type { ClientDetail, ClientStatus } from '@/features/crm/types'
-import { CLIENT_STATUS_LABELS, CLIENT_TYPE_LABELS } from '@/features/crm/utils'
+import { clientStatusLabel, clientTypeLabel } from '@/features/crm/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { canViewGdprCompliance } from '@/lib/rbac'
 import { getCountryLabel } from '@/lib/countries'
@@ -29,14 +30,19 @@ import type { ClientTabContext } from '../ClientLayout'
 
 const NO_HOLDING_GROUP = '__none__'
 
+function withoutRequiredMarker(label: string) {
+  return label.replace(/\s+\*$/, '')
+}
+
 export function ClientOverviewTab() {
+  const { t } = useTranslation('crm')
   const { clientId } = useOutletContext<ClientTabContext>()
   const { data: client, isLoading, isError } = useClient(clientId)
   const [editing, setEditing] = useState(false)
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading profile…</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('overview.loading')}</p>
   if (isError || !client) {
-    return <p className="text-sm text-destructive">Failed to load client profile.</p>
+    return <p className="text-sm text-destructive">{t('overview.error')}</p>
   }
 
   return (
@@ -63,6 +69,7 @@ function ClientOverviewCard({
   onCancel: () => void
   onSaved: () => void
 }) {
+  const { t } = useTranslation(['crm', 'common'])
   const updateClient = useUpdateClient(client.id)
   const exportData = useExportClientData(client.id)
   const { user } = useAuth()
@@ -104,15 +111,15 @@ function ClientOverviewCard({
     setError(null)
 
     if (client.type === 'company' && !companyName.trim()) {
-      setError('Company name is required')
+      setError(t('overview.validation.companyName'))
       return
     }
     if (client.type === 'individual' && (!firstName.trim() || !lastName.trim())) {
-      setError('First and last name are required')
+      setError(t('overview.validation.name'))
       return
     }
     if (website.trim() && !/^https?:\/\/.+/i.test(website.trim())) {
-      setError('Website must start with http:// or https://')
+      setError(t('overview.validation.website'))
       return
     }
 
@@ -137,7 +144,7 @@ function ClientOverviewCard({
       })
       onSaved()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to save client'))
+      setError(getApiErrorMessage(err, t('overview.errorSave')))
     }
   }
 
@@ -151,7 +158,7 @@ function ClientOverviewCard({
               {!editing && <ClientStatusBadge status={client.status} />}
               {!editing && (
                 <Badge variant="outline" className="normal-case">
-                  {CLIENT_TYPE_LABELS[client.type]}
+                  {clientTypeLabel(client.type)}
                 </Badge>
               )}
             </div>
@@ -179,13 +186,13 @@ function ClientOverviewCard({
                   }}
                 >
                   <Download className="size-4" />
-                  Export client data
+                  {t('overview.exportClientData')}
                 </Button>
               ) : null}
               <PermissionGate resource="client" action="update">
                 <Button type="button" variant="outline" size="sm" onClick={onEdit}>
                   <Pencil className="size-4" />
-                  Edit
+                  {t('overview.edit')}
                 </Button>
               </PermissionGate>
             </div>
@@ -197,72 +204,72 @@ function ClientOverviewCard({
         {editing ? (
           <form onSubmit={handleSave} className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Status">
+              <Field label={t('overview.status')}>
                 <Select value={status} onValueChange={(v) => setStatus(v as ClientStatus)}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {(Object.keys(CLIENT_STATUS_LABELS) as ClientStatus[]).map((s) => (
+                    {(['prospect', 'active', 'inactive', 'archived'] as ClientStatus[]).map((s) => (
                       <SelectItem key={s} value={s}>
-                        {CLIENT_STATUS_LABELS[s]}
+                        {clientStatusLabel(s)}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </Field>
 
-              <Field label="Country">
+              <Field label={t('overview.country')}>
                 <CountrySelect value={country} onValueChange={setCountry} />
               </Field>
 
               {client.type === 'company' ? (
                 <>
-                  <Field label="Company name *" className="sm:col-span-2">
+                  <Field label={t('overview.companyName')} className="sm:col-span-2">
                     <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
                   </Field>
-                  <Field label="Legal form">
+                  <Field label={t('overview.legalForm')}>
                     <Input value={legalForm} onChange={(e) => setLegalForm(e.target.value)} />
                   </Field>
-                  <Field label="Registration no.">
+                  <Field label={t('overview.registrationNo')}>
                     <Input
                       value={registrationNo}
                       onChange={(e) => setRegistrationNo(e.target.value)}
                     />
                   </Field>
-                  <Field label="VAT no.">
+                  <Field label={t('overview.vatNo')}>
                     <Input value={vatNo} onChange={(e) => setVatNo(e.target.value)} />
                   </Field>
                 </>
               ) : (
                 <>
-                  <Field label="First name *">
+                  <Field label={t('overview.firstName')}>
                     <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                   </Field>
-                  <Field label="Last name *">
+                  <Field label={t('overview.lastName')}>
                     <Input value={lastName} onChange={(e) => setLastName(e.target.value)} />
                   </Field>
                 </>
               )}
 
-              <Field label="Website" className="sm:col-span-2">
+              <Field label={t('overview.website')} className="sm:col-span-2">
                 <Input
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
-                  placeholder="https://"
+                  placeholder={t('overview.websitePlaceholder')}
                 />
               </Field>
 
-              <Field label="Holding group" className="sm:col-span-2">
+              <Field label={t('overview.holdingGroup')} className="sm:col-span-2">
                 <Select
                   value={holdingGroupId}
                   onValueChange={(v) => setHoldingGroupId(v ?? NO_HOLDING_GROUP)}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="None" />
+                    <SelectValue placeholder={t('overview.none')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value={NO_HOLDING_GROUP}>None</SelectItem>
+                    <SelectItem value={NO_HOLDING_GROUP}>{t('overview.none')}</SelectItem>
                     {holdingGroups?.items.map((g) => (
                       <SelectItem key={g.id} value={g.id}>
                         {g.name}
@@ -272,7 +279,7 @@ function ClientOverviewCard({
                 </Select>
               </Field>
 
-              <Field label="Notes" className="sm:col-span-2">
+              <Field label={t('overview.notes')} className="sm:col-span-2">
                 <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} />
               </Field>
             </div>
@@ -281,11 +288,11 @@ function ClientOverviewCard({
 
             <div className="flex gap-2">
               <Button type="submit" disabled={updateClient.isPending}>
-                {updateClient.isPending ? 'Saving…' : 'Save changes'}
+                {updateClient.isPending ? t('overview.saving') : t('overview.save')}
               </Button>
               <Button type="button" variant="ghost" onClick={onCancel} disabled={updateClient.isPending}>
                 <X className="size-4" />
-                Cancel
+                {t('overview.cancel')}
               </Button>
             </div>
           </form>
@@ -293,25 +300,25 @@ function ClientOverviewCard({
           <div className="grid gap-4 sm:grid-cols-2 text-sm">
             {client.type === 'company' ? (
               <>
-                <ReadField label="Company name" value={client.companyName} />
-                <ReadField label="Legal form" value={client.legalForm} />
-                <ReadField label="Registration no." value={client.registrationNo} />
-                <ReadField label="VAT no." value={client.vatNo} />
+                <ReadField label={withoutRequiredMarker(t('overview.companyName'))} value={client.companyName} />
+                <ReadField label={t('overview.legalForm')} value={client.legalForm} />
+                <ReadField label={t('overview.registrationNo')} value={client.registrationNo} />
+                <ReadField label={t('overview.vatNo')} value={client.vatNo} />
               </>
             ) : (
               <>
-                <ReadField label="First name" value={client.firstName} />
-                <ReadField label="Last name" value={client.lastName} />
+                <ReadField label={withoutRequiredMarker(t('overview.firstName'))} value={client.firstName} />
+                <ReadField label={withoutRequiredMarker(t('overview.lastName'))} value={client.lastName} />
               </>
             )}
             <ReadField
-              label="Country"
+              label={t('overview.country')}
               value={client.country ? getCountryLabel(client.country) : null}
             />
-            <ReadField label="Website" value={client.website} />
-            <ReadField label="Assigned to" value={client.assignedUser?.fullName} />
+            <ReadField label={t('overview.website')} value={client.website} />
+            <ReadField label={t('overview.assignedTo')} value={client.assignedUser?.fullName} />
             <ReadField
-              label="Holding group"
+              label={t('overview.holdingGroup')}
               value={
                 client.holdingGroup ? (
                   <Link
@@ -323,10 +330,13 @@ function ClientOverviewCard({
                 ) : null
               }
             />
-            <ReadField label="GDPR consent" value={client.gdprConsent ? 'Yes' : 'No'} />
+            <ReadField
+              label={t('overview.gdprConsent')}
+              value={client.gdprConsent ? t('yesNo.yes', { ns: 'common' }) : t('yesNo.no', { ns: 'common' })}
+            />
             {client.notes && (
               <div className="sm:col-span-2">
-                <ReadField label="Notes" value={client.notes} />
+                <ReadField label={t('overview.notes')} value={client.notes} />
               </div>
             )}
           </div>
@@ -354,10 +364,11 @@ function Field({
 }
 
 function ReadField({ label, value }: { label: string; value: React.ReactNode }) {
+  const { t } = useTranslation('common')
   return (
     <div>
       <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>
-      <p className="mt-0.5">{value ?? '-'}</p>
+      <p className="mt-0.5">{value ?? t('yesNo.dash')}</p>
     </div>
   )
 }

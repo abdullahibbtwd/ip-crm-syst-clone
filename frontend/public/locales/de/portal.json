@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Reichen Sie neue Anmeldeanfragen ein und verfolgen Sie die in Ihrer Organisation eröffneten Angelegenheiten. Ihr Portfolio auf einen Blick.",
+    "eyebrow": "Kundenportal",
+    "filePatent": "Ein Patent anmelden",
+    "fileTrademark": "Melden Sie eine Marke an",
+    "stats": {
+      "activeMatters": "Aktive Angelegenheiten",
+      "activeMattersHint": "Organisationsportfolio",
+      "openDeadlines": "Offene Fristen",
+      "openDeadlinesHint": "Warten auf Aktion",
+      "overdue": "Überfällig",
+      "overdueCurrent": "Alles aktuell",
+      "overdueUrgent": "Dringende Aufmerksamkeit",
+      "renewals": "Erneuerungen",
+      "renewalsCurrent": "Wartungsstrom",
+      "renewalsNeedAction_one": "{{count}} muss gehandelt werden",
+      "renewalsNeedAction_other": "{{count}} muss gehandelt werden"
+    },
+    "title": "Willkommen zurück"
+  },
+  "correspondence": {
+    "title": "Nachrichten",
+    "description": "Korrespondenz, die Ihr Unternehmen mit Ihnen geteilt hat.",
+    "loading": "Nachrichten werden geladen…",
+    "error": "Nachrichten konnten nicht geladen werden.",
+    "empty": "Noch keine Nachrichten. Geteilte Korrespondenz wird hier angezeigt.",
+    "table": {
+      "subject": "Thema",
+      "date": "Datum",
+      "direction": "Richtung",
+      "matter": "Gegenstand"
+    }
+  },
+  "messages": {
+    "title": "Nachrichten",
+    "description": "Firmenübertragungen und Sachmitteilungen, die mit Ihrer Organisation geteilt werden.",
+    "loading": "Nachrichten werden geladen…",
+    "loadingDetail": "Öffnung…",
+    "error": "Nachrichten konnten nicht geladen werden.",
+    "empty": "Noch keine Nachrichten. Firmenaktualisierungen und gemeinsame Korrespondenz werden hier angezeigt.",
+    "selectHint": "Wählen Sie eine Nachricht aus, um sie zu lesen.",
+    "unread": "Ungelesen",
+    "relatedMatter": "Gegenstand",
+    "noBody": "Kein Nachrichtentext.",
+    "openLink": "Nachrichtenlink öffnen",
+    "kindBroadcast": "Übertragen",
+    "kindCorrespondence": "Gegenstand",
+    "table": {
+      "type": "Typ",
+      "subject": "Thema",
+      "date": "Datum",
+      "matter": "Gegenstand"
+    }
+  },
+  "approvals": {
+    "title": "Zulassungen",
+    "description": "Prüfen und entscheiden Sie über Genehmigungsanfragen Ihres Unternehmens.",
+    "loading": "Genehmigungen werden geladen…",
+    "couldNotLoad": "Genehmigungen konnten nicht geladen werden",
+    "retry": "Wiederholen",
+    "decideError": "Ihre Entscheidung konnte nicht übermittelt werden",
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "notePlaceholder": "Optionaler Hinweis…",
+    "due": "Fällig {{date}}",
+    "pendingSection": "Ich warte auf Ihre Entscheidung",
+    "historySection": "Frühere Entscheidungen",
+    "empty": {
+      "title": "Keine Genehmigungsanfragen",
+      "description": "Wenn Ihr Unternehmen einen Genehmigungsantrag einreicht, wird dieser hier angezeigt."
+    },
+    "status": {
+      "draft": "Entwurf",
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt"
+    }
+  },
+  "documentCategories": {
+    "application": "Anwendung",
+    "certificate": "Zertifikat",
+    "correspondence": "Korrespondenz",
+    "evidence": "Beweis",
+    "office_action": "Amtshandlung"
+  },
+  "documents": {
+    "allCategories": "Alle Kategorien",
+    "allMatters": "Alles zählt",
+    "description": "Gemeinsam genutzte Dokumente für alle Ihre Angelegenheiten.",
+    "download": "Herunterladen",
+    "empty": "Noch keine Dokumente. Dokumente werden hier angezeigt, wenn Ihr Unternehmen sie zu Ihren Angelegenheiten teilt.",
+    "error": "Dokumente konnten nicht geladen werden.",
+    "loading": "Dokumente werden geladen…",
+    "searchPlaceholder": "Dokumente durchsuchen…",
+    "table": {
+      "category": "Kategorie",
+      "document": "Dokumentieren",
+      "matter": "Gegenstand",
+      "size": "Größe",
+      "updated": "Aktualisiert"
+    },
+    "title": "Meine Dokumente"
+  },
+  "intake": {
+    "description": "Stellen Sie einen neuen Einreichungsantrag oder überprüfen Sie die bereits eingereichten Anfragen.",
+    "empty": {
+      "action": "Stellen Sie eine Anfrage",
+      "description": "Reichen Sie zunächst eine Marken- oder Patentanfrage ein.",
+      "title": "Noch keine Anfragen"
+    },
+    "error": "Ihre Anfragen konnten nicht geladen werden.",
+    "filed": "Eingereicht {{date}}",
+    "fileNew": "Stellen Sie eine neue Anfrage",
+    "loading": "Ihre Anfragen werden geladen…",
+    "myEnquiries": "Meine Anfragen",
+    "status": {
+      "accepted": "Akzeptiert",
+      "inReview": "Im Rückblick",
+      "matterOpened": "Materie geöffnet",
+      "notAccepted": "Nicht akzeptiert",
+      "submitted": "Eingereicht"
+    },
+    "submitted": {
+      "description": "Wir haben automatisch eine erste Konfliktprüfung durchgeführt. Ein Koordinator wird Ihre Angelegenheit bestätigen und eröffnen. Sie können Ihre Anfrage bis zur Annahme jederzeit überprüfen oder bearbeiten.",
+      "reviewEnquiry": "Überprüfen Sie diese Anfrage",
+      "title": "Anfrage eingereicht"
+    },
+    "title": "Anfragen",
+    "untitled": "Unbenannte Anfrage"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Zurück zu meinen Anfragen",
+    "cancel": "Stornieren",
+    "defaultTitle": "Anfrage",
+    "edit": "Bearbeiten",
+    "editDescription": "Durch das Speichern wird Ihre Anfrage aktualisiert und die Konfliktprüfung automatisch erneut durchgeführt.",
+    "editTitle": "Anfrage bearbeiten",
+    "enquirer": "Nachfrager",
+    "enquirerCompany": "Unternehmen",
+    "enquirerIndividual": "Person",
+    "enquiryDetails": "Anfragedetails",
+    "error": "Diese Anfrage konnte nicht geladen werden.",
+    "fields": {
+      "companyName": "Name der Firma",
+      "country": "Land",
+      "description": "Beschreibung",
+      "email": "E-Mail",
+      "fullName": "Vollständiger Name",
+      "matterType": "Materietyp",
+      "otherParties": "Andere Parteien",
+      "phone": "Telefon",
+      "urgency": "Dringlichkeit"
+    },
+    "filed": "Eingereicht {{date}}",
+    "loading": "Anfrage wird geladen…",
+    "saveChanges": "Änderungen speichern",
+    "statusHints": {
+      "approved": "Ihre Anfrage wurde angenommen und wird als Sachverhalt eingerichtet.",
+      "conflictFlagged": "Ein Koordinator prüft Ihre Anfrage, bevor sie angenommen werden kann.",
+      "converted": "Eine Angelegenheit wurde eröffnet. Sie können es unter „Meine Angelegenheiten“ verfolgen.",
+      "new": "Erhalten. Es wurde automatisch eine Konfliktprüfung durchgeführt, die in Kürze von einem Koordinator überprüft wird.",
+      "rejected": "Diese Anfrage wurde nicht angenommen. Kontaktieren Sie uns, wenn Sie Fragen haben.",
+      "reviewing": "Ein Koordinator prüft Ihre Anfrage."
+    },
+    "urgency": {
+      "normal": "Normal",
+      "urgent": "Dringend"
+    },
+    "viewMatter": "Sachverhalt ansehen"
+  },
+  "invoices": {
+    "description": "Rechnungen und Zahlungsstatus für alle Ihre Angelegenheiten.",
+    "error": "Rechnungen konnten nicht geladen werden.",
+    "loading": "Rechnungen werden geladen…",
+    "title": "Meine Rechnungen"
+  },
+  "matterTypes": {
+    "design": "Design",
+    "other": "Andere",
+    "patent": "Patent",
+    "trademark": "Warenzeichen",
+    "utility_model": "Gebrauchsmuster"
+  },
+  "renewals": {
+    "couldNotLoad": "Verlängerungen konnten nicht geladen werden",
+    "cycle": "Zyklus {{number}}",
+    "decline": "Abfall",
+    "description": "Bevorstehende Marken- und Designverlängerungen für Ihre IP-Rechte.",
+    "due": "Fällig {{date}}",
+    "empty": {
+      "description": "Verlängerungen erscheinen hier, nachdem Ihr Unternehmen ein IP-Recht zu einem Ihrer Angelegenheiten registriert. Sie werden vor jedem Fälligkeitsdatum der Verlängerung aufgefordert, fortzufahren oder abzulehnen.",
+      "title": "Keine Verlängerungen erfordern Ihre Aufmerksamkeit",
+      "viewDeadlines": "Sehen Sie sich meine Fristen an",
+      "viewMatters": "Sehen Sie sich meine Angelegenheiten an"
+    },
+    "errorFallback": "Bitte versuchen Sie es erneut oder melden Sie sich ab und wieder an, wenn sich die Berechtigungen geändert haben.",
+    "instructionError": "Die Anweisung konnte nicht gesendet werden",
+    "loading": "Laden…",
+    "proceed": "Fortfahren",
+    "retry": "Wiederholen",
+    "title": "Erneuerungen"
+  },
+  "renewalStatus": {
+    "completed": "Vollendet",
+    "filed": "Abgelegt",
+    "instructed": "Angewiesen",
+    "lapsed": "Verfallen",
+    "upcoming": "Demnächst"
+  },
+  "help": {
+    "title": "Helfen",
+    "subtitle": "So nutzen Sie das Kundenportal für Ihr IP-Portfolio.",
+    "enquiriesTitle": "Stellen Sie eine Anfrage",
+    "enquiriesBody": "Verwenden Sie „Anfragen“, um eine neue Angelegenheitsanfrage einzureichen. Das Unternehmen prüft Konfliktprüfungen und wandelt genehmigte Hinweise in Angelegenheiten um.",
+    "openEnquiries": "Offene Anfragen",
+    "approvalsTitle": "Zulassungen",
+    "approvalsBody": "Wenn das Unternehmen Ihre Genehmigung anfordert (z. B. Verlängerungen oder Anweisungen), antworten Sie über die Seite „Genehmigungen“.",
+    "openApprovals": "Offene Genehmigungen",
+    "contactTitle": "Benötigen Sie weitere Hilfe?",
+    "contactBody": "Kontaktieren Sie Ihren zugewiesenen Anwalt oder Koordinator über Nachrichten oder antworten Sie auf die Firmenkorrespondenz zu einer Angelegenheit.",
+    "openMessages": "Nachrichten öffnen"
+  }
+}

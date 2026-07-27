@@ -1,0 +1,15 @@
+{
+  "title": "Dokumentet",
+  "subtitle": "Biblioteka e dokumenteve për çështje të gjerë firme.",
+  "searchPlaceholder": "Kërko dokumente…",
+  "loading": "Po ngarkohet…",
+  "loadFailed": "Ngarkimi i dokumenteve dështoi.",
+  "empty": "Nuk u gjetën dokumente.",
+  "columns": {
+    "name": "Emri",
+    "matter": "Materie",
+    "category": "Kategoria",
+    "updated": "Përditësuar",
+    "by": "Nga"
+  }
+}

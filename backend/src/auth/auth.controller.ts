@@ -4,10 +4,12 @@ import {
   Controller,
   Get,
   Param,
+  Patch,
   Post,
   Req,
   Res,
   UnauthorizedException,
+  BadRequestException,
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
@@ -23,8 +25,10 @@ import {
   LoginDto,
   MfaDisableDto,
   MfaVerifyDto,
+  AcceptInviteDto,
   RegisterDto,
   ResetPasswordDto,
+  UpdateLocaleDto,
 } from './dto/auth.dto';
 import { SsoService } from './sso.service';
 
@@ -80,6 +84,7 @@ export class AuthController {
     if (result.mfaRequired) {
       const mfaToken = await this.authService.createMfaPendingToken(
         result.pendingUserId,
+        result.pendingMethod ?? 'password',
       );
       this.cookies.setMfaPendingCookie(res, mfaToken);
       return { mfaRequired: true };
@@ -198,10 +203,46 @@ export class AuthController {
     return this.authService.resetPassword(body.token, body.password);
   }
 
+  @Public()
+  @SkipAudit()
+  @Get('invite/validate')
+  validateInvite(@Req() req: Request) {
+    const token = req.query.token as string;
+    if (!token) {
+      throw new BadRequestException('Invite token is required');
+    }
+    return this.authService.validateInviteToken(token);
+  }
+
+  @Public()
+  @Audit({
+    action: 'auth.accept_invite',
+    resource: 'auth',
+    module: 'identity',
+  })
+  @Post('accept-invite')
+  acceptInvite(@Body() body: AcceptInviteDto) {
+    return this.authService.acceptInvite(body.token, body.password);
+  }
+
   @Get('me')
   me(@Req() req: Request) {
     const user = req.user as { userId: string };
     return this.authService.getProfile(user.userId);
+  }
+
+  @Audit({
+    action: 'auth.locale.update',
+    resource: 'auth',
+    module: 'identity',
+  })
+  @Patch('me/locale')
+  updateLocale(@Req() req: Request, @Body() body: UpdateLocaleDto) {
+    const user = req.user as { userId: string };
+    return this.authService.updatePreferredLocale(
+      user.userId,
+      body.preferredLocale,
+    );
   }
 
   @Audit({ action: 'auth.mfa.setup', resource: 'auth', module: 'identity' })

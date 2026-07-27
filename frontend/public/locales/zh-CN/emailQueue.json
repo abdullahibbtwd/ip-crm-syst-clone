@@ -1,0 +1,37 @@
+{
+  "title": "电子邮件队列",
+  "subtitle": "从连接的邮箱中提取的未链接的电子邮件。 打开电子邮件，然后将其附加到事务的通信登记簿中。",
+  "fetchEmails": "获取 5 封电子邮件",
+  "mailboxSettings": "邮箱设置",
+  "fetchSuccess": "已获取最多 {{limit}} 收件箱消息 — 队列中新增 {{ingested}} 条消息{{emptyHint}}。",
+  "fetchEmptyHint": "（已导入或收件箱为空）",
+  "fetchFailed": "获取电子邮件失败",
+  "columns": {
+    "received": "已收到",
+    "from": "从",
+    "subject": "主题",
+    "mailbox": "邮箱",
+    "suggestion": "建议",
+    "actions": "行动"
+  },
+  "loading": "正在加载队列...",
+  "loadFailed": "无法加载电子邮件队列。",
+  "emptyTitle": "队列为空",
+  "emptyDescription": "在设置中连接邮箱并获取电子邮件以导入新邮件。",
+  "noSubject": "（无主题）",
+  "suggestions": {
+    "subjectRef": "主题中的客户参考",
+    "bodyRef": "正文中的客户端引用",
+    "singleActiveMatter": "单一活性物质",
+    "contactMatch": "接触匹配",
+    "default": "建议事项",
+    "officeAction": "办公室行动",
+    "renewal": "更新"
+  },
+  "actions": {
+    "viewEmail": "查看电子邮件",
+    "reply": "回复",
+    "attachToMatter": "附上事项信件",
+    "downloadEml": "下载.eml"
+  }
+}

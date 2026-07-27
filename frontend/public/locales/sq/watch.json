@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Watch Marka Tregtare",
+    "description": "Rishiko konfliktet e mundshme të zbuluara ndaj profileve aktive të orës.",
+    "empty": "Asnjë sinjalizim shikimi nuk përputhet me filtrat e tu.",
+    "loading": "Po ngarkon sinjalizimet e orës…"
+  },
+  "detail": {
+    "title": "Vëzhgoni alarmin",
+    "back": "Kthehu te lista e punës së shikimit",
+    "loading": "Sinjalizimi po ngarkohet…",
+    "notFound": "Alarmi i orës nuk u gjet.",
+    "watchedMark": "Shenja e shikuar",
+    "conflictingMark": "Shenjë konfliktuale",
+    "registrySource": "Burimi i regjistrit",
+    "jurisdiction": "Juridiksioni",
+    "applicationNumber": "Numri i aplikimit",
+    "similarity": "Ngjashmëria",
+    "detectedAt": "Zbuluar",
+    "client": "Klienti",
+    "profile": "Profili i shikimit",
+    "niceClasses": "Klasa të këndshme",
+    "reject": "Refuzo alarmin",
+    "accept": "Pranoni dhe krijoni materie",
+    "rejectConfirm": "Të shënohet ky alarm si pozitiv i rremë?",
+    "acceptConfirm": "Krijo një çështje kundërshtimi nga ky alarm?",
+    "triagedBy": "Triaged nga {{name}}",
+    "linkedMatter": "Çështje e lidhur"
+  },
+  "clientTab": {
+    "title": "Shikoni profilet",
+    "description": "Monitoroni shenjat nëpër regjistra duke përdorur kodet kanonike të juridiksionit (BG, BE, EP).",
+    "add": "Shto orën e markës tregtare",
+    "empty": "Nuk ka ende profile shikimi. Shto një profil për të filluar monitorimin e shenjave të këtij klienti.",
+    "loading": "Po ngarkon profilet e orës…",
+    "pause": "Ndalo",
+    "resume": "Rezyme",
+    "archive": "Arkivi",
+    "epoScan": "Skanoni EPO për sinjalizime",
+    "epoScanning": "Po skanon EPO…",
+    "epoScanSuccess": "Krijoi {{alerts}} alarm(a) të reja EPO nga profili(et) {{profiles}}.",
+    "epoScanFailed": "Skanimi i orës EPO dështoi",
+    "viewAlerts": "Shikoni sinjalizimet e orës"
+  },
+  "drawer": {
+    "title": "Shto orën e markës tregtare",
+    "markText": "Shëno tekstin *",
+    "markPlaceholder": "p.sh. Coca-Cola",
+    "jurisdictions": "Juridiksionet *",
+    "jurisdictionsHint": "Kodet kanonike - jo emrat e regjistrit. Orët BPO përdorin BG; Orët EUIPO përdorin EU.",
+    "niceClasses": "Klasa të këndshme",
+    "niceClassesPlaceholder": "p.sh. 32, 33",
+    "frequency": "Frekuenca e skanimit",
+    "save": "Ruaj profilin e orës"
+  },
+  "filters": {
+    "status": "Statusi",
+    "jurisdiction": "Juridiksioni",
+    "source": "Burimi i regjistrit",
+    "minSimilarity": "Minim ngjashmëri",
+    "anySimilarity": "Çdo ngjashmëri",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Rendit sipas",
+    "sortDetected": "Më të rejat e para",
+    "sortSimilarity": "Ngjashmëria më e lartë",
+    "all": "Të gjitha"
+  },
+  "stats": {
+    "new": "Sinjalizime të reja",
+    "accepted": "Pranuar",
+    "rejected": "Refuzuar"
+  },
+  "profileStatus": {
+    "active": "Aktiv",
+    "paused": "Në pauzë",
+    "archived": "Arkivuar"
+  },
+  "alertStatus": {
+    "new": "E re",
+    "rejected": "Refuzuar",
+    "accepted": "Pranuar"
+  },
+  "frequency": {
+    "daily": "Ditore",
+    "weekly": "Javore"
+  },
+  "table": {
+    "mark": "Shenja e shikuar",
+    "conflict": "Konflikti",
+    "client": "Klienti",
+    "similarity": "Ngjashmëria",
+    "source": "Burimi",
+    "jurisdiction": "Juridiksioni",
+    "status": "Statusi",
+    "detected": "Zbuluar",
+    "frequency": "Frekuenca",
+    "classes": "Klasat",
+    "profiles": "Profilet",
+    "actions": "Veprimet"
+  }
+}

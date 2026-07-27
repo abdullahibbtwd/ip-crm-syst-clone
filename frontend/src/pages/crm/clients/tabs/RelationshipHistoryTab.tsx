@@ -1,10 +1,12 @@
 import { useOutletContext } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { useClientHistory } from '@/features/crm/hooks/useClients'
 
 import type { ClientTabContext } from '../ClientLayout'
 
 export function RelationshipHistoryTab() {
+  const { t } = useTranslation(['crm', 'common'])
   const { clientId } = useOutletContext<ClientTabContext>()
   const {
     data,
@@ -14,16 +16,16 @@ export function RelationshipHistoryTab() {
     isFetchingNextPage,
   } = useClientHistory(clientId)
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading history…</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('history.loading')}</p>
 
   const entries = data?.pages.flatMap((p) => p.items) ?? []
 
   return (
     <div className="space-y-4">
-      <h2 className="font-medium">Relationship history</h2>
+      <h2 className="font-medium">{t('history.title')}</h2>
       <ol className="relative space-y-4 border-l border-border pl-4">
         {entries.length === 0 ? (
-          <li className="text-sm text-muted-foreground">No history yet.</li>
+          <li className="text-sm text-muted-foreground">{t('history.empty')}</li>
         ) : (
           entries.map((entry) => (
             <li key={entry.id} className="relative">
@@ -49,7 +51,7 @@ export function RelationshipHistoryTab() {
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >
-          {isFetchingNextPage ? 'Loading…' : 'Load more'}
+          {isFetchingNextPage ? t('common:loading.default') : t('history.loadMore')}
         </Button>
       )}
     </div>

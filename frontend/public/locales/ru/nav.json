@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Развернуть боковую панель",
+    "collapse": "Свернуть боковую панель",
+    "close": "Закрыть боковую панель"
+  },
+  "sections": {
+    "overview": "Обзор",
+    "clients": "Клиенты",
+    "matters": "Имеет значение",
+    "ipRights": "Права интеллектуальной собственности",
+    "finance": "Финансы",
+    "reports": "Отчеты",
+    "myWork": "Моя работа",
+    "rights": "Права",
+    "communication": "Коммуникация",
+    "trademarks": "Товарные знаки",
+    "deadlines": "Сроки",
+    "correspondence": "Переписка",
+    "documentsAndMail": "Документы и почта",
+    "billing": "Биллинг",
+    "compliance": "Согласие",
+    "gdpr": "GDPR",
+    "audit": "Аудит",
+    "usersAndAccess": "Пользователи и доступ",
+    "system": "Система",
+    "myPortfolio": "Мое портфолио",
+    "myMatters": "Мои дела"
+  },
+  "items": {
+    "dashboard": "Панель управления",
+    "deadlines": "Сроки",
+    "alerts": "Оповещения",
+    "clients": "Клиенты",
+    "holdingGroups": "Холдинговые группы",
+    "allMatters": "Все имеет значение",
+    "matters": "Имеет значение",
+    "intakeQueue": "Очередь приема",
+    "rightsRegister": "Реестр прав",
+    "renewals": "Продление",
+    "watch": "Смотреть",
+    "billingOverview": "Обзор платежных данных",
+    "deadlineRisk": "Риск сроков",
+    "filingVolumes": "Объемы отчетности",
+    "renewalsSummary": "Сводка продлений",
+    "revenueReceivables": "Выручка и дебиторская задолженность",
+    "team": "Команда",
+    "settings": "Настройки",
+    "myDashboard": "Моя панель управления",
+    "myDeadlines": "Мои сроки",
+    "myMatters": "Мои дела",
+    "patentFilings": "Патентные заявки",
+    "officeActions": "Действия офиса",
+    "documents": "Документы",
+    "correspondence": "Переписка",
+    "myTmMatters": "Моя ТМ имеет значение",
+    "oppositions": "Оппозиции",
+    "watchAlerts": "Смотреть оповещения",
+    "conflictCheck": "Проверка конфликтов",
+    "allDeadlines": "Все сроки",
+    "escalations": "Эскалация",
+    "gracePeriods": "Льготные периоды",
+    "addDeadline": "Добавить срок",
+    "incomingMail": "Входящие сообщения на почте",
+    "emailQueue": "Очередь электронной почты",
+    "broadcasts": "Трансляции",
+    "outgoingMail": "Исходящая корреспонденция",
+    "myTasks": "Мои задачи",
+    "assignedMatters": "Назначенные дела",
+    "financeDashboard": "Панель управления финансами",
+    "invoices": "Счета-фактуры",
+    "timeEntries": "Записи времени",
+    "payments": "Платежи",
+    "rateCards": "Тарифы",
+    "disbursements": "Выплаты",
+    "complianceDashboard": "Панель управления соответствием",
+    "personalDataRegister": "Реестр персональных данных",
+    "dataExportsLog": "Журнал экспорта данных",
+    "retentionRules": "Правила хранения",
+    "deadlineRules": "Правила дедлайна",
+    "holidays": "Календарь праздников",
+    "documentTemplates": "Шаблоны документов",
+    "precedents": "Прецеденты",
+    "partners": "Партнеры",
+    "consentRecords": "Записи о согласии",
+    "auditTrail": "Аудиторский след",
+    "accessLog": "Журнал доступа",
+    "systemDashboard": "Панель управления системы",
+    "users": "Пользователи",
+    "rolesPermissions": "Роли и разрешения",
+    "ssoMfaConfig": "Конфигурация единого входа/MFA",
+    "integrations": "Интеграции",
+    "systemHealth": "Состояние системы",
+    "auditLog": "Журнал аудита",
+    "overview": "Обзор",
+    "enquiries": "Запросы",
+    "myDocuments": "Мои документы",
+    "myInvoices": "Мои счета",
+    "messages": "Сообщения",
+    "approvals": "Разрешения",
+    "help": "Помощь",
+    "myPortfolio": "Мое портфолио"
+  },
+  "roles": {
+    "managing_partner": "Управляющий партнер",
+    "ip_attorney": "ИП / Патентный поверенный",
+    "trademark_attorney": "Поверенный по товарным знакам",
+    "coordinator": "Координатор / Прием",
+    "docketing_admin": "Регистрация администратора",
+    "paralegal": "Помощник юриста",
+    "finance": "Финансы",
+    "dpo_compliance": "DPO / Соблюдение требований",
+    "it_admin": "ИТ/Администратор",
+    "portal_client": "Клиент (портал)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Скоро — в этой области будут отображаться текущие данные после подключения модуля."
+    },
+    "managing_partner": {
+      "eyebrow": "Обзор фирмы",
+      "title": "Обзор фирмы",
+      "description": "Риск сроков портфеля, объемы подачи заявок, график продлений, доходы, рабочая нагрузка команды и прибыльность клиентов — отчеты по всей фирме из одного дома."
+    },
+    "coordinator": {
+      "eyebrow": "Координация",
+      "title": "Прием и координация",
+      "description": "Прием заявок, объемы подачи заявок и предстоящие продления — координируйте расследования вплоть до судебного преследования."
+    },
+    "docketing_admin": {
+      "eyebrow": "регистрация",
+      "title": "Доска сроков",
+      "description": "Сроки и риски в реестре всей компании — сгруппированы по клиенту, юрисдикции и правопреемнику с выделением срочности."
+    },
+    "finance": {
+      "eyebrow": "Финансы",
+      "title": "Обзор финансов",
+      "description": "Выпущенная выручка, сборы и дебиторская задолженность: выставляйте счета и отслеживайте платежи из одного места."
+    },
+    "portal_client": {
+      "eyebrow": "Клиентский портал",
+      "title": "Добро пожаловать",
+      "description": "Отправляйте запросы на подачу заявок и отслеживайте дела вашей организации."
+    },
+    "myDashboard": {
+      "title": "Моя панель управления"
+    },
+    "myTasks": {
+      "title": "Мои задачи"
+    },
+    "compliance": {
+      "eyebrow": "GDPR и соответствие требованиям",
+      "title": "Согласие",
+      "description": "Политики хранения, реестры доступа и экспорт доступа к субъектам."
+    },
+    "systemDashboard": {
+      "title": "Панель управления системы"
+    }
+  }
+}

@@ -19,7 +19,7 @@ import { ipRightsApi } from '@/features/ip-rights/api'
 import type { IpRightsFilters, IpRightsListItem } from '@/features/ip-rights/types'
 
 const PAGE_SIZE = 50
-const ALL = 'All'
+const ALL = 'all'
 
 const MATTER_TYPES: MatterType[] = [
   'trademark',
@@ -101,7 +101,7 @@ export function IpRightsPage() {
               <SelectValue placeholder={t('ipRightsRegister.filters.allClients')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('ipRightsRegister.filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {clients.map((c) => (
                 <SelectItem key={c.id} value={c.id}>
                   {clientDisplayName(c)}
@@ -126,7 +126,7 @@ export function IpRightsPage() {
               <SelectValue placeholder={t('ipRightsRegister.filters.allJurisdictions')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('ipRightsRegister.filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {JURISDICTION_OPTIONS.map((j) => (
                 <SelectItem key={j.value} value={j.value}>
                   {j.label}
@@ -148,7 +148,7 @@ export function IpRightsPage() {
               <SelectValue placeholder={t('ipRightsRegister.filters.allTypes')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('ipRightsRegister.filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {MATTER_TYPES.map((type) => (
                 <SelectItem key={type} value={type}>
                   {matterTypeLabel(type)}
@@ -170,7 +170,7 @@ export function IpRightsPage() {
               <SelectValue placeholder={t('ipRightsRegister.filters.allStatuses')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={ALL}>{t('ipRightsRegister.filters.all')}</SelectItem>
+              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
               {STATUS_OPTIONS.map((s) => (
                 <SelectItem key={s} value={s}>
                   {ipRightStatusLabel(s)}

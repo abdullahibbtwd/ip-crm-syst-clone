@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Проширете ја страничната лента",
+    "collapse": "Собери ја страничната лента",
+    "close": "Затворете ја страничната лента"
+  },
+  "sections": {
+    "overview": "Преглед",
+    "clients": "Клиенти",
+    "matters": "Работи",
+    "ipRights": "Права на ИС",
+    "finance": "Финансии",
+    "reports": "Извештаи",
+    "myWork": "Мојата работа",
+    "rights": "Права",
+    "communication": "Комуникација",
+    "trademarks": "Заштитни знаци",
+    "deadlines": "Рокови",
+    "correspondence": "Кореспонденција",
+    "documentsAndMail": "Документи и пошта",
+    "billing": "Наплата",
+    "compliance": "Усогласеност",
+    "gdpr": "GDPR",
+    "audit": "Ревизија",
+    "usersAndAccess": "Корисници и пристап",
+    "system": "Систем",
+    "myPortfolio": "Моето портфолио",
+    "myMatters": "Моите работи"
+  },
+  "items": {
+    "dashboard": "Контролна табла",
+    "deadlines": "Рокови",
+    "alerts": "Известувања",
+    "clients": "Клиенти",
+    "holdingGroups": "Холдинг групи",
+    "allMatters": "Сите работи",
+    "matters": "Работи",
+    "intakeQueue": "Ред за внесување",
+    "rightsRegister": "Регистар на права",
+    "renewals": "Обновувања",
+    "watch": "Гледајте",
+    "billingOverview": "Преглед на наплата",
+    "deadlineRisk": "Рок ризик",
+    "filingVolumes": "Тома на поднесување",
+    "renewalsSummary": "Резиме на обновувања",
+    "revenueReceivables": "Приходи и побарувања",
+    "team": "Тим",
+    "settings": "Поставки",
+    "myDashboard": "Мојата контролна табла",
+    "myDeadlines": "Моите рокови",
+    "myMatters": "Моите работи",
+    "patentFilings": "Поднесоци за патенти",
+    "officeActions": "Канцелариски активности",
+    "documents": "Документи",
+    "correspondence": "Кореспонденција",
+    "myTmMatters": "Мојот ТМ е важен",
+    "oppositions": "Опозициите",
+    "watchAlerts": "Гледајте предупредувања",
+    "conflictCheck": "Проверка на конфликти",
+    "allDeadlines": "Сите рокови",
+    "escalations": "Ескалации",
+    "gracePeriods": "Грејс периоди",
+    "addDeadline": "Додадете рок",
+    "incomingMail": "Дојдовна пошта",
+    "emailQueue": "Ред за е-пошта",
+    "broadcasts": "Емитувања",
+    "outgoingMail": "Појдовна пошта",
+    "myTasks": "Моите задачи",
+    "assignedMatters": "Доделени работи",
+    "financeDashboard": "Финансиска табла",
+    "invoices": "Фактури",
+    "timeEntries": "Временски записи",
+    "payments": "Плаќања",
+    "rateCards": "Оцени картички",
+    "disbursements": "Исплати",
+    "complianceDashboard": "Контролна табла за усогласеност",
+    "personalDataRegister": "Регистар на лични податоци",
+    "dataExportsLog": "Дневник за извоз на податоци",
+    "retentionRules": "Правила за задржување",
+    "deadlineRules": "Правила за рокови",
+    "holidays": "Календар за празници",
+    "documentTemplates": "Шаблони за документи",
+    "precedents": "Преседани",
+    "partners": "Партнери",
+    "consentRecords": "Записи за согласност",
+    "auditTrail": "Ревизорска патека",
+    "accessLog": "Дневник за пристап",
+    "systemDashboard": "Системска контролна табла",
+    "users": "Корисници",
+    "rolesPermissions": "Улоги и дозволи",
+    "ssoMfaConfig": "Конфигурација на ДЗС / МНР",
+    "integrations": "Интеграции",
+    "systemHealth": "Здравје на системот",
+    "auditLog": "Ревизорски дневник",
+    "overview": "Преглед",
+    "enquiries": "Прашања",
+    "myDocuments": "Моите документи",
+    "myInvoices": "Моите фактури",
+    "messages": "Пораки",
+    "approvals": "Одобрувања",
+    "help": "Помош",
+    "myPortfolio": "Моето портфолио"
+  },
+  "roles": {
+    "managing_partner": "Управен партнер",
+    "ip_attorney": "IP / Застапник за патенти",
+    "trademark_attorney": "Застапник за трговски марки",
+    "coordinator": "Координатор / Прием",
+    "docketing_admin": "Docketing Admin",
+    "paralegal": "Параправен",
+    "finance": "Финансии",
+    "dpo_compliance": "DPO / Усогласеност",
+    "it_admin": "ИТ / Админ",
+    "portal_client": "Клиент (портал)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Наскоро - оваа област ќе прикажува податоци во живо откако ќе се поврзе модулот."
+    },
+    "managing_partner": {
+      "eyebrow": "Преглед на фирмата",
+      "title": "Преглед на фирмата",
+      "description": "Ризик од крајниот рок на портфолиото, обемот на поднесување, цевководот за обновување, приходите, обемот на работа во тимот и профитабилноста на клиентот - известување на целата фирма од еден дом."
+    },
+    "coordinator": {
+      "eyebrow": "Координација",
+      "title": "Внес и координација",
+      "description": "Доводен гасовод, тома на поднесување и претстојни обновувања - координирајте ги истрагите до обвинителството."
+    },
+    "docketing_admin": {
+      "eyebrow": "Docketing",
+      "title": "Краен рок одбор",
+      "description": "Краен рок на ниво на фирма и ризик - групирани по клиент, јурисдикција и нарачател со итно истакнување."
+    },
+    "finance": {
+      "eyebrow": "Финансии",
+      "title": "Преглед на финансии",
+      "description": "Издадени приходи, наплати и побарувања стареат - издавајте фактури и следете ги плаќањата од едно место."
+    },
+    "portal_client": {
+      "eyebrow": "Портал на клиенти",
+      "title": "Добредојдовте назад",
+      "description": "Поднесете барања за поднесување и следете ги работите за вашата организација."
+    },
+    "myDashboard": {
+      "title": "Мојата контролна табла"
+    },
+    "myTasks": {
+      "title": "Моите задачи"
+    },
+    "compliance": {
+      "eyebrow": "GDPR и усогласеност",
+      "title": "Усогласеност",
+      "description": "Политики за задржување, регистри за пристап и извоз на пристап до предмет."
+    },
+    "systemDashboard": {
+      "title": "Системска контролна табла"
+    }
+  }
+}

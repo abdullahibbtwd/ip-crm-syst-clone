@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Gümrük ofisi"
+      },
+      "infringingGoods": {
+        "label": "İhlal eden ürün açıklaması"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Oluşturulma tarihi"
+      },
+      "workTitle": {
+        "label": "İşin başlığı"
+      },
+      "workType": {
+        "label": "İşin türü"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Temel özet"
+      },
+      "disputeType": {
+        "label": "Anlaşmazlık türü"
+      },
+      "opponentName": {
+        "label": "Rakip / karşı taraf"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Kapsam özeti"
+      },
+      "technologyArea": {
+        "label": "Teknoloji alanı"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Ürün adı"
+      },
+      "region": {
+        "label": "Coğrafi bölge"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Dosyalanan tasarım görünümlerini listeleyin veya tanımlayın",
+        "label": "Tasarım görünümleri"
+      },
+      "locarnoClass": {
+        "label": "Locarno sınıfı"
+      },
+      "productDescription": {
+        "label": "Ürün Açıklaması"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Talep özeti"
+      },
+      "pctNumber": {
+        "label": "PCT numarası"
+      },
+      "priorityDate": {
+        "label": "Öncelik tarihi"
+      },
+      "technicalField": {
+        "label": "Teknik alan"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Talep edilen renkler"
+      },
+      "markDescription": {
+        "label": "Açıklamayı işaretle"
+      },
+      "markType": {
+        "label": "İşaret türü"
+      },
+      "niceClasses": {
+        "label": "Güzel dersler",
+        "placeholder": "örneğin 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Talep özeti"
+      },
+      "priorityDate": {
+        "label": "Öncelik tarihi"
+      },
+      "technicalField": {
+        "label": "Teknik alan"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Varlık açıklaması"
+      },
+      "valuationPurpose": {
+        "label": "Değerleme amacı"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Sabit ücret ekle",
+    "addTime": "Günlük süresi",
+    "billableAria": "Faturalandırılabilir",
+    "billableWithoutRate": "Ücret olmadan faturalandırılabilir",
+    "confirmDeleteFee": "Sabit ücret silinsin mi?",
+    "confirmDeleteFeeMessage": "Bu ücret maddeden kaldırılacaktır.",
+    "confirmDeleteFeeTitle": "Sabit ücret silinsin mi?",
+    "confirmDeleteTime": "Bu zaman girişi silinsin mi?",
+    "confirmDeleteTimeMessage": "Bu faturalandırılabilir satır konudan kaldırılacak.",
+    "confirmDeleteTimeTitle": "Zaman girişi silinsin mi?",
+    "description": "Bu konuyla ilgili zaman girişleri, sabit ücretler ve faturalar.",
+    "emptyFees": "Henüz sabit bir ücret yok.",
+    "emptyTime": "Henüz zaman kaydedilmedi.",
+    "error": "Faturalandırma verileri yüklenemedi.",
+    "feeDrawer": {
+      "amount": "Tutar (€)",
+      "billable": "Faturalandırılabilir",
+      "createTitle": "Sabit ücret ekle",
+      "descriptionPlaceholder": "örneğin BPO ticari marka başvuru ücreti",
+      "editTitle": "Sabit ücreti düzenle",
+      "errors": {
+        "amountMin": "Tutar sıfır veya daha büyük olmalıdır",
+        "descriptionRequired": "Açıklama gerekli"
+      },
+      "saveFailed": "Sabit ücret kaydedilemedi"
+    },
+    "fixedFees": "Sabit ücretler",
+    "loading": "Faturalandırma yükleniyor…",
+    "loadingInvoices": "Faturalar yükleniyor…",
+    "loadInvoicesFailed": "Faturalar yüklenemedi.",
+    "noPermission": "Bu konuyla ilgili faturalandırmayı görüntüleme izniniz yok.",
+    "noRateCard": "Ücret listesi yok",
+    "nonBillableAria": "Faturalandırılamaz",
+    "portalDescription": "Bu konuyla ilgili faturalar ve ödeme durumu.",
+    "timeDrawer": {
+      "amount": "Miktar:",
+      "billable": "Faturalandırılabilir",
+      "billableDisabledHint": "Ücret 0 € iken faturalandırılabilirlik devre dışı bırakılır.",
+      "createTitle": "Günlük süresi",
+      "descriptionPlaceholder": "Ne yapıldı",
+      "editTitle": "Zaman girişini düzenle",
+      "errors": {
+        "billableRequiresRate": "Faturalandırılabilir süre, saatlik ücret gerektirir. Bir oran girin veya faturalandırılamaz olarak işaretleyin.",
+        "descriptionRequired": "Açıklama gerekli",
+        "hoursMin": "Saatler en az 0,25 olmalıdır",
+        "rateMin": "Oran sıfır veya daha büyük olmalıdır"
+      },
+      "hourlyRate": "Saatlik ücret (€)",
+      "hoursHint": "Çeyrek saatlik artışlar (minimum 0,25)",
+      "noRateCardWarning": "Rolünüz için ücret listesi bulunamadı. Bu giriş, finans bir oran belirleyene veya siz manuel olarak bir oran girene kadar faturalandırılamaz olarak kaydedilecektir.",
+      "resolvingRate": "Hız çözülüyor…",
+      "saveFailed": "Zaman girişi kaydedilemedi"
+    },
+    "timeEntries": "Zaman girişleri",
+    "table": {
+      "amount": "Miktar",
+      "attorney": "Avukat",
+      "billable": "Faturalandırılabilir",
+      "category": "Kategori",
+      "date": "Tarih",
+      "description": "Tanım",
+      "hours": "Saat",
+      "rate": "Oran",
+      "user": "Kullanıcı"
+    },
+    "title": "Faturalandırma"
+  },
+  "correspondence": {
+    "add": "Günlük yazışmaları",
+    "attachFromQueue": "Sıradan ekle",
+    "attachmentFallback": "Yazışma eki",
+    "badges": {
+      "clientVisible": "İstemci görünür",
+      "email": "E-posta",
+      "synced": "Senkronize edildi"
+    },
+    "category": {
+      "application": "Başvuru",
+      "certificate": "Sertifika",
+      "correspondence": "Genel yazışma",
+      "evidence": "Kanıt",
+      "office_action": "Patent başvurusu",
+      "renewal": "Yenileme"
+    },
+    "direction": {
+      "incoming": "Gelen",
+      "outgoing": "Dışa dönük"
+    },
+    "description": "Dijital posta odası — bu konuyla ilgili günlük mektupları, ofis işlemleri ve e-postalar. .eml dosyaları veya yapıştırılan gelen kutusu metni için {{logEmail}} kullanın; Yapılandırılmış girişler, giden postalar ve belge ekleri için {{logCorrespondence}} kullanın.",
+    "documentReady": "Belge hazır",
+    "downloadAttachment": "Eki indir",
+    "downloadTitle": "{{fileName}} dosyasını indirin",
+    "drawerTitle": "Günlük yazışmaları",
+    "empty": "Henüz herhangi bir yazışma kaydedilmedi.",
+    "emptyHint": "Bu konunun kaydını oluşturmak için yazışmaları veya e-postayı günlüğe kaydedin.",
+    "emptyTitle": "Henüz yazışma yok",
+    "error": "Yazışmalar yüklenemedi.",
+    "errorLog": "Yazışmalar günlüğe kaydedilemedi",
+    "fetchingDocument": "Belge getiriliyor…",
+    "from": "İtibaren:",
+    "hideFromClient": "İstemci gelen kutusundan gizle",
+    "hideFromClientTitle": "Müşteri portalından gizle",
+    "loading": "Yazışmalar yükleniyor…",
+    "logEmail": "E-postayı günlüğe kaydet",
+    "markReplied": "Mark yanıtladı",
+    "markSent": "Gönderildi olarak işaretle",
+    "openEpoRegister": "EPO Register'da aç",
+    "reply": "Cevap vermek",
+    "replyTitle": "Bağlı posta kutusu aracılığıyla yanıtla",
+    "replaceFile": "Dosyayı değiştir",
+    "replaceFileTitle": "Ekli dosyayı değiştir",
+    "saveAsPrecedent": "Emsal olarak kaydet",
+    "saveAsPrecedentTitle": "Taslak emsal olarak kaydet",
+    "savedUnder": "Aşağıdaki yazışma konusu altında kaydedildi",
+    "sendToClient": "Müşteri gelen kutusuna gönder",
+    "showInClientTitle": "Müşteri portalında göster",
+    "status": {
+      "draft": "Taslak",
+      "received": "Kabul edilmiş",
+      "replied": "Yanıtlandı",
+      "sent": "Gönderilmiş"
+    },
+    "table": {
+      "category": "Kategori",
+      "date": "Tarih",
+      "direction": "Yön",
+      "file": "Dosya",
+      "fromTo": "Nereden / Kime",
+      "status": "Durum",
+      "subject": "Ders"
+    },
+    "title": "Yazışma",
+    "to": "İle:",
+    "uploadFailed": "Dosya yüklenemedi ve eklenemedi",
+    "uploadFile": "Dosya yükle",
+    "uploadFileTitle": "Bu yazışma için PDF veya belge yükleyin",
+    "viewOnEpo": "EPO'da görüntüle",
+    "viewOnEpoTitle": "EPO Kaydına ilişkin resmi kaydı açın"
+  },
+  "createDrawer": {
+    "client": "Müşteri *",
+    "creating": "Oluşturuluyor…",
+    "error": "Konu oluşturulamadı",
+    "jurisdictionHelp": "Bir veya daha fazla dosyalama yargı bölgesini seçin.",
+    "jurisdictions": "Yargı bölgeleri",
+    "matterType": "Madde türü *",
+    "open": "Açık konu",
+    "responsibleAttorney": "Sorumlu avukat",
+    "title": "Yeni konu aç",
+    "titleField": "Başlık *",
+    "titlePlaceholder": "örneğin ACME kelime markası – AB"
+  },
+  "deadlines": {
+    "complete": "Tamamlamak",
+    "daysLeft": "{{count}} gün kaldı",
+    "daysOverdue": "{{count}} gün gecikti",
+    "dueToday": "Bugün vadesi doluyor",
+    "empty": "Bu konuda son tarih yok.",
+    "error": "Son teslim tarihleri ​​yüklenemedi.",
+    "loading": "Son teslim tarihleri ​​yükleniyor…",
+    "start": "Başlangıç",
+    "table": {
+      "assigned": "Atandı",
+      "due": "Bitiş tarihi",
+      "grace": "Lütuf",
+      "jurisdiction": "Yargı yetkisi",
+      "status": "Durum",
+      "title": "Başlık",
+      "type": "Tip"
+    },
+    "title": "Son teslim tarihleri"
+  },
+  "documents": {
+    "allCategories": "Tüm kategoriler",
+    "browse": "göz at",
+    "category": "Kategori",
+    "chooseFile": "Yüklenecek dosyayı seçin",
+    "chooseTemplate": "Bir mektup şablonu seçin",
+    "description": "Bu konuyla ilgili dosya dolabı — PDF'leri, Word dosyalarını ve kanıtları yükleyin.",
+    "displayName": "Ekran adı",
+    "displayNamePlaceholder": "örneğin BPO Dosyalama Paketi - Son",
+    "dragDrop": "Bir dosyayı buraya sürükleyin veya",
+    "empty": "Henüz herhangi bir belge yüklenmedi.",
+    "error": "Dokümanlar yüklenemedi.",
+    "errorGeneration": "Belge oluşturma başarısız oldu",
+    "errorNoDocx": "Bu şablona yüklenmiş bir Word (.docx) dosyası yok",
+    "errorUpload": "Yükleme başarısız oldu",
+    "format": "Biçim",
+    "generate": "Belge oluştur",
+    "generateDescription": "Bir mektup şablonu seçin. Konu ve müşteri detayları otomatik olarak doldurularak bu klasöre kaydedilir.",
+    "generatePdf": "PDF oluştur",
+    "generateWord": "Kelime Oluştur",
+    "generating": "Oluşturuluyor…",
+    "loading": "Belgeler yükleniyor…",
+    "noTemplates": "Kullanılabilir şablon yok.",
+    "notAvailable": "- müsait değil",
+    "search": "Adı veya etiketleri arayın…",
+    "table": {
+      "category": "Kategori",
+      "displayName": "Ekran adı",
+      "name": "İsim",
+      "tags": "Etiketler",
+      "uploaded": "Yüklendi",
+      "version": "Sürüm"
+    },
+    "tags": "Etiketler",
+    "tagsHint": "Arama için virgülle ayrılmış anahtar kelimeler",
+    "tagsPlaceholder": "acil, bpo, müşteri onaylı",
+    "title": "Belgeler",
+    "upload": "Belgeyi yükle",
+    "uploadAction": "Yüklemek",
+    "uploadNew": "Yeni belge yükle",
+    "uploading": "Yükleniyor…",
+    "word": "Kelime"
+  },
+  "ipRightStatus": {
+    "cancelled": "İptal edildi",
+    "expired": "Günü geçmiş",
+    "filed": "Dosyalanmış",
+    "pending": "Dosyalama bekleniyor",
+    "registered": "Kayıtlı"
+  },
+  "ipRights": {
+    "abandon": "Terk etmek",
+    "add": "IP'yi sağa ekle",
+    "addRight": "Sağa ekle",
+    "addTitle": "IP'yi sağa ekle",
+    "annuitySchedule": "Yıllık gelir planı",
+    "applicationNumber": "Başvuru numarası",
+    "checkEpo": "EPO'yu kontrol edin",
+    "checkEpoAddNumber": "EPO'yu kontrol etmeden önce bir başvuru numarası ekleyin",
+    "checkEpoTitle": "EPO'nun yasal durumunu (OPS) kontrol edin",
+    "complete": "Tamamlamak",
+    "confirmFiling": "Dosyalamayı onayla",
+    "confirmRegistration": "Kaydı onayla",
+    "cycleDue": "Döngü {{n}} · vadesi {{date}}",
+    "cycleLabel": "Döngü {{n}}",
+    "description": "Müşteri onayladıktan ve dosyalama paketi hazır olduktan sonra taslak haklarını dosyalayın.",
+    "editSplit": "Bölmeyi düzenle",
+    "empty": "Henüz IP hakkı yok. Bir alım dönüştürüldüğünde otomatik olarak bir taslak oluşturulur; kovuşturmadan sonra manuel olarak daha fazla hak ekleyin.",
+    "epoCheckFailed": "EPO durum kontrolü başarısız oldu",
+    "error": "IP hakları yüklenemedi.",
+    "errors": {
+      "addFailed": "IP hakkı eklenemedi",
+      "applicationNumberRequired": "Resmi başvuru numarasını girin",
+      "documentVersionRequired": "Dosyalama paketi belge sürümünü seçin",
+      "fileFailed": "Başvuru yapılamadı",
+      "registerFailed": "IP hakkı kaydedilemedi",
+      "registrationNumberRequired": "Kayıt numarasını girin",
+      "splitFailed": "Yenileme bölünemedi",
+      "splitJurisdictionRequired": "Yargı yetkisine sahip en az bir kısım ekleyin",
+      "titleRequired": "IP hakkı için bir başlık girin"
+    },
+    "expiryDate": "Son kullanma tarihi",
+    "expiryDateOptional": "Son kullanma tarihi (isteğe bağlı)",
+    "expiryDateHint": "Yetki yenileme döngüsünden hesaplamak için boş bırakın.",
+    "file": "Dosya",
+    "fileApplication": "Dosya uygulaması",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "BPO / EUIPO / EPO'nun resmi numarası",
+      "filingPackage": "Dosyalama paketi",
+      "filingPackageHint": "Bu dosyalama için yüklenen belge sürümünü seçin (genellikle Uygulama altında).",
+      "jurisdictionHint": "OPS'ye karşı kovuşturma durumu kontrollerini etkinleştirmek için EPO'yu (EP) seçin.",
+      "noDocuments": "Bu konuyla ilgili henüz bir belge yok. Önce dosyalama PDF'sini Belgeler sekmesine yükleyin.",
+      "selectDocument": "Belge sürümünü seçin…"
+    },
+    "filing": "Dosyalanıyor…",
+    "filingDate": "Başvuru tarihi",
+    "filingOffice": "Dosyalama ofisi / yargı yetkisi",
+    "jurisdictionHint": "Avrupa patentleri için EPO (EP), AB ticari markaları/tasarımları için EUIPO (AB), Bulgaristan için BPO (BG), PCT için WIPO (WO) kullanın.",
+    "loading": "IP hakları yükleniyor…",
+    "loadingRenewals": "Yenilemeler yükleniyor…",
+    "markFiled": "Dosyalandı olarak işaretle",
+    "noAnnuityWindows": "Henüz yıllık gelir penceresi yok. 1. yılı açmak için patenti kaydedin.",
+    "noRenewalWindows": "Henüz yenileme aralığı yok. Döngü 1'i açmak için IP hakkını kaydedin.",
+    "partialRenewals": "Kısmi yenilemeler",
+    "partsCount": "({{count}} parçalar)",
+    "proceed": "Kaydet devam et",
+    "register": "Kayıt olmak",
+    "registerDrawerHint": "Döngü 1 yenileme penceresini açar ve yenileme son tarihlerini oluşturur.",
+    "registerTitle": "IP hakkını kaydedin",
+    "registering": "Kaydediliyor…",
+    "registrationDate": "Kayıt tarihi",
+    "registrationNumber": "Kayıt numarası",
+    "renewalSchedule": "Yenileme aralıkları",
+    "renewalWindows": "Yenileme aralıkları",
+    "splitRenewal": "Bölünmüş yenileme",
+    "splitRenewalDescription": "Bu yenilemeyi yargı yetkisine / Nice sınıfı parçalara bölün. Her bölüm ayrı ayrı anlatılır ve tamamlanır; pencere durumu parçalardan toplanır.",
+    "splitRenewalTitle": "Bölünmüş yenileme",
+    "splitPart": "Bölüm {{n}}",
+    "splitAddPart": "Parça ekle",
+    "splitSaveParts": "Parçaları kaydet",
+    "splitNiceClasses": "Güzel sınıflar (virgülle ayrılmış)",
+    "splitNotes": "Notlar",
+    "splitJurisdiction": "Yargı yetkisi",
+    "table": {
+      "actions": "Eylemler",
+      "applicationNo": "Başvuru no.",
+      "cycle": "Döngü",
+      "dueDate": "Bitiş tarihi",
+      "jurisdiction": "Yargı yetkisi",
+      "localRef": "Yerel referans.",
+      "niceClasses": "Güzel dersler",
+      "status": "Durum",
+      "title": "Başlık",
+      "type": "Tip",
+      "yearCycle": "Yıl / döngü"
+    },
+    "title": "fikri mülkiyet hakları",
+    "titleField": "Başlık",
+    "titleRegister": "IP hakları kaydı",
+    "yearLabel": "Yıl {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "AFA'yı ekle",
+      "authority": "Yetki",
+      "authorityRequired": "Yetki gereklidir",
+      "createFailed": "AFA oluşturulamadı",
+      "empty": "Henüz AFA kaydedilmedi.",
+      "linkedSeizure": "Bağlantılı nöbet (isteğe bağlı)",
+      "loading": "Uygulamalar yükleniyor…",
+      "none": "Hiçbiri",
+      "number": "Başvuru numarası",
+      "sectionDescription": "Sınırda hakları koruyan gümrük uygulamaları.",
+      "sectionTitle": "Eylem başvuruları (AFA)",
+      "validUntil": "Şu tarihe kadar geçerlidir:"
+    },
+    "columns": {
+      "authority": "Yetki",
+      "custody": "velayet",
+      "date": "Tarih",
+      "goods": "Mal",
+      "number": "Sayı",
+      "office": "Ofis",
+      "status": "Durum",
+      "validUntil": "Şu tarihe kadar geçerlidir:"
+    },
+    "custody": {
+      "addEntry": "Velayet girişi ekle",
+      "append": "Ekle",
+      "empty": "Henüz velayet girişi yok.",
+      "notesPlaceholder": "Notlar (isteğe bağlı)",
+      "timeline": "Gözaltı zaman çizelgesi"
+    },
+    "detail": {
+      "clearLink": "Bağlantıyı temizle",
+      "linkedMatter": "Bağlantılı dava konusu",
+      "loading": "Yükleniyor…",
+      "saveChanges": "Değişiklikleri kaydet",
+      "searchMatters": "Aramanın artırılması önemlidir…",
+      "seizedOn": "Ele geçirilen {{date}}",
+      "title": "Nöbet detayı",
+      "updateFailed": "Nöbet güncellenemedi"
+    },
+    "errors": {
+      "addCustodyFailed": "Velayet girişi eklenemedi",
+      "createSeizureFailed": "Nöbet oluşturulamadı",
+      "officeAndGoodsRequired": "Gümrük ofisi ve mal tanımı gereklidir"
+    },
+    "open": "Açık",
+    "seizures": {
+      "consignmentRef": "Konsinye ref",
+      "create": "Nöbet oluştur",
+      "createTitle": "Gümrük nöbetini günlüğe kaydet",
+      "deadlineHint": "Otomatik olarak bir yanıt son tarihi oluşturulur (ele geçirme tarihinden itibaren 10 iş günü).",
+      "empty": "Henüz kaydedilen bir nöbet yok.",
+      "goodsDescription": "Mal açıklaması",
+      "loadFailed": "Nöbetler yüklenemedi.",
+      "loading": "Nöbetler yükleniyor…",
+      "logSeizure": "Günlük ele geçirme",
+      "office": "Gümrük ofisi",
+      "portOfEntry": "Giriş limanı",
+      "quantity": "Miktar",
+      "sectionDescription": "Bu konuyla ilgili sınır gözaltıları ve gözaltılar.",
+      "sectionTitle": "Nöbetler",
+      "seizureDate": "Nöbet tarihi",
+      "status": "Durum"
+    },
+    "wrongMatterType": "Gümrük kayıtları yalnızca sınır tedbirleri konularında mevcuttur."
+  },
+  "jurisdictionStatus": {
+    "approved": "Onaylı",
+    "filed": "Dosyalanmış",
+    "pending": "Askıda olması",
+    "rejected": "Reddedilmiş"
+  },
+  "layout": {
+    "backToMatters": "← Konulara geri dön",
+    "loading": "Konu yükleniyor…",
+    "notFound": "Konu bulunamadı."
+  },
+  "list": {
+    "description": "Tüm hukuki konuların portföy görünümü - başlığa, müşteriye veya başvuru numarasına göre arama yapın.",
+    "descriptionPortal": "Alım dönüşümünden sonra kuruluşunuz için açılan konular.",
+    "filters": {
+      "allStatuses": "Tüm durumlar",
+      "allTypes": "Tüm türler"
+    },
+    "intakeQueue": "Giriş kuyruğu",
+    "perPage": "{{count}} sayfa başına",
+    "searchPlaceholder": "Arama başlığı, müşteri, başvuru numarası…",
+    "title": "Önemlidir",
+    "titlePortal": "benim konularım"
+  },
+  "ipRightsRegister": {
+    "description": "Müşteriye, yetki alanına, türe, duruma ve sona erme tarihine göre filtrelerle firma çapında fikri mülkiyet hakları kaydı.",
+    "empty": "Bu filtreler için IP hakkı bulunamadı.",
+    "filters": {
+      "all": "Tüm",
+      "allClients": "Tüm müşteriler",
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "allStatuses": "Tüm durumlar",
+      "allTypes": "Tüm türler",
+      "client": "Müşteri",
+      "expiryFrom": "Sona erme tarihi",
+      "expiryTo": "Sona erme tarihi",
+      "jurisdiction": "Yargı yetkisi",
+      "matterType": "Madde türü",
+      "status": "Durum"
+    },
+    "loading": "Yükleniyor…",
+    "table": {
+      "applicationNo": "Başvuru no.",
+      "client": "Müşteri",
+      "expiry": "Son kullanma tarihi",
+      "ipRight": "IP hakkı",
+      "jurisdiction": "Yargı yetkisi",
+      "matter": "Konu",
+      "status": "Durum",
+      "type": "Tip"
+    },
+    "title": "Fikri Mülkiyet Hakları Kaydı"
+  },
+  "markType": {
+    "combined": "Kombine",
+    "figurative": "Figüratif",
+    "sound": "Ses",
+    "three_dimensional": "3 boyutlu",
+    "wordmark": "Kelime işareti"
+  },
+  "overview": {
+    "assignedTo": "Baş avukat",
+    "description": "Tanım",
+    "jurisdictions": "Yargı bölgeleri",
+    "jurisdictionsEmpty": "Hiçbir yetki alanı kaydedilmedi.",
+    "openedBy": "Tarafından açıldı",
+    "status": "Durum",
+    "table": {
+      "country": "Ülke",
+      "localRef": "Yerel referans.",
+      "status": "Durum"
+    },
+    "title": "Konu ayrıntıları",
+    "type": "Tip",
+    "typeSpecific": "Türe özgü özellikler"
+  },
+  "status": {
+    "abandoned": "Terk edilmiş",
+    "active": "Aktif",
+    "closed": "Kapalı",
+    "draft": "Taslak",
+    "on_hold": "beklemede"
+  },
+  "table": {
+    "assigned": "Atandı",
+    "client": "Müşteri",
+    "empty": "Hiçbir konu bulunamadı",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir konu açın.",
+    "emptyPortal": "Henüz sizinle paylaşılan bir konu yok.",
+    "error": "Konular yüklenemedi.",
+    "jurisdictions": "Yargı bölgeleri",
+    "status": "Durum",
+    "title": "Başlık",
+    "type": "Tip",
+    "upcoming": "{{count}} yaklaşıyor",
+    "viewAria": "{{title}} görüntüle"
+  },
+  "tabs": {
+    "billing": "Faturalandırma",
+    "correspondence": "Yazışma",
+    "deadlines": "Son teslim tarihleri",
+    "documents": "Belgeler",
+    "instructions": "Talimatlar",
+    "approvals": "Onaylar",
+    "ipRights": "fikri mülkiyet hakları",
+    "customs": "Gümrük",
+    "overview": "Genel Bakış",
+    "tasks": "Görevler",
+    "timeline": "Zaman çizelgesi"
+  },
+  "approvals": {
+    "title": "Müşteri onayları",
+    "subtitle": "Müşteri portalı için onay taleplerinin taslağını hazırlayın ve gönderin.",
+    "newDraft": "Yeni taslak",
+    "loading": "Onaylar yükleniyor…",
+    "loadError": "Onaylar yüklenemedi.",
+    "empty": "Henüz onay talebi yok.",
+    "noPermission": "Bu konuyla ilgili onayları görüntüleme izniniz yok.",
+    "decisionNote": "Müşteri notu: {{note}}",
+    "columns": {
+      "title": "Başlık",
+      "status": "Durum",
+      "dueDate": "Vadesi dolmuş",
+      "created": "Oluşturuldu"
+    },
+    "status": {
+      "draft": "Taslak",
+      "pending": "Askıda olması",
+      "approved": "Onaylı",
+      "rejected": "Reddedilmiş"
+    },
+    "actions": {
+      "submit": "Göndermek"
+    },
+    "drawer": {
+      "createTitle": "Yeni onay isteği",
+      "title": "Başlık",
+      "description": "Tanım",
+      "dueDate": "Bitiş tarihi",
+      "cancel": "İptal etmek",
+      "create": "Taslak oluştur"
+    },
+    "errors": {
+      "titleRequired": "Başlık gerekli",
+      "saveFailed": "Onay oluşturulamadı"
+    }
+  },
+  "tasks": {
+    "add": "Görev ekle",
+    "assignedTo": "Atandı",
+    "assignedToUser": "{{name}} adresine atandı",
+    "completed": "Tamamlanmış",
+    "completedByUser": "{{name}} tarafından tamamlandı",
+    "confirmComplete": "Bu görev tamamlandı olarak işaretlensin mi?",
+    "confirmDelete": "Bu görev silinsin mi?",
+    "delete": "Silmek",
+    "deleteMessage": "Bu görev kalıcı olarak kaldırılacak.",
+    "deleteTitle": "Görev silinsin mi?",
+    "description": "Bu konuda yapılacak çalışmalar sistem tarafından oluşturulan son teslim tarihlerinden ayrı olarak yapılmalıdır.",
+    "drawerTitle": "Görev ekle",
+    "dueOn": "Vade tarihi {{date}}",
+    "empty": "Bu konuyla ilgili herhangi bir görev yok.",
+    "emptyOpen": "Açık görev yok. Bu konuyla ilgili takip edilecek çalışmalar olduğunda bir tane ekleyin.",
+    "error": "Görevler yüklenemedi.",
+    "errorCreate": "Görev oluşturulamadı",
+    "form": {
+      "assigneeLabel": "Atandı",
+      "assigneeRequired": "Bu görevi kimin yapması gerektiğini seçin",
+      "dueDateOptional": "Son tarih (isteğe bağlı)",
+      "notesOptional": "Notlar (isteğe bağlı)",
+      "notesPlaceholder": "Atanan kişi için herhangi bir ekstra bağlam",
+      "priorityLabel": "Öncelik",
+      "titleLabel": "Ne yapılması gerekiyor?",
+      "titlePlaceholder": "örneğin Müşteriyi yeniden arayın: BPO yanıtı",
+      "titleRequired": "Başlık gerekli"
+    },
+    "loading": "Görevler yükleniyor…",
+    "markComplete": "Tamamlandı olarak işaretle",
+    "noDueDate": "Son tarih yok",
+    "open": "Açık",
+    "priority": {
+      "high": "Yüksek",
+      "normal": "Normal"
+    },
+    "title": "Görevler"
+  },
+  "timeline": {
+    "description": "Bu konuyla ilgili kovuşturma ve yazışmaların kronolojik tarihi.",
+    "empty": "Henüz zaman çizelgesi etkinliği yok. Buradaki etkinliği görmek için yazışmaları kaydedin veya bir başvuru yapın.",
+    "error": "Zaman çizelgesi yüklenemedi.",
+    "eventType": {
+      "correspondence": "Yazışma",
+      "deadline": "Son teslim tarihi",
+      "filing": "Dosyalama",
+      "note": "Not",
+      "task": "Görev"
+    },
+    "loading": "Zaman çizelgesi yükleniyor…",
+    "loggedBy": "{{name}} tarafından kaydedildi",
+    "title": "Zaman çizelgesi"
+  },
+  "type": {
+    "border_measures": "Sınır önlemleri",
+    "copyright": "Telif hakkı",
+    "dispute_opposition": "Anlaşmazlık / muhalefet",
+    "fto_analysis": "FTO analizi",
+    "geographical_indication": "Coğrafi işaret",
+    "industrial_design": "Endüstriyel tasarım",
+    "patent": "Patent",
+    "trademark": "Ticari marka",
+    "utility_model": "Faydalı model",
+    "valuation": "Değerleme"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Seçme…",
+    "title": "Tipe özgü ayrıntılar"
+  }
+}

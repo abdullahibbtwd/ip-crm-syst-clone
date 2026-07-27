@@ -1,0 +1,43 @@
+{
+  "title": "先例",
+  "subtitle": "可重复使用的信件和归档语言的知识库。",
+  "newDraft": "新草案",
+  "searchPlaceholder": "搜索正文...",
+  "loading": "加载先例...",
+  "loadFailed": "无法加载先例。",
+  "empty": "还没有先例。 从信件中创建草稿或收获。",
+  "columns": {
+    "title": "标题",
+    "category": "类别",
+    "jurisdiction": "管辖权",
+    "status": "地位",
+    "updated": "已更新"
+  },
+  "filters": {
+    "allStatuses": "所有状态"
+  },
+  "status": {
+    "draft": "草稿",
+    "published": "已发表",
+    "archived": "已存档"
+  },
+  "editAria": "编辑",
+  "drawer": {
+    "createTitle": "新先例",
+    "editTitle": "编辑先例",
+    "title": "标题",
+    "category": "类别",
+    "matterType": "物质类型",
+    "optional": "选修的",
+    "jurisdiction": "管辖权",
+    "tags": "标签",
+    "body": "身体",
+    "bodyPlaceholder": "编写前面的文本 - 支持粗体、斜体和列表",
+    "publish": "发布",
+    "archive": "档案",
+    "publishFailed": "发布失败",
+    "archiveFailed": "存档失败",
+    "saveFailed": "无法保存先例",
+    "requiredFields": "标题、类别和正文为必填项"
+  }
+}

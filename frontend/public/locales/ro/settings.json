@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Anula",
+      "confirm": "Confirmați și activați 2FA",
+      "enable": "Activați 2FA",
+      "preparing": "Se pregătesc…",
+      "verifying": "Se verifică..."
+    },
+    "authCode": "Cod de autentificare",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Activ",
+      "description": "Contul dvs. necesită un cod din aplicația dvs. de autentificare atunci când vă conectați.",
+      "title": "Autentificarea cu doi factori este activată"
+    },
+    "errors": {
+      "enableFailed": "Nu s-a activat 2FA",
+      "invalidCode": "Cod nevalid",
+      "setupFailed": "Nu s-a putut porni configurarea 2FA"
+    },
+    "setup": {
+      "description": "Adăugați un nivel suplimentar de securitate solicitând un cod din 6 cifre de la o aplicație de autentificare (Google Authenticator, Authy etc.) când vă conectați.",
+      "manualKey": "Sau introduceți această cheie manual",
+      "scanQr": "1. Scanați acest cod QR",
+      "scanQrHint": "Deschideți aplicația de autentificare și scanați codul de mai jos.",
+      "verify": "2. Confirmați cu un cod din 6 cifre",
+      "verifyHint": "Introdu codul afișat în aplicația ta pentru a verifica configurația."
+    }
+  },
+  "security": {
+    "description": "Autentificarea cu doi factori vă protejează contul chiar dacă parola este compromisă.",
+    "title": "Securitate"
+  },
+  "subtitle": "Gestionați-vă preferințele și securitatea contului.",
+  "title": "Setări",
+  "links": {
+    "email": {
+      "title": "Integrarea e-mailului",
+      "description": "Conectați Microsoft 365 sau Google Workspace pentru a sincroniza mesajele primite în Coada de e-mail.",
+      "action": "Gestionați cutiile poștale"
+    },
+    "deadlineRules": {
+      "title": "Reguli de termen",
+      "description": "Configurați jurisdicția și compensarea tipului de materie pentru termenele-limită create automat.",
+      "action": "Gestionați regulile de termen limită"
+    },
+    "holidays": {
+      "title": "Calendarul sărbătorilor",
+      "description": "Sărbătorile de jurisdicție utilizate la contorizarea zilelor lucrătoare pentru termenele limită.",
+      "action": "Gestionați vacanțele"
+    },
+    "documentTemplates": {
+      "title": "Șabloane de documente",
+      "description": "Editați șabloanele de scrisori, îmbinați câmpurile și previzualizați PDF-urile generate.",
+      "action": "Gestionați șabloanele"
+    },
+    "integrations": {
+      "title": "Integrarea registrului",
+      "description": "Conectați EPO OPS și alte registre IP pentru scanări de ceasuri și căutări bibliografice.",
+      "action": "Gestionați integrările"
+    },
+    "ssoMfa": {
+      "title": "SSO și MFA",
+      "description": "Configurați aplicațiile de conectare Google/Microsoft și politica fermă MFA. Secretele sunt criptate în baza de date.",
+      "action": "Gestionați SSO și MFA"
+    },
+    "roles": {
+      "title": "Roluri și permisiuni",
+      "description": "Matrice numai în citire a rolurilor de sistem și a permisiunilor acordate acestora.",
+      "action": "Vizualizați matricea rolurilor"
+    },
+    "systemHealth": {
+      "title": "Sănătatea sistemului",
+      "description": "Verificări live pentru baza de date, Redis și stocarea obiectelor.",
+      "action": "Vedeți starea sistemului"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO și MFA",
+    "subtitle": "Furnizorii de identitate și politica de autentificare multifactorială pentru firmă.",
+    "noPermission": "Nu aveți permisiunea de a gestiona setările SSO sau MFA.",
+    "loading": "Se încarcă setările SSO...",
+    "saveButton": "Salvați setările",
+    "saveSuccess": "Setările SSO și MFA au fost salvate în siguranță.",
+    "saveFailed": "Nu s-au salvat setările SSO și MFA",
+    "securityHint": "Secretele clientului sunt criptate în repaus (AES-256-GCM). Secretele complete nu sunt returnate niciodată de API.",
+    "leaveBlankToKeep": "Lăsați necompletat pentru a păstra secretul actual",
+    "clientId": "ID client",
+    "clientSecret": "Secretul clientului",
+    "tenantId": "ID locatar",
+    "redirectUri": "URI de redirecționare (înregistrați-vă în consola furnizorului)",
+    "sourceDatabase": "Baza de date",
+    "sourceEnv": "Mediu (.env)",
+    "sourceNone": "Neconfigurat",
+    "editButton": "Edita",
+    "cancelEdit": "Anula",
+    "configuredViaEnv": "Configurat prin mediu",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Aplicația Entra ID / Microsoft 365 OIDC utilizată pentru autentificarea SSO a personalului și a portalului.",
+      "saveButton": "Salvați Microsoft",
+      "saveSuccess": "Setările Microsoft SSO au fost salvate."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Clientul Google OAuth utilizat pentru autentificarea SSO.",
+      "saveButton": "Salvează Google",
+      "saveSuccess": "Setările Google SSO au fost salvate."
+    },
+    "mfa": {
+      "title": "politica MAE",
+      "description": "Setări MFA la nivelul întregii organizații. Utilizatorii se înregistrează în continuare din propria lor pagină Setări.",
+      "requireInternal": "Solicitați MAE pentru personalul intern",
+      "requireInternalHint": "Când este activat, utilizatorii interni ar trebui să înregistreze MFA în Setări → Securitate. Aplicarea autentificarii poate fi înăsprită într-o continuare.",
+      "saveButton": "Salvați politica MFA",
+      "saveSuccess": "Politica MFA a fost salvată."
+    }
+  },
+  "roles": {
+    "title": "Roluri și permisiuni",
+    "subtitle": "Matrice numai în citire a rolurilor de sistem și a permisiunilor acordate (RBAC cu seed).",
+    "noPermission": "Nu aveți permisiunea de a vizualiza roluri.",
+    "loading": "Se încarcă rolurile...",
+    "error": "Nu s-au încărcat rolurile.",
+    "system": "Sistem",
+    "columns": {
+      "role": "Rol",
+      "description": "Descriere",
+      "permissions": "Permisiuni"
+    }
+  },
+  "systemHealth": {
+    "title": "Sănătatea sistemului",
+    "subtitle": "Verificări live pentru baza de date, Redis și stocarea obiectelor.",
+    "noPermission": "Nu aveți permisiunea de a vedea starea sistemului.",
+    "loading": "Se verifică serviciile…",
+    "error": "Nu s-a încărcat starea de sănătate.",
+    "overall": "În general",
+    "statusOk": "Sănătos",
+    "statusDegraded": "Degradat",
+    "database": "Baza de date",
+    "redis": "Redis",
+    "storage": "Depozitarea obiectelor",
+    "checkOk": "Accesibil",
+    "checkFailed": "Inaccesibil",
+    "refresh": "Reîmprospăta",
+    "refreshing": "Înviorare…"
+  },
+  "integrations": {
+    "title": "Integrari",
+    "subtitle": "Registrul extern și conexiunile furnizorilor de date utilizate de fluxurile de lucru de vizionare și de înregistrare.",
+    "noPermission": "Nu aveți permisiunea de a vizualiza integrările de registry.",
+    "epo": {
+      "title": "Registrul EPO (OPS)",
+      "description": "Deschideți serviciile de brevete v3.2. Jetoanele de acces sunt reîmprospătate automat din cheia și secretul dvs. de consumator.",
+      "statusConfigured": "Configurat",
+      "statusNotConfigured": "Neconfigurat",
+      "statusLoading": "Control…",
+      "testButton": "Testați conexiunea",
+      "testing": "Se testează…",
+      "testSuccess": "Conexiune EPO reușită. Brevet preluat: {{title}}",
+      "testFailed": "Conexiunea EPO a eșuat",
+      "envHint": "Setați EPO_CONSUMER_KEY și EPO_CONSUMER_SECRET în serverul .env, apoi reporniți API-ul.",
+      "consumerKey": "Cheia consumatorului",
+      "consumerSecret": "Secretul consumatorului",
+      "consumerKeyPlaceholder": "Introduceți cheia de consumator EPO",
+      "consumerSecretPlaceholder": "Introduceți secretul de consumator EPO",
+      "leaveBlankToKeep": "Lăsați necompletat pentru a păstra valoarea curentă",
+      "apiBaseUrl": "Adresa URL de bază API (opțional)",
+      "authUrl": "Adresă URL de autentificare (opțional)",
+      "saveButton": "Salvați acreditările",
+      "clearButton": "Ștergeți acreditările stocate",
+      "saveSuccess": "Acreditările EPO salvate în siguranță.",
+      "saveFailed": "Nu s-au salvat acreditările EPO",
+      "clearSuccess": "Acreditările EPO stocate au fost șterse. Valoarea de rezervă Env se aplică în continuare dacă este setată.",
+      "clearFailed": "Nu s-au șters acreditările EPO",
+      "securityHint": "Secretele sunt criptate în repaus (AES-256-GCM). Valorile complete nu sunt returnate niciodată de API.",
+      "sourceLabel": "Sursă activă",
+      "sourceDatabase": "Baza de date",
+      "sourceEnv": "Mediu (.env)",
+      "sourceNone": "Neconfigurat",
+      "keyHint": "cheie …{{lastFour}}",
+      "editButton": "Edita",
+      "cancelEdit": "Anula",
+      "configuredViaEnv": "Configurat prin mediu",
+      "defaultEndpoint": "Punct final EPO implicit"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Trimiteți facturile emise către Xero Accounting prin API. Sunt trimise doar facturile modificate de la ultima sincronizare reușită.",
+      "quickbooksTitle": "QuickBooks online",
+      "quickbooksDescription": "Trimiteți facturile emise către QuickBooks. Clienții sunt potriviți (sau creați) după numele afișat.",
+      "xeroTenantId": "ID-ul locatarului Xero",
+      "quickbooksRealmId": "ID-ul domeniului / companiei QuickBooks",
+      "statusConfigured": "Configurat",
+      "statusNotConfigured": "Neconfigurat",
+      "loading": "Încărcare…",
+      "clientId": "ID client (opțional)",
+      "clientSecret": "Secretul clientului (opțional)",
+      "accessToken": "Jeton de acces",
+      "leaveBlankToKeep": "Lăsați necompletat pentru a păstra valoarea curentă",
+      "saveButton": "Salvați acreditările",
+      "clearButton": "Clar",
+      "editButton": "Edita",
+      "cancelEdit": "Anula",
+      "syncNow": "Sincronizează acum",
+      "lastSync": "Ultima sincronizare",
+      "neverSynced": "Nu",
+      "saveSuccess": "Acreditările contabile salvate în siguranță.",
+      "saveFailed": "Nu s-au salvat acreditările contabile",
+      "clearSuccess": "Acreditările contabile au fost șterse.",
+      "clearFailed": "Nu s-au putut șterge acreditările contabile",
+      "syncFailed": "Nu s-a putut pune în coadă sincronizarea contabilă"
+    }
+  },
+  "deadlineRules": {
+    "title": "Reguli de termen",
+    "subtitle": "Compensații de jurisdicție și tip de materie utilizate la crearea automată a termenelor limită de la crearea materiei, acțiunile de birou și reînnoiri.",
+    "newRule": "Regulă nouă",
+    "noPermission": "Nu aveți permisiunea de a vizualiza regulile de termen limită.",
+    "loading": "Se încarcă regulile termenului limită...",
+    "loadError": "Nu s-au încărcat regulile de termen limită.",
+    "empty": "Nicio regulă de termen limită nu se potrivește cu aceste filtre.",
+    "allJurisdictions": "Toate jurisdicțiile",
+    "allMatterTypes": "Toate tipurile de materie",
+    "filters": {
+      "jurisdiction": "Jurisdicția",
+      "matterType": "Tipul materiei"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdicția",
+      "matterType": "Tipul materiei",
+      "event": "Eveniment",
+      "trigger": "Trigger",
+      "offset": "Offset",
+      "grace": "Graţie",
+      "priority": "Prioritate",
+      "status": "Stare"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv"
+    },
+    "editAria": "Editați regula termenului limită",
+    "drawer": {
+      "createTitle": "Noua regulă a termenului limită",
+      "editTitle": "Editați regula termenului limită",
+      "jurisdiction": "Jurisdicția",
+      "matterType": "Tipul materiei",
+      "eventType": "Tipul evenimentului",
+      "triggerType": "Tip de declanșare",
+      "daysOffset": "Zile compensate",
+      "dayCounting": "Numărarea zilelor",
+      "businessDays": "Zile lucrătoare",
+      "calendarDays": "Zile calendaristice",
+      "gracePeriod": "Perioada de grație (zile)",
+      "priority": "Prioritate (1–10)",
+      "description": "Descriere",
+      "status": "Stare",
+      "cancel": "Anula",
+      "create": "Creați o regulă",
+      "save": "Salvați modificările"
+    },
+    "errors": {
+      "daysOffset": "Introduceți un offset de zile valide",
+      "grace": "Introduceți o perioadă de grație valabilă",
+      "priority": "Prioritatea trebuie să fie între 1 și 10",
+      "saveFailed": "Nu s-a salvat regula termenului limită"
+    },
+    "offset": {
+      "businessDay": "zi lucrătoare",
+      "businessDays": "zile lucrătoare",
+      "calendarDay": "zi calendaristică",
+      "calendarDays": "zile calendaristice",
+      "sameDay": "În aceeași zi ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Depunerea",
+      "examination_response": "Răspunsul la examen",
+      "renewal": "Reînnoire",
+      "opposition": "Opoziţie",
+      "grace_period": "Perioada de gratie"
+    },
+    "triggerType": {
+      "matter_created": "Materia creată",
+      "office_action": "Acțiune de birou",
+      "renewal_due": "Reînnoire datorată"
+    }
+  },
+  "documentTemplates": {
+    "title": "Șabloane de documente",
+    "subtitle": "Șabloane de scrisori și de depunere cu câmpuri de îmbinare. Generați PDF-uri din chestiuni sau previzualizați cu date mostre.",
+    "newTemplate": "Șablon nou",
+    "noPermission": "Nu aveți permisiunea de a vizualiza șabloanele de documente.",
+    "loading": "Se încarcă șabloanele...",
+    "loadError": "Nu s-au încărcat șabloanele de documente.",
+    "empty": "Încă nu există șabloane de documente.",
+    "columns": {
+      "name": "Nume",
+      "slug": "Melc",
+      "category": "Categorie",
+      "status": "Stare",
+      "docx": "Cuvânt",
+      "updated": "Actualizat"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv"
+    },
+    "editAria": "Editați șablonul de document",
+    "uploadDocx": "Încărcați .docx",
+    "removeDocx": "Eliminați .docx",
+    "uploadDocxAria": "Încărcați șablonul Word",
+    "removeDocxAria": "Eliminați șablonul Word",
+    "confirmRemoveDocx": "Eliminați șablonul Word (.docx) din acest șablon de scrisoare?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Model nou de document",
+      "editTitle": "Editați șablonul de document",
+      "loading": "Se încarcă șablonul...",
+      "slug": "Melc",
+      "slugHint": "Kebab-case minuscule, unic.",
+      "slugReadonly": "Melc:",
+      "name": "Nume",
+      "category": "Categorie",
+      "description": "Descriere",
+      "referenceLine": "Linia de referință",
+      "mergeFields": "Îmbinați câmpurile",
+      "insertIntoReference": "Introduceți în linia de referință",
+      "insertIntoHtml": "Inserați în corpul HTML",
+      "htmlBody": "Corpul HTML",
+      "livePreview": "Previzualizare live",
+      "status": "Stare",
+      "previewPdf": "Previzualizează PDF",
+      "cancel": "Anula",
+      "create": "Creați șablon",
+      "save": "Salvați modificările"
+    },
+    "errors": {
+      "required": "Numele și corpul HTML sunt necesare",
+      "slugRequired": "Limac este necesar",
+      "saveFailed": "Nu s-a salvat șablonul de document",
+      "previewFailed": "Nu s-a generat previzualizarea PDF",
+      "docxUploadFailed": "Nu s-a putut încărca șablonul Word",
+      "docxDeleteFailed": "Nu s-a putut elimina șablonul Word"
+    }
+  },
+  "holidays": {
+    "title": "Calendarul sărbătorilor",
+    "subtitle": "Sărbătorile legale după jurisdicție. Sărbătorile recurente se aplică în fiecare an în aceeași lună și zi atunci când se numără zilele lucrătoare.",
+    "newHoliday": "Sărbătoare nouă",
+    "noPermission": "Nu aveți permisiunea de a vizualiza sărbătorile.",
+    "loading": "Se încarcă sărbătorile…",
+    "loadError": "Nu s-au încărcat sărbătorile.",
+    "empty": "Nicio sărbătoare nu se potrivește cu acest filtru.",
+    "allJurisdictions": "Toate jurisdicțiile",
+    "filters": {
+      "jurisdiction": "Jurisdicția"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdicția",
+      "date": "Data",
+      "name": "Nume",
+      "recurring": "Recurente"
+    },
+    "recurring": {
+      "yes": "Recurente",
+      "no": "O dată"
+    },
+    "editAria": "Editați vacanța",
+    "deleteAria": "Șterge vacanța",
+    "confirmDelete": "Ștergeți vacanța „{{name}}”?",
+    "drawer": {
+      "createTitle": "Sărbătoare nouă",
+      "editTitle": "Editați vacanța",
+      "jurisdiction": "Jurisdicția",
+      "date": "Data",
+      "name": "Nume",
+      "recurring": "Recurente anual",
+      "cancel": "Anula",
+      "create": "Creați vacanță",
+      "save": "Salvați modificările"
+    },
+    "errors": {
+      "required": "Numele și data sunt obligatorii",
+      "saveFailed": "Nu s-a salvat vacanța"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Setări",
+    "title": "Integrarea e-mailului",
+    "description": "Conectați-vă căsuța poștală de la serviciu pentru a sincroniza mesajele primite în coada de e-mail și trimiteți răspunsuri din CRM. Necesită Mail.Read + Mail.Send (Microsoft) sau gmail.readonly + gmail.send (Google). Reconectați-vă după actualizările domeniului pentru a acorda permisiunea de trimitere.",
+    "fetchEmails": "Preluați 5 e-mailuri",
+    "connectedSuccess": "Conectat {{provider}} cu succes.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Conectat",
+    "error": "Eroare",
+    "notConnected": "Nu este conectat",
+    "providerEnabledDescription": "Atrageți noi mesaje primite în Coada de e-mail.",
+    "providerDisabledDescription": "Nu este configurat pe acest server (lipsesc acreditările OAuth).",
+    "redirectUriHint": "Înregistrați acest URI de redirecționare în aplicația dvs. OAuth {{provider}}:",
+    "lastSync": "Ultima sincronizare: {{time}}",
+    "neverSynced": "Nu s-a sincronizat niciodată",
+    "reconnect": "Reconectați-vă",
+    "disconnect": "Deconecta",
+    "connect": "Conectați {{provider}}",
+    "loadingConnections": "Se încarcă conexiunile…",
+    "fetchSuccess": "Au fost preluate până la {{limit}} mesaje — {{ingested}} noi în coadă.",
+    "fetchFailed": "E-mailurile nu au fost preluate"
+  },
+  "consent": {
+    "title": "Înregistrări de consimțământ",
+    "subtitle": "Starea consimțământului GDPR pentru clienți.",
+    "filters": {
+      "all": "Toate",
+      "consented": "Consimțit",
+      "missing": "Lipsă"
+    },
+    "failedToLoad": "Nu s-au încărcat înregistrările de consimțământ.",
+    "noClientsFound": "Nu s-au găsit clienți.",
+    "table": {
+      "client": "Client",
+      "code": "Cod",
+      "consent": "Consimţământ",
+      "date": "Data"
+    }
+  }
+}

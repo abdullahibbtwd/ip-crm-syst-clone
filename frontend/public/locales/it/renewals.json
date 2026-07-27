@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Prossimamente",
+    "instructed": "Istruito",
+    "filed": "Archiviata",
+    "completed": "Completato",
+    "lapsed": "Decaduta"
+  },
+  "page": {
+    "title": "Rinnovi",
+    "descriptionMy": "Finestre di rinnovo sulle questioni assegnate a te.",
+    "descriptionFirm": "Elenco di lavoro di rinnovo a livello aziendale per tutti i diritti di proprietà intellettuale.",
+    "filters": {
+      "status": "Stato",
+      "allStatuses": "Tutti gli stati",
+      "jurisdiction": "Giurisdizione",
+      "allJurisdictions": "Tutte le giurisdizioni",
+      "assignee": "Assegnataria",
+      "allAssignees": "Tutti gli assegnatari"
+    },
+    "loading": "Caricamento rinnovi…",
+    "empty": "Nessuna finestra di rinnovo corrisponde ai tuoi filtri.",
+    "table": {
+      "ipRight": "IP giusto",
+      "matter": "Questione",
+      "client": "Cliente",
+      "cycle": "Ciclo",
+      "due": "Dovuta",
+      "status": "Stato",
+      "assignee": "Assegnataria"
+    }
+  },
+  "widget": {
+    "title": "Prossimi rinnovi",
+    "subtitle": "Prossimi 90 giorni di pipeline di istruzioni",
+    "viewPipeline": "Visualizza pipeline",
+    "loading": "Calcolo delle finestre di rinnovo…",
+    "error": "Impossibile caricare l'analisi dei rinnovi.",
+    "stats": {
+      "totalPipeline": "Conduttura totale",
+      "activeWindows": "Finestre attive",
+      "awaiting": "Inattesa",
+      "noInstruction": "Nessuna istruzione ancora",
+      "urgent": "Urgente",
+      "due7Days": "Scadenza ≤ 7 giorni",
+      "instructed": "Istruito",
+      "proceedConfirmed": "Procedi confermato"
+    },
+    "empty": "Nessun rinnovo tracciato in questa finestra.",
+    "table": {
+      "ipAsset": "Risorsa IP",
+      "client": "Cliente",
+      "dueStatus": "Scadenza/Stato"
+    },
+    "cycle": "Ciclo {{number}}"
+  }
+}

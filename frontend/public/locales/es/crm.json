@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Gestionar registros de empresas y clientes individuales. Los nuevos clientes se crean mediante la admisión.",
+    "emptyDescription": "Intenta ajustar los filtros o crea una cliente a través de la ingesta.",
+    "emptyTitle": "No se encontraron clientes",
+    "error": "No se pudieron cargar los clientes.",
+    "newViaIntake": "Nuevo cliente vía admisión",
+    "perPage": "{{count}} por página",
+    "searchPlaceholder": "Buscar nombre o código…",
+    "title": "Clientas",
+    "viewAria": "Ver {{name}}"
+  },
+  "contacts": {
+    "add": "Añadir contacto",
+    "drawerTitle": "Añadir contacto",
+    "email": "Correo electrónico",
+    "empty": "No se encontraron contactos.",
+    "firstName": "Nombre de pila *",
+    "lastName": "Apellido *",
+    "loading": "Cargando contactos…",
+    "remove": "Eliminar",
+    "role": {
+      "all": "Toda",
+      "billing": "Facturación",
+      "conflict": "Conflicto",
+      "general": "General",
+      "primary": "Primaria"
+    },
+    "save": "Guardar contacto",
+    "table": {
+      "email": "Correo electrónico",
+      "name": "Nombre",
+      "office": "Oficina",
+      "phone": "Teléfono",
+      "role": "Role"
+    }
+  },
+  "countrySelect": {
+    "empty": "No se encontraron países",
+    "none": "Ninguna",
+    "placeholder": "Seleccionar país",
+    "search": "Buscar países…"
+  },
+  "drawer": {
+    "closeAria": "Cerrar cajón"
+  },
+  "holdingGroups": {
+    "back": "← Volver a grupos de retención",
+    "clientsUnder": "Clientes bajo este grupo",
+    "create": "Crear grupo de tenencia",
+    "creating": "Creando…",
+    "description": "Paraguas matrices para entidades clientes relacionadas.",
+    "descriptionField": "Descripción",
+    "detailDescription": "Cree un paraguas principal para entidades cliente relacionadas.",
+    "empty": "No se encontraron grupos de retención",
+    "emptyClients": "No hay clientes vinculadas todavía.",
+    "emptyDescription": "Intente ajustar la búsqueda o cree un nuevo grupo de espera.",
+    "error": "No se pudieron cargar los grupos de retención.",
+    "formError": "No se pudo crear el grupo de retención",
+    "name": "Nombre *",
+    "namePlaceholder": "p.ej. Grupo Acme BV",
+    "new": "Nuevo grupo holding",
+    "notesPlaceholder": "Notas opcionales sobre esta estructura holding",
+    "notFound": "Grupo de retención no encontrado.",
+    "allGroups": "Todos los grupos de tenencia",
+    "perPage": "{{count}} por página",
+    "searchPlaceholder": "Buscar nombre o país…",
+    "title": "Grupos de tenencia",
+    "viewAria": "Ver {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Volver a las clientas"
+  },
+  "offices": {
+    "add": "Agregar oficina",
+    "city": "Ciudad",
+    "drawerTitle": "Agregar oficina",
+    "empty": "Aún no hay oficinas.",
+    "errorPrimary": "No se pudo establecer la oficina principal",
+    "label": "Etiqueta *",
+    "loading": "Cargando oficinas…",
+    "noAddress": "Sin dirección",
+    "primary": "Primaria",
+    "remove": "Eliminar",
+    "save": "guardar oficina",
+    "setPrimary": "Establecer como oficina principal",
+    "setPrimaryAction": "Establecer primaria",
+    "title": "Oficinas"
+  },
+  "overview": {
+    "assignedTo": "Asignado a",
+    "cancel": "Cancelar",
+    "companyName": "Nombre de empresa *",
+    "country": "País",
+    "edit": "Editar",
+    "exportClientData": "Exportar datos del cliente",
+    "error": "No se pudo cargar el perfil del cliente.",
+    "errorSave": "No se pudo guardar la cliente",
+    "firstName": "Nombre de pila *",
+    "gdprConsent": "Consentimiento RGPD",
+    "holdingGroup": "grupo holding",
+    "lastName": "Apellido *",
+    "legalForm": "forma jurídica",
+    "loading": "Cargando perfil…",
+    "none": "Ninguna",
+    "notes": "Notas",
+    "registrationNo": "Número de registro.",
+    "save": "Guardar cambios",
+    "saving": "Ahorro…",
+    "status": "Estado",
+    "type": "Tipo",
+    "validation": {
+      "companyName": "El nombre de la empresa es obligatorio.",
+      "name": "Nombre y apellido son obligatorios",
+      "website": "El sitio web debe comenzar con http:// o https://"
+    },
+    "vatNo": "IVA no.",
+    "website": "Sitio web",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Agregar empresa relacionada",
+    "drawerTitle": "Agregar empresa relacionada",
+    "empty": "No hay empresas relacionadas vinculadas.",
+    "externalName": "Nombre externo",
+    "existingClient": "Clienta existente",
+    "linkType": "Tipo de enlace",
+    "loading": "Cargando…",
+    "notes": "Notas",
+    "notesPlaceholder": "Contexto opcional",
+    "relationship": "Relación *",
+    "remove": "Eliminar",
+    "save": "Guardar empresa relacionada",
+    "searchClients": "Buscar clientes *",
+    "searchPlaceholder": "Buscar por nombre o código…",
+    "noClients": "No se encontraron clientes",
+    "companyName": "Nombre de empresa *",
+    "table": {
+      "name": "Nombre",
+      "notes": "Notas",
+      "relationship": "Relación"
+    },
+    "title": "Empresas relacionadas"
+  },
+  "relationship": {
+    "affiliate": "Filial",
+    "parent": "Madre",
+    "subsidiary": "Filial"
+  },
+  "history": {
+    "empty": "Aún no hay antecedentes.",
+    "loadMore": "Cargar más",
+    "loading": "Cargando historial…",
+    "title": "Historial de relaciones"
+  },
+  "matters": {
+    "empty": "No importa todavía. Abrir un asunto para iniciar el trabajo de procesamiento para este cliente.",
+    "loading": "La carga importa...",
+    "openNew": "Abrir nuevo asunto",
+    "table": {
+      "assigned": "Asignado",
+      "jurisdictions": "Jurisdicciones",
+      "status": "Estado",
+      "title": "Título",
+      "type": "Tipo"
+    },
+    "title": "Asuntos"
+  },
+  "accessHistory": {
+    "title": "Historial de acceso a datos",
+    "subtitle": "Personal que vio o exportó datos personales para este cliente.",
+    "loading": "Cargando historial de acceso…",
+    "loadFailed": "No se pudo cargar el historial de acceso.",
+    "empty": "Aún no se han registrado eventos de acceso.",
+    "systemUser": "Sistema",
+    "columns": {
+      "when": "Cuando",
+      "user": "Usuaria",
+      "action": "Acción",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "por materia",
+    "error": "No se pudieron cargar los datos de facturación.",
+    "loading": "Cargando facturación…",
+    "noPermission": "No tienes permiso para ver la facturación de este cliente.",
+    "title": "Facturación",
+    "wipDescription": "Trabajo en curso y montos no facturados para este cliente.",
+    "wipDescriptionLong": "Trabajo en curso y totales facturables en todos los asuntos de este cliente.",
+    "matterTable": {
+      "matter": "Asunto",
+      "type": "Tipo",
+      "status": "Estado",
+      "billableHours": "Horas facturables",
+      "total": "Total",
+      "unbilled": "No facturado",
+      "empty": "No importa todavía. Abra un asunto para comenzar a realizar un seguimiento del trabajo facturable."
+    }
+  },
+  "sidebar": {
+    "country": "País:",
+    "loading": "Cargando…",
+    "primaryContact": "Contacto principal",
+    "primaryOffice": "Oficina primaria",
+    "viewProfile": "Ver perfil completo"
+  },
+  "status": {
+    "active": "Activa",
+    "archived": "Archivada",
+    "inactive": "Inactiva",
+    "prospect": "Prospecto"
+  },
+  "table": {
+    "action": "Acción",
+    "client": "Cliente",
+    "country": "País",
+    "created": "Creada",
+    "holdingGroup": "grupo holding",
+    "status": "Estado",
+    "type": "Tipo"
+  },
+  "tabs": {
+    "accessHistory": "Historial de acceso",
+    "billing": "Facturación",
+    "contacts": "Contactos",
+    "history": "Historia",
+    "matters": "Asuntos",
+    "watch": "Mirar",
+    "offices": "Oficinas",
+    "overview": "Descripción general",
+    "related": "Relacionada"
+  },
+  "type": {
+    "company": "Compañía",
+    "individual": "Individual"
+  },
+  "unnamedClient": "Cliente sin nombre"
+}

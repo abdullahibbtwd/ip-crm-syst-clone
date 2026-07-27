@@ -16,8 +16,10 @@ import {
   RelationshipEventType,
 } from '../../generated/prisma/client';
 import { ClientsService } from '../crm/clients/clients.service';
+import { buildPasswordResetEmail } from '../notifications/email-templates';
 import { EmailService } from '../notifications/email.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { isSupportedLocale } from '../common/supported-locales';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import type { RegisterDto } from './dto/auth.dto';
 import {
@@ -48,14 +50,6 @@ function splitFullName(fullName: string) {
     return { firstName: parts[0], lastName: parts[0] };
   }
   return { firstName: parts[0], lastName: parts.slice(1).join(' ') };
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 @Injectable()
@@ -121,9 +115,7 @@ export class AuthService {
       const client = await this.clientsService.createInTransaction(tx, {
         type: companyName ? ClientType.company : ClientType.individual,
         companyName: companyName || undefined,
-        ...(companyName
-          ? {}
-          : splitFullName(dto.fullName.trim())),
+        ...(companyName ? {} : splitFullName(dto.fullName.trim())),
         gdprConsent: true,
       });
 
@@ -252,9 +244,16 @@ export class AuthService {
 
   async login(
     user: UserWithAccess,
+    options?: { method?: 'password' | 'sso' },
   ): Promise<LoginResult & { tokens?: TokenPair }> {
+    const method = options?.method ?? 'password';
+
     if (user.mfaEnabled && user.mfaSecret) {
-      return { mfaRequired: true, pendingUserId: user.id };
+      return {
+        mfaRequired: true,
+        pendingUserId: user.id,
+        pendingMethod: method,
+      };
     }
 
     const mfaEnrollmentRequired =
@@ -262,7 +261,10 @@ export class AuthService {
 
     await this.prisma.user.update({
       where: { id: user.id },
-      data: { lastLoginAt: new Date() },
+      data: {
+        lastLoginAt: new Date(),
+        lastSignInMethod: method,
+      },
     });
 
     const tokens = await this.createTokenPair(user, { mfaEnrollmentRequired });
@@ -274,9 +276,12 @@ export class AuthService {
     };
   }
 
-  async createMfaPendingToken(userId: string): Promise<string> {
+  async createMfaPendingToken(
+    userId: string,
+    method: 'password' | 'sso' = 'password',
+  ): Promise<string> {
     return this.jwtService.signAsync(
-      { sub: userId, type: 'mfa_pending' },
+      { sub: userId, type: 'mfa_pending', method },
       {
         secret: this.config.getOrThrow<string>('JWT_ACCESS_SECRET'),
         expiresIn: '5m',
@@ -288,11 +293,12 @@ export class AuthService {
     mfaPendingToken: string,
     code: string,
   ): Promise<{ user: PublicUser; tokens: TokenPair }> {
-    let payload: { sub: string; type?: string };
+    let payload: { sub: string; type?: string; method?: string };
     try {
       payload = await this.jwtService.verifyAsync<{
         sub: string;
         type?: string;
+        method?: string;
       }>(mfaPendingToken, {
         secret: this.config.getOrThrow<string>('JWT_ACCESS_SECRET'),
       });
@@ -303,6 +309,9 @@ export class AuthService {
     if (payload.type !== 'mfa_pending') {
       throw new UnauthorizedException('Invalid MFA session');
     }
+
+    const signInMethod =
+      payload.method === 'sso' ? ('sso' as const) : ('password' as const);
 
     const user = await this.prisma.user.findUnique({
       where: { id: payload.sub },
@@ -334,7 +343,10 @@ export class AuthService {
 
     await this.prisma.user.update({
       where: { id: user.id },
-      data: { lastLoginAt: new Date() },
+      data: {
+        lastLoginAt: new Date(),
+        lastSignInMethod: signInMethod,
+      },
     });
 
     const mfaEnrollmentRequired =
@@ -370,8 +382,9 @@ export class AuthService {
     });
 
     const tokens = await this.createTokenPair(stored.user);
-    const mfaEnrollmentRequired =
-      await this.mfaPolicy.requiresMfaEnrollment(stored.user);
+    const mfaEnrollmentRequired = await this.mfaPolicy.requiresMfaEnrollment(
+      stored.user,
+    );
     return {
       user: await this.toPublicUser(stored.user, mfaEnrollmentRequired),
       tokens,
@@ -400,6 +413,25 @@ export class AuthService {
     return this.toPublicUser(user, mfaEnrollmentRequired);
   }
 
+  async updatePreferredLocale(
+    userId: string,
+    preferredLocale: string,
+  ): Promise<PublicUser> {
+    if (!isSupportedLocale(preferredLocale)) {
+      throw new BadRequestException('Unsupported locale');
+    }
+
+    const user = await this.prisma.user.update({
+      where: { id: userId },
+      data: { preferredLocale },
+      include: userAccessInclude,
+    });
+
+    const mfaEnrollmentRequired =
+      await this.mfaPolicy.requiresMfaEnrollment(user);
+    return this.toPublicUser(user, mfaEnrollmentRequired);
+  }
+
   async startMfaSetup(
     userId: string,
   ): Promise<{ otpauthUrl: string; secret: string }> {
@@ -408,7 +440,9 @@ export class AuthService {
       throw new UnauthorizedException('User not found');
     }
     if (user.mfaEnabled) {
-      throw new BadRequestException('Two-factor authentication is already enabled');
+      throw new BadRequestException(
+        'Two-factor authentication is already enabled',
+      );
     }
 
     const secret = generateSecret();
@@ -439,7 +473,9 @@ export class AuthService {
       throw new UnauthorizedException('User not found');
     }
     if (user.mfaEnabled) {
-      throw new BadRequestException('Two-factor authentication is already enabled');
+      throw new BadRequestException(
+        'Two-factor authentication is already enabled',
+      );
     }
     if (!user.mfaSecret) {
       throw new BadRequestException('Start two-factor setup before confirming');
@@ -578,28 +614,17 @@ export class AuthService {
       data: { userId: user.id, tokenHash, expiresAt },
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const frontendUrl = this.config.get(
       'FRONTEND_URL',
       'http://localhost:5173',
     );
     const resetUrl = `${frontendUrl}/reset-password?token=${rawToken}`;
 
-    const subject = 'Reset your IP Consulting CRM password';
-    const text = [
-      `Hello ${user.fullName},`,
-      '',
-      'We received a request to reset your password. Open this link within one hour:',
+    const { subject, text, html } = buildPasswordResetEmail({
+      fullName: user.fullName,
       resetUrl,
-      '',
-      'If you did not request a password reset, you can ignore this email.',
-    ].join('\n');
-    const html = [
-      `<p>Hello ${escapeHtml(user.fullName)},</p>`,
-      '<p>We received a request to reset your password. This link expires in one hour:</p>',
-      `<p><a href="${resetUrl}">Reset password</a></p>`,
-      `<p style="word-break:break-all;color:#555;font-size:12px">${escapeHtml(resetUrl)}</p>`,
-      '<p>If you did not request a password reset, you can ignore this email.</p>',
-    ].join('');
+    });
 
     try {
       await this.email.send({ to: user.email, subject, text, html });
@@ -652,6 +677,78 @@ export class AuthService {
     return { message: 'Your password has been updated.' };
   }
 
+  async validateInviteToken(token: string): Promise<{
+    email: string;
+    fullName: string;
+  }> {
+    const tokenHash = this.hashToken(token);
+    const record = await this.prisma.userInviteToken.findUnique({
+      where: { tokenHash },
+      include: { user: true },
+    });
+
+    if (
+      !record ||
+      record.used ||
+      record.expiresAt < new Date() ||
+      !record.user.isActive
+    ) {
+      throw new BadRequestException('Invalid or expired invite link');
+    }
+
+    if (record.user.passwordHash) {
+      throw new BadRequestException(
+        'This account already has a password. Sign in or reset your password.',
+      );
+    }
+
+    return {
+      email: record.user.email,
+      fullName: record.user.fullName,
+    };
+  }
+
+  async acceptInvite(
+    token: string,
+    password: string,
+  ): Promise<{ message: string }> {
+    const tokenHash = this.hashToken(token);
+    const record = await this.prisma.userInviteToken.findUnique({
+      where: { tokenHash },
+      include: { user: true },
+    });
+
+    if (
+      !record ||
+      record.used ||
+      record.expiresAt < new Date() ||
+      !record.user.isActive
+    ) {
+      throw new BadRequestException('Invalid or expired invite link');
+    }
+
+    if (record.user.passwordHash) {
+      throw new BadRequestException(
+        'This account already has a password. Sign in instead.',
+      );
+    }
+
+    const passwordHash = await bcrypt.hash(password, 12);
+
+    await this.prisma.$transaction([
+      this.prisma.user.update({
+        where: { id: record.userId },
+        data: { passwordHash },
+      }),
+      this.prisma.userInviteToken.update({
+        where: { id: record.id },
+        data: { used: true },
+      }),
+    ]);
+
+    return { message: 'Your password has been set. You can now sign in.' };
+  }
+
   async resolveSessionUser(userId: string): Promise<AuthenticatedUser> {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
@@ -689,6 +786,7 @@ export class AuthService {
     );
 
     const refreshToken = randomBytes(48).toString('hex');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const refreshExpiresIn = this.config.get('JWT_REFRESH_EXPIRES_IN', '7d');
     const expiresAt = this.addDuration(new Date(), refreshExpiresIn);
 
@@ -703,6 +801,7 @@ export class AuthService {
     return { accessToken, refreshToken };
   }
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   private async toPublicUser(
     user: UserWithAccess,
     mfaEnrollmentRequired = false,
@@ -717,15 +816,14 @@ export class AuthService {
       permissions,
       mfaEnabled: user.mfaEnabled,
       mfaEnrollmentRequired,
+      preferredLocale: user.preferredLocale,
     };
   }
 
   private generateBackupCode(): string {
     const part = (len: number) =>
       Array.from({ length: len }, () =>
-        BACKUP_CODE_CHARS.charAt(
-          randomBytes(1)[0]! % BACKUP_CODE_CHARS.length,
-        ),
+        BACKUP_CODE_CHARS.charAt(randomBytes(1)[0] % BACKUP_CODE_CHARS.length),
       ).join('');
     return `${part(4)}-${part(4)}`;
   }
@@ -776,9 +874,14 @@ export class AuthService {
     return false;
   }
 
-  private async assertMfaCode(user: UserWithAccess, code: string): Promise<void> {
+  private async assertMfaCode(
+    user: UserWithAccess,
+    code: string,
+  ): Promise<void> {
     if (!user.mfaSecret) {
-      throw new BadRequestException('Two-factor authentication is not configured');
+      throw new BadRequestException(
+        'Two-factor authentication is not configured',
+      );
     }
 
     const secret = this.mfaSecret.decrypt(user.mfaSecret);

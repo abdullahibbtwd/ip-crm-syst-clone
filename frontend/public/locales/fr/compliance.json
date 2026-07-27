@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Piste d'audit",
+    "subtitle": "Journal d'audit à l'échelle du système pour l'examen de la conformité.",
+    "loading": "Chargement de la piste d'audit…",
+    "loadFailed": "Échec du chargement de la piste d'audit.",
+    "empty": "Aucune entrée d'audit trouvée.",
+    "columns": {
+      "when": "Quand",
+      "user": "Utilisatrice",
+      "action": "Action",
+      "resource": "Ressource",
+      "module": "Module"
+    }
+  },
+  "dataExports": {
+    "title": "Journal des exportations de données",
+    "subtitle": "Exportations et téléchargements de données personnelles suivis pour la conformité au RGPD.",
+    "loading": "Chargement du journal d'exportation…",
+    "loadFailed": "Échec du chargement du journal d'exportation.",
+    "empty": "Aucune exportation enregistrée pour l'instant.",
+    "columns": {
+      "when": "Quand",
+      "user": "Utilisatrice",
+      "resource": "Ressource",
+      "clientId": "Identifiant client"
+    }
+  },
+  "retention": {
+    "title": "Règles de conservation",
+    "subtitle": "Politiques de conservation RGPD appliquées par la tâche d'analyse nocturne (3h00 par défaut). Utilisez un essai à sec pour prévisualiser le nombre d’enregistrements qui seraient affectés.",
+    "noPermission": "Vous n'êtes pas autorisé à gérer les règles de conservation.",
+    "newRule": "Nouvelle règle",
+    "loading": "Chargement des règles de conservation…",
+    "loadFailed": "Échec du chargement des règles de conservation.",
+    "empty": "Aucune règle de conservation pour l'instant.",
+    "dryRun": "Essai à sec",
+    "dryRunAria": "Règle de rétention des essais à sec",
+    "editAria": "Modifier la règle de conservation",
+    "dryRunResult": "Essai à sec : affecterait les enregistrements {{count}} (seuil {{cutoff}}).",
+    "dryRunFailed": "Échec de l'essai à sec",
+    "auditTrailHint": "Afficher l'historique des purges dans le",
+    "auditTrailLink": "piste d'audit",
+    "auditTrailFilter": "(action de filtrage : rétention_rule_executed).",
+    "columns": {
+      "entity": "Entité",
+      "condition": "Condition",
+      "retention": "Rétention",
+      "action": "Action",
+      "status": "Statut",
+      "description": "Description"
+    },
+    "drawer": {
+      "createTitle": "Nouvelle règle de conservation",
+      "editTitle": "Modifier la règle de conservation",
+      "entityType": "Type d'entité",
+      "condition": "Condition",
+      "conditionRejected": "Statut = rejeté",
+      "conditionNotConverted": "Non converti (sauf rejeté)",
+      "auditLogsHint": "Les règles du journal d'audit s'appliquent à tous les enregistrements antérieurs à la période de conservation. L'action est toujours supprimer.",
+      "retentionDays": "Rétention (jours)",
+      "action": "Action",
+      "description": "Description",
+      "status": "Statut",
+      "createRule": "Créer une règle"
+    },
+    "entityTypes": {
+      "intake_leads": "Fils d'admission",
+      "audit_logs": "Journaux d'audit"
+    },
+    "actions": {
+      "anonymize": "Anonymiser",
+      "delete": "Supprimer"
+    },
+    "conditions": {
+      "allRecords": "Tous les enregistrements",
+      "rejected": "Statut = rejeté",
+      "notConverted": "Non converti (sauf rejeté)",
+      "noStatusFilter": "Aucun filtre de statut"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "errors": {
+      "invalidDays": "Entrez une période de conservation valide en jours",
+      "saveFailed": "Échec de l'enregistrement de la règle de conservation",
+      "confirmSave": "Les règles de rétention s'exécutent sur la tâche d'analyse nocturne (3h00 par défaut). Continuer à économiser ?"
+    },
+    "duration": {
+      "days": "{{days}} jours",
+      "daysWithYears_one": "{{days}} jours ({{count}} an)",
+      "daysWithYears_other": "{{days}} jours ({{count}} ans)",
+      "daysWithMonths_one": "{{days}} jours ({{count}} mois)",
+      "daysWithMonths_other": "{{days}} jours ({{count}} mois)",
+      "daysApproxYears": "{{days}} jours (~{{years}} ans)",
+      "daysApproxMonths": "{{days}} jours (~{{months}} mois)"
+    }
+  }
+}

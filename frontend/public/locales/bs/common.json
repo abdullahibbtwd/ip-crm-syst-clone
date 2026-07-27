@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Nazad na kontrolnu tablu",
+    "cancel": "Otkaži",
+    "edit": "Uredi",
+    "loadMore": "Učitaj više",
+    "next": "Sledeći",
+    "previous": "Prethodno",
+    "refresh": "Osvježi",
+    "remove": "Ukloni",
+    "retry": "Pokušajte ponovo",
+    "save": "Sačuvaj",
+    "saveChanges": "Sačuvaj promjene",
+    "view": "Pogled"
+  },
+  "errors": {
+    "loadFailed": "Učitavanje nije uspjelo.",
+    "retryHint": "Provjerite svoju vezu i dozvole, a zatim pokušajte ponovo."
+  },
+  "filters": {
+    "all": "Sve",
+    "allStatuses": "Svi statusi",
+    "allTypes": "Sve vrste"
+  },
+  "language": {
+    "ar": "arapski",
+    "bg": "bugarski",
+    "bs": "bosanski",
+    "de": "njemački",
+    "en": "engleski",
+    "es": "španjolski",
+    "et": "estonski",
+    "fr": "francuski",
+    "hr": "hrvatski",
+    "hy": "Jermenski",
+    "it": "talijanski",
+    "mk": "makedonski",
+    "ms": "malajski",
+    "ro": "rumunski",
+    "ru": "ruski",
+    "sq": "Albanac",
+    "sr": "srpski",
+    "switch": "Promijeni jezik",
+    "tr": "turski",
+    "zh-CN": "kineski (pojednostavljeni)"
+  },
+  "loading": {
+    "default": "Učitavanje…",
+    "refreshing": "osvježavajuće…",
+    "saving": "Spremanje…"
+  },
+  "nav": {
+    "breadcrumb": "Breadcrumb",
+    "closeMenu": "Zatvori meni",
+    "openMenu": "Otvorite meni"
+  },
+  "pagination": {
+    "noResults": "Nema rezultata",
+    "page": "Stranica {{page}}",
+    "showing": "Prikazujem {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Izvještaji"
+  },
+  "noPermission": "Bez dozvole.",
+  "crm": "CRM",
+  "clientPortal": "Portal za klijente",
+  "tasks": "Zadaci",
+  "comingSoon": "Uskoro",
+  "notifications": {
+    "title": "Obavještenja",
+    "unread": "nepročitano",
+    "markAllRead": "Označi sve kao pročitano",
+    "couldNotLoad": "Nije moguće učitati obavještenja.",
+    "noNotificationsYet": "Još nema obavještenja."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "br",
+    "none": "Nema",
+    "yes": "Da"
+  }
+}

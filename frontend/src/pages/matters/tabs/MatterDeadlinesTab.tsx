@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -16,8 +17,8 @@ import {
 } from '@/features/deadlines/hooks/useDeadlines'
 import type { DeadlineStatus } from '@/features/deadlines/types'
 import {
-  DEADLINE_STATUS_LABELS,
   deadlineJurisdiction,
+  deadlineStatusLabel,
   deadlineUrgency,
   daysUntilDue,
   formatDeadlineDate,
@@ -30,6 +31,7 @@ import { DeadlineExplanationButton } from '@/features/deadlines/components/Deadl
 import type { MatterTabContext } from '../MatterLayout'
 
 export function MatterDeadlinesTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
   const { data: deadlines, isLoading, isError } = useMatterDeadlines(matterId)
   const updateStatus = useUpdateDeadlineStatus(matterId)
@@ -45,24 +47,24 @@ export function MatterDeadlinesTab() {
     [deadlines],
   )
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading deadlines…</p>
-  if (isError) return <p className="text-sm text-destructive">Failed to load deadlines.</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('deadlines.loading')}</p>
+  if (isError) return <p className="text-sm text-destructive">{t('deadlines.error')}</p>
 
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="font-medium">Deadlines</h2>
+        <h2 className="font-medium">{t('deadlines.title')}</h2>
       </div>
 
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Jurisdiction</TableHead>
-            <TableHead>Due date</TableHead>
-            <TableHead>Grace</TableHead>
-            <TableHead>Assigned</TableHead>
-            <TableHead>Status</TableHead>
+            <TableHead>{t('deadlines.table.title')}</TableHead>
+            <TableHead>{t('deadlines.table.jurisdiction')}</TableHead>
+            <TableHead>{t('deadlines.table.due')}</TableHead>
+            <TableHead>{t('deadlines.table.grace')}</TableHead>
+            <TableHead>{t('deadlines.table.assigned')}</TableHead>
+            <TableHead>{t('deadlines.table.status')}</TableHead>
             <TableHead className="w-[120px]" />
           </TableRow>
         </TableHeader>
@@ -70,7 +72,7 @@ export function MatterDeadlinesTab() {
           {rows.length === 0 ? (
             <TableRow>
               <TableCell colSpan={7} className="py-12 text-center text-muted-foreground">
-                No deadlines yet. Ensure the matter has jurisdictions and an assigned attorney.
+                {t('deadlines.empty')}
               </TableCell>
             </TableRow>
           ) : (
@@ -102,22 +104,22 @@ export function MatterDeadlinesTab() {
                         )}
                       >
                         {days < 0
-                          ? `${Math.abs(days)} days overdue`
+                          ? t('deadlines.daysOverdue', { count: Math.abs(days) })
                           : days === 0
-                            ? 'Due today'
-                            : `${days} days left`}
+                            ? t('deadlines.dueToday')
+                            : t('deadlines.daysLeft', { count: days })}
                       </p>
                     )}
                   </TableCell>
                   <TableCell className="text-muted-foreground">
-                    {d.graceDate ? formatDeadlineDate(d.graceDate) : '-'}
+                    {d.graceDate ? formatDeadlineDate(d.graceDate) : t('yesNo.dash', { ns: 'common' })}
                   </TableCell>
                   <TableCell className="text-muted-foreground">
                     {d.assignedTo.fullName}
                   </TableCell>
                   <TableCell>
                     <Badge variant="outline" className="normal-case">
-                      {DEADLINE_STATUS_LABELS[d.status]}
+                      {deadlineStatusLabel(d.status)}
                     </Badge>
                   </TableCell>
                   <TableCell>
@@ -137,7 +139,7 @@ export function MatterDeadlinesTab() {
                             })
                           }
                         >
-                          {d.status === 'pending' ? 'Start' : 'Complete'}
+                          {d.status === 'pending' ? t('deadlines.start') : t('deadlines.complete')}
                         </Button>
                       ) : null}
                     </PermissionGate>

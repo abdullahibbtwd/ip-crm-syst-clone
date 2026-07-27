@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "待办的",
+    "in_progress": "进行中",
+    "completed": "完全的",
+    "missed": "错过了",
+    "escalated": "升级",
+    "superseded": "取代"
+  },
+  "urgency": {
+    "dueToday": "今天到期",
+    "overdue": "逾期"
+  },
+  "allDeadlines": {
+    "title": "所有截止日期",
+    "description": "公司范围内的每个事项和受让人的截止日期登记。",
+    "newDeadline": "新的截止日期",
+    "firmDueToday_one": "所有事项的 1 个确定截止日期均为今天。",
+    "firmDueToday_other": "{{count}} 所有事项的确定截止日期均于今天截止。",
+    "filters": {
+      "attorney": "律师",
+      "allAttorneys": "所有律师",
+      "matterType": "物质类型",
+      "allTypes": "所有类型",
+      "jurisdiction": "管辖权",
+      "allJurisdictions": "所有司法管辖区",
+      "status": "地位",
+      "allStatuses": "所有状态",
+      "overdue": "逾期",
+      "dueFrom": "应收自",
+      "dueTo": "由于"
+    },
+    "loading": "加载截止日期...",
+    "error": "无法加载截止日期。",
+    "table": {
+      "matter": "事情",
+      "attorney": "律师",
+      "type": "类型",
+      "jurisdiction": "管辖权",
+      "dueDate": "到期日",
+      "grace": "优雅",
+      "status": "地位"
+    },
+    "empty": "没有符合您筛选条件的截止日期。",
+    "previous": "以前的",
+    "next": "下一个"
+  },
+  "myDeadlines": {
+    "title": "我的截止日期",
+    "descriptionStaff": "您的个人工作清单涵盖所有分配的事项。 在此处更新状态，无需打开每个事项。",
+    "descriptionPortal": "您的事务即将到来和逾期的最后期限。",
+    "tabs": {
+      "all": "全部",
+      "pending": "待办的",
+      "in_progress": "进行中",
+      "overdue": "逾期",
+      "completed": "完全的"
+    },
+    "loading": "加载截止日期...",
+    "error": "无法加载截止日期。",
+    "table": {
+      "matter": "事情",
+      "type": "类型",
+      "jurisdiction": "管辖权",
+      "dueDate": "到期日",
+      "grace": "优雅",
+      "status": "地位"
+    },
+    "empty": "此视图中没有最后期限。",
+    "previous": "以前的",
+    "next": "下一个"
+  },
+  "widget": {
+    "title": "我的截止日期",
+    "viewAll": "查看全部",
+    "loading": "处理截止日期数据...",
+    "error": "无法加载截止日期。",
+    "empty": "没有为您分配即将到来的截止日期。",
+    "table": {
+      "matterClient": "事务与客户",
+      "deadline": "最后期限",
+      "dueDateStatus": "截止日期和状态"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "今天到期",
+    "view": "看法",
+    "personal_one": "您今天还有 1 个截止日期。",
+    "personal_other": "今天您的截止日期为 {{count}}。"
+  }
+}

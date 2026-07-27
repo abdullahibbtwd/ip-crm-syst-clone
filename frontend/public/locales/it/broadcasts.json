@@ -1,0 +1,68 @@
+{
+  "title": "Trasmissioni",
+  "subtitle": "Invia notifiche in blocco alle e-mail di contatto del cliente tramite SMTP aziendale. Ogni invio viene controllato come bulk_notification. Le risposte della casella di posta dell'argomento rimangono nella coda e-mail/corrispondenza.",
+  "compose": {
+    "title": "Componi la trasmissione",
+    "recipientGroup": "Gruppo destinatari",
+    "selectClients": "Seleziona i clienti",
+    "searchClientsPlaceholder": "Cerca clienti (minimo 2 caratteri)",
+    "selected": "Selezionata",
+    "add": "Aggiungere",
+    "clientsSelected": "{{count}} cliente/i selezionato/i",
+    "countingRecipients": "Conteggio dei destinatari…",
+    "previewFailed": "Impossibile visualizzare l'anteprima del pubblico",
+    "recipientMatched": "destinatario abbinato",
+    "recipientsMatched": "destinatari abbinati",
+    "andMore": "…e {{count}} altro ancora",
+    "subject": "Soggetta",
+    "subjectPlaceholder": "per esempio. Prossimi promemoria per il rinnovo dell'UE",
+    "message": "Messaggio",
+    "messagePlaceholder": "Scrivi la notifica che riceveranno i tuoi clienti...",
+    "queuing": "In coda…",
+    "sendBroadcast": "Invia trasmissione"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Oggetto e messaggio sono obbligatori",
+    "selectClient": "Seleziona almeno un cliente",
+    "queueFailed": "Impossibile mettere in coda la trasmissione"
+  },
+  "success": {
+    "queued": "Trasmissione in coda ai destinatari {{count}}. La consegna viene eseguita in background."
+  },
+  "history": {
+    "title": "Trasmissioni recenti",
+    "when": "Quando",
+    "subject": "Soggetta",
+    "audience": "Pubblico",
+    "status": "Stato",
+    "sent": "Inviata",
+    "by": "Di",
+    "loading": "Caricamento…",
+    "empty": "Nessuna trasmissione ancora.",
+    "failedCount": "({{count}} non riuscito)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Tutti i clienti attivi",
+      "description": "E-mail di contatto principale per ogni cliente attivo"
+    },
+    "pending_eu_renewals": {
+      "label": "In attesa di rinnovi UE",
+      "description": "Clienti attivi con rinnovi UE imminenti / istruiti / depositati"
+    },
+    "trademark_matters": {
+      "label": "Il marchio è importante",
+      "description": "Clienti con almeno una questione di marchio attiva"
+    },
+    "manual": {
+      "label": "Selezione manuale",
+      "description": "Scegli clienti specifici dalla ricerca"
+    }
+  },
+  "status": {
+    "queued": "In coda",
+    "sending": "Invio",
+    "completed": "Completato",
+    "failed": "Fallito"
+  }
+}

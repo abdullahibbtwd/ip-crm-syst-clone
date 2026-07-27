@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "取消",
+      "confirm": "确认并启用 2FA",
+      "enable": "启用 2FA",
+      "preparing": "正在准备……",
+      "verifying": "正在验证..."
+    },
+    "authCode": "验证码",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "积极的",
+      "description": "登录时，您的帐户需要来自身份验证器应用程序的代码。",
+      "title": "已启用双因素身份验证"
+    },
+    "errors": {
+      "enableFailed": "无法启用 2FA",
+      "invalidCode": "代码无效",
+      "setupFailed": "无法启动 2FA 设置"
+    },
+    "setup": {
+      "description": "登录时需要验证器应用程序（Google Authenticator、Authy 等）提供 6 位代码，从而增加额外的安全层。",
+      "manualKey": "或者手动输入该密钥",
+      "scanQr": "1.扫描此二维码",
+      "scanQrHint": "打开您的身份验证器应用程序并扫描下面的代码。",
+      "verify": "2. 使用6位代码确认",
+      "verifyHint": "输入应用程序中显示的代码以验证设置。"
+    }
+  },
+  "security": {
+    "description": "即使您的密码被泄露，双因素身份验证也可以保护您的帐户。",
+    "title": "安全"
+  },
+  "subtitle": "管理您的帐户首选项和安全性。",
+  "title": "设置",
+  "links": {
+    "email": {
+      "title": "电子邮件集成",
+      "description": "连接 Microsoft 365 或 Google Workspace 将收件箱消息同步到电子邮件队列中。",
+      "action": "管理邮箱"
+    },
+    "deadlineRules": {
+      "title": "截止日期规则",
+      "description": "为自动创建的截止日期配置管辖权和事项类型偏移。",
+      "action": "管理截止日期规则"
+    },
+    "holidays": {
+      "title": "假期日历",
+      "description": "计算截止日期的工作日时使用的司法管辖区假期。",
+      "action": "管理假期"
+    },
+    "documentTemplates": {
+      "title": "文档模板",
+      "description": "编辑信件模板、合并字段以及预览生成的 PDF。",
+      "action": "管理模板"
+    },
+    "integrations": {
+      "title": "注册表集成",
+      "description": "连接 EPO OPS 和其他 IP 注册管理机构以进行监视扫描和书目查找。",
+      "action": "管理集成"
+    },
+    "ssoMfa": {
+      "title": "单点登录和多重身份验证",
+      "description": "配置 Google/Microsoft 登录应用程序和固定的 MFA 策略。 秘密在数据库中被加密。",
+      "action": "管理 SSO 和 MFA"
+    },
+    "roles": {
+      "title": "角色和权限",
+      "description": "系统角色及其授予权限的只读矩阵。",
+      "action": "查看角色矩阵"
+    },
+    "systemHealth": {
+      "title": "系统健康状况",
+      "description": "实时检查数据库、Redis 和对象存储。",
+      "action": "查看系统健康状况"
+    }
+  },
+  "ssoMfa": {
+    "title": "单点登录和多重身份验证",
+    "subtitle": "公司的身份提供商和多因素身份验证策略。",
+    "noPermission": "您无权管理 SSO 或 MFA 设置。",
+    "loading": "正在加载 SSO 设置...",
+    "saveButton": "保存设置",
+    "saveSuccess": "安全保存 SSO 和 MFA 设置。",
+    "saveFailed": "无法保存 SSO 和 MFA 设置",
+    "securityHint": "客户端密钥静态加密 (AES-256-GCM)。 API 永远不会返回完整的机密。",
+    "leaveBlankToKeep": "留空以保守当前秘密",
+    "clientId": "客户ID",
+    "clientSecret": "客户秘密",
+    "tenantId": "租户ID",
+    "redirectUri": "重定向 URI（在提供程序控制台中注册）",
+    "sourceDatabase": "数据库",
+    "sourceEnv": "环境（.env）",
+    "sourceNone": "未配置",
+    "editButton": "编辑",
+    "cancelEdit": "取消",
+    "configuredViaEnv": "通过环境配置",
+    "microsoft": {
+      "title": "微软",
+      "description": "Entra ID / Microsoft 365 OIDC 应用程序用于员工和门户 SSO 登录。",
+      "saveButton": "拯救微软",
+      "saveSuccess": "已保存 Microsoft SSO 设置。"
+    },
+    "google": {
+      "title": "谷歌",
+      "description": "用于 SSO 登录的 Google OAuth 客户端。",
+      "saveButton": "拯救谷歌",
+      "saveSuccess": "已保存 Google SSO 设置。"
+    },
+    "mfa": {
+      "title": "外交部政策",
+      "description": "组织范围的 MFA 设置。 用户仍然从自己的“设置”页面进行注册。",
+      "requireInternal": "内部员工需要 MFA",
+      "requireInternalHint": "启用后，内部用户应在“设置”→“安全”下注册 MFA。 后续可以加强登录执行。",
+      "saveButton": "保存 MFA 政策",
+      "saveSuccess": "MFA 政策已保存。"
+    }
+  },
+  "roles": {
+    "title": "角色和权限",
+    "subtitle": "系统角色和授予权限的只读矩阵（种子 RBAC）。",
+    "noPermission": "您没有查看角色的权限。",
+    "loading": "正在加载角色...",
+    "error": "无法加载角色。",
+    "system": "系统",
+    "columns": {
+      "role": "角色",
+      "description": "描述",
+      "permissions": "权限"
+    }
+  },
+  "systemHealth": {
+    "title": "系统健康状况",
+    "subtitle": "实时检查数据库、Redis 和对象存储。",
+    "noPermission": "您无权查看系统运行状况。",
+    "loading": "检查服务...",
+    "error": "无法加载健康状态。",
+    "overall": "全面的",
+    "statusOk": "健康",
+    "statusDegraded": "降级",
+    "database": "数据库",
+    "redis": "雷迪斯",
+    "storage": "对象存储",
+    "checkOk": "可达",
+    "checkFailed": "无法到达",
+    "refresh": "刷新",
+    "refreshing": "清爽…"
+  },
+  "integrations": {
+    "title": "集成",
+    "subtitle": "监视和归档工作流程使用的外部注册表和数据提供商连接。",
+    "noPermission": "您无权查看注册表集成。",
+    "epo": {
+      "title": "欧洲专利局注册处 (OPS)",
+      "description": "开放专利服务 v3.2。 访问令牌会根据您的消费者密钥和秘密自动刷新。",
+      "statusConfigured": "已配置",
+      "statusNotConfigured": "未配置",
+      "statusLoading": "检查…",
+      "testButton": "测试连接",
+      "testing": "测试...",
+      "testSuccess": "EPO 连接成功。 检索专利：{{title}}",
+      "testFailed": "EPO 连接失败",
+      "envHint": "在服务器 .env 中设置 EPO_CONSUMER_KEY 和 EPO_CONSUMER_SECRET，然后重新启动 API。",
+      "consumerKey": "消费者钥匙",
+      "consumerSecret": "消费者秘密",
+      "consumerKeyPlaceholder": "输入 EPO 消费者密钥",
+      "consumerSecretPlaceholder": "输入 EPO 消费者密码",
+      "leaveBlankToKeep": "留空以保留当前值",
+      "apiBaseUrl": "API 基本 URL（可选）",
+      "authUrl": "身份验证 URL（可选）",
+      "saveButton": "保存凭据",
+      "clearButton": "清除存储的凭据",
+      "saveSuccess": "EPO 凭证安全保存。",
+      "saveFailed": "无法保存 EPO 凭证",
+      "clearSuccess": "已清除存储的 EPO 凭证。 如果设置，Env 后备仍然适用。",
+      "clearFailed": "无法清除 EPO 凭证",
+      "securityHint": "秘密是静态加密的 (AES-256-GCM)。 API 永远不会返回完整值。",
+      "sourceLabel": "主动源",
+      "sourceDatabase": "数据库",
+      "sourceEnv": "环境（.env）",
+      "sourceNone": "未配置",
+      "keyHint": "关键...{{lastFour}}",
+      "editButton": "编辑",
+      "cancelEdit": "取消",
+      "configuredViaEnv": "通过环境配置",
+      "defaultEndpoint": "默认 EPO 端点"
+    },
+    "accounting": {
+      "xeroTitle": "赛罗",
+      "xeroDescription": "通过 API 将开具的发票推送至 Xero Accounting。 仅发送自上次成功同步以来更改的发票。",
+      "quickbooksTitle": "快速图书在线",
+      "quickbooksDescription": "将开具的发票推送至 QuickBooks。 客户通过显示名称进行匹配（或创建）。",
+      "xeroTenantId": "Xero租户ID",
+      "quickbooksRealmId": "QuickBooks 领域/公司 ID",
+      "statusConfigured": "已配置",
+      "statusNotConfigured": "未配置",
+      "loading": "加载中…",
+      "clientId": "客户端 ID（可选）",
+      "clientSecret": "客户端密码（可选）",
+      "accessToken": "访问令牌",
+      "leaveBlankToKeep": "留空以保留当前值",
+      "saveButton": "保存凭据",
+      "clearButton": "清除",
+      "editButton": "编辑",
+      "cancelEdit": "取消",
+      "syncNow": "立即同步",
+      "lastSync": "上次同步",
+      "neverSynced": "绝不",
+      "saveSuccess": "安全保存会计凭证。",
+      "saveFailed": "无法保存会计凭证",
+      "clearSuccess": "会计凭证已清除。",
+      "clearFailed": "无法清除会计凭证",
+      "syncFailed": "无法对记帐同步进行排队"
+    }
+  },
+  "deadlineRules": {
+    "title": "截止日期规则",
+    "subtitle": "自动创建案件创建、审查意见通知书和续订的截止日期时使用的管辖权和案件类型抵消。",
+    "newRule": "新规则",
+    "noPermission": "您无权查看截止时间规则。",
+    "loading": "加载截止时间规则...",
+    "loadError": "无法加载截止时间规则。",
+    "empty": "没有截止日期规则与这些过滤器匹配。",
+    "allJurisdictions": "所有司法管辖区",
+    "allMatterTypes": "所有物质类型",
+    "filters": {
+      "jurisdiction": "管辖权",
+      "matterType": "物质类型"
+    },
+    "columns": {
+      "jurisdiction": "管辖权",
+      "matterType": "物质类型",
+      "event": "事件",
+      "trigger": "扳机",
+      "offset": "抵消",
+      "grace": "优雅",
+      "priority": "优先事项",
+      "status": "地位"
+    },
+    "status": {
+      "active": "积极的",
+      "inactive": "不活跃"
+    },
+    "editAria": "编辑截止时间规则",
+    "drawer": {
+      "createTitle": "新的截止日期规则",
+      "editTitle": "编辑截止时间规则",
+      "jurisdiction": "管辖权",
+      "matterType": "物质类型",
+      "eventType": "事件类型",
+      "triggerType": "触发类型",
+      "daysOffset": "天数偏移",
+      "dayCounting": "计日",
+      "businessDays": "工作日",
+      "calendarDays": "日历天数",
+      "gracePeriod": "宽限期（天）",
+      "priority": "优先级 (1–10)",
+      "description": "描述",
+      "status": "地位",
+      "cancel": "取消",
+      "create": "创建规则",
+      "save": "保存更改"
+    },
+    "errors": {
+      "daysOffset": "输入有效天数偏移量",
+      "grace": "输入有效的宽限期",
+      "priority": "优先级必须介于 1 到 10 之间",
+      "saveFailed": "未能保存截止时间规则"
+    },
+    "offset": {
+      "businessDay": "工作日",
+      "businessDays": "工作日",
+      "calendarDay": "日历日",
+      "calendarDays": "日历日",
+      "sameDay": "同一天 ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "归档",
+      "examination_response": "考试反应",
+      "renewal": "更新",
+      "opposition": "反对",
+      "grace_period": "宽限期"
+    },
+    "triggerType": {
+      "matter_created": "物质被创造",
+      "office_action": "办公室行动",
+      "renewal_due": "续约到期"
+    }
+  },
+  "documentTemplates": {
+    "title": "文档模板",
+    "subtitle": "带有合并字段的信件和归档模板。 从事项生成 PDF 或使用示例数据进行预览。",
+    "newTemplate": "新模板",
+    "noPermission": "您无权查看文档模板。",
+    "loading": "正在加载模板...",
+    "loadError": "无法加载文档模板。",
+    "empty": "还没有文档模板。",
+    "columns": {
+      "name": "姓名",
+      "slug": "蛞蝓",
+      "category": "类别",
+      "status": "地位",
+      "docx": "单词",
+      "updated": "已更新"
+    },
+    "status": {
+      "active": "积极的",
+      "inactive": "不活跃"
+    },
+    "editAria": "编辑文档模板",
+    "uploadDocx": "上传.docx",
+    "removeDocx": "删除.docx",
+    "uploadDocxAria": "上传Word模板",
+    "removeDocxAria": "删除Word模板",
+    "confirmRemoveDocx": "从此信函模板中删除 Word (.docx) 模板吗？",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "新文档模板",
+      "editTitle": "编辑文档模板",
+      "loading": "正在加载模板...",
+      "slug": "蛞蝓",
+      "slugHint": "小写烤肉串，独特。",
+      "slugReadonly": "蛞蝓：",
+      "name": "姓名",
+      "category": "类别",
+      "description": "描述",
+      "referenceLine": "参考线",
+      "mergeFields": "合并字段",
+      "insertIntoReference": "插入参考线",
+      "insertIntoHtml": "插入 HTML 正文",
+      "htmlBody": "HTML 正文",
+      "livePreview": "实时预览",
+      "status": "地位",
+      "previewPdf": "预览 PDF",
+      "cancel": "取消",
+      "create": "创建模板",
+      "save": "保存更改"
+    },
+    "errors": {
+      "required": "名称和 HTML 正文为必填项",
+      "slugRequired": "需要蛞蝓",
+      "saveFailed": "保存文档模板失败",
+      "previewFailed": "生成 PDF 预览失败",
+      "docxUploadFailed": "上传Word模板失败",
+      "docxDeleteFailed": "删除Word模板失败"
+    }
+  },
+  "holidays": {
+    "title": "假期日历",
+    "subtitle": "各司法管辖区的公共假期。 在计算工作日时，循环假期适用于每年的同月同日。",
+    "newHoliday": "新假期",
+    "noPermission": "您没有查看假期的权限。",
+    "loading": "正在加载假期...",
+    "loadError": "无法加载假期。",
+    "empty": "没有假期符合此过滤器。",
+    "allJurisdictions": "所有司法管辖区",
+    "filters": {
+      "jurisdiction": "管辖权"
+    },
+    "columns": {
+      "jurisdiction": "管辖权",
+      "date": "日期",
+      "name": "姓名",
+      "recurring": "再次发生的"
+    },
+    "recurring": {
+      "yes": "再次发生的",
+      "no": "一度"
+    },
+    "editAria": "编辑假期",
+    "deleteAria": "删除假期",
+    "confirmDelete": "删除假期“{{name}}”？",
+    "drawer": {
+      "createTitle": "新假期",
+      "editTitle": "编辑假期",
+      "jurisdiction": "管辖权",
+      "date": "日期",
+      "name": "姓名",
+      "recurring": "每年重复一次",
+      "cancel": "取消",
+      "create": "创造假期",
+      "save": "保存更改"
+    },
+    "errors": {
+      "required": "姓名和日期为必填项",
+      "saveFailed": "未能保存假期"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "设置",
+    "title": "电子邮件集成",
+    "description": "连接您的工作邮箱以将入站邮件同步到电子邮件队列并从 CRM 发送回复。 需要 Mail.Read + Mail.Send (Microsoft) 或 gmail.readonly + gmail.send (Google)。 范围更新后重新连接以授予发送权限。",
+    "fetchEmails": "获取 5 封电子邮件",
+    "connectedSuccess": "已成功连接 {{provider}}。",
+    "microsoft365": "微软365",
+    "googleWorkspace": "谷歌工作区",
+    "connected": "已连接",
+    "error": "错误",
+    "notConnected": "未连接",
+    "providerEnabledDescription": "将新收件箱消息拉入电子邮件队列。",
+    "providerDisabledDescription": "未在此服务器上配置（缺少 OAuth 凭据）。",
+    "redirectUriHint": "在您的 {{provider}} OAuth 应用程序中注册此重定向 URI：",
+    "lastSync": "上次同步：{{time}}",
+    "neverSynced": "从未同步过",
+    "reconnect": "重新连接",
+    "disconnect": "断开",
+    "connect": "连接 {{provider}}",
+    "loadingConnections": "正在加载连接...",
+    "fetchSuccess": "已在队列中获取最多 {{limit}} 条消息 — {{ingested}} 条新消息。",
+    "fetchFailed": "获取电子邮件失败"
+  },
+  "consent": {
+    "title": "同意记录",
+    "subtitle": "客户之间的 GDPR 同意状态。",
+    "filters": {
+      "all": "全部",
+      "consented": "同意",
+      "missing": "丢失的"
+    },
+    "failedToLoad": "无法加载同意记录。",
+    "noClientsFound": "没有找到客户。",
+    "table": {
+      "client": "客户",
+      "code": "代码",
+      "consent": "同意",
+      "date": "日期"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -7,12 +8,15 @@ import { clientDisplayName } from '@/features/crm/utils'
 import { getCountryLabel } from '@/lib/countries'
 
 export function HoldingGroupDetailPage() {
+  const { t } = useTranslation(['crm', 'common'])
   const { id = '' } = useParams()
   const { data, isLoading, isError } = useHoldingGroup(id)
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading…</p>
+  if (isLoading) {
+    return <p className="text-sm text-muted-foreground">{t('common:loading.default')}</p>
+  }
   if (isError || !data) {
-    return <p className="text-sm text-destructive">Holding group not found.</p>
+    return <p className="text-sm text-destructive">{t('holdingGroups.notFound')}</p>
   }
 
   return (
@@ -25,25 +29,23 @@ export function HoldingGroupDetailPage() {
           )}
         </div>
         <Link to="/holding-groups" className={buttonVariants({ variant: 'outline' })}>
-          All holding groups
+          {t('holdingGroups.allGroups')}
         </Link>
       </div>
 
       {data.description && (
         <Card className="shadow-none">
-          <CardContent className="pt-4 text-sm text-muted-foreground">
-            {data.description}
-          </CardContent>
+          <CardContent className="pt-4 text-sm text-muted-foreground">{data.description}</CardContent>
         </Card>
       )}
 
       <Card className="shadow-none">
         <CardHeader>
-          <CardTitle className="text-base">Clients under this group</CardTitle>
+          <CardTitle className="text-base">{t('holdingGroups.clientsUnder')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           {data.clients.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No clients linked yet.</p>
+            <p className="text-sm text-muted-foreground">{t('holdingGroups.emptyClients')}</p>
           ) : (
             data.clients.map((client) => (
               <Link
@@ -55,7 +57,7 @@ export function HoldingGroupDetailPage() {
                   {client.internalCode} - {clientDisplayName(client)}
                 </span>
                 <Badge variant="secondary" className="capitalize">
-                  {client.status}
+                  {t(`status.${client.status}`)}
                 </Badge>
               </Link>
             ))

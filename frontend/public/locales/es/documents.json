@@ -1,0 +1,15 @@
+{
+  "title": "Documentos",
+  "subtitle": "Biblioteca de documentos temáticos de toda la empresa.",
+  "searchPlaceholder": "Buscar documentos…",
+  "loading": "Cargando…",
+  "loadFailed": "No se pudieron cargar los documentos.",
+  "empty": "No se encontraron documentos.",
+  "columns": {
+    "name": "Nombre",
+    "matter": "Asunto",
+    "category": "Categoría",
+    "updated": "Actualizada",
+    "by": "Por"
+  }
+}

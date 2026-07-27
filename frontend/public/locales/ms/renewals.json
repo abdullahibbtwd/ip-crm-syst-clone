@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Akan datang",
+    "instructed": "Diarahkan",
+    "filed": "Difailkan",
+    "completed": "Selesai",
+    "lapsed": "luput"
+  },
+  "page": {
+    "title": "Pembaharuan",
+    "descriptionMy": "Tetingkap pembaharuan mengenai perkara yang diberikan kepada anda.",
+    "descriptionFirm": "Senarai kerja pembaharuan seluruh firma merentas semua hak IP.",
+    "filters": {
+      "status": "Status",
+      "allStatuses": "Semua status",
+      "jurisdiction": "Bidang kuasa",
+      "allJurisdictions": "Semua bidang kuasa",
+      "assignee": "penerima tugasan",
+      "allAssignees": "Semua penerima tugasan"
+    },
+    "loading": "Memuatkan pembaharuan…",
+    "empty": "Tiada tetingkap pembaharuan yang sepadan dengan penapis anda.",
+    "table": {
+      "ipRight": "IP betul",
+      "matter": "Perkara",
+      "client": "Pelanggan",
+      "cycle": "Kitaran",
+      "due": "kena bayar",
+      "status": "Status",
+      "assignee": "penerima tugasan"
+    }
+  },
+  "widget": {
+    "title": "Pembaharuan akan datang",
+    "subtitle": "Saluran paip arahan 90 hari seterusnya",
+    "viewPipeline": "Lihat saluran paip",
+    "loading": "Mengira tetingkap pembaharuan…",
+    "error": "Tidak dapat memuatkan analitis pembaharuan.",
+    "stats": {
+      "totalPipeline": "Jumlah Saluran Paip",
+      "activeWindows": "Tingkap aktif",
+      "awaiting": "Menunggu",
+      "noInstruction": "Tiada arahan lagi",
+      "urgent": "mendesak",
+      "due7Days": "Tempoh ≤ 7 hari",
+      "instructed": "Diarahkan",
+      "proceedConfirmed": "Teruskan disahkan"
+    },
+    "empty": "Tiada pembaharuan dikesan dalam tetingkap ini.",
+    "table": {
+      "ipAsset": "Aset IP",
+      "client": "Pelanggan",
+      "dueStatus": "Tempoh / Status"
+    },
+    "cycle": "Kitaran {{number}}"
+  }
+}

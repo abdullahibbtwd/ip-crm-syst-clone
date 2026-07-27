@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "警报",
+    "description": "逾期、今天到期、紧急项目以及未读通知。"
+  },
+  "sections": {
+    "overdue": "逾期",
+    "today": "今天到期",
+    "urgent": "紧迫的",
+    "notifications": "通知"
+  },
+  "empty": {
+    "notifications": "没有通知",
+    "urgent": "没有紧急物品",
+    "overdue": "无逾期物品",
+    "today": "今天没有到期的物品"
+  }
+}

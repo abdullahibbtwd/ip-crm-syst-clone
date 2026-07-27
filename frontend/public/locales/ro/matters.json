@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Biroul vamal"
+      },
+      "infringingGoods": {
+        "label": "Descrierea mărfurilor care încalcă drepturile"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Data creării"
+      },
+      "workTitle": {
+        "label": "Titlul lucrării"
+      },
+      "workType": {
+        "label": "Tipul muncii"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Rezumat de bază"
+      },
+      "disputeType": {
+        "label": "Tip de dispută"
+      },
+      "opponentName": {
+        "label": "Adversarul/partea adversă"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Rezumatul domeniului de aplicare"
+      },
+      "technologyArea": {
+        "label": "Zona de tehnologie"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Numele produsului"
+      },
+      "region": {
+        "label": "Regiunea geografică"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Enumerați sau descrieți vederile de proiectare depuse",
+        "label": "Vederi de proiectare"
+      },
+      "locarnoClass": {
+        "label": "clasa Locarno"
+      },
+      "productDescription": {
+        "label": "Descriere produs"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Rezumatul revendicărilor"
+      },
+      "pctNumber": {
+        "label": "numărul PCT"
+      },
+      "priorityDate": {
+        "label": "Data de prioritate"
+      },
+      "technicalField": {
+        "label": "Domeniul tehnic"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Culorile revendicate"
+      },
+      "markDescription": {
+        "label": "Marcați descrierea"
+      },
+      "markType": {
+        "label": "Tipul de marcare"
+      },
+      "niceClasses": {
+        "label": "Cursuri frumoase",
+        "placeholder": "de ex. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Rezumatul revendicărilor"
+      },
+      "priorityDate": {
+        "label": "Data de prioritate"
+      },
+      "technicalField": {
+        "label": "Domeniul tehnic"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Descrierea bunului"
+      },
+      "valuationPurpose": {
+        "label": "Scopul evaluării"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Adăugați o taxă fixă",
+    "addTime": "Timpul de înregistrare",
+    "billableAria": "Facturabil",
+    "billableWithoutRate": "Facturabil fără tarif",
+    "confirmDeleteFee": "Ștergeți taxa fixă?",
+    "confirmDeleteFeeMessage": "Această taxă va fi eliminată din cauză.",
+    "confirmDeleteFeeTitle": "Ștergeți taxa fixă?",
+    "confirmDeleteTime": "Ștergeți această intrare de timp?",
+    "confirmDeleteTimeMessage": "Această linie facturabilă va fi eliminată din chestiune.",
+    "confirmDeleteTimeTitle": "Ștergeți intrarea de timp?",
+    "description": "Înregistrări de timp, taxe fixe și facturi pentru această problemă.",
+    "emptyFees": "Încă nu există taxe fixe.",
+    "emptyTime": "Nu s-a înregistrat încă un timp.",
+    "error": "Nu s-au încărcat datele de facturare.",
+    "feeDrawer": {
+      "amount": "Suma (€)",
+      "billable": "Facturabil",
+      "createTitle": "Adăugați o taxă fixă",
+      "descriptionPlaceholder": "de ex. Taxa de înregistrare a mărcii BPO",
+      "editTitle": "Editați taxa fixă",
+      "errors": {
+        "amountMin": "Suma trebuie să fie zero sau mai mare",
+        "descriptionRequired": "Este necesară descrierea"
+      },
+      "saveFailed": "Nu s-a putut salva taxa fixă"
+    },
+    "fixedFees": "Taxe fixe",
+    "loading": "Se încarcă facturarea...",
+    "loadingInvoices": "Se încarcă facturile...",
+    "loadInvoicesFailed": "Nu s-au încărcat facturile.",
+    "noPermission": "Nu aveți permisiunea de a vedea facturarea pentru această problemă.",
+    "noRateCard": "Fără tarif",
+    "nonBillableAria": "Nefacturabil",
+    "portalDescription": "Facturi și starea plății pentru această problemă.",
+    "timeDrawer": {
+      "amount": "Cantitate:",
+      "billable": "Facturabil",
+      "billableDisabledHint": "Facturabil este dezactivat în timp ce tariful este de 0 EUR.",
+      "createTitle": "Timpul de înregistrare",
+      "descriptionPlaceholder": "Ce s-a făcut",
+      "editTitle": "Editați intrarea de timp",
+      "errors": {
+        "billableRequiresRate": "Timpul facturabil necesită un tarif orar. Introduceți o rată sau marcați ca nefacturabil.",
+        "descriptionRequired": "Este necesară descrierea",
+        "hoursMin": "Orele trebuie să fie de cel puțin 0,25",
+        "rateMin": "Rata trebuie să fie zero sau mai mare"
+      },
+      "hourlyRate": "Tarif orar (€)",
+      "hoursHint": "Creșteri de un sfert de oră (minimum 0,25)",
+      "noRateCardWarning": "Nu a fost găsit nicio fișă de evaluare pentru rolul dvs. Această intrare va fi salvată ca nefacturabilă până când finanțele stabilesc o rată sau o introduceți manual.",
+      "resolvingRate": "Se rezolvă rata...",
+      "saveFailed": "Nu s-a salvat introducerea timpului"
+    },
+    "timeEntries": "Intrări de timp",
+    "table": {
+      "amount": "Cantitate",
+      "attorney": "Avocat",
+      "billable": "Facturabil",
+      "category": "Categorie",
+      "date": "Data",
+      "description": "Descriere",
+      "hours": "Ore",
+      "rate": "Rata",
+      "user": "Utilizator"
+    },
+    "title": "Facturare"
+  },
+  "correspondence": {
+    "add": "Înregistrează corespondența",
+    "attachFromQueue": "Atașați din coadă",
+    "attachmentFallback": "Atașament de corespondență",
+    "badges": {
+      "clientVisible": "Client vizibil",
+      "email": "E-mail",
+      "synced": "Sincronizat"
+    },
+    "category": {
+      "application": "Aplicație",
+      "certificate": "Certificat",
+      "correspondence": "Corespondenta generala",
+      "evidence": "Dovezi",
+      "office_action": "Acțiune de birou",
+      "renewal": "Reînnoire"
+    },
+    "direction": {
+      "incoming": "Sosire",
+      "outgoing": "Ieșire"
+    },
+    "description": "Camera de corespondență digitală — înregistrează scrisori, acțiuni de birou și e-mailuri pentru această problemă. Folosiți {{logEmail}} pentru fișierele .eml sau pentru textul inbox; utilizați {{logCorrespondence}} pentru intrări structurate, e-mailuri trimise și atașamente la documente.",
+    "documentReady": "Document gata",
+    "downloadAttachment": "Descărcați atașamentul",
+    "downloadTitle": "Descărcați {{fileName}}",
+    "drawerTitle": "Înregistrează corespondența",
+    "empty": "Nicio corespondență înregistrată încă.",
+    "emptyHint": "Înregistrați corespondența sau un e-mail pentru a crea înregistrarea acestei probleme.",
+    "emptyTitle": "Nicio corespondență încă",
+    "error": "Nu s-a încărcat corespondența.",
+    "errorLog": "Nu s-a putut înregistra corespondența",
+    "fetchingDocument": "Se preia documentul...",
+    "from": "Din:",
+    "hideFromClient": "Ascundeți din căsuța de e-mail client",
+    "hideFromClientTitle": "Ascundeți din portalul clientului",
+    "loading": "Se încarcă corespondența…",
+    "logEmail": "Înregistrați e-mailul",
+    "markReplied": "a răspuns Mark",
+    "markSent": "Mark a trimis",
+    "openEpoRegister": "Deschide în Registrul EPO",
+    "reply": "Răspuns",
+    "replyTitle": "Răspundeți prin căsuța poștală conectată",
+    "replaceFile": "Înlocuiți fișierul",
+    "replaceFileTitle": "Înlocuiți fișierul atașat",
+    "saveAsPrecedent": "Salvați ca precedent",
+    "saveAsPrecedentTitle": "Salvați ca proiect de precedent",
+    "savedUnder": "Salvat sub subiectul corespondenței de mai jos",
+    "sendToClient": "Trimiteți către inbox client",
+    "showInClientTitle": "Afișați în portalul clientului",
+    "status": {
+      "draft": "Proiect",
+      "received": "Primit",
+      "replied": "a răspuns",
+      "sent": "Trimis"
+    },
+    "table": {
+      "category": "Categorie",
+      "date": "Data",
+      "direction": "Direcţie",
+      "file": "Fişier",
+      "fromTo": "De la / Către",
+      "status": "Stare",
+      "subject": "Subiect"
+    },
+    "title": "Corespondenţă",
+    "to": "La:",
+    "uploadFailed": "Nu s-a putut încărca și atașa fișierul",
+    "uploadFile": "Încărcați fișierul",
+    "uploadFileTitle": "Încărcați PDF sau document pentru această corespondență",
+    "viewOnEpo": "Vizualizare pe EPO",
+    "viewOnEpoTitle": "Deschideți înregistrarea oficială în Registrul EPO"
+  },
+  "createDrawer": {
+    "client": "Client *",
+    "creating": "Se creează…",
+    "error": "Nu s-a putut crea materie",
+    "jurisdictionHelp": "Selectați una sau mai multe jurisdicții de depunere.",
+    "jurisdictions": "Jurisdicțiile",
+    "matterType": "tipul materiei *",
+    "open": "Materia deschisă",
+    "responsibleAttorney": "Avocat responsabil",
+    "title": "Deschide o nouă materie",
+    "titleField": "Titlu *",
+    "titlePlaceholder": "de ex. Marca verbală ACME – UE"
+  },
+  "deadlines": {
+    "complete": "Complet",
+    "daysLeft": "Au mai rămas {{count}} zile",
+    "daysOverdue": "{{count}} zile întârziate",
+    "dueToday": "Datorită astăzi",
+    "empty": "Nu există termene limită în această chestiune.",
+    "error": "Nu s-au încărcat termenele limită.",
+    "loading": "Se încarcă termenele limită...",
+    "start": "Început",
+    "table": {
+      "assigned": "Alocat",
+      "due": "Data scadenței",
+      "grace": "Graţie",
+      "jurisdiction": "Jurisdicția",
+      "status": "Stare",
+      "title": "Titlu",
+      "type": "Tip"
+    },
+    "title": "Termenele limită"
+  },
+  "documents": {
+    "allCategories": "Toate categoriile",
+    "browse": "răsfoiește",
+    "category": "Categorie",
+    "chooseFile": "Alegeți un fișier de încărcat",
+    "chooseTemplate": "Alegeți un șablon de scrisoare",
+    "description": "Dosar pentru această problemă — încărcați PDF-uri, fișiere Word și dovezi.",
+    "displayName": "Numele de afișare",
+    "displayNamePlaceholder": "de ex. Pachetul de depunere BPO — Final",
+    "dragDrop": "Trageți un fișier aici sau",
+    "empty": "Nu au fost încărcate documente încă.",
+    "error": "Nu s-au încărcat documentele.",
+    "errorGeneration": "Generarea documentului a eșuat",
+    "errorNoDocx": "Acest șablon nu are niciun fișier Word (.docx) încărcat",
+    "errorUpload": "Încărcarea nu a reușit",
+    "format": "Format",
+    "generate": "Generați document",
+    "generateDescription": "Alegeți un șablon de scrisoare. Detaliile subiectului și ale clientului sunt completate automat și salvate în acest folder.",
+    "generatePdf": "Generați PDF",
+    "generateWord": "Generați Word",
+    "generating": "Se generează…",
+    "loading": "Se încarcă documentele...",
+    "noTemplates": "Nu există șabloane disponibile.",
+    "notAvailable": "- nu este disponibil",
+    "search": "Căutați numele sau etichetele...",
+    "table": {
+      "category": "Categorie",
+      "displayName": "Numele de afișare",
+      "name": "Nume",
+      "tags": "Etichete",
+      "uploaded": "Încărcat",
+      "version": "Versiune"
+    },
+    "tags": "Etichete",
+    "tagsHint": "Cuvinte cheie separate prin virgulă pentru căutare",
+    "tagsPlaceholder": "urgent, bpo, aprobat de client",
+    "title": "Documente",
+    "upload": "Încărcați documentul",
+    "uploadAction": "Încărcați",
+    "uploadNew": "Încărcați un document nou",
+    "uploading": "Se încarcă...",
+    "word": "Cuvânt"
+  },
+  "ipRightStatus": {
+    "cancelled": "Anulat",
+    "expired": "Expirat",
+    "filed": "Depus",
+    "pending": "În așteptarea depunerii",
+    "registered": "Înregistrat"
+  },
+  "ipRights": {
+    "abandon": "Abandon",
+    "add": "Adăugați dreptul de IP",
+    "addRight": "Adăugați dreapta",
+    "addTitle": "Adăugați dreptul de IP",
+    "annuitySchedule": "Programul anuității",
+    "applicationNumber": "Numărul cererii",
+    "checkEpo": "Verificați EPO",
+    "checkEpoAddNumber": "Adăugați un număr de cerere înainte de a verifica EPO",
+    "checkEpoTitle": "Verificați statutul juridic EPO (OPS)",
+    "complete": "Complet",
+    "confirmFiling": "Confirmați depunerea",
+    "confirmRegistration": "Confirmați înregistrarea",
+    "cycleDue": "Ciclul {{n}} · scadent {{date}}",
+    "cycleLabel": "Ciclul {{n}}",
+    "description": "Depozitați drepturile de schiță odată ce clientul confirmă și pachetul de depunere este gata.",
+    "editSplit": "Editați diviziunea",
+    "empty": "Nu există încă drepturi de proprietate intelectuală. O ciornă este creată automat atunci când un aport este convertit; adăugați mai multe drepturi manual după urmărire penală.",
+    "epoCheckFailed": "Verificarea stării EPO a eșuat",
+    "error": "Nu s-au încărcat drepturile IP.",
+    "errors": {
+      "addFailed": "Nu s-a putut adăuga dreptul de IP",
+      "applicationNumberRequired": "Introduceți numărul oficial al cererii",
+      "documentVersionRequired": "Selectați versiunea documentului pachetului de depunere",
+      "fileFailed": "Nu s-a putut depune cererea",
+      "registerFailed": "Nu s-a putut înregistra dreptul de IP",
+      "registrationNumberRequired": "Introduceți numărul de înregistrare",
+      "splitFailed": "Reînnoirea nu a putut fi împărțită",
+      "splitJurisdictionRequired": "Adăugați cel puțin o parte cu o jurisdicție",
+      "titleRequired": "Introduceți un titlu pentru dreptul IP"
+    },
+    "expiryDate": "Data de expirare",
+    "expiryDateOptional": "Data expirării (opțional)",
+    "expiryDateHint": "Lăsați necompletat pentru a calcula din ciclul de reînnoire a jurisdicției.",
+    "file": "Fişier",
+    "fileApplication": "Aplicație de fișier",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Număr oficial de la BPO / EUIPO / EPO",
+      "filingPackage": "Pachetul de depunere",
+      "filingPackageHint": "Selectați versiunea documentului încărcat pentru această depunere (de obicei, sub Aplicație).",
+      "jurisdictionHint": "Alegeți EPO (EP) pentru a activa verificările stării urmăririi penale împotriva OPS.",
+      "noDocuments": "Încă nu există documente pe această temă. Încărcați mai întâi fișierul PDF de depunere în fila Documente.",
+      "selectDocument": "Selectați versiunea documentului..."
+    },
+    "filing": "Se depune...",
+    "filingDate": "Data depunerii",
+    "filingOffice": "Birou / jurisdicție",
+    "jurisdictionHint": "Utilizați EPO (EP) pentru brevetele europene, EUIPO (UE) pentru mărci comerciale/desene și modele UE, BPO (BG) pentru Bulgaria, WIPO (WO) pentru PCT.",
+    "loading": "Se încarcă drepturile IP...",
+    "loadingRenewals": "Se încarcă reînnoiri…",
+    "markFiled": "Mark a depus",
+    "noAnnuityWindows": "Încă nu există ferestre de anuitate. Înregistrați brevetul pentru deschiderea anului 1.",
+    "noRenewalWindows": "Încă nu există ferestre de reînnoire. Înregistrați dreptul IP de a deschide ciclul 1.",
+    "partialRenewals": "Reînnoiri parțiale",
+    "partsCount": "({{count}} piese)",
+    "proceed": "Continuați înregistrarea",
+    "register": "Registru",
+    "registerDrawerHint": "Deschide fereastra de reînnoire a ciclului 1 și generează termene limită de reînnoire.",
+    "registerTitle": "Înregistrați dreptul de IP",
+    "registering": "Se înregistrează…",
+    "registrationDate": "Data inregistrarii",
+    "registrationNumber": "Număr de înregistrare",
+    "renewalSchedule": "Ferestre de reînnoire",
+    "renewalWindows": "Ferestre de reînnoire",
+    "splitRenewal": "Reînnoire divizată",
+    "splitRenewalDescription": "Împărțiți această reînnoire în jurisdicție / părți din clasa Nice. Fiecare parte este instruită și completată separat; starea ferestrei se rulează din părți.",
+    "splitRenewalTitle": "Reînnoire divizată",
+    "splitPart": "Partea {{n}}",
+    "splitAddPart": "Adăugați o parte",
+    "splitSaveParts": "Salvați piese",
+    "splitNiceClasses": "Cursuri frumoase (separate prin virgulă)",
+    "splitNotes": "Note",
+    "splitJurisdiction": "Jurisdicția",
+    "table": {
+      "actions": "Acțiuni",
+      "applicationNo": "Cererea nr.",
+      "cycle": "Ciclu",
+      "dueDate": "Data scadenței",
+      "jurisdiction": "Jurisdicția",
+      "localRef": "Ref. locală",
+      "niceClasses": "Cursuri frumoase",
+      "status": "Stare",
+      "title": "Titlu",
+      "type": "Tip",
+      "yearCycle": "An/ciclu"
+    },
+    "title": "drepturi de proprietate intelectuală",
+    "titleField": "Titlu",
+    "titleRegister": "Registrul drepturilor de proprietate intelectuală",
+    "yearLabel": "Anul {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Adăugați AFA",
+      "authority": "Autoritate",
+      "authorityRequired": "Este necesară autoritatea",
+      "createFailed": "Nu s-a putut crea AFA",
+      "empty": "Nu au fost înregistrate încă AFA.",
+      "linkedSeizure": "Convulsii legate (opțional)",
+      "loading": "Se încarcă aplicațiile…",
+      "none": "Nici unul",
+      "number": "Numărul cererii",
+      "sectionDescription": "Cereri vamale care protejează drepturile la frontieră.",
+      "sectionTitle": "Cereri de acțiune (AFA)",
+      "validUntil": "Valabil până la"
+    },
+    "columns": {
+      "authority": "Autoritate",
+      "custody": "Custodie",
+      "date": "Data",
+      "goods": "Bunuri",
+      "number": "Număr",
+      "office": "Birou",
+      "status": "Stare",
+      "validUntil": "Valabil până la"
+    },
+    "custody": {
+      "addEntry": "Adăugați o intrare de custodie",
+      "append": "Adăuga",
+      "empty": "Nu există încă intrări de custodie.",
+      "notesPlaceholder": "Note (opțional)",
+      "timeline": "Cronologia custodiei"
+    },
+    "detail": {
+      "clearLink": "Ștergeți legătura",
+      "linkedMatter": "Litigii legate",
+      "loading": "Încărcare…",
+      "saveChanges": "Salvați modificările",
+      "searchMatters": "Căutarea contează să escaladeze...",
+      "seizedOn": "Sechestrat {{date}}",
+      "title": "Detaliu sechestru",
+      "updateFailed": "Nu s-a putut actualiza confiscarea"
+    },
+    "errors": {
+      "addCustodyFailed": "Nu s-a putut adăuga intrarea de custodie",
+      "createSeizureFailed": "Nu s-a putut crea convulsii",
+      "officeAndGoodsRequired": "Sunt necesare biroul vamal și descrierea mărfurilor"
+    },
+    "open": "Deschide",
+    "seizures": {
+      "consignmentRef": "Consignație ref",
+      "create": "Creați convulsii",
+      "createTitle": "Sechestru vamal de bușteni",
+      "deadlineHint": "Un termen limită de răspuns este generat automat (10 zile lucrătoare de la data sechestrului).",
+      "empty": "Încă nu au fost înregistrate convulsii.",
+      "goodsDescription": "Descrierea mărfurilor",
+      "loadFailed": "Nu s-au încărcat sechestrele.",
+      "loading": "Se încarcă capturi...",
+      "logSeizure": "Sechestrarea buștenilor",
+      "office": "Biroul vamal",
+      "portOfEntry": "Port de intrare",
+      "quantity": "Cantitate",
+      "sectionDescription": "Reținerea la frontieră și custodia pentru această problemă.",
+      "sectionTitle": "Convulsii",
+      "seizureDate": "Data sechestrului",
+      "status": "Stare"
+    },
+    "wrongMatterType": "Registrele vamale sunt disponibile numai în chestiuni legate de măsurile de frontieră."
+  },
+  "jurisdictionStatus": {
+    "approved": "Aprobat",
+    "filed": "Depus",
+    "pending": "În așteptare",
+    "rejected": "Respins"
+  },
+  "layout": {
+    "backToMatters": "← Înapoi la chestiuni",
+    "loading": "Se încarcă problema...",
+    "notFound": "Materia nu a fost găsită."
+  },
+  "list": {
+    "description": "Vizualizare portofoliu a tuturor chestiunilor legale — căutare după titlu, client sau număr de cerere.",
+    "descriptionPortal": "Probleme deschise pentru organizația dvs. după conversia aportului.",
+    "filters": {
+      "allStatuses": "Toate stările",
+      "allTypes": "Toate tipurile"
+    },
+    "intakeQueue": "Coada de admisie",
+    "perPage": "{{count}} pe pagină",
+    "searchPlaceholder": "Căutați titlu, client, aplicație nr...",
+    "title": "Contează",
+    "titlePortal": "Treburile mele"
+  },
+  "ipRightsRegister": {
+    "description": "Registrul de drepturi IP la nivelul întregii firme cu filtre în funcție de client, jurisdicție, tip, stare și expirare.",
+    "empty": "Nu s-au găsit drepturi de IP pentru aceste filtre.",
+    "filters": {
+      "all": "Toate",
+      "allClients": "Toți clienții",
+      "allJurisdictions": "Toate jurisdicțiile",
+      "allStatuses": "Toate stările",
+      "allTypes": "Toate tipurile",
+      "client": "Client",
+      "expiryFrom": "Expiră de la",
+      "expiryTo": "Expiră până la",
+      "jurisdiction": "Jurisdicția",
+      "matterType": "Tipul materiei",
+      "status": "Stare"
+    },
+    "loading": "Încărcare…",
+    "table": {
+      "applicationNo": "Cererea nr.",
+      "client": "Client",
+      "expiry": "Expirare",
+      "ipRight": "Dreptul de IP",
+      "jurisdiction": "Jurisdicția",
+      "matter": "materie",
+      "status": "Stare",
+      "type": "Tip"
+    },
+    "title": "Registrul drepturilor de proprietate intelectuală"
+  },
+  "markType": {
+    "combined": "Combinate",
+    "figurative": "Figurativ",
+    "sound": "Sunet",
+    "three_dimensional": "3D",
+    "wordmark": "Marca verbală"
+  },
+  "overview": {
+    "assignedTo": "Avocat principal",
+    "description": "Descriere",
+    "jurisdictions": "Jurisdicțiile",
+    "jurisdictionsEmpty": "Nu au fost înregistrate jurisdicții.",
+    "openedBy": "Deschis de",
+    "status": "Stare",
+    "table": {
+      "country": "Ţară",
+      "localRef": "Ref. locală",
+      "status": "Stare"
+    },
+    "title": "Detalii ale materiei",
+    "type": "Tip",
+    "typeSpecific": "Atribute specifice tipului"
+  },
+  "status": {
+    "abandoned": "Abandonat",
+    "active": "Activ",
+    "closed": "Închis",
+    "draft": "Proiect",
+    "on_hold": "În așteptare"
+  },
+  "table": {
+    "assigned": "Alocat",
+    "client": "Client",
+    "empty": "Nu s-au găsit probleme",
+    "emptyDescription": "Încercați să ajustați filtrele sau deschideți o chestiune nouă.",
+    "emptyPortal": "Nu s-a împărtășit încă probleme cu tine.",
+    "error": "Nu s-au încărcat problemele.",
+    "jurisdictions": "Jurisdicțiile",
+    "status": "Stare",
+    "title": "Titlu",
+    "type": "Tip",
+    "upcoming": "{{count}} viitoare",
+    "viewAria": "Vedeți {{title}}"
+  },
+  "tabs": {
+    "billing": "Facturare",
+    "correspondence": "Corespondenţă",
+    "deadlines": "Termenele limită",
+    "documents": "Documente",
+    "instructions": "Instrucţiuni",
+    "approvals": "Aprobari",
+    "ipRights": "drepturi de proprietate intelectuală",
+    "customs": "Vamă",
+    "overview": "Prezentare generală",
+    "tasks": "Sarcini",
+    "timeline": "Cronologie"
+  },
+  "approvals": {
+    "title": "Aprobarile clientilor",
+    "subtitle": "Elaborați și trimiteți cereri de aprobare pentru portalul clienților.",
+    "newDraft": "Schiță nouă",
+    "loading": "Se încarcă aprobările…",
+    "loadError": "Nu s-au încărcat aprobările.",
+    "empty": "Nu există încă cereri de aprobare.",
+    "noPermission": "Nu aveți permisiunea de a vizualiza aprobările pentru această problemă.",
+    "decisionNote": "Notă client: {{note}}",
+    "columns": {
+      "title": "Titlu",
+      "status": "Stare",
+      "dueDate": "Datorită",
+      "created": "Creat"
+    },
+    "status": {
+      "draft": "Proiect",
+      "pending": "În așteptare",
+      "approved": "Aprobat",
+      "rejected": "Respins"
+    },
+    "actions": {
+      "submit": "Trimiteți"
+    },
+    "drawer": {
+      "createTitle": "Noua cerere de aprobare",
+      "title": "Titlu",
+      "description": "Descriere",
+      "dueDate": "Data scadenței",
+      "cancel": "Anula",
+      "create": "Creați schiță"
+    },
+    "errors": {
+      "titleRequired": "Titlul este obligatoriu",
+      "saveFailed": "Nu s-a putut crea aprobarea"
+    }
+  },
+  "tasks": {
+    "add": "Adăugați sarcină",
+    "assignedTo": "Atribuit la",
+    "assignedToUser": "Atribuit la {{name}}",
+    "completed": "Terminat",
+    "completedByUser": "Finalizat de {{name}}",
+    "confirmComplete": "Marcați această sarcină ca finalizată?",
+    "confirmDelete": "Ștergeți această sarcină?",
+    "delete": "Şterge",
+    "deleteMessage": "Această sarcină va fi eliminată definitiv.",
+    "deleteTitle": "Ștergeți sarcina?",
+    "description": "Lucru de făcut în această chestiune — separat de termenele limită generate de sistem.",
+    "drawerTitle": "Adăugați sarcină",
+    "dueOn": "Datorită {{date}}",
+    "empty": "Nicio sarcină în această chestiune.",
+    "emptyOpen": "Fără sarcini deschise. Adăugați unul când există de lucru de urmărit în această chestiune.",
+    "error": "Nu s-au încărcat sarcinile.",
+    "errorCreate": "Nu s-a putut crea sarcina",
+    "form": {
+      "assigneeLabel": "Atribuit la",
+      "assigneeRequired": "Selectați cine ar trebui să facă această sarcină",
+      "dueDateOptional": "Data scadentă (opțional)",
+      "notesOptional": "Note (opțional)",
+      "notesPlaceholder": "Orice context suplimentar pentru cesionar",
+      "priorityLabel": "Prioritate",
+      "titleLabel": "Ce trebuie făcut",
+      "titlePlaceholder": "de ex. Apelați clientul referitor la răspunsul BPO",
+      "titleRequired": "Titlul este obligatoriu"
+    },
+    "loading": "Se încarcă sarcini...",
+    "markComplete": "Marcați complet",
+    "noDueDate": "Fără termen",
+    "open": "Deschide",
+    "priority": {
+      "high": "Ridicat",
+      "normal": "Normal"
+    },
+    "title": "Sarcini"
+  },
+  "timeline": {
+    "description": "Istoricul cronologic al urmăririi penale și corespondența pe această temă.",
+    "empty": "Încă nu există evenimente cronologice. Înregistrați corespondența sau depuneți o cerere pentru a vedea activitatea aici.",
+    "error": "Nu s-a încărcat cronologia.",
+    "eventType": {
+      "correspondence": "Corespondenţă",
+      "deadline": "Termen limită",
+      "filing": "Depunerea",
+      "note": "Nota",
+      "task": "Sarcină"
+    },
+    "loading": "Se încarcă cronologia...",
+    "loggedBy": "Înregistrat de {{name}}",
+    "title": "Cronologie"
+  },
+  "type": {
+    "border_measures": "Măsuri la frontieră",
+    "copyright": "Drepturi de autor",
+    "dispute_opposition": "Litigiu/opoziție",
+    "fto_analysis": "Analiza FTO",
+    "geographical_indication": "Indicație geografică",
+    "industrial_design": "Design industrial",
+    "patent": "Brevet",
+    "trademark": "Marcă comercială",
+    "utility_model": "Model de utilitate",
+    "valuation": "Evaluare"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Selecta…",
+    "title": "Detalii specifice tipului"
+  }
+}

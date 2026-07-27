@@ -1,0 +1,37 @@
+{
+  "title": "Cola de correo electrónico",
+  "subtitle": "Correos electrónicos no vinculados extraídos de buzones conectados. Abra un correo electrónico y luego adjúntelo al registro de correspondencia de un asunto.",
+  "fetchEmails": "Obtener 5 correos electrónicos",
+  "mailboxSettings": "Configuración del buzón",
+  "fetchSuccess": "Se obtuvieron hasta {{limit}} mensajes de la bandeja de entrada: {{ingested}} nuevos en la cola{{emptyHint}}.",
+  "fetchEmptyHint": "(Ya importada o bandeja de entrada vacía)",
+  "fetchFailed": "No se pudieron recuperar los correos electrónicos",
+  "columns": {
+    "received": "Recibida",
+    "from": "De",
+    "subject": "Sujeta",
+    "mailbox": "Buzón",
+    "suggestion": "Sugerencia",
+    "actions": "Comportamiento"
+  },
+  "loading": "Cargando cola…",
+  "loadFailed": "No se pudo cargar la cola de correo electrónico.",
+  "emptyTitle": "La cola está vacía.",
+  "emptyDescription": "Conecte un buzón de correo en la configuración y obtenga correos electrónicos para importar mensajes nuevos.",
+  "noSubject": "(Sin tema)",
+  "suggestions": {
+    "subjectRef": "Referencia del cliente en el asunto",
+    "bodyRef": "Referencia del cliente en el cuerpo",
+    "singleActiveMatter": "Materia activa única",
+    "contactMatch": "Coincidencia de contacto",
+    "default": "Materia sugerida",
+    "officeAction": "acción de oficina",
+    "renewal": "Renovación"
+  },
+  "actions": {
+    "viewEmail": "Ver correo electrónico",
+    "reply": "Responder",
+    "attachToMatter": "Adjuntar a la correspondencia del asunto",
+    "downloadEml": "Descargar .eml"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alerte",
+    "description": "Articole restante, scadente astăzi și urgente, plus notificări necitite."
+  },
+  "sections": {
+    "overdue": "Întârziat",
+    "today": "Datorită astăzi",
+    "urgent": "Urgent",
+    "notifications": "Notificări"
+  },
+  "empty": {
+    "notifications": "Fără notificări",
+    "urgent": "Fără articole urgente",
+    "overdue": "Fără articole restante",
+    "today": "Nu există articole scadente astăzi"
+  }
+}

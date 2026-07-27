@@ -1,0 +1,37 @@
+{
+  "title": "Radha e postës elektronike",
+  "subtitle": "Email-et e palidhura të tërhequra nga kutitë postare të lidhura. Hapni një email dhe më pas bashkëngjitni atë në regjistrin e korrespondencës së një çështjeje.",
+  "fetchEmails": "Merr 5 email",
+  "mailboxSettings": "Cilësimet e kutisë postare",
+  "fetchSuccess": "U mora deri në {{limit}} mesazhe në kutinë hyrëse — {{ingested}} e re në radhë{{emptyHint}}.",
+  "fetchEmptyHint": "(tashmë e importuar ose kutia hyrëse bosh)",
+  "fetchFailed": "Marrja e emaileve dështoi",
+  "columns": {
+    "received": "Marrë",
+    "from": "Nga",
+    "subject": "Subjekti",
+    "mailbox": "Kuti postare",
+    "suggestion": "Sugjerim",
+    "actions": "Veprimet"
+  },
+  "loading": "Radha po ngarkohet…",
+  "loadFailed": "Ngarkimi i radhës së email-it dështoi.",
+  "emptyTitle": "Radha është bosh",
+  "emptyDescription": "Lidhni një kuti postare te cilësimet dhe merrni email për të importuar mesazhe të reja.",
+  "noSubject": "(Pa lëndë)",
+  "suggestions": {
+    "subjectRef": "Ref i klientit në subjekt",
+    "bodyRef": "Ref i klientit në trup",
+    "singleActiveMatter": "Materie e vetme aktive",
+    "contactMatch": "Ndeshja e kontaktit",
+    "default": "Çështje e sugjeruar",
+    "officeAction": "Veprimi i zyrës",
+    "renewal": "Rinovimi"
+  },
+  "actions": {
+    "viewEmail": "Shiko emailin",
+    "reply": "Përgjigju",
+    "attachToMatter": "Bashkangjitni korrespondencën e çështjes",
+    "downloadEml": "Shkarko .eml"
+  }
+}

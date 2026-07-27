@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Şirket ve bireysel müşteri kayıtlarını yönetin. Yeni müşteriler alım yoluyla yaratılır.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya giriş yoluyla bir müşteri oluşturun.",
+    "emptyTitle": "Müşteri bulunamadı",
+    "error": "İstemciler yüklenemedi.",
+    "newViaIntake": "Giriş yoluyla yeni müşteri",
+    "perPage": "{{count}} sayfa başına",
+    "searchPlaceholder": "Adı veya kodu arayın…",
+    "title": "Müşteriler",
+    "viewAria": "{{name}} görüntüle"
+  },
+  "contacts": {
+    "add": "Kişi ekle",
+    "drawerTitle": "Kişi ekle",
+    "email": "E-posta",
+    "empty": "Hiçbir kişi bulunamadı.",
+    "firstName": "İlk adı *",
+    "lastName": "Soy isim *",
+    "loading": "Kişiler yükleniyor…",
+    "remove": "Kaldırmak",
+    "role": {
+      "all": "Tüm",
+      "billing": "Faturalandırma",
+      "conflict": "Anlaşmazlık",
+      "general": "Genel",
+      "primary": "Öncelik"
+    },
+    "save": "Kişiyi kaydet",
+    "table": {
+      "email": "E-posta",
+      "name": "İsim",
+      "office": "Ofis",
+      "phone": "Telefon",
+      "role": "Rol"
+    }
+  },
+  "countrySelect": {
+    "empty": "Hiçbir ülke bulunamadı",
+    "none": "Hiçbiri",
+    "placeholder": "Ülke seçin",
+    "search": "Ülkeleri ara…"
+  },
+  "drawer": {
+    "closeAria": "Çekmeceyi kapat"
+  },
+  "holdingGroups": {
+    "back": "← Holding gruplarına geri dön",
+    "clientsUnder": "Bu gruptaki müşteriler",
+    "create": "Tutma grubu oluştur",
+    "creating": "Oluşturuluyor…",
+    "description": "İlgili müşteri varlıkları için ana şemsiyeler.",
+    "descriptionField": "Tanım",
+    "detailDescription": "İlgili müşteri varlıkları için bir ana şemsiye oluşturun.",
+    "empty": "Hiçbir tutma grubu bulunamadı",
+    "emptyClients": "Henüz bağlı müşteri yok.",
+    "emptyDescription": "Aramayı ayarlamayı deneyin veya yeni bir bekletme grubu oluşturun.",
+    "error": "Muhafaza grupları yüklenemedi.",
+    "formError": "Muhafaza grubu oluşturulamadı",
+    "name": "İsim *",
+    "namePlaceholder": "örneğin Acme Grup BV",
+    "new": "Yeni holding grubu",
+    "notesPlaceholder": "Bu tutma yapısı hakkında isteğe bağlı notlar",
+    "notFound": "Tutma grubu bulunamadı.",
+    "allGroups": "Tüm holding grupları",
+    "perPage": "{{count}} sayfa başına",
+    "searchPlaceholder": "Adı veya ülkeyi arayın…",
+    "title": "Holding grupları",
+    "viewAria": "{{name}} görüntüle"
+  },
+  "layout": {
+    "backToClients": "← Müşterilere geri dön"
+  },
+  "offices": {
+    "add": "Ofis ekle",
+    "city": "Şehir",
+    "drawerTitle": "Ofis ekle",
+    "empty": "Henüz ofis yok.",
+    "errorPrimary": "Birincil ofis ayarlanamadı",
+    "label": "Etiket *",
+    "loading": "Ofisler yükleniyor…",
+    "noAddress": "Adres yok",
+    "primary": "Öncelik",
+    "remove": "Kaldırmak",
+    "save": "Ofisi kaydet",
+    "setPrimary": "Ana ofis olarak ayarla",
+    "setPrimaryAction": "Birincil ayarla",
+    "title": "Ofisler"
+  },
+  "overview": {
+    "assignedTo": "Atandı",
+    "cancel": "İptal etmek",
+    "companyName": "Firma Adı *",
+    "country": "Ülke",
+    "edit": "Düzenlemek",
+    "exportClientData": "Müşteri verilerini dışa aktar",
+    "error": "İstemci profili yüklenemedi.",
+    "errorSave": "İstemci kaydedilemedi",
+    "firstName": "İlk adı *",
+    "gdprConsent": "GDPR onayı",
+    "holdingGroup": "Holding grubu",
+    "lastName": "Soy isim *",
+    "legalForm": "Yasal form",
+    "loading": "Profil yükleniyor…",
+    "none": "Hiçbiri",
+    "notes": "Notlar",
+    "registrationNo": "Kayıt no.",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "status": "Durum",
+    "type": "Tip",
+    "validation": {
+      "companyName": "Şirket adı gerekli",
+      "name": "Ad ve soyadı gerekli",
+      "website": "Web sitesi http:// veya https:// ile başlamalıdır"
+    },
+    "vatNo": "KDV no.",
+    "website": "Web sitesi",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "İlgili şirketi ekle",
+    "drawerTitle": "İlgili şirketi ekle",
+    "empty": "Bağlantılı hiçbir şirket yok.",
+    "externalName": "Harici ad",
+    "existingClient": "Mevcut müşteri",
+    "linkType": "Bağlantı türü",
+    "loading": "Yükleniyor…",
+    "notes": "Notlar",
+    "notesPlaceholder": "İsteğe bağlı bağlam",
+    "relationship": "İlişki *",
+    "remove": "Kaldırmak",
+    "save": "İlgili şirketi kaydet",
+    "searchClients": "Müşterileri arayın *",
+    "searchPlaceholder": "Ada veya koda göre arayın…",
+    "noClients": "Müşteri bulunamadı",
+    "companyName": "Firma Adı *",
+    "table": {
+      "name": "İsim",
+      "notes": "Notlar",
+      "relationship": "İlişki"
+    },
+    "title": "İlgili şirketler"
+  },
+  "relationship": {
+    "affiliate": "Ortaklık",
+    "parent": "Ebeveyn",
+    "subsidiary": "Bağlı ortaklık"
+  },
+  "history": {
+    "empty": "Henüz geçmişi yok.",
+    "loadMore": "Daha fazlasını yükle",
+    "loading": "Geçmiş yükleniyor…",
+    "title": "İlişki geçmişi"
+  },
+  "matters": {
+    "empty": "Henüz önemli değil. Bu müşteri için soruşturma çalışmasını başlatmak üzere bir konu açın.",
+    "loading": "Önemli olan yükleniyor…",
+    "openNew": "Yeni konu aç",
+    "table": {
+      "assigned": "Atandı",
+      "jurisdictions": "Yargı bölgeleri",
+      "status": "Durum",
+      "title": "Başlık",
+      "type": "Tip"
+    },
+    "title": "Önemlidir"
+  },
+  "accessHistory": {
+    "title": "Veri erişim geçmişi",
+    "subtitle": "Bu müşterinin kişisel verilerini görüntüleyen veya dışa aktaran personel.",
+    "loading": "Erişim geçmişi yükleniyor…",
+    "loadFailed": "Erişim geçmişi yüklenemedi.",
+    "empty": "Henüz kayıtlı erişim etkinliği yok.",
+    "systemUser": "Sistem",
+    "columns": {
+      "when": "Ne zaman",
+      "user": "Kullanıcı",
+      "action": "Aksiyon",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "Maddeye göre",
+    "error": "Faturalandırma verileri yüklenemedi.",
+    "loading": "Faturalandırma yükleniyor…",
+    "noPermission": "Bu müşterinin faturalarını görüntüleme izniniz yok.",
+    "title": "Faturalandırma",
+    "wipDescription": "Bu müşteri için devam eden çalışmalar ve faturalandırılmamış tutarlar.",
+    "wipDescriptionLong": "Bu müşteri için tüm konularda devam eden çalışmalar ve faturalandırılabilir toplamlar.",
+    "matterTable": {
+      "matter": "Konu",
+      "type": "Tip",
+      "status": "Durum",
+      "billableHours": "Faturalandırılabilir saatler",
+      "total": "Toplam",
+      "unbilled": "faturalandırılmamış",
+      "empty": "Henüz önemli değil. Faturalandırılabilir işleri izlemeye başlamak için bir konu açın."
+    }
+  },
+  "sidebar": {
+    "country": "Ülke:",
+    "loading": "Yükleniyor…",
+    "primaryContact": "Birincil iletişim",
+    "primaryOffice": "Birincil ofis",
+    "viewProfile": "Tam profili görüntüle"
+  },
+  "status": {
+    "active": "Aktif",
+    "archived": "Arşivlendi",
+    "inactive": "Etkin değil",
+    "prospect": "Olasılık"
+  },
+  "table": {
+    "action": "Aksiyon",
+    "client": "Müşteri",
+    "country": "Ülke",
+    "created": "Oluşturuldu",
+    "holdingGroup": "Holding grubu",
+    "status": "Durum",
+    "type": "Tip"
+  },
+  "tabs": {
+    "accessHistory": "Erişim geçmişi",
+    "billing": "Faturalandırma",
+    "contacts": "Kişiler",
+    "history": "Tarih",
+    "matters": "Önemlidir",
+    "watch": "Kol saati",
+    "offices": "Ofisler",
+    "overview": "Genel Bakış",
+    "related": "İlgili"
+  },
+  "type": {
+    "company": "Şirket",
+    "individual": "Bireysel"
+  },
+  "unnamedClient": "Adsız müşteri"
+}

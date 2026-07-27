@@ -1,0 +1,37 @@
+{
+  "title": "E-posta kuyruğu",
+  "subtitle": "Bağlı posta kutularından alınan bağlantısız e-postalar. Bir e-postayı açın ve ardından onu bir konunun yazışma kaydına ekleyin.",
+  "fetchEmails": "5 e-postayı getir",
+  "mailboxSettings": "Posta kutusu ayarları",
+  "fetchSuccess": "{{limit}} adede kadar gelen kutusu iletisi getirildi — {{ingested}} kuyrukta yeni{{emptyHint}}.",
+  "fetchEmptyHint": "(zaten içe aktarılmış veya gelen kutusu boş)",
+  "fetchFailed": "E-postalar alınamadı",
+  "columns": {
+    "received": "Kabul edilmiş",
+    "from": "İtibaren",
+    "subject": "Ders",
+    "mailbox": "Posta kutusu",
+    "suggestion": "Telkin",
+    "actions": "Eylemler"
+  },
+  "loading": "Sıra yükleniyor…",
+  "loadFailed": "E-posta kuyruğu yüklenemedi.",
+  "emptyTitle": "Sıra boş",
+  "emptyDescription": "Yeni mesajları içe aktarmak için ayarlarda bir posta kutusu bağlayın ve e-postaları alın.",
+  "noSubject": "(Konu yok)",
+  "suggestions": {
+    "subjectRef": "Konudaki müşteri referansı",
+    "bodyRef": "Gövdedeki müşteri referansı",
+    "singleActiveMatter": "Tek aktif madde",
+    "contactMatch": "İletişim eşleşmesi",
+    "default": "Önerilen konu",
+    "officeAction": "Patent başvurusu",
+    "renewal": "Yenileme"
+  },
+  "actions": {
+    "viewEmail": "E-postayı görüntüle",
+    "reply": "Cevap vermek",
+    "attachToMatter": "Konu yazışmalarına ekleyin",
+    "downloadEml": ".eml'i indirin"
+  }
+}

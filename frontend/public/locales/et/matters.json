@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Tolliasutus"
+      },
+      "infringingGoods": {
+        "label": "Rikkuva kauba kirjeldus"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Loomise kuupäev"
+      },
+      "workTitle": {
+        "label": "Töö pealkiri"
+      },
+      "workType": {
+        "label": "Töö tüüp"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Aluse kokkuvõte"
+      },
+      "disputeType": {
+        "label": "Vaidluse tüüp"
+      },
+      "opponentName": {
+        "label": "Vastane / vastaspool"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Ulatuse kokkuvõte"
+      },
+      "technologyArea": {
+        "label": "Tehnoloogia valdkond"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Toote nimi"
+      },
+      "region": {
+        "label": "Geograafiline piirkond"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Loetlege või kirjeldage esitatud kujundusvaateid",
+        "label": "Kujundusvaated"
+      },
+      "locarnoClass": {
+        "label": "Locarno klass"
+      },
+      "productDescription": {
+        "label": "Toote kirjeldus"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Nõuete kokkuvõte"
+      },
+      "pctNumber": {
+        "label": "PCT number"
+      },
+      "priorityDate": {
+        "label": "Prioriteetne kuupäev"
+      },
+      "technicalField": {
+        "label": "Tehniline valdkond"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Värvid väitsid"
+      },
+      "markDescription": {
+        "label": "Märgi kirjeldus"
+      },
+      "markType": {
+        "label": "Märgi tüüp"
+      },
+      "niceClasses": {
+        "label": "Toredad klassid",
+        "placeholder": "nt. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Nõuete kokkuvõte"
+      },
+      "priorityDate": {
+        "label": "Prioriteetne kuupäev"
+      },
+      "technicalField": {
+        "label": "Tehniline valdkond"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Vara kirjeldus"
+      },
+      "valuationPurpose": {
+        "label": "Hindamise eesmärk"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Lisa fikseeritud tasu",
+    "addTime": "Logi aeg",
+    "billableAria": "Arveldatav",
+    "billableWithoutRate": "Arveldatav ilma määrata",
+    "confirmDeleteFee": "Kas kustutada püsitasu?",
+    "confirmDeleteFeeMessage": "See tasu võetakse asjast maha.",
+    "confirmDeleteFeeTitle": "Kas kustutada püsitasu?",
+    "confirmDeleteTime": "Kas kustutada see kellaaeg?",
+    "confirmDeleteTimeMessage": "See arveldatav rida eemaldatakse asjast.",
+    "confirmDeleteTimeTitle": "Kas kustutada ajakirje?",
+    "description": "Selle asja aja kanded, fikseeritud tasud ja arved.",
+    "emptyFees": "Fikseeritud tasusid veel pole.",
+    "emptyTime": "Aega pole veel logitud.",
+    "error": "Arveldusandmete laadimine ebaõnnestus.",
+    "feeDrawer": {
+      "amount": "Summa (€)",
+      "billable": "Arveldatav",
+      "createTitle": "Lisa fikseeritud tasu",
+      "descriptionPlaceholder": "nt. BPO kaubamärgi esitamise tasu",
+      "editTitle": "Muutke fikseeritud tasu",
+      "errors": {
+        "amountMin": "Summa peab olema null või suurem",
+        "descriptionRequired": "Kirjeldus on nõutav"
+      },
+      "saveFailed": "Fikseeritud tasu salvestamine ebaõnnestus"
+    },
+    "fixedFees": "Fikseeritud tasud",
+    "loading": "Arvelduse laadimine…",
+    "loadingInvoices": "Arvete laadimine…",
+    "loadInvoicesFailed": "Arvete laadimine ebaõnnestus.",
+    "noPermission": "Teil ei ole selle asja arvelduse vaatamiseks luba.",
+    "noRateCard": "Hinnakaart puudub",
+    "nonBillableAria": "Mittearveldatav",
+    "portalDescription": "Selle asja arved ja makse olek.",
+    "timeDrawer": {
+      "amount": "Summa:",
+      "billable": "Arveldatav",
+      "billableDisabledHint": "Arveldamine on keelatud, kui määr on 0 €.",
+      "createTitle": "Logi aeg",
+      "descriptionPlaceholder": "Mida tehti",
+      "editTitle": "Redigeeri ajakirjet",
+      "errors": {
+        "billableRequiresRate": "Arveldatav aeg nõuab tunnitasu. Sisestage määr või märkige mittearveldatavaks.",
+        "descriptionRequired": "Kirjeldus on nõutav",
+        "hoursMin": "Tunnid peavad olema vähemalt 0,25",
+        "rateMin": "Kursus peab olema null või suurem"
+      },
+      "hourlyRate": "Tunnihind (€)",
+      "hoursHint": "Veerandtunniste sammudega (minimaalselt 0,25)",
+      "noRateCardWarning": "Teie rolli jaoks ei leitud hinnakaarti. See kirje salvestatakse mittearveldatavana, kuni finantsmäär määrab määra või sisestate selle käsitsi.",
+      "resolvingRate": "Lahendamismäär…",
+      "saveFailed": "Aja sisestamise salvestamine ebaõnnestus"
+    },
+    "timeEntries": "Aja sissekanded",
+    "table": {
+      "amount": "Summa",
+      "attorney": "Advokaat",
+      "billable": "Arveldatav",
+      "category": "Kategooria",
+      "date": "Kuupäev",
+      "description": "Kirjeldus",
+      "hours": "Tundi",
+      "rate": "Hinda",
+      "user": "Kasutaja"
+    },
+    "title": "Arveldamine"
+  },
+  "correspondence": {
+    "add": "Logi kirjavahetus",
+    "attachFromQueue": "Manusta järjekorrast",
+    "attachmentFallback": "Kirjavahetuse manus",
+    "badges": {
+      "clientVisible": "Klient nähtav",
+      "email": "Meil",
+      "synced": "Sünkroonitud"
+    },
+    "category": {
+      "application": "Rakendus",
+      "certificate": "tunnistus",
+      "correspondence": "Üldine kirjavahetus",
+      "evidence": "Tõendid",
+      "office_action": "Kontori tegevus",
+      "renewal": "Uuendamine"
+    },
+    "direction": {
+      "incoming": "Sissetulevad",
+      "outgoing": "Väljuv"
+    },
+    "description": "Digitaalne meiliruum – logikirjad, kontoritoimingud ja meilid. Kasutage .eml-failide või kleebitud postkasti teksti jaoks {{logEmail}}; kasutage struktureeritud kirjete, väljaminevate kirjade ja dokumentide manuste jaoks {{logCorrespondence}}.",
+    "documentReady": "Dokument valmis",
+    "downloadAttachment": "Laadige manus alla",
+    "downloadTitle": "Laadi alla {{fileName}}",
+    "drawerTitle": "Logi kirjavahetus",
+    "empty": "Kirjavahetust pole veel logitud.",
+    "emptyHint": "Logige kirjavahetus või meilisõnum, et luua selle asja kirje.",
+    "emptyTitle": "Kirjavahetust veel pole",
+    "error": "Kirjavahetuse laadimine ebaõnnestus.",
+    "errorLog": "Kirjavahetuse logimine ebaõnnestus",
+    "fetchingDocument": "Dokumendi toomine…",
+    "from": "Alates:",
+    "hideFromClient": "Peida kliendi postkastist",
+    "hideFromClientTitle": "Peida kliendiportaalist",
+    "loading": "Kirjavahetuse laadimine…",
+    "logEmail": "Logi e-posti aadress",
+    "markReplied": "vastas Mark",
+    "markSent": "Mark saadetud",
+    "openEpoRegister": "Avatud EPO registris",
+    "reply": "Vasta",
+    "replyTitle": "Vasta ühendatud postkasti kaudu",
+    "replaceFile": "Asenda fail",
+    "replaceFileTitle": "Asenda lisatud fail",
+    "saveAsPrecedent": "Salvesta pretsedendina",
+    "saveAsPrecedentTitle": "Salvesta pretsedendina",
+    "savedUnder": "Salvestatud alloleva kirjavahetuse teema alla",
+    "sendToClient": "Saada kliendi postkasti",
+    "showInClientTitle": "Kuva kliendiportaalis",
+    "status": {
+      "draft": "Mustand",
+      "received": "Vastu võetud",
+      "replied": "Vastas",
+      "sent": "Saadetud"
+    },
+    "table": {
+      "category": "Kategooria",
+      "date": "Kuupäev",
+      "direction": "Suund",
+      "file": "Fail",
+      "fromTo": "Alates/Kuni",
+      "status": "Olek",
+      "subject": "Teema"
+    },
+    "title": "Kirjavahetus",
+    "to": "Saaja:",
+    "uploadFailed": "Faili üleslaadimine ja manustamine ebaõnnestus",
+    "uploadFile": "Laadi fail üles",
+    "uploadFileTitle": "Laadige selle kirjavahetuse jaoks üles PDF või dokument",
+    "viewOnEpo": "Vaata EPO-st",
+    "viewOnEpoTitle": "Avatud ametlik rekord EPO registris"
+  },
+  "createDrawer": {
+    "client": "Klient*",
+    "creating": "Loomine…",
+    "error": "Mateeria loomine ebaõnnestus",
+    "jurisdictionHelp": "Valige üks või mitu esitamisjurisdiktsiooni.",
+    "jurisdictions": "Jurisdiktsioonid",
+    "matterType": "Aine tüüp *",
+    "open": "Avatud asi",
+    "responsibleAttorney": "Vastutav advokaat",
+    "title": "Ava uus asi",
+    "titleField": "Pealkiri *",
+    "titlePlaceholder": "nt. ACME sõnamärk – EU"
+  },
+  "deadlines": {
+    "complete": "Täielik",
+    "daysLeft": "{{count}} päeva jäänud",
+    "daysOverdue": "{{count}} päeva hilinenud",
+    "dueToday": "Tähtaeg täna",
+    "empty": "Sellel teemal pole tähtaegu.",
+    "error": "Tähtaegade laadimine ebaõnnestus.",
+    "loading": "Laadimistähtajad…",
+    "start": "Alusta",
+    "table": {
+      "assigned": "Määratud",
+      "due": "Tähtaeg",
+      "grace": "Grace",
+      "jurisdiction": "Jurisdiktsioon",
+      "status": "Olek",
+      "title": "Pealkiri",
+      "type": "Tüüp"
+    },
+    "title": "Tähtajad"
+  },
+  "documents": {
+    "allCategories": "Kõik kategooriad",
+    "browse": "sirvida",
+    "category": "Kategooria",
+    "chooseFile": "Valige üleslaaditav fail",
+    "chooseTemplate": "Valige kirja mall",
+    "description": "Selle asja kapp – laadige üles PDF-id, Wordi failid ja tõendid.",
+    "displayName": "Kuvatav nimi",
+    "displayNamePlaceholder": "nt. BPO esitamispakett – lõplik",
+    "dragDrop": "Lohistage fail siia või",
+    "empty": "Ühtegi dokumenti pole veel üles laaditud.",
+    "error": "Dokumentide laadimine ebaõnnestus.",
+    "errorGeneration": "Dokumendi genereerimine ebaõnnestus",
+    "errorNoDocx": "Sellele mallile pole üles laaditud ühtegi Wordi (.docx) faili",
+    "errorUpload": "Üleslaadimine ebaõnnestus",
+    "format": "Vorming",
+    "generate": "Loo dokument",
+    "generateDescription": "Valige kirja mall. Asja ja kliendi andmed täidetakse automaatselt ja salvestatakse sellesse kausta.",
+    "generatePdf": "Genereeri PDF",
+    "generateWord": "Genereeri Word",
+    "generating": "Loomine…",
+    "loading": "Dokumentide laadimine…",
+    "noTemplates": "Malle pole saadaval.",
+    "notAvailable": "— pole saadaval",
+    "search": "Otsi nime või silte…",
+    "table": {
+      "category": "Kategooria",
+      "displayName": "Kuvatav nimi",
+      "name": "Nimi",
+      "tags": "Sildid",
+      "uploaded": "Üles laaditud",
+      "version": "Versioon"
+    },
+    "tags": "Sildid",
+    "tagsHint": "Komaga eraldatud märksõnad otsingu jaoks",
+    "tagsPlaceholder": "kiireloomuline, bpo, kliendi poolt heaks kiidetud",
+    "title": "Dokumendid",
+    "upload": "Laadi dokument üles",
+    "uploadAction": "Laadi üles",
+    "uploadNew": "Laadige üles uus dokument",
+    "uploading": "Üleslaadimine…",
+    "word": "Sõna"
+  },
+  "ipRightStatus": {
+    "cancelled": "Tühistatud",
+    "expired": "Aegunud",
+    "filed": "Esitatud",
+    "pending": "Ootel esitamine",
+    "registered": "Registreeritud"
+  },
+  "ipRights": {
+    "abandon": "Loobu",
+    "add": "Lisage õige IP",
+    "addRight": "Lisa paremale",
+    "addTitle": "Lisage õige IP",
+    "annuitySchedule": "Annuiteedi graafik",
+    "applicationNumber": "Taotluse number",
+    "checkEpo": "Kontrollige EPO-d",
+    "checkEpoAddNumber": "Enne EPO kontrollimist lisage taotluse number",
+    "checkEpoTitle": "Kontrollige EPO õiguslikku staatust (OPS)",
+    "complete": "Täielik",
+    "confirmFiling": "Kinnitage esitamine",
+    "confirmRegistration": "Kinnitage registreerimine",
+    "cycleDue": "Tsükkel {{n}} · tähtaeg {{date}}",
+    "cycleLabel": "Tsükkel {{n}}",
+    "description": "Esitage mustandi õigused, kui klient on kinnitanud ja esitamispakett on valmis.",
+    "editSplit": "Redigeeri jaotust",
+    "empty": "IP-õigusi veel pole. Süvis luuakse automaatselt, kui sissevõtt teisendatakse; lisage pärast süüdistuse esitamist rohkem õigusi käsitsi.",
+    "epoCheckFailed": "EPO olekukontroll ebaõnnestus",
+    "error": "IP-õiguste laadimine ebaõnnestus.",
+    "errors": {
+      "addFailed": "Õige IP-aadressi lisamine ebaõnnestus",
+      "applicationNumberRequired": "Sisestage ametlik taotluse number",
+      "documentVersionRequired": "Valige esitamispaketi dokumendi versioon",
+      "fileFailed": "Taotluse esitamine ebaõnnestus",
+      "registerFailed": "IP õiguse registreerimine ebaõnnestus",
+      "registrationNumberRequired": "Sisesta registreerimisnumber",
+      "splitFailed": "Uuendamist ei saanud osadeks jagada",
+      "splitJurisdictionRequired": "Lisage vähemalt üks jurisdiktsiooniga osa",
+      "titleRequired": "Sisestage IP-õiguse pealkiri"
+    },
+    "expiryDate": "Aegumiskuupäev",
+    "expiryDateOptional": "Aegumiskuupäev (valikuline)",
+    "expiryDateHint": "Jurisdiktsiooni uuendamise tsükli põhjal arvutamiseks jätke väli tühjaks.",
+    "file": "Fail",
+    "fileApplication": "Failirakendus",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "BPO / EUIPO / EPO ametlik number",
+      "filingPackage": "Esitamispakett",
+      "filingPackageHint": "Valige selle faili jaoks üles laaditud dokumendi versioon (tavaliselt rakenduse alt).",
+      "jurisdictionHint": "Valige EPO (EP), et lubada süüdistuse esitamise oleku kontrollimine OPS-i suhtes.",
+      "noDocuments": "Selle kohta pole veel dokumente. Laadige PDF-fail esmalt üles vahekaardile Dokumendid.",
+      "selectDocument": "Vali dokumendi versioon…"
+    },
+    "filing": "Esitamine…",
+    "filingDate": "Esitamise kuupäev",
+    "filingOffice": "Esitamisamet / jurisdiktsioon",
+    "jurisdictionHint": "Kasutage Euroopa patentide jaoks EPO-d (EP), EL-i kaubamärkide/disainilahenduste jaoks EUIPO-d (EU), Bulgaaria jaoks BPO-d (BG), PCT jaoks WIPO-d (WO).",
+    "loading": "IP-õiguste laadimine…",
+    "loadingRenewals": "Uuenduste laadimine…",
+    "markFiled": "Märgi esitatud",
+    "noAnnuityWindows": "Annuiteediaknaid veel pole. Registreerige patent 1. aasta avamiseks.",
+    "noRenewalWindows": "Uuendusaknaid veel pole. Registreerige IP-õigus tsükli 1 avamiseks.",
+    "partialRenewals": "Osalised uuendused",
+    "partsCount": "({{count}} osad)",
+    "proceed": "Jätkake salvestamist",
+    "register": "Registreeru",
+    "registerDrawerHint": "Avab 1. tsükli uuendamise akna ja genereerib uuendamise tähtajad.",
+    "registerTitle": "Registreeri IP õigus",
+    "registering": "Registreerimine…",
+    "registrationDate": "Registreerimise kuupäev",
+    "registrationNumber": "Registreerimisnumber",
+    "renewalSchedule": "Akende uuendamine",
+    "renewalWindows": "Akende uuendamine",
+    "splitRenewal": "Jaotatud uuendamine",
+    "splitRenewalDescription": "Jagage see uuendamine jurisdiktsiooniks / Nice-klassi osadeks. Iga osa juhendatakse ja täidetakse eraldi; akna olek kerib osadest üles.",
+    "splitRenewalTitle": "Jaotatud uuendamine",
+    "splitPart": "Osa {{n}}",
+    "splitAddPart": "Lisa osa",
+    "splitSaveParts": "Salvestage osad",
+    "splitNiceClasses": "Toredad klassid (komadega eraldatud)",
+    "splitNotes": "Märkmed",
+    "splitJurisdiction": "Jurisdiktsioon",
+    "table": {
+      "actions": "Tegevused",
+      "applicationNo": "Taotlus nr.",
+      "cycle": "Tsükkel",
+      "dueDate": "Tähtaeg",
+      "jurisdiction": "Jurisdiktsioon",
+      "localRef": "Kohalik ref.",
+      "niceClasses": "Toredad klassid",
+      "status": "Olek",
+      "title": "Pealkiri",
+      "type": "Tüüp",
+      "yearCycle": "Aasta / tsükkel"
+    },
+    "title": "IP õigused",
+    "titleField": "Pealkiri",
+    "titleRegister": "IP õiguste register",
+    "yearLabel": "Aasta {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Lisage AFA",
+      "authority": "Asutus",
+      "authorityRequired": "Volitus on vajalik",
+      "createFailed": "AFA-d ei saanud luua",
+      "empty": "AFA-sid pole veel registreeritud.",
+      "linkedSeizure": "Seotud kramp (valikuline)",
+      "loading": "Rakenduste laadimine…",
+      "none": "Mitte ühtegi",
+      "number": "Taotluse number",
+      "sectionDescription": "Tollirakendused, mis kaitsevad õigusi piiril.",
+      "sectionTitle": "Tegevustaotlused (AFA)",
+      "validUntil": "Kehtib kuni"
+    },
+    "columns": {
+      "authority": "Asutus",
+      "custody": "Hooldusõigus",
+      "date": "Kuupäev",
+      "goods": "Kaubad",
+      "number": "Number",
+      "office": "kontor",
+      "status": "Olek",
+      "validUntil": "Kehtib kuni"
+    },
+    "custody": {
+      "addEntry": "Lisa hooldusõiguse kanne",
+      "append": "Lisa",
+      "empty": "Hooldusõigusi pole veel tehtud.",
+      "notesPlaceholder": "Märkused (valikuline)",
+      "timeline": "Eestkoste ajakava"
+    },
+    "detail": {
+      "clearLink": "Tühjenda link",
+      "linkedMatter": "Seotud kohtuvaidlus",
+      "loading": "Laadimine…",
+      "saveChanges": "Salvestage muudatused",
+      "searchMatters": "Otsinguküsimused eskaleeruvad…",
+      "seizedOn": "Konfiskeeritud {{date}}",
+      "title": "Konfiskeerimise detail",
+      "updateFailed": "Krambi ei saanud värskendada"
+    },
+    "errors": {
+      "addCustodyFailed": "Eestkoste kirjet ei saanud lisada",
+      "createSeizureFailed": "Krambihoogu ei saanud tekitada",
+      "officeAndGoodsRequired": "Vajalik on tolliasutus ja kauba kirjeldus"
+    },
+    "open": "Avatud",
+    "seizures": {
+      "consignmentRef": "Saadetise ref",
+      "create": "Loo krambihoog",
+      "createTitle": "Palkide tollikonfiskeerimine",
+      "deadlineHint": "Vastamise tähtaeg genereeritakse automaatselt (10 tööpäeva alates arestimise kuupäevast).",
+      "empty": "Ühtegi konfiskeerimist pole veel registreeritud.",
+      "goodsDescription": "Kauba kirjeldus",
+      "loadFailed": "Krambihoogude laadimine ebaõnnestus.",
+      "loading": "Krambihoogude laadimine…",
+      "logSeizure": "Palgi konfiskeerimine",
+      "office": "Tolliasutus",
+      "portOfEntry": "Sissepääsu sadam",
+      "quantity": "Kogus",
+      "sectionDescription": "Piiri kinnipidamised ja vahi all hoidmine selles küsimuses.",
+      "sectionTitle": "Krambid",
+      "seizureDate": "Arestimise kuupäev",
+      "status": "Olek"
+    },
+    "wrongMatterType": "Tolliregistrid on saadaval ainult piirimeetmetega seotud küsimustes."
+  },
+  "jurisdictionStatus": {
+    "approved": "Kinnitatud",
+    "filed": "Esitatud",
+    "pending": "Ootel",
+    "rejected": "Tagasi lükatud"
+  },
+  "layout": {
+    "backToMatters": "← Tagasi asjade juurde",
+    "loading": "Asja laadimine…",
+    "notFound": "Asi ei leitud."
+  },
+  "list": {
+    "description": "Kõigi juriidiliste küsimuste portfellivaade – otsige pealkirja, kliendi või rakenduse numbri järgi.",
+    "descriptionPortal": "Asjad avanesid teie organisatsiooni jaoks pärast vastuvõtu muutmist.",
+    "filters": {
+      "allStatuses": "Kõik olekud",
+      "allTypes": "Kõik tüübid"
+    },
+    "intakeQueue": "Vastuvõtu järjekord",
+    "perPage": "{{count}} lehekülje kohta",
+    "searchPlaceholder": "Otsingu pealkiri, klient, rakenduse nr…",
+    "title": "Küsimused",
+    "titlePortal": "Minu asjad"
+  },
+  "ipRightsRegister": {
+    "description": "Ettevõtteülene IP-õiguste register koos filtritega kliendi, jurisdiktsiooni, tüübi, oleku ja aegumise järgi.",
+    "empty": "Nende filtrite jaoks IP-õigusi ei leitud.",
+    "filters": {
+      "all": "Kõik",
+      "allClients": "Kõik kliendid",
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "allStatuses": "Kõik olekud",
+      "allTypes": "Kõik tüübid",
+      "client": "Klient",
+      "expiryFrom": "Kehtivusaeg alates",
+      "expiryTo": "Kehtivusaeg kuni",
+      "jurisdiction": "Jurisdiktsioon",
+      "matterType": "Aine tüüp",
+      "status": "Olek"
+    },
+    "loading": "Laadimine…",
+    "table": {
+      "applicationNo": "Taotlus nr.",
+      "client": "Klient",
+      "expiry": "Aegumine",
+      "ipRight": "IP õige",
+      "jurisdiction": "Jurisdiktsioon",
+      "matter": "Asi",
+      "status": "Olek",
+      "type": "Tüüp"
+    },
+    "title": "IP õiguste register"
+  },
+  "markType": {
+    "combined": "Kombineeritud",
+    "figurative": "Kujundlik",
+    "sound": "Heli",
+    "three_dimensional": "3D",
+    "wordmark": "Sõnamärk"
+  },
+  "overview": {
+    "assignedTo": "Juhtivadvokaat",
+    "description": "Kirjeldus",
+    "jurisdictions": "Jurisdiktsioonid",
+    "jurisdictionsEmpty": "Jurisdiktsioone pole salvestatud.",
+    "openedBy": "Avanud",
+    "status": "Olek",
+    "table": {
+      "country": "Riik",
+      "localRef": "Kohalik ref.",
+      "status": "Olek"
+    },
+    "title": "Asja detailid",
+    "type": "Tüüp",
+    "typeSpecific": "Tüübispetsiifilised atribuudid"
+  },
+  "status": {
+    "abandoned": "Mahajäetud",
+    "active": "Aktiivne",
+    "closed": "Suletud",
+    "draft": "Mustand",
+    "on_hold": "Ootel"
+  },
+  "table": {
+    "assigned": "Määratud",
+    "client": "Klient",
+    "empty": "Asju ei leitud",
+    "emptyDescription": "Proovige filtreid reguleerida või avage uus teema.",
+    "emptyPortal": "Teiega pole veel ühtegi asja jagatud.",
+    "error": "Asjade laadimine ebaõnnestus.",
+    "jurisdictions": "Jurisdiktsioonid",
+    "status": "Olek",
+    "title": "Pealkiri",
+    "type": "Tüüp",
+    "upcoming": "{{count}} tulemas",
+    "viewAria": "Kuva {{title}}"
+  },
+  "tabs": {
+    "billing": "Arveldamine",
+    "correspondence": "Kirjavahetus",
+    "deadlines": "Tähtajad",
+    "documents": "Dokumendid",
+    "instructions": "Juhised",
+    "approvals": "Heakskiidud",
+    "ipRights": "IP õigused",
+    "customs": "Toll",
+    "overview": "Ülevaade",
+    "tasks": "Ülesanded",
+    "timeline": "Ajaskaala"
+  },
+  "approvals": {
+    "title": "Klientide kinnitused",
+    "subtitle": "Koostage ja esitage kliendiportaali kooskõlastustaotlused.",
+    "newDraft": "Uus mustand",
+    "loading": "Kinnituste laadimine…",
+    "loadError": "Kinnituste laadimine ebaõnnestus.",
+    "empty": "Kinnitustaotlusi veel pole.",
+    "noPermission": "Teil pole luba selle asjaga seotud kinnitusi vaadata.",
+    "decisionNote": "Kliendi märkus: {{note}}",
+    "columns": {
+      "title": "Pealkiri",
+      "status": "Olek",
+      "dueDate": "Tähtaeg",
+      "created": "Loodud"
+    },
+    "status": {
+      "draft": "Mustand",
+      "pending": "Ootel",
+      "approved": "Kinnitatud",
+      "rejected": "Tagasi lükatud"
+    },
+    "actions": {
+      "submit": "Esita"
+    },
+    "drawer": {
+      "createTitle": "Uus kinnitustaotlus",
+      "title": "Pealkiri",
+      "description": "Kirjeldus",
+      "dueDate": "Tähtaeg",
+      "cancel": "Tühista",
+      "create": "Loo mustand"
+    },
+    "errors": {
+      "titleRequired": "Pealkiri on kohustuslik",
+      "saveFailed": "Kinnituse loomine ebaõnnestus"
+    }
+  },
+  "tasks": {
+    "add": "Lisa ülesanne",
+    "assignedTo": "Määratud",
+    "assignedToUser": "Määratud kasutajale {{name}}",
+    "completed": "Lõpetatud",
+    "completedByUser": "Lõpetanud {{name}}",
+    "confirmComplete": "Kas märkida see ülesanne lõpetatuks?",
+    "confirmDelete": "Kas kustutada see ülesanne?",
+    "delete": "Kustuta",
+    "deleteMessage": "See ülesanne eemaldatakse jäädavalt.",
+    "deleteTitle": "Kas kustutada ülesanne?",
+    "description": "Selles küsimuses tuleb teha tööd – eraldi süsteemi loodud tähtaegadest.",
+    "drawerTitle": "Lisa ülesanne",
+    "dueOn": "Tähtaeg {{date}}",
+    "empty": "Selles küsimuses pole ülesandeid.",
+    "emptyOpen": "Avatud ülesandeid pole. Lisage üks, kui selles küsimuses on vaja jälgida.",
+    "error": "Ülesannete laadimine ebaõnnestus.",
+    "errorCreate": "Ülesande loomine ebaõnnestus",
+    "form": {
+      "assigneeLabel": "Määratud",
+      "assigneeRequired": "Valige, kes peaks seda ülesannet tegema",
+      "dueDateOptional": "Tähtaeg (valikuline)",
+      "notesOptional": "Märkused (valikuline)",
+      "notesPlaceholder": "Mis tahes lisakontekst volitatud isiku jaoks",
+      "priorityLabel": "Prioriteet",
+      "titleLabel": "Mida on vaja teha",
+      "titlePlaceholder": "nt. Helista kliendile re: BPO vastus",
+      "titleRequired": "Pealkiri on kohustuslik"
+    },
+    "loading": "Ülesannete laadimine…",
+    "markComplete": "Märgi lõpetatuks",
+    "noDueDate": "Tähtaega pole",
+    "open": "Avatud",
+    "priority": {
+      "high": "Kõrge",
+      "normal": "Tavaline"
+    },
+    "title": "Ülesanded"
+  },
+  "timeline": {
+    "description": "Süüdistuse kronoloogiline ajalugu ja selleteemaline kirjavahetus.",
+    "empty": "Ajaskaala sündmusi pole veel. Logi kirjavahetus või esita avaldus, et näha tegevust siin.",
+    "error": "Ajaskaala laadimine ebaõnnestus.",
+    "eventType": {
+      "correspondence": "Kirjavahetus",
+      "deadline": "Tähtaeg",
+      "filing": "Viilimine",
+      "note": "Märkus",
+      "task": "Ülesanne"
+    },
+    "loading": "Ajaskaala laadimine…",
+    "loggedBy": "Logis: {{name}}",
+    "title": "Ajaskaala"
+  },
+  "type": {
+    "border_measures": "Piirimeetmed",
+    "copyright": "Autoriõigus",
+    "dispute_opposition": "Vaidlus / vastuseis",
+    "fto_analysis": "FTO analüüs",
+    "geographical_indication": "Geograafiline tähis",
+    "industrial_design": "Tööstusdisain",
+    "patent": "Patent",
+    "trademark": "Kaubamärk",
+    "utility_model": "Kasulik mudel",
+    "valuation": "Hindamine"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Vali…",
+    "title": "Tüübispetsiifilised üksikasjad"
+  }
+}

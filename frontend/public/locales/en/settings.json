@@ -391,5 +391,45 @@
       "required": "Name and date are required",
       "saveFailed": "Failed to save holiday"
     }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Settings",
+    "title": "Email integration",
+    "description": "Connect your work mailbox to sync inbound mail into the Email Queue and send replies from the CRM. Requires Mail.Read + Mail.Send (Microsoft) or gmail.readonly + gmail.send (Google). Reconnect after scope updates to grant send permission.",
+    "fetchEmails": "Fetch 5 emails",
+    "connectedSuccess": "Connected {{provider}} successfully.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Connected",
+    "error": "Error",
+    "notConnected": "Not connected",
+    "providerEnabledDescription": "Pull new inbox messages into the Email Queue.",
+    "providerDisabledDescription": "Not configured on this server (missing OAuth credentials).",
+    "redirectUriHint": "Register this redirect URI in your {{provider}} OAuth app:",
+    "lastSync": "Last sync: {{time}}",
+    "neverSynced": "Never synced",
+    "reconnect": "Reconnect",
+    "disconnect": "Disconnect",
+    "connect": "Connect {{provider}}",
+    "loadingConnections": "Loading connections…",
+    "fetchSuccess": "Fetched up to {{limit}} message(s) — {{ingested}} new in queue.",
+    "fetchFailed": "Failed to fetch emails"
+  },
+  "consent": {
+    "title": "Consent records",
+    "subtitle": "GDPR consent status across clients.",
+    "filters": {
+      "all": "All",
+      "consented": "Consented",
+      "missing": "Missing"
+    },
+    "failedToLoad": "Failed to load consent records.",
+    "noClientsFound": "No clients found.",
+    "table": {
+      "client": "Client",
+      "code": "Code",
+      "consent": "Consent",
+      "date": "Date"
+    }
   }
 }

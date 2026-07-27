@@ -30,6 +30,7 @@
     "table": {
       "email": "Email",
       "name": "Name",
+      "office": "Office",
       "phone": "Phone",
       "role": "Role"
     }
@@ -61,6 +62,7 @@
     "new": "New holding group",
     "notesPlaceholder": "Optional notes about this holding structure",
     "notFound": "Holding group not found.",
+    "allGroups": "All holding groups",
     "perPage": "{{count}} per page",
     "searchPlaceholder": "Search name or country…",
     "title": "Holding groups",
@@ -91,6 +93,7 @@
     "companyName": "Company name *",
     "country": "Country",
     "edit": "Edit",
+    "exportClientData": "Export client data",
     "error": "Failed to load client profile.",
     "errorSave": "Failed to save client",
     "firstName": "First name *",
@@ -163,13 +166,37 @@
     },
     "title": "Matters"
   },
+  "accessHistory": {
+    "title": "Data access history",
+    "subtitle": "Staff who viewed or exported personal data for this client.",
+    "loading": "Loading access history…",
+    "loadFailed": "Failed to load access history.",
+    "empty": "No access events recorded yet.",
+    "systemUser": "System",
+    "columns": {
+      "when": "When",
+      "user": "User",
+      "action": "Action",
+      "ip": "IP"
+    }
+  },
   "billing": {
     "byMatter": "By matter",
     "error": "Failed to load billing data.",
     "loading": "Loading billing…",
     "noPermission": "You do not have permission to view billing for this client.",
     "title": "Billing",
-    "wipDescription": "Work in progress and unbilled amounts for this client."
+    "wipDescription": "Work in progress and unbilled amounts for this client.",
+    "wipDescriptionLong": "Work in progress and billable totals across all matters for this client.",
+    "matterTable": {
+      "matter": "Matter",
+      "type": "Type",
+      "status": "Status",
+      "billableHours": "Billable hours",
+      "total": "Total",
+      "unbilled": "Unbilled",
+      "empty": "No matters yet. Open a matter to start tracking billable work."
+    }
   },
   "sidebar": {
     "country": "Country:",

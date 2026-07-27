@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Gjurma e auditimit",
+    "subtitle": "Regjistri i auditimit në të gjithë sistemin për shqyrtimin e pajtueshmërisë.",
+    "loading": "Po ngarkohet gjurma e auditimit…",
+    "loadFailed": "Ngarkimi i gjurmës së auditimit dështoi.",
+    "empty": "Nuk u gjet asnjë regjistrim auditimi.",
+    "columns": {
+      "when": "Kur",
+      "user": "Përdoruesi",
+      "action": "Veprimi",
+      "resource": "Burim",
+      "module": "Moduli"
+    }
+  },
+  "dataExports": {
+    "title": "Regjistri i eksporteve të të dhënave",
+    "subtitle": "Eksportet dhe shkarkimet e të dhënave personale gjurmohen për pajtueshmërinë me GDPR.",
+    "loading": "Po ngarkohet regjistri i eksportit…",
+    "loadFailed": "Dështoi në ngarkimin e regjistrit të eksportit.",
+    "empty": "Nuk është regjistruar ende asnjë eksport.",
+    "columns": {
+      "when": "Kur",
+      "user": "Përdoruesi",
+      "resource": "Burim",
+      "clientId": "ID-ja e klientit"
+    }
+  },
+  "retention": {
+    "title": "Rregullat e mbajtjes",
+    "subtitle": "Politikat e ruajtjes GDPR të zbatuara nga puna e skanimit të natës (parazgjedhja 03:00 e mëngjesit). Përdorni funksionimin e thatë për të parë paraprakisht se sa regjistrime do të preken.",
+    "noPermission": "Ju nuk keni leje për të menaxhuar rregullat e ruajtjes.",
+    "newRule": "Rregull i ri",
+    "loading": "Rregullat e ruajtjes po ngarkohen…",
+    "loadFailed": "Ngarkimi i rregullave të ruajtjes dështoi.",
+    "empty": "Ende nuk ka rregulla të ruajtjes.",
+    "dryRun": "Vrapim i thatë",
+    "dryRunAria": "Rregulli i mbajtjes në drejtim të thatë",
+    "editAria": "Redakto rregullin e mbajtjes",
+    "dryRunResult": "Ruajtja e thatë: do të ndikonte {{count}} rekorde(et) (prerje {{cutoff}}).",
+    "dryRunFailed": "Vrapimi i thatë dështoi",
+    "auditTrailHint": "Shikoni historinë e spastrimeve në",
+    "auditTrailLink": "gjurmët e auditimit",
+    "auditTrailFilter": "(veprimi i filtrit: retention_rule_executed).",
+    "columns": {
+      "entity": "Njësia ekonomike",
+      "condition": "gjendja",
+      "retention": "Mbajtja",
+      "action": "Veprimi",
+      "status": "Statusi",
+      "description": "Përshkrimi"
+    },
+    "drawer": {
+      "createTitle": "Rregulli i ri i mbajtjes",
+      "editTitle": "Redakto rregullin e mbajtjes",
+      "entityType": "Lloji i entitetit",
+      "condition": "gjendja",
+      "conditionRejected": "Statusi = i refuzuar",
+      "conditionNotConverted": "I pa konvertuar (përjashtuar refuzimin)",
+      "auditLogsHint": "Rregullat e regjistrit të auditimit zbatohen për të gjitha regjistrimet më të vjetra se periudha e ruajtjes. Veprimi fshihet gjithmonë.",
+      "retentionDays": "Mbajtja (ditë)",
+      "action": "Veprimi",
+      "description": "Përshkrimi",
+      "status": "Statusi",
+      "createRule": "Krijo rregull"
+    },
+    "entityTypes": {
+      "intake_leads": "Pijet e marrjes",
+      "audit_logs": "Regjistrat e auditimit"
+    },
+    "actions": {
+      "anonymize": "Anonimizo",
+      "delete": "Fshije"
+    },
+    "conditions": {
+      "allRecords": "Të gjitha rekordet",
+      "rejected": "Statusi = i refuzuar",
+      "notConverted": "I pa konvertuar (përjashtuar refuzimin)",
+      "noStatusFilter": "Nuk ka filtër statusi"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Joaktiv"
+    },
+    "errors": {
+      "invalidDays": "Fut një periudhë të vlefshme ruajtjeje në ditë",
+      "saveFailed": "Ruajtja e rregullit të ruajtjes dështoi",
+      "confirmSave": "Rregullat e mbajtjes zbatohen në punën e skanimit të natës (parazgjedhja në orën 3:00 të mëngjesit). Të vazhdohet me kursim?"
+    },
+    "duration": {
+      "days": "{{days}} ditë",
+      "daysWithYears_one": "{{days}} ditë ({{count}} vit)",
+      "daysWithYears_other": "{{days}} ditë ({{count}} vjet)",
+      "daysWithMonths_one": "{{days}} ditë ({{count}} muaj)",
+      "daysWithMonths_other": "{{days}} ditë ({{count}} muaj)",
+      "daysApproxYears": "{{days}} ditë (~{{years}} vjet)",
+      "daysApproxMonths": "{{days}} ditë (~{{months}} muaj)"
+    }
+  }
+}

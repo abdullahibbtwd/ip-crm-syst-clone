@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Tühista",
+      "confirm": "Kinnitage ja lubage 2FA",
+      "enable": "Luba 2FA",
+      "preparing": "Ettevalmistus…",
+      "verifying": "Kinnitamine…"
+    },
+    "authCode": "Autentimiskood",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktiivne",
+      "description": "Teie konto nõuab sisselogimisel autentimisrakenduse koodi.",
+      "title": "Kahefaktoriline autentimine on lubatud"
+    },
+    "errors": {
+      "enableFailed": "2FA lubamine ebaõnnestus",
+      "invalidCode": "Vale kood",
+      "setupFailed": "2FA seadistamise käivitamine ebaõnnestus"
+    },
+    "setup": {
+      "description": "Lisage täiendav turvakiht, nõudes sisselogimisel autentimisrakenduselt (Google Authenticator, Authy jne) 6-kohalist koodi.",
+      "manualKey": "Või sisestage see võti käsitsi",
+      "scanQr": "1. Skannige see QR-kood",
+      "scanQrHint": "Avage autentimisrakendus ja skannige allolev kood.",
+      "verify": "2. Kinnitage 6-kohalise koodiga",
+      "verifyHint": "Seadistuse kinnitamiseks sisestage rakenduses kuvatav kood."
+    }
+  },
+  "security": {
+    "description": "Kahefaktoriline autentimine kaitseb teie kontot isegi siis, kui teie parool on ohus.",
+    "title": "Turvalisus"
+  },
+  "subtitle": "Hallake oma konto eelistusi ja turvalisust.",
+  "title": "Seaded",
+  "links": {
+    "email": {
+      "title": "E-posti integreerimine",
+      "description": "Ühendage Microsoft 365 või Google Workspace, et sünkroonida postkasti kirjad e-posti järjekorda.",
+      "action": "Hallake postkaste"
+    },
+    "deadlineRules": {
+      "title": "Tähtaja reeglid",
+      "description": "Konfigureerige automaatselt loodud tähtaegade jaoks jurisdiktsioon ja asja tüüpi nihked.",
+      "action": "Hallake tähtaegade reegleid"
+    },
+    "holidays": {
+      "title": "Pühade kalender",
+      "description": "Jurisdiktsiooni pühad, mida kasutatakse tähtaegade tööpäevade arvestamisel.",
+      "action": "Puhkuste haldamine"
+    },
+    "documentTemplates": {
+      "title": "Dokumendi mallid",
+      "description": "Redigeerige kirjamalle, ühendage välju ja vaadake loodud PDF-ide eelvaadet.",
+      "action": "Hallake malle"
+    },
+    "integrations": {
+      "title": "Registri integratsioonid",
+      "description": "Ühendage EPO OPS ja muud IP-registrid kellade skannimiseks ja bibliograafilisteks otsinguteks.",
+      "action": "Integratsioonide haldamine"
+    },
+    "ssoMfa": {
+      "title": "SSO ja MFA",
+      "description": "Seadistage Google'i/Microsofti sisselogimisrakendused ja kindel MFA poliitika. Saladused on andmebaasis krüpteeritud.",
+      "action": "SSO ja MFA haldamine"
+    },
+    "roles": {
+      "title": "Rollid ja load",
+      "description": "Kirjutuskaitstud süsteemirollide maatriks ja neile antud õigused.",
+      "action": "Vaata rollide maatriksit"
+    },
+    "systemHealth": {
+      "title": "Süsteemi tervis",
+      "description": "Andmebaasi, Redise ja objektide salvestusruumi reaalajas kontroll.",
+      "action": "Vaadake süsteemi tervist"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO ja MFA",
+    "subtitle": "Identiteedi pakkujad ja ettevõtte mitmefaktoriline autentimispoliitika.",
+    "noPermission": "Teil pole luba SSO või MFA seadete haldamiseks.",
+    "loading": "SSO seadete laadimine…",
+    "saveButton": "Salvestage seaded",
+    "saveSuccess": "SSO ja MFA seaded on turvaliselt salvestatud.",
+    "saveFailed": "SSO ja MFA seadete salvestamine ebaõnnestus",
+    "securityHint": "Kliendisaladused krüpteeritakse puhkeolekus (AES-256-GCM). API ei tagasta kunagi täielikke saladusi.",
+    "leaveBlankToKeep": "Praeguse saladuse hoidmiseks jätke tühjaks",
+    "clientId": "Kliendi ID",
+    "clientSecret": "Kliendi saladus",
+    "tenantId": "Üürniku ID",
+    "redirectUri": "Ümbersuunamise URI (registreeruge pakkuja konsoolis)",
+    "sourceDatabase": "Andmebaas",
+    "sourceEnv": "Keskkond (.env)",
+    "sourceNone": "Pole konfigureeritud",
+    "editButton": "Muuda",
+    "cancelEdit": "Tühista",
+    "configuredViaEnv": "Seadistatud keskkonna kaudu",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / Microsoft 365 OIDC rakendus, mida kasutatakse töötajate ja portaali SSO sisselogimiseks.",
+      "saveButton": "Salvesta Microsoft",
+      "saveSuccess": "Microsofti SSO seaded on salvestatud."
+    },
+    "google": {
+      "title": "Google",
+      "description": "SSO sisselogimiseks kasutatav Google OAuthi klient.",
+      "saveButton": "Salvesta Google",
+      "saveSuccess": "Google'i SSO seaded on salvestatud."
+    },
+    "mfa": {
+      "title": "MFA poliitika",
+      "description": "Organisatsiooniülesed MFA seaded. Kasutajad registreeruvad endiselt oma seadete lehel.",
+      "requireInternal": "Nõua sisemiste töötajate jaoks MFA-d",
+      "requireInternalHint": "Kui see on lubatud, peaksid sisekasutajad MFA registreerima menüüs Seaded → Turvalisus. Sisselogimise jõustamist saab järelmeetmetega karmistada.",
+      "saveButton": "Salvestage MFA poliitika",
+      "saveSuccess": "MFA poliitika on salvestatud."
+    }
+  },
+  "roles": {
+    "title": "Rollid ja load",
+    "subtitle": "Kirjutuskaitstud süsteemirollide ja antud lubade maatriks (seemnega RBAC).",
+    "noPermission": "Teil pole luba rollide vaatamiseks.",
+    "loading": "Rollide laadimine…",
+    "error": "Rollide laadimine ebaõnnestus.",
+    "system": "Süsteem",
+    "columns": {
+      "role": "Roll",
+      "description": "Kirjeldus",
+      "permissions": "load"
+    }
+  },
+  "systemHealth": {
+    "title": "Süsteemi tervis",
+    "subtitle": "Andmebaasi, Redise ja objektide salvestusruumi reaalajas kontroll.",
+    "noPermission": "Teil pole luba süsteemi seisukorra vaatamiseks.",
+    "loading": "Teenuste kontrollimine…",
+    "error": "Tervisliku seisundi laadimine ebaõnnestus.",
+    "overall": "Üldiselt",
+    "statusOk": "Terve",
+    "statusDegraded": "Degradeerunud",
+    "database": "Andmebaas",
+    "redis": "Redis",
+    "storage": "Objektide ladustamine",
+    "checkOk": "Kättesaadav",
+    "checkFailed": "Kättesaamatu",
+    "refresh": "Värskenda",
+    "refreshing": "Värskendamine…"
+  },
+  "integrations": {
+    "title": "Integratsioonid",
+    "subtitle": "Välised registri- ja andmepakkuja ühendused, mida kasutavad jälgimise ja esitamise töövood.",
+    "noPermission": "Teil pole registriintegratsioonide vaatamise luba.",
+    "epo": {
+      "title": "EPO register (OPS)",
+      "description": "Avage patenditeenused v3.2. Juurdepääsulubasid värskendatakse automaatselt teie tarbijavõtme ja saladuse põhjal.",
+      "statusConfigured": "Seadistatud",
+      "statusNotConfigured": "Pole konfigureeritud",
+      "statusLoading": "Kontrollimine…",
+      "testButton": "Katsetage ühendust",
+      "testing": "Testimine…",
+      "testSuccess": "EPO-ühendus õnnestus. Välja otsitud patent: {{title}}",
+      "testFailed": "EPO-ühendus ebaõnnestus",
+      "envHint": "Seadistage serveris .env EPO_CONSUMER_KEY ja EPO_CONSUMER_SECRET, seejärel taaskäivitage API.",
+      "consumerKey": "Tarbija võti",
+      "consumerSecret": "Tarbija saladus",
+      "consumerKeyPlaceholder": "Sisestage EPO tarbijavõti",
+      "consumerSecretPlaceholder": "Sisestage EPO tarbija saladus",
+      "leaveBlankToKeep": "Praeguse väärtuse säilitamiseks jätke tühjaks",
+      "apiBaseUrl": "API baas-URL (valikuline)",
+      "authUrl": "Auth URL (valikuline)",
+      "saveButton": "Salvestage mandaadid",
+      "clearButton": "Kustutage salvestatud mandaadid",
+      "saveSuccess": "EPO mandaadid on turvaliselt salvestatud.",
+      "saveFailed": "EPO mandaatide salvestamine ebaõnnestus",
+      "clearSuccess": "Salvestatud EPO mandaadid on kustutatud. Env-varundus kehtib endiselt, kui see on määratud.",
+      "clearFailed": "EPO mandaatide kustutamine ebaõnnestus",
+      "securityHint": "Saladused krüpteeritakse puhkeolekus (AES-256-GCM). API ei tagasta kunagi täisväärtusi.",
+      "sourceLabel": "Aktiivne allikas",
+      "sourceDatabase": "Andmebaas",
+      "sourceEnv": "Keskkond (.env)",
+      "sourceNone": "Pole konfigureeritud",
+      "keyHint": "võti …{{lastFour}}",
+      "editButton": "Muuda",
+      "cancelEdit": "Tühista",
+      "configuredViaEnv": "Seadistatud keskkonna kaudu",
+      "defaultEndpoint": "EPO vaike-lõpp-punkt"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Lükake väljastatud arved API kaudu Xero Accountingule. Saadakse ainult pärast viimast edukat sünkroonimist muudetud arveid.",
+      "quickbooksTitle": "QuickBooks Online",
+      "quickbooksDescription": "Lükake väljastatud arved QuickBooksi. Klientidele vastatakse (või luuakse) kuvatav nimi.",
+      "xeroTenantId": "Xero üürniku ID",
+      "quickbooksRealmId": "QuickBooksi valdkond / ettevõtte ID",
+      "statusConfigured": "Seadistatud",
+      "statusNotConfigured": "Pole konfigureeritud",
+      "loading": "Laadimine…",
+      "clientId": "Kliendi ID (valikuline)",
+      "clientSecret": "Kliendi saladus (valikuline)",
+      "accessToken": "Juurdepääsuluba",
+      "leaveBlankToKeep": "Praeguse väärtuse säilitamiseks jätke tühjaks",
+      "saveButton": "Salvestage mandaadid",
+      "clearButton": "Selge",
+      "editButton": "Muuda",
+      "cancelEdit": "Tühista",
+      "syncNow": "Sünkrooni kohe",
+      "lastSync": "Viimane sünkroonimine",
+      "neverSynced": "Mitte kunagi",
+      "saveSuccess": "Raamatupidamisandmed on turvaliselt salvestatud.",
+      "saveFailed": "Raamatupidamisandmete salvestamine ebaõnnestus",
+      "clearSuccess": "Raamatupidamisvolitused on tühjendatud.",
+      "clearFailed": "Raamatupidamisandmete kustutamine ebaõnnestus",
+      "syncFailed": "Raamatupidamise sünkroonimise järjekorda seadmine ebaõnnestus"
+    }
+  },
+  "deadlineRules": {
+    "title": "Tähtaja reeglid",
+    "subtitle": "Jurisdiktsiooni ja asja tüüpi nihked, mida kasutatakse asja loomise, kontoritoimingute ja uuendamise tähtaegade automaatsel loomisel.",
+    "newRule": "Uus reegel",
+    "noPermission": "Teil pole tähtaegade reeglite vaatamise luba.",
+    "loading": "Tähtaja reeglite laadimine…",
+    "loadError": "Tähtaja reeglite laadimine ebaõnnestus.",
+    "empty": "Nendele filtritele ei vasta ükski tähtaja reegel.",
+    "allJurisdictions": "Kõik jurisdiktsioonid",
+    "allMatterTypes": "Kõik ainetüübid",
+    "filters": {
+      "jurisdiction": "Jurisdiktsioon",
+      "matterType": "Aine tüüp"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiktsioon",
+      "matterType": "Aine tüüp",
+      "event": "Sündmus",
+      "trigger": "Päästik",
+      "offset": "Offset",
+      "grace": "Grace",
+      "priority": "Prioriteet",
+      "status": "Olek"
+    },
+    "status": {
+      "active": "Aktiivne",
+      "inactive": "Mitteaktiivne"
+    },
+    "editAria": "Muutke tähtaja reeglit",
+    "drawer": {
+      "createTitle": "Uus tähtaja reegel",
+      "editTitle": "Muutke tähtaja reeglit",
+      "jurisdiction": "Jurisdiktsioon",
+      "matterType": "Aine tüüp",
+      "eventType": "Sündmuse tüüp",
+      "triggerType": "Päästiku tüüp",
+      "daysOffset": "Päevade nihe",
+      "dayCounting": "Päevade lugemine",
+      "businessDays": "Tööpäevad",
+      "calendarDays": "Kalendripäevad",
+      "gracePeriod": "Ajapikendus (päevad)",
+      "priority": "Prioriteet (1–10)",
+      "description": "Kirjeldus",
+      "status": "Olek",
+      "cancel": "Tühista",
+      "create": "Loo reegel",
+      "save": "Salvestage muudatused"
+    },
+    "errors": {
+      "daysOffset": "Sisestage kehtiv päevade nihe",
+      "grace": "Sisestage kehtiv ajapikendus",
+      "priority": "Prioriteet peab olema vahemikus 1 kuni 10",
+      "saveFailed": "Tähtaja reegli salvestamine ebaõnnestus"
+    },
+    "offset": {
+      "businessDay": "äripäev",
+      "businessDays": "tööpäevad",
+      "calendarDay": "kalendripäev",
+      "calendarDays": "kalendripäevad",
+      "sameDay": "Samal päeval ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Viilimine",
+      "examination_response": "Eksami vastus",
+      "renewal": "Uuendamine",
+      "opposition": "Opositsioon",
+      "grace_period": "Armuperiood"
+    },
+    "triggerType": {
+      "matter_created": "Aine loodud",
+      "office_action": "Kontori tegevus",
+      "renewal_due": "Tähtaeg on uuendamine"
+    }
+  },
+  "documentTemplates": {
+    "title": "Dokumendi mallid",
+    "subtitle": "Liitväljadega kirja- ja toimikumallid. Looge asjadest PDF-e või vaadake näidisandmetega eelvaadet.",
+    "newTemplate": "Uus mall",
+    "noPermission": "Teil pole dokumendimallide vaatamise luba.",
+    "loading": "Mallide laadimine…",
+    "loadError": "Dokumendimallide laadimine ebaõnnestus.",
+    "empty": "Dokumendimalle veel pole.",
+    "columns": {
+      "name": "Nimi",
+      "slug": "Nälkjas",
+      "category": "Kategooria",
+      "status": "Olek",
+      "docx": "Sõna",
+      "updated": "Uuendatud"
+    },
+    "status": {
+      "active": "Aktiivne",
+      "inactive": "Mitteaktiivne"
+    },
+    "editAria": "Redigeeri dokumendimalli",
+    "uploadDocx": "Laadige üles .docx",
+    "removeDocx": "Eemaldage .docx",
+    "uploadDocxAria": "Laadige üles Wordi mall",
+    "removeDocxAria": "Eemalda Wordi mall",
+    "confirmRemoveDocx": "Kas eemaldada Wordi (.docx) mall sellest kirjamallist?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Uus dokumendi mall",
+      "editTitle": "Redigeeri dokumendimalli",
+      "loading": "Malli laadimine…",
+      "slug": "Nälkjas",
+      "slugHint": "Väikeste tähtedega kebabikarp, ainulaadne.",
+      "slugReadonly": "Nälkjas:",
+      "name": "Nimi",
+      "category": "Kategooria",
+      "description": "Kirjeldus",
+      "referenceLine": "Võrdlusjoon",
+      "mergeFields": "Ühendage väljad",
+      "insertIntoReference": "Sisestage võrdlusjoonele",
+      "insertIntoHtml": "Sisestage HTML-i kehasse",
+      "htmlBody": "HTML keha",
+      "livePreview": "Reaalajas eelvaade",
+      "status": "Olek",
+      "previewPdf": "PDF-i eelvaade",
+      "cancel": "Tühista",
+      "create": "Loo mall",
+      "save": "Salvestage muudatused"
+    },
+    "errors": {
+      "required": "Nimi ja HTML-i keha on nõutavad",
+      "slugRequired": "Nälkjas on nõutav",
+      "saveFailed": "Dokumendimalli salvestamine ebaõnnestus",
+      "previewFailed": "PDF-i eelvaate genereerimine ebaõnnestus",
+      "docxUploadFailed": "Wordi malli üleslaadimine ebaõnnestus",
+      "docxDeleteFailed": "Wordi malli eemaldamine ebaõnnestus"
+    }
+  },
+  "holidays": {
+    "title": "Pühade kalender",
+    "subtitle": "Riigipühad jurisdiktsiooni järgi. Korduvad pühad kehtivad igal aastal tööpäevade arvestamisel samal kuul ja päeval.",
+    "newHoliday": "Uus puhkus",
+    "noPermission": "Teil ei ole luba pühade vaatamiseks.",
+    "loading": "Pühade laadimine…",
+    "loadError": "Pühade laadimine ebaõnnestus.",
+    "empty": "Sellele filtrile ei vasta ükski püha.",
+    "allJurisdictions": "Kõik jurisdiktsioonid",
+    "filters": {
+      "jurisdiction": "Jurisdiktsioon"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiktsioon",
+      "date": "Kuupäev",
+      "name": "Nimi",
+      "recurring": "Korduv"
+    },
+    "recurring": {
+      "yes": "Korduv",
+      "no": "Ühekordne"
+    },
+    "editAria": "Muuda puhkust",
+    "deleteAria": "Kustuta puhkus",
+    "confirmDelete": "Kas kustutada puhkus \"{{name}}\"?",
+    "drawer": {
+      "createTitle": "Uus puhkus",
+      "editTitle": "Muuda puhkust",
+      "jurisdiction": "Jurisdiktsioon",
+      "date": "Kuupäev",
+      "name": "Nimi",
+      "recurring": "Kordub igal aastal",
+      "cancel": "Tühista",
+      "create": "Loo puhkus",
+      "save": "Salvestage muudatused"
+    },
+    "errors": {
+      "required": "Nimi ja kuupäev on kohustuslikud",
+      "saveFailed": "Puhkuse salvestamine ebaõnnestus"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Seaded",
+    "title": "E-posti integreerimine",
+    "description": "Ühendage oma tööpostkast, et sünkroonida sissetulevad kirjad meilijärjekorda ja saata vastused CRM-ist. Nõuab Mail.Read + Mail.Send (Microsoft) või gmail.readonly + gmail.send (Google). Pärast ulatuse värskendamist looge saatmisloa andmiseks uuesti ühendus.",
+    "fetchEmails": "Tooge 5 meili",
+    "connectedSuccess": "Ühendus {{provider}} õnnestus.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Ühendatud",
+    "error": "Viga",
+    "notConnected": "Pole ühendatud",
+    "providerEnabledDescription": "Tõmmake uued postkasti kirjad e-posti järjekorda.",
+    "providerDisabledDescription": "Pole selles serveris konfigureeritud (puuduvad OAuthi mandaadid).",
+    "redirectUriHint": "Registreerige see ümbersuunamise URI oma {{provider}} OAuthi rakenduses:",
+    "lastSync": "Viimane sünkroonimine: {{time}}",
+    "neverSynced": "Pole kunagi sünkroonitud",
+    "reconnect": "Ühendage uuesti",
+    "disconnect": "Katkesta ühendus",
+    "connect": "Ühenda {{provider}}",
+    "loadingConnections": "Ühenduste laadimine…",
+    "fetchSuccess": "Toodi kuni {{limit}} sõnumit – järjekorras {{ingested}} uut.",
+    "fetchFailed": "Meilide toomine ebaõnnestus"
+  },
+  "consent": {
+    "title": "Nõusoleku kirjed",
+    "subtitle": "GDPR-i nõusoleku olek kõigi klientide vahel.",
+    "filters": {
+      "all": "Kõik",
+      "consented": "Nõustunud",
+      "missing": "Kadunud"
+    },
+    "failedToLoad": "Nõusolekukirjete laadimine ebaõnnestus.",
+    "noClientsFound": "Kliente ei leitud.",
+    "table": {
+      "client": "Klient",
+      "code": "Kood",
+      "consent": "Nõusolek",
+      "date": "Kuupäev"
+    }
+  }
+}

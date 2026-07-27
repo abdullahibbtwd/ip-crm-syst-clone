@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Download, Loader2, RefreshCw } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Button } from '@/components/ui/button'
@@ -20,29 +21,15 @@ import type {
   InvoiceStatus,
   PaymentStatus,
 } from '@/features/invoices/types'
-import { PAYMENT_STATUS_LABELS } from '@/features/invoices/utils'
+import { paymentStatusLabel } from '@/features/invoices/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 
-const PAYMENT_FILTERS: Array<{ value: string; label: string }> = [
-  { value: 'all', label: 'All payments' },
-  { value: 'unpaid', label: 'Unpaid' },
-  { value: 'partial', label: 'Partially paid' },
-  { value: 'paid', label: 'Paid' },
-]
-
-const STATUS_FILTERS: Array<{ value: string; label: string }> = [
-  { value: 'all', label: 'All statuses' },
-  { value: 'draft', label: 'Draft' },
-  { value: 'issued', label: 'Issued' },
-]
-
-const EXPORT_FORMATS: Array<{ value: AccountingExportFormat; label: string }> = [
-  { value: 'journal', label: 'Journal CSV' },
-  { value: 'xero', label: 'Xero CSV' },
-  { value: 'quickbooks', label: 'QuickBooks CSV' },
-]
+const PAYMENT_FILTER_VALUES = ['all', 'unpaid', 'partial', 'paid'] as const
+const STATUS_FILTER_VALUES = ['all', 'draft', 'issued'] as const
+const EXPORT_FORMAT_VALUES: AccountingExportFormat[] = ['journal', 'xero', 'quickbooks']
 
 export function InvoicesListPage() {
+  const { t } = useTranslation('finance')
   const [searchParams, setSearchParams] = useSearchParams()
   const [searchInput, setSearchInput] = useState(searchParams.get('search') ?? '')
   const [debouncedSearch, setDebouncedSearch] = useState(searchInput)
@@ -79,6 +66,16 @@ export function InvoicesListPage() {
     setSearchParams(next, { replace: true })
   }
 
+  const paymentFilterLabel = (value: string) => {
+    if (value === 'all') return t('invoices.filters.allPayments')
+    return paymentStatusLabel(value as PaymentStatus)
+  }
+
+  const statusFilterLabel = (value: string) => {
+    if (value === 'all') return t('invoices.filters.allStatuses')
+    return t(`invoices.invoiceStatus.${value as InvoiceStatus}`)
+  }
+
   const handleExport = async (format: AccountingExportFormat) => {
     setExportError(null)
     setExporting(format)
@@ -90,7 +87,7 @@ export function InvoicesListPage() {
       })
       downloadCsvFile(result.csv, result.filename)
     } catch (err) {
-      setExportError(getApiErrorMessage(err, 'Accounting export failed'))
+      setExportError(getApiErrorMessage(err, t('invoices.exportFailed')))
     } finally {
       setExporting(null)
     }
@@ -106,7 +103,7 @@ export function InvoicesListPage() {
           : await syncQuickBooks.mutateAsync()
       setSyncMessage(result.message)
     } catch (err) {
-      setExportError(getApiErrorMessage(err, 'Accounting sync failed'))
+      setExportError(getApiErrorMessage(err, t('invoices.syncFailed')))
     }
   }
 
@@ -115,23 +112,24 @@ export function InvoicesListPage() {
       resource="invoice"
       action="read"
       fallback={
-        <p className="text-sm text-muted-foreground">You do not have permission to view invoices.</p>
+        <p className="text-sm text-muted-foreground">{t('invoices.noPermission')}</p>
       }
     >
       <div className="space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="font-serif text-2xl text-foreground md:text-3xl">Invoices</h1>
+            <h1 className="font-serif text-2xl text-foreground md:text-3xl">
+              {t('invoices.title')}
+            </h1>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              Firm-wide invoice register across all matters. Issue invoices from matter billing tabs,
-              then record payments here.
+              {t('invoices.listSubtitle')}
             </p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-end gap-3 rounded-md border p-3">
           <div className="space-y-1">
-            <label className="text-xs text-muted-foreground">Export from</label>
+            <label className="text-xs text-muted-foreground">{t('invoices.exportFrom')}</label>
             <Input
               type="date"
               value={exportFrom}
@@ -140,7 +138,7 @@ export function InvoicesListPage() {
             />
           </div>
           <div className="space-y-1">
-            <label className="text-xs text-muted-foreground">Export to</label>
+            <label className="text-xs text-muted-foreground">{t('invoices.exportTo')}</label>
             <Input
               type="date"
               value={exportTo}
@@ -149,17 +147,19 @@ export function InvoicesListPage() {
             />
           </div>
           <div className="flex flex-wrap gap-2">
-            {EXPORT_FORMATS.map((item) => (
+            {EXPORT_FORMAT_VALUES.map((format) => (
               <Button
-                key={item.value}
+                key={format}
                 type="button"
                 size="sm"
                 variant="outline"
                 disabled={exporting !== null}
-                onClick={() => handleExport(item.value)}
+                onClick={() => handleExport(format)}
               >
                 <Download className="size-3.5" />
-                {exporting === item.value ? 'Exporting…' : item.label}
+                {exporting === format
+                  ? t('invoices.exporting')
+                  : t(`invoices.exportFormats.${format}`)}
               </Button>
             ))}
             <PermissionGate resource="invoice" action="update">
@@ -175,7 +175,7 @@ export function InvoicesListPage() {
                 ) : (
                   <RefreshCw className="size-3.5" />
                 )}
-                Sync Xero
+                {t('invoices.syncXero')}
               </Button>
               <Button
                 type="button"
@@ -189,7 +189,7 @@ export function InvoicesListPage() {
                 ) : (
                   <RefreshCw className="size-3.5" />
                 )}
-                Sync QuickBooks
+                {t('invoices.syncQuickBooks')}
               </Button>
             </PermissionGate>
           </div>
@@ -199,7 +199,7 @@ export function InvoicesListPage() {
 
         <div className="flex flex-wrap gap-3">
           <Input
-            placeholder="Search invoice no., matter, client…"
+            placeholder={t('invoices.searchListPlaceholder')}
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             className="max-w-xs"
@@ -209,9 +209,9 @@ export function InvoicesListPage() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {STATUS_FILTERS.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
+              {STATUS_FILTER_VALUES.map((value) => (
+                <SelectItem key={value} value={value}>
+                  {statusFilterLabel(value)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -224,24 +224,20 @@ export function InvoicesListPage() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {PAYMENT_FILTERS.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label === 'All payments' ? item.label : PAYMENT_STATUS_LABELS[item.value as PaymentStatus]}
+              {PAYMENT_FILTER_VALUES.map((value) => (
+                <SelectItem key={value} value={value}>
+                  {paymentFilterLabel(value)}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
 
-        {isLoading && <p className="text-sm text-muted-foreground">Loading invoices…</p>}
-        {isError && <p className="text-sm text-destructive">Failed to load invoices.</p>}
+        {isLoading && <p className="text-sm text-muted-foreground">{t('invoices.loading')}</p>}
+        {isError && <p className="text-sm text-destructive">{t('invoices.error')}</p>}
 
         {!isLoading && !isError && (
-          <InvoiceListTable
-            invoices={invoices}
-            showMatter
-            enableFinanceActions
-          />
+          <InvoiceListTable invoices={invoices} showMatter enableFinanceActions />
         )}
       </div>
     </PermissionGate>

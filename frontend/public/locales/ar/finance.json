@@ -1,0 +1,198 @@
+{
+  "clientFallback": "عميل",
+  "disbursements": {
+    "title": "المدفوعات",
+    "subtitle": "الرسوم الثابتة على مستوى الشركة والمصنفة على أنها مصروفات.",
+    "loadFailed": "فشل تحميل المدفوعات.",
+    "empty": "لم يتم العثور على أي مدفوعات.",
+    "columns": {
+      "date": "تاريخ",
+      "matter": "موضوع",
+      "description": "وصف",
+      "amount": "كمية"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "الصرف",
+    "expense": "حساب",
+    "professional_fee": "الرسوم المهنية"
+  },
+  "invoices": {
+    "actions": {
+      "download": "تحميل",
+      "issue": "مشكلة",
+      "pay": "يدفع",
+      "void": "فارغ"
+    },
+    "confirmIssue": "إصدار هذه الفاتورة؟",
+    "confirmVoid": "هل تريد إلغاء هذه الفاتورة؟ لا يمكن التراجع عن هذا.",
+    "createFromUnbilled": "إنشاء فاتورة من غير مفوترة",
+    "description": "تتبع الفواتير الصادرة وحالة الدفع والأرصدة المستحقة.",
+    "draft": "مسودة",
+    "empty": "لم يتم العثور على فواتير",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء فاتورة من العمل غير المفوتر.",
+    "error": "فشل تحميل الفواتير.",
+    "invoiceStatus": {
+      "draft": "مسودة",
+      "issued": "صادر",
+      "void": "فارغ"
+    },
+    "loading": "جارٍ تحميل الفواتير…",
+    "noPermission": "ليس لديك الإذن لعرض الفواتير.",
+    "searchPlaceholder": "بحث عن رقم الفاتورة أو العميل…",
+    "sectionTitle": "الفواتير",
+    "table": {
+      "amount": "كمية",
+      "client": "عميل",
+      "due": "حق",
+      "invoiceNo": "رقم الفاتورة",
+      "issued": "صادر",
+      "payment": "قسط",
+      "status": "حالة"
+    },
+    "title": "الفواتير",
+    "listSubtitle": "تسجيل الفواتير على مستوى الشركة في جميع الأمور. قم بإصدار الفواتير من علامات تبويب \"فواتير المسائل\"، ثم قم بتسجيل الدفعات هنا.",
+    "exportFrom": "تصدير من",
+    "exportTo": "تصدير إلى",
+    "exportFormats": {
+      "journal": "مجلة CSV",
+      "xero": "زيرو CSV",
+      "quickbooks": "كويك بوكس ​​CSV"
+    },
+    "exporting": "جارٍ التصدير...",
+    "exportFailed": "فشل تصدير المحاسبة",
+    "syncXero": "مزامنة زيرو",
+    "syncQuickBooks": "مزامنة الكتب السريعة",
+    "syncFailed": "فشلت مزامنة المحاسبة",
+    "searchListPlaceholder": "البحث عن رقم الفاتورة، المسألة، العميل...",
+    "filters": {
+      "allPayments": "جميع المدفوعات",
+      "allStatuses": "جميع الحالات"
+    }
+  },
+  "payment": {
+    "amount": "كمية *",
+    "balance": "رصيد متميز",
+    "date": "تاريخ الدفع *",
+    "drawerTitle": "سجل الدفع",
+    "error": "فشل في تسجيل الدفع",
+    "method": "طريقة الدفع *",
+    "methods": {
+      "bank_transfer": "تحويل مصرفي",
+      "card": "بطاقة",
+      "cash": "نقدي",
+      "other": "آخر"
+    },
+    "notes": "ملحوظات",
+    "reference": "مرجع",
+    "save": "سجل الدفع",
+    "success": "تم تسجيل الدفع بنجاح",
+    "validation": {
+      "amount": "يجب أن يكون المبلغ أكبر من الصفر",
+      "exceeds": "المبلغ يتجاوز الرصيد المستحق"
+    }
+  },
+  "paymentStatus": {
+    "paid": "مدفوع",
+    "partial": "مدفوعة جزئيا",
+    "unpaid": "غير مدفوعة الأجر"
+  },
+  "rateCards": {
+    "any": "أي",
+    "create": "إنشاء بطاقة الأسعار",
+    "description": "قم بتكوين معدلات الفوترة حسب الدور ونوع المسألة وتاريخ السريان.",
+    "drawerTitle": "بطاقة أسعار جديدة",
+    "drawerTitleEdit": "تعديل بطاقة السعر",
+    "effectiveFrom": "ساري المفعول من *",
+    "effectiveTo": "فعالة ل",
+    "error": "فشل حفظ بطاقة السعر",
+    "firmWide": "على مستوى الشركة",
+    "internalCost": "التكلفة الداخلية / ساعة",
+    "matterType": "نوع المسألة",
+    "new": "بطاقة أسعار جديدة",
+    "noPermission": "ليس لديك إذن لإدارة بطاقات الأسعار.",
+    "viewNoPermission": "ليس لديك إذن لعرض بطاقات الأسعار.",
+    "rate": "معدل / ساعة *",
+    "role": "دور *",
+    "save": "حفظ التغييرات",
+    "scope": "نِطَاق",
+    "table": {
+      "effective": "فعال",
+      "internalCost": "التكلفة الداخلية",
+      "matterType": "نوع المسألة",
+      "rate": "معدل",
+      "role": "دور",
+      "scope": "نِطَاق"
+    },
+    "title": "بطاقات المعدل",
+    "pageDescription": "قائمة أسعار الشركة حسب الدور ونوع المسألة وتجاوز العميل الاختياري. يتم استخدام المعدل القابل للفوترة عند تسجيل الوقت؛ التكلفة الداخلية الاختيارية تدفع ربحية الهامش الحقيقي.",
+    "anyMatterType": "أي نوع من المسألة",
+    "clientOverride": "تجاوز العميل",
+    "firmWideDefault": "الافتراضي على مستوى الشركة",
+    "editAria": "تعديل بطاقة السعر",
+    "loadFailed": "فشل تحميل بطاقات الأسعار.",
+    "loading": "جارٍ تحميل بطاقات الأسعار…",
+    "empty": "لا توجد بطاقات أسعار حتى الآن.",
+    "billable": "قابلة للفوترة",
+    "validation": {
+      "hourlyRate": "أدخل سعرًا صالحًا للساعة",
+      "internalCost": "أدخل تكلفة داخلية صالحة أو اترك الحقل فارغًا"
+    },
+    "internalCostHint": "خياري. يُستخدم لتحقيق ربحية الهامش الحقيقي عند تعيينه على بطاقات الأسعار.",
+    "billableRate": "السعر القابل للفوترة (يورو/ساعة)",
+    "internalCostOptional": "التكلفة الداخلية (يورو/ساعة)",
+    "internalCostPlaceholder": "اختياري - لإعداد تقارير الهامش",
+    "internalCostResolutionHint": "يعكس دقة معدل الفواتير (العميل → الشركة + نوع المسألة → الشركة الافتراضية). تم التقاط لقطة على إدخالات الوقت الجديدة كـ cost_snapshot.",
+    "effectiveToOptional": "فعال لـ (اختياري)"
+  },
+  "rateRole": {
+    "coordinator": "منسق",
+    "ip_attorney": "محامي الملكية الفكرية",
+    "managing_partner": "الشريك الإداري",
+    "paralegal": "مساعد قانوني",
+    "trademark_attorney": "محامي العلامات التجارية"
+  },
+  "billingOverview": {
+    "collectedHint": "جمعت في الفترة",
+    "collectedLabel": "تم جمعها",
+    "criticalHint": "متأخرة أكثر من 60 يومًا",
+    "criticalLabel": "مخاطر حرجة",
+    "description": "سلامة الإيرادات (الفواتير) بالإضافة إلى جاهزية بطاقة الأسعار (بطاقات الأسعار + تغطية التكاليف الداخلية).",
+    "error": "فشل تحميل نظرة عامة على الفواتير.",
+    "invoicedHint": "{{count}} الفواتير في الفترة",
+    "invoicedLabel": "فاتورة",
+    "internalCostHintRevenue": "أساس وكيل الإيرادات",
+    "internalCostHintTrueMargin": "تم تمكين أساس الهامش الحقيقي",
+    "internalCostLabel": "التكلفة الداخلية",
+    "manageRateCards": "إدارة بطاقات الأسعار",
+    "nextStep": "الخطوة التالية",
+    "nextStepFix": "إصلاح تغطية الأسعار في / بطاقات الأسعار",
+    "nextStepHealthy": "تغطية الأسعار صحية",
+    "nextStepHint": "ستكون ملخصات الفواتير أكثر دقة عندما يتحول كل إدخال وقت قابل للفوترة إلى معدل.",
+    "noPermissionBilling": "ليس لديك الإذن لعرض الفواتير.",
+    "noPermissionInvoice": "ليس لديك الإذن لعرض بيانات الفاتورة.",
+    "openFullReport": "فتح التقرير الكامل",
+    "outstandingHint": "{{count}} المستحقات المفتوحة",
+    "outstandingLabel": "متميز",
+    "rateCardHealth": "صحة بطاقة السعر",
+    "rateCardHealthDescription": "هل تم ضبط معدلات الفوترة وهل الهوامش جاهزة؟",
+    "rateCardsHintConfigured": "الأسعار المتاحة",
+    "rateCardsHintMissing": "لم يتم تكوين بطاقات أسعار",
+    "rateCardsLabel": "بطاقات المعدل",
+    "receivablesAging": "تقادم المستحقات",
+    "receivablesHint": "استخدم التقرير الكامل للجداول والتفاصيل.",
+    "tip": "نصيحة: تتحكم التكلفة الداخلية على بطاقات الأسعار فيما إذا كان النظام يستطيع حساب ربحية الهامش الحقيقي.",
+    "title": "نظرة عامة على الفواتير",
+    "unratedHintBad": "تحتوي بعض الإدخالات القابلة للفوترة على لقطة بسعر 0 يورو",
+    "unratedHintGood": "تبدو جيدة",
+    "unratedLabel": "إدخالات الوقت غير المصنفة"
+  },
+  "summary": {
+    "billable": "قابلة للفوترة",
+    "billableAmount": "مبلغ قابل للفوترة",
+    "fixedFees": "رسوم ثابتة",
+    "total": "المجموع",
+    "totalHours": "إجمالي الساعات",
+    "unbilled": "غير مفوترة"
+  }
+}

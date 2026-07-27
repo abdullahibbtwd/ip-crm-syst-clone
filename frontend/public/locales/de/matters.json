@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "Zollamt"
+      },
+      "infringingGoods": {
+        "label": "Verletzende Warenbeschreibung"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "Erstellungsdatum"
+      },
+      "workTitle": {
+        "label": "Werktitel"
+      },
+      "workType": {
+        "label": "Art der Arbeit"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "Basiszusammenfassung"
+      },
+      "disputeType": {
+        "label": "Streitart"
+      },
+      "opponentName": {
+        "label": "Gegner/gegnerische Partei"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "Zusammenfassung des Umfangs"
+      },
+      "technologyArea": {
+        "label": "Technologiebereich"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "Produktname"
+      },
+      "region": {
+        "label": "Geografische Region"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "Listen Sie eingereichte Designansichten auf oder beschreiben Sie sie",
+        "label": "Designansichten"
+      },
+      "locarnoClass": {
+        "label": "Locarno-Klasse"
+      },
+      "productDescription": {
+        "label": "Produktbeschreibung"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "Zusammenfassung der Ansprüche"
+      },
+      "pctNumber": {
+        "label": "PCT-Nummer"
+      },
+      "priorityDate": {
+        "label": "Prioritätsdatum"
+      },
+      "technicalField": {
+        "label": "Technischer Bereich"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "Farben beansprucht"
+      },
+      "markDescription": {
+        "label": "Beschreibung markieren"
+      },
+      "markType": {
+        "label": "Markieren Sie den Typ"
+      },
+      "niceClasses": {
+        "label": "Schöne Kurse",
+        "placeholder": "z.B. 12, 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "Zusammenfassung der Ansprüche"
+      },
+      "priorityDate": {
+        "label": "Prioritätsdatum"
+      },
+      "technicalField": {
+        "label": "Technischer Bereich"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "Beschreibung des Vermögenswerts"
+      },
+      "valuationPurpose": {
+        "label": "Bewertungszweck"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "Fügen Sie eine feste Gebühr hinzu",
+    "addTime": "Protokollzeit",
+    "billableAria": "Abrechnungsfähig",
+    "billableWithoutRate": "Ohne Tarif abrechnungsfähig",
+    "confirmDeleteFee": "Festpreis löschen?",
+    "confirmDeleteFeeMessage": "Diese Gebühr wird aus der Sache gestrichen.",
+    "confirmDeleteFeeTitle": "Festpreis löschen?",
+    "confirmDeleteTime": "Diesen Zeiteintrag löschen?",
+    "confirmDeleteTimeMessage": "Diese abrechenbare Zeile wird aus der Angelegenheit entfernt.",
+    "confirmDeleteTimeTitle": "Zeiteintrag löschen?",
+    "description": "Zeiteinträge, Pauschalhonorare und Rechnungen hierzu.",
+    "emptyFees": "Noch keine festen Gebühren.",
+    "emptyTime": "Noch keine Zeit erfasst.",
+    "error": "Rechnungsdaten konnten nicht geladen werden.",
+    "feeDrawer": {
+      "amount": "Betrag (€)",
+      "billable": "Abrechnungsfähig",
+      "createTitle": "Fügen Sie eine feste Gebühr hinzu",
+      "descriptionPlaceholder": "z.B. BPO-Markenanmeldungsgebühr",
+      "editTitle": "Festpreis bearbeiten",
+      "errors": {
+        "amountMin": "Der Betrag muss null oder größer sein",
+        "descriptionRequired": "Beschreibung ist erforderlich"
+      },
+      "saveFailed": "Festgebühr konnte nicht gespeichert werden"
+    },
+    "fixedFees": "Feste Gebühren",
+    "loading": "Abrechnung wird geladen…",
+    "loadingInvoices": "Rechnungen werden geladen…",
+    "loadInvoicesFailed": "Rechnungen konnten nicht geladen werden.",
+    "noPermission": "Sie sind nicht berechtigt, die Abrechnung für diese Angelegenheit einzusehen.",
+    "noRateCard": "Keine Preisliste",
+    "nonBillableAria": "Nicht abrechenbar",
+    "portalDescription": "Rechnungen und Zahlungsstatus für diese Angelegenheit.",
+    "timeDrawer": {
+      "amount": "Menge:",
+      "billable": "Abrechnungsfähig",
+      "billableDisabledHint": "Die Abrechnung ist deaktiviert, solange der Tarif 0 € beträgt.",
+      "createTitle": "Protokollzeit",
+      "descriptionPlaceholder": "Was wurde getan?",
+      "editTitle": "Zeiteintrag bearbeiten",
+      "errors": {
+        "billableRequiresRate": "Für die abrechenbare Zeit ist ein Stundensatz erforderlich. Geben Sie einen Tarif ein oder markieren Sie ihn als nicht abrechenbar.",
+        "descriptionRequired": "Beschreibung ist erforderlich",
+        "hoursMin": "Die Stundenzahl muss mindestens 0,25 betragen",
+        "rateMin": "Die Rate muss null oder größer sein"
+      },
+      "hourlyRate": "Stundensatz (€)",
+      "hoursHint": "Viertelstundenschritte (mindestens 0,25)",
+      "noRateCardWarning": "Für Ihre Rolle wurde keine Preisliste gefunden. Dieser Eintrag wird als nicht abrechenbar gespeichert, bis die Finanzabteilung einen Satz festlegt oder Sie einen manuell eingeben.",
+      "resolvingRate": "Auflösungsrate…",
+      "saveFailed": "Zeiteintrag konnte nicht gespeichert werden"
+    },
+    "timeEntries": "Zeiteinträge",
+    "table": {
+      "amount": "Menge",
+      "attorney": "Rechtsanwältin",
+      "billable": "Abrechnungsfähig",
+      "category": "Kategorie",
+      "date": "Datum",
+      "description": "Beschreibung",
+      "hours": "Std",
+      "rate": "Rate",
+      "user": "Benutzer"
+    },
+    "title": "Abrechnung"
+  },
+  "correspondence": {
+    "add": "Korrespondenz protokollieren",
+    "attachFromQueue": "Aus Warteschlange anhängen",
+    "attachmentFallback": "Korrespondenzanhang",
+    "badges": {
+      "clientVisible": "Kunde sichtbar",
+      "email": "E-Mail",
+      "synced": "Synchronisiert"
+    },
+    "category": {
+      "application": "Anwendung",
+      "certificate": "Zertifikat",
+      "correspondence": "Allgemeine Korrespondenz",
+      "evidence": "Beweis",
+      "office_action": "Amtshandlung",
+      "renewal": "Erneuerung"
+    },
+    "direction": {
+      "incoming": "Eingehend",
+      "outgoing": "Ausgehend"
+    },
+    "description": "Digitale Poststelle – Protokollieren Sie Briefe, Büroaktionen und E-Mails zu diesem Thema. Verwenden Sie {{logEmail}} für .eml-Dateien oder eingefügten Posteingangstext; Verwenden Sie {{logCorrespondence}} für strukturierte Einträge, ausgehende E-Mails und Dokumentanhänge.",
+    "documentReady": "Dokument bereit",
+    "downloadAttachment": "Anhang herunterladen",
+    "downloadTitle": "Herunterladen {{fileName}}",
+    "drawerTitle": "Korrespondenz protokollieren",
+    "empty": "Noch keine Korrespondenz protokolliert.",
+    "emptyHint": "Protokollieren Sie Korrespondenz oder eine E-Mail, um die Akte dieser Angelegenheit zu erstellen.",
+    "emptyTitle": "Noch keine Korrespondenz",
+    "error": "Die Korrespondenz konnte nicht geladen werden.",
+    "errorLog": "Die Korrespondenz konnte nicht protokolliert werden",
+    "fetchingDocument": "Dokument wird abgerufen…",
+    "from": "Aus:",
+    "hideFromClient": "Aus dem Posteingang des Kunden ausblenden",
+    "hideFromClientTitle": "Aus dem Kundenportal ausblenden",
+    "loading": "Korrespondenz wird geladen…",
+    "logEmail": "E-Mail protokollieren",
+    "markReplied": "Mark antwortete",
+    "markSent": "Mark hat gesendet",
+    "openEpoRegister": "Im EPA-Register öffnen",
+    "reply": "Antwort",
+    "replyTitle": "Antworten Sie über das verbundene Postfach",
+    "replaceFile": "Datei ersetzen",
+    "replaceFileTitle": "Ersetzen Sie die angehängte Datei",
+    "saveAsPrecedent": "Als Präzedenzfall speichern",
+    "saveAsPrecedentTitle": "Als Präzedenzfallentwurf speichern",
+    "savedUnder": "Gespeichert unter dem Korrespondenzbetreff unten",
+    "sendToClient": "An den Posteingang des Kunden senden",
+    "showInClientTitle": "Im Kundenportal anzeigen",
+    "status": {
+      "draft": "Entwurf",
+      "received": "Erhalten",
+      "replied": "Antwortete",
+      "sent": "Gesendet"
+    },
+    "table": {
+      "category": "Kategorie",
+      "date": "Datum",
+      "direction": "Richtung",
+      "file": "Datei",
+      "fromTo": "Von / Bis",
+      "status": "Status",
+      "subject": "Thema"
+    },
+    "title": "Korrespondenz",
+    "to": "Zu:",
+    "uploadFailed": "Datei konnte nicht hochgeladen und angehängt werden",
+    "uploadFile": "Datei hochladen",
+    "uploadFileTitle": "Laden Sie ein PDF oder Dokument für diese Korrespondenz hoch",
+    "viewOnEpo": "Ansicht zum EPA",
+    "viewOnEpoTitle": "Öffnen Sie den offiziellen Eintrag im EPA-Register"
+  },
+  "createDrawer": {
+    "client": "Kunde *",
+    "creating": "Erstellen…",
+    "error": "Materie konnte nicht erstellt werden",
+    "jurisdictionHelp": "Wählen Sie einen oder mehrere Gerichtsstände für die Einreichung aus.",
+    "jurisdictions": "Gerichtsbarkeiten",
+    "matterType": "Materietyp *",
+    "open": "Offene Angelegenheit",
+    "responsibleAttorney": "Verantwortlicher Anwalt",
+    "title": "Neue Angelegenheit eröffnen",
+    "titleField": "Titel *",
+    "titlePlaceholder": "z.B. Wortmarke ACME – EU"
+  },
+  "deadlines": {
+    "complete": "Vollständig",
+    "daysLeft": "Noch {{count}} Tage",
+    "daysOverdue": "{{count}} Tage überfällig",
+    "dueToday": "Heute fällig",
+    "empty": "Keine Fristen zu diesem Thema.",
+    "error": "Fristen konnten nicht geladen werden.",
+    "loading": "Fristen werden geladen…",
+    "start": "Start",
+    "table": {
+      "assigned": "Zugewiesen",
+      "due": "Fälligkeitsdatum",
+      "grace": "Anmut",
+      "jurisdiction": "Zuständigkeit",
+      "status": "Status",
+      "title": "Titel",
+      "type": "Typ"
+    },
+    "title": "Fristen"
+  },
+  "documents": {
+    "allCategories": "Alle Kategorien",
+    "browse": "durchsuchen",
+    "category": "Kategorie",
+    "chooseFile": "Wählen Sie eine Datei zum Hochladen aus",
+    "chooseTemplate": "Wählen Sie eine Briefvorlage",
+    "description": "Aktenschrank für diese Angelegenheit – laden Sie PDFs, Word-Dateien und Beweismittel hoch.",
+    "displayName": "Anzeigename",
+    "displayNamePlaceholder": "z.B. BPO-Einreichungspaket – endgültig",
+    "dragDrop": "Ziehen Sie eine Datei hierher, oder",
+    "empty": "Es wurden noch keine Dokumente hochgeladen.",
+    "error": "Dokumente konnten nicht geladen werden.",
+    "errorGeneration": "Die Dokumentgenerierung ist fehlgeschlagen",
+    "errorNoDocx": "Für diese Vorlage ist keine Word-Datei (.docx) hochgeladen",
+    "errorUpload": "Der Upload ist fehlgeschlagen",
+    "format": "Format",
+    "generate": "Dokument generieren",
+    "generateDescription": "Wählen Sie eine Briefvorlage. Die Angaben zu Angelegenheiten und Kunden werden automatisch ausgefüllt und in diesem Ordner gespeichert.",
+    "generatePdf": "PDF generieren",
+    "generateWord": "Wort generieren",
+    "generating": "Generieren…",
+    "loading": "Dokumente werden geladen…",
+    "noTemplates": "Keine Vorlagen verfügbar.",
+    "notAvailable": "– nicht verfügbar",
+    "search": "Namen oder Tags suchen…",
+    "table": {
+      "category": "Kategorie",
+      "displayName": "Anzeigename",
+      "name": "Name",
+      "tags": "Schlagworte",
+      "uploaded": "Hochgeladen",
+      "version": "Version"
+    },
+    "tags": "Schlagworte",
+    "tagsHint": "Durch Kommas getrennte Schlüsselwörter für die Suche",
+    "tagsPlaceholder": "dringend, BPO, vom Kunden genehmigt",
+    "title": "Unterlagen",
+    "upload": "Dokument hochladen",
+    "uploadAction": "Hochladen",
+    "uploadNew": "Neues Dokument hochladen",
+    "uploading": "Hochladen…",
+    "word": "Wort"
+  },
+  "ipRightStatus": {
+    "cancelled": "Abgesagt",
+    "expired": "Abgelaufen",
+    "filed": "Abgelegt",
+    "pending": "Ausstehende Einreichung",
+    "registered": "Eingetragen"
+  },
+  "ipRights": {
+    "abandon": "Aufgeben",
+    "add": "IP-Recht hinzufügen",
+    "addRight": "Rechts hinzufügen",
+    "addTitle": "IP-Recht hinzufügen",
+    "annuitySchedule": "Rentenplan",
+    "applicationNumber": "Bewerbungsnummer",
+    "checkEpo": "Überprüfen Sie das EPA",
+    "checkEpoAddNumber": "Fügen Sie eine Anmeldenummer hinzu, bevor Sie das EPA prüfen",
+    "checkEpoTitle": "Überprüfen Sie den Rechtsstatus des EPA (OPS)",
+    "complete": "Vollständig",
+    "confirmFiling": "Bestätigen Sie die Einreichung",
+    "confirmRegistration": "Bestätigen Sie die Registrierung",
+    "cycleDue": "Zyklus {{n}} · fällig {{date}}",
+    "cycleLabel": "Zyklus {{n}}",
+    "description": "Rechte für den Dateientwurf, sobald der Kunde dies bestätigt und das Archivierungspaket fertig ist.",
+    "editSplit": "Aufteilung bearbeiten",
+    "empty": "Noch keine IP-Rechte. Bei der Konvertierung eines Einlasses wird automatisch ein Entwurf erstellt; Fügen Sie nach der Strafverfolgung manuell weitere Rechte hinzu.",
+    "epoCheckFailed": "Die Prüfung des EPA-Status ist fehlgeschlagen",
+    "error": "IP-Rechte konnten nicht geladen werden.",
+    "errors": {
+      "addFailed": "IP-Recht konnte nicht hinzugefügt werden",
+      "applicationNumberRequired": "Geben Sie die offizielle Antragsnummer ein",
+      "documentVersionRequired": "Wählen Sie die Dokumentversion des Ablagepakets aus",
+      "fileFailed": "Antrag konnte nicht eingereicht werden",
+      "registerFailed": "IP-Recht konnte nicht registriert werden",
+      "registrationNumberRequired": "Geben Sie die Registrierungsnummer ein",
+      "splitFailed": "Die Verlängerung konnte nicht aufgeteilt werden",
+      "splitJurisdictionRequired": "Fügen Sie mindestens einen Teil mit einer Gerichtsbarkeit hinzu",
+      "titleRequired": "Geben Sie einen Titel für das IP-Recht ein"
+    },
+    "expiryDate": "Verfallsdatum",
+    "expiryDateOptional": "Ablaufdatum (optional)",
+    "expiryDateHint": "Lassen Sie das Feld leer, um den Erneuerungszyklus der Gerichtsbarkeit zu berechnen.",
+    "file": "Datei",
+    "fileApplication": "Antrag stellen",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Offizielle Nummer vom BPO / EUIPO / EPA",
+      "filingPackage": "Archivierungspaket",
+      "filingPackageHint": "Wählen Sie die für diese Einreichung hochgeladene Dokumentversion aus (normalerweise unter Antrag).",
+      "jurisdictionHint": "Wählen Sie EPA (EP), um die Überprüfung des Strafverfolgungsstatus anhand von OPS zu ermöglichen.",
+      "noDocuments": "Es liegen noch keine Dokumente zu diesem Thema vor. Laden Sie zunächst das Anmelde-PDF auf der Registerkarte „Dokumente“ hoch.",
+      "selectDocument": "Dokumentversion auswählen…"
+    },
+    "filing": "Einreichung…",
+    "filingDate": "Anmeldedatum",
+    "filingOffice": "Anmeldestelle/Gerichtsstand",
+    "jurisdictionHint": "Verwenden Sie EPO (EP) für europäische Patente, EUIPO (EU) für EU-Marken/Designs, BPO (BG) für Bulgarien, WIPO (WO) für PCT.",
+    "loading": "IP-Rechte werden geladen…",
+    "loadingRenewals": "Verlängerungen werden geladen…",
+    "markFiled": "Mark eingereicht",
+    "noAnnuityWindows": "Noch keine Rentenfenster. Registrieren Sie das Patent, um das 1. Jahr zu eröffnen.",
+    "noRenewalWindows": "Noch keine Verlängerungsfenster. Registrieren Sie das IP-Recht, um Zyklus 1 zu öffnen.",
+    "partialRenewals": "Teilweise Erneuerungen",
+    "partsCount": "({{count}} Teile)",
+    "proceed": "Aufnahme fortsetzen",
+    "register": "Registrieren",
+    "registerDrawerHint": "Öffnet das Erneuerungsfenster für Zyklus 1 und generiert Erneuerungsfristen.",
+    "registerTitle": "Registrieren Sie das IP-Recht",
+    "registering": "Registrieren…",
+    "registrationDate": "Anmeldedatum",
+    "registrationNumber": "Registrierungsnummer",
+    "renewalSchedule": "Erneuerungsfenster",
+    "renewalWindows": "Erneuerungsfenster",
+    "splitRenewal": "Geteilte Erneuerung",
+    "splitRenewalDescription": "Teilen Sie diese Erneuerung in Teile der Gerichtsbarkeit/Nizza-Klasse auf. Jeder Teil wird separat unterrichtet und abgeschlossen; Der Fensterstatus rollt von den Teilen nach oben.",
+    "splitRenewalTitle": "Geteilte Erneuerung",
+    "splitPart": "Teil {{n}}",
+    "splitAddPart": "Teil hinzufügen",
+    "splitSaveParts": "Teile aufbewahren",
+    "splitNiceClasses": "Schöne Klassen (durch Kommas getrennt)",
+    "splitNotes": "Notizen",
+    "splitJurisdiction": "Zuständigkeit",
+    "table": {
+      "actions": "Aktionen",
+      "applicationNo": "Bewerbungsnr.",
+      "cycle": "Zyklus",
+      "dueDate": "Fälligkeitsdatum",
+      "jurisdiction": "Zuständigkeit",
+      "localRef": "Lokaler Ref.",
+      "niceClasses": "Schöne Kurse",
+      "status": "Status",
+      "title": "Titel",
+      "type": "Typ",
+      "yearCycle": "Jahr/Zyklus"
+    },
+    "title": "IP-Rechte",
+    "titleField": "Titel",
+    "titleRegister": "IP-Rechteregister",
+    "yearLabel": "Jahr {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "AFA hinzufügen",
+      "authority": "Behörde",
+      "authorityRequired": "Autorität ist erforderlich",
+      "createFailed": "AFA konnte nicht erstellt werden",
+      "empty": "Es wurden noch keine AFAs aufgezeichnet.",
+      "linkedSeizure": "Verbundener Anfall (optional)",
+      "loading": "Bewerbungen werden geladen…",
+      "none": "Keiner",
+      "number": "Bewerbungsnummer",
+      "sectionDescription": "Zollanträge zum Schutz der Rechte an der Grenze.",
+      "sectionTitle": "Klageanträge (AFA)",
+      "validUntil": "Gültig bis"
+    },
+    "columns": {
+      "authority": "Behörde",
+      "custody": "Gewahrsam",
+      "date": "Datum",
+      "goods": "Waren",
+      "number": "Nummer",
+      "office": "Büro",
+      "status": "Status",
+      "validUntil": "Gültig bis"
+    },
+    "custody": {
+      "addEntry": "Verwahrungseintrag hinzufügen",
+      "append": "Anhängen",
+      "empty": "Noch keine Verwahrungseinträge.",
+      "notesPlaceholder": "Notizen (optional)",
+      "timeline": "Zeitplan für das Sorgerecht"
+    },
+    "detail": {
+      "clearLink": "Klarer Link",
+      "linkedMatter": "Verknüpfter Rechtsstreit",
+      "loading": "Laden…",
+      "saveChanges": "Änderungen speichern",
+      "searchMatters": "Die Suche muss eskalieren …",
+      "seizedOn": "Beschlagnahmt {{date}}",
+      "title": "Einzelheiten zur Beschlagnahme",
+      "updateFailed": "Anfall konnte nicht aktualisiert werden"
+    },
+    "errors": {
+      "addCustodyFailed": "Verwahrungseintrag konnte nicht hinzugefügt werden",
+      "createSeizureFailed": "Anfall konnte nicht erzeugt werden",
+      "officeAndGoodsRequired": "Zollamt und Warenbeschreibung sind erforderlich"
+    },
+    "open": "Offen",
+    "seizures": {
+      "consignmentRef": "Sendungsnr",
+      "create": "Anfall erzeugen",
+      "createTitle": "Zollbeschlagnahme protokollieren",
+      "deadlineHint": "Es wird automatisch eine Antwortfrist generiert (10 Werktage ab Pfändungsdatum).",
+      "empty": "Noch keine Anfälle protokolliert.",
+      "goodsDescription": "Warenbeschreibung",
+      "loadFailed": "Anfälle konnten nicht geladen werden.",
+      "loading": "Anfälle werden geladen…",
+      "logSeizure": "Protokollbeschlagnahme",
+      "office": "Zollamt",
+      "portOfEntry": "Einreisehafen",
+      "quantity": "Menge",
+      "sectionDescription": "Grenzfestnahmen und Untersuchungshaft für diese Angelegenheit.",
+      "sectionTitle": "Anfälle",
+      "seizureDate": "Datum der Beschlagnahme",
+      "status": "Status"
+    },
+    "wrongMatterType": "Zollunterlagen stehen nur zu Grenzmaßnahmen zur Verfügung."
+  },
+  "jurisdictionStatus": {
+    "approved": "Genehmigt",
+    "filed": "Abgelegt",
+    "pending": "Ausstehend",
+    "rejected": "Abgelehnt"
+  },
+  "layout": {
+    "backToMatters": "← Zurück zur Sache",
+    "loading": "Inhalt wird geladen…",
+    "notFound": "Materie nicht gefunden."
+  },
+  "list": {
+    "description": "Portfolioansicht aller Rechtsangelegenheiten – Suche nach Titel, Mandant oder Antragsnummer.",
+    "descriptionPortal": "Nach der Aufnahmekonvertierung wurden für Ihre Organisation Angelegenheiten eröffnet.",
+    "filters": {
+      "allStatuses": "Alle Status",
+      "allTypes": "Alle Arten"
+    },
+    "intakeQueue": "Einlasswarteschlange",
+    "perPage": "{{count}} pro Seite",
+    "searchPlaceholder": "Suchen Sie nach Titel, Kunde, Antragsnummer ...",
+    "title": "Angelegenheiten",
+    "titlePortal": "Meine Angelegenheiten"
+  },
+  "ipRightsRegister": {
+    "description": "Firmenweites Register von IP-Rechten mit Filtern nach Kunde, Gerichtsbarkeit, Art, Status und Ablauf.",
+    "empty": "Für diese Filter wurden keine IP-Rechte gefunden.",
+    "filters": {
+      "all": "Alle",
+      "allClients": "Alle Kunden",
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "allStatuses": "Alle Status",
+      "allTypes": "Alle Arten",
+      "client": "Kunde",
+      "expiryFrom": "Ablauf ab",
+      "expiryTo": "Ablauf bis",
+      "jurisdiction": "Zuständigkeit",
+      "matterType": "Materietyp",
+      "status": "Status"
+    },
+    "loading": "Laden…",
+    "table": {
+      "applicationNo": "Bewerbungsnr.",
+      "client": "Kunde",
+      "expiry": "Ablauf",
+      "ipRight": "IP richtig",
+      "jurisdiction": "Zuständigkeit",
+      "matter": "Gegenstand",
+      "status": "Status",
+      "type": "Typ"
+    },
+    "title": "IP-Rechteregister"
+  },
+  "markType": {
+    "combined": "Kombiniert",
+    "figurative": "Bildlich",
+    "sound": "Klang",
+    "three_dimensional": "3D",
+    "wordmark": "Wortmarke"
+  },
+  "overview": {
+    "assignedTo": "Hauptanwalt",
+    "description": "Beschreibung",
+    "jurisdictions": "Gerichtsbarkeiten",
+    "jurisdictionsEmpty": "Keine Gerichtsbarkeiten erfasst.",
+    "openedBy": "Geöffnet von",
+    "status": "Status",
+    "table": {
+      "country": "Land",
+      "localRef": "Lokaler Ref.",
+      "status": "Status"
+    },
+    "title": "Materielle Details",
+    "type": "Typ",
+    "typeSpecific": "Typspezifische Attribute"
+  },
+  "status": {
+    "abandoned": "Verlassen",
+    "active": "Aktiv",
+    "closed": "Geschlossen",
+    "draft": "Entwurf",
+    "on_hold": "In der Warteschleife"
+  },
+  "table": {
+    "assigned": "Zugewiesen",
+    "client": "Kunde",
+    "empty": "Keine Angelegenheiten gefunden",
+    "emptyDescription": "Versuchen Sie, die Filter anzupassen oder eine neue Angelegenheit zu öffnen.",
+    "emptyPortal": "Es wurden noch keine Angelegenheiten mit Ihnen geteilt.",
+    "error": "Die Angelegenheit konnte nicht geladen werden.",
+    "jurisdictions": "Gerichtsbarkeiten",
+    "status": "Status",
+    "title": "Titel",
+    "type": "Typ",
+    "upcoming": "{{count}} steht bevor",
+    "viewAria": "Anzeigen {{title}}"
+  },
+  "tabs": {
+    "billing": "Abrechnung",
+    "correspondence": "Korrespondenz",
+    "deadlines": "Fristen",
+    "documents": "Unterlagen",
+    "instructions": "Anweisungen",
+    "approvals": "Zulassungen",
+    "ipRights": "IP-Rechte",
+    "customs": "Zoll",
+    "overview": "Überblick",
+    "tasks": "Aufgaben",
+    "timeline": "Zeitleiste"
+  },
+  "approvals": {
+    "title": "Kundengenehmigungen",
+    "subtitle": "Entwerfen und übermitteln Sie Genehmigungsanfragen für das Kundenportal.",
+    "newDraft": "Neuer Entwurf",
+    "loading": "Genehmigungen werden geladen…",
+    "loadError": "Genehmigungen konnten nicht geladen werden.",
+    "empty": "Noch keine Genehmigungsanfragen.",
+    "noPermission": "Sie sind nicht berechtigt, Genehmigungen für diese Angelegenheit anzuzeigen.",
+    "decisionNote": "Kundennotiz: {{note}}",
+    "columns": {
+      "title": "Titel",
+      "status": "Status",
+      "dueDate": "Fällig",
+      "created": "Erstellt"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt"
+    },
+    "actions": {
+      "submit": "Einreichen"
+    },
+    "drawer": {
+      "createTitle": "Neue Genehmigungsanfrage",
+      "title": "Titel",
+      "description": "Beschreibung",
+      "dueDate": "Fälligkeitsdatum",
+      "cancel": "Stornieren",
+      "create": "Entwurf erstellen"
+    },
+    "errors": {
+      "titleRequired": "Titel ist erforderlich",
+      "saveFailed": "Die Genehmigung konnte nicht erstellt werden"
+    }
+  },
+  "tasks": {
+    "add": "Aufgabe hinzufügen",
+    "assignedTo": "Zugewiesen an",
+    "assignedToUser": "Zugewiesen an {{name}}",
+    "completed": "Vollendet",
+    "completedByUser": "Abgeschlossen von {{name}}",
+    "confirmComplete": "Diese Aufgabe als erledigt markieren?",
+    "confirmDelete": "Diese Aufgabe löschen?",
+    "delete": "Löschen",
+    "deleteMessage": "Diese Aufgabe wird dauerhaft entfernt.",
+    "deleteTitle": "Aufgabe löschen?",
+    "description": "Zu diesem Thema muss noch Arbeit geleistet werden – unabhängig von systemgenerierten Fristen.",
+    "drawerTitle": "Aufgabe hinzufügen",
+    "dueOn": "Fällig {{date}}",
+    "empty": "Keine Aufgaben zu diesem Thema.",
+    "emptyOpen": "Keine offenen Aufgaben. Fügen Sie eine hinzu, wenn in dieser Angelegenheit Arbeit zu verfolgen ist.",
+    "error": "Aufgaben konnten nicht geladen werden.",
+    "errorCreate": "Aufgabe konnte nicht erstellt werden",
+    "form": {
+      "assigneeLabel": "Zugewiesen an",
+      "assigneeRequired": "Wählen Sie aus, wer diese Aufgabe erledigen soll",
+      "dueDateOptional": "Fälligkeitsdatum (optional)",
+      "notesOptional": "Notizen (optional)",
+      "notesPlaceholder": "Jeder zusätzliche Kontext für den Beauftragten",
+      "priorityLabel": "Priorität",
+      "titleLabel": "Was muss getan werden?",
+      "titlePlaceholder": "z.B. Rufen Sie den Kunden bezüglich der BPO-Antwort an",
+      "titleRequired": "Titel ist erforderlich"
+    },
+    "loading": "Aufgaben werden geladen…",
+    "markComplete": "Als abgeschlossen markieren",
+    "noDueDate": "Kein Fälligkeitsdatum",
+    "open": "Offen",
+    "priority": {
+      "high": "Hoch",
+      "normal": "Normal"
+    },
+    "title": "Aufgaben"
+  },
+  "timeline": {
+    "description": "Chronologische Geschichte der Strafverfolgung und Korrespondenz zu diesem Thema.",
+    "empty": "Noch keine Timeline-Ereignisse. Protokollieren Sie die Korrespondenz oder reichen Sie einen Antrag ein, um hier die Aktivität anzuzeigen.",
+    "error": "Zeitleiste konnte nicht geladen werden.",
+    "eventType": {
+      "correspondence": "Korrespondenz",
+      "deadline": "Frist",
+      "filing": "Einreichung",
+      "note": "Notiz",
+      "task": "Aufgabe"
+    },
+    "loading": "Zeitleiste wird geladen…",
+    "loggedBy": "Geloggt von {{name}}",
+    "title": "Zeitleiste"
+  },
+  "type": {
+    "border_measures": "Grenzmaßnahmen",
+    "copyright": "Copyright",
+    "dispute_opposition": "Streit / Widerspruch",
+    "fto_analysis": "FTO-Analyse",
+    "geographical_indication": "Geografische Angabe",
+    "industrial_design": "Industriedesign",
+    "patent": "Patent",
+    "trademark": "Warenzeichen",
+    "utility_model": "Gebrauchsmuster",
+    "valuation": "Bewertung"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Wählen…",
+    "title": "Typspezifische Details"
+  }
+}

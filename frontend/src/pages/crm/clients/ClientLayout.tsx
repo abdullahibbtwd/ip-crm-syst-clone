@@ -1,4 +1,5 @@
 import { Link, Navigate, Outlet, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ClientSidebar } from '@/components/crm/ClientSidebar'
 import { ClientTabNav } from '@/components/crm/ClientTabNav'
 import { useClientSummary } from '@/features/crm/hooks/useClients'
@@ -6,6 +7,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function ClientLayout() {
+  const { t } = useTranslation('crm')
   const { id = '' } = useParams()
   const { data: summary, isLoading } = useClientSummary(id)
 
@@ -18,7 +20,7 @@ export function ClientLayout() {
           to="/clients"
           className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
         >
-          ← Back to clients
+          {t('layout.backToClients')}
         </Link>
       </div>
 

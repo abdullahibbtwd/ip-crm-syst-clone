@@ -1,10 +1,11 @@
 import { Link, useOutletContext } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { SummaryBar } from '@/features/billing/components/SummaryBar'
 import { useClientBillingSummary } from '@/features/billing/hooks/useBilling'
 import { formatHours, formatMoney } from '@/features/billing/utils'
-import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { matterTypeLabel } from '@/features/matters/utils'
 import {
   Table,
   TableBody,
@@ -17,6 +18,7 @@ import { ClientRetainerCard } from '@/features/retainers/components/ClientRetain
 import type { ClientTabContext } from '../ClientLayout'
 
 export function ClientBillingTab() {
+  const { t } = useTranslation('crm')
   const { clientId } = useOutletContext<ClientTabContext>()
   const { data, isLoading, isError } = useClientBillingSummary(clientId)
 
@@ -24,26 +26,18 @@ export function ClientBillingTab() {
     <PermissionGate
       resource="billing"
       action="read"
-      fallback={
-        <p className="text-sm text-muted-foreground">
-          You do not have permission to view billing for this client.
-        </p>
-      }
+      fallback={<p className="text-sm text-muted-foreground">{t('billing.noPermission')}</p>}
     >
-      {isLoading && <p className="text-sm text-muted-foreground">Loading billing…</p>}
-      {isError && (
-        <p className="text-sm text-destructive">Failed to load billing data.</p>
-      )}
+      {isLoading && <p className="text-sm text-muted-foreground">{t('billing.loading')}</p>}
+      {isError && <p className="text-sm text-destructive">{t('billing.error')}</p>}
 
       <ClientRetainerCard clientId={clientId} />
 
       {data && (
         <div className="space-y-6">
           <div>
-            <h2 className="font-medium">Billing</h2>
-            <p className="text-sm text-muted-foreground">
-              Work in progress and billable totals across all matters for this client.
-            </p>
+            <h2 className="font-medium">{t('billing.title')}</h2>
+            <p className="text-sm text-muted-foreground">{t('billing.wipDescriptionLong')}</p>
           </div>
 
           <SummaryBar
@@ -56,23 +50,23 @@ export function ClientBillingTab() {
           />
 
           <section className="space-y-3">
-            <h3 className="text-sm font-medium">By matter</h3>
+            <h3 className="text-sm font-medium">{t('billing.byMatter')}</h3>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Matter</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Billable hours</TableHead>
-                  <TableHead className="text-right">Total</TableHead>
-                  <TableHead className="text-right">Unbilled</TableHead>
+                  <TableHead>{t('billing.matterTable.matter')}</TableHead>
+                  <TableHead>{t('billing.matterTable.type')}</TableHead>
+                  <TableHead>{t('billing.matterTable.status')}</TableHead>
+                  <TableHead className="text-right">{t('billing.matterTable.billableHours')}</TableHead>
+                  <TableHead className="text-right">{t('billing.matterTable.total')}</TableHead>
+                  <TableHead className="text-right">{t('billing.matterTable.unbilled')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {data.matters.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={6} className="text-center text-muted-foreground">
-                      No matters yet. Open a matter to start tracking billable work.
+                      {t('billing.matterTable.empty')}
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -87,8 +81,7 @@ export function ClientBillingTab() {
                         </Link>
                       </TableCell>
                       <TableCell className="text-muted-foreground">
-                        {MATTER_TYPE_LABELS[matter.matterType as keyof typeof MATTER_TYPE_LABELS] ??
-                          matter.matterType}
+                        {matterTypeLabel(matter.matterType as never)}
                       </TableCell>
                       <TableCell>
                         <MatterStatusBadge status={matter.status as never} />

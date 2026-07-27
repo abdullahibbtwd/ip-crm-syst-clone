@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Kunde",
+  "disbursements": {
+    "title": "Auszahlungen",
+    "subtitle": "Firmenweite Festgebühren, kategorisiert als Auszahlungen.",
+    "loadFailed": "Auszahlungen konnten nicht geladen werden.",
+    "empty": "Keine Auszahlungen gefunden.",
+    "columns": {
+      "date": "Datum",
+      "matter": "Gegenstand",
+      "description": "Beschreibung",
+      "amount": "Menge"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Auszahlung",
+    "expense": "Kosten",
+    "professional_fee": "Professionelles Honorar"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Herunterladen",
+      "issue": "Ausgabe",
+      "pay": "Zahlen",
+      "void": "Leere"
+    },
+    "confirmIssue": "Diese Rechnung ausstellen?",
+    "confirmVoid": "Diese Rechnung stornieren? Dies kann nicht rückgängig gemacht werden.",
+    "createFromUnbilled": "Erstellen Sie eine Rechnung aus nicht in Rechnung gestellten Beträgen",
+    "description": "Verfolgen Sie ausgestellte Rechnungen, Zahlungsstatus und ausstehende Beträge.",
+    "draft": "Entwurf",
+    "empty": "Keine Rechnungen gefunden",
+    "emptyDescription": "Versuchen Sie, Filter anzupassen oder eine Rechnung aus nicht abgerechneten Arbeiten zu erstellen.",
+    "error": "Rechnungen konnten nicht geladen werden.",
+    "invoiceStatus": {
+      "draft": "Entwurf",
+      "issued": "Ausgegeben",
+      "void": "Leere"
+    },
+    "loading": "Rechnungen werden geladen…",
+    "noPermission": "Sie haben keine Berechtigung, Rechnungen anzuzeigen.",
+    "searchPlaceholder": "Rechnungsnr. suchen oder Kunde…",
+    "sectionTitle": "Rechnungen",
+    "table": {
+      "amount": "Menge",
+      "client": "Kunde",
+      "due": "Fällig",
+      "invoiceNo": "Rechnungsnr.",
+      "issued": "Ausgegeben",
+      "payment": "Zahlung",
+      "status": "Status"
+    },
+    "title": "Rechnungen",
+    "listSubtitle": "Firmenweites Rechnungsregister über alle Sachverhalte hinweg. Stellen Sie Rechnungen über die Registerkarten „Fachabrechnung“ aus und erfassen Sie die Zahlungen hier.",
+    "exportFrom": "Exportieren von",
+    "exportTo": "Exportieren nach",
+    "exportFormats": {
+      "journal": "Zeitschrift CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Exportieren…",
+    "exportFailed": "Der Buchhaltungsexport ist fehlgeschlagen",
+    "syncXero": "Xero synchronisieren",
+    "syncQuickBooks": "QuickBooks synchronisieren",
+    "syncFailed": "Die Synchronisierung der Buchhaltung ist fehlgeschlagen",
+    "searchListPlaceholder": "Suchen Sie nach Rechnungsnr., Angelegenheit, Kunde…",
+    "filters": {
+      "allPayments": "Alle Zahlungen",
+      "allStatuses": "Alle Status"
+    }
+  },
+  "payment": {
+    "amount": "Menge *",
+    "balance": "Offener Betrag",
+    "date": "Zahlungsdatum *",
+    "drawerTitle": "Zahlung aufzeichnen",
+    "error": "Die Zahlung konnte nicht erfasst werden",
+    "method": "Zahlungsart *",
+    "methods": {
+      "bank_transfer": "Banküberweisung",
+      "card": "Karte",
+      "cash": "Kasse",
+      "other": "Andere"
+    },
+    "notes": "Notizen",
+    "reference": "Referenz",
+    "save": "Zahlung aufzeichnen",
+    "success": "Zahlung erfolgreich erfasst.",
+    "validation": {
+      "amount": "Der Betrag muss größer als Null sein",
+      "exceeds": "Der Betrag übersteigt den ausstehenden Betrag"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Bezahlt",
+    "partial": "Teilweise bezahlt",
+    "unpaid": "Unbezahlt"
+  },
+  "rateCards": {
+    "any": "Beliebig",
+    "create": "Preisliste erstellen",
+    "description": "Konfigurieren Sie die Abrechnungssätze nach Rolle, Sachverhaltstyp und Gültigkeitsdatum.",
+    "drawerTitle": "Neue Preisliste",
+    "drawerTitleEdit": "Preisliste bearbeiten",
+    "effectiveFrom": "Gültig ab *",
+    "effectiveTo": "Wirksam für",
+    "error": "Preisliste konnte nicht gespeichert werden",
+    "firmWide": "Firmenweit",
+    "internalCost": "Interne Kosten/Std",
+    "matterType": "Materietyp",
+    "new": "Neue Preisliste",
+    "noPermission": "Sie sind nicht berechtigt, Preislisten zu verwalten.",
+    "viewNoPermission": "Sie sind nicht berechtigt, Preislisten anzuzeigen.",
+    "rate": "Tarif / Std. *",
+    "role": "Rolle *",
+    "save": "Änderungen speichern",
+    "scope": "Umfang",
+    "table": {
+      "effective": "Wirksam",
+      "internalCost": "Interne Kosten",
+      "matterType": "Materietyp",
+      "rate": "Rate",
+      "role": "Rolle",
+      "scope": "Umfang"
+    },
+    "title": "Preislisten",
+    "pageDescription": "Firmenpreisliste nach Rolle, Sachverhaltstyp und optionaler Kundenüberschreibung. Beim Protokollieren der Zeit wird der abrechenbare Tarif verwendet. Optionale interne Kosten sorgen für echte Margenrentabilität.",
+    "anyMatterType": "Jeder Materietyp",
+    "clientOverride": "Client-Überschreibung",
+    "firmWideDefault": "Firmenweiter Standard",
+    "editAria": "Preisliste bearbeiten",
+    "loadFailed": "Preislisten konnten nicht geladen werden.",
+    "loading": "Preislisten werden geladen…",
+    "empty": "Noch keine Preislisten.",
+    "billable": "Abrechnungsfähig",
+    "validation": {
+      "hourlyRate": "Geben Sie einen gültigen Stundensatz ein",
+      "internalCost": "Geben Sie gültige interne Kosten ein oder lassen Sie das Feld leer"
+    },
+    "internalCostHint": "Optional. Wird für eine echte Margenrentabilität verwendet, wenn sie auf Tarifkarten festgelegt ist.",
+    "billableRate": "Abrechnungsfähiger Tarif (EUR/Std.)",
+    "internalCostOptional": "Interne Kosten (EUR/Std.)",
+    "internalCostPlaceholder": "Optional – für Margenberichte",
+    "internalCostResolutionHint": "Spiegelt die Abrechnungstarifauflösung wider (Kunde → Firma + Sachverhaltstyp → Firmenstandard). Bei neuen Zeiteinträgen wird ein Snapshot als cost_snapshot erstellt.",
+    "effectiveToOptional": "Gültig bis (optional)"
+  },
+  "rateRole": {
+    "coordinator": "Koordinatorin",
+    "ip_attorney": "Anwalt für geistiges Eigentum",
+    "managing_partner": "Geschäftsführender Gesellschafter",
+    "paralegal": "Rechtsassistentin",
+    "trademark_attorney": "Markenanwalt"
+  },
+  "billingOverview": {
+    "collectedHint": "Im Zeitraum gesammelt",
+    "collectedLabel": "Gesammelt",
+    "criticalHint": "Mehr als 60 Tage überfällig",
+    "criticalLabel": "Kritisches Risiko",
+    "description": "Umsatzgesundheit (Rechnungen) plus Tarifkartenbereitschaft (Tarifkarten + interne Kostendeckung).",
+    "error": "Die Abrechnungsübersicht konnte nicht geladen werden.",
+    "invoicedHint": "{{count}} Rechnungen im Zeitraum",
+    "invoicedLabel": "In Rechnung gestellt",
+    "internalCostHintRevenue": "Umsatz-Proxy-Basis",
+    "internalCostHintTrueMargin": "True-Margin-Basis aktiviert",
+    "internalCostLabel": "Interne Kosten",
+    "manageRateCards": "Tarifkarten verwalten",
+    "nextStep": "Nächster Schritt",
+    "nextStepFix": "Fixe Tarifabdeckung in /rate-cards",
+    "nextStepHealthy": "Die Tarifabdeckung ist gesund",
+    "nextStepHint": "Abrechnungszusammenfassungen werden genauer, wenn jeder abrechenbare Zeiteintrag in einen Tarif aufgelöst wird.",
+    "noPermissionBilling": "Sie sind nicht berechtigt, die Abrechnung anzuzeigen.",
+    "noPermissionInvoice": "Sie sind nicht berechtigt, Rechnungsdaten anzuzeigen.",
+    "openFullReport": "Vollständigen Bericht öffnen",
+    "outstandingHint": "{{count}} offene Forderungen",
+    "outstandingLabel": "Hervorragend",
+    "rateCardHealth": "Tarif-Gesundheit",
+    "rateCardHealthDescription": "Sind die Abrechnungssätze konfiguriert und sind die Margen bereit?",
+    "rateCardsHintConfigured": "Preise verfügbar",
+    "rateCardsHintMissing": "Keine Preislisten konfiguriert",
+    "rateCardsLabel": "Preislisten",
+    "receivablesAging": "Alterung der Forderungen",
+    "receivablesHint": "Verwenden Sie den vollständigen Bericht für Tabellen und Details.",
+    "tip": "Tipp: Die internen Kosten auf Tarifkarten steuern, ob das System die echte Margenrentabilität berechnen kann.",
+    "title": "Abrechnungsübersicht",
+    "unratedHintBad": "Einige abrechenbare Einträge verfügen über einen Snapshot des 0-€-Tarifs",
+    "unratedHintGood": "Sieht gut aus",
+    "unratedLabel": "Nicht bewertete Zeiteinträge"
+  },
+  "summary": {
+    "billable": "Abrechnungsfähig",
+    "billableAmount": "Abrechnungsfähiger Betrag",
+    "fixedFees": "Feste Gebühren",
+    "total": "Gesamt",
+    "totalHours": "Gesamtstunden",
+    "unbilled": "Nicht in Rechnung gestellt"
+  }
+}

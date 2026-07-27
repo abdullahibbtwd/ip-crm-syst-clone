@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alertas",
+    "description": "Artículos vencidos, vencidos hoy y urgentes, además de notificaciones no leídas."
+  },
+  "sections": {
+    "overdue": "Atrasada",
+    "today": "Vencimiento hoy",
+    "urgent": "Urgente",
+    "notifications": "Notificaciones"
+  },
+  "empty": {
+    "notifications": "Sin notificaciones",
+    "urgent": "No hay artículos urgentes",
+    "overdue": "No hay artículos vencidos",
+    "today": "No hay artículos vencidos hoy"
+  }
+}

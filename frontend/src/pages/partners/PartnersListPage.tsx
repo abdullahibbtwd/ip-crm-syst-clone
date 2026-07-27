@@ -295,7 +295,7 @@ export function PartnersListPage() {
             onValueChange={(v) => setActiveFilter((v as 'all' | 'active') ?? 'all')}
           >
             <SelectTrigger className="w-[160px]">
-              <SelectValue />
+              <SelectValue placeholder={t('filters.all')} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">{t('filters.all')}</SelectItem>

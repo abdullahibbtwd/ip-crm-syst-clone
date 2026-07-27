@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Înapoi la tabloul de bord",
+    "cancel": "Anula",
+    "edit": "Edita",
+    "loadMore": "Încărcați mai multe",
+    "next": "Următorul",
+    "previous": "Anterior",
+    "refresh": "Reîmprospăta",
+    "remove": "Elimina",
+    "retry": "Reîncercați",
+    "save": "Salva",
+    "saveChanges": "Salvați modificările",
+    "view": "Vedere"
+  },
+  "errors": {
+    "loadFailed": "Nu s-a putut încărca.",
+    "retryHint": "Verificați-vă conexiunea și permisiunile, apoi încercați din nou."
+  },
+  "filters": {
+    "all": "Toate",
+    "allStatuses": "Toate stările",
+    "allTypes": "Toate tipurile"
+  },
+  "language": {
+    "ar": "arabic",
+    "bg": "bulgar",
+    "bs": "Bosniac",
+    "de": "german",
+    "en": "engleză",
+    "es": "spaniolă",
+    "et": "estonă",
+    "fr": "franceză",
+    "hr": "croat",
+    "hy": "armean",
+    "it": "italian",
+    "mk": "macedonean",
+    "ms": "Malaeză",
+    "ro": "română",
+    "ru": "rusă",
+    "sq": "albanez",
+    "sr": "sârb",
+    "switch": "Schimbați limba",
+    "tr": "turc",
+    "zh-CN": "Chineză (simplificată)"
+  },
+  "loading": {
+    "default": "Încărcare…",
+    "refreshing": "revigorant…",
+    "saving": "Economisire…"
+  },
+  "nav": {
+    "breadcrumb": "Pesmet",
+    "closeMenu": "Închide meniul",
+    "openMenu": "Deschide meniul"
+  },
+  "pagination": {
+    "noResults": "Niciun rezultat",
+    "page": "Pagina {{page}}",
+    "showing": "Se afișează {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Rapoarte"
+  },
+  "noPermission": "Nicio permisiune.",
+  "crm": "CRM",
+  "clientPortal": "Portalul clientului",
+  "tasks": "Sarcini",
+  "comingSoon": "În curând",
+  "notifications": {
+    "title": "Notificări",
+    "unread": "necitite",
+    "markAllRead": "Marcați toate citite",
+    "couldNotLoad": "Nu s-au putut încărca notificările.",
+    "noNotificationsYet": "Nicio notificare încă."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Nu",
+    "none": "Nici unul",
+    "yes": "Da"
+  }
+}

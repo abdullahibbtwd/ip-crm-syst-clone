@@ -1,5 +1,17 @@
 {
   "clientFallback": "Client",
+  "disbursements": {
+    "title": "Disbursements",
+    "subtitle": "Firm-wide fixed fees categorized as disbursements.",
+    "loadFailed": "Failed to load disbursements.",
+    "empty": "No disbursements found.",
+    "columns": {
+      "date": "Date",
+      "matter": "Matter",
+      "description": "Description",
+      "amount": "Amount"
+    }
+  },
   "fixedFeeCategory": {
     "disbursement": "Disbursement",
     "expense": "Expense",
@@ -38,7 +50,25 @@
       "payment": "Payment",
       "status": "Status"
     },
-    "title": "Invoices"
+    "title": "Invoices",
+    "listSubtitle": "Firm-wide invoice register across all matters. Issue invoices from matter billing tabs, then record payments here.",
+    "exportFrom": "Export from",
+    "exportTo": "Export to",
+    "exportFormats": {
+      "journal": "Journal CSV",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Exporting…",
+    "exportFailed": "Accounting export failed",
+    "syncXero": "Sync Xero",
+    "syncQuickBooks": "Sync QuickBooks",
+    "syncFailed": "Accounting sync failed",
+    "searchListPlaceholder": "Search invoice no., matter, client…",
+    "filters": {
+      "allPayments": "All payments",
+      "allStatuses": "All statuses"
+    }
   },
   "payment": {
     "amount": "Amount *",
@@ -81,6 +111,7 @@
     "matterType": "Matter type",
     "new": "New rate card",
     "noPermission": "You do not have permission to manage rate cards.",
+    "viewNoPermission": "You do not have permission to view rate cards.",
     "rate": "Rate / hr *",
     "role": "Role *",
     "save": "Save changes",
@@ -93,7 +124,26 @@
       "role": "Role",
       "scope": "Scope"
     },
-    "title": "Rate cards"
+    "title": "Rate cards",
+    "pageDescription": "Firm price list by role, matter type, and optional client override. Billable rate is used when logging time; optional internal cost drives true-margin profitability.",
+    "anyMatterType": "Any matter type",
+    "clientOverride": "Client override",
+    "firmWideDefault": "Firm-wide default",
+    "editAria": "Edit rate card",
+    "loadFailed": "Failed to load rate cards.",
+    "loading": "Loading rate cards…",
+    "empty": "No rate cards yet.",
+    "billable": "Billable",
+    "validation": {
+      "hourlyRate": "Enter a valid hourly rate",
+      "internalCost": "Enter a valid internal cost or leave blank"
+    },
+    "internalCostHint": "Optional. Used for true-margin profitability when set on rate cards.",
+    "billableRate": "Billable rate (EUR/hr)",
+    "internalCostOptional": "Internal cost (EUR/hr)",
+    "internalCostPlaceholder": "Optional - for margin reporting",
+    "internalCostResolutionHint": "Mirrors billing rate resolution (client → firm + matter type → firm default). Snapshotted on new time entries as cost_snapshot.",
+    "effectiveToOptional": "Effective to (optional)"
   },
   "rateRole": {
     "coordinator": "Coordinator",

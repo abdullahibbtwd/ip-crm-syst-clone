@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { FlaskConical, Pencil, Plus } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { Badge } from '@/components/ui/badge'
@@ -35,8 +36,6 @@ import type {
   RetentionRule,
 } from '@/features/retention-rules/types'
 import {
-  ACTION_LABELS,
-  ENTITY_TYPE_LABELS,
   ENTITY_TYPES,
   conditionJsonFromPreset,
   conditionPresetFromJson,
@@ -57,6 +56,8 @@ function RetentionRuleDrawer({
   onClose: () => void
   rule: RetentionRule | null
 }) {
+  const { t } = useTranslation('compliance')
+  const { t: tCommon } = useTranslation('common')
   const isEdit = Boolean(rule)
   const createRule = useCreateRetentionRule()
   const updateRule = useUpdateRetentionRule()
@@ -68,6 +69,9 @@ function RetentionRuleDrawer({
   const [description, setDescription] = useState('')
   const [isActive, setIsActive] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  const entityLabel = (type: RetentionEntityType) => t(`retention.entityTypes.${type}`)
+  const actionLabel = (value: RetentionAction) => t(`retention.actions.${value}`)
 
   useEffect(() => {
     if (!open) return
@@ -104,13 +108,11 @@ function RetentionRuleDrawer({
     setError(null)
     const days = Number(retentionDays)
     if (!days || days < 1) {
-      setError('Enter a valid retention period in days')
+      setError(t('retention.errors.invalidDays'))
       return
     }
 
-    const confirmed = window.confirm(
-      'Retention rules run on the nightly scan job (default 3:00 AM). Continue saving?',
-    )
+    const confirmed = window.confirm(t('retention.errors.confirmSave'))
     if (!confirmed) return
 
     const conditionJson = conditionJsonFromPreset(entityType, conditionPreset)
@@ -138,18 +140,22 @@ function RetentionRuleDrawer({
       }
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to save retention rule'))
+      setError(getApiErrorMessage(err, t('retention.errors.saveFailed')))
     }
   }
 
   const pending = createRule.isPending || updateRule.isPending
 
   return (
-    <Drawer open={open} onClose={onClose} title={isEdit ? 'Edit retention rule' : 'New retention rule'}>
+    <Drawer
+      open={open}
+      onClose={onClose}
+      title={isEdit ? t('retention.drawer.editTitle') : t('retention.drawer.createTitle')}
+    >
       <form className="space-y-4" onSubmit={handleSubmit}>
         {!isEdit && (
           <div className="space-y-2">
-            <Label>Entity type</Label>
+            <Label>{t('retention.drawer.entityType')}</Label>
             <Select
               value={entityType}
               onValueChange={(v) => setEntityType((v as RetentionEntityType) ?? 'intake_leads')}
@@ -160,7 +166,7 @@ function RetentionRuleDrawer({
               <SelectContent>
                 {ENTITY_TYPES.map((type) => (
                   <SelectItem key={type} value={type}>
-                    {ENTITY_TYPE_LABELS[type]}
+                    {entityLabel(type)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -170,13 +176,13 @@ function RetentionRuleDrawer({
 
         {isEdit && rule && (
           <div className="rounded-md border bg-muted/40 px-3 py-2 text-sm text-muted-foreground">
-            {ENTITY_TYPE_LABELS[rule.entityType as RetentionEntityType] ?? rule.entityType}
+            {entityLabel(rule.entityType as RetentionEntityType)}
           </div>
         )}
 
         {entityType === 'intake_leads' && (
           <div className="space-y-2">
-            <Label>Condition</Label>
+            <Label>{t('retention.drawer.condition')}</Label>
             <Select
               value={conditionPreset}
               onValueChange={(v) =>
@@ -187,22 +193,21 @@ function RetentionRuleDrawer({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="rejected">Status = rejected</SelectItem>
-                <SelectItem value="not_converted">Not converted (excl. rejected)</SelectItem>
+                <SelectItem value="rejected">{t('retention.drawer.conditionRejected')}</SelectItem>
+                <SelectItem value="not_converted">
+                  {t('retention.drawer.conditionNotConverted')}
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
         )}
 
         {entityType === 'audit_logs' && (
-          <p className="text-xs text-muted-foreground">
-            Audit log rules apply to all records older than the retention period. Action is always
-            delete.
-          </p>
+          <p className="text-xs text-muted-foreground">{t('retention.drawer.auditLogsHint')}</p>
         )}
 
         <div className="space-y-2">
-          <Label htmlFor="retention-days">Retention (days)</Label>
+          <Label htmlFor="retention-days">{t('retention.drawer.retentionDays')}</Label>
           <Input
             id="retention-days"
             type="number"
@@ -212,13 +217,13 @@ function RetentionRuleDrawer({
           />
           {Number(retentionDays) > 0 && (
             <p className="text-xs text-muted-foreground">
-              {formatRetentionDuration(Number(retentionDays))}
+              {formatRetentionDuration(Number(retentionDays), t)}
             </p>
           )}
         </div>
 
         <div className="space-y-2">
-          <Label>Action</Label>
+          <Label>{t('retention.drawer.action')}</Label>
           <Select
             value={action}
             onValueChange={(v) => setAction((v as RetentionAction) ?? 'anonymize')}
@@ -228,14 +233,14 @@ function RetentionRuleDrawer({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="anonymize">Anonymize</SelectItem>
-              <SelectItem value="delete">Delete</SelectItem>
+              <SelectItem value="anonymize">{actionLabel('anonymize')}</SelectItem>
+              <SelectItem value="delete">{actionLabel('delete')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="retention-description">Description</Label>
+          <Label htmlFor="retention-description">{t('retention.drawer.description')}</Label>
           <Textarea
             id="retention-description"
             rows={3}
@@ -246,7 +251,7 @@ function RetentionRuleDrawer({
 
         {isEdit && (
           <div className="space-y-2">
-            <Label>Status</Label>
+            <Label>{t('retention.drawer.status')}</Label>
             <Select
               value={isActive ? 'active' : 'inactive'}
               onValueChange={(v) => setIsActive(v === 'active')}
@@ -255,8 +260,8 @@ function RetentionRuleDrawer({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="inactive">Inactive</SelectItem>
+                <SelectItem value="active">{t('retention.status.active')}</SelectItem>
+                <SelectItem value="inactive">{t('retention.status.inactive')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -266,10 +271,10 @@ function RetentionRuleDrawer({
 
         <div className="flex justify-end gap-2 pt-2">
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {tCommon('actions.cancel')}
           </Button>
           <Button type="submit" disabled={pending}>
-            {isEdit ? 'Save changes' : 'Create rule'}
+            {isEdit ? tCommon('actions.saveChanges') : t('retention.drawer.createRule')}
           </Button>
         </div>
       </form>
@@ -278,6 +283,8 @@ function RetentionRuleDrawer({
 }
 
 export function RetentionRulesPage() {
+  const { t } = useTranslation('compliance')
+  const { t: tCommon } = useTranslation('common')
   const { activeRole } = useOutletContext<LayoutContext>()
   const canManage = hasAnyRole([activeRole], ['managing_partner', 'dpo_compliance'])
   const { data: rules, isLoading, isError } = useRetentionRules()
@@ -286,35 +293,34 @@ export function RetentionRulesPage() {
   const [editingRule, setEditingRule] = useState<RetentionRule | null>(null)
   const [dryRunMessage, setDryRunMessage] = useState<string | null>(null)
 
+  const entityLabel = (type: RetentionEntityType) => t(`retention.entityTypes.${type}`)
+  const actionLabel = (value: RetentionAction) => t(`retention.actions.${value}`)
+
   const handleDryRun = async (id: string) => {
     setDryRunMessage(null)
     try {
       const result = await dryRun.mutateAsync(id)
       setDryRunMessage(
-        `Dry run: would affect ${result.wouldAffect} record${result.wouldAffect === 1 ? '' : 's'} (cutoff ${new Date(result.cutoff).toLocaleDateString()}).`,
+        t('retention.dryRunResult', {
+          count: result.wouldAffect,
+          cutoff: new Date(result.cutoff).toLocaleDateString(),
+        }),
       )
     } catch (err) {
-      setDryRunMessage(getApiErrorMessage(err, 'Dry run failed'))
+      setDryRunMessage(getApiErrorMessage(err, t('retention.dryRunFailed')))
     }
   }
 
   if (!canManage) {
-    return (
-      <p className="text-sm text-muted-foreground">
-        You do not have permission to manage retention rules.
-      </p>
-    )
+    return <p className="text-sm text-muted-foreground">{t('retention.noPermission')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Retention rules</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            GDPR retention policies enforced by the nightly scan job (default 3:00 AM). Use dry-run
-            to preview how many records would be affected.
-          </p>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('retention.title')}</h1>
+          <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t('retention.subtitle')}</p>
         </div>
         <Button
           type="button"
@@ -324,7 +330,7 @@ export function RetentionRulesPage() {
           }}
         >
           <Plus className="mr-1 size-4" />
-          New rule
+          {t('retention.newRule')}
         </Button>
       </div>
 
@@ -332,19 +338,19 @@ export function RetentionRulesPage() {
         <p className="rounded-md border bg-muted/40 px-3 py-2 text-sm">{dryRunMessage}</p>
       )}
 
-      {isLoading && <p className="text-sm text-muted-foreground">Loading retention rules…</p>}
-      {isError && <p className="text-sm text-destructive">Failed to load retention rules.</p>}
+      {isLoading && <p className="text-sm text-muted-foreground">{t('retention.loading')}</p>}
+      {isError && <p className="text-sm text-destructive">{t('retention.loadFailed')}</p>}
 
       {rules && (
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Entity</TableHead>
-              <TableHead>Condition</TableHead>
-              <TableHead>Retention</TableHead>
-              <TableHead>Action</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Description</TableHead>
+              <TableHead>{t('retention.columns.entity')}</TableHead>
+              <TableHead>{t('retention.columns.condition')}</TableHead>
+              <TableHead>{t('retention.columns.retention')}</TableHead>
+              <TableHead>{t('retention.columns.action')}</TableHead>
+              <TableHead>{t('retention.columns.status')}</TableHead>
+              <TableHead>{t('retention.columns.description')}</TableHead>
               <TableHead className="w-[100px]" />
             </TableRow>
           </TableHeader>
@@ -352,33 +358,35 @@ export function RetentionRulesPage() {
             {rules.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="text-center text-muted-foreground">
-                  No retention rules yet.
+                  {t('retention.empty')}
                 </TableCell>
               </TableRow>
             ) : (
               rules.map((rule) => (
                 <TableRow key={rule.id}>
                   <TableCell>
-                    {ENTITY_TYPE_LABELS[rule.entityType as RetentionEntityType] ?? rule.entityType}
+                    {entityLabel(rule.entityType as RetentionEntityType)}
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">
-                    {describeCondition(rule.entityType, rule.conditionJson)}
+                    {describeCondition(rule.entityType, rule.conditionJson, t)}
                   </TableCell>
                   <TableCell className="text-sm">
-                    {formatRetentionDuration(rule.retentionDays)}
+                    {formatRetentionDuration(rule.retentionDays, t)}
                   </TableCell>
                   <TableCell>
                     <Badge variant={rule.action === 'delete' ? 'destructive' : 'secondary'}>
-                      {ACTION_LABELS[rule.action] ?? rule.action}
+                      {actionLabel(rule.action)}
                     </Badge>
                   </TableCell>
                   <TableCell>
                     <Badge variant={rule.isActive ? 'info' : 'secondary'}>
-                      {rule.isActive ? 'Active' : 'Inactive'}
+                      {rule.isActive
+                        ? t('retention.status.active')
+                        : t('retention.status.inactive')}
                     </Badge>
                   </TableCell>
                   <TableCell className="max-w-[240px] truncate text-sm text-muted-foreground">
-                    {rule.description ?? '—'}
+                    {rule.description ?? tCommon('yesNo.dash')}
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
@@ -388,8 +396,8 @@ export function RetentionRulesPage() {
                         size="icon-sm"
                         disabled={dryRun.isPending}
                         onClick={() => handleDryRun(rule.id)}
-                        aria-label="Dry-run retention rule"
-                        title="Dry run"
+                        aria-label={t('retention.dryRunAria')}
+                        title={t('retention.dryRun')}
                       >
                         <FlaskConical className="size-3.5" />
                       </Button>
@@ -401,7 +409,7 @@ export function RetentionRulesPage() {
                           setEditingRule(rule)
                           setDrawerOpen(true)
                         }}
-                        aria-label="Edit retention rule"
+                        aria-label={t('retention.editAria')}
                       >
                         <Pencil className="size-3.5" />
                       </Button>
@@ -415,11 +423,11 @@ export function RetentionRulesPage() {
       )}
 
       <p className="text-sm text-muted-foreground">
-        View purge history in the{' '}
+        {t('retention.auditTrailHint')}{' '}
         <Link to="/compliance/audit-trail" className="text-primary hover:underline">
-          audit trail
+          {t('retention.auditTrailLink')}
         </Link>{' '}
-        (filter action: <code className="rounded bg-muted px-1">retention_rule_executed</code>).
+        {t('retention.auditTrailFilter')}
       </p>
 
       <RetentionRuleDrawer

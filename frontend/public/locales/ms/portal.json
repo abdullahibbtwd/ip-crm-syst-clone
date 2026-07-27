@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Hantar pertanyaan pemfailan baharu dan lacak perkara yang dibuka di bawah organisasi anda. Portfolio anda sepintas lalu.",
+    "eyebrow": "Portal pelanggan",
+    "filePatent": "Failkan paten",
+    "fileTrademark": "Failkan tanda dagangan",
+    "stats": {
+      "activeMatters": "Perkara yang aktif",
+      "activeMattersHint": "Portfolio organisasi",
+      "openDeadlines": "Buka tarikh akhir",
+      "openDeadlinesHint": "Menunggu tindakan",
+      "overdue": "Tertunggak",
+      "overdueCurrent": "Semua semasa",
+      "overdueUrgent": "Perhatian segera",
+      "renewals": "Pembaharuan",
+      "renewalsCurrent": "Arus penyelenggaraan",
+      "renewalsNeedAction_one": "{{count}} perlukan tindakan",
+      "renewalsNeedAction_other": "{{count}} perlukan tindakan"
+    },
+    "title": "Selamat kembali"
+  },
+  "correspondence": {
+    "title": "Mesej",
+    "description": "Surat-menyurat firma anda telah berkongsi dengan anda.",
+    "loading": "Memuatkan mesej…",
+    "error": "Gagal memuatkan mesej.",
+    "empty": "Tiada mesej lagi. Surat-menyurat yang dikongsi akan dipaparkan di sini.",
+    "table": {
+      "subject": "Subjek",
+      "date": "tarikh",
+      "direction": "Arah",
+      "matter": "Perkara"
+    }
+  },
+  "messages": {
+    "title": "Mesej",
+    "description": "Siaran firma dan mesej penting yang dikongsi dengan organisasi anda.",
+    "loading": "Memuatkan mesej…",
+    "loadingDetail": "Membuka…",
+    "error": "Gagal memuatkan mesej.",
+    "empty": "Tiada mesej lagi. Kemas kini firma dan surat-menyurat dikongsi akan dipaparkan di sini.",
+    "selectHint": "Pilih mesej untuk membacanya.",
+    "unread": "Belum dibaca",
+    "relatedMatter": "Perkara",
+    "noBody": "Tiada badan mesej.",
+    "openLink": "Buka pautan mesej",
+    "kindBroadcast": "Siarkan",
+    "kindCorrespondence": "Perkara",
+    "table": {
+      "type": "taip",
+      "subject": "Subjek",
+      "date": "tarikh",
+      "matter": "Perkara"
+    }
+  },
+  "approvals": {
+    "title": "Kelulusan",
+    "description": "Semak dan putuskan permintaan kelulusan daripada firma anda.",
+    "loading": "Memuatkan kelulusan…",
+    "couldNotLoad": "Tidak dapat memuatkan kelulusan",
+    "retry": "Cuba semula",
+    "decideError": "Tidak dapat menyerahkan keputusan anda",
+    "approve": "Luluskan",
+    "reject": "Tolak",
+    "notePlaceholder": "Nota pilihan…",
+    "due": "Perlu dibayar {{date}}",
+    "pendingSection": "Menunggu keputusan anda",
+    "historySection": "Keputusan terdahulu",
+    "empty": {
+      "title": "Tiada permintaan kelulusan",
+      "description": "Apabila firma anda menyerahkan permintaan kelulusan, ia akan dipaparkan di sini."
+    },
+    "status": {
+      "draft": "Draf",
+      "pending": "Belum selesai",
+      "approved": "Diluluskan",
+      "rejected": "ditolak"
+    }
+  },
+  "documentCategories": {
+    "application": "Permohonan",
+    "certificate": "Sijil",
+    "correspondence": "Surat-menyurat",
+    "evidence": "Bukti",
+    "office_action": "Tindakan pejabat"
+  },
+  "documents": {
+    "allCategories": "Semua kategori",
+    "allMatters": "Semua perkara",
+    "description": "Dokumen yang dikongsi merentas semua perkara anda.",
+    "download": "Muat turun",
+    "empty": "Tiada dokumen lagi. Dokumen akan dipaparkan di sini apabila firma anda berkongsinya mengenai perkara anda.",
+    "error": "Gagal memuatkan dokumen.",
+    "loading": "Memuatkan dokumen…",
+    "searchPlaceholder": "Cari dokumen…",
+    "table": {
+      "category": "kategori",
+      "document": "Dokumen",
+      "matter": "Perkara",
+      "size": "Saiz",
+      "updated": "dikemas kini"
+    },
+    "title": "dokumen saya"
+  },
+  "intake": {
+    "description": "Failkan permintaan pemfailan baharu atau semak semula pertanyaan yang telah anda serahkan.",
+    "empty": {
+      "action": "Failkan siasatan",
+      "description": "Failkan tanda dagangan atau pertanyaan paten untuk bermula.",
+      "title": "Tiada pertanyaan lagi"
+    },
+    "error": "Tidak dapat memuatkan pertanyaan anda.",
+    "filed": "Difailkan {{date}}",
+    "fileNew": "Failkan siasatan baharu",
+    "loading": "Memuatkan pertanyaan anda…",
+    "myEnquiries": "pertanyaan saya",
+    "status": {
+      "accepted": "Diterima",
+      "inReview": "Dalam semakan",
+      "matterOpened": "Perkara dibuka",
+      "notAccepted": "Tidak diterima",
+      "submitted": "diserahkan"
+    },
+    "submitted": {
+      "description": "Kami menjalankan semakan konflik awal secara automatik. Penyelaras akan mengesahkan dan membuka perkara anda. Anda boleh menyemak atau mengedit pertanyaan anda pada bila-bila masa sehingga ia diterima.",
+      "reviewEnquiry": "Semak semula siasatan ini",
+      "title": "Siasatan dikemukakan"
+    },
+    "title": "Pertanyaan",
+    "untitled": "Siasatan tanpa tajuk"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Berbalik kepada pertanyaan saya",
+    "cancel": "Batal",
+    "defaultTitle": "Siasatan",
+    "edit": "Sunting",
+    "editDescription": "Menyimpan akan mengemas kini pertanyaan anda dan menjalankan semula semakan konflik secara automatik.",
+    "editTitle": "Edit pertanyaan",
+    "enquirer": "Penanya",
+    "enquirerCompany": "Syarikat",
+    "enquirerIndividual": "individu",
+    "enquiryDetails": "Butiran pertanyaan",
+    "error": "Tidak dapat memuatkan pertanyaan ini.",
+    "fields": {
+      "companyName": "Nama syarikat",
+      "country": "Negara",
+      "description": "Penerangan",
+      "email": "E-mel",
+      "fullName": "Nama penuh",
+      "matterType": "Jenis jirim",
+      "otherParties": "Pihak lain",
+      "phone": "telefon",
+      "urgency": "Terdesak"
+    },
+    "filed": "Difailkan {{date}}",
+    "loading": "Memuatkan pertanyaan…",
+    "saveChanges": "Simpan perubahan",
+    "statusHints": {
+      "approved": "Pertanyaan anda telah diterima dan sedang disediakan sebagai satu perkara.",
+      "conflictFlagged": "Penyelaras sedang menyemak pertanyaan anda sebelum ia boleh diterima.",
+      "converted": "Satu perkara telah dibuka. Anda boleh menjejakinya di bawah urusan Saya.",
+      "new": "Diterima. Semakan konflik telah dijalankan secara automatik dan penyelaras akan menyemaknya sebentar lagi.",
+      "rejected": "Siasatan ini tidak diterima. Hubungi kami jika anda mempunyai soalan.",
+      "reviewing": "Penyelaras sedang menyemak pertanyaan anda."
+    },
+    "urgency": {
+      "normal": "Biasalah",
+      "urgent": "mendesak"
+    },
+    "viewMatter": "Lihat perkara"
+  },
+  "invoices": {
+    "description": "Invois dan status pembayaran merentas semua urusan anda.",
+    "error": "Gagal memuatkan invois.",
+    "loading": "Memuatkan invois…",
+    "title": "Invois saya"
+  },
+  "matterTypes": {
+    "design": "Reka bentuk",
+    "other": "Lain-lain",
+    "patent": "Paten",
+    "trademark": "Tanda dagangan",
+    "utility_model": "Model utiliti"
+  },
+  "renewals": {
+    "couldNotLoad": "Tidak dapat memuatkan pembaharuan",
+    "cycle": "kitaran {{number}}",
+    "decline": "Tolak",
+    "description": "Pembaharuan tanda dagangan dan reka bentuk yang akan datang untuk hak IP anda.",
+    "due": "Perlu dibayar {{date}}",
+    "empty": {
+      "description": "Pembaharuan muncul di sini selepas firma anda mendaftarkan IP tepat pada salah satu perkara anda. Anda akan diminta untuk Teruskan atau Tolak sebelum setiap tarikh tamat pembaharuan.",
+      "title": "Tiada pembaharuan memerlukan perhatian anda",
+      "viewDeadlines": "Lihat tarikh akhir saya",
+      "viewMatters": "Lihat perkara saya"
+    },
+    "errorFallback": "Sila cuba lagi atau log keluar dan masuk semula jika kebenaran ditukar.",
+    "instructionError": "Tidak dapat menyerahkan arahan",
+    "loading": "Memuatkan…",
+    "proceed": "Teruskan",
+    "retry": "Cuba semula",
+    "title": "Pembaharuan"
+  },
+  "renewalStatus": {
+    "completed": "Selesai",
+    "filed": "Difailkan",
+    "instructed": "Diarahkan",
+    "lapsed": "luput",
+    "upcoming": "Akan datang"
+  },
+  "help": {
+    "title": "Tolong",
+    "subtitle": "Cara menggunakan portal pelanggan untuk portfolio IP anda.",
+    "enquiriesTitle": "Failkan siasatan",
+    "enquiriesBody": "Gunakan Pertanyaan untuk menyerahkan permintaan perkara baharu. Firma itu akan menyemak semakan konflik dan menukar petunjuk yang diluluskan kepada perkara.",
+    "openEnquiries": "Buka pertanyaan",
+    "approvalsTitle": "Kelulusan",
+    "approvalsBody": "Apabila firma meminta kelulusan anda (contohnya pembaharuan atau arahan), balas daripada halaman Kelulusan.",
+    "openApprovals": "Kelulusan terbuka",
+    "contactTitle": "Perlukan bantuan lagi?",
+    "contactBody": "Hubungi peguam atau penyelaras anda yang ditugaskan melalui Mesej, atau balas surat-menyurat tegas mengenai sesuatu perkara.",
+    "openMessages": "Buka mesej"
+  }
+}

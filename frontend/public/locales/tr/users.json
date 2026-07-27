@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Avukatlar yükleniyor…",
+    "placeholder": "Sorumlu avukatı seçin",
+    "unassigned": "Atanmamış"
+  },
+  "filters": {
+    "activeOnly": "Yalnızca etkin",
+    "allStatuses": "Tüm durumlar",
+    "inactiveOnly": "Yalnızca etkin değil",
+    "searchPortal": "Portal kullanıcılarını arayın…",
+    "searchTeam": "Ekip üyelerini arayın…"
+  },
+  "invite": {
+    "button": "Kullanıcıyı davet et",
+    "cancel": "İptal etmek",
+    "clientPlaceholder": "Müşteri kaydını seçin…",
+    "clientRecord": "Müşteri kaydı",
+    "description": "Bir ekip üyesini veya portal istemcisini davet edin. Parolalarını ayarlamaları veya Microsoft ya da Google'da oturum açmaları için bir bağlantı içeren bir e-posta alacaklar.",
+    "email": "E-posta",
+    "emailFailed": "Davet e-postası gönderilemedi",
+    "emailFailedContinue": "Kullanıcı oluşturuldu — kapatın ve daha sonra yeniden gönderin",
+    "emailFailedTitle": "Kullanıcı davet edildi ancak e-posta gönderilemedi.",
+    "emailHint": "Şifre belirleme bağlantısını içeren bir davet e-postası gönderilir. Ayrıca tam olarak bu e-postayı kullanarak Microsoft veya Google'da oturum açabilirler. E-posta başarısız olursa kullanıcı yine de oluşturulur ve kullanıcılar listesinden yeniden gönderebilirsiniz.",
+    "emailPlaceholder": "isim@şirket.com",
+    "errors": {
+      "clientRequired": "Portal kullanıcıları için bir müşteri kaydı seçin",
+      "failed": "Kullanıcı davet edilemedi",
+      "required": "E-posta ve tam ad gereklidir"
+    },
+    "fullName": "Ad Soyad",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Son e-posta denemesi başarısız oldu",
+    "resend": "Daveti yeniden gönder",
+    "resendFailed": "Davet e-postası yeniden gönderilemedi",
+    "resendSuccess": "Davet e-postası gönderildi",
+    "role": "Rol",
+    "submit": "Davet gönder",
+    "submitting": "Davet ediliyor…",
+    "title": "Kullanıcıyı davet et",
+    "typePortal": "Portal istemcisi",
+    "typeTeam": "Ekip üyesi",
+    "userType": "Kullanıcı türü"
+  },
+  "layout": {
+    "accessRestricted": "Erişim kısıtlı",
+    "description": "Dahili ekip üyelerini ve harici portal müşteri hesaplarını yönetin. SSO ve şifre tabanlı oturum açma, kullanıcı başına gösterilir.",
+    "noPermission": "Kullanıcıları ve ekip üyelerini görüntüleme izniniz yok.",
+    "title": "Kullanıcılar ve ekip"
+  },
+  "portal": {
+    "description": "Paylaşılan konulara ve belgelere portal erişimi olan harici müşteri hesapları.",
+    "title": "Portal kullanıcıları"
+  },
+  "role": {
+    "errors": {
+      "failed": "Rol güncellenemedi"
+    },
+    "ownRoleHint": "Kendi rolünüzü değiştiremezsiniz"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Şifre",
+      "pending": "Askıda olması",
+      "sso": "TOA"
+    },
+    "clientRecord": "Müşteri kaydı",
+    "empty": "Kullanıcı bulunamadı",
+    "emptyDescription": "Aramayı veya filtreleri ayarlamayı deneyin.",
+    "error": "Kullanıcılar yüklenemedi.",
+    "headers": {
+      "invite": "Davet etmek",
+      "lastLogin": "Son giriş",
+      "mfa": "MFA",
+      "registered": "Kayıtlı",
+      "role": "Rol",
+      "signIn": "Oturum aç",
+      "status": "Durum",
+      "user": "Kullanıcı"
+    },
+    "mfa": {
+      "enabled": "Etkinleştirilmiş",
+      "off": "Kapalı"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Etkin değil",
+      "invited": "Davet edildi"
+    },
+    "viewAria": "{{name}} görüntüle"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Müşteri hesapları",
+      "label": "Portal kullanıcıları"
+    },
+    "team": {
+      "description": "Dahili personel",
+      "label": "Takım"
+    }
+  },
+  "team": {
+    "description": "Rolleri, oturum açma yöntemi ve MFA durumu olan dahili personel. Yönetici iş ortakları ve BT yöneticileri, kullanıcıları davet edebilir ve rolleri değiştirebilir.",
+    "title": "Ekip üyeleri"
+  },
+  "teamMemberSelect": {
+    "loading": "Yükleniyor…",
+    "placeholder": "Ekip üyesini seçin"
+  }
+}

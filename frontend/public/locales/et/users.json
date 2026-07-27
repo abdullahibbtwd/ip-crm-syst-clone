@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Advokaatide laadimine…",
+    "placeholder": "Valige vastutav advokaat",
+    "unassigned": "Määramata"
+  },
+  "filters": {
+    "activeOnly": "Ainult aktiivne",
+    "allStatuses": "Kõik olekud",
+    "inactiveOnly": "Ainult passiivne",
+    "searchPortal": "Otsi portaali kasutajaid…",
+    "searchTeam": "Otsi meeskonnaliikmeid…"
+  },
+  "invite": {
+    "button": "Kutsu kasutaja",
+    "cancel": "Tühista",
+    "clientPlaceholder": "Vali kliendikirje…",
+    "clientRecord": "Kliendi rekord",
+    "description": "Kutsuge meeskonnaliige või portaali klient. Nad saavad meili lingiga parooli määramiseks või Microsofti või Google'iga sisselogimiseks.",
+    "email": "Meil",
+    "emailFailed": "Kutse meili ei saanud saata",
+    "emailFailedContinue": "Kasutaja on loodud – sulgege ja saatke hiljem uuesti",
+    "emailFailedTitle": "Kasutaja kutsuti, kuid meili ei õnnestunud saata.",
+    "emailHint": "Kutse e-kiri saadetakse parooli määramise lingiga. Nad saavad sisse logida ka Microsofti või Google'iga, kasutades täpselt seda e-posti aadressi. Kui meilimine ebaõnnestub, luuakse kasutaja ikkagi ja saate kasutajate loendist uuesti saata.",
+    "emailPlaceholder": "nimi@ettevõte.com",
+    "errors": {
+      "clientRequired": "Valige portaali kasutajate jaoks kliendikirje",
+      "failed": "Kasutaja kutsumine ebaõnnestus",
+      "required": "Vajalik on meiliaadress ja täisnimi"
+    },
+    "fullName": "Täisnimi",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Viimane meilikatse ebaõnnestus",
+    "resend": "Saada kutse uuesti",
+    "resendFailed": "Kutse meili uuesti saatmine ebaõnnestus",
+    "resendSuccess": "Kutse meil saadetud",
+    "role": "Roll",
+    "submit": "Saada kutse",
+    "submitting": "Kutsumine…",
+    "title": "Kutsu kasutaja",
+    "typePortal": "Portaali klient",
+    "typeTeam": "Meeskonna liige",
+    "userType": "Kasutaja tüüp"
+  },
+  "layout": {
+    "accessRestricted": "Juurdepääs piiratud",
+    "description": "Hallake sisemisi meeskonnaliikmeid ja välisportaali kliendikontosid. SSO- ja paroolipõhine sisselogimine kuvatakse kasutaja kohta.",
+    "noPermission": "Teil pole luba kasutajate ja meeskonnaliikmete vaatamiseks.",
+    "title": "Kasutajad ja meeskond"
+  },
+  "portal": {
+    "description": "Välised kliendikontod portaali juurdepääsuga jagatud asjadele ja dokumentidele.",
+    "title": "Portaali kasutajad"
+  },
+  "role": {
+    "errors": {
+      "failed": "Rolli värskendamine ebaõnnestus"
+    },
+    "ownRoleHint": "Sa ei saa oma rolli muuta"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Parool",
+      "pending": "Ootel",
+      "sso": "SSO"
+    },
+    "clientRecord": "Kliendi rekord",
+    "empty": "Ühtegi kasutajat ei leitud",
+    "emptyDescription": "Proovige otsingut või filtreid kohandada.",
+    "error": "Kasutajate laadimine ebaõnnestus.",
+    "headers": {
+      "invite": "Kutsu",
+      "lastLogin": "Viimane sisselogimine",
+      "mfa": "MFA",
+      "registered": "Registreeritud",
+      "role": "Roll",
+      "signIn": "Logi sisse",
+      "status": "Olek",
+      "user": "Kasutaja"
+    },
+    "mfa": {
+      "enabled": "Lubatud",
+      "off": "Väljas"
+    },
+    "status": {
+      "active": "Aktiivne",
+      "inactive": "Mitteaktiivne",
+      "invited": "Kutsutud"
+    },
+    "viewAria": "Kuva {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Kliendikontod",
+      "label": "Portaali kasutajad"
+    },
+    "team": {
+      "description": "Sisemine personal",
+      "label": "Meeskond"
+    }
+  },
+  "team": {
+    "description": "Sisetöötajad rollide, sisselogimismeetodi ja MFA staatusega. Halduspartnerid ja IT-administraatorid saavad kasutajaid kutsuda ja rolle muuta.",
+    "title": "Meeskonna liikmed"
+  },
+  "teamMemberSelect": {
+    "loading": "Laadimine…",
+    "placeholder": "Valige meeskonnaliige"
+  }
+}

@@ -9,12 +9,10 @@ export function PortalHelpPage() {
     <div className="mx-auto max-w-2xl space-y-8">
       <div>
         <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-          {t('help.title', { defaultValue: 'Help' })}
+          {t('help.title')}
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          {t('help.subtitle', {
-            defaultValue: 'How to use the client portal for your IP portfolio.',
-          })}
+          {t('help.subtitle')}
         </p>
       </div>
 
@@ -22,16 +20,13 @@ export function PortalHelpPage() {
         <div className="flex items-center gap-2">
           <Inbox className="size-4 text-primary" />
           <h2 className="font-medium">
-            {t('help.enquiriesTitle', { defaultValue: 'File an enquiry' })}
+            {t('help.enquiriesTitle')}
           </h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          {t('help.enquiriesBody', {
-            defaultValue:
-              'Use Enquiries to submit a new matter request. The firm will review conflict checks and convert approved leads into matters.',
-          })}{' '}
+          {t('help.enquiriesBody')}{' '}
           <Link to="/portal/intake" className="text-primary hover:underline">
-            {t('help.openEnquiries', { defaultValue: 'Open enquiries' })}
+            {t('help.openEnquiries')}
           </Link>
         </p>
       </section>
@@ -40,16 +35,13 @@ export function PortalHelpPage() {
         <div className="flex items-center gap-2">
           <ShieldCheck className="size-4 text-primary" />
           <h2 className="font-medium">
-            {t('help.approvalsTitle', { defaultValue: 'Approvals' })}
+            {t('help.approvalsTitle')}
           </h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          {t('help.approvalsBody', {
-            defaultValue:
-              'When the firm requests your approval (for example renewals or instructions), respond from the Approvals page.',
-          })}{' '}
+          {t('help.approvalsBody')}{' '}
           <Link to="/portal/approvals" className="text-primary hover:underline">
-            {t('help.openApprovals', { defaultValue: 'Open approvals' })}
+            {t('help.openApprovals')}
           </Link>
         </p>
       </section>
@@ -58,16 +50,13 @@ export function PortalHelpPage() {
         <div className="flex items-center gap-2">
           <HelpCircle className="size-4 text-primary" />
           <h2 className="font-medium">
-            {t('help.contactTitle', { defaultValue: 'Need more help?' })}
+            {t('help.contactTitle')}
           </h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          {t('help.contactBody', {
-            defaultValue:
-              'Contact your assigned attorney or coordinator through Messages, or reply to firm correspondence on a matter.',
-          })}{' '}
+          {t('help.contactBody')}{' '}
           <Link to="/portal/messages" className="text-primary hover:underline">
-            {t('help.openMessages', { defaultValue: 'Open messages' })}
+            {t('help.openMessages')}
           </Link>
         </p>
       </section>

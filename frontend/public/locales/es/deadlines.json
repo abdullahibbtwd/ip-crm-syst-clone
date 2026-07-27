@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Pendiente",
+    "in_progress": "En curso",
+    "completed": "Terminada",
+    "missed": "Omitido",
+    "escalated": "Escalada",
+    "superseded": "Reemplazada"
+  },
+  "urgency": {
+    "dueToday": "Vencimiento hoy",
+    "overdue": "Atrasada"
+  },
+  "allDeadlines": {
+    "title": "Todos los plazos",
+    "description": "Registro de plazos en toda la empresa para cada asunto y cesionario.",
+    "newDeadline": "Nueva fecha límite",
+    "firmDueToday_one": "Hoy vence una fecha límite firme para todos los asuntos.",
+    "firmDueToday_other": "{{count}} Los plazos firmes vencen hoy en todos los asuntos.",
+    "filters": {
+      "attorney": "Abogada",
+      "allAttorneys": "Todas las abogadas",
+      "matterType": "tipo de asunto",
+      "allTypes": "Todos los tipos",
+      "jurisdiction": "Jurisdicción",
+      "allJurisdictions": "Todas las jurisdicciones",
+      "status": "Estado",
+      "allStatuses": "Todos los estados",
+      "overdue": "Atrasada",
+      "dueFrom": "Debido a",
+      "dueTo": "Debido a"
+    },
+    "loading": "Cargando plazos…",
+    "error": "No se pudieron cargar los plazos.",
+    "table": {
+      "matter": "Asunto",
+      "attorney": "Abogada",
+      "type": "Tipo",
+      "jurisdiction": "Jurisdicción",
+      "dueDate": "Fecha de vencimiento",
+      "grace": "Gracia",
+      "status": "Estado"
+    },
+    "empty": "Ningún plazo coincide con tus filtros.",
+    "previous": "Previa",
+    "next": "Próxima"
+  },
+  "myDeadlines": {
+    "title": "Mis plazos",
+    "descriptionStaff": "Su lista de trabajo personal en todos los asuntos asignados. Actualice el estado aquí sin abrir cada asunto.",
+    "descriptionPortal": "Plazos próximos y vencidos en todos sus asuntos.",
+    "tabs": {
+      "all": "Toda",
+      "pending": "Pendiente",
+      "in_progress": "En curso",
+      "overdue": "Atrasada",
+      "completed": "Terminada"
+    },
+    "loading": "Cargando plazos…",
+    "error": "No se pudieron cargar los plazos.",
+    "table": {
+      "matter": "Asunto",
+      "type": "Tipo",
+      "jurisdiction": "Jurisdicción",
+      "dueDate": "Fecha de vencimiento",
+      "grace": "Gracia",
+      "status": "Estado"
+    },
+    "empty": "Desde este punto de vista no hay plazos.",
+    "previous": "Previa",
+    "next": "Próxima"
+  },
+  "widget": {
+    "title": "Mis plazos",
+    "viewAll": "Ver todo",
+    "loading": "Analizando los datos de la fecha límite...",
+    "error": "No se pudieron cargar los plazos.",
+    "empty": "No se le han asignado fechas límite próximas.",
+    "table": {
+      "matterClient": "Asunto y Cliente",
+      "deadline": "Fecha límite",
+      "dueDateStatus": "Fecha de vencimiento y estado"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Vencimiento hoy",
+    "view": "Vista",
+    "personal_one": "Tienes 1 fecha límite que vence hoy.",
+    "personal_other": "Tiene {{count}} fechas límite que vencen hoy."
+  }
+}

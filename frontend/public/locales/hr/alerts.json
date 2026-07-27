@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "upozorenja",
+    "description": "Zakašnjele, dospjele danas i hitne stavke, plus nepročitane obavijesti."
+  },
+  "sections": {
+    "overdue": "Zakašnjelo",
+    "today": "Rok je danas",
+    "urgent": "Hitno",
+    "notifications": "Obavijesti"
+  },
+  "empty": {
+    "notifications": "Nema obavijesti",
+    "urgent": "Nema hitnih predmeta",
+    "overdue": "Nema zakašnjelih artikala",
+    "today": "Danas nema artikala"
+  }
+}

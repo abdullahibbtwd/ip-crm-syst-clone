@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Torna al cruscotto",
+    "cancel": "Cancellare",
+    "edit": "Modificare",
+    "loadMore": "Carica di più",
+    "next": "Prossima",
+    "previous": "Precedente",
+    "refresh": "Aggiorna",
+    "remove": "Rimuovere",
+    "retry": "Riprova",
+    "save": "Salva",
+    "saveChanges": "Salva modifiche",
+    "view": "Visualizzazione"
+  },
+  "errors": {
+    "loadFailed": "Impossibile caricare.",
+    "retryHint": "Controlla la connessione e le autorizzazioni, quindi riprova."
+  },
+  "filters": {
+    "all": "Tutto",
+    "allStatuses": "Tutti gli stati",
+    "allTypes": "Tutti i tipi"
+  },
+  "language": {
+    "ar": "Araba",
+    "bg": "Bulgara",
+    "bs": "Bosniaca",
+    "de": "Tedesca",
+    "en": "Inglese",
+    "es": "Spagnola",
+    "et": "Estone",
+    "fr": "francese",
+    "hr": "Croata",
+    "hy": "Armena",
+    "it": "Italiana",
+    "mk": "macedone",
+    "ms": "malese",
+    "ro": "Rumena",
+    "ru": "Russa",
+    "sq": "albanese",
+    "sr": "Serba",
+    "switch": "Cambia lingua",
+    "tr": "Turca",
+    "zh-CN": "Cinese (semplificato)"
+  },
+  "loading": {
+    "default": "Caricamento…",
+    "refreshing": "rinfrescante…",
+    "saving": "Risparmio…"
+  },
+  "nav": {
+    "breadcrumb": "Pangrattato",
+    "closeMenu": "Chiudi menù",
+    "openMenu": "Apri il menu"
+  },
+  "pagination": {
+    "noResults": "Nessun risultato",
+    "page": "Pagina {{page}}",
+    "showing": "Mostrando {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Rapporti"
+  },
+  "noPermission": "Nessun permesso.",
+  "crm": "CRM",
+  "clientPortal": "Portale clienti",
+  "tasks": "Compiti",
+  "comingSoon": "Prossimamente",
+  "notifications": {
+    "title": "Notifiche",
+    "unread": "non letto",
+    "markAllRead": "Segna tutto letto",
+    "couldNotLoad": "Impossibile caricare le notifiche.",
+    "noNotificationsYet": "Nessuna notifica ancora."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "NO",
+    "none": "Nessuno",
+    "yes": "SÌ"
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Otkazati",
+      "confirm": "Potvrdite i omogućite 2FA",
+      "enable": "Omogućite 2FA",
+      "preparing": "Priprema…",
+      "verifying": "Provjera..."
+    },
+    "authCode": "Autentifikacijski kod",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktivan",
+      "description": "Vaš račun zahtijeva kôd iz vaše aplikacije za autentifikaciju prilikom prijave.",
+      "title": "Omogućena je dvofaktorska autentifikacija"
+    },
+    "errors": {
+      "enableFailed": "Omogućavanje 2FA nije uspjelo",
+      "invalidCode": "Neispravan kod",
+      "setupFailed": "Pokretanje 2FA postavljanja nije uspjelo"
+    },
+    "setup": {
+      "description": "Dodajte dodatni sloj sigurnosti zahtijevajući 6-znamenkasti kod od aplikacije za provjeru autentičnosti (Google Authenticator, Authy itd.) kada se prijavite.",
+      "manualKey": "Ili unesite ovaj ključ ručno",
+      "scanQr": "1. Skenirajte ovaj QR kod",
+      "scanQrHint": "Otvorite aplikaciju za autentifikaciju i skenirajte kod u nastavku.",
+      "verify": "2. Potvrdite 6-znamenkastim kodom",
+      "verifyHint": "Unesite kod prikazan u vašoj aplikaciji da potvrdite postavku."
+    }
+  },
+  "security": {
+    "description": "Dvofaktorska autentifikacija štiti vaš račun čak i ako je vaša lozinka ugrožena.",
+    "title": "Sigurnost"
+  },
+  "subtitle": "Upravljajte postavkama i sigurnošću svog računa.",
+  "title": "postavke",
+  "links": {
+    "email": {
+      "title": "Integracija e-pošte",
+      "description": "Povežite Microsoft 365 ili Google Workspace kako biste sinkronizirali poruke pristigle pošte u red čekanja e-pošte.",
+      "action": "Upravljanje poštanskim sandučićima"
+    },
+    "deadlineRules": {
+      "title": "Pravila roka",
+      "description": "Konfigurirajte odstupanja nadležnosti i vrste predmeta za automatski stvorene rokove.",
+      "action": "Upravljajte pravilima o rokovima"
+    },
+    "holidays": {
+      "title": "Kalendar praznika",
+      "description": "Pravni praznici koji se koriste pri računanju radnih dana za rokove.",
+      "action": "Upravljajte praznicima"
+    },
+    "documentTemplates": {
+      "title": "Predlošci dokumenata",
+      "description": "Uredite predloške pisama, spojite polja i pregledajte generirane PDF-ove.",
+      "action": "Upravljanje predlošcima"
+    },
+    "integrations": {
+      "title": "Integracije registra",
+      "description": "Povežite EPO OPS i druge IP registre za gledanje skeniranja i bibliografsko pretraživanje.",
+      "action": "Upravljanje integracijama"
+    },
+    "ssoMfa": {
+      "title": "SSO & MVP",
+      "description": "Konfigurirajte Google/Microsoft aplikacije za prijavu i čvrsta MFA pravila. Tajne su šifrirane u bazi podataka.",
+      "action": "Upravljajte SSO i MFA"
+    },
+    "roles": {
+      "title": "Uloge i dopuštenja",
+      "description": "Matrica samo za čitanje sistemskih uloga i njihovih dopuštenja.",
+      "action": "Pregledajte matricu uloga"
+    },
+    "systemHealth": {
+      "title": "Zdravlje sustava",
+      "description": "Provjere uživo za bazu podataka, Redis i pohranu objekata.",
+      "action": "Pregled stanja sustava"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO & MVP",
+    "subtitle": "Pružatelji identiteta i politika višefaktorske autentifikacije za tvrtku.",
+    "noPermission": "Nemate dopuštenje za upravljanje SSO ili MFA postavkama.",
+    "loading": "Učitavanje SSO postavki…",
+    "saveButton": "Spremi postavke",
+    "saveSuccess": "SSO i MFA postavke sigurno su spremljene.",
+    "saveFailed": "Spremanje SSO i MFA postavki nije uspjelo",
+    "securityHint": "Tajne klijenta šifrirane su u mirovanju (AES-256-GCM). API nikada ne vraća pune tajne.",
+    "leaveBlankToKeep": "Ostavite prazno kako biste zadržali trenutnu tajnu",
+    "clientId": "ID klijenta",
+    "clientSecret": "Tajna klijenta",
+    "tenantId": "ID stanara",
+    "redirectUri": "URI za preusmjeravanje (registrirajte se na konzoli davatelja)",
+    "sourceDatabase": "Baza podataka",
+    "sourceEnv": "Okruženje (.env)",
+    "sourceNone": "Nije konfigurirano",
+    "editButton": "Uredi",
+    "cancelEdit": "Otkazati",
+    "configuredViaEnv": "Konfigurirano putem okruženja",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / Microsoft 365 OIDC aplikacija koja se koristi za SSO prijavu osoblja i portala.",
+      "saveButton": "Spasite Microsoft",
+      "saveSuccess": "Microsoft SSO postavke su spremljene."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Google OAuth klijent koji se koristi za SSO prijavu.",
+      "saveButton": "Spasite Google",
+      "saveSuccess": "Google SSO postavke su spremljene."
+    },
+    "mfa": {
+      "title": "politika MVP-a",
+      "description": "MFA postavke za cijelu organizaciju. Korisnici se i dalje prijavljuju s vlastite stranice postavki.",
+      "requireInternal": "Zahtijevati MVP za unutarnje osoblje",
+      "requireInternalHint": "Kada je omogućeno, interni korisnici trebaju prijaviti MFA pod Postavke → Sigurnost. Provedba prijave može se naknadno pooštriti.",
+      "saveButton": "Save MFA policy",
+      "saveSuccess": "Politika MFA spremljena."
+    }
+  },
+  "roles": {
+    "title": "Uloge i dopuštenja",
+    "subtitle": "Matrica samo za čitanje sistemskih uloga i dodijeljenih dozvola (zasađeni RBAC).",
+    "noPermission": "Nemate dopuštenje za pregled uloga.",
+    "loading": "Učitavanje uloga...",
+    "error": "Učitavanje uloga nije uspjelo.",
+    "system": "sustav",
+    "columns": {
+      "role": "Uloga",
+      "description": "Opis",
+      "permissions": "Dozvole"
+    }
+  },
+  "systemHealth": {
+    "title": "Zdravlje sustava",
+    "subtitle": "Provjere uživo za bazu podataka, Redis i pohranu objekata.",
+    "noPermission": "Nemate dozvolu za pregled stanja sustava.",
+    "loading": "Provjera usluga…",
+    "error": "Učitavanje zdravstvenog statusa nije uspjelo.",
+    "overall": "Sve u svemu",
+    "statusOk": "Zdrav",
+    "statusDegraded": "Degradirano",
+    "database": "Baza podataka",
+    "redis": "Redis",
+    "storage": "Skladištenje objekata",
+    "checkOk": "Dohvatljiv",
+    "checkFailed": "Nedostupan",
+    "refresh": "Osvježiti",
+    "refreshing": "Osvježavajući…"
+  },
+  "integrations": {
+    "title": "Integracije",
+    "subtitle": "Vanjski registar i veze davatelja podataka koje koriste tijekovi rada nadzora i arhiviranja.",
+    "noPermission": "Nemate dozvolu za pregled integracija registra.",
+    "epo": {
+      "title": "EPO registar (OPS)",
+      "description": "Otvorite Patent Services v3.2. Pristupni tokeni se automatski osvježavaju iz vašeg potrošačkog ključa i tajne.",
+      "statusConfigured": "Konfigurirano",
+      "statusNotConfigured": "Nije konfigurirano",
+      "statusLoading": "Provjera...",
+      "testButton": "Testirajte vezu",
+      "testing": "Testiranje…",
+      "testSuccess": "EPO veza uspjela. Preuzet patent: {{title}}",
+      "testFailed": "EPO veza nije uspjela",
+      "envHint": "Postavite EPO_CONSUMER_KEY i EPO_CONSUMER_SECRET u .env poslužitelja, zatim ponovno pokrenite API.",
+      "consumerKey": "Potrošački ključ",
+      "consumerSecret": "Potrošačka tajna",
+      "consumerKeyPlaceholder": "Unesite EPO potrošački ključ",
+      "consumerSecretPlaceholder": "Unesite EPO tajnu potrošača",
+      "leaveBlankToKeep": "Ostavite prazno kako biste zadržali trenutnu vrijednost",
+      "apiBaseUrl": "Osnovni URL API-ja (neobavezno)",
+      "authUrl": "URL za autorizaciju (nije obavezno)",
+      "saveButton": "Spremi vjerodajnice",
+      "clearButton": "Obriši pohranjene vjerodajnice",
+      "saveSuccess": "EPO vjerodajnice sigurno su spremljene.",
+      "saveFailed": "Neuspješno spremanje EPO vjerodajnica",
+      "clearSuccess": "Pohranjene EPO vjerodajnice izbrisane. Env backback i dalje se primjenjuje ako je postavljen.",
+      "clearFailed": "Brisanje EPO vjerodajnica nije uspjelo",
+      "securityHint": "Tajne su šifrirane u mirovanju (AES-256-GCM). API nikada ne vraća pune vrijednosti.",
+      "sourceLabel": "Aktivni izvor",
+      "sourceDatabase": "Baza podataka",
+      "sourceEnv": "Okruženje (.env)",
+      "sourceNone": "Nije konfigurirano",
+      "keyHint": "ključ …{{lastFour}}",
+      "editButton": "Uredi",
+      "cancelEdit": "Otkazati",
+      "configuredViaEnv": "Konfigurirano putem okruženja",
+      "defaultEndpoint": "Zadana EPO krajnja točka"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Push izdane fakture u Xero Accounting putem API-ja. Šalju se samo fakture promijenjene od zadnje uspješne sinkronizacije.",
+      "quickbooksTitle": "QuickBooks na mreži",
+      "quickbooksDescription": "Push izdane fakture u QuickBooks. Kupci se povezuju (ili stvaraju) prema imenu za prikaz.",
+      "xeroTenantId": "ID stanara Xero",
+      "quickbooksRealmId": "QuickBooks područje / ID tvrtke",
+      "statusConfigured": "Konfigurirano",
+      "statusNotConfigured": "Nije konfigurirano",
+      "loading": "učitavanje...",
+      "clientId": "ID klijenta (nije obavezno)",
+      "clientSecret": "Tajna klijenta (nije obavezno)",
+      "accessToken": "Pristupni token",
+      "leaveBlankToKeep": "Ostavite prazno kako biste zadržali trenutnu vrijednost",
+      "saveButton": "Spremi vjerodajnice",
+      "clearButton": "Jasan",
+      "editButton": "Uredi",
+      "cancelEdit": "Otkazati",
+      "syncNow": "Sinkroniziraj sada",
+      "lastSync": "Zadnja sinkronizacija",
+      "neverSynced": "Nikada",
+      "saveSuccess": "Računovodstvene vjerodajnice sigurno su spremljene.",
+      "saveFailed": "Spremanje računovodstvenih vjerodajnica nije uspjelo",
+      "clearSuccess": "Računovodstvene vjerodajnice izbrisane.",
+      "clearFailed": "Brisanje računovodstvenih vjerodajnica nije uspjelo",
+      "syncFailed": "Sinkronizacija računovodstva nije uspjela u redu čekanja"
+    }
+  },
+  "deadlineRules": {
+    "title": "Pravila roka",
+    "subtitle": "Nadležnost i pomaci vrste predmeta koji se koriste pri automatskom stvaranju rokova iz stvaranja predmeta, uredskih radnji i obnova.",
+    "newRule": "Novo pravilo",
+    "noPermission": "Nemate dozvolu za pregled pravila roka.",
+    "loading": "Učitavanje pravila roka…",
+    "loadError": "Nije uspjelo učitavanje pravila roka.",
+    "empty": "Nijedno pravilo roka ne odgovara ovim filtrima.",
+    "allJurisdictions": "Sve jurisdikcije",
+    "allMatterTypes": "Sve vrste materije",
+    "filters": {
+      "jurisdiction": "Nadležnost",
+      "matterType": "Vrsta materije"
+    },
+    "columns": {
+      "jurisdiction": "Nadležnost",
+      "matterType": "Vrsta materije",
+      "event": "Događaj",
+      "trigger": "Okidač",
+      "offset": "Pomak",
+      "grace": "Milost",
+      "priority": "Prioritet",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Aktivan",
+      "inactive": "Neaktivan"
+    },
+    "editAria": "Uredite pravilo roka",
+    "drawer": {
+      "createTitle": "Novo pravilo roka",
+      "editTitle": "Uredite pravilo roka",
+      "jurisdiction": "Nadležnost",
+      "matterType": "Vrsta materije",
+      "eventType": "Vrsta događaja",
+      "triggerType": "Vrsta okidača",
+      "daysOffset": "Odmak dana",
+      "dayCounting": "Brojanje dana",
+      "businessDays": "Radni dani",
+      "calendarDays": "Kalendarski dani",
+      "gracePeriod": "Razdoblje odgode (dani)",
+      "priority": "Prioritet (1-10)",
+      "description": "Opis",
+      "status": "Status",
+      "cancel": "Otkazati",
+      "create": "Stvori pravilo",
+      "save": "Spremite promjene"
+    },
+    "errors": {
+      "daysOffset": "Unesite važeći odmak dana",
+      "grace": "Unesite važeće razdoblje odgode",
+      "priority": "Prioritet mora biti između 1 i 10",
+      "saveFailed": "Nije uspjelo spremanje pravila roka"
+    },
+    "offset": {
+      "businessDay": "radni dan",
+      "businessDays": "radnih dana",
+      "calendarDay": "kalendarski dan",
+      "calendarDays": "kalendarski dani",
+      "sameDay": "Isti dan ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Turpijanje",
+      "examination_response": "Odgovor na ispit",
+      "renewal": "Obnova",
+      "opposition": "Opozicija",
+      "grace_period": "Grace period"
+    },
+    "triggerType": {
+      "matter_created": "Materija stvorena",
+      "office_action": "Uredska akcija",
+      "renewal_due": "Rok obnove"
+    }
+  },
+  "documentTemplates": {
+    "title": "Predlošci dokumenata",
+    "subtitle": "Predlošci za pisma i datoteke s poljima za spajanje. Generirajte PDF-ove iz predmeta ili pregledajte s uzorcima podataka.",
+    "newTemplate": "Novi predložak",
+    "noPermission": "Nemate dozvolu za pregled predložaka dokumenata.",
+    "loading": "Učitavanje predložaka...",
+    "loadError": "Učitavanje predložaka dokumenata nije uspjelo.",
+    "empty": "Još nema predložaka dokumenata.",
+    "columns": {
+      "name": "Ime",
+      "slug": "Puž",
+      "category": "Kategorija",
+      "status": "Status",
+      "docx": "Riječ",
+      "updated": "Ažurirano"
+    },
+    "status": {
+      "active": "Aktivan",
+      "inactive": "Neaktivan"
+    },
+    "editAria": "Uredi predložak dokumenta",
+    "uploadDocx": "Prenesi .docx",
+    "removeDocx": "Uklonite .docx",
+    "uploadDocxAria": "Učitaj Word predložak",
+    "removeDocxAria": "Ukloni Word predložak",
+    "confirmRemoveDocx": "Ukloniti predložak Word (.docx) iz ovog predloška pisma?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Novi predložak dokumenta",
+      "editTitle": "Uredi predložak dokumenta",
+      "loading": "Učitavanje predloška…",
+      "slug": "Puž",
+      "slugHint": "Mala ćevap-kaza, unikat.",
+      "slugReadonly": "puž:",
+      "name": "Ime",
+      "category": "Kategorija",
+      "description": "Opis",
+      "referenceLine": "Referentna linija",
+      "mergeFields": "Spajanje polja",
+      "insertIntoReference": "Umetnite u referentnu liniju",
+      "insertIntoHtml": "Umetni u tijelo HTML-a",
+      "htmlBody": "HTML tijelo",
+      "livePreview": "Pregled uživo",
+      "status": "Status",
+      "previewPdf": "Pregledaj PDF",
+      "cancel": "Otkazati",
+      "create": "Izradi predložak",
+      "save": "Spremite promjene"
+    },
+    "errors": {
+      "required": "Naziv i tijelo HTML-a su obavezni",
+      "slugRequired": "Potreban je puž",
+      "saveFailed": "Spremanje predloška dokumenta nije uspjelo",
+      "previewFailed": "Generiranje PDF pregleda nije uspjelo",
+      "docxUploadFailed": "Prijenos Word predloška nije uspio",
+      "docxDeleteFailed": "Uklanjanje Word predloška nije uspjelo"
+    }
+  },
+  "holidays": {
+    "title": "Kalendar praznika",
+    "subtitle": "Državni praznici prema nadležnostima. Praznici koji se ponavljaju primjenjuju se svake godine na isti mjesec i dan kada se računaju radni dani.",
+    "newHoliday": "Novi odmor",
+    "noPermission": "Nemate dozvolu za pregled praznika.",
+    "loading": "Učitavanje praznika…",
+    "loadError": "Učitavanje praznika nije uspjelo.",
+    "empty": "Nijedan praznik ne odgovara ovom filtru.",
+    "allJurisdictions": "Sve jurisdikcije",
+    "filters": {
+      "jurisdiction": "Nadležnost"
+    },
+    "columns": {
+      "jurisdiction": "Nadležnost",
+      "date": "Datum",
+      "name": "Ime",
+      "recurring": "Ponavljajuće"
+    },
+    "recurring": {
+      "yes": "Ponavljajuće",
+      "no": "Jednokratno"
+    },
+    "editAria": "Uredi praznik",
+    "deleteAria": "Izbriši praznik",
+    "confirmDelete": "Izbrisati praznik “{{name}}”?",
+    "drawer": {
+      "createTitle": "Novi odmor",
+      "editTitle": "Uredi praznik",
+      "jurisdiction": "Nadležnost",
+      "date": "Datum",
+      "name": "Ime",
+      "recurring": "Ponavlja se godišnje",
+      "cancel": "Otkazati",
+      "create": "Stvorite odmor",
+      "save": "Spremite promjene"
+    },
+    "errors": {
+      "required": "Ime i datum su obavezni",
+      "saveFailed": "Spremanje odmora nije uspjelo"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "postavke",
+    "title": "Integracija e-pošte",
+    "description": "Povežite svoj poslovni poštanski sandučić za sinkronizaciju dolazne pošte u red čekanja e-pošte i slanje odgovora iz CRM-a. Zahtijeva Mail.Read + Mail.Send (Microsoft) ili gmail.readonly + gmail.send (Google). Ponovno se povežite nakon ažuriranja opsega da biste dobili dopuštenje za slanje.",
+    "fetchEmails": "Dohvati 5 e-poruka",
+    "connectedSuccess": "Uspješno povezan {{provider}}.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Povezan",
+    "error": "Greška",
+    "notConnected": "Nije povezano",
+    "providerEnabledDescription": "Povucite nove poruke pristigle pošte u red čekanja e-pošte.",
+    "providerDisabledDescription": "Nije konfigurirano na ovom poslužitelju (nedostaju vjerodajnice za OAuth).",
+    "redirectUriHint": "Registrirajte ovaj URI za preusmjeravanje u svojoj {{provider}} OAuth aplikaciji:",
+    "lastSync": "Zadnja sinkronizacija: {{time}}",
+    "neverSynced": "Nikad sinkronizirano",
+    "reconnect": "Ponovno se spojite",
+    "disconnect": "Prekini vezu",
+    "connect": "Poveži {{provider}}",
+    "loadingConnections": "Učitavanje veza…",
+    "fetchSuccess": "Dohvaćeno do {{limit}} poruka(a) — {{ingested}} novih u redu čekanja.",
+    "fetchFailed": "Dohvaćanje e-pošte nije uspjelo"
+  },
+  "consent": {
+    "title": "Evidencija pristanka",
+    "subtitle": "Status pristanka za GDPR među klijentima.",
+    "filters": {
+      "all": "Sve",
+      "consented": "Pristala",
+      "missing": "Nedostaje"
+    },
+    "failedToLoad": "Učitavanje zapisa pristanka nije uspjelo.",
+    "noClientsFound": "Nema pronađenih klijenata.",
+    "table": {
+      "client": "Klijent",
+      "code": "Kodirati",
+      "consent": "Pristanak",
+      "date": "Datum"
+    }
+  }
+}

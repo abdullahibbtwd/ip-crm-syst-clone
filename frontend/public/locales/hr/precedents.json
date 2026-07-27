@@ -1,0 +1,43 @@
+{
+  "title": "Presedani",
+  "subtitle": "Baza znanja o višekratnoj korespondenciji i jeziku arhiviranja.",
+  "newDraft": "Novi nacrt",
+  "searchPlaceholder": "Pretražite glavni tekst…",
+  "loading": "Učitavanje presedana…",
+  "loadFailed": "Učitavanje presedana nije uspjelo.",
+  "empty": "Još nema presedana. Napravite nacrt ili žetvu iz korespondencije.",
+  "columns": {
+    "title": "Titula",
+    "category": "Kategorija",
+    "jurisdiction": "Nadležnost",
+    "status": "Status",
+    "updated": "Ažurirano"
+  },
+  "filters": {
+    "allStatuses": "Svi statusi"
+  },
+  "status": {
+    "draft": "Nacrt",
+    "published": "Objavljeno",
+    "archived": "Arhivirano"
+  },
+  "editAria": "Uredi",
+  "drawer": {
+    "createTitle": "Novi presedan",
+    "editTitle": "Uredi presedan",
+    "title": "Titula",
+    "category": "Kategorija",
+    "matterType": "Vrsta materije",
+    "optional": "Neobavezno",
+    "jurisdiction": "Nadležnost",
+    "tags": "oznake",
+    "body": "Tijelo",
+    "bodyPlaceholder": "Napišite prethodni tekst — podržani su podebljani, kurziv i popisi",
+    "publish": "Objaviti",
+    "archive": "Arhiva",
+    "publishFailed": "Objava nije uspjela",
+    "archiveFailed": "Arhiviranje nije uspjelo",
+    "saveFailed": "Nije moguće spremiti presedan",
+    "requiredFields": "Naslov, kategorija i tijelo su obavezni"
+  }
+}

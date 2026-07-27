@@ -1,0 +1,15 @@
+{
+  "title": "Belgeler",
+  "subtitle": "Firma genelindeki konu belgeleri kitaplığı.",
+  "searchPlaceholder": "Belgeleri arayın…",
+  "loading": "Yükleniyor…",
+  "loadFailed": "Dokümanlar yüklenemedi.",
+  "empty": "Hiçbir belge bulunamadı.",
+  "columns": {
+    "name": "İsim",
+    "matter": "Konu",
+    "category": "Kategori",
+    "updated": "Güncellendi",
+    "by": "İle"
+  }
+}

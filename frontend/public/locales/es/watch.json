@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Vigilancia de marcas",
+    "description": "Revise los posibles conflictos detectados con los perfiles de vigilancia activos.",
+    "empty": "Ninguna alerta de reloj coincide con tus filtros.",
+    "loading": "Cargando alertas de vigilancia..."
+  },
+  "detail": {
+    "title": "Ver alerta",
+    "back": "Volver a ver la lista de trabajo",
+    "loading": "Cargando alerta…",
+    "notFound": "Alerta de reloj no encontrada.",
+    "watchedMark": "marca observada",
+    "conflictingMark": "Marca conflictiva",
+    "registrySource": "Fuente de registro",
+    "jurisdiction": "Jurisdicción",
+    "applicationNumber": "Número de solicitud",
+    "similarity": "Semejanza",
+    "detectedAt": "Detectada",
+    "client": "Cliente",
+    "profile": "Ver perfil",
+    "niceClasses": "Buenas clases",
+    "reject": "Alerta de rechazo",
+    "accept": "Aceptar y crear materia",
+    "rejectConfirm": "¿Marcar esta alerta como un falso positivo?",
+    "acceptConfirm": "¿Crear un asunto de oposición a partir de esta alerta?",
+    "triagedBy": "Clasificado por {{name}}",
+    "linkedMatter": "Materia vinculada"
+  },
+  "clientTab": {
+    "title": "Ver perfiles",
+    "description": "Supervise las marcas en todos los registros utilizando códigos de jurisdicción canónica (BG, UE, EP).",
+    "add": "Agregar reloj de marca",
+    "empty": "Aún no hay perfiles de visualización. Agregue un perfil para comenzar a monitorear las marcas de este cliente.",
+    "loading": "Cargando perfiles de reloj…",
+    "pause": "Pausa",
+    "resume": "Reanudar",
+    "archive": "Archivo",
+    "epoScan": "Escanee EPO para alertas",
+    "epoScanning": "Escaneando EPO…",
+    "epoScanSuccess": "Se crearon {{alerts}} nuevas alertas de EPO a partir de perfiles {{profiles}}.",
+    "epoScanFailed": "Falló el análisis de vigilancia de EPO",
+    "viewAlerts": "Ver alertas de reloj"
+  },
+  "drawer": {
+    "title": "Agregar reloj de marca",
+    "markText": "Marcar texto *",
+    "markPlaceholder": "p.ej. Coca-cola",
+    "jurisdictions": "Jurisdicciones *",
+    "jurisdictionsHint": "Códigos canónicos, no nombres de registro. Los relojes BPO utilizan BG; Los relojes EUIPO utilizan la UE.",
+    "niceClasses": "Buenas clases",
+    "niceClassesPlaceholder": "p.ej. 32, 33",
+    "frequency": "Frecuencia de escaneo",
+    "save": "Guardar perfil de reloj"
+  },
+  "filters": {
+    "status": "Estado",
+    "jurisdiction": "Jurisdicción",
+    "source": "Fuente de registro",
+    "minSimilarity": "similitud mínima",
+    "anySimilarity": "Cualquier similitud",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Ordenar por",
+    "sortDetected": "Lo nuevo primero",
+    "sortSimilarity": "Mayor similitud",
+    "all": "Toda"
+  },
+  "stats": {
+    "new": "Nuevas alertas",
+    "accepted": "Aceptada",
+    "rejected": "Rechazada"
+  },
+  "profileStatus": {
+    "active": "Activa",
+    "paused": "En pausa",
+    "archived": "Archivada"
+  },
+  "alertStatus": {
+    "new": "Nueva",
+    "rejected": "Rechazada",
+    "accepted": "Aceptada"
+  },
+  "frequency": {
+    "daily": "A diario",
+    "weekly": "Semanalmente"
+  },
+  "table": {
+    "mark": "marca observada",
+    "conflict": "Conflicto",
+    "client": "Cliente",
+    "similarity": "Semejanza",
+    "source": "Fuente",
+    "jurisdiction": "Jurisdicción",
+    "status": "Estado",
+    "detected": "Detectada",
+    "frequency": "Frecuencia",
+    "classes": "Clases",
+    "profiles": "Perfiles",
+    "actions": "Comportamiento"
+  }
+}

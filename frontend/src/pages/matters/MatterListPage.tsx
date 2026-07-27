@@ -18,8 +18,8 @@ import { useMatters } from '@/features/matters/hooks/useMatters'
 import type { MatterFilters, MatterStatus, MatterType } from '@/features/matters/types'
 import { matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
 
-const ALL_STATUSES = 'All'
-const ALL_TYPES = 'All'
+const ALL_STATUSES = 'all'
+const ALL_TYPES = 'all'
 
 const MATTER_TYPES: MatterType[] = [
   'trademark',

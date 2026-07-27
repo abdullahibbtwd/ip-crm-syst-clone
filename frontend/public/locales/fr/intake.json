@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Approuver - pas de conflit",
+    "checkedAt": "Vérifié {{date}}",
+    "cleared": "Aucun conflit détecté",
+    "clearedForConversion": "Aucun nom similaire trouvé - autorisé pour la conversion",
+    "description": "Recherche floue parmi les clients, les contacts, les sociétés liées et les contreparties enregistrées. Les correspondances supérieures à 30 % de similarité composite sont marquées pour examen.",
+    "flaggedMatches": "{{count}} correspondance(s) potentielle(s) - examen requis",
+    "entityType": {
+      "client": "Cliente",
+      "contact": "Contact",
+      "counterparty": "Contrepartie",
+      "ip_right": "Droit de propriété intellectuelle / registre des marques",
+      "matter": "Affaire existante",
+      "related_company": "Société liée",
+      "sign": "Signer/marquer au dossier"
+    },
+    "flagged": "Conflits potentiels trouvés",
+    "matchedOn": "Correspondance le {{field}}",
+    "matchedTerm": "Correspondance avec \"{{term}}\" sur {{field}}",
+    "mpOverride": "Remplacement MP",
+    "rejectLead": "Rejeter le prospect",
+    "reviewHint": "Des noms similaires sont apparus pour examen humain. Approuvez s’il n’y a pas de véritable conflit, ou rejetez si la piste ne peut pas continuer.",
+    "run": "Exécuter une vérification des conflits",
+    "running": "En cours d'exécution…",
+    "similarPct": "{{pct}} similaire",
+    "similarity": "Similarité",
+    "title": "Vérification des conflits"
+  },
+  "convert": {
+    "button": "Convertir en matière",
+    "clientLabel": "Cliente:",
+    "conversionFailed": "Échec de la conversion",
+    "converting": "Conversion…",
+    "existingPortalAccount": "(compte de portail existant)",
+    "invalidForm": "Formulaire invalide",
+    "matterLabel": "Matière:",
+    "none": "Aucune",
+    "portalDescription": "Ouvre un dossier sous le compte existant du client du portail - pas d'enregistrement client en double.",
+    "standardDescription": "Crée un dossier client et ouvre un dossier en une seule étape - pas de nouvelle saisie des détails de la demande. Le consentement RGPD est requis à cette étape.",
+    "willCreate": "Créera",
+    "converted": "Converti en matière",
+    "gdprConsent": "Je confirme que le consentement du RGPD a été obtenu auprès de ce demandeur.",
+    "holdingGroup": "Groupe de maintien (facultatif)",
+    "openMatter": "Sujet ouvert",
+    "preview": "Aperçu du sujet",
+    "title": "Convertir en client et en sujet",
+    "viewClient": "Afficher le client"
+  },
+  "counterparty": {
+    "add": "Ajouter une fête",
+    "editor": {
+      "add": "Ajouter une partie adverse/un concurrent",
+      "company": "Entreprise",
+      "name": "Nom",
+      "notes": "Remarques",
+      "party": "Fête {{n}}",
+      "relationship": "Relation *"
+    },
+    "relationship": {
+      "adverse_party": "Partie adverse",
+      "competitor": "Concurrente",
+      "licensee": "Licenciée",
+      "licensor": "Concédant de licence"
+    },
+    "save": "Sauvegarder la fête",
+    "section": {
+      "description": "Parties susceptibles de créer un conflit d’intérêts.",
+      "title": "Parties adverses / concurrents",
+      "unnamed": "Fête sans nom"
+    }
+  },
+  "create": {
+    "back": "← Retour à l'admission",
+    "description": "Capturez une nouvelle demande avant la vérification des conflits et la conversion.",
+    "title": "Nouvelle enquête"
+  },
+  "detail": {
+    "back": "← Retour à la file d'attente",
+    "company": "Entreprise",
+    "contactName": "Nom du contact",
+    "country": "Pays",
+    "converted": "Cette enquête a été convertie.",
+    "description": "Description",
+    "email": "E-mail",
+    "enquiryDetails": "Détails de la demande",
+    "error": "Échec du chargement du fil d'admission.",
+    "fullName": "Nom et prénom",
+    "internalNotes": "Notes internes",
+    "loading": "Chargement…",
+    "loadingLead": "Chargement du fil d'admission…",
+    "notAssigned": "Non attribué",
+    "matterType": "Type de matière",
+    "notFound": "Fil d'admission introuvable.",
+    "phone": "Téléphone",
+    "portalSubmission": "Soumission au portail",
+    "referralSource": "Source de référence",
+    "referredBy": "Référé par",
+    "responsibleAttorney": "Avocat responsable",
+    "type": "Taper",
+    "urgency": "Urgence",
+    "urgent": "Urgente"
+  },
+  "form": {
+    "companyName": "Nom de l'entreprise *",
+    "description": "Description",
+    "email": "E-mail",
+    "enquirerType": "Type de demandeur",
+    "error": "Échec de la création du responsable de l'admission",
+    "fullName": "Nom et prénom *",
+    "matterType": "Type de sujet *",
+    "phone": "Téléphone",
+    "referralSource": "Source de référence",
+    "submit": "Soumettre une demande",
+    "submitInternal": "Créer un responsable d'admission",
+    "type": {
+      "company": "Entreprise",
+      "individual": "Individuelle"
+    },
+    "urgent": "Marquer comme urgent"
+  },
+  "list": {
+    "description": "Examinez les demandes entrantes, effectuez des vérifications de conflits et convertissez les prospects approuvés.",
+    "empty": "Aucune piste d'admission trouvée",
+    "emptyDescription": "Essayez d'ajuster les filtres ou créez une nouvelle demande.",
+    "error": "Échec du chargement des pistes d'admission.",
+    "new": "Nouvelle enquête",
+    "searchPlaceholder": "Rechercher un nom ou une adresse e-mail…",
+    "title": "File d'attente d'admission"
+  },
+  "matterType": {
+    "design": "Conception",
+    "other": "Autre",
+    "patent": "Brevet",
+    "trademark": "Marque déposée",
+    "utility_model": "Modèle d'utilité"
+  },
+  "referralSource": {
+    "email": "E-mail",
+    "other": "Autre",
+    "phone": "Téléphone",
+    "referral": "Référence",
+    "walk_in": "Sans rendez-vous",
+    "website": "Site web"
+  },
+  "status": {
+    "approved": "Approuvée",
+    "conflict_check": "Vérification des conflits",
+    "conflict_flagged": "Conflit signalé",
+    "converted": "Convertie",
+    "new": "Nouvelle",
+    "rejected": "Rejetée",
+    "reviewing": "Révision"
+  },
+  "table": {
+    "date": "Reçue",
+    "matterType": "Type de matière",
+    "name": "Demandeur",
+    "portal": "Portail",
+    "referral": "Source",
+    "status": "Statut",
+    "urgent": "Urgente",
+    "viewAria": "Afficher {{name}}"
+  },
+  "unknownCompany": "Entreprise inconnue",
+  "unknownIndividual": "Individu inconnu"
+}

@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Orologio sui marchi",
+    "description": "Esamina i potenziali conflitti rilevati rispetto ai profili di controllo attivi.",
+    "empty": "Nessun avviso di visualizzazione corrisponde ai tuoi filtri.",
+    "loading": "Caricamento avvisi orologio…"
+  },
+  "detail": {
+    "title": "Guarda l'avviso",
+    "back": "Torna a guardare la lista di lavoro",
+    "loading": "Caricamento avviso...",
+    "notFound": "Avviso orologio non trovato.",
+    "watchedMark": "Marchio osservato",
+    "conflictingMark": "Marchio contrastante",
+    "registrySource": "Fonte del registro",
+    "jurisdiction": "Giurisdizione",
+    "applicationNumber": "Numero della domanda",
+    "similarity": "Somiglianza",
+    "detectedAt": "Rilevato",
+    "client": "Cliente",
+    "profile": "Guarda il profilo",
+    "niceClasses": "Belle lezioni",
+    "reject": "Rifiuta avviso",
+    "accept": "Accetta e crea materia",
+    "rejectConfirm": "Contrassegnare questo avviso come falso positivo?",
+    "acceptConfirm": "Creare una pratica di opposizione da questo avviso?",
+    "triagedBy": "Valutato da {{name}}",
+    "linkedMatter": "Materia collegata"
+  },
+  "clientTab": {
+    "title": "Guarda i profili",
+    "description": "Monitorare i marchi nei registri utilizzando i codici giurisdizionali canonici (BG, EU, EP).",
+    "add": "Aggiungi l'orologio del marchio",
+    "empty": "Nessun profilo di visualizzazione ancora. Aggiungi un profilo per iniziare a monitorare i voti di questo cliente.",
+    "loading": "Caricamento dei profili dell'orologio…",
+    "pause": "Pausa",
+    "resume": "Riprendere",
+    "archive": "Archivio",
+    "epoScan": "Scansiona l'EPO per gli avvisi",
+    "epoScanning": "Scansione dell'EPO…",
+    "epoScanSuccess": "Creato {{alerts}} nuovi avvisi EPO dai profili {{profiles}}.",
+    "epoScanFailed": "La scansione dell'orologio EPO non è riuscita",
+    "viewAlerts": "Visualizza gli avvisi dell'orologio"
+  },
+  "drawer": {
+    "title": "Aggiungi l'orologio del marchio",
+    "markText": "Segna il testo *",
+    "markPlaceholder": "per esempio. Coca Cola",
+    "jurisdictions": "Giurisdizioni *",
+    "jurisdictionsHint": "Codici canonici: non nomi di registro. Gli orologi BPO utilizzano BG; Gli orologi EUIPO utilizzano EU.",
+    "niceClasses": "Belle lezioni",
+    "niceClassesPlaceholder": "per esempio. 32, 33",
+    "frequency": "Frequenza di scansione",
+    "save": "Salva il profilo dell'orologio"
+  },
+  "filters": {
+    "status": "Stato",
+    "jurisdiction": "Giurisdizione",
+    "source": "Fonte del registro",
+    "minSimilarity": "Somiglianza minima",
+    "anySimilarity": "Qualsiasi somiglianza",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Ordina per",
+    "sortDetected": "Prima il più recente",
+    "sortSimilarity": "Massima somiglianza",
+    "all": "Tutto"
+  },
+  "stats": {
+    "new": "Nuovi avvisi",
+    "accepted": "Accettata",
+    "rejected": "Respinto"
+  },
+  "profileStatus": {
+    "active": "Attiva",
+    "paused": "In pausa",
+    "archived": "Archiviata"
+  },
+  "alertStatus": {
+    "new": "Nuova",
+    "rejected": "Respinto",
+    "accepted": "Accettata"
+  },
+  "frequency": {
+    "daily": "Quotidiana",
+    "weekly": "Settimanale"
+  },
+  "table": {
+    "mark": "Marchio osservato",
+    "conflict": "Conflitto",
+    "client": "Cliente",
+    "similarity": "Somiglianza",
+    "source": "Fonte",
+    "jurisdiction": "Giurisdizione",
+    "status": "Stato",
+    "detected": "Rilevato",
+    "frequency": "Frequenza",
+    "classes": "Classi",
+    "profiles": "Profili",
+    "actions": "Azioni"
+  }
+}

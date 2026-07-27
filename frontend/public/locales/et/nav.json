@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Laienda külgriba",
+    "collapse": "Ahenda külgriba",
+    "close": "Sule külgriba"
+  },
+  "sections": {
+    "overview": "Ülevaade",
+    "clients": "Kliendid",
+    "matters": "Küsimused",
+    "ipRights": "IP õigused",
+    "finance": "Rahandus",
+    "reports": "Aruanded",
+    "myWork": "Minu töö",
+    "rights": "Õigused",
+    "communication": "Suhtlemine",
+    "trademarks": "Kaubamärgid",
+    "deadlines": "Tähtajad",
+    "correspondence": "Kirjavahetus",
+    "documentsAndMail": "Dokumendid ja post",
+    "billing": "Arveldamine",
+    "compliance": "Vastavus",
+    "gdpr": "GDPR",
+    "audit": "Audit",
+    "usersAndAccess": "Kasutajad ja juurdepääs",
+    "system": "Süsteem",
+    "myPortfolio": "Minu portfell",
+    "myMatters": "Minu asjad"
+  },
+  "items": {
+    "dashboard": "Armatuurlaud",
+    "deadlines": "Tähtajad",
+    "alerts": "Märguanded",
+    "clients": "Kliendid",
+    "holdingGroups": "Hoidmisrühmad",
+    "allMatters": "Kõik on olulised",
+    "matters": "Küsimused",
+    "intakeQueue": "Vastuvõtu järjekord",
+    "rightsRegister": "Õiguste register",
+    "renewals": "Uuendused",
+    "watch": "Vaata",
+    "billingOverview": "Arvelduse ülevaade",
+    "deadlineRisk": "Tähtaja risk",
+    "filingVolumes": "Esitamismahud",
+    "renewalsSummary": "Pikendamise kokkuvõte",
+    "revenueReceivables": "Tulud ja nõuded",
+    "team": "Meeskond",
+    "settings": "Seaded",
+    "myDashboard": "Minu armatuurlaud",
+    "myDeadlines": "Minu tähtajad",
+    "myMatters": "Minu asjad",
+    "patentFilings": "Patendiavaldused",
+    "officeActions": "Kontoritoimingud",
+    "documents": "Dokumendid",
+    "correspondence": "Kirjavahetus",
+    "myTmMatters": "Minu TM on oluline",
+    "oppositions": "Vastuseisud",
+    "watchAlerts": "Vaadake märguandeid",
+    "conflictCheck": "Konflikti kontroll",
+    "allDeadlines": "Kõik tähtajad",
+    "escalations": "Eskalatsioonid",
+    "gracePeriods": "Ajapikendusperioodid",
+    "addDeadline": "Lisa tähtaeg",
+    "incomingMail": "Sissetulevad kirjad",
+    "emailQueue": "Meili järjekord",
+    "broadcasts": "Saated",
+    "outgoingMail": "Väljuv post",
+    "myTasks": "Minu ülesanded",
+    "assignedMatters": "Määratud asjad",
+    "financeDashboard": "Rahanduse armatuurlaud",
+    "invoices": "Arved",
+    "timeEntries": "Aja sissekanded",
+    "payments": "Maksed",
+    "rateCards": "Hindamiskaardid",
+    "disbursements": "Väljamaksed",
+    "complianceDashboard": "Vastavuse armatuurlaud",
+    "personalDataRegister": "Isikuandmete register",
+    "dataExportsLog": "Andmete ekspordi logi",
+    "retentionRules": "Säilitamise reeglid",
+    "deadlineRules": "Tähtaja reeglid",
+    "holidays": "Pühade kalender",
+    "documentTemplates": "Dokumendi mallid",
+    "precedents": "Pretsedendid",
+    "partners": "Partnerid",
+    "consentRecords": "Nõusoleku kirjed",
+    "auditTrail": "Kontrolljälg",
+    "accessLog": "Juurdepääsu logi",
+    "systemDashboard": "Süsteemi armatuurlaud",
+    "users": "Kasutajad",
+    "rolesPermissions": "Rollid ja load",
+    "ssoMfaConfig": "SSO / MFA konfiguratsioon",
+    "integrations": "Integratsioonid",
+    "systemHealth": "Süsteemi tervis",
+    "auditLog": "Auditi logi",
+    "overview": "Ülevaade",
+    "enquiries": "Päringud",
+    "myDocuments": "Minu dokumendid",
+    "myInvoices": "Minu arved",
+    "messages": "Sõnumid",
+    "approvals": "Heakskiidud",
+    "help": "Abi",
+    "myPortfolio": "Minu portfell"
+  },
+  "roles": {
+    "managing_partner": "Juhtiv partner",
+    "ip_attorney": "IP / patendivolinik",
+    "trademark_attorney": "Kaubamärgiadvokaat",
+    "coordinator": "Koordinaator / sissevõtt",
+    "docketing_admin": "Docking Admin",
+    "paralegal": "Paralegal",
+    "finance": "Rahandus",
+    "dpo_compliance": "Andmekaitseametnik / vastavus",
+    "it_admin": "IT / Admin",
+    "portal_client": "Klient (portaal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Varsti – see ala näitab reaalajas andmeid, kui moodul on ühendatud."
+    },
+    "managing_partner": {
+      "eyebrow": "Kindel ülevaade",
+      "title": "Kindel ülevaade",
+      "description": "Portfelli tähtaja risk, esitamismahud, uuendamiste arv, tulu, meeskonna töökoormus ja kliendi kasumlikkus – kogu ettevõtet hõlmav aruandlus ühest kodust."
+    },
+    "coordinator": {
+      "eyebrow": "Koordineerimine",
+      "title": "Sissevõtt ja koordineerimine",
+      "description": "Sisselasketorustik, esitamismahud ja eelseisvad uuendused – koordineerige päringuid kuni süüdistuse esitamiseni."
+    },
+    "docketing_admin": {
+      "eyebrow": "Dokkimine",
+      "title": "Tähtaegade juhatus",
+      "description": "Kogu ettevõtet hõlmav tähtaeg ja risk – rühmitatud kliendi, jurisdiktsiooni ja volitatud isiku järgi, rõhutades kiireloomulisust."
+    },
+    "finance": {
+      "eyebrow": "Rahandus",
+      "title": "Rahanduse ülevaade",
+      "description": "Väljastatud tulud, inkassod ja nõuete vananemine – väljasta arveid ja jälgi makseid ühest kohast."
+    },
+    "portal_client": {
+      "eyebrow": "Kliendiportaal",
+      "title": "Tere tulemast tagasi",
+      "description": "Esitage päringud ja jälgige oma organisatsiooni asju."
+    },
+    "myDashboard": {
+      "title": "Minu armatuurlaud"
+    },
+    "myTasks": {
+      "title": "Minu ülesanded"
+    },
+    "compliance": {
+      "eyebrow": "GDPR ja vastavus",
+      "title": "Vastavus",
+      "description": "Säilituspoliitikad, juurdepääsuregistrid ja subjekti juurdepääsu ekspordid."
+    },
+    "systemDashboard": {
+      "title": "Süsteemi armatuurlaud"
+    }
+  }
+}

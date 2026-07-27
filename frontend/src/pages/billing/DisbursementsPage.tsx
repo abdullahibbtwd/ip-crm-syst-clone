@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Table,
   TableBody,
@@ -22,6 +23,8 @@ type FixedFeeRow = {
 }
 
 export function DisbursementsPage() {
+  const { t } = useTranslation('finance')
+  const { t: tCommon } = useTranslation('common')
   const { data, isLoading, isError } = useQuery({
     queryKey: ['fixed-fees', 'disbursement'],
     queryFn: () =>
@@ -34,37 +37,37 @@ export function DisbursementsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-2xl text-foreground md:text-3xl">Disbursements</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Firm-wide fixed fees categorized as disbursements.
-        </p>
+        <h1 className="font-serif text-2xl text-foreground md:text-3xl">
+          {t('disbursements.title')}
+        </h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('disbursements.subtitle')}</p>
       </div>
 
       <PermissionGate
         resource="billing"
         action="read"
-        fallback={<p className="text-sm text-muted-foreground">No permission.</p>}
+        fallback={<p className="text-sm text-muted-foreground">{tCommon('noPermission')}</p>}
       >
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <p className="text-sm text-muted-foreground">{tCommon('loading.default')}</p>
         ) : isError ? (
-          <p className="text-sm text-destructive">Failed to load disbursements.</p>
+          <p className="text-sm text-destructive">{t('disbursements.loadFailed')}</p>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-border/80">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Matter</TableHead>
-                  <TableHead>Description</TableHead>
-                  <TableHead>Amount</TableHead>
+                  <TableHead>{t('disbursements.columns.date')}</TableHead>
+                  <TableHead>{t('disbursements.columns.matter')}</TableHead>
+                  <TableHead>{t('disbursements.columns.description')}</TableHead>
+                  <TableHead>{t('disbursements.columns.amount')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {(data ?? []).length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={4} className="py-10 text-center text-muted-foreground">
-                      No disbursements found.
+                      {t('disbursements.empty')}
                     </TableCell>
                   </TableRow>
                 ) : (

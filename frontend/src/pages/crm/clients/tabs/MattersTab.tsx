@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Plus } from 'lucide-react'
 import { CreateMatterDrawer } from '@/components/matters/CreateMatterDrawer'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
@@ -14,26 +15,28 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { useMatters } from '@/features/matters/hooks/useMatters'
-import { MATTER_TYPE_LABELS, formatJurisdictions } from '@/features/matters/utils'
+import { matterTypeLabel, formatJurisdictions } from '@/features/matters/utils'
 import type { ClientTabContext } from '../ClientLayout'
 
 export function MattersTab() {
+  const { t } = useTranslation('crm')
+  const { t: tCommon } = useTranslation('common')
   const { clientId } = useOutletContext<ClientTabContext>()
   const { data, isLoading } = useMatters({ clientId, limit: 50 })
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const matters = data?.items ?? []
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading matters…</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('matters.loading')}</p>
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="font-medium">Matters</h2>
+        <h2 className="font-medium">{t('matters.title')}</h2>
         <PermissionGate resource="matter" action="create">
           <Button size="sm" onClick={() => setDrawerOpen(true)}>
             <Plus className="size-4" />
-            Open new matter
+            {t('matters.openNew')}
           </Button>
         </PermissionGate>
       </div>
@@ -41,25 +44,25 @@ export function MattersTab() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Type</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Assigned</TableHead>
-            <TableHead>Jurisdictions</TableHead>
+            <TableHead>{t('matters.table.type')}</TableHead>
+            <TableHead>{t('matters.table.title')}</TableHead>
+            <TableHead>{t('matters.table.status')}</TableHead>
+            <TableHead>{t('matters.table.assigned')}</TableHead>
+            <TableHead>{t('matters.table.jurisdictions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {matters.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} className="text-center text-muted-foreground">
-                No matters yet. Open a matter to start prosecution work for this client.
+                {t('matters.empty')}
               </TableCell>
             </TableRow>
           ) : (
             matters.map((matter) => (
               <TableRow key={matter.id}>
                 <TableCell className="text-muted-foreground">
-                  {MATTER_TYPE_LABELS[matter.matterType]}
+                  {matterTypeLabel(matter.matterType)}
                 </TableCell>
                 <TableCell>
                   <Link
@@ -73,7 +76,7 @@ export function MattersTab() {
                   <MatterStatusBadge status={matter.status} />
                 </TableCell>
                 <TableCell className="text-muted-foreground">
-                  {matter.assignedTo?.fullName ?? '-'}
+                  {matter.assignedTo?.fullName ?? tCommon('yesNo.dash')}
                 </TableCell>
                 <TableCell className="text-muted-foreground">
                   {formatJurisdictions(matter.jurisdictions.map((j) => j.countryCode))}

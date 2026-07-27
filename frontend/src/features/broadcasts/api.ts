@@ -35,31 +35,11 @@ export type CreateBroadcastInput = {
   clientIds?: string[]
 }
 
-export const BROADCAST_AUDIENCE_OPTIONS: Array<{
-  value: BroadcastAudience
-  label: string
-  description: string
-}> = [
-  {
-    value: 'active_clients',
-    label: 'All active clients',
-    description: 'Primary contact email for every active client',
-  },
-  {
-    value: 'pending_eu_renewals',
-    label: 'Pending EU renewals',
-    description: 'Active clients with upcoming / instructed / filed EU renewals',
-  },
-  {
-    value: 'trademark_matters',
-    label: 'Trademark matters',
-    description: 'Clients with at least one active trademark matter',
-  },
-  {
-    value: 'manual',
-    label: 'Manual selection',
-    description: 'Pick specific clients from search',
-  },
+export const BROADCAST_AUDIENCE_OPTIONS: Array<{ value: BroadcastAudience }> = [
+  { value: 'active_clients' },
+  { value: 'pending_eu_renewals' },
+  { value: 'trademark_matters' },
+  { value: 'manual' },
 ]
 
 export const broadcastsApi = {

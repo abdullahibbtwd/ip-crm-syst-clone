@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Extinde bara laterală",
+    "collapse": "Restrângeți bara laterală",
+    "close": "Închideți bara laterală"
+  },
+  "sections": {
+    "overview": "Prezentare generală",
+    "clients": "Clienții",
+    "matters": "Contează",
+    "ipRights": "Drepturi de proprietate intelectuală",
+    "finance": "Finanţa",
+    "reports": "Rapoarte",
+    "myWork": "Munca mea",
+    "rights": "Drepturi",
+    "communication": "Comunicare",
+    "trademarks": "Mărci comerciale",
+    "deadlines": "Termenele limită",
+    "correspondence": "Corespondenţă",
+    "documentsAndMail": "Documente și poștă",
+    "billing": "Facturare",
+    "compliance": "Conformitate",
+    "gdpr": "GDPR",
+    "audit": "Audit",
+    "usersAndAccess": "Utilizatori și acces",
+    "system": "Sistem",
+    "myPortfolio": "Portofoliul meu",
+    "myMatters": "Treburile mele"
+  },
+  "items": {
+    "dashboard": "Bord",
+    "deadlines": "Termenele limită",
+    "alerts": "Alerte",
+    "clients": "Clienții",
+    "holdingGroups": "Grupuri de deținere",
+    "allMatters": "Toate contează",
+    "matters": "Contează",
+    "intakeQueue": "Coada de admisie",
+    "rightsRegister": "Registrul drepturilor",
+    "renewals": "Reînnoiri",
+    "watch": "Ceas",
+    "billingOverview": "Prezentare generală a facturării",
+    "deadlineRisk": "Risc de termen limită",
+    "filingVolumes": "Volume de dosar",
+    "renewalsSummary": "Rezumatul reînnoirilor",
+    "revenueReceivables": "Venituri și creanțe",
+    "team": "Echipă",
+    "settings": "Setări",
+    "myDashboard": "Tabloul meu de bord",
+    "myDeadlines": "Termenele mele",
+    "myMatters": "Treburile mele",
+    "patentFilings": "Depuneri de brevete",
+    "officeActions": "Acțiuni de birou",
+    "documents": "Documente",
+    "correspondence": "Corespondenţă",
+    "myTmMatters": "TM-ul meu contează",
+    "oppositions": "Opozițiile",
+    "watchAlerts": "Urmăriți alertele",
+    "conflictCheck": "Verificarea conflictului",
+    "allDeadlines": "Toate termenele limită",
+    "escalations": "Escalarile",
+    "gracePeriods": "Perioade de gratie",
+    "addDeadline": "Adăugați termenul limită",
+    "incomingMail": "E-mail primit",
+    "emailQueue": "Coada de e-mailuri",
+    "broadcasts": "Emisiuni",
+    "outgoingMail": "E-mail de trimis",
+    "myTasks": "Sarcinile mele",
+    "assignedMatters": "Probleme atribuite",
+    "financeDashboard": "Tabloul de bord financiar",
+    "invoices": "Facturi",
+    "timeEntries": "Intrări de timp",
+    "payments": "Plăți",
+    "rateCards": "Carduri de cote",
+    "disbursements": "Debursări",
+    "complianceDashboard": "Tabloul de bord de conformitate",
+    "personalDataRegister": "Registrul de date cu caracter personal",
+    "dataExportsLog": "Jurnal de exporturi de date",
+    "retentionRules": "Reguli de reținere",
+    "deadlineRules": "Reguli de termen",
+    "holidays": "Calendarul sărbătorilor",
+    "documentTemplates": "Șabloane de documente",
+    "precedents": "Precedente",
+    "partners": "Parteneri",
+    "consentRecords": "Înregistrări de consimțământ",
+    "auditTrail": "Pista de audit",
+    "accessLog": "Jurnal de acces",
+    "systemDashboard": "Tabloul de bord al sistemului",
+    "users": "Utilizatori",
+    "rolesPermissions": "Roluri și permisiuni",
+    "ssoMfaConfig": "Configurare SSO / MFA",
+    "integrations": "Integrari",
+    "systemHealth": "Sănătatea sistemului",
+    "auditLog": "Jurnal de audit",
+    "overview": "Prezentare generală",
+    "enquiries": "Întrebări",
+    "myDocuments": "Documentele mele",
+    "myInvoices": "Facturile mele",
+    "messages": "Mesaje",
+    "approvals": "Aprobari",
+    "help": "Ajutor",
+    "myPortfolio": "Portofoliul meu"
+  },
+  "roles": {
+    "managing_partner": "Managing Partner",
+    "ip_attorney": "IP / Avocat în brevete",
+    "trademark_attorney": "Avocat pentru mărci comerciale",
+    "coordinator": "Coordonator / Aport",
+    "docketing_admin": "Administrator de dosare",
+    "paralegal": "Paralegal",
+    "finance": "Finanţa",
+    "dpo_compliance": "DPO / Conformitate",
+    "it_admin": "IT / Admin",
+    "portal_client": "Client (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "În curând - această zonă va afișa date live odată ce modulul este conectat."
+    },
+    "managing_partner": {
+      "eyebrow": "Privire de ansamblu fermă",
+      "title": "Privire de ansamblu fermă",
+      "description": "Riscul de termen al portofoliului, volumele de depunere, canalul de reînnoiri, veniturile, volumul de lucru în echipă și profitabilitatea clienților - raportare la nivelul întregii firme dintr-o singură casă."
+    },
+    "coordinator": {
+      "eyebrow": "Coordonare",
+      "title": "Aport și coordonare",
+      "description": "Conducta de admisie, volume de dosare și reînnoiri viitoare - coordonați anchetele până la urmărire penală."
+    },
+    "docketing_admin": {
+      "eyebrow": "Dochetare",
+      "title": "Tabloul de termen limită",
+      "description": "Risc de termen și de dosar la nivelul întregii firme - grupate în funcție de client, jurisdicție și cesionar cu evidențierea urgenței."
+    },
+    "finance": {
+      "eyebrow": "Finanţa",
+      "title": "Privire de ansamblu asupra finanțelor",
+      "description": "Venituri emise, încasări și îmbătrânire a creanțelor - emitiți facturi și urmăriți plățile dintr-un singur loc."
+    },
+    "portal_client": {
+      "eyebrow": "Portalul clientului",
+      "title": "Bine ai revenit",
+      "description": "Trimiteți întrebări și urmăriți chestiunile pentru organizația dvs."
+    },
+    "myDashboard": {
+      "title": "Tabloul meu de bord"
+    },
+    "myTasks": {
+      "title": "Sarcinile mele"
+    },
+    "compliance": {
+      "eyebrow": "GDPR și conformitate",
+      "title": "Conformitate",
+      "description": "Politici de reținere, registre de acces și exporturi de acces la subiect."
+    },
+    "systemDashboard": {
+      "title": "Tabloul de bord al sistemului"
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Hallake ettevõtte ja üksikute klientide dokumente. Uusi kliente luuakse sissevõtmise kaudu.",
+    "emptyDescription": "Proovige filtreid reguleerida või luua klient sisselaske kaudu.",
+    "emptyTitle": "Kliente ei leitud",
+    "error": "Klientide laadimine ebaõnnestus.",
+    "newViaIntake": "Uus klient vastuvõtu kaudu",
+    "perPage": "{{count}} lehekülje kohta",
+    "searchPlaceholder": "Otsi nime või koodi…",
+    "title": "Kliendid",
+    "viewAria": "Kuva {{name}}"
+  },
+  "contacts": {
+    "add": "Lisa kontakt",
+    "drawerTitle": "Lisa kontakt",
+    "email": "Meil",
+    "empty": "Kontakte ei leitud.",
+    "firstName": "eesnimi*",
+    "lastName": "Perekonnanimi*",
+    "loading": "Kontaktide laadimine…",
+    "remove": "Eemalda",
+    "role": {
+      "all": "Kõik",
+      "billing": "Arveldamine",
+      "conflict": "Konflikt",
+      "general": "Kindral",
+      "primary": "Esmane"
+    },
+    "save": "Salvesta kontakt",
+    "table": {
+      "email": "Meil",
+      "name": "Nimi",
+      "office": "kontor",
+      "phone": "Telefon",
+      "role": "Roll"
+    }
+  },
+  "countrySelect": {
+    "empty": "Ühtegi riiki ei leitud",
+    "none": "Mitte ühtegi",
+    "placeholder": "Valige riik",
+    "search": "Otsi riike…"
+  },
+  "drawer": {
+    "closeAria": "Sulgege sahtel"
+  },
+  "holdingGroups": {
+    "back": "← Tagasi gruppide juurde",
+    "clientsUnder": "Selle grupi kliendid",
+    "create": "Loo hoidmisrühm",
+    "creating": "Loomine…",
+    "description": "Seotud kliendiüksuste emavarjud.",
+    "descriptionField": "Kirjeldus",
+    "detailDescription": "Looge seotud kliendiüksuste jaoks emakate.",
+    "empty": "Ühtegi hoidmisgruppi ei leitud",
+    "emptyClients": "Veel pole lingitud kliente.",
+    "emptyDescription": "Proovige otsingut kohandada või looge uus hoidmisrühm.",
+    "error": "Hoidmisrühmade laadimine ebaõnnestus.",
+    "formError": "Ooterühma loomine ebaõnnestus",
+    "name": "nimi *",
+    "namePlaceholder": "nt. Acme Group BV",
+    "new": "Uus valdusgrupp",
+    "notesPlaceholder": "Valikulised märkused selle valdusstruktuuri kohta",
+    "notFound": "Hoidmisrühma ei leitud.",
+    "allGroups": "Kõik hoidmisrühmad",
+    "perPage": "{{count}} lehekülje kohta",
+    "searchPlaceholder": "Otsi nime või riiki…",
+    "title": "Hoidmisrühmad",
+    "viewAria": "Kuva {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Tagasi klientide juurde"
+  },
+  "offices": {
+    "add": "Lisa kontor",
+    "city": "Linn",
+    "drawerTitle": "Lisa kontor",
+    "empty": "Kontorit veel pole.",
+    "errorPrimary": "Peamise kontori määramine ebaõnnestus",
+    "label": "Silt *",
+    "loading": "Kontorite laadimine…",
+    "noAddress": "Aadress puudub",
+    "primary": "Esmane",
+    "remove": "Eemalda",
+    "save": "Salvesta kontor",
+    "setPrimary": "Määrake peamiseks kontoriks",
+    "setPrimaryAction": "Määra esmane",
+    "title": "Kontorid"
+  },
+  "overview": {
+    "assignedTo": "Määratud",
+    "cancel": "Tühista",
+    "companyName": "Ettevõtte nimi *",
+    "country": "Riik",
+    "edit": "Muuda",
+    "exportClientData": "Ekspordi kliendi andmed",
+    "error": "Kliendiprofiili laadimine ebaõnnestus.",
+    "errorSave": "Kliendi salvestamine ebaõnnestus",
+    "firstName": "eesnimi*",
+    "gdprConsent": "GDPR nõusolek",
+    "holdingGroup": "Hoidmisrühm",
+    "lastName": "Perekonnanimi*",
+    "legalForm": "Õiguslik vorm",
+    "loading": "Profiili laadimine…",
+    "none": "Mitte ühtegi",
+    "notes": "Märkmed",
+    "registrationNo": "Registreerimisnumber",
+    "save": "Salvestage muudatused",
+    "saving": "Salvestamine…",
+    "status": "Olek",
+    "type": "Tüüp",
+    "validation": {
+      "companyName": "Ettevõtte nimi on kohustuslik",
+      "name": "Ees- ja perekonnanimi on kohustuslikud",
+      "website": "Veebisait peab algama tähega http:// või https://"
+    },
+    "vatNo": "Käibemaksu nr.",
+    "website": "Veebisait",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Lisa seotud ettevõte",
+    "drawerTitle": "Lisa seotud ettevõte",
+    "empty": "Seotud ettevõtteid pole lingitud.",
+    "externalName": "Väline nimi",
+    "existingClient": "Olemasolev klient",
+    "linkType": "Lingi tüüp",
+    "loading": "Laadimine…",
+    "notes": "Märkmed",
+    "notesPlaceholder": "Valikuline kontekst",
+    "relationship": "Suhe*",
+    "remove": "Eemalda",
+    "save": "Salvestage seotud ettevõte",
+    "searchClients": "Otsige kliente *",
+    "searchPlaceholder": "Otsi nime või koodi järgi…",
+    "noClients": "Kliente ei leitud",
+    "companyName": "Ettevõtte nimi *",
+    "table": {
+      "name": "Nimi",
+      "notes": "Märkmed",
+      "relationship": "Suhe"
+    },
+    "title": "Seotud ettevõtted"
+  },
+  "relationship": {
+    "affiliate": "Sidusettevõte",
+    "parent": "Lapsevanem",
+    "subsidiary": "Tütarettevõte"
+  },
+  "history": {
+    "empty": "Ajalugu veel pole.",
+    "loadMore": "Laadige rohkem",
+    "loading": "Ajaloo laadimine…",
+    "title": "Suhte ajalugu"
+  },
+  "matters": {
+    "empty": "Pole veel oluline. Avage asi, et alustada selle kliendi suhtes süüdistuse esitamist.",
+    "loading": "Asjade laadimine…",
+    "openNew": "Ava uus asi",
+    "table": {
+      "assigned": "Määratud",
+      "jurisdictions": "Jurisdiktsioonid",
+      "status": "Olek",
+      "title": "Pealkiri",
+      "type": "Tüüp"
+    },
+    "title": "Küsimused"
+  },
+  "accessHistory": {
+    "title": "Andmetele juurdepääsu ajalugu",
+    "subtitle": "Töötajad, kes vaatasid või eksportisid selle kliendi isikuandmeid.",
+    "loading": "Juurdepääsuajaloo laadimine…",
+    "loadFailed": "Juurdepääsuajaloo laadimine ebaõnnestus.",
+    "empty": "Juurdepääsusündmusi pole veel salvestatud.",
+    "systemUser": "Süsteem",
+    "columns": {
+      "when": "Millal",
+      "user": "Kasutaja",
+      "action": "Tegevus",
+      "ip": "IP"
+    }
+  },
+  "billing": {
+    "byMatter": "Aine järgi",
+    "error": "Arveldusandmete laadimine ebaõnnestus.",
+    "loading": "Arvelduse laadimine…",
+    "noPermission": "Teil pole luba selle kliendi arvelduste vaatamiseks.",
+    "title": "Arveldamine",
+    "wipDescription": "Selle kliendi jaoks on pooleliolev töö ja arveldamata summad.",
+    "wipDescriptionLong": "Selle kliendi jaoks on pooleli töö ja arveldatavad kogusummad.",
+    "matterTable": {
+      "matter": "Asi",
+      "type": "Tüüp",
+      "status": "Olek",
+      "billableHours": "Arveldatavad tunnid",
+      "total": "Kokku",
+      "unbilled": "Arveta",
+      "empty": "Pole veel oluline. Arveldatava töö jälgimise alustamiseks avage asi."
+    }
+  },
+  "sidebar": {
+    "country": "Riik:",
+    "loading": "Laadimine…",
+    "primaryContact": "Esmane kontakt",
+    "primaryOffice": "Esmane kontor",
+    "viewProfile": "Vaata täielikku profiili"
+  },
+  "status": {
+    "active": "Aktiivne",
+    "archived": "Arhiveeritud",
+    "inactive": "Mitteaktiivne",
+    "prospect": "Väljavaade"
+  },
+  "table": {
+    "action": "Tegevus",
+    "client": "Klient",
+    "country": "Riik",
+    "created": "Loodud",
+    "holdingGroup": "Hoidmisrühm",
+    "status": "Olek",
+    "type": "Tüüp"
+  },
+  "tabs": {
+    "accessHistory": "Juurdepääsu ajalugu",
+    "billing": "Arveldamine",
+    "contacts": "Kontaktid",
+    "history": "Ajalugu",
+    "matters": "Küsimused",
+    "watch": "Vaata",
+    "offices": "Kontorid",
+    "overview": "Ülevaade",
+    "related": "Seotud"
+  },
+  "type": {
+    "company": "Ettevõte",
+    "individual": "Individuaalne"
+  },
+  "unnamedClient": "Nimetu klient"
+}

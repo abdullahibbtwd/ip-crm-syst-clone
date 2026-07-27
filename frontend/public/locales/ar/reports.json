@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "حاضِر",
+      "overdue30": "1-30 يومًا",
+      "overdue60": "31-60 يوما",
+      "overdue90plus": "أكثر من 90 يومًا"
+    },
+    "bucketsShort": {
+      "current": "حاضِر",
+      "overdue30": "30 د",
+      "overdue60": "60 د",
+      "overdue90plus": "90 د+"
+    },
+    "legend": "أسطورة الشيخوخة",
+    "noOpenReceivables": "لا يوجد مستحقات مفتوحة"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} مجموعة العملاء",
+    "clientGroups_other": "{{count}} مجموعات العملاء",
+    "clientMatters": "العميل يهم",
+    "clientsInWindow": "{{clients}} العملاء · {{days}} أفق اليوم",
+    "crossTabTitle": "العميل × الاختصاص × المحامي",
+    "description": "المواعيد النهائية الحاسمة القادمة مجمعة حسب العميل والولاية القضائية والمحامي المسؤول. تتوافق الألوان العاجلة مع قوائم عمل الموعد النهائي ومعالم الإشعارات.",
+    "emptyDescription": "حاول توسيع نافذة المحفظة أو مسح المرشحات.",
+    "emptyTitle": "لا يوجد مواعيد نهائية في هذه النافذة",
+    "error": "تعذر تحميل تقرير مخاطر الموعد النهائي.",
+    "filters": {
+      "allAssignees": "جميع المكلفين",
+      "allAttorneys": "جميع المحامين",
+      "allJurisdictions": "جميع الولايات القضائية",
+      "jurisdiction": "الولاية القضائية",
+      "portfolioWindow": "نافذة المحفظة (أيام)",
+      "responsibleAttorney": "المحامي المسؤول"
+    },
+    "generated": "تم الإنشاء {{date}}",
+    "loading": "جارٍ تحميل مخاطر المحفظة...",
+    "openWorklist": "فتح قائمة العمل",
+    "stats": {
+      "critical": "شديد الأهمية",
+      "criticalHint": "متأخرة، اليوم، أو ≥7 أيام",
+      "dueToday": "مستحق اليوم",
+      "dueTodayHint": "الإجراء المطلوب اليوم",
+      "inWindow": "في النافذة",
+      "overdue": "تأخرت",
+      "overdueHint": "فات موعد استحقاقها أو تم تصعيدها"
+    },
+    "table": {
+      "deadline": "موعد التسليم",
+      "due": "حق",
+      "matter": "موضوع",
+      "status": "حالة"
+    },
+    "title": "مخاطر محفظة الموعد النهائي"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "حسب الاختصاص",
+    "byMonth": "التقديمات حسب الشهر",
+    "description": "الطلبات المقدمة - مجمعة من أحداث تقديم الجدول الزمني للمسألة، مجمعة حسب الشهر ونوع المسألة القضائية والولاية القضائية.",
+    "error": "تعذر تحميل وحدات تخزين الملفات.",
+    "filters": {
+      "allJurisdictions": "جميع الولايات القضائية",
+      "allTypes": "جميع الأنواع",
+      "jurisdiction": "الولاية القضائية",
+      "matterType": "نوع المسألة",
+      "periodFrom": "الفترة من",
+      "periodTo": "فترة ل"
+    },
+    "generated": "تم الإنشاء {{date}}",
+    "loading": "جارٍ تحميل مجلدات الملفات…",
+    "matterPortfolio": "محفظة المسألة",
+    "noFilings": "لا يوجد إيداعات في الفترة.",
+    "stats": {
+      "jurisdictions": "الولايات القضائية",
+      "jurisdictionsHint": "سلطات الايداع",
+      "matterTypes": "أنواع المسألة",
+      "matterTypesHint": "أنواع مميزة قدمت",
+      "totalFilings": "إجمالي الإيداعات",
+      "totalFilingsHint": "في فترة مختارة"
+    },
+    "table": {
+      "filingDate": "تاريخ الايداع",
+      "filings": "برادة",
+      "jurisdiction": "الولاية القضائية",
+      "matter": "موضوع",
+      "month": "شهر",
+      "type": "يكتب"
+    },
+    "title": "مجلدات الايداع"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "بحلول الشهر المقرر",
+    "byJurisdiction": "حسب الاختصاص",
+    "cycle": "دورة {{number}}",
+    "description": "فترات التجديد القادمة حسب الحالة والولاية القضائية وشهر الاستحقاق - مع مستويات الاستعجال المتوافقة مع الموعد النهائي للإبلاغ عن المخاطر.",
+    "dueBefore": "مستحق قبل",
+    "dueBeforeLabel": "مستحق قبل {{date}}",
+    "error": "تعذر تحميل ملخص التجديدات.",
+    "filters": {
+      "allJurisdictions": "جميع الولايات القضائية",
+      "jurisdiction": "الولاية القضائية"
+    },
+    "generated": "تم الإنشاء {{date}}",
+    "loading": "جارٍ تحميل ملخص التجديدات…",
+    "noRenewals": "لا يوجد تجديدات في النافذة.",
+    "renewalsWorklist": "تجديد قائمة العمل",
+    "stats": {
+      "critical": "شديد الأهمية",
+      "criticalHint": "متأخرة أو مستحقة ≥7 أيام",
+      "instructed": "تعليمات",
+      "instructedHint": "تم تأكيد المتابعة",
+      "pipeline": "خط أنابيب",
+      "pipelineHint": "نوافذ التجديد النشطة",
+      "upcoming": "القادمة",
+      "upcomingHint": "في انتظار التعليمات"
+    },
+    "table": {
+      "client": "عميل",
+      "due": "حق",
+      "ipRight": "حق الملكية الفكرية",
+      "month": "شهر",
+      "status": "حالة",
+      "windows": "ويندوز"
+    },
+    "title": "ملخص التجديدات"
+  },
+  "renewalUrgency": {
+    "legend": "ضرورة التجديد",
+    "noPipeline": "لا توجد تجديدات لخطوط الأنابيب",
+    "overdue": "تأخرت",
+    "soon": "≥30 يومًا",
+    "today": "مستحق اليوم",
+    "urgent": "≥7 أيام"
+  },
+  "revenueSummary": {
+    "agingDetail": "فتح تفاصيل المستحقات",
+    "agingSection": {
+      "description": "لقطة لجميع المستحقات المفتوحة حسب الأيام التي تجاوزت موعد استحقاقها",
+      "title": "ملخص الشيخوخة"
+    },
+    "description": "إجماليات الفواتير الصادرة حسب الشهر، والتحصيلات، والمستحقات المفتوحة التي تم تحديدها حسب أيام تاريخ الاستحقاق - بما يتماشى مع سيناريو تتبع الدفع المالي.",
+    "error": "تعذر تحميل ملخص الإيرادات.",
+    "filters": {
+      "periodFrom": "الفترة من",
+      "periodTo": "فترة ل"
+    },
+    "generated": "تم الإنشاء {{date}}",
+    "invoice_one": "{{count}} الفاتورة",
+    "invoice_other": "{{count}} الفواتير",
+    "invoiceRegister": "سجل الفاتورة",
+    "issuedInPeriod_one": "الإيرادات Summary.issuedInPeriod",
+    "issuedInPeriod_other": "الإيرادات Summary.issuedInPeriod",
+    "loading": "جارٍ تحميل ملخص الإيرادات…",
+    "noInvoices": "لا توجد فواتير صادرة في هذه الفترة.",
+    "noReceivables": "لا يوجد مستحقات مستحقة.",
+    "openInvoices_one": "الإيراداتSummary.openInvoices",
+    "openInvoices_other": "الإيراداتSummary.openInvoices",
+    "period": "الفترة {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "إجمالي الفواتير الصادرة مجمعة حسب شهر الإصدار",
+      "title": "الإيرادات حسب الشهر"
+    },
+    "stats": {
+      "collected": "تم جمعها",
+      "collectedHint": "المدفوعات المسجلة في الفترة",
+      "criticalReceivables": "متأخرة أكثر من 60 يومًا",
+      "criticalReceivablesHint": "المستحقات التي تتطلب المتابعة",
+      "outstanding": "متميز",
+      "totalInvoiced": "إجمالي الفواتير"
+    },
+    "table": {
+      "aging": "شيخوخة",
+      "client": "عميل",
+      "due": "حق",
+      "invoice": "فاتورة",
+      "invoiced": "فاتورة",
+      "month": "شهر",
+      "open": "يفتح",
+      "outstanding": "متميز",
+      "paid": "مدفوع"
+    },
+    "title": "الإيرادات والمستحقات"
+  },
+  "urgency": {
+    "legend": "أسطورة عاجلة",
+    "noActiveRisk": "لا يوجد خطر نشط",
+    "overdue": "تأخرت",
+    "soon": "مستحق ≥30 يومًا",
+    "soonShort": "≥30 يومًا",
+    "today": "مستحق اليوم",
+    "todayShort": "اليوم",
+    "urgent": "مستحق ≥7 أيام",
+    "urgentShort": "≥7 أيام"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "شديد الأهمية",
+      "criticalHint": "≥ 7 أيام",
+      "overdue": "تأخرت",
+      "actionRequired": "الإجراء مطلوب",
+      "dueToday": "مستحق اليوم",
+      "requiresSignOff": "يتطلب تسجيل الخروج",
+      "nextDays": "{{days}} من الأيام القادمة",
+      "clientsInWindow": "{{count}} العملاء في النافذة",
+      "windowSummary": "ملخص النافذة",
+      "priorityDeadlines": "المواعيد النهائية ذات الأولوية",
+      "prioritySubtitle": "معظم العناصر العاجلة التي تتطلب المراقبة",
+      "openReport": "فتح التقرير",
+      "loading": "مسح نواقل المخاطر...",
+      "error": "تعذر تحميل تحليلات المخاطر.",
+      "highestExposure": "التعرض لأعلى المخاطر",
+      "criticalCount": "{{count}} حرجة",
+      "portfolioClear": "المحفظة واضحة",
+      "noCriticalInWindow": "لم يتم اكتشاف أي خطر بالغ خلال {{days}} من الأيام القادمة.",
+      "table": {
+        "priorityDeadline": "الموعد النهائي الأولوية",
+        "clientJurisdiction": "العميل والولاية القضائية",
+        "dueDate": "تاريخ الاستحقاق"
+      },
+      "showingOf": "عرض {{shown}} من {{total}} العناصر ذات الأولوية",
+      "viewCrossTab": "عرض التقرير الكامل لعلامات التبويب"
+    },
+    "filingVolumes": {
+      "title": "مجلدات الايداع",
+      "subtitle": "الطلبات المقدمة عبر الشركة (آخر 12 شهرًا)",
+      "fullReport": "تقرير كامل",
+      "loading": "جارٍ تجميع سجل الإيداع…",
+      "error": "تعذر تحميل تحليلات الملفات.",
+      "totalFilings": "إجمالي الإيداعات",
+      "yearToDate": "منذ بدلية العام ز حتى اليوم",
+      "primaryType": "النوع الأساسي",
+      "applications_one": "تطبيق {{count}}",
+      "applications_other": "{{count}} التطبيقات",
+      "noData": "لا توجد بيانات",
+      "topRegion": "المنطقة العليا",
+      "monthActivity": "{{month}} النشاط:",
+      "newFiling_one": "{{count}} تسجيل جديد",
+      "newFiling_other": "{{count}} تسجيلات جديدة",
+      "empty": "لم يتم اكتشاف أي ملفات في التاريخ الحديث.",
+      "table": {
+        "matterInfo": "معلومات المسألة",
+        "type": "يكتب",
+        "filingDate": "تاريخ الايداع"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "مفوتر (12 شهرًا)",
+      "issued_one": "تم إصدار {{count}}",
+      "issued_other": "تم إصدار {{count}}",
+      "collected": "تم جمعها",
+      "paidInPeriod": "تدفع في الفترة",
+      "outstanding": "متميز",
+      "open_one": "{{count}} مفتوح",
+      "open_other": "{{count}} مفتوح",
+      "criticalRisk": "المخاطر الحرجة",
+      "overdue60Days": "متأخرة أكثر من 60 يومًا",
+      "receivablesAging": "تقادم المستحقات",
+      "agingSubtitle": "فتح الفواتير الصادرة بالأيام التي فات موعد استحقاقها",
+      "fullReport": "تقرير كامل",
+      "loading": "تحليل بيانات الشيخوخة...",
+      "error": "تعذر تحميل بيانات التقادم.",
+      "portfolioHealthy": "المحفظة صحية",
+      "noReceivables": "لم يتم العثور على مستحقات مستحقة.",
+      "draftRef": "مشروع المرجع",
+      "table": {
+        "invoiceInfo": "معلومات الفاتورة",
+        "client": "عميل",
+        "outstanding": "متميز"
+      },
+      "showingOf": "عرض {{shown}} من {{total}} الفواتير المفتوحة",
+      "viewPortfolio": "عرض المحفظة بأكملها"
+    },
+    "teamWorkload": {
+      "title": "عبء عمل الفريق",
+      "subtitle": "فتح المسائل والمهام والمواعيد النهائية لكل عضو",
+      "viewTeam": "عرض الفريق",
+      "loading": "جارٍ حساب توزيع عبء العمل...",
+      "error": "تعذر تحميل بيانات الفريق.",
+      "matters": "يهم",
+      "members_one": "{{count}} عضو",
+      "members_other": "{{count}} أعضاء",
+      "tasks": "المهام",
+      "pendingAction": "في انتظار الإجراء",
+      "deadlines": "المواعيد النهائية",
+      "activeWindow": "نافذة نشطة",
+      "busiest": "الأكثر ازدحاما",
+      "items_one": "{{count}} العنصر",
+      "items_other": "{{count}} العناصر",
+      "clear": "واضح",
+      "empty": "لا توجد بيانات الفريق النشطة",
+      "table": {
+        "teamMember": "عضو فريق",
+        "matters": "يهم",
+        "tasks": "المهام",
+        "deadlines": "المواعيد النهائية",
+        "total": "المجموع"
+      }
+    },
+    "clientProfitability": {
+      "title": "ربحية العميل",
+      "subtitle": "توزيع الإيرادات المفوترة حسب محفظة العملاء",
+      "viewAllClients": "عرض كافة العملاء",
+      "loading": "تجميع بيانات الربحية...",
+      "error": "تعذر تحميل تحليلات العميل.",
+      "trueMargin": "الهامش الحقيقي:",
+      "revenueProxy": "وكيل الإيرادات:",
+      "totalRevenue": "إجمالي الإيرادات",
+      "clients_one": "{{count}} العميل",
+      "clients_other": "{{count}} العملاء",
+      "totalMargin": "الهامش الإجمالي",
+      "topClient": "العميل الأعلى",
+      "internalCost": "{{amount}} التكلفة الداخلية",
+      "noBillingData": "لا توجد بيانات الفوترة",
+      "unbilledWip": "الأعمال قيد التنفيذ غير المفوترة",
+      "pendingAccrual": "في انتظار الاستحقاق",
+      "firmBilled": "شركة فواتير",
+      "totalMatters": "مجموع المسائل",
+      "empty": "لم يتم اكتشاف أي بيانات فوترة للعميل.",
+      "table": {
+        "clientPortfolio": "محفظة العملاء",
+        "matters": "يهم",
+        "billable": "قابلة للفوترة",
+        "unbilled": "غير مفوترة",
+        "margin": "هامِش",
+        "revenue": "المراجعة (يورو)"
+      },
+      "showingTop": "عرض أهم {{shown}} من عملاء {{total}} بواسطة {{basis}}",
+      "basisMargin": "هامِش",
+      "basisRevenue": "ربح",
+      "viewLeaderboard": "عرض المتصدرين الكاملة"
+    }
+  }
+}

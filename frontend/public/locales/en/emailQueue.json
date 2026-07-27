@@ -1,0 +1,37 @@
+{
+  "title": "Email queue",
+  "subtitle": "Unlinked emails pulled from connected mailboxes. Open an email, then attach it to a matter's correspondence register.",
+  "fetchEmails": "Fetch 5 emails",
+  "mailboxSettings": "Mailbox settings",
+  "fetchSuccess": "Fetched up to {{limit}} inbox message(s) — {{ingested}} new in queue{{emptyHint}}.",
+  "fetchEmptyHint": " (already imported or inbox empty)",
+  "fetchFailed": "Failed to fetch emails",
+  "columns": {
+    "received": "Received",
+    "from": "From",
+    "subject": "Subject",
+    "mailbox": "Mailbox",
+    "suggestion": "Suggestion",
+    "actions": "Actions"
+  },
+  "loading": "Loading queue…",
+  "loadFailed": "Failed to load email queue.",
+  "emptyTitle": "Queue is empty",
+  "emptyDescription": "Connect a mailbox in settings and fetch emails to import new messages.",
+  "noSubject": "(No subject)",
+  "suggestions": {
+    "subjectRef": "Client ref in subject",
+    "bodyRef": "Client ref in body",
+    "singleActiveMatter": "Single active matter",
+    "contactMatch": "Contact match",
+    "default": "Suggested matter",
+    "officeAction": "Office action",
+    "renewal": "Renewal"
+  },
+  "actions": {
+    "viewEmail": "View email",
+    "reply": "Reply",
+    "attachToMatter": "Attach to matter correspondence",
+    "downloadEml": "Download .eml"
+  }
+}

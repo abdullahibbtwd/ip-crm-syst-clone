@@ -1,6 +1,11 @@
 import { apiClient } from '@/lib/api-client'
 import type { AttorneyAssignee } from './utils'
-import type { PaginatedUsers, UserFilters, UserListItem } from './types'
+import type {
+  InviteUserResult,
+  PaginatedUsers,
+  UserFilters,
+  UserListItem,
+} from './types'
 import type { SystemRole } from '@/lib/rbac'
 
 export type { AttorneyAssignee } from './utils'
@@ -23,7 +28,10 @@ export const usersApi = {
   listAssignees: () => apiClient.get<AttorneyAssignee[]>('/users/assignees'),
 
   invite: (data: InviteUserInput) =>
-    apiClient.post<UserListItem>('/users/invite', data),
+    apiClient.post<InviteUserResult>('/users/invite', data),
+
+  resendInvite: (id: string) =>
+    apiClient.post<InviteUserResult>(`/users/${id}/resend-invite`),
 
   updateRole: (id: string, data: UpdateUserRoleInput) =>
     apiClient.patch<UserListItem>(`/users/${id}/role`, data),

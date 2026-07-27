@@ -1,0 +1,68 @@
+{
+  "title": "Emisije",
+  "subtitle": "Pošaljite grupne obavijesti na e-poštu za kontakt klijenta putem čvrstog SMTP-a. Svako slanje se revidira kao bulk_notification. Važni odgovori u poštanskom sandučiću ostaju u redu čekanja e-pošte / korespondenciji.",
+  "compose": {
+    "title": "Sastavi emitiranje",
+    "recipientGroup": "Grupa primatelja",
+    "selectClients": "Odaberite klijente",
+    "searchClientsPlaceholder": "Pretražite klijente (najmanje 2 znaka)",
+    "selected": "Odabrano",
+    "add": "Dodati",
+    "clientsSelected": "Broj odabranih klijenata: {{count}}",
+    "countingRecipients": "Brojanje primatelja...",
+    "previewFailed": "Nije moguće pregledati publiku",
+    "recipientMatched": "primatelj odgovara",
+    "recipientsMatched": "primatelji podudaraju",
+    "andMore": "…i još {{count}}",
+    "subject": "Predmet",
+    "subjectPlaceholder": "npr. Nadolazeći podsjetnici za obnovu EU-a",
+    "message": "Poruka",
+    "messagePlaceholder": "Napišite obavijest koju će vaši klijenti dobiti...",
+    "queuing": "U redu čekanja...",
+    "sendBroadcast": "Pošalji emisiju"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Predmet i poruka su obavezni",
+    "selectClient": "Odaberite barem jednog klijenta",
+    "queueFailed": "Emitiranje nije uspjelo u čekanju"
+  },
+  "success": {
+    "queued": "Emitiranje je u redu za {{count}} primatelja(a). Dostava se odvija u pozadini."
+  },
+  "history": {
+    "title": "Nedavne emisije",
+    "when": "Kada",
+    "subject": "Predmet",
+    "audience": "Publika",
+    "status": "Status",
+    "sent": "Poslano",
+    "by": "Po",
+    "loading": "učitavanje...",
+    "empty": "Još nema emitiranja.",
+    "failedCount": "({{count}} nije uspjelo)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Svi aktivni klijenti",
+      "description": "Primarni kontakt email za svakog aktivnog klijenta"
+    },
+    "pending_eu_renewals": {
+      "label": "U tijeku obnove EU",
+      "description": "Aktivni klijenti s nadolazećim / upućenim / podnesenim EU obnovama"
+    },
+    "trademark_matters": {
+      "label": "Pitanja zaštitnog znaka",
+      "description": "Klijenti s najmanje jednim aktivnim zaštitnim znakom"
+    },
+    "manual": {
+      "label": "Ručni odabir",
+      "description": "Odaberite određene klijente iz pretraživanja"
+    }
+  },
+  "status": {
+    "queued": "U redu čekanja",
+    "sending": "Slanje",
+    "completed": "Završeno",
+    "failed": "neuspješno"
+  }
+}

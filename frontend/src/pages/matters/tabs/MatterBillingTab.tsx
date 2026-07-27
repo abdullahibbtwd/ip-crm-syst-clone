@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Check, Pencil, Plus, Trash2, X } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -44,7 +45,7 @@ import { usePortalInvoices } from '@/features/invoices/hooks/useInvoices'
 import type { Invoice } from '@/features/invoices/types'
 import {
   FIXED_FEE_CATEGORIES,
-  FIXED_FEE_CATEGORY_LABELS,
+  fixedFeeCategoryLabel,
   formatBillingDate,
   formatHours,
   formatMoney,
@@ -70,6 +71,7 @@ export function MatterBillingTab() {
  * entries, hourly rates, or attorney workload (spec: "protected").
  */
 function PortalBillingView() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
   const { data: invoices, isLoading, isError } = usePortalInvoices()
   const matterInvoices = (invoices ?? []).filter(
@@ -79,14 +81,16 @@ function PortalBillingView() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="font-medium">Billing</h2>
-        <p className="text-sm text-muted-foreground">
-          Invoices and payment status for this matter.
-        </p>
+        <h2 className="font-medium">{t('matters:billing.title')}</h2>
+        <p className="text-sm text-muted-foreground">{t('matters:billing.portalDescription')}</p>
       </div>
 
-      {isLoading && <p className="text-sm text-muted-foreground">Loading invoices…</p>}
-      {isError && <p className="text-sm text-destructive">Failed to load invoices.</p>}
+      {isLoading && (
+        <p className="text-sm text-muted-foreground">{t('matters:billing.loadingInvoices')}</p>
+      )}
+      {isError && (
+        <p className="text-sm text-destructive">{t('matters:billing.loadInvoicesFailed')}</p>
+      )}
       {!isLoading && !isError && (
         <InvoiceListTable invoices={matterInvoices} portal />
       )}
@@ -95,6 +99,7 @@ function PortalBillingView() {
 }
 
 function InternalBillingView() {
+  const { t } = useTranslation(['matters', 'finance', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
   const { confirm } = useAppAlert()
   const { data: summary, isLoading: summaryLoading } = useBillingSummary(matterId)
@@ -123,10 +128,10 @@ function InternalBillingView() {
   const isError = entriesError || feesError
 
   if (isLoading && !timeEntries && !fixedFees) {
-    return <p className="text-sm text-muted-foreground">Loading billing…</p>
+    return <p className="text-sm text-muted-foreground">{t('matters:billing.loading')}</p>
   }
   if (isError) {
-    return <p className="text-sm text-destructive">Failed to load billing data.</p>
+    return <p className="text-sm text-destructive">{t('matters:billing.error')}</p>
   }
 
   const summaryData = summary ?? {
@@ -142,10 +147,8 @@ function InternalBillingView() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="font-medium">Billing</h2>
-        <p className="text-sm text-muted-foreground">
-          Time entries, fixed fees, and invoices for this matter.
-        </p>
+        <h2 className="font-medium">{t('matters:billing.title')}</h2>
+        <p className="text-sm text-muted-foreground">{t('matters:billing.description')}</p>
       </div>
 
       <SummaryBar
@@ -159,7 +162,7 @@ function InternalBillingView() {
 
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-sm font-medium">Time entries</h3>
+          <h3 className="text-sm font-medium">{t('matters:billing.timeEntries')}</h3>
           <PermissionGate resource="billing" action="create">
             <Button
               type="button"
@@ -171,7 +174,7 @@ function InternalBillingView() {
               }}
             >
               <Plus className="mr-1 size-4" />
-              Log time
+              {t('matters:billing.addTime')}
             </Button>
           </PermissionGate>
         </div>
@@ -179,13 +182,13 @@ function InternalBillingView() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead>Attorney</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead className="text-right">Hours</TableHead>
-              <TableHead className="text-right">Rate</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-              <TableHead>Billable</TableHead>
+              <TableHead>{t('matters:billing.table.date')}</TableHead>
+              <TableHead>{t('matters:billing.table.attorney')}</TableHead>
+              <TableHead>{t('matters:billing.table.description')}</TableHead>
+              <TableHead className="text-right">{t('matters:billing.table.hours')}</TableHead>
+              <TableHead className="text-right">{t('matters:billing.table.rate')}</TableHead>
+              <TableHead className="text-right">{t('matters:billing.table.amount')}</TableHead>
+              <TableHead>{t('matters:billing.table.billable')}</TableHead>
               <PermissionGate resource="billing" action="update">
                 <TableHead className="w-[88px]" />
               </PermissionGate>
@@ -198,7 +201,7 @@ function InternalBillingView() {
                   colSpan={tableColSpan}
                   className="py-10 text-center text-muted-foreground"
                 >
-                  No time logged yet.
+                  {t('matters:billing.emptyTime')}
                 </TableCell>
               </TableRow>
             ) : (
@@ -212,12 +215,12 @@ function InternalBillingView() {
                     <span className="line-clamp-2">{entry.description}</span>
                     {entry.isBillable && entry.rateSnapshot === 0 && (
                       <Badge variant="destructive" className="mt-1 normal-case">
-                        Billable without rate
+                        {t('matters:billing.billableWithoutRate')}
                       </Badge>
                     )}
                     {!entry.isBillable && entry.rateSnapshot === 0 && (
                       <Badge variant="outline" className="mt-1 normal-case text-muted-foreground">
-                        No rate card
+                        {t('matters:billing.noRateCard')}
                       </Badge>
                     )}
                   </TableCell>
@@ -228,9 +231,9 @@ function InternalBillingView() {
                   <TableCell className="text-right">{formatMoney(entry.amount)}</TableCell>
                   <TableCell>
                     {entry.isBillable ? (
-                      <Check className="size-4 text-emerald-600" aria-label="Billable" />
+                      <Check className="size-4 text-emerald-600" aria-label={t('matters:billing.billableAria')} />
                     ) : (
-                      <X className="size-4 text-muted-foreground" aria-label="Non-billable" />
+                      <X className="size-4 text-muted-foreground" aria-label={t('matters:billing.nonBillableAria')} />
                     )}
                   </TableCell>
                   <PermissionGate resource="billing" action="update">
@@ -256,10 +259,10 @@ function InternalBillingView() {
                               disabled={deleteEntry.isPending}
                               onClick={async () => {
                                 const ok = await confirm({
-                                  title: 'Delete time entry?',
-                                  message: 'This billable line will be removed from the matter.',
+                                  title: t('matters:billing.confirmDeleteTimeTitle'),
+                                  message: t('matters:billing.confirmDeleteTimeMessage'),
                                   variant: 'danger',
-                                  confirmLabel: 'Delete',
+                                  confirmLabel: t('common:actions.remove'),
                                 })
                                 if (ok) deleteEntry.mutate(entry.id)
                               }}
@@ -280,7 +283,7 @@ function InternalBillingView() {
 
       <section className="space-y-3">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-sm font-medium">Fixed fees</h3>
+          <h3 className="text-sm font-medium">{t('matters:billing.fixedFees')}</h3>
           <PermissionGate resource="billing" action="create">
             <Button
               type="button"
@@ -292,7 +295,7 @@ function InternalBillingView() {
               }}
             >
               <Plus className="mr-1 size-4" />
-              Add fixed fee
+              {t('matters:billing.addFee')}
             </Button>
           </PermissionGate>
         </div>
@@ -300,11 +303,11 @@ function InternalBillingView() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-              <TableHead>Billable</TableHead>
+              <TableHead>{t('matters:billing.table.date')}</TableHead>
+              <TableHead>{t('matters:billing.table.description')}</TableHead>
+              <TableHead>{t('matters:billing.table.category')}</TableHead>
+              <TableHead className="text-right">{t('matters:billing.table.amount')}</TableHead>
+              <TableHead>{t('matters:billing.table.billable')}</TableHead>
               <PermissionGate resource="billing" action="update">
                 <TableHead className="w-[88px]" />
               </PermissionGate>
@@ -317,7 +320,7 @@ function InternalBillingView() {
                   colSpan={feeTableColSpan}
                   className="py-10 text-center text-muted-foreground"
                 >
-                  No fixed fees yet.
+                  {t('matters:billing.emptyFees')}
                 </TableCell>
               </TableRow>
             ) : (
@@ -328,16 +331,16 @@ function InternalBillingView() {
                     <span className="line-clamp-2">{fee.description}</span>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
-                    {FIXED_FEE_CATEGORY_LABELS[fee.category]}
+                    {fixedFeeCategoryLabel(fee.category)}
                   </TableCell>
                   <TableCell className="text-right">
                     {formatMoney(fee.amount, fee.currency)}
                   </TableCell>
                   <TableCell>
                     {fee.isBillable ? (
-                      <Check className="size-4 text-emerald-600" aria-label="Billable" />
+                      <Check className="size-4 text-emerald-600" aria-label={t('matters:billing.billableAria')} />
                     ) : (
-                      <X className="size-4 text-muted-foreground" aria-label="Non-billable" />
+                      <X className="size-4 text-muted-foreground" aria-label={t('matters:billing.nonBillableAria')} />
                     )}
                   </TableCell>
                   <PermissionGate resource="billing" action="update">
@@ -363,10 +366,10 @@ function InternalBillingView() {
                               disabled={deleteFee.isPending}
                               onClick={async () => {
                                 const ok = await confirm({
-                                  title: 'Delete fixed fee?',
-                                  message: 'This fee will be removed from the matter.',
+                                  title: t('matters:billing.confirmDeleteFeeTitle'),
+                                  message: t('matters:billing.confirmDeleteFeeMessage'),
                                   variant: 'danger',
-                                  confirmLabel: 'Delete',
+                                  confirmLabel: t('common:actions.remove'),
                                 })
                                 if (ok) deleteFee.mutate(fee.id)
                               }}
@@ -421,6 +424,7 @@ function TimeEntryDrawer({
   entry: TimeEntry | null
   onClose: () => void
 }) {
+  const { t } = useTranslation(['matters', 'finance', 'common'])
   const isEdit = Boolean(entry)
   const createEntry = useCreateTimeEntry(matterId)
   const updateEntry = useUpdateTimeEntry(matterId)
@@ -482,21 +486,19 @@ function TimeEntryDrawer({
     e.preventDefault()
     setError(null)
     if (!description.trim()) {
-      setError('Description is required')
+      setError(t('matters:billing.timeDrawer.errors.descriptionRequired'))
       return
     }
     if (!Number.isFinite(hoursNum) || hoursNum < 0.25) {
-      setError('Hours must be at least 0.25')
+      setError(t('matters:billing.timeDrawer.errors.hoursMin'))
       return
     }
     if (!Number.isFinite(rateNum) || rateNum < 0) {
-      setError('Rate must be zero or greater')
+      setError(t('matters:billing.timeDrawer.errors.rateMin'))
       return
     }
     if (isBillable && rateNum === 0) {
-      setError(
-        'Billable time requires an hourly rate. Enter a rate or mark as non-billable.',
-      )
+      setError(t('matters:billing.timeDrawer.errors.billableRequiresRate'))
       return
     }
 
@@ -516,7 +518,7 @@ function TimeEntryDrawer({
       }
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to save time entry'))
+      setError(getApiErrorMessage(err, t('matters:billing.timeDrawer.saveFailed')))
     }
   }
 
@@ -526,11 +528,13 @@ function TimeEntryDrawer({
     <Drawer
       open={open}
       onClose={onClose}
-      title={isEdit ? 'Edit time entry' : 'Log time'}
+      title={
+        isEdit ? t('matters:billing.timeDrawer.editTitle') : t('matters:billing.timeDrawer.createTitle')
+      }
     >
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="space-y-2">
-          <Label htmlFor="te-date">Date</Label>
+          <Label htmlFor="te-date">{t('matters:billing.table.date')}</Label>
           <Input
             id="te-date"
             type="date"
@@ -541,7 +545,7 @@ function TimeEntryDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="te-hours">Hours</Label>
+          <Label htmlFor="te-hours">{t('matters:billing.table.hours')}</Label>
           <Input
             id="te-hours"
             type="number"
@@ -551,16 +555,16 @@ function TimeEntryDrawer({
             onChange={(e) => setHours(e.target.value)}
             required
           />
-          <p className="text-xs text-muted-foreground">Quarter-hour increments (0.25 minimum)</p>
+          <p className="text-xs text-muted-foreground">{t('matters:billing.timeDrawer.hoursHint')}</p>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="te-description">Description</Label>
+          <Label htmlFor="te-description">{t('matters:billing.table.description')}</Label>
           <Input
             id="te-description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="What was done"
+            placeholder={t('matters:billing.timeDrawer.descriptionPlaceholder')}
             required
           />
         </div>
@@ -575,12 +579,12 @@ function TimeEntryDrawer({
             className="size-4 rounded border disabled:opacity-50"
           />
           <Label htmlFor="te-billable" className={rateNum === 0 ? 'text-muted-foreground' : undefined}>
-            Billable
+            {t('matters:billing.timeDrawer.billable')}
           </Label>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="te-rate">Hourly rate (€)</Label>
+          <Label htmlFor="te-rate">{t('matters:billing.timeDrawer.hourlyRate')}</Label>
           <Input
             id="te-rate"
             type="number"
@@ -595,37 +599,40 @@ function TimeEntryDrawer({
             required
           />
           {!isEdit && rateLoading && (
-            <p className="text-xs text-muted-foreground">Resolving rate…</p>
+            <p className="text-xs text-muted-foreground">{t('matters:billing.timeDrawer.resolvingRate')}</p>
           )}
           {showUnratedWarning && (
             <div
               role="alert"
               className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900"
             >
-              No rate card found for your role. This entry will be saved as{' '}
-              <strong>non-billable</strong> until finance sets a rate or you enter one
-              manually.
+              {t('matters:billing.timeDrawer.noRateCardWarning')}
             </div>
           )}
           {rateNum === 0 && !showUnratedWarning && (
             <p className="text-xs text-muted-foreground">
-              Billable is disabled while the rate is €0.
+              {t('matters:billing.timeDrawer.billableDisabledHint')}
             </p>
           )}
         </div>
 
         <p className="rounded-md border bg-muted/40 px-3 py-2 text-sm">
-          Amount: <span className="font-medium">{formatMoney(previewAmount)}</span>
+          {t('matters:billing.timeDrawer.amount')}{' '}
+          <span className="font-medium">{formatMoney(previewAmount)}</span>
         </p>
 
         {error && <p className="text-sm text-destructive">{error}</p>}
 
         <div className="flex gap-2 pt-2">
           <Button type="submit" disabled={pending}>
-            {pending ? 'Saving…' : isEdit ? 'Save changes' : 'Log time'}
+            {pending
+              ? t('common:loading.saving')
+              : isEdit
+                ? t('common:actions.saveChanges')
+                : t('matters:billing.addTime')}
           </Button>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
         </div>
       </form>
@@ -644,6 +651,7 @@ function FixedFeeDrawer({
   fee: FixedFee | null
   onClose: () => void
 }) {
+  const { t } = useTranslation(['matters', 'finance', 'common'])
   const isEdit = Boolean(fee)
   const createFee = useCreateFixedFee(matterId)
   const updateFee = useUpdateFixedFee(matterId)
@@ -677,12 +685,12 @@ function FixedFeeDrawer({
     e.preventDefault()
     setError(null)
     if (!description.trim()) {
-      setError('Description is required')
+      setError(t('matters:billing.feeDrawer.errors.descriptionRequired'))
       return
     }
     const amountNum = Number(amount)
     if (!Number.isFinite(amountNum) || amountNum < 0) {
-      setError('Amount must be zero or greater')
+      setError(t('matters:billing.feeDrawer.errors.amountMin'))
       return
     }
 
@@ -702,17 +710,21 @@ function FixedFeeDrawer({
       }
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to save fixed fee'))
+      setError(getApiErrorMessage(err, t('matters:billing.feeDrawer.saveFailed')))
     }
   }
 
   const pending = createFee.isPending || updateFee.isPending
 
   return (
-    <Drawer open={open} onClose={onClose} title={isEdit ? 'Edit fixed fee' : 'Add fixed fee'}>
+    <Drawer
+      open={open}
+      onClose={onClose}
+      title={isEdit ? t('matters:billing.feeDrawer.editTitle') : t('matters:billing.feeDrawer.createTitle')}
+    >
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="space-y-2">
-          <Label htmlFor="ff-date">Date</Label>
+          <Label htmlFor="ff-date">{t('matters:billing.table.date')}</Label>
           <Input
             id="ff-date"
             type="date"
@@ -723,18 +735,18 @@ function FixedFeeDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="ff-description">Description</Label>
+          <Label htmlFor="ff-description">{t('matters:billing.table.description')}</Label>
           <Input
             id="ff-description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="e.g. BPO trademark filing fee"
+            placeholder={t('matters:billing.feeDrawer.descriptionPlaceholder')}
             required
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="ff-category">Category</Label>
+          <Label htmlFor="ff-category">{t('matters:billing.table.category')}</Label>
           <Select value={category} onValueChange={(v) => setCategory(v as FixedFeeCategory)}>
             <SelectTrigger id="ff-category">
               <SelectValue />
@@ -742,7 +754,7 @@ function FixedFeeDrawer({
             <SelectContent>
               {FIXED_FEE_CATEGORIES.map((c) => (
                 <SelectItem key={c} value={c}>
-                  {FIXED_FEE_CATEGORY_LABELS[c]}
+                  {fixedFeeCategoryLabel(c)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -750,7 +762,7 @@ function FixedFeeDrawer({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="ff-amount">Amount (€)</Label>
+          <Label htmlFor="ff-amount">{t('matters:billing.feeDrawer.amount')}</Label>
           <Input
             id="ff-amount"
             type="number"
@@ -770,17 +782,21 @@ function FixedFeeDrawer({
             onChange={(e) => setIsBillable(e.target.checked)}
             className="size-4 rounded border"
           />
-          <Label htmlFor="ff-billable">Billable</Label>
+          <Label htmlFor="ff-billable">{t('matters:billing.feeDrawer.billable')}</Label>
         </div>
 
         {error && <p className="text-sm text-destructive">{error}</p>}
 
         <div className="flex gap-2 pt-2">
           <Button type="submit" disabled={pending}>
-            {pending ? 'Saving…' : isEdit ? 'Save changes' : 'Add fixed fee'}
+            {pending
+              ? t('common:loading.saving')
+              : isEdit
+                ? t('common:actions.saveChanges')
+                : t('matters:billing.addFee')}
           </Button>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
         </div>
       </form>

@@ -1,0 +1,15 @@
+{
+  "title": "Documents",
+  "subtitle": "Firm-wide matter documents library.",
+  "searchPlaceholder": "Search documents…",
+  "loading": "Loading…",
+  "loadFailed": "Failed to load documents.",
+  "empty": "No documents found.",
+  "columns": {
+    "name": "Name",
+    "matter": "Matter",
+    "category": "Category",
+    "updated": "Updated",
+    "by": "By"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Kembali ke papan pemuka",
+    "cancel": "Batal",
+    "edit": "Sunting",
+    "loadMore": "Muatkan lagi",
+    "next": "Seterusnya",
+    "previous": "Sebelumnya",
+    "refresh": "Segarkan semula",
+    "remove": "Alih keluar",
+    "retry": "Cuba semula",
+    "save": "Jimat",
+    "saveChanges": "Simpan perubahan",
+    "view": "Lihat"
+  },
+  "errors": {
+    "loadFailed": "Gagal memuatkan.",
+    "retryHint": "Semak sambungan dan kebenaran anda, kemudian cuba lagi."
+  },
+  "filters": {
+    "all": "Semua",
+    "allStatuses": "Semua status",
+    "allTypes": "Semua jenis"
+  },
+  "language": {
+    "ar": "bahasa arab",
+    "bg": "bahasa Bulgaria",
+    "bs": "Bosnia",
+    "de": "Jerman",
+    "en": "Inggeris",
+    "es": "bahasa Sepanyol",
+    "et": "bahasa Estonia",
+    "fr": "Perancis",
+    "hr": "bahasa Croatia",
+    "hy": "bahasa Armenia",
+    "it": "Itali",
+    "mk": "Macedonia",
+    "ms": "Melayu",
+    "ro": "bahasa Romania",
+    "ru": "bahasa Rusia",
+    "sq": "bahasa Albania",
+    "sr": "bahasa Serbia",
+    "switch": "Tukar bahasa",
+    "tr": "bahasa Turki",
+    "zh-CN": "Cina (Mudah)"
+  },
+  "loading": {
+    "default": "Memuatkan…",
+    "refreshing": "menyegarkan…",
+    "saving": "Menyimpan…"
+  },
+  "nav": {
+    "breadcrumb": "Serbuk roti",
+    "closeMenu": "Tutup menu",
+    "openMenu": "Buka menu"
+  },
+  "pagination": {
+    "noResults": "Tiada hasil",
+    "page": "Halaman {{page}}",
+    "showing": "Menunjukkan {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Laporan"
+  },
+  "noPermission": "Tiada kebenaran.",
+  "crm": "CRM",
+  "clientPortal": "Portal pelanggan",
+  "tasks": "Tugasan",
+  "comingSoon": "Akan datang",
+  "notifications": {
+    "title": "Pemberitahuan",
+    "unread": "belum dibaca",
+    "markAllRead": "Tandakan semua sudah dibaca",
+    "couldNotLoad": "Tidak dapat memuatkan pemberitahuan.",
+    "noNotificationsYet": "Tiada pemberitahuan lagi."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Tidak",
+    "none": "tiada",
+    "yes": "ya"
+  }
+}

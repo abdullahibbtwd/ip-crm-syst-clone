@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Pista de audit",
+    "subtitle": "Jurnal de audit la nivelul întregului sistem pentru verificarea conformității.",
+    "loading": "Se încarcă traseul de audit...",
+    "loadFailed": "Nu s-a încărcat traseul de audit.",
+    "empty": "Nu au fost găsite intrări de audit.",
+    "columns": {
+      "when": "Când",
+      "user": "Utilizator",
+      "action": "Acţiune",
+      "resource": "Resursă",
+      "module": "Modul"
+    }
+  },
+  "dataExports": {
+    "title": "Jurnal de exporturi de date",
+    "subtitle": "Exporturile și descărcările de date personale urmărite pentru conformitatea GDPR.",
+    "loading": "Se încarcă jurnalul de export...",
+    "loadFailed": "Nu s-a încărcat jurnalul de export.",
+    "empty": "Nu s-au înregistrat încă exporturi.",
+    "columns": {
+      "when": "Când",
+      "user": "Utilizator",
+      "resource": "Resursă",
+      "clientId": "ID client"
+    }
+  },
+  "retention": {
+    "title": "Reguli de reținere",
+    "subtitle": "Politicile de păstrare GDPR impuse de operația de scanare nocturnă (implicit 3:00 AM). Utilizați rularea în uscat pentru a previzualiza câte înregistrări ar fi afectate.",
+    "noPermission": "Nu aveți permisiunea de a gestiona regulile de păstrare.",
+    "newRule": "Regulă nouă",
+    "loading": "Se încarcă regulile de păstrare...",
+    "loadFailed": "Nu s-au încărcat regulile de păstrare.",
+    "empty": "Nu există încă reguli de păstrare.",
+    "dryRun": "Cursa uscata",
+    "dryRunAria": "Regulă de reținere a funcționării uscate",
+    "editAria": "Editați regula de păstrare",
+    "dryRunResult": "Funcționare uscată: ar afecta {{count}} înregistrare(e) (limită {{cutoff}}).",
+    "dryRunFailed": "Funcția uscată a eșuat",
+    "auditTrailHint": "Vizualizați istoricul epurării în",
+    "auditTrailLink": "pista de audit",
+    "auditTrailFilter": "(acțiune de filtrare: retention_rule_executed).",
+    "columns": {
+      "entity": "Entitate",
+      "condition": "Stare",
+      "retention": "Retenţie",
+      "action": "Acţiune",
+      "status": "Stare",
+      "description": "Descriere"
+    },
+    "drawer": {
+      "createTitle": "Noua regulă de păstrare",
+      "editTitle": "Editați regula de păstrare",
+      "entityType": "Tip de entitate",
+      "condition": "Stare",
+      "conditionRejected": "Stare = respins",
+      "conditionNotConverted": "Neconvertit (excl. respins)",
+      "auditLogsHint": "Regulile jurnalului de audit se aplică tuturor înregistrărilor mai vechi decât perioada de păstrare. Acțiunea este întotdeauna șterge.",
+      "retentionDays": "Reținere (zile)",
+      "action": "Acţiune",
+      "description": "Descriere",
+      "status": "Stare",
+      "createRule": "Creați o regulă"
+    },
+    "entityTypes": {
+      "intake_leads": "Cabluri de admisie",
+      "audit_logs": "Jurnalele de audit"
+    },
+    "actions": {
+      "anonymize": "Anonimizați",
+      "delete": "Şterge"
+    },
+    "conditions": {
+      "allRecords": "Toate înregistrările",
+      "rejected": "Stare = respins",
+      "notConverted": "Neconvertit (excl. respins)",
+      "noStatusFilter": "Fără filtru de stare"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv"
+    },
+    "errors": {
+      "invalidDays": "Introduceți o perioadă de păstrare valabilă în zile",
+      "saveFailed": "Nu s-a salvat regula de păstrare",
+      "confirmSave": "Regulile de reținere rulează în sarcina de scanare nocturnă (implicit 3:00 AM). Salvați în continuare?"
+    },
+    "duration": {
+      "days": "{{days}} zile",
+      "daysWithYears_one": "{{days}} zile ({{count}} an)",
+      "daysWithYears_other": "{{days}} zile ({{count}} ani)",
+      "daysWithMonths_one": "{{days}} zile ({{count}} lună)",
+      "daysWithMonths_other": "{{days}} zile ({{count}} luni)",
+      "daysApproxYears": "{{days}} zile (~{{years}} ani)",
+      "daysApproxMonths": "{{days}} zile (~{{months}} luni)"
+    }
+  }
+}

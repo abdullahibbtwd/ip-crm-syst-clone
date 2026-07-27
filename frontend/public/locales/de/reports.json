@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Aktuell",
+      "overdue30": "1–30 Tage",
+      "overdue60": "31–60 Tage",
+      "overdue90plus": "90+ Tage"
+    },
+    "bucketsShort": {
+      "current": "Aktuell",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Alternde Legende",
+    "noOpenReceivables": "Keine offenen Forderungen"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} Kundengruppe",
+    "clientGroups_other": "{{count}} Kundengruppen",
+    "clientMatters": "Der Kunde ist wichtig",
+    "clientsInWindow": "{{clients}} Kunden · {{days}} Tageshorizont",
+    "crossTabTitle": "Mandant × Gerichtsstand × Anwalt",
+    "description": "Anstehende kritische Fristen, gruppiert nach Mandant, Gerichtsbarkeit und verantwortlichem Anwalt. Dringlichkeitsfarben passen zu Deadline-Arbeitslisten und Benachrichtigungsmeilensteinen.",
+    "emptyDescription": "Versuchen Sie, das Portfoliofenster zu erweitern oder Filter zu löschen.",
+    "emptyTitle": "In diesem Fenster gibt es keine Fristen",
+    "error": "Der Deadline-Risikobericht konnte nicht geladen werden.",
+    "filters": {
+      "allAssignees": "Alle Beauftragten",
+      "allAttorneys": "Alle Anwälte",
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "jurisdiction": "Zuständigkeit",
+      "portfolioWindow": "Portfoliofenster (Tage)",
+      "responsibleAttorney": "Verantwortlicher Anwalt"
+    },
+    "generated": "Erstellt {{date}}",
+    "loading": "Portfoliorisiko wird geladen…",
+    "openWorklist": "Arbeitsvorrat öffnen",
+    "stats": {
+      "critical": "Kritisch",
+      "criticalHint": "Überfällig, heute oder ≤7 Tage",
+      "dueToday": "Heute fällig",
+      "dueTodayHint": "Heute besteht Handlungsbedarf",
+      "inWindow": "Im Fenster",
+      "overdue": "Überfällig",
+      "overdueHint": "Überfällig oder eskaliert"
+    },
+    "table": {
+      "deadline": "Frist",
+      "due": "Fällig",
+      "matter": "Gegenstand",
+      "status": "Status"
+    },
+    "title": "Deadline-Portfoliorisiko"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Nach Gerichtsstand",
+    "byMonth": "Einreichungen nach Monat",
+    "description": "Eingereichte Anträge – aggregiert aus den Einreichungsereignissen im Zeitrahmen der Angelegenheit, gruppiert nach Monat, Art der Angelegenheit und Gerichtsbarkeit.",
+    "error": "Archivierungsvolumes konnten nicht geladen werden.",
+    "filters": {
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "allTypes": "Alle Arten",
+      "jurisdiction": "Zuständigkeit",
+      "matterType": "Materietyp",
+      "periodFrom": "Zeitraum von",
+      "periodTo": "Zeitraum bis"
+    },
+    "generated": "Erstellt {{date}}",
+    "loading": "Aktenbände werden geladen…",
+    "matterPortfolio": "Materie-Portfolio",
+    "noFilings": "Keine Einreichungen in der Periode.",
+    "stats": {
+      "jurisdictions": "Gerichtsbarkeiten",
+      "jurisdictionsHint": "Einreichungsbehörden",
+      "matterTypes": "Materietypen",
+      "matterTypesHint": "Verschiedene Typen eingereicht",
+      "totalFilings": "Gesamteinreichungen",
+      "totalFilingsHint": "Im ausgewählten Zeitraum"
+    },
+    "table": {
+      "filingDate": "Anmeldedatum",
+      "filings": "Einreichungen",
+      "jurisdiction": "Zuständigkeit",
+      "matter": "Gegenstand",
+      "month": "Monat",
+      "type": "Typ"
+    },
+    "title": "Archivbände"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Bis zum Fälligkeitsmonat",
+    "byJurisdiction": "Nach Gerichtsstand",
+    "cycle": "Zyklus {{number}}",
+    "description": "Anstehende Verlängerungsfenster nach Status, Gerichtsbarkeit und Fälligkeitsmonat – mit Dringlichkeitsstufen, die an der Risikoberichterstattung zu Fristen ausgerichtet sind.",
+    "dueBefore": "Vorher fällig",
+    "dueBeforeLabel": "Fällig vor {{date}}",
+    "error": "Die Zusammenfassung der Verlängerungen konnte nicht geladen werden.",
+    "filters": {
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "jurisdiction": "Zuständigkeit"
+    },
+    "generated": "Erstellt {{date}}",
+    "loading": "Zusammenfassung der Verlängerungen wird geladen…",
+    "noRenewals": "Keine Verlängerungen im Fenster.",
+    "renewalsWorklist": "Arbeitsliste für Verlängerungen",
+    "stats": {
+      "critical": "Kritisch",
+      "criticalHint": "Überfällig oder fällig ≤7 Tage",
+      "instructed": "Angewiesen",
+      "instructedHint": "Vorgang bestätigt",
+      "pipeline": "Pipeline",
+      "pipelineHint": "Aktive Verlängerungsfenster",
+      "upcoming": "Demnächst",
+      "upcomingHint": "Warten auf Anweisungen"
+    },
+    "table": {
+      "client": "Kunde",
+      "due": "Fällig",
+      "ipRight": "IP richtig",
+      "month": "Monat",
+      "status": "Status",
+      "windows": "Windows"
+    },
+    "title": "Zusammenfassung der Verlängerungen"
+  },
+  "renewalUrgency": {
+    "legend": "Dringlichkeit der Erneuerung",
+    "noPipeline": "Keine Pipeline-Erneuerungen",
+    "overdue": "Überfällig",
+    "soon": "≤30 Tage",
+    "today": "Heute fällig",
+    "urgent": "≤7 Tage"
+  },
+  "revenueSummary": {
+    "agingDetail": "Details zu offenen Forderungen",
+    "agingSection": {
+      "description": "Snapshot aller offenen Forderungen nach Tagen der Überfälligkeit",
+      "title": "Zusammenfassung zum Alter"
+    },
+    "description": "Ausgestellte Rechnungssummen nach Monat, Inkasso und offene Forderungen nach Fälligkeitstagen – abgestimmt auf das Zahlungsverfolgungsszenario „Finance“.",
+    "error": "Die Umsatzübersicht konnte nicht geladen werden.",
+    "filters": {
+      "periodFrom": "Zeitraum von",
+      "periodTo": "Zeitraum bis"
+    },
+    "generated": "Erstellt {{date}}",
+    "invoice_one": "{{count}} Rechnung",
+    "invoice_other": "{{count}} Rechnungen",
+    "invoiceRegister": "Rechnungsregister",
+    "issuedInPeriod_one": "revenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "revenueSummary.issuedInPeriod",
+    "loading": "Umsatzübersicht wird geladen…",
+    "noInvoices": "In diesem Zeitraum wurden keine Rechnungen ausgestellt.",
+    "noReceivables": "Keine ausstehenden Forderungen.",
+    "openInvoices_one": "revenueSummary.openInvoices",
+    "openInvoices_other": "revenueSummary.openInvoices",
+    "period": "Zeitraum {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Gesamtsummen der ausgestellten Rechnungen, gruppiert nach Ausstellungsmonat",
+      "title": "Umsatz pro Monat"
+    },
+    "stats": {
+      "collected": "Gesammelt",
+      "collectedHint": "In der Periode erfasste Zahlungen",
+      "criticalReceivables": "Mehr als 60 Tage überfällig",
+      "criticalReceivablesHint": "Nachverfolgungsbedürftige Forderungen",
+      "outstanding": "Hervorragend",
+      "totalInvoiced": "Gesamtbetrag in Rechnung gestellt"
+    },
+    "table": {
+      "aging": "Altern",
+      "client": "Kunde",
+      "due": "Fällig",
+      "invoice": "Rechnung",
+      "invoiced": "In Rechnung gestellt",
+      "month": "Monat",
+      "open": "Offen",
+      "outstanding": "Hervorragend",
+      "paid": "Bezahlt"
+    },
+    "title": "Einnahmen und Forderungen"
+  },
+  "urgency": {
+    "legend": "Dringlichkeitslegende",
+    "noActiveRisk": "Kein aktives Risiko",
+    "overdue": "Überfällig",
+    "soon": "Fälligkeit ≤30 Tage",
+    "soonShort": "≤30 Tage",
+    "today": "Heute fällig",
+    "todayShort": "Heute",
+    "urgent": "Fällig ≤7 Tage",
+    "urgentShort": "≤7 Tage"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Kritisch",
+      "criticalHint": "≤ 7 Tage",
+      "overdue": "Überfällig",
+      "actionRequired": "Aktion erforderlich",
+      "dueToday": "Heute fällig",
+      "requiresSignOff": "Erfordert eine Abmeldung",
+      "nextDays": "Nächste {{days}} Tage",
+      "clientsInWindow": "{{count}} Clients im Fenster",
+      "windowSummary": "Fensterzusammenfassung",
+      "priorityDeadlines": "Vorrangige Fristen",
+      "prioritySubtitle": "Die dringendsten Punkte, die einer Überwachung bedürfen",
+      "openReport": "Bericht öffnen",
+      "loading": "Risikovektoren scannen…",
+      "error": "Die Risikoanalyse konnte nicht geladen werden.",
+      "highestExposure": "Höchste Risikoexposition",
+      "criticalCount": "{{count}} kritisch",
+      "portfolioClear": "Portfolio übersichtlich",
+      "noCriticalInWindow": "In den nächsten {{days}} Tagen wurde kein kritisches Risiko festgestellt.",
+      "table": {
+        "priorityDeadline": "Prioritätsfrist",
+        "clientJurisdiction": "Auftraggeber & Gerichtsstand",
+        "dueDate": "Fälligkeitsdatum"
+      },
+      "showingOf": "Es werden {{shown}} von {{total}} Prioritätselementen angezeigt",
+      "viewCrossTab": "Vollständigen Kreuztabellenbericht anzeigen"
+    },
+    "filingVolumes": {
+      "title": "Archivbände",
+      "subtitle": "Unternehmensweit eingereichte Bewerbungen (letzte 12 Monate)",
+      "fullReport": "Vollständiger Bericht",
+      "loading": "Aggregierter Archivierungsverlauf…",
+      "error": "Archivierungsanalyse konnte nicht geladen werden.",
+      "totalFilings": "Gesamteinreichungen",
+      "yearToDate": "Der bisherige Jahresverlauf",
+      "primaryType": "Primärtyp",
+      "applications_one": "{{count}} Anwendung",
+      "applications_other": "{{count}} Anwendungen",
+      "noData": "Keine Daten",
+      "topRegion": "Top-Region",
+      "monthActivity": "{{month}} Aktivität:",
+      "newFiling_one": "{{count}} neue Einreichung",
+      "newFiling_other": "{{count}} neue Einreichungen",
+      "empty": "Im aktuellen Verlauf wurden keine Einreichungen festgestellt.",
+      "table": {
+        "matterInfo": "Materielle Informationen",
+        "type": "Typ",
+        "filingDate": "Anmeldedatum"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "In Rechnung gestellt (12 Monate)",
+      "issued_one": "{{count}} ausgestellt",
+      "issued_other": "{{count}} ausgestellt",
+      "collected": "Gesammelt",
+      "paidInPeriod": "Im Zeitraum bezahlt",
+      "outstanding": "Hervorragend",
+      "open_one": "{{count}} offen",
+      "open_other": "{{count}} offen",
+      "criticalRisk": "Kritisches Risiko",
+      "overdue60Days": "Mehr als 60 Tage überfällig",
+      "receivablesAging": "Alterung der Forderungen",
+      "agingSubtitle": "Offene ausgestellte Rechnungen nach Tagen über Fälligkeit",
+      "fullReport": "Vollständiger Bericht",
+      "loading": "Alterungsdaten analysieren…",
+      "error": "Alterungsdaten konnten nicht geladen werden.",
+      "portfolioHealthy": "Portfolio gesund",
+      "noReceivables": "Es wurden keine ausstehenden Forderungen gefunden.",
+      "draftRef": "Entwurf ref",
+      "table": {
+        "invoiceInfo": "Rechnungsinformationen",
+        "client": "Kunde",
+        "outstanding": "Hervorragend"
+      },
+      "showingOf": "Zeigt {{shown}} von {{total}} offenen Rechnungen",
+      "viewPortfolio": "Gesamtes Portfolio ansehen"
+    },
+    "teamWorkload": {
+      "title": "Arbeitsbelastung des Teams",
+      "subtitle": "Offene Angelegenheiten, Aufgaben und Fristen pro Mitglied",
+      "viewTeam": "Team ansehen",
+      "loading": "Berechnung der Arbeitslastverteilung…",
+      "error": "Teamdaten konnten nicht geladen werden.",
+      "matters": "Angelegenheiten",
+      "members_one": "{{count}} Mitglied",
+      "members_other": "{{count}} Mitglieder",
+      "tasks": "Aufgaben",
+      "pendingAction": "Ausstehende Maßnahmen",
+      "deadlines": "Fristen",
+      "activeWindow": "Aktives Fenster",
+      "busiest": "Am geschäftigsten",
+      "items_one": "{{count}} Artikel",
+      "items_other": "{{count}} Artikel",
+      "clear": "Klar",
+      "empty": "Keine aktiven Teamdaten",
+      "table": {
+        "teamMember": "Teammitglied",
+        "matters": "Angelegenheiten",
+        "tasks": "Aufgaben",
+        "deadlines": "Fristen",
+        "total": "Gesamt"
+      }
+    },
+    "clientProfitability": {
+      "title": "Kundenrentabilität",
+      "subtitle": "Verteilung der abgerechneten Einnahmen nach Kundenportfolio",
+      "viewAllClients": "Alle Kunden anzeigen",
+      "loading": "Rentabilitätsdaten aggregieren…",
+      "error": "Die Clientanalyse konnte nicht geladen werden.",
+      "trueMargin": "Wahre Marge:",
+      "revenueProxy": "Einnahmen-Proxy:",
+      "totalRevenue": "Gesamtumsatz",
+      "clients_one": "{{count}} Kunde",
+      "clients_other": "{{count}} Kunden",
+      "totalMargin": "Gesamtmarge",
+      "topClient": "Top-Kunde",
+      "internalCost": "{{amount}} interne Kosten",
+      "noBillingData": "Keine Abrechnungsdaten",
+      "unbilledWip": "Nicht abgerechneter WIP",
+      "pendingAccrual": "Ausstehende Rückstellung",
+      "firmBilled": "Firma in Rechnung gestellt",
+      "totalMatters": "Alles ist wichtig",
+      "empty": "Es wurden keine Kundenabrechnungsdaten erkannt.",
+      "table": {
+        "clientPortfolio": "Kundenportfolio",
+        "matters": "Angelegenheiten",
+        "billable": "Abrechnungsfähig",
+        "unbilled": "Nicht in Rechnung gestellt",
+        "margin": "Marge",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Zeigt die besten {{shown}} von {{total}} Kunden von {{basis}}",
+      "basisMargin": "Marge",
+      "basisRevenue": "Einnahmen",
+      "viewLeaderboard": "Vollständige Bestenliste anzeigen"
+    }
+  }
+}

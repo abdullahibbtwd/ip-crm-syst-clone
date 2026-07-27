@@ -1,0 +1,37 @@
+{
+  "title": "Coda di posta elettronica",
+  "subtitle": "E-mail non collegate estratte dalle caselle di posta connesse. Apri un'e-mail, quindi allegala al registro della corrispondenza di un argomento.",
+  "fetchEmails": "Recupera 5 email",
+  "mailboxSettings": "Impostazioni della casella di posta",
+  "fetchSuccess": "Recuperati fino a {{limit}} messaggio/i di posta in arrivo — {{ingested}} nuovo in coda{{emptyHint}}.",
+  "fetchEmptyHint": "(già importato o casella di posta vuota)",
+  "fetchFailed": "Impossibile recuperare le email",
+  "columns": {
+    "received": "Ricevuto",
+    "from": "Da",
+    "subject": "Soggetta",
+    "mailbox": "Cassetta postale",
+    "suggestion": "Suggerimento",
+    "actions": "Azioni"
+  },
+  "loading": "Caricamento coda...",
+  "loadFailed": "Impossibile caricare la coda di posta elettronica.",
+  "emptyTitle": "La coda è vuota",
+  "emptyDescription": "Collega una casella di posta nelle impostazioni e recupera le e-mail per importare nuovi messaggi.",
+  "noSubject": "(Nessun argomento)",
+  "suggestions": {
+    "subjectRef": "Rif. cliente nell'oggetto",
+    "bodyRef": "Rif. cliente nel corpo",
+    "singleActiveMatter": "Materia attiva singola",
+    "contactMatch": "Corrispondenza di contatto",
+    "default": "Argomento suggerito",
+    "officeAction": "Azione d'ufficio",
+    "renewal": "Rinnovo"
+  },
+  "actions": {
+    "viewEmail": "Visualizza l'e-mail",
+    "reply": "Rispondere",
+    "attachToMatter": "Allegare alla corrispondenza dell'argomento",
+    "downloadEml": "Scarica .eml"
+  }
+}

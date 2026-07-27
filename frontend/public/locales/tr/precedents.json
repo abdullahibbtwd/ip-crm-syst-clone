@@ -1,0 +1,43 @@
+{
+  "title": "emsaller",
+  "subtitle": "Yeniden kullanılabilir yazışma ve dosyalama dilinin bilgi tabanı.",
+  "newDraft": "Yeni taslak",
+  "searchPlaceholder": "Gövde metnini ara…",
+  "loading": "Örnekler yükleniyor…",
+  "loadFailed": "Örnekler yüklenemedi.",
+  "empty": "Henüz emsal yok. Yazışmalardan bir taslak veya hasat oluşturun.",
+  "columns": {
+    "title": "Başlık",
+    "category": "Kategori",
+    "jurisdiction": "Yargı yetkisi",
+    "status": "Durum",
+    "updated": "Güncellendi"
+  },
+  "filters": {
+    "allStatuses": "Tüm durumlar"
+  },
+  "status": {
+    "draft": "Taslak",
+    "published": "Yayınlandı",
+    "archived": "Arşivlendi"
+  },
+  "editAria": "Düzenlemek",
+  "drawer": {
+    "createTitle": "Yeni emsal",
+    "editTitle": "Emsali düzenle",
+    "title": "Başlık",
+    "category": "Kategori",
+    "matterType": "Madde türü",
+    "optional": "İsteğe bağlı",
+    "jurisdiction": "Yargı yetkisi",
+    "tags": "Etiketler",
+    "body": "Vücut",
+    "bodyPlaceholder": "Önceki metni yazın — kalın, italik ve listeler desteklenir",
+    "publish": "Yayınla",
+    "archive": "Arşiv",
+    "publishFailed": "Yayınlama başarısız oldu",
+    "archiveFailed": "Arşivleme başarısız oldu",
+    "saveFailed": "Önceki örnek kaydedilemedi",
+    "requiredFields": "Başlık, kategori ve gövde gereklidir"
+  }
+}

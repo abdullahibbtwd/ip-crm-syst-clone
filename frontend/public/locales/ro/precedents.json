@@ -1,0 +1,43 @@
+{
+  "title": "Precedente",
+  "subtitle": "Baza de cunoștințe despre corespondența reutilizabilă și limbajul de depunere.",
+  "newDraft": "Schiță nouă",
+  "searchPlaceholder": "Căutați textul în corp...",
+  "loading": "Se încarcă precedente...",
+  "loadFailed": "Nu s-au încărcat precedentele.",
+  "empty": "Încă nu există precedente. Creați o ciornă sau o recoltă din corespondență.",
+  "columns": {
+    "title": "Titlu",
+    "category": "Categorie",
+    "jurisdiction": "Jurisdicția",
+    "status": "Stare",
+    "updated": "Actualizat"
+  },
+  "filters": {
+    "allStatuses": "Toate stările"
+  },
+  "status": {
+    "draft": "Proiect",
+    "published": "Publicat",
+    "archived": "Arhivat"
+  },
+  "editAria": "Edita",
+  "drawer": {
+    "createTitle": "Precedent nou",
+    "editTitle": "Editați precedentul",
+    "title": "Titlu",
+    "category": "Categorie",
+    "matterType": "Tipul materiei",
+    "optional": "Opțional",
+    "jurisdiction": "Jurisdicția",
+    "tags": "Etichete",
+    "body": "Corp",
+    "bodyPlaceholder": "Scrieți textul precedent - aldine, cursive și listele sunt acceptate",
+    "publish": "Publica",
+    "archive": "Arhivă",
+    "publishFailed": "Publicarea eșuată",
+    "archiveFailed": "Arhivarea a eșuat",
+    "saveFailed": "Nu s-a putut salva precedentul",
+    "requiredFields": "Titlul, categoria și corpul sunt obligatorii"
+  }
+}

@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "海关办公室"
+      },
+      "infringingGoods": {
+        "label": "侵权商品描述"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "创建日期"
+      },
+      "workTitle": {
+        "label": "作品名称"
+      },
+      "workType": {
+        "label": "工作类型"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "基础总结"
+      },
+      "disputeType": {
+        "label": "争议类型"
+      },
+      "opponentName": {
+        "label": "对手/对方"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "范围摘要"
+      },
+      "technologyArea": {
+        "label": "技术领域"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "产品名称"
+      },
+      "region": {
+        "label": "地理区域"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "列出或描述提交的设计视图",
+        "label": "设计观点"
+      },
+      "locarnoClass": {
+        "label": "洛迦诺级"
+      },
+      "productDescription": {
+        "label": "产品描述"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "理赔摘要"
+      },
+      "pctNumber": {
+        "label": "PCT号"
+      },
+      "priorityDate": {
+        "label": "优先权日期"
+      },
+      "technicalField": {
+        "label": "技术领域"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "声称的颜色"
+      },
+      "markDescription": {
+        "label": "标记说明"
+      },
+      "markType": {
+        "label": "标记类型"
+      },
+      "niceClasses": {
+        "label": "不错的课程",
+        "placeholder": "例如 12、35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "理赔摘要"
+      },
+      "priorityDate": {
+        "label": "优先权日期"
+      },
+      "technicalField": {
+        "label": "技术领域"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "资产描述"
+      },
+      "valuationPurpose": {
+        "label": "估值目的"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "添加固定费用",
+    "addTime": "记录时间",
+    "billableAria": "可计费",
+    "billableWithoutRate": "无需费率即可计费",
+    "confirmDeleteFee": "删除固定费用？",
+    "confirmDeleteFeeMessage": "这笔费用将从此事中删除。",
+    "confirmDeleteFeeTitle": "删除固定费用？",
+    "confirmDeleteTime": "删除本次条目？",
+    "confirmDeleteTimeMessage": "该计费行将从诉讼或调查中删除。",
+    "confirmDeleteTimeTitle": "删除时间条目？",
+    "description": "与此相关的时间条目、固定费用和发票。",
+    "emptyFees": "还没有固定费用。",
+    "emptyTime": "尚未记录时间。",
+    "error": "无法加载账单数据。",
+    "feeDrawer": {
+      "amount": "金额（欧元）",
+      "billable": "可计费",
+      "createTitle": "添加固定费用",
+      "descriptionPlaceholder": "例如 BPO商标申请费",
+      "editTitle": "编辑固定费用",
+      "errors": {
+        "amountMin": "金额必须为零或更大",
+        "descriptionRequired": "描述为必填项"
+      },
+      "saveFailed": "未能保存固定费用"
+    },
+    "fixedFees": "固定费用",
+    "loading": "正在加载帐单...",
+    "loadingInvoices": "正在加载发票...",
+    "loadInvoicesFailed": "无法加载发票。",
+    "noPermission": "您无权查看此事项的帐单。",
+    "noRateCard": "无价目表",
+    "nonBillableAria": "不可计费",
+    "portalDescription": "此事的发票和付款状态。",
+    "timeDrawer": {
+      "amount": "数量：",
+      "billable": "可计费",
+      "billableDisabledHint": "当费率为 0 欧元时，计费功能被禁用。",
+      "createTitle": "记录时间",
+      "descriptionPlaceholder": "做了什么",
+      "editTitle": "编辑时间条目",
+      "errors": {
+        "billableRequiresRate": "计费时间需要按小时计费。 输入费率或标记为不可计费。",
+        "descriptionRequired": "描述为必填项",
+        "hoursMin": "小时数必须至少为 0.25",
+        "rateMin": "费率必须为零或更大"
+      },
+      "hourlyRate": "每小时费率（欧元）",
+      "hoursHint": "刻钟增量（最小 0.25）",
+      "noRateCardWarning": "没有找到适合您的职位的价目表。 此条目将保存为不可计费，直到财务部门设置费率或您手动输入费率。",
+      "resolvingRate": "解析率…",
+      "saveFailed": "保存时间输入失败"
+    },
+    "timeEntries": "时间条目",
+    "table": {
+      "amount": "数量",
+      "attorney": "律师",
+      "billable": "可计费",
+      "category": "类别",
+      "date": "日期",
+      "description": "描述",
+      "hours": "时间",
+      "rate": "速度",
+      "user": "用户"
+    },
+    "title": "计费"
+  },
+  "correspondence": {
+    "add": "日志通信",
+    "attachFromQueue": "从队列附加",
+    "attachmentFallback": "通讯附件",
+    "badges": {
+      "clientVisible": "客户端可见",
+      "email": "电子邮件",
+      "synced": "已同步"
+    },
+    "category": {
+      "application": "应用",
+      "certificate": "证书",
+      "correspondence": "一般信件",
+      "evidence": "证据",
+      "office_action": "办公室行动",
+      "renewal": "更新"
+    },
+    "direction": {
+      "incoming": "传入",
+      "outgoing": "传出"
+    },
+    "description": "数字邮件收发室 — 记录信件、办公室行动和有关此事的电子邮件。 对 .eml 文件或粘贴的收件箱文本使用 {{logEmail}}； 将 {{logCorrespondence}} 用于结构化条目、外发邮件和文档附件。",
+    "documentReady": "文件准备好",
+    "downloadAttachment": "下载附件",
+    "downloadTitle": "下载{{fileName}}",
+    "drawerTitle": "日志通信",
+    "empty": "尚未记录任何信件。",
+    "emptyHint": "记录信件或电子邮件以建立此事的记录。",
+    "emptyTitle": "还没有信件",
+    "error": "无法加载信件。",
+    "errorLog": "无法记录信件",
+    "fetchingDocument": "正在获取文档...",
+    "from": "从：",
+    "hideFromClient": "从客户收件箱中隐藏",
+    "hideFromClientTitle": "从客户端门户隐藏",
+    "loading": "正在加载信件...",
+    "logEmail": "记录电子邮件",
+    "markReplied": "马克回复了",
+    "markSent": "标记已发送",
+    "openEpoRegister": "在欧洲专利局注册处开放",
+    "reply": "回复",
+    "replyTitle": "通过连接的邮箱回复",
+    "replaceFile": "替换文件",
+    "replaceFileTitle": "替换附件",
+    "saveAsPrecedent": "另存为先例",
+    "saveAsPrecedentTitle": "另存为草稿先例",
+    "savedUnder": "保存在下面的通信主题下",
+    "sendToClient": "发送至客户收件箱",
+    "showInClientTitle": "在客户门户中显示",
+    "status": {
+      "draft": "草稿",
+      "received": "已收到",
+      "replied": "已回复",
+      "sent": "发送"
+    },
+    "table": {
+      "category": "类别",
+      "date": "日期",
+      "direction": "方向",
+      "file": "文件",
+      "fromTo": "从/到",
+      "status": "地位",
+      "subject": "主题"
+    },
+    "title": "一致",
+    "to": "到：",
+    "uploadFailed": "无法上传并附加文件",
+    "uploadFile": "上传文件",
+    "uploadFileTitle": "上传此信件的 PDF 或文档",
+    "viewOnEpo": "查看欧洲专利局",
+    "viewOnEpoTitle": "在 EPO 注册处打开正式记录"
+  },
+  "createDrawer": {
+    "client": "客户 *",
+    "creating": "创造……",
+    "error": "创建物质失败",
+    "jurisdictionHelp": "选择一个或多个提交管辖区。",
+    "jurisdictions": "司法管辖区",
+    "matterType": "事项类型 *",
+    "open": "开放问题",
+    "responsibleAttorney": "责任律师",
+    "title": "开启新事",
+    "titleField": "标题 *",
+    "titlePlaceholder": "例如 ACME 文字商标 – 欧盟"
+  },
+  "deadlines": {
+    "complete": "完全的",
+    "daysLeft": "还剩 {{count}} 天",
+    "daysOverdue": "逾期 {{count}} 天",
+    "dueToday": "今天到期",
+    "empty": "此事没有最后期限。",
+    "error": "无法加载截止日期。",
+    "loading": "加载截止日期...",
+    "start": "开始",
+    "table": {
+      "assigned": "已分配",
+      "due": "到期日",
+      "grace": "优雅",
+      "jurisdiction": "管辖权",
+      "status": "地位",
+      "title": "标题",
+      "type": "类型"
+    },
+    "title": "截止日期"
+  },
+  "documents": {
+    "allCategories": "所有类别",
+    "browse": "浏览",
+    "category": "类别",
+    "chooseFile": "选择要上传的文件",
+    "chooseTemplate": "选择信函模板",
+    "description": "此事的文件柜 — 上传 PDF、Word 文件和证据。",
+    "displayName": "显示名称",
+    "displayNamePlaceholder": "例如 BPO 归档包 — 最终版",
+    "dragDrop": "将文件拖到此处，或者",
+    "empty": "尚未上传任何文件。",
+    "error": "无法加载文档。",
+    "errorGeneration": "文档生成失败",
+    "errorNoDocx": "此模板没有上传 Word (.docx) 文件",
+    "errorUpload": "上传失败",
+    "format": "格式",
+    "generate": "生成文档",
+    "generateDescription": "选择一个信函模板。 案件和客户详细信息会自动填写并保存在此文件夹中。",
+    "generatePdf": "生成 PDF",
+    "generateWord": "生成单词",
+    "generating": "生成…",
+    "loading": "正在加载文档...",
+    "noTemplates": "没有可用的模板。",
+    "notAvailable": "- 无法使用",
+    "search": "搜索名称或标签...",
+    "table": {
+      "category": "类别",
+      "displayName": "显示名称",
+      "name": "姓名",
+      "tags": "标签",
+      "uploaded": "已上传",
+      "version": "版本"
+    },
+    "tags": "标签",
+    "tagsHint": "用于搜索的逗号分隔关键字",
+    "tagsPlaceholder": "紧急、BPO、客户批准",
+    "title": "文件",
+    "upload": "上传文件",
+    "uploadAction": "上传",
+    "uploadNew": "上传新文档",
+    "uploading": "正在上传...",
+    "word": "单词"
+  },
+  "ipRightStatus": {
+    "cancelled": "取消",
+    "expired": "已到期",
+    "filed": "提起",
+    "pending": "待备案",
+    "registered": "挂号的"
+  },
+  "ipRights": {
+    "abandon": "放弃",
+    "add": "添加IP权限",
+    "addRight": "添加右侧",
+    "addTitle": "添加IP权限",
+    "annuitySchedule": "年金表",
+    "applicationNumber": "申请号",
+    "checkEpo": "检查EPO",
+    "checkEpoAddNumber": "在检查 EPO 之前添加申请号",
+    "checkEpoTitle": "检查 EPO 法律状态 (OPS)",
+    "complete": "完全的",
+    "confirmFiling": "确认备案",
+    "confirmRegistration": "确认注册",
+    "cycleDue": "周期 {{n}} · 到期 {{date}}",
+    "cycleLabel": "周期 {{n}}",
+    "description": "一旦客户确认并且备案文件包准备就绪，即可提交草稿权。",
+    "editSplit": "编辑分割",
+    "empty": "还没有知识产权。 转换摄入量时会自动创建草稿； 起诉后手动添加更多权利。",
+    "epoCheckFailed": "EPO 状态检查失败",
+    "error": "加载IP权限失败。",
+    "errors": {
+      "addFailed": "添加IP权限失败",
+      "applicationNumberRequired": "输入官方申请号",
+      "documentVersionRequired": "选择归档包文档版本",
+      "fileFailed": "未能提交申请",
+      "registerFailed": "注册IP失败",
+      "registrationNumberRequired": "输入注册号码",
+      "splitFailed": "无法拆分续订",
+      "splitJurisdictionRequired": "添加至少一个具有管辖权的部分",
+      "titleRequired": "输入 IP 权利的标题"
+    },
+    "expiryDate": "到期日",
+    "expiryDateOptional": "到期日（可选）",
+    "expiryDateHint": "留空以根据管辖权更新周期进行计算。",
+    "file": "文件",
+    "fileApplication": "文件申请",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "BPO / EUIPO / EPO 的官方号码",
+      "filingPackage": "归档包",
+      "filingPackageHint": "选择为此归档上传的文档版本（通常在“申请”下）。",
+      "jurisdictionHint": "选择 EPO (EP) 以启用针对 OPS 的起诉状态检查。",
+      "noDocuments": "目前还没有关于此事的文件。 首先在“文档”选项卡上上传归档 PDF。",
+      "selectDocument": "选择文档版本..."
+    },
+    "filing": "归档…",
+    "filingDate": "申请日期",
+    "filingOffice": "备案办公室/管辖区",
+    "jurisdictionHint": "欧洲专利使用 EPO (EP)，欧盟商标/设计使用 EUIPO (EU)，保加利亚使用 BPO (BG)，PCT 使用 WIPO (WO)。",
+    "loading": "正在加载知识产权...",
+    "loadingRenewals": "正在加载续订...",
+    "markFiled": "标记归档",
+    "noAnnuityWindows": "还没有年金窗口。 注册专利开放第一年。",
+    "noRenewalWindows": "还没有续订窗口。 注册IP权限开启周期1。",
+    "partialRenewals": "部分续订",
+    "partsCount": "（{{count}} 零件）",
+    "proceed": "记录进行",
+    "register": "登记",
+    "registerDrawerHint": "打开周期 1 续订窗口并生成续订截止日期。",
+    "registerTitle": "注册知识产权",
+    "registering": "注册…",
+    "registrationDate": "报名日期",
+    "registrationNumber": "注册号",
+    "renewalSchedule": "续订窗口",
+    "renewalWindows": "续订窗口",
+    "splitRenewal": "分割续订",
+    "splitRenewalDescription": "将此更新分为管辖区/尼斯级部分。 每个部分单独指导和完成； 窗口状态从部件中卷起。",
+    "splitRenewalTitle": "分割续订",
+    "splitPart": "第 {{n}} 部分",
+    "splitAddPart": "添加部分",
+    "splitSaveParts": "保存零件",
+    "splitNiceClasses": "不错的类（逗号分隔）",
+    "splitNotes": "笔记",
+    "splitJurisdiction": "管辖权",
+    "table": {
+      "actions": "行动",
+      "applicationNo": "申请号",
+      "cycle": "循环",
+      "dueDate": "到期日",
+      "jurisdiction": "管辖权",
+      "localRef": "本地参考。",
+      "niceClasses": "不错的课程",
+      "status": "地位",
+      "title": "标题",
+      "type": "类型",
+      "yearCycle": "年/周期"
+    },
+    "title": "知识产权",
+    "titleField": "标题",
+    "titleRegister": "知识产权登记册",
+    "yearLabel": "年 {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "添加 AFA",
+      "authority": "权威",
+      "authorityRequired": "需要授权",
+      "createFailed": "无法创建 AFA",
+      "empty": "尚未记录任何 AFA。",
+      "linkedSeizure": "关联癫痫发作（可选）",
+      "loading": "正在加载应用程序...",
+      "none": "没有任何",
+      "number": "申请号",
+      "sectionDescription": "保护边境权利的海关申请。",
+      "sectionTitle": "行动申请（AFA）",
+      "validUntil": "有效期至"
+    },
+    "columns": {
+      "authority": "权威",
+      "custody": "保管",
+      "date": "日期",
+      "goods": "商品",
+      "number": "数字",
+      "office": "办公室",
+      "status": "地位",
+      "validUntil": "有效期至"
+    },
+    "custody": {
+      "addEntry": "添加保管条目",
+      "append": "附加",
+      "empty": "还没有监护条目。",
+      "notesPlaceholder": "注释（可选）",
+      "timeline": "托管时间表"
+    },
+    "detail": {
+      "clearLink": "清除链接",
+      "linkedMatter": "关联诉讼事项",
+      "loading": "加载中…",
+      "saveChanges": "保存更改",
+      "searchMatters": "搜索问题需要升级……",
+      "seizedOn": "缴获{{date}}",
+      "title": "癫痫发作细节",
+      "updateFailed": "无法更新癫痫发作"
+    },
+    "errors": {
+      "addCustodyFailed": "无法添加保管条目",
+      "createSeizureFailed": "无法创建癫痫发作",
+      "officeAndGoodsRequired": "需要海关办公室和货物描述"
+    },
+    "open": "打开",
+    "seizures": {
+      "consignmentRef": "托运参考号",
+      "create": "创建癫痫发作",
+      "createTitle": "记录海关扣押",
+      "deadlineHint": "自动生成回复截止日期（自扣押之日起 10 个工作日）。",
+      "empty": "尚未记录癫痫发作。",
+      "goodsDescription": "商品描述",
+      "loadFailed": "未能加载癫痫发作。",
+      "loading": "正在加载癫痫发作...",
+      "logSeizure": "记录缉获量",
+      "office": "海关办公室",
+      "portOfEntry": "入境口岸",
+      "quantity": "数量",
+      "sectionDescription": "就此事进行边境拘留和拘留。",
+      "sectionTitle": "癫痫发作",
+      "seizureDate": "扣押日期",
+      "status": "地位"
+    },
+    "wrongMatterType": "海关记录仅适用于边境措施事宜。"
+  },
+  "jurisdictionStatus": {
+    "approved": "得到正式认可的",
+    "filed": "提起",
+    "pending": "待办的",
+    "rejected": "被拒绝"
+  },
+  "layout": {
+    "backToMatters": "← 返回问题",
+    "loading": "正在加载问题...",
+    "notFound": "未发现此事。"
+  },
+  "list": {
+    "description": "所有法律事务的组合视图 - 按标题、客户或申请号搜索。",
+    "descriptionPortal": "吸收转换后，您的组织将开始处理问题。",
+    "filters": {
+      "allStatuses": "所有状态",
+      "allTypes": "所有类型"
+    },
+    "intakeQueue": "摄入队列",
+    "perPage": "每页 {{count}}",
+    "searchPlaceholder": "搜索标题、客户、申请号...",
+    "title": "事项",
+    "titlePortal": "我的事"
+  },
+  "ipRightsRegister": {
+    "description": "公司范围内的知识产权登记，并按客户、司法管辖区、类型、状态和有效期进行过滤。",
+    "empty": "未找到这些过滤器的 IP 权限。",
+    "filters": {
+      "all": "全部",
+      "allClients": "所有客户",
+      "allJurisdictions": "所有司法管辖区",
+      "allStatuses": "所有状态",
+      "allTypes": "所有类型",
+      "client": "客户",
+      "expiryFrom": "到期日",
+      "expiryTo": "到期至",
+      "jurisdiction": "管辖权",
+      "matterType": "物质类型",
+      "status": "地位"
+    },
+    "loading": "加载中…",
+    "table": {
+      "applicationNo": "申请号",
+      "client": "客户",
+      "expiry": "到期日",
+      "ipRight": "知识产权",
+      "jurisdiction": "管辖权",
+      "matter": "事情",
+      "status": "地位",
+      "type": "类型"
+    },
+    "title": "知识产权登记册"
+  },
+  "markType": {
+    "combined": "组合",
+    "figurative": "具象的",
+    "sound": "声音",
+    "three_dimensional": "3D",
+    "wordmark": "文字标记"
+  },
+  "overview": {
+    "assignedTo": "首席律师",
+    "description": "描述",
+    "jurisdictions": "司法管辖区",
+    "jurisdictionsEmpty": "没有管辖区记录。",
+    "openedBy": "开启者",
+    "status": "地位",
+    "table": {
+      "country": "国家",
+      "localRef": "本地参考。",
+      "status": "地位"
+    },
+    "title": "事项详情",
+    "type": "类型",
+    "typeSpecific": "特定于类型的属性"
+  },
+  "status": {
+    "abandoned": "弃",
+    "active": "积极的",
+    "closed": "关闭",
+    "draft": "草稿",
+    "on_hold": "等候接听"
+  },
+  "table": {
+    "assigned": "已分配",
+    "client": "客户",
+    "empty": "未找到任何事项",
+    "emptyDescription": "尝试调整过滤器或打开新问题。",
+    "emptyPortal": "尚未与您分享任何事项。",
+    "error": "加载事务失败。",
+    "jurisdictions": "司法管辖区",
+    "status": "地位",
+    "title": "标题",
+    "type": "类型",
+    "upcoming": "{{count}} 即将推出",
+    "viewAria": "查看{{title}}"
+  },
+  "tabs": {
+    "billing": "计费",
+    "correspondence": "一致",
+    "deadlines": "截止日期",
+    "documents": "文件",
+    "instructions": "指示",
+    "approvals": "批准",
+    "ipRights": "知识产权",
+    "customs": "海关",
+    "overview": "概述",
+    "tasks": "任务",
+    "timeline": "时间轴"
+  },
+  "approvals": {
+    "title": "客户认可",
+    "subtitle": "起草并提交客户门户的批准请求。",
+    "newDraft": "新草案",
+    "loading": "正在加载批准...",
+    "loadError": "无法加载批准。",
+    "empty": "尚无批准请求。",
+    "noPermission": "您无权查看对此事项的批准。",
+    "decisionNote": "客户备注：{{note}}",
+    "columns": {
+      "title": "标题",
+      "status": "地位",
+      "dueDate": "到期的",
+      "created": "已创建"
+    },
+    "status": {
+      "draft": "草稿",
+      "pending": "待办的",
+      "approved": "得到正式认可的",
+      "rejected": "被拒绝"
+    },
+    "actions": {
+      "submit": "提交"
+    },
+    "drawer": {
+      "createTitle": "新的批准请求",
+      "title": "标题",
+      "description": "描述",
+      "dueDate": "到期日",
+      "cancel": "取消",
+      "create": "创建草稿"
+    },
+    "errors": {
+      "titleRequired": "标题为必填项",
+      "saveFailed": "创建审批失败"
+    }
+  },
+  "tasks": {
+    "add": "添加任务",
+    "assignedTo": "分配给",
+    "assignedToUser": "分配给 {{name}}",
+    "completed": "完全的",
+    "completedByUser": "由 {{name}} 完成",
+    "confirmComplete": "将此任务标记为已完成？",
+    "confirmDelete": "删除这个任务吗？",
+    "delete": "删除",
+    "deleteMessage": "该任务将被永久删除。",
+    "deleteTitle": "删除任务？",
+    "description": "在这个问题上需要完成的工作——与系统生成的最后期限分开。",
+    "drawerTitle": "添加任务",
+    "dueOn": "截止日期 {{date}}",
+    "empty": "没有关于此事的任务。",
+    "emptyOpen": "没有开放任务。 当有工作需要跟踪此事时添加一个。",
+    "error": "加载任务失败。",
+    "errorCreate": "创建任务失败",
+    "form": {
+      "assigneeLabel": "分配给",
+      "assigneeRequired": "选择谁应该执行此任务",
+      "dueDateOptional": "截止日期（可选）",
+      "notesOptional": "注释（可选）",
+      "notesPlaceholder": "受托人的任何额外背景",
+      "priorityLabel": "优先事项",
+      "titleLabel": "需要做什么",
+      "titlePlaceholder": "例如 致电客户回复：BPO 响应",
+      "titleRequired": "标题为必填项"
+    },
+    "loading": "正在加载任务...",
+    "markComplete": "标记完成",
+    "noDueDate": "无截止日期",
+    "open": "打开",
+    "priority": {
+      "high": "高的",
+      "normal": "普通的"
+    },
+    "title": "任务"
+  },
+  "timeline": {
+    "description": "关于此事的起诉和通信的时间历史。",
+    "empty": "还没有时间轴事件。 在此记录信件或提交申请以查看活动。",
+    "error": "无法加载时间线。",
+    "eventType": {
+      "correspondence": "一致",
+      "deadline": "最后期限",
+      "filing": "归档",
+      "note": "笔记",
+      "task": "任务"
+    },
+    "loading": "加载时间线...",
+    "loggedBy": "由 {{name}} 记录",
+    "title": "时间轴"
+  },
+  "type": {
+    "border_measures": "边境措施",
+    "copyright": "版权",
+    "dispute_opposition": "争议/反对",
+    "fto_analysis": "FTO分析",
+    "geographical_indication": "地理标志",
+    "industrial_design": "工业设计",
+    "patent": "专利",
+    "trademark": "商标",
+    "utility_model": "实用新型",
+    "valuation": "估值"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "选择…",
+    "title": "特定于类型的详细信息"
+  }
+}

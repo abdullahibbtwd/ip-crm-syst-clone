@@ -1,0 +1,68 @@
+{
+  "title": "广播",
+  "subtitle": "通过固定 SMTP 向客户联系电子邮件发送批量通知。 每次发送都会被审核为bulk_notification。 邮件邮箱回复保留在电子邮件队列/通信中。",
+  "compose": {
+    "title": "撰写广播",
+    "recipientGroup": "接收者组",
+    "selectClients": "选择客户",
+    "searchClientsPlaceholder": "搜索客户（最少 2 个字符）",
+    "selected": "已选择",
+    "add": "添加",
+    "clientsSelected": "已选择 {{count}} 客户",
+    "countingRecipients": "正在计算收件人...",
+    "previewFailed": "无法预览观众",
+    "recipientMatched": "收件人匹配",
+    "recipientsMatched": "收件人匹配",
+    "andMore": "…还有 {{count}} 更多",
+    "subject": "主题",
+    "subjectPlaceholder": "例如 即将到来的欧盟续约提醒",
+    "message": "信息",
+    "messagePlaceholder": "写下您的客户将收到的通知...",
+    "queuing": "排队…",
+    "sendBroadcast": "发送广播"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "主题和内容为必填项",
+    "selectClient": "选择至少一名客户",
+    "queueFailed": "未能对广播进行排队"
+  },
+  "success": {
+    "queued": "广播已排队发送至 {{count}} 接收者。 交付在后台运行。"
+  },
+  "history": {
+    "title": "最近的广播",
+    "when": "什么时候",
+    "subject": "主题",
+    "audience": "观众",
+    "status": "地位",
+    "sent": "发送",
+    "by": "经过",
+    "loading": "加载中…",
+    "empty": "还没有播出。",
+    "failedCount": "（{{count}} 失败）"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "所有活跃客户",
+      "description": "每个活跃客户的主要联系电子邮件"
+    },
+    "pending_eu_renewals": {
+      "label": "等待欧盟续签",
+      "description": "即将/指示/提交欧盟续展的活跃客户"
+    },
+    "trademark_matters": {
+      "label": "商标事宜",
+      "description": "至少有一项有效商标事务的客户"
+    },
+    "manual": {
+      "label": "手动选择",
+      "description": "从搜索中选择特定客户"
+    }
+  },
+  "status": {
+    "queued": "排队",
+    "sending": "发送",
+    "completed": "完全的",
+    "failed": "失败的"
+  }
+}

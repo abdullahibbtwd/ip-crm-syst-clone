@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "即将推出",
+    "instructed": "受指导",
+    "filed": "提起",
+    "completed": "完全的",
+    "lapsed": "已失效"
+  },
+  "page": {
+    "title": "续订",
+    "descriptionMy": "分配给您的事项的更新期限。",
+    "descriptionFirm": "涵盖所有知识产权的全公司续展工作清单。",
+    "filters": {
+      "status": "地位",
+      "allStatuses": "所有状态",
+      "jurisdiction": "管辖权",
+      "allJurisdictions": "所有司法管辖区",
+      "assignee": "受让人",
+      "allAssignees": "所有受让人"
+    },
+    "loading": "正在加载续订...",
+    "empty": "没有续订窗口符合您的过滤条件。",
+    "table": {
+      "ipRight": "知识产权",
+      "matter": "事情",
+      "client": "客户",
+      "cycle": "循环",
+      "due": "到期的",
+      "status": "地位",
+      "assignee": "受让人"
+    }
+  },
+  "widget": {
+    "title": "即将续订",
+    "subtitle": "未来 90 天的指令管道",
+    "viewPipeline": "查看管道",
+    "loading": "正在计算续订窗口...",
+    "error": "无法加载续订分析。",
+    "stats": {
+      "totalPipeline": "总管道",
+      "activeWindows": "活动窗口",
+      "awaiting": "等待中",
+      "noInstruction": "还没有指令",
+      "urgent": "紧迫的",
+      "due7Days": "到期日 ≤ 7 天",
+      "instructed": "受指导",
+      "proceedConfirmed": "确认继续进行"
+    },
+    "empty": "此窗口中没有跟踪任何续订。",
+    "table": {
+      "ipAsset": "知识产权资产",
+      "client": "客户",
+      "dueStatus": "到期/状态"
+    },
+    "cycle": "周期 {{number}}"
+  }
+}

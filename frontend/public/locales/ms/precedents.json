@@ -1,0 +1,43 @@
+{
+  "title": "Preseden",
+  "subtitle": "Pangkalan pengetahuan mengenai surat-menyurat dan bahasa pemfailan yang boleh digunakan semula.",
+  "newDraft": "Draf baharu",
+  "searchPlaceholder": "Cari teks badan…",
+  "loading": "Memuatkan duluan…",
+  "loadFailed": "Gagal memuatkan dahuluan.",
+  "empty": "Belum ada preseden. Buat draf atau hasil daripada surat-menyurat.",
+  "columns": {
+    "title": "Tajuk",
+    "category": "kategori",
+    "jurisdiction": "Bidang kuasa",
+    "status": "Status",
+    "updated": "dikemas kini"
+  },
+  "filters": {
+    "allStatuses": "Semua status"
+  },
+  "status": {
+    "draft": "Draf",
+    "published": "Diterbitkan",
+    "archived": "Diarkibkan"
+  },
+  "editAria": "Sunting",
+  "drawer": {
+    "createTitle": "Preseden baru",
+    "editTitle": "Edit duluan",
+    "title": "Tajuk",
+    "category": "kategori",
+    "matterType": "Jenis jirim",
+    "optional": "Pilihan",
+    "jurisdiction": "Bidang kuasa",
+    "tags": "Tag",
+    "body": "Badan",
+    "bodyPlaceholder": "Tulis teks duluan — tebal, condong dan senarai disokong",
+    "publish": "Terbitkan",
+    "archive": "Arkib",
+    "publishFailed": "Terbitan gagal",
+    "archiveFailed": "Arkib gagal",
+    "saveFailed": "Tidak dapat menyimpan duluan",
+    "requiredFields": "Tajuk, kategori dan badan diperlukan"
+  }
+}

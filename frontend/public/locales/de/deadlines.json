@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Ausstehend",
+    "in_progress": "Im Gange",
+    "completed": "Vollendet",
+    "missed": "Verpasst",
+    "escalated": "Eskaliert",
+    "superseded": "Abgelöst"
+  },
+  "urgency": {
+    "dueToday": "Heute fällig",
+    "overdue": "Überfällig"
+  },
+  "allDeadlines": {
+    "title": "Alle Fristen",
+    "description": "Firmenweites Fristenregister für alle Angelegenheiten und Beauftragten.",
+    "newDeadline": "Neue Frist",
+    "firmDueToday_one": "Heute ist für alle Angelegenheiten eine feste Frist fällig.",
+    "firmDueToday_other": "{{count}} Heute sind für alle Angelegenheiten feste Fristen fällig.",
+    "filters": {
+      "attorney": "Rechtsanwältin",
+      "allAttorneys": "Alle Anwälte",
+      "matterType": "Materietyp",
+      "allTypes": "Alle Arten",
+      "jurisdiction": "Zuständigkeit",
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "status": "Status",
+      "allStatuses": "Alle Status",
+      "overdue": "Überfällig",
+      "dueFrom": "Fällig ab",
+      "dueTo": "Wegen"
+    },
+    "loading": "Fristen werden geladen…",
+    "error": "Fristen konnten nicht geladen werden.",
+    "table": {
+      "matter": "Gegenstand",
+      "attorney": "Rechtsanwältin",
+      "type": "Typ",
+      "jurisdiction": "Zuständigkeit",
+      "dueDate": "Fälligkeitsdatum",
+      "grace": "Anmut",
+      "status": "Status"
+    },
+    "empty": "Keine Fristen entsprechen Ihren Filtern.",
+    "previous": "Vorherige",
+    "next": "Nächste"
+  },
+  "myDeadlines": {
+    "title": "Meine Fristen",
+    "descriptionStaff": "Ihr persönlicher Arbeitsvorrat über alle zugewiesenen Angelegenheiten. Aktualisieren Sie hier den Status, ohne jede Angelegenheit zu öffnen.",
+    "descriptionPortal": "Anstehende und überfällige Fristen für Ihre Angelegenheiten.",
+    "tabs": {
+      "all": "Alle",
+      "pending": "Ausstehend",
+      "in_progress": "Im Gange",
+      "overdue": "Überfällig",
+      "completed": "Vollendet"
+    },
+    "loading": "Fristen werden geladen…",
+    "error": "Fristen konnten nicht geladen werden.",
+    "table": {
+      "matter": "Gegenstand",
+      "type": "Typ",
+      "jurisdiction": "Zuständigkeit",
+      "dueDate": "Fälligkeitsdatum",
+      "grace": "Anmut",
+      "status": "Status"
+    },
+    "empty": "In dieser Ansicht gibt es keine Fristen.",
+    "previous": "Vorherige",
+    "next": "Nächste"
+  },
+  "widget": {
+    "title": "Meine Fristen",
+    "viewAll": "Alle anzeigen",
+    "loading": "Termindaten knacken…",
+    "error": "Fristen konnten nicht geladen werden.",
+    "empty": "Ihnen sind keine bevorstehenden Termine zugewiesen.",
+    "table": {
+      "matterClient": "Materie & Kunde",
+      "deadline": "Frist",
+      "dueDateStatus": "Fälligkeitsdatum und Status"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Heute fällig",
+    "view": "Sicht",
+    "personal_one": "Sie haben heute 1 Frist fällig.",
+    "personal_other": "Sie haben heute {{count}} Fristen fällig."
+  }
+}

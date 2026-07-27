@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { CheckCircle2, KeyRound, Loader2, ShieldCheck, ShieldOff } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import QRCode from 'react-qr-code'
 import {
   disableMfaRequest,
@@ -22,6 +23,8 @@ type SetupState = {
 } | null
 
 export function MfaEnrollmentCard() {
+  const { t } = useTranslation('auth')
+  const { t: tCommon } = useTranslation('common')
   const { user, setUser } = useAuth()
   const mfaEnabled = user?.mfaEnabled ?? false
   const [setup, setSetup] = useState<SetupState>(null)
@@ -78,7 +81,8 @@ export function MfaEnrollmentCard() {
     setFieldError(null)
     const parsed = mfaVerifySchema.safeParse({ code })
     if (!parsed.success) {
-      setFieldError(parsed.error.issues[0]?.message ?? 'Invalid code')
+      const messageKey = parsed.error.issues[0]?.message ?? 'validation.mfaCodeLength'
+      setFieldError(t(messageKey))
       return
     }
     enableMutation.mutate(parsed.data)
@@ -90,23 +94,22 @@ export function MfaEnrollmentCard() {
         <div className="flex items-start gap-3 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
           <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-emerald-600" />
           <div className="flex-1">
-            <p className="font-medium text-foreground">Two-factor authentication is enabled</p>
+            <p className="font-medium text-foreground">{t('mfa.enrollment.enabledTitle')}</p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Your account requires a code from your authenticator app when signing in.
+              {t('mfa.enrollment.enabledDescription')}
             </p>
             <Badge variant="secondary" className="mt-3 gap-1">
               <ShieldCheck className="size-3.5" />
-              Active
+              {t('mfa.enrollment.active')}
             </Badge>
           </div>
         </div>
 
         {backupCodes && (
           <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-4">
-            <p className="font-medium text-foreground">Save your backup codes</p>
+            <p className="font-medium text-foreground">{t('mfa.enrollment.backupCodesTitle')}</p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Each code works once if you lose access to your authenticator app. Store them
-              securely — they will not be shown again.
+              {t('mfa.enrollment.backupCodesDescription')}
             </p>
             <ul className="mt-3 grid gap-1 font-mono text-sm sm:grid-cols-2">
               {backupCodes.map((entry) => (
@@ -122,7 +125,7 @@ export function MfaEnrollmentCard() {
             variant="outline"
             disabled={regenerateMutation.isPending}
             onClick={() => {
-              const nextCode = window.prompt('Enter your current 6-digit authenticator code')
+              const nextCode = window.prompt(t('mfa.enrollment.regeneratePrompt'))
               if (!nextCode) return
               regenerateMutation.mutate({ code: nextCode })
             }}
@@ -130,10 +133,10 @@ export function MfaEnrollmentCard() {
             {regenerateMutation.isPending ? (
               <>
                 <Loader2 className="size-4 animate-spin" />
-                Regenerating…
+                {t('mfa.enrollment.regenerating')}
               </>
             ) : (
-              'Regenerate backup codes'
+              t('mfa.enrollment.regenerateBackupCodes')
             )}
           </Button>
           <Button
@@ -142,7 +145,7 @@ export function MfaEnrollmentCard() {
             onClick={() => setShowDisable((value) => !value)}
           >
             <ShieldOff className="size-4" />
-            Disable 2FA
+            {t('mfa.enrollment.disable2FA')}
           </Button>
         </div>
 
@@ -155,10 +158,10 @@ export function MfaEnrollmentCard() {
             }}
           >
             <p className="text-sm text-muted-foreground">
-              Confirm your password and a current authenticator or backup code to disable 2FA.
+              {t('mfa.enrollment.disableConfirmDescription')}
             </p>
             <div className="space-y-1.5">
-              <Label htmlFor="mfa-disable-password">Password</Label>
+              <Label htmlFor="mfa-disable-password">{t('form.password')}</Label>
               <Input
                 id="mfa-disable-password"
                 type="password"
@@ -168,21 +171,23 @@ export function MfaEnrollmentCard() {
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="mfa-disable-code">Authentication code</Label>
+              <Label htmlFor="mfa-disable-code">{t('mfa.codeLabel')}</Label>
               <Input
                 id="mfa-disable-code"
                 value={disableCode}
                 onChange={(e) => setDisableCode(e.target.value)}
-                placeholder="000000 or XXXX-XXXX"
+                placeholder={t('mfa.enrollment.codeOrBackupPlaceholder')}
               />
             </div>
             {disableMutation.isError && (
               <p className="text-sm text-destructive" role="alert">
-                {getApiErrorMessage(disableMutation.error, 'Failed to disable 2FA')}
+                {getApiErrorMessage(disableMutation.error, t('mfa.enrollment.disableFailed'))}
               </p>
             )}
             <Button type="submit" variant="destructive" disabled={disableMutation.isPending}>
-              {disableMutation.isPending ? 'Disabling…' : 'Confirm disable'}
+              {disableMutation.isPending
+                ? t('mfa.enrollment.disabling')
+                : t('mfa.enrollment.confirmDisable')}
             </Button>
           </form>
         )}
@@ -195,17 +200,13 @@ export function MfaEnrollmentCard() {
       <div className="space-y-4">
         {user.mfaEnrollmentRequired && (
           <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-4 text-sm">
-            Your organization requires two-factor authentication. Enable it below to continue
-            using the system.
+            {t('mfa.enrollment.requiredBanner')}
           </div>
         )}
-        <p className="text-sm text-muted-foreground">
-          Add an extra layer of security by requiring a 6-digit code from an authenticator app
-          (Google Authenticator, Authy, etc.) when you sign in.
-        </p>
+        <p className="text-sm text-muted-foreground">{t('mfa.enrollment.introDescription')}</p>
         {setupMutation.isError && (
           <p className="text-sm text-destructive" role="alert">
-            {getApiErrorMessage(setupMutation.error, 'Failed to start 2FA setup')}
+            {getApiErrorMessage(setupMutation.error, t('mfa.enrollment.setupFailed'))}
           </p>
         )}
         <Button
@@ -216,12 +217,12 @@ export function MfaEnrollmentCard() {
           {setupMutation.isPending ? (
             <>
               <Loader2 className="size-4 animate-spin" />
-              Preparing…
+              {t('mfa.enrollment.preparing')}
             </>
           ) : (
             <>
               <KeyRound className="size-4" />
-              Enable 2FA
+              {t('mfa.enrollment.enable2FA')}
             </>
           )}
         </Button>
@@ -232,35 +233,31 @@ export function MfaEnrollmentCard() {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h3 className="text-sm font-medium">1. Scan this QR code</h3>
-        <p className="text-sm text-muted-foreground">
-          Open your authenticator app and scan the code below.
-        </p>
+        <h3 className="text-sm font-medium">{t('mfa.enrollment.step1Title')}</h3>
+        <p className="text-sm text-muted-foreground">{t('mfa.enrollment.step1Description')}</p>
         <div className="inline-flex rounded-lg border bg-white p-4">
           <QRCode value={setup.otpauthUrl} size={180} />
         </div>
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-sm font-medium">Or enter this key manually</h3>
+        <h3 className="text-sm font-medium">{t('mfa.enrollment.manualKeyTitle')}</h3>
         <code className="block break-all rounded-md border bg-muted/40 px-3 py-2 font-mono text-xs">
           {setup.secret}
         </code>
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-sm font-medium">2. Confirm with a 6-digit code</h3>
-        <p className="text-sm text-muted-foreground">
-          Enter the code shown in your app to verify setup.
-        </p>
+        <h3 className="text-sm font-medium">{t('mfa.enrollment.step2Title')}</h3>
+        <p className="text-sm text-muted-foreground">{t('mfa.enrollment.step2Description')}</p>
         <div className="max-w-xs space-y-1.5">
-          <Label htmlFor="mfa-enroll-code">Authentication code</Label>
+          <Label htmlFor="mfa-enroll-code">{t('mfa.codeLabel')}</Label>
           <Input
             id="mfa-enroll-code"
             inputMode="numeric"
             autoComplete="one-time-code"
             maxLength={6}
-            placeholder="000000"
+            placeholder={t('mfa.codePlaceholder')}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
             className="tracking-[0.3em]"
@@ -274,7 +271,7 @@ export function MfaEnrollmentCard() {
         <p className="text-sm text-destructive" role="alert">
           {getApiErrorMessage(
             enableMutation.error ?? setupMutation.error,
-            'Failed to enable 2FA',
+            t('mfa.enrollment.enableFailed'),
           )}
         </p>
       )}
@@ -288,10 +285,10 @@ export function MfaEnrollmentCard() {
           {enableMutation.isPending ? (
             <>
               <Loader2 className="size-4 animate-spin" />
-              Verifying…
+              {t('mfa.verifying')}
             </>
           ) : (
-            'Confirm & enable 2FA'
+            t('mfa.enrollment.confirmEnable')
           )}
         </Button>
         <Button
@@ -304,7 +301,7 @@ export function MfaEnrollmentCard() {
           }}
           disabled={enableMutation.isPending}
         >
-          Cancel
+          {tCommon('actions.cancel')}
         </Button>
       </div>
     </div>

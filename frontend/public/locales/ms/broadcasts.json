@@ -1,0 +1,68 @@
+{
+  "title": "Siaran",
+  "subtitle": "Hantar pemberitahuan pukal kepada e-mel hubungan pelanggan melalui SMTP firma. Setiap hantaran diaudit sebagai pemberitahuan_ pukal. Balasan peti mel perkara kekal pada Baris Gilir E-mel / Surat Menyurat.",
+  "compose": {
+    "title": "Karang siaran",
+    "recipientGroup": "Kumpulan penerima",
+    "selectClients": "Pilih pelanggan",
+    "searchClientsPlaceholder": "Cari klien (min 2 aksara)",
+    "selected": "Dipilih",
+    "add": "Tambah",
+    "clientsSelected": "{{count}} pelanggan dipilih",
+    "countingRecipients": "Mengira penerima…",
+    "previewFailed": "Tidak dapat melihat khalayak",
+    "recipientMatched": "penerima dipadankan",
+    "recipientsMatched": "penerima dipadankan",
+    "andMore": "…dan {{count}} lagi",
+    "subject": "Subjek",
+    "subjectPlaceholder": "cth. Peringatan pembaharuan EU akan datang",
+    "message": "Mesej",
+    "messagePlaceholder": "Tulis pemberitahuan yang akan diterima oleh pelanggan anda…",
+    "queuing": "Beratur…",
+    "sendBroadcast": "Hantar siaran"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Subjek dan mesej diperlukan",
+    "selectClient": "Pilih sekurang-kurangnya satu pelanggan",
+    "queueFailed": "Gagal membuat baris gilir siaran"
+  },
+  "success": {
+    "queued": "Siaran beratur kepada {{count}} penerima. Penghantaran berjalan di latar belakang."
+  },
+  "history": {
+    "title": "Siaran terkini",
+    "when": "bila",
+    "subject": "Subjek",
+    "audience": "Penonton",
+    "status": "Status",
+    "sent": "Dihantar",
+    "by": "Oleh",
+    "loading": "Memuatkan…",
+    "empty": "Tiada siaran lagi.",
+    "failedCount": "({{count}} gagal)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Semua pelanggan aktif",
+      "description": "E-mel hubungan utama untuk setiap pelanggan aktif"
+    },
+    "pending_eu_renewals": {
+      "label": "Menunggu pembaharuan EU",
+      "description": "Pelanggan aktif dengan pembaharuan EU akan datang / diarahkan / difailkan"
+    },
+    "trademark_matters": {
+      "label": "Perkara tanda dagangan",
+      "description": "Pelanggan yang mempunyai sekurang-kurangnya satu perkara tanda dagangan aktif"
+    },
+    "manual": {
+      "label": "Pemilihan manual",
+      "description": "Pilih pelanggan tertentu daripada carian"
+    }
+  },
+  "status": {
+    "queued": "Beratur",
+    "sending": "Menghantar",
+    "completed": "Selesai",
+    "failed": "gagal"
+  }
+}

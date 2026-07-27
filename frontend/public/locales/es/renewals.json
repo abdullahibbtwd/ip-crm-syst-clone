@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Próxima",
+    "instructed": "Instruida",
+    "filed": "Archivada",
+    "completed": "Terminada",
+    "lapsed": "Transcurrida"
+  },
+  "page": {
+    "title": "Renovaciones",
+    "descriptionMy": "Ventanas de renovación en asuntos que te sean asignados.",
+    "descriptionFirm": "Lista de trabajo de renovación para toda la empresa en todos los derechos de propiedad intelectual.",
+    "filters": {
+      "status": "Estado",
+      "allStatuses": "Todos los estados",
+      "jurisdiction": "Jurisdicción",
+      "allJurisdictions": "Todas las jurisdicciones",
+      "assignee": "Cesionaria",
+      "allAssignees": "Todas las cesionarias"
+    },
+    "loading": "Cargando renovaciones…",
+    "empty": "No hay ventanas de renovación que coincidan con tus filtros.",
+    "table": {
+      "ipRight": "derecho de propiedad intelectual",
+      "matter": "Asunto",
+      "client": "Cliente",
+      "cycle": "Ciclo",
+      "due": "Pendiente",
+      "status": "Estado",
+      "assignee": "Cesionaria"
+    }
+  },
+  "widget": {
+    "title": "Próximas renovaciones",
+    "subtitle": "Proceso de instrucción de los próximos 90 días",
+    "viewPipeline": "Ver canalización",
+    "loading": "Calculando ventanas de renovación…",
+    "error": "No se pudieron cargar los análisis de renovaciones.",
+    "stats": {
+      "totalPipeline": "Tubería total",
+      "activeWindows": "Ventanas activas",
+      "awaiting": "esperando",
+      "noInstruction": "Aún no hay instrucciones",
+      "urgent": "Urgente",
+      "due7Days": "Vencimiento ≤ 7 días",
+      "instructed": "Instruida",
+      "proceedConfirmed": "Proceder confirmada"
+    },
+    "empty": "No se rastrean renovaciones en esta ventana.",
+    "table": {
+      "ipAsset": "activo de propiedad intelectual",
+      "client": "Cliente",
+      "dueStatus": "Vencimiento / Estado"
+    },
+    "cycle": "Ciclo {{number}}"
+  }
+}

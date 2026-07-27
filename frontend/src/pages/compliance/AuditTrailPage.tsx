@@ -17,7 +17,8 @@ import type { AuditLogItem } from '@/features/compliance/api'
 export const AUDIT_TRAIL_PAGE_SIZE = 25
 
 export function AuditTrailPage() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('compliance')
+  const { t: tCommon } = useTranslation('common')
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
@@ -51,37 +52,35 @@ export function AuditTrailPage() {
   }
 
   if (isLoading) {
-    return <p className="text-sm text-muted-foreground">Loading audit trail…</p>
+    return <p className="text-sm text-muted-foreground">{t('auditTrail.loading')}</p>
   }
 
   if (isError) {
-    return <p className="text-sm text-destructive">Failed to load audit trail.</p>
+    return <p className="text-sm text-destructive">{t('auditTrail.loadFailed')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-2xl md:text-3xl">Audit trail</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          System-wide audit log for compliance review.
-        </p>
+        <h1 className="font-serif text-2xl md:text-3xl">{t('auditTrail.title')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('auditTrail.subtitle')}</p>
       </div>
 
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>When</TableHead>
-            <TableHead>User</TableHead>
-            <TableHead>Action</TableHead>
-            <TableHead>Resource</TableHead>
-            <TableHead>Module</TableHead>
+            <TableHead>{t('auditTrail.columns.when')}</TableHead>
+            <TableHead>{t('auditTrail.columns.user')}</TableHead>
+            <TableHead>{t('auditTrail.columns.action')}</TableHead>
+            <TableHead>{t('auditTrail.columns.resource')}</TableHead>
+            <TableHead>{t('auditTrail.columns.module')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {items.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} className="text-center text-muted-foreground">
-                No audit entries found.
+                {t('auditTrail.empty')}
               </TableCell>
             </TableRow>
           ) : (
@@ -90,10 +89,12 @@ export function AuditTrailPage() {
                 <TableCell className="text-muted-foreground">
                   {new Date(row.createdAt).toLocaleString()}
                 </TableCell>
-                <TableCell>{row.user?.fullName ?? row.userEmail ?? '—'}</TableCell>
+                <TableCell>{row.user?.fullName ?? row.userEmail ?? tCommon('yesNo.dash')}</TableCell>
                 <TableCell>{row.action}</TableCell>
                 <TableCell>{row.resource}</TableCell>
-                <TableCell className="text-muted-foreground">{row.module ?? '—'}</TableCell>
+                <TableCell className="text-muted-foreground">
+                  {row.module ?? tCommon('yesNo.dash')}
+                </TableCell>
               </TableRow>
             ))
           )}
@@ -104,13 +105,15 @@ export function AuditTrailPage() {
               <TableCell colSpan={5}>
                 <div className="flex flex-wrap items-center justify-between gap-3 py-1">
                   <p className="text-sm text-muted-foreground">
-                    {t('pagination.showing', {
+                    {tCommon('pagination.showing', {
                       start: rangeStart,
                       end: rangeEnd,
                     })}
                     {hasNextPage ? '+' : ''}
                     {pageIndex > 0 ? (
-                      <span className="ml-2">· {t('pagination.page', { page: pageIndex + 1 })}</span>
+                      <span className="ml-2">
+                        · {tCommon('pagination.page', { page: pageIndex + 1 })}
+                      </span>
                     ) : null}
                   </p>
                   <div className="flex items-center gap-2">
@@ -122,7 +125,7 @@ export function AuditTrailPage() {
                       onClick={handlePreviousPage}
                     >
                       <ChevronLeft className="size-4" />
-                      {t('actions.previous')}
+                      {tCommon('actions.previous')}
                     </Button>
                     <Button
                       type="button"
@@ -131,7 +134,7 @@ export function AuditTrailPage() {
                       disabled={isFetching || !hasNextPage}
                       onClick={handleNextPage}
                     >
-                      {t('actions.next')}
+                      {tCommon('actions.next')}
                       <ChevronRight className="size-4" />
                     </Button>
                   </div>

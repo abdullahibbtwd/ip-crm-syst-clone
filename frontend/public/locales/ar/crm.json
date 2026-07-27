@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "إدارة سجلات الشركة والعملاء الأفراد. يتم إنشاء عملاء جدد عن طريق المدخول.",
+    "emptyDescription": "حاول تعديل المرشحات أو إنشاء عميل عبر المدخول.",
+    "emptyTitle": "لم يتم العثور على عملاء",
+    "error": "فشل تحميل العملاء.",
+    "newViaIntake": "عميل جديد عن طريق المدخول",
+    "perPage": "{{count}} لكل صفحة",
+    "searchPlaceholder": "البحث بالاسم أو الرمز...",
+    "title": "العملاء",
+    "viewAria": "عرض {{name}}"
+  },
+  "contacts": {
+    "add": "أضف جهة اتصال",
+    "drawerTitle": "أضف جهة اتصال",
+    "email": "بريد إلكتروني",
+    "empty": "لم يتم العثور على جهات اتصال.",
+    "firstName": "الاسم الأول *",
+    "lastName": "اسم العائلة *",
+    "loading": "جارٍ تحميل جهات الاتصال…",
+    "remove": "يزيل",
+    "role": {
+      "all": "الجميع",
+      "billing": "الفواتير",
+      "conflict": "صراع",
+      "general": "عام",
+      "primary": "أساسي"
+    },
+    "save": "حفظ جهة الاتصال",
+    "table": {
+      "email": "بريد إلكتروني",
+      "name": "اسم",
+      "office": "مكتب",
+      "phone": "هاتف",
+      "role": "دور"
+    }
+  },
+  "countrySelect": {
+    "empty": "لم يتم العثور على بلدان",
+    "none": "لا أحد",
+    "placeholder": "اختر البلد",
+    "search": "بحث عن الدول..."
+  },
+  "drawer": {
+    "closeAria": "إغلاق الدرج"
+  },
+  "holdingGroups": {
+    "back": "← العودة إلى عقد المجموعات",
+    "clientsUnder": "العملاء ضمن هذه المجموعة",
+    "create": "إنشاء مجموعة قابضة",
+    "creating": "جارٍ الإنشاء…",
+    "description": "المظلات الرئيسية لكيانات العملاء ذات الصلة.",
+    "descriptionField": "وصف",
+    "detailDescription": "إنشاء مظلة رئيسية لكيانات العملاء ذات الصلة.",
+    "empty": "لم يتم العثور على مجموعات القابضة",
+    "emptyClients": "لم يتم ربط أي عملاء حتى الآن.",
+    "emptyDescription": "حاول تعديل البحث أو إنشاء مجموعة احتجاز جديدة.",
+    "error": "فشل تحميل المجموعات القابضة.",
+    "formError": "فشل إنشاء مجموعة القابضة",
+    "name": "اسم *",
+    "namePlaceholder": "على سبيل المثال مجموعة أكمي بي في",
+    "new": "مجموعة قابضة جديدة",
+    "notesPlaceholder": "ملاحظات اختيارية حول هيكل الحيازة هذا",
+    "notFound": "لم يتم العثور على المجموعة القابضة.",
+    "allGroups": "جميع المجموعات القابضة",
+    "perPage": "{{count}} لكل صفحة",
+    "searchPlaceholder": "البحث بالاسم أو البلد...",
+    "title": "عقد المجموعات",
+    "viewAria": "عرض {{name}}"
+  },
+  "layout": {
+    "backToClients": "← العودة إلى العملاء"
+  },
+  "offices": {
+    "add": "إضافة مكتب",
+    "city": "مدينة",
+    "drawerTitle": "إضافة مكتب",
+    "empty": "لا توجد مكاتب بعد.",
+    "errorPrimary": "فشل في تعيين المكتب الأساسي",
+    "label": "ملصق *",
+    "loading": "جارٍ تحميل المكاتب…",
+    "noAddress": "لا يوجد عنوان",
+    "primary": "أساسي",
+    "remove": "يزيل",
+    "save": "حفظ المكتب",
+    "setPrimary": "تعيين كمكتب رئيسي",
+    "setPrimaryAction": "تعيين الابتدائي",
+    "title": "مكاتب"
+  },
+  "overview": {
+    "assignedTo": "المخصصة ل",
+    "cancel": "يلغي",
+    "companyName": "اسم الشركة *",
+    "country": "دولة",
+    "edit": "يحرر",
+    "exportClientData": "تصدير بيانات العميل",
+    "error": "فشل تحميل ملف تعريف العميل.",
+    "errorSave": "فشل في حفظ العميل",
+    "firstName": "الاسم الأول *",
+    "gdprConsent": "موافقة اللائحة العامة لحماية البيانات",
+    "holdingGroup": "المجموعة القابضة",
+    "lastName": "اسم العائلة *",
+    "legalForm": "الشكل القانوني",
+    "loading": "جارٍ تحميل الملف الشخصي…",
+    "none": "لا أحد",
+    "notes": "ملحوظات",
+    "registrationNo": "رقم التسجيل",
+    "save": "حفظ التغييرات",
+    "saving": "توفير…",
+    "status": "حالة",
+    "type": "يكتب",
+    "validation": {
+      "companyName": "اسم الشركة مطلوب",
+      "name": "الاسم الأول والأخير مطلوبان",
+      "website": "يجب أن يبدأ موقع الويب بـ http:// أو https://"
+    },
+    "vatNo": "رقم ضريبة القيمة المضافة",
+    "website": "موقع إلكتروني",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "إضافة شركة ذات صلة",
+    "drawerTitle": "إضافة شركة ذات صلة",
+    "empty": "لا توجد شركات ذات صلة مرتبطة.",
+    "externalName": "الاسم الخارجي",
+    "existingClient": "العميل الحالي",
+    "linkType": "نوع الرابط",
+    "loading": "تحميل…",
+    "notes": "ملحوظات",
+    "notesPlaceholder": "سياق اختياري",
+    "relationship": "علاقة *",
+    "remove": "يزيل",
+    "save": "حفظ الشركة ذات الصلة",
+    "searchClients": "عملاء البحث *",
+    "searchPlaceholder": "البحث بالاسم أو الكود...",
+    "noClients": "لم يتم العثور على عملاء",
+    "companyName": "اسم الشركة *",
+    "table": {
+      "name": "اسم",
+      "notes": "ملحوظات",
+      "relationship": "علاقة"
+    },
+    "title": "الشركات ذات الصلة"
+  },
+  "relationship": {
+    "affiliate": "انضم",
+    "parent": "الوالد",
+    "subsidiary": "فرعية"
+  },
+  "history": {
+    "empty": "لا يوجد تاريخ بعد.",
+    "loadMore": "تحميل المزيد",
+    "loading": "جارٍ تحميل السجل…",
+    "title": "تاريخ العلاقة"
+  },
+  "matters": {
+    "empty": "لا يهم بعد. فتح قضية لبدء أعمال الملاحقة القضائية لهذا العميل.",
+    "loading": "جارٍ تحميل المسائل...",
+    "openNew": "فتح مسألة جديدة",
+    "table": {
+      "assigned": "مُكَلَّف",
+      "jurisdictions": "الولايات القضائية",
+      "status": "حالة",
+      "title": "عنوان",
+      "type": "يكتب"
+    },
+    "title": "يهم"
+  },
+  "accessHistory": {
+    "title": "تاريخ الوصول إلى البيانات",
+    "subtitle": "الموظفون الذين قاموا بعرض أو تصدير البيانات الشخصية لهذا العميل.",
+    "loading": "جارٍ تحميل سجل الوصول…",
+    "loadFailed": "فشل تحميل سجل الوصول.",
+    "empty": "لم يتم تسجيل أي أحداث وصول حتى الآن.",
+    "systemUser": "نظام",
+    "columns": {
+      "when": "متى",
+      "user": "مستخدم",
+      "action": "فعل",
+      "ip": "الملكية الفكرية"
+    }
+  },
+  "billing": {
+    "byMatter": "حسب المادة",
+    "error": "فشل تحميل بيانات الفوترة.",
+    "loading": "جارٍ تحميل الفواتير…",
+    "noPermission": "ليس لديك الإذن لعرض الفواتير لهذا العميل.",
+    "title": "الفواتير",
+    "wipDescription": "العمل جار والمبالغ غير المفوترة لهذا العميل.",
+    "wipDescriptionLong": "العمل قيد التقدم والإجماليات القابلة للفوترة في جميع الأمور لهذا العميل.",
+    "matterTable": {
+      "matter": "موضوع",
+      "type": "يكتب",
+      "status": "حالة",
+      "billableHours": "ساعات قابلة للفوترة",
+      "total": "المجموع",
+      "unbilled": "غير مفوترة",
+      "empty": "لا يهم بعد. افتح مسألة قانونية لبدء تتبع العمل القابل للفوترة."
+    }
+  },
+  "sidebar": {
+    "country": "دولة:",
+    "loading": "تحميل…",
+    "primaryContact": "جهة الاتصال الأولية",
+    "primaryOffice": "المكتب الأساسي",
+    "viewProfile": "عرض الملف الشخصي الكامل"
+  },
+  "status": {
+    "active": "نشيط",
+    "archived": "مؤرشف",
+    "inactive": "غير نشط",
+    "prospect": "احتمال"
+  },
+  "table": {
+    "action": "فعل",
+    "client": "عميل",
+    "country": "دولة",
+    "created": "مخلوق",
+    "holdingGroup": "المجموعة القابضة",
+    "status": "حالة",
+    "type": "يكتب"
+  },
+  "tabs": {
+    "accessHistory": "تاريخ الوصول",
+    "billing": "الفواتير",
+    "contacts": "اتصالات",
+    "history": "تاريخ",
+    "matters": "يهم",
+    "watch": "يشاهد",
+    "offices": "مكاتب",
+    "overview": "ملخص",
+    "related": "متعلق ب"
+  },
+  "type": {
+    "company": "شركة",
+    "individual": "فردي"
+  },
+  "unnamedClient": "عميل لم يذكر اسمه"
+}

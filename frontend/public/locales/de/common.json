@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Zurück zum Dashboard",
+    "cancel": "Stornieren",
+    "edit": "Bearbeiten",
+    "loadMore": "Mehr laden",
+    "next": "Nächste",
+    "previous": "Vorherige",
+    "refresh": "Aktualisieren",
+    "remove": "Entfernen",
+    "retry": "Wiederholen",
+    "save": "Speichern",
+    "saveChanges": "Änderungen speichern",
+    "view": "Sicht"
+  },
+  "errors": {
+    "loadFailed": "Laden fehlgeschlagen.",
+    "retryHint": "Überprüfen Sie Ihre Verbindung und Berechtigungen und versuchen Sie es dann erneut."
+  },
+  "filters": {
+    "all": "Alle",
+    "allStatuses": "Alle Status",
+    "allTypes": "Alle Arten"
+  },
+  "language": {
+    "ar": "Arabisch",
+    "bg": "bulgarisch",
+    "bs": "bosnisch",
+    "de": "Deutsch",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "et": "estnisch",
+    "fr": "Französisch",
+    "hr": "kroatisch",
+    "hy": "Armenisch",
+    "it": "Italienisch",
+    "mk": "mazedonisch",
+    "ms": "malaiisch",
+    "ro": "rumänisch",
+    "ru": "Russisch",
+    "sq": "albanisch",
+    "sr": "serbisch",
+    "switch": "Sprache wechseln",
+    "tr": "Türkisch",
+    "zh-CN": "Chinesisch (vereinfacht)"
+  },
+  "loading": {
+    "default": "Laden…",
+    "refreshing": "erfrischend…",
+    "saving": "Sparen…"
+  },
+  "nav": {
+    "breadcrumb": "Semmelbrösel",
+    "closeMenu": "Menü schließen",
+    "openMenu": "Menü öffnen"
+  },
+  "pagination": {
+    "noResults": "Keine Ergebnisse",
+    "page": "Seite {{page}}",
+    "showing": "Anzeigen {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "Berichte"
+  },
+  "noPermission": "Keine Erlaubnis.",
+  "crm": "CRM",
+  "clientPortal": "Kundenportal",
+  "tasks": "Aufgaben",
+  "comingSoon": "Kommt bald",
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "unread": "ungelesen",
+    "markAllRead": "Alles als gelesen markieren",
+    "couldNotLoad": "Benachrichtigungen konnten nicht geladen werden.",
+    "noNotificationsYet": "Noch keine Benachrichtigungen."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "NEIN",
+    "none": "Keiner",
+    "yes": "Ja"
+  }
+}

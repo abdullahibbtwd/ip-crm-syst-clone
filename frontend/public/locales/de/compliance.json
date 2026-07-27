@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Audit-Trail",
+    "subtitle": "Systemweites Audit-Protokoll zur Compliance-Überprüfung.",
+    "loading": "Audit-Trail wird geladen…",
+    "loadFailed": "Audit-Trail konnte nicht geladen werden.",
+    "empty": "Keine Audit-Einträge gefunden.",
+    "columns": {
+      "when": "Wann",
+      "user": "Benutzer",
+      "action": "Aktion",
+      "resource": "Ressource",
+      "module": "Modul"
+    }
+  },
+  "dataExports": {
+    "title": "Datenexportprotokoll",
+    "subtitle": "Persönliche Datenexporte und -downloads werden zur DSGVO-Konformität verfolgt.",
+    "loading": "Exportprotokoll wird geladen…",
+    "loadFailed": "Das Exportprotokoll konnte nicht geladen werden.",
+    "empty": "Noch keine Exporte verzeichnet.",
+    "columns": {
+      "when": "Wann",
+      "user": "Benutzer",
+      "resource": "Ressource",
+      "clientId": "Kunden-ID"
+    }
+  },
+  "retention": {
+    "title": "Aufbewahrungsregeln",
+    "subtitle": "DSGVO-Aufbewahrungsrichtlinien, die durch den nächtlichen Scanauftrag erzwungen werden (Standard 3:00 Uhr). Verwenden Sie einen Probelauf, um eine Vorschau der Anzahl der betroffenen Datensätze anzuzeigen.",
+    "noPermission": "Sie sind nicht berechtigt, Aufbewahrungsregeln zu verwalten.",
+    "newRule": "Neue Regel",
+    "loading": "Aufbewahrungsregeln werden geladen…",
+    "loadFailed": "Aufbewahrungsregeln konnten nicht geladen werden.",
+    "empty": "Noch keine Aufbewahrungsregeln.",
+    "dryRun": "Trockenlauf",
+    "dryRunAria": "Trockenlauf-Aufbewahrungsregel",
+    "editAria": "Aufbewahrungsregel bearbeiten",
+    "dryRunResult": "Probelauf: würde sich auf {{count}} Datensätze auswirken (Grenzwert {{cutoff}}).",
+    "dryRunFailed": "Der Trockenlauf ist fehlgeschlagen",
+    "auditTrailHint": "Sehen Sie sich den Löschverlauf im an",
+    "auditTrailLink": "Audit-Trail",
+    "auditTrailFilter": "(Filteraktion: retain_rule_executed).",
+    "columns": {
+      "entity": "Juristische Person",
+      "condition": "Zustand",
+      "retention": "Zurückbehaltung",
+      "action": "Aktion",
+      "status": "Status",
+      "description": "Beschreibung"
+    },
+    "drawer": {
+      "createTitle": "Neue Aufbewahrungsregel",
+      "editTitle": "Aufbewahrungsregel bearbeiten",
+      "entityType": "Entitätstyp",
+      "condition": "Zustand",
+      "conditionRejected": "Status = abgelehnt",
+      "conditionNotConverted": "Nicht konvertiert (exkl. abgelehnt)",
+      "auditLogsHint": "Audit-Log-Regeln gelten für alle Datensätze, die älter als der Aufbewahrungszeitraum sind. Die Aktion ist immer Löschen.",
+      "retentionDays": "Aufbewahrung (Tage)",
+      "action": "Aktion",
+      "description": "Beschreibung",
+      "status": "Status",
+      "createRule": "Regel erstellen"
+    },
+    "entityTypes": {
+      "intake_leads": "Einlass führt",
+      "audit_logs": "Audit-Protokolle"
+    },
+    "actions": {
+      "anonymize": "Anonymisieren",
+      "delete": "Löschen"
+    },
+    "conditions": {
+      "allRecords": "Alle Aufzeichnungen",
+      "rejected": "Status = abgelehnt",
+      "notConverted": "Nicht konvertiert (exkl. abgelehnt)",
+      "noStatusFilter": "Kein Statusfilter"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "errors": {
+      "invalidDays": "Geben Sie einen gültigen Aufbewahrungszeitraum in Tagen ein",
+      "saveFailed": "Die Aufbewahrungsregel konnte nicht gespeichert werden",
+      "confirmSave": "Aufbewahrungsregeln werden für den nächtlichen Scanauftrag ausgeführt (Standard 3:00 Uhr). Weiter sparen?"
+    },
+    "duration": {
+      "days": "{{days}} Tage",
+      "daysWithYears_one": "{{days}} Tage ({{count}} Jahr)",
+      "daysWithYears_other": "{{days}} Tage ({{count}} Jahre)",
+      "daysWithMonths_one": "{{days}} Tage ({{count}} Monat)",
+      "daysWithMonths_other": "{{days}} Tage ({{count}} Monate)",
+      "daysApproxYears": "{{days}} Tage (~{{years}} Jahre)",
+      "daysApproxMonths": "{{days}} Tage (~{{months}} Monate)"
+    }
+  }
+}

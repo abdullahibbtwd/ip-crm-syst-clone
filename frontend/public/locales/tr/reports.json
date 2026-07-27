@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Akım",
+      "overdue30": "1–30 gün",
+      "overdue60": "31–60 gün",
+      "overdue90plus": "90+ gün"
+    },
+    "bucketsShort": {
+      "current": "Akım",
+      "overdue30": "30 gün",
+      "overdue60": "60 gün",
+      "overdue90plus": "90 gün+"
+    },
+    "legend": "Yaşlanma efsanesi",
+    "noOpenReceivables": "Açık alacak yok"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} müşteri grubu",
+    "clientGroups_other": "{{count}} müşteri grupları",
+    "clientMatters": "Müşteri önemlidir",
+    "clientsInWindow": "{{clients}} müşteri · {{days}} gün ufku",
+    "crossTabTitle": "Müşteri × yetki alanı × avukat",
+    "description": "Müşteri, yargı bölgesi ve sorumlu avukata göre gruplandırılmış yaklaşan kritik son teslim tarihleri. Aciliyet renkleri, son teslim tarihi iş listeleri ve bildirim aşamalarıyla eşleşir.",
+    "emptyDescription": "Portföy penceresini genişletmeyi veya filtreleri temizlemeyi deneyin.",
+    "emptyTitle": "Bu pencerede son tarih yok",
+    "error": "Son tarih risk raporu yüklenemedi.",
+    "filters": {
+      "allAssignees": "Tüm atananlar",
+      "allAttorneys": "Tüm avukatlar",
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "jurisdiction": "Yargı yetkisi",
+      "portfolioWindow": "Portföy penceresi (günler)",
+      "responsibleAttorney": "Sorumlu avukat"
+    },
+    "generated": "Oluşturuldu {{date}}",
+    "loading": "Portföy riski yükleniyor…",
+    "openWorklist": "İş listesini aç",
+    "stats": {
+      "critical": "Kritik",
+      "criticalHint": "Vadesi geçmiş, bugün veya ≤7 gün",
+      "dueToday": "Bugün vadesi doluyor",
+      "dueTodayHint": "Bugün eylem gerekli",
+      "inWindow": "Pencerede",
+      "overdue": "vadesi geçmiş",
+      "overdueHint": "Vadesi geçmiş veya iletilmiş"
+    },
+    "table": {
+      "deadline": "Son teslim tarihi",
+      "due": "Vadesi dolmuş",
+      "matter": "Konu",
+      "status": "Durum"
+    },
+    "title": "Son teslim tarihi portföy riski"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Yargı yetkisine göre",
+    "byMonth": "Aylara göre başvurular",
+    "description": "Yapılan başvurular - konu zaman çizelgesindeki dosyalama etkinliklerinden toplanmış, aya, konu türüne ve yetki alanına göre gruplandırılmış.",
+    "error": "Dosyalama hacimleri yüklenemedi.",
+    "filters": {
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "allTypes": "Tüm türler",
+      "jurisdiction": "Yargı yetkisi",
+      "matterType": "Madde türü",
+      "periodFrom": "Dönem:",
+      "periodTo": "Dönemi"
+    },
+    "generated": "Oluşturuldu {{date}}",
+    "loading": "Dosyalama hacimleri yükleniyor…",
+    "matterPortfolio": "Madde portföyü",
+    "noFilings": "Dönem içerisinde başvuru yapılmadı.",
+    "stats": {
+      "jurisdictions": "Yargı bölgeleri",
+      "jurisdictionsHint": "Dosyalama yetkilileri",
+      "matterTypes": "Madde türleri",
+      "matterTypesHint": "Farklı türler dosyalandı",
+      "totalFilings": "Toplam başvurular",
+      "totalFilingsHint": "Seçilen dönemde"
+    },
+    "table": {
+      "filingDate": "Başvuru tarihi",
+      "filings": "Başvurular",
+      "jurisdiction": "Yargı yetkisi",
+      "matter": "Konu",
+      "month": "Ay",
+      "type": "Tip"
+    },
+    "title": "Dosyalama hacimleri"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Son aya kadar",
+    "byJurisdiction": "Yargı yetkisine göre",
+    "cycle": "döngü {{number}}",
+    "description": "Duruma, yetki alanına ve son aya göre yaklaşan yenileme aralıkları; son tarih risk raporlamasına uygun aciliyet kademeleri ile.",
+    "dueBefore": "Vadesi daha önce",
+    "dueBeforeLabel": "{{date}} tarihinden önce vadesi dolacak",
+    "error": "Yenileme özeti yüklenemedi.",
+    "filters": {
+      "allJurisdictions": "Tüm yargı bölgeleri",
+      "jurisdiction": "Yargı yetkisi"
+    },
+    "generated": "Oluşturuldu {{date}}",
+    "loading": "Yenileme özeti yükleniyor…",
+    "noRenewals": "Pencerede yenileme yok.",
+    "renewalsWorklist": "Yenilemeler iş listesi",
+    "stats": {
+      "critical": "Kritik",
+      "criticalHint": "Vadesi geçmiş veya vadesi ≤7 gün",
+      "instructed": "talimat verildi",
+      "instructedHint": "Devam onaylandı",
+      "pipeline": "Boru hattı",
+      "pipelineHint": "Etkin yenileme aralıkları",
+      "upcoming": "Yaklaşan",
+      "upcomingHint": "Talimat bekleniyor"
+    },
+    "table": {
+      "client": "Müşteri",
+      "due": "Vadesi dolmuş",
+      "ipRight": "IP hakkı",
+      "month": "Ay",
+      "status": "Durum",
+      "windows": "Windows"
+    },
+    "title": "Yenileme özeti"
+  },
+  "renewalUrgency": {
+    "legend": "Yenileme aciliyeti",
+    "noPipeline": "Boru hattı yenilemesi yok",
+    "overdue": "vadesi geçmiş",
+    "soon": "≤30 gün",
+    "today": "Bugün vadesi doluyor",
+    "urgent": "≤7 gün"
+  },
+  "revenueSummary": {
+    "agingDetail": "Açık alacak detayı",
+    "agingSection": {
+      "description": "Vadesini geçen günlere göre tüm açık alacakların anlık görüntüsü",
+      "title": "Yaşlanma özeti"
+    },
+    "description": "Aylara göre düzenlenen fatura toplamları, tahsilatlar ve vadesi geçmiş günlere göre yaşlandırılmış açık alacaklar, Finance ödeme izleme senaryosuna uygun şekilde.",
+    "error": "Gelir özeti yüklenemedi.",
+    "filters": {
+      "periodFrom": "Dönem:",
+      "periodTo": "Dönemi"
+    },
+    "generated": "Oluşturuldu {{date}}",
+    "invoice_one": "{{count}} fatura",
+    "invoice_other": "{{count}} faturalar",
+    "invoiceRegister": "Fatura kaydı",
+    "issuedInPeriod_one": "gelirSummary.issuedInPeriod",
+    "issuedInPeriod_other": "gelirSummary.issuedInPeriod",
+    "loading": "Gelir özeti yükleniyor…",
+    "noInvoices": "Bu dönemde kesilen fatura bulunmamaktadır.",
+    "noReceivables": "Ödenmemiş alacak yok.",
+    "openInvoices_one": "gelirSummary.openInvoices",
+    "openInvoices_other": "gelirSummary.openInvoices",
+    "period": "Dönem {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Düzenlendiği aya göre gruplandırılmış kesilen fatura toplamları",
+      "title": "Aya göre gelir"
+    },
+    "stats": {
+      "collected": "Toplanan",
+      "collectedHint": "Dönem içinde kaydedilen ödemeler",
+      "criticalReceivables": "60+ gün gecikmiş",
+      "criticalReceivablesHint": "Takip gerektiren alacaklar",
+      "outstanding": "Üstün",
+      "totalInvoiced": "Faturalanan toplam"
+    },
+    "table": {
+      "aging": "Yaşlanma",
+      "client": "Müşteri",
+      "due": "Vadesi dolmuş",
+      "invoice": "Fatura",
+      "invoiced": "Faturalandı",
+      "month": "Ay",
+      "open": "Açık",
+      "outstanding": "Üstün",
+      "paid": "Paralı"
+    },
+    "title": "Gelir ve alacaklar"
+  },
+  "urgency": {
+    "legend": "Aciliyet efsanesi",
+    "noActiveRisk": "Aktif risk yok",
+    "overdue": "vadesi geçmiş",
+    "soon": "Vadesi ≤30 gün",
+    "soonShort": "≤30 gün",
+    "today": "Bugün vadesi doluyor",
+    "todayShort": "Bugün",
+    "urgent": "Vadesi ≤7 gün",
+    "urgentShort": "≤7 gün"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Kritik",
+      "criticalHint": "≤ 7 gün",
+      "overdue": "vadesi geçmiş",
+      "actionRequired": "İşlem gerekli",
+      "dueToday": "Bugün vadesi doluyor",
+      "requiresSignOff": "Oturum kapatmayı gerektirir",
+      "nextDays": "Sonraki {{days}} gün",
+      "clientsInWindow": "{{count}} istemciler pencerede",
+      "windowSummary": "Pencere özeti",
+      "priorityDeadlines": "Öncelikli son tarihler",
+      "prioritySubtitle": "İzleme gerektiren en acil öğeler",
+      "openReport": "Raporu aç",
+      "loading": "Risk vektörleri taranıyor…",
+      "error": "Risk analitiği yüklenemedi.",
+      "highestExposure": "En yüksek riske maruz kalma",
+      "criticalCount": "{{count}} kritik",
+      "portfolioClear": "Portföy temizleme",
+      "noCriticalInWindow": "Önümüzdeki {{days}} günde kritik bir risk algılanmadı.",
+      "table": {
+        "priorityDeadline": "Öncelikli son tarih",
+        "clientJurisdiction": "Müşteri ve yetki alanı",
+        "dueDate": "Bitiş tarihi"
+      },
+      "showingOf": "{{total}} öncelik öğesinden {{shown}} gösteriliyor",
+      "viewCrossTab": "Tablolar arası raporun tamamını görüntüle"
+    },
+    "filingVolumes": {
+      "title": "Dosyalama hacimleri",
+      "subtitle": "Firma genelinde yapılan başvurular (Son 12 ay)",
+      "fullReport": "Tam rapor",
+      "loading": "Dosyalama geçmişi toplanıyor…",
+      "error": "Dosyalama analitiği yüklenemedi.",
+      "totalFilings": "Toplam başvurular",
+      "yearToDate": "Sene başından beri",
+      "primaryType": "Birincil tür",
+      "applications_one": "{{count}} uygulaması",
+      "applications_other": "{{count}} uygulamalar",
+      "noData": "Veri yok",
+      "topRegion": "En iyi bölge",
+      "monthActivity": "{{month}} Etkinlik:",
+      "newFiling_one": "{{count}} yeni başvuru",
+      "newFiling_other": "{{count}} yeni başvurular",
+      "empty": "Yakın geçmişte hiçbir başvuru tespit edilmedi.",
+      "table": {
+        "matterInfo": "Madde bilgisi",
+        "type": "Tip",
+        "filingDate": "Başvuru Tarihi"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Faturalandı (12 ay)",
+      "issued_one": "{{count}} yayınlandı",
+      "issued_other": "{{count}} yayınlandı",
+      "collected": "Toplanan",
+      "paidInPeriod": "Dönem içinde ödenen",
+      "outstanding": "Üstün",
+      "open_one": "{{count}} açık",
+      "open_other": "{{count}} açık",
+      "criticalRisk": "Kritik Risk",
+      "overdue60Days": "60+ gün gecikmiş",
+      "receivablesAging": "Alacakların yaşlandırılması",
+      "agingSubtitle": "Düzenlenen faturaları vadesi geçen günlere göre açın",
+      "fullReport": "Tam rapor",
+      "loading": "Yaşlanan veriler analiz ediliyor…",
+      "error": "Eskime verileri yüklenemedi.",
+      "portfolioHealthy": "Portföy sağlıklı",
+      "noReceivables": "Ödenmemiş alacak bulunamadı.",
+      "draftRef": "Taslak referans",
+      "table": {
+        "invoiceInfo": "Fatura bilgisi",
+        "client": "Müşteri",
+        "outstanding": "Üstün"
+      },
+      "showingOf": "{{total}} açık faturalardan {{shown}} gösteriliyor",
+      "viewPortfolio": "Portföyün tamamını görüntüle"
+    },
+    "teamWorkload": {
+      "title": "Ekip iş yükü",
+      "subtitle": "Üye başına açık konular, görevler ve son tarihler",
+      "viewTeam": "Ekibi görüntüle",
+      "loading": "İş yükü dağılımı hesaplanıyor…",
+      "error": "Ekip verileri yüklenemedi.",
+      "matters": "Önemlidir",
+      "members_one": "{{count}} üye",
+      "members_other": "{{count}} üye",
+      "tasks": "Görevler",
+      "pendingAction": "Bekleyen eylem",
+      "deadlines": "Son teslim tarihleri",
+      "activeWindow": "Etkin pencere",
+      "busiest": "En yoğun",
+      "items_one": "{{count}} öğe",
+      "items_other": "{{count}} öğe",
+      "clear": "Temizlemek",
+      "empty": "Aktif takım verisi yok",
+      "table": {
+        "teamMember": "Ekip üyesi",
+        "matters": "Önemlidir",
+        "tasks": "Görevler",
+        "deadlines": "Son teslim tarihleri",
+        "total": "Toplam"
+      }
+    },
+    "clientProfitability": {
+      "title": "Müşteri karlılığı",
+      "subtitle": "Müşteri portföyüne göre faturalandırılmış gelir dağılımı",
+      "viewAllClients": "Tüm istemcileri görüntüle",
+      "loading": "Kârlılık verileri toplanıyor…",
+      "error": "İstemci analizleri yüklenemedi.",
+      "trueMargin": "Gerçek marj:",
+      "revenueProxy": "Gelir vekili:",
+      "totalRevenue": "Toplam gelir",
+      "clients_one": "{{count}} istemci",
+      "clients_other": "{{count}} istemciler",
+      "totalMargin": "Toplam marj",
+      "topClient": "En iyi müşteri",
+      "internalCost": "{{amount}} dahili maliyet",
+      "noBillingData": "Faturalandırma verisi yok",
+      "unbilledWip": "Faturalandırılmamış Devam Eden Çalışma",
+      "pendingAccrual": "Tahakkuk bekleniyor",
+      "firmBilled": "Firma Faturalandırıldı",
+      "totalMatters": "Toplam konular",
+      "empty": "Hiçbir müşteri faturalandırma verisi algılanmadı.",
+      "table": {
+        "clientPortfolio": "Müşteri portföyü",
+        "matters": "Önemlidir",
+        "billable": "Faturalandırılabilir",
+        "unbilled": "faturalandırılmamış",
+        "margin": "Marj",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "{{basis}} tarihine kadar {{total}} istemcilerden en iyi {{shown}} gösteriliyor",
+      "basisMargin": "marj",
+      "basisRevenue": "hasılat",
+      "viewLeaderboard": "Skor tablosunun tamamını görüntüle"
+    }
+  }
+}

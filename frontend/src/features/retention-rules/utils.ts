@@ -5,11 +5,13 @@ import type {
   RetentionEntityType,
 } from './types'
 
+/** @deprecated Use i18n keys `compliance.retention.entityTypes.*` in UI */
 export const ENTITY_TYPE_LABELS: Record<RetentionEntityType, string> = {
   intake_leads: 'Intake leads',
   audit_logs: 'Audit logs',
 }
 
+/** @deprecated Use i18n keys `compliance.retention.actions.*` in UI */
 export const ACTION_LABELS: Record<RetentionAction, string> = {
   anonymize: 'Anonymize',
   delete: 'Delete',
@@ -17,7 +19,32 @@ export const ACTION_LABELS: Record<RetentionAction, string> = {
 
 export const ENTITY_TYPES = Object.keys(ENTITY_TYPE_LABELS) as RetentionEntityType[]
 
-export function formatRetentionDuration(days: number): string {
+type TranslateFn = (key: string, options?: Record<string, unknown>) => string
+
+export function formatRetentionDuration(
+  days: number,
+  t?: TranslateFn,
+): string {
+  if (t) {
+    if (days % 365 === 0) {
+      const years = days / 365
+      return t('retention.duration.daysWithYears', { days, count: years })
+    }
+    if (days % 30 === 0) {
+      const months = days / 30
+      return t('retention.duration.daysWithMonths', { days, count: months })
+    }
+    if (days >= 365) {
+      const years = Math.round((days / 365) * 10) / 10
+      return t('retention.duration.daysApproxYears', { days, years })
+    }
+    if (days >= 30) {
+      const months = Math.round((days / 30) * 10) / 10
+      return t('retention.duration.daysApproxMonths', { days, months })
+    }
+    return t('retention.duration.days', { days })
+  }
+
   if (days % 365 === 0) {
     const years = days / 365
     return `${days} days (${years} ${years === 1 ? 'year' : 'years'})`
@@ -67,10 +94,17 @@ export function conditionJsonFromPreset(
 export function describeCondition(
   entityType: string,
   condition: RetentionConditionJson | Record<string, unknown> | null | undefined,
+  t?: TranslateFn,
 ): string {
-  if (entityType === 'audit_logs') return 'All records'
+  if (entityType === 'audit_logs') {
+    return t?.('retention.conditions.allRecords') ?? 'All records'
+  }
   const preset = conditionPresetFromJson(entityType, condition)
-  if (preset === 'rejected') return 'Status = rejected'
-  if (preset === 'not_converted') return 'Not converted (excl. rejected)'
-  return 'No status filter'
+  if (preset === 'rejected') {
+    return t?.('retention.conditions.rejected') ?? 'Status = rejected'
+  }
+  if (preset === 'not_converted') {
+    return t?.('retention.conditions.notConverted') ?? 'Not converted (excl. rejected)'
+  }
+  return t?.('retention.conditions.noStatusFilter') ?? 'No status filter'
 }

@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Pelanggan",
+  "disbursements": {
+    "title": "Pengeluaran",
+    "subtitle": "Yuran tetap seluruh firma dikategorikan sebagai pengeluaran.",
+    "loadFailed": "Gagal memuatkan pengeluaran.",
+    "empty": "Tiada pembayaran ditemui.",
+    "columns": {
+      "date": "tarikh",
+      "matter": "Perkara",
+      "description": "Penerangan",
+      "amount": "Jumlah"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Pengeluaran",
+    "expense": "Perbelanjaan",
+    "professional_fee": "Yuran profesional"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Muat turun",
+      "issue": "Isu",
+      "pay": "bayar",
+      "void": "batal"
+    },
+    "confirmIssue": "Keluarkan invois ini?",
+    "confirmVoid": "batalkan invois ini? Ini tidak boleh dibuat asal.",
+    "createFromUnbilled": "Buat invois daripada tidak dibilkan",
+    "description": "Jejaki invois yang dikeluarkan, status pembayaran dan baki tertunggak.",
+    "draft": "Draf",
+    "empty": "Tiada invois ditemui",
+    "emptyDescription": "Cuba laraskan penapis atau buat invois daripada kerja yang tidak dibilkan.",
+    "error": "Gagal memuatkan invois.",
+    "invoiceStatus": {
+      "draft": "Draf",
+      "issued": "Dikeluarkan",
+      "void": "batal"
+    },
+    "loading": "Memuatkan invois…",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat invois.",
+    "searchPlaceholder": "Cari invois no. atau pelanggan…",
+    "sectionTitle": "Invois",
+    "table": {
+      "amount": "Jumlah",
+      "client": "Pelanggan",
+      "due": "kena bayar",
+      "invoiceNo": "No. invois",
+      "issued": "Dikeluarkan",
+      "payment": "Bayaran",
+      "status": "Status"
+    },
+    "title": "Invois",
+    "listSubtitle": "Daftar invois seluruh firma merentas semua perkara. Keluarkan invois daripada tab pengebilan perkara, kemudian rekod pembayaran di sini.",
+    "exportFrom": "Eksport daripada",
+    "exportTo": "Eksport ke",
+    "exportFormats": {
+      "journal": "CSV jurnal",
+      "xero": "Xero CSV",
+      "quickbooks": "QuickBooks CSV"
+    },
+    "exporting": "Mengeksport…",
+    "exportFailed": "Eksport perakaunan gagal",
+    "syncXero": "Segerakkan Xero",
+    "syncQuickBooks": "Segerakkan QuickBooks",
+    "syncFailed": "Penyegerakan perakaunan gagal",
+    "searchListPlaceholder": "Cari no. invois, perkara, pelanggan…",
+    "filters": {
+      "allPayments": "Semua pembayaran",
+      "allStatuses": "Semua status"
+    }
+  },
+  "payment": {
+    "amount": "Jumlah *",
+    "balance": "Baki tertunggak",
+    "date": "Tarikh pembayaran *",
+    "drawerTitle": "Rekod pembayaran",
+    "error": "Gagal merekod pembayaran",
+    "method": "Kaedah pembayaran *",
+    "methods": {
+      "bank_transfer": "Pindahan bank",
+      "card": "Kad",
+      "cash": "Tunai",
+      "other": "Lain-lain"
+    },
+    "notes": "Nota",
+    "reference": "Rujukan",
+    "save": "Rekod pembayaran",
+    "success": "Pembayaran berjaya direkodkan.",
+    "validation": {
+      "amount": "Jumlah mestilah lebih besar daripada sifar",
+      "exceeds": "Jumlah melebihi baki tertunggak"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Dibayar",
+    "partial": "Separa dibayar",
+    "unpaid": "Tak bergaji"
+  },
+  "rateCards": {
+    "any": "mana-mana",
+    "create": "Buat kad kadar",
+    "description": "Konfigurasikan kadar pengebilan mengikut peranan, jenis perkara dan tarikh berkuat kuasa.",
+    "drawerTitle": "Kad kadar baharu",
+    "drawerTitleEdit": "Edit kad kadar",
+    "effectiveFrom": "Berkuatkuasa dari *",
+    "effectiveTo": "Berkesan kepada",
+    "error": "Gagal menyimpan kad kadar",
+    "firmWide": "Firm-wide",
+    "internalCost": "Kos dalaman / jam",
+    "matterType": "Jenis jirim",
+    "new": "Kad kadar baharu",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk mengurus kad kadar.",
+    "viewNoPermission": "Anda tidak mempunyai kebenaran untuk melihat kad kadar.",
+    "rate": "Kadar / jam *",
+    "role": "Peranan *",
+    "save": "Simpan perubahan",
+    "scope": "Skop",
+    "table": {
+      "effective": "Berkesan",
+      "internalCost": "Kos dalaman",
+      "matterType": "Jenis jirim",
+      "rate": "Kadar",
+      "role": "Peranan",
+      "scope": "Skop"
+    },
+    "title": "Kad kadar",
+    "pageDescription": "Senarai harga firma mengikut peranan, jenis perkara dan penggantian pelanggan pilihan. Kadar boleh dibilkan digunakan apabila masa log masuk; kos dalaman pilihan memacu keuntungan margin benar.",
+    "anyMatterType": "Apa-apa jenis perkara",
+    "clientOverride": "Pelanggan mengatasi",
+    "firmWideDefault": "Lalai seluruh firma",
+    "editAria": "Edit kad kadar",
+    "loadFailed": "Gagal memuatkan kad kadar.",
+    "loading": "Memuatkan kad kadar…",
+    "empty": "Tiada kad kadar lagi.",
+    "billable": "Boleh dibilkan",
+    "validation": {
+      "hourlyRate": "Masukkan kadar setiap jam yang sah",
+      "internalCost": "Masukkan kos dalaman yang sah atau biarkan kosong"
+    },
+    "internalCostHint": "Pilihan. Digunakan untuk keuntungan margin benar apabila ditetapkan pada kad kadar.",
+    "billableRate": "Kadar boleh bil (EUR/jam)",
+    "internalCostOptional": "Kos dalaman (EUR/jam)",
+    "internalCostPlaceholder": "Pilihan - untuk pelaporan margin",
+    "internalCostResolutionHint": "Cerminkan resolusi kadar pengebilan (klien → firma + jenis perkara → lalai firma). Dirakam pada entri masa baharu sebagai cost_snapshot.",
+    "effectiveToOptional": "Berkesan kepada (pilihan)"
+  },
+  "rateRole": {
+    "coordinator": "Penyelaras",
+    "ip_attorney": "Peguam IP",
+    "managing_partner": "Rakan kongsi pengurusan",
+    "paralegal": "Paralegal",
+    "trademark_attorney": "Peguam tanda dagangan"
+  },
+  "billingOverview": {
+    "collectedHint": "Dikumpul dalam tempoh",
+    "collectedLabel": "Dikumpul",
+    "criticalHint": "Tertunggak 60+ hari",
+    "criticalLabel": "Risiko kritikal",
+    "description": "Kesihatan hasil (invois) serta kesediaan kad kadar (kad kadar + perlindungan kos dalaman).",
+    "error": "Gagal memuatkan gambaran keseluruhan pengebilan.",
+    "invoicedHint": "{{count}} invois dalam tempoh",
+    "invoicedLabel": "Diinvois",
+    "internalCostHintRevenue": "Asas proksi hasil",
+    "internalCostHintTrueMargin": "Asas margin benar didayakan",
+    "internalCostLabel": "Kos dalaman",
+    "manageRateCards": "Urus kad kadar",
+    "nextStep": "Langkah seterusnya",
+    "nextStepFix": "Betulkan liputan kadar dalam /rate-cards",
+    "nextStepHealthy": "Liputan kadar adalah sihat",
+    "nextStepHint": "Ringkasan pengebilan akan menjadi lebih tepat apabila setiap entri masa yang boleh dibilkan diselesaikan mengikut kadar.",
+    "noPermissionBilling": "Anda tidak mempunyai kebenaran untuk melihat pengebilan.",
+    "noPermissionInvoice": "Anda tidak mempunyai kebenaran untuk melihat data invois.",
+    "openFullReport": "Buka laporan penuh",
+    "outstandingHint": "{{count}} penghutang terbuka",
+    "outstandingLabel": "Cemerlang",
+    "rateCardHealth": "Kesihatan kad kadar",
+    "rateCardHealthDescription": "Adakah kadar pengebilan dikonfigurasikan dan adakah margin sedia?",
+    "rateCardsHintConfigured": "Kadar tersedia",
+    "rateCardsHintMissing": "Tiada kad kadar dikonfigurasikan",
+    "rateCardsLabel": "Kad kadar",
+    "receivablesAging": "Penghutang penuaan",
+    "receivablesHint": "Gunakan laporan penuh untuk jadual & butiran.",
+    "tip": "Petua: Kos dalaman pada kad kadar mengawal sama ada sistem boleh mengira keuntungan margin benar.",
+    "title": "Gambaran keseluruhan pengebilan",
+    "unratedHintBad": "Sesetengah entri boleh dibilkan mempunyai petikan kadar €0",
+    "unratedHintGood": "Nampak bagus",
+    "unratedLabel": "Entri masa tidak dinilai"
+  },
+  "summary": {
+    "billable": "Boleh dibilkan",
+    "billableAmount": "Jumlah yang boleh dibilkan",
+    "fixedFees": "Yuran tetap",
+    "total": "Jumlah",
+    "totalHours": "Jumlah jam",
+    "unbilled": "Tidak dibilkan"
+  }
+}

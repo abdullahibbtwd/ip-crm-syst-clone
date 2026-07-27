@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Esitage uued päringud ja jälgige oma organisatsioonis avatud asju. Teie portfell lühidalt.",
+    "eyebrow": "Kliendiportaal",
+    "filePatent": "Esitage patent",
+    "fileTrademark": "Esitage kaubamärk",
+    "stats": {
+      "activeMatters": "Aktiivsed asjad",
+      "activeMattersHint": "Organisatsiooni portfell",
+      "openDeadlines": "Avatud tähtajad",
+      "openDeadlinesHint": "Ootab tegevust",
+      "overdue": "Tähtaja ületanud",
+      "overdueCurrent": "Kõik praegune",
+      "overdueUrgent": "Kiire tähelepanu",
+      "renewals": "Uuendused",
+      "renewalsCurrent": "Hooldusvool",
+      "renewalsNeedAction_one": "{{count}} vajab tegevust",
+      "renewalsNeedAction_other": "{{count}} vajab tegevust"
+    },
+    "title": "Tere tulemast tagasi"
+  },
+  "correspondence": {
+    "title": "Sõnumid",
+    "description": "Kirjavahetus, mida teie ettevõte on teiega jaganud.",
+    "loading": "Sõnumite laadimine…",
+    "error": "Sõnumite laadimine ebaõnnestus.",
+    "empty": "Sõnumeid pole veel. Jagatud kirjavahetus kuvatakse siin.",
+    "table": {
+      "subject": "Teema",
+      "date": "Kuupäev",
+      "direction": "Suund",
+      "matter": "Asi"
+    }
+  },
+  "messages": {
+    "title": "Sõnumid",
+    "description": "Teie organisatsiooniga jagatud kindlad saated ja olulised sõnumid.",
+    "loading": "Sõnumite laadimine…",
+    "loadingDetail": "Avamine…",
+    "error": "Sõnumite laadimine ebaõnnestus.",
+    "empty": "Sõnumeid pole veel. Siin kuvatakse ettevõtte värskendused ja jagatud kirjavahetus.",
+    "selectHint": "Valige sõnum selle lugemiseks.",
+    "unread": "Lugemata",
+    "relatedMatter": "Asi",
+    "noBody": "Sõnumi sisu pole.",
+    "openLink": "Ava sõnumi link",
+    "kindBroadcast": "Saade",
+    "kindCorrespondence": "Asi",
+    "table": {
+      "type": "Tüüp",
+      "subject": "Teema",
+      "date": "Kuupäev",
+      "matter": "Asi"
+    }
+  },
+  "approvals": {
+    "title": "Heakskiidud",
+    "description": "Vaadake üle ja otsustage oma ettevõtte kinnitustaotlused.",
+    "loading": "Kinnituste laadimine…",
+    "couldNotLoad": "Kinnitusi ei saanud laadida",
+    "retry": "Proovi uuesti",
+    "decideError": "Teie otsust ei saanud esitada",
+    "approve": "Kinnita",
+    "reject": "Keeldu",
+    "notePlaceholder": "Valikuline märkus…",
+    "due": "Tähtaeg {{date}}",
+    "pendingSection": "Ootan teie otsust",
+    "historySection": "Varasemad otsused",
+    "empty": {
+      "title": "Kinnitustaotlusi pole",
+      "description": "Kui teie ettevõte esitab kinnitustaotluse, kuvatakse see siin."
+    },
+    "status": {
+      "draft": "Mustand",
+      "pending": "Ootel",
+      "approved": "Kinnitatud",
+      "rejected": "Tagasi lükatud"
+    }
+  },
+  "documentCategories": {
+    "application": "Rakendus",
+    "certificate": "tunnistus",
+    "correspondence": "Kirjavahetus",
+    "evidence": "Tõendid",
+    "office_action": "Kontori tegevus"
+  },
+  "documents": {
+    "allCategories": "Kõik kategooriad",
+    "allMatters": "Kõik on olulised",
+    "description": "Kõikide teie asjadega jagatud dokumendid.",
+    "download": "Laadi alla",
+    "empty": "Dokumente veel pole. Dokumendid kuvatakse siin, kui teie ettevõte neid teie asjades jagab.",
+    "error": "Dokumentide laadimine ebaõnnestus.",
+    "loading": "Dokumentide laadimine…",
+    "searchPlaceholder": "Otsi dokumente…",
+    "table": {
+      "category": "Kategooria",
+      "document": "Dokument",
+      "matter": "Asi",
+      "size": "Suurus",
+      "updated": "Uuendatud"
+    },
+    "title": "Minu dokumendid"
+  },
+  "intake": {
+    "description": "Esitage uus esitamistaotlus või vaadake üle juba esitatud päringud.",
+    "empty": {
+      "action": "Esitage päring",
+      "description": "Alustamiseks esitage kaubamärgi- või patendipäring.",
+      "title": "Päringuid veel pole"
+    },
+    "error": "Teie päringuid ei saanud laadida.",
+    "filed": "Esitatud {{date}}",
+    "fileNew": "Esitage uus päring",
+    "loading": "Teie päringute laadimine…",
+    "myEnquiries": "Minu päringud",
+    "status": {
+      "accepted": "Vastu võetud",
+      "inReview": "Ülevaatamisel",
+      "matterOpened": "Asi avanes",
+      "notAccepted": "Ei aktsepteerita",
+      "submitted": "Esitatud"
+    },
+    "submitted": {
+      "description": "Tegime esialgse konfliktikontrolli automaatselt. Koordinaator kinnitab ja avab teie asja. Saate oma päringu igal ajal üle vaadata või seda muuta, kuni see vastu võetakse.",
+      "reviewEnquiry": "Vaadake see päring üle",
+      "title": "Päring esitatud"
+    },
+    "title": "Päringud",
+    "untitled": "Pealkirjata päring"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Tagasi minu päringute juurde",
+    "cancel": "Tühista",
+    "defaultTitle": "Päring",
+    "edit": "Muuda",
+    "editDescription": "Salvestamisel värskendatakse teie päringut ja käivitatakse konfliktikontroll automaatselt.",
+    "editTitle": "Muuda päringut",
+    "enquirer": "Küsija",
+    "enquirerCompany": "Ettevõte",
+    "enquirerIndividual": "Individuaalne",
+    "enquiryDetails": "Päringu üksikasjad",
+    "error": "Seda päringut ei saanud laadida.",
+    "fields": {
+      "companyName": "Ettevõtte nimi",
+      "country": "Riik",
+      "description": "Kirjeldus",
+      "email": "Meil",
+      "fullName": "Täisnimi",
+      "matterType": "Aine tüüp",
+      "otherParties": "Teised erakonnad",
+      "phone": "Telefon",
+      "urgency": "Kiireloomulisus"
+    },
+    "filed": "Esitatud {{date}}",
+    "loading": "Päringu laadimine…",
+    "saveChanges": "Salvestage muudatused",
+    "statusHints": {
+      "approved": "Teie päring on vastu võetud ja seda seadistatakse.",
+      "conflictFlagged": "Koordinaator vaatab teie päringu enne vastuvõtmist üle.",
+      "converted": "Asi on avatud. Saate seda jälgida jaotises Minu asjad.",
+      "new": "Vastu võetud. Konfliktide kontroll käivitus automaatselt ja koordinaator vaatab selle peagi üle.",
+      "rejected": "Seda päringut ei aktsepteeritud. Küsimuste korral võtke meiega ühendust.",
+      "reviewing": "Koordinaator vaatab teie päringut üle."
+    },
+    "urgency": {
+      "normal": "Tavaline",
+      "urgent": "Kiireloomuline"
+    },
+    "viewMatter": "Vaata asja"
+  },
+  "invoices": {
+    "description": "Arved ja makse olek kõigis teie asjades.",
+    "error": "Arvete laadimine ebaõnnestus.",
+    "loading": "Arvete laadimine…",
+    "title": "Minu arved"
+  },
+  "matterTypes": {
+    "design": "Disain",
+    "other": "muud",
+    "patent": "Patent",
+    "trademark": "Kaubamärk",
+    "utility_model": "Kasulik mudel"
+  },
+  "renewals": {
+    "couldNotLoad": "Uuendusi ei saanud laadida",
+    "cycle": "tsükkel {{number}}",
+    "decline": "Keeldumine",
+    "description": "Teie intellektuaalomandi õiguste eelseisvad kaubamärgi- ja disainiuuendused.",
+    "due": "Tähtaeg {{date}}",
+    "empty": {
+      "description": "Pikendamine ilmub siin pärast seda, kui teie ettevõte registreerib mõnes teie küsimuses IP-aadressi. Teil palutakse enne iga uuendamise tähtpäeva jätkata või keelduda.",
+      "title": "Ükski uuendamine ei nõua teie tähelepanu",
+      "viewDeadlines": "Vaata minu tähtaegu",
+      "viewMatters": "Vaadake minu asju"
+    },
+    "errorFallback": "Proovige uuesti või logige välja ja uuesti sisse, kui õigused on muutunud.",
+    "instructionError": "Juhendust ei saanud esitada",
+    "loading": "Laadimine…",
+    "proceed": "Jätkake",
+    "retry": "Proovi uuesti",
+    "title": "Uuendused"
+  },
+  "renewalStatus": {
+    "completed": "Lõpetatud",
+    "filed": "Esitatud",
+    "instructed": "Juhendatud",
+    "lapsed": "Kulunud",
+    "upcoming": "Tulemas"
+  },
+  "help": {
+    "title": "Abi",
+    "subtitle": "Kuidas kasutada kliendiportaali oma IP-portfelli jaoks.",
+    "enquiriesTitle": "Esitage päring",
+    "enquiriesBody": "Uue asja taotluse esitamiseks kasutage päringut. Ettevõte vaatab üle konfliktikontrollid ja muudab heakskiidetud müügivihjed asjadeks.",
+    "openEnquiries": "Avatud päringud",
+    "approvalsTitle": "Heakskiidud",
+    "approvalsBody": "Kui ettevõte taotleb teie kinnitust (nt uuendamist või juhiseid), vastake lehel Heakskiidud.",
+    "openApprovals": "Avage kinnitused",
+    "contactTitle": "Kas vajate rohkem abi?",
+    "contactBody": "Võtke ühendust oma määratud advokaadi või koordinaatoriga sõnumite kaudu või vastake kindlale kirjavahetusele.",
+    "openMessages": "Avage sõnumid"
+  }
+}

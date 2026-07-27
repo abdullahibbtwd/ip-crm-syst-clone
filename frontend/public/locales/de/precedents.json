@@ -1,0 +1,43 @@
+{
+  "title": "Präzedenzfälle",
+  "subtitle": "Wissensdatenbank über wiederverwendbare Korrespondenz- und Ablagesprache.",
+  "newDraft": "Neuer Entwurf",
+  "searchPlaceholder": "Textkörper durchsuchen…",
+  "loading": "Präzedenzfälle werden geladen…",
+  "loadFailed": "Präzedenzfälle konnten nicht geladen werden.",
+  "empty": "Noch keine Präzedenzfälle. Erstellen Sie einen Entwurf oder eine Ernte aus der Korrespondenz.",
+  "columns": {
+    "title": "Titel",
+    "category": "Kategorie",
+    "jurisdiction": "Zuständigkeit",
+    "status": "Status",
+    "updated": "Aktualisiert"
+  },
+  "filters": {
+    "allStatuses": "Alle Status"
+  },
+  "status": {
+    "draft": "Entwurf",
+    "published": "Veröffentlicht",
+    "archived": "Archiviert"
+  },
+  "editAria": "Bearbeiten",
+  "drawer": {
+    "createTitle": "Neuer Präzedenzfall",
+    "editTitle": "Präzedenzfall bearbeiten",
+    "title": "Titel",
+    "category": "Kategorie",
+    "matterType": "Materietyp",
+    "optional": "Optional",
+    "jurisdiction": "Zuständigkeit",
+    "tags": "Schlagworte",
+    "body": "Körper",
+    "bodyPlaceholder": "Schreiben Sie den vorangehenden Text – Fettschrift, Kursivschrift und Listen werden unterstützt",
+    "publish": "Veröffentlichen",
+    "archive": "Archiv",
+    "publishFailed": "Die Veröffentlichung ist fehlgeschlagen",
+    "archiveFailed": "Archivierung fehlgeschlagen",
+    "saveFailed": "Präzedenzfall konnte nicht gespeichert werden",
+    "requiredFields": "Titel, Kategorie und Text sind erforderlich"
+  }
+}

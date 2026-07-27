@@ -47,7 +47,7 @@ import { hasAnyRole, type SystemRole } from '@/lib/rbac'
 import { cn } from '@/lib/utils'
 
 const PAGE_SIZE = 50
-const ALL = 'All'
+const ALL = 'all'
 
 type LayoutContext = {
   activeRole: SystemRole

@@ -1,0 +1,68 @@
+{
+  "title": "Transmisiones",
+  "subtitle": "Envíe notificaciones masivas a los correos electrónicos de contacto del cliente a través de SMTP firme. Cada envío se audita como notificación masiva. Las respuestas del buzón de correo importante permanecen en la cola de correo electrónico/correspondencia.",
+  "compose": {
+    "title": "Redactar transmisión",
+    "recipientGroup": "Grupo de destinatarios",
+    "selectClients": "Seleccionar clientes",
+    "searchClientsPlaceholder": "Buscar clientes (mínimo 2 caracteres)",
+    "selected": "Seleccionada",
+    "add": "Agregar",
+    "clientsSelected": "{{count}} cliente (s) seleccionadas",
+    "countingRecipients": "Contando destinatarias ...",
+    "previewFailed": "No se pudo obtener una vista previa de la audiencia",
+    "recipientMatched": "Destinataria emparejada",
+    "recipientsMatched": "Destinatarias emparejadas",
+    "andMore": "…y {{count}} más",
+    "subject": "Sujeta",
+    "subjectPlaceholder": "p.ej. Próximos recordatorios de renovación de la UE",
+    "message": "Mensaje",
+    "messagePlaceholder": "Escribe la notificación que recibirán tus clientes…",
+    "queuing": "Cola…",
+    "sendBroadcast": "Enviar transmisión"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "El asunto y el mensaje son obligatorios.",
+    "selectClient": "Seleccione al menos un cliente",
+    "queueFailed": "No se pudo poner en cola la transmisión"
+  },
+  "success": {
+    "queued": "Transmisión en cola para {{count}} destinatario(s). La entrega se realiza en segundo plano."
+  },
+  "history": {
+    "title": "Transmisiones recientes",
+    "when": "Cuando",
+    "subject": "Sujeta",
+    "audience": "Audiencia",
+    "status": "Estado",
+    "sent": "Enviada",
+    "by": "Por",
+    "loading": "Cargando…",
+    "empty": "Aún no hay transmisiones.",
+    "failedCount": "({{count}} falló)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Todas las clientas activas",
+      "description": "Correo electrónico de contacto principal para cada cliente activo"
+    },
+    "pending_eu_renewals": {
+      "label": "Renovaciones pendientes de la UE",
+      "description": "Clientes activos con renovaciones UE próximas/instruidas/presentadas"
+    },
+    "trademark_matters": {
+      "label": "Asuntos de marcas",
+      "description": "Las clientes con al menos una marca activa importan"
+    },
+    "manual": {
+      "label": "selección manual",
+      "description": "Elija clientes específicos de la búsqueda"
+    }
+  },
+  "status": {
+    "queued": "En cola",
+    "sending": "Envío",
+    "completed": "Terminada",
+    "failed": "Fallida"
+  }
+}

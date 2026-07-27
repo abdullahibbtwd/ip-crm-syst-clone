@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { BookMarked, Pencil, Plus, Search } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -23,7 +24,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { RichTextEditor } from '@/components/ui/rich-text-editor'
-import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { matterTypeLabel, MATTER_TYPE_LABELS } from '@/features/matters/utils'
 import type { MatterType } from '@/features/matters/types'
 import {
   useArchivePrecedent,
@@ -62,6 +63,8 @@ function PrecedentDrawer({
   onClose: () => void
   precedentId: string | null
 }) {
+  const { t } = useTranslation('precedents')
+  const { t: tCommon } = useTranslation('common')
   const { data: detail } = usePrecedent(precedentId)
   const create = useCreatePrecedent()
   const update = useUpdatePrecedent()
@@ -104,7 +107,7 @@ function PrecedentDrawer({
       !category.trim() ||
       !bodyHtml.replace(/<[^>]+>/g, '').trim()
     ) {
-      setError('Title, category, and body are required')
+      setError(t('drawer.requiredFields'))
       return
     }
     const payload = {
@@ -115,7 +118,7 @@ function PrecedentDrawer({
       jurisdiction: jurisdiction.trim() || undefined,
       tags: tags
         .split(',')
-        .map((t) => t.trim())
+        .map((tag) => tag.trim())
         .filter(Boolean),
     }
     try {
@@ -126,7 +129,7 @@ function PrecedentDrawer({
       }
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not save precedent'))
+      setError(getApiErrorMessage(err, t('drawer.saveFailed')))
     }
   }
 
@@ -136,17 +139,17 @@ function PrecedentDrawer({
     <Drawer
       open={open}
       onClose={onClose}
-      title={precedentId ? 'Edit precedent' : 'New precedent'}
+      title={precedentId ? t('drawer.editTitle') : t('drawer.createTitle')}
       className="max-w-2xl"
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1.5 sm:col-span-2">
-            <Label htmlFor="title">Title</Label>
+            <Label htmlFor="title">{t('drawer.title')}</Label>
             <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="category">Category</Label>
+            <Label htmlFor="category">{t('drawer.category')}</Label>
             <Input
               id="category"
               value={category}
@@ -154,22 +157,22 @@ function PrecedentDrawer({
             />
           </div>
           <div className="space-y-1.5">
-            <Label>Matter type</Label>
+            <Label>{t('drawer.matterType')}</Label>
             <Select value={matterType || undefined} onValueChange={(v) => setMatterType(v ?? '')}>
               <SelectTrigger>
-                <SelectValue placeholder="Optional" />
+                <SelectValue placeholder={t('drawer.optional')} />
               </SelectTrigger>
               <SelectContent>
-                {MATTER_TYPES.map((t) => (
-                  <SelectItem key={t} value={t}>
-                    {MATTER_TYPE_LABELS[t]}
+                {MATTER_TYPES.map((type) => (
+                  <SelectItem key={type} value={type}>
+                    {matterTypeLabel(type)}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="jurisdiction">Jurisdiction</Label>
+            <Label htmlFor="jurisdiction">{t('drawer.jurisdiction')}</Label>
             <Input
               id="jurisdiction"
               value={jurisdiction}
@@ -177,16 +180,16 @@ function PrecedentDrawer({
             />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="tags">Tags</Label>
+            <Label htmlFor="tags">{t('drawer.tags')}</Label>
             <Input id="tags" value={tags} onChange={(e) => setTags(e.target.value)} />
           </div>
         </div>
         <div className="space-y-1.5">
-          <Label>Body</Label>
+          <Label>{t('drawer.body')}</Label>
           <RichTextEditor
             value={bodyHtml}
             onChange={setBodyHtml}
-            placeholder="Write the precedent text — bold, italic, and lists are supported"
+            placeholder={t('drawer.bodyPlaceholder')}
           />
         </div>
         {error ? <p className="text-sm text-destructive">{error}</p> : null}
@@ -203,11 +206,11 @@ function PrecedentDrawer({
                       await publish.mutateAsync(precedentId)
                       onClose()
                     } catch (err) {
-                      setError(getApiErrorMessage(err, 'Publish failed'))
+                      setError(getApiErrorMessage(err, t('drawer.publishFailed')))
                     }
                   }}
                 >
-                  Publish
+                  {t('drawer.publish')}
                 </Button>
               </RoleGate>
             ) : null}
@@ -221,21 +224,21 @@ function PrecedentDrawer({
                     await archive.mutateAsync(precedentId)
                     onClose()
                   } catch (err) {
-                    setError(getApiErrorMessage(err, 'Archive failed'))
+                    setError(getApiErrorMessage(err, t('drawer.archiveFailed')))
                   }
                 }}
               >
-                Archive
+                {t('drawer.archive')}
               </Button>
             ) : null}
           </div>
           <div className="flex gap-2">
             <Button type="button" variant="outline" onClick={onClose}>
-              Cancel
+              {tCommon('actions.cancel')}
             </Button>
             <PermissionGate resource="precedent" action={precedentId ? 'update' : 'create'}>
               <Button type="submit" disabled={create.isPending || update.isPending}>
-                Save
+                {tCommon('actions.save')}
               </Button>
             </PermissionGate>
           </div>
@@ -246,6 +249,8 @@ function PrecedentDrawer({
 }
 
 export function PrecedentsPage() {
+  const { t } = useTranslation('precedents')
+  const { t: tCommon } = useTranslation('common')
   const [q, setQ] = useState('')
   const [debouncedQ, setDebouncedQ] = useState('')
   const [status, setStatus] = useState<PrecedentStatus | 'all'>('all')
@@ -253,8 +258,8 @@ export function PrecedentsPage() {
   const [editingId, setEditingId] = useState<string | null>(null)
 
   useEffect(() => {
-    const t = window.setTimeout(() => setDebouncedQ(q.trim()), 300)
-    return () => window.clearTimeout(t)
+    const timer = window.setTimeout(() => setDebouncedQ(q.trim()), 300)
+    return () => window.clearTimeout(timer)
   }, [q])
 
   const { data, isLoading, isError } = usePrecedents({
@@ -273,22 +278,25 @@ export function PrecedentsPage() {
     setDrawerOpen(true)
   }
 
+  const statusLabel = (value: PrecedentStatus | 'all') => {
+    if (value === 'all') return t('filters.allStatuses')
+    return t(`status.${value}`)
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h1 className="flex items-center gap-2 font-serif text-2xl">
             <BookMarked className="size-6 text-primary" />
-            Precedents
+            {t('title')}
           </h1>
-          <p className="text-sm text-muted-foreground">
-            Knowledge base of reusable correspondence and filing language.
-          </p>
+          <p className="text-sm text-muted-foreground">{t('subtitle')}</p>
         </div>
         <PermissionGate resource="precedent" action="create">
           <Button onClick={openCreate}>
             <Plus className="size-4" />
-            New draft
+            {t('newDraft')}
           </Button>
         </PermissionGate>
       </div>
@@ -299,7 +307,7 @@ export function PrecedentsPage() {
           <Input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search body text…"
+            placeholder={t('searchPlaceholder')}
             className="pl-9"
           />
         </div>
@@ -313,7 +321,7 @@ export function PrecedentsPage() {
           <SelectContent>
             {STATUS_OPTIONS.map((s) => (
               <SelectItem key={s} value={s}>
-                {s === 'all' ? 'All statuses' : s}
+                {statusLabel(s)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -321,22 +329,22 @@ export function PrecedentsPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading precedents…</p>
+        <p className="text-sm text-muted-foreground">{t('loading')}</p>
       ) : isError ? (
-        <p className="text-sm text-destructive">Failed to load precedents.</p>
+        <p className="text-sm text-destructive">{t('loadFailed')}</p>
       ) : !(data?.length) ? (
         <p className="rounded-md border border-dashed px-4 py-8 text-center text-sm text-muted-foreground">
-          No precedents yet. Create a draft or harvest from correspondence.
+          {t('empty')}
         </p>
       ) : (
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Title</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead>Jurisdiction</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Updated</TableHead>
+              <TableHead>{t('columns.title')}</TableHead>
+              <TableHead>{t('columns.category')}</TableHead>
+              <TableHead>{t('columns.jurisdiction')}</TableHead>
+              <TableHead>{t('columns.status')}</TableHead>
+              <TableHead>{t('columns.updated')}</TableHead>
               <TableHead className="w-12" />
             </TableRow>
           </TableHeader>
@@ -346,15 +354,15 @@ export function PrecedentsPage() {
                 <TableCell className="font-medium">{row.title}</TableCell>
                 <TableCell className="text-muted-foreground">{row.category}</TableCell>
                 <TableCell className="text-muted-foreground">
-                  {row.jurisdiction ?? '—'}
+                  {row.jurisdiction ?? tCommon('yesNo.dash')}
                 </TableCell>
                 <TableCell>
                   <Badge variant={statusVariant(row.status)} className="normal-case">
-                    {row.status}
+                    {t(`status.${row.status}`)}
                   </Badge>
                 </TableCell>
                 <TableCell className="text-muted-foreground">
-                  {new Date(row.updatedAt).toLocaleDateString('en-GB')}
+                  {new Date(row.updatedAt).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
                   <Button
@@ -364,7 +372,7 @@ export function PrecedentsPage() {
                     onClick={() => openEdit(row)}
                   >
                     <Pencil className="size-4" />
-                    <span className="sr-only">Edit</span>
+                    <span className="sr-only">{t('editAria')}</span>
                   </Button>
                 </TableCell>
               </TableRow>

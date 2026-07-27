@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Kinnita – pole konflikti",
+    "checkedAt": "Kontrollitud {{date}}",
+    "cleared": "Konflikte ei tuvastatud",
+    "clearedForConversion": "Sarnaseid nimesid ei leitud – teisendati",
+    "description": "Hägune otsing klientide, kontaktide, seotud ettevõtete ja registreeritud vastaspoolte vahel. Üle 30% koondsarnasused on ülevaatamiseks märgistatud.",
+    "flaggedMatches": "{{count}} potentsiaalsed vasted – nõutav ülevaatus",
+    "entityType": {
+      "client": "Klient",
+      "contact": "Võtke ühendust",
+      "counterparty": "Vastaspool",
+      "ip_right": "IP õigus / kaubamärgiregister",
+      "matter": "Olemasolev aine",
+      "related_company": "Seotud ettevõte",
+      "sign": "Allkiri / märgi failile"
+    },
+    "flagged": "Leiti võimalikud konfliktid",
+    "matchedOn": "Sobitatud {{field}}",
+    "matchedTerm": "Vastas \"{{term}}\" kuupäeval {{field}}",
+    "mpOverride": "MP alistamine",
+    "rejectLead": "Lükake plii tagasi",
+    "reviewHint": "Sarnased nimed esitatakse inimeste ülevaatamiseks. Kinnitage, kui tõelist konflikti pole, või lükake tagasi, kui juht ei saa jätkata.",
+    "run": "Käivitage konfliktikontroll",
+    "running": "Jooksmine…",
+    "similarPct": "{{pct}} sarnane",
+    "similarity": "Sarnasus",
+    "title": "Konflikti kontroll"
+  },
+  "convert": {
+    "button": "Teisenda aineks",
+    "clientLabel": "Klient:",
+    "conversionFailed": "Teisendamine ebaõnnestus",
+    "converting": "Teisendamine…",
+    "existingPortalAccount": "(olemasolev portaali konto)",
+    "invalidForm": "Kehtetu vorm",
+    "matterLabel": "Asi:",
+    "none": "Mitte ühtegi",
+    "portalDescription": "Avab asja portaalikliendi olemasoleva konto all – kliendikirje duplikaat puudub.",
+    "standardDescription": "Loob kliendikirje ja avab asja ühe sammuga – päringu üksikasju pole vaja uuesti sisestada. Selles etapis on nõutav GDPR-i nõusolek.",
+    "willCreate": "Loob",
+    "converted": "Teisendatud mateeriaks",
+    "gdprConsent": "Kinnitan, et sellelt küsijalt on saadud GDPR-i nõusolek.",
+    "holdingGroup": "Hoidmisrühm (valikuline)",
+    "openMatter": "Avatud asi",
+    "preview": "Asja eelvaade",
+    "title": "Teisendage kliendiks ja asjaks",
+    "viewClient": "Vaata klienti"
+  },
+  "counterparty": {
+    "add": "Lisa pidu",
+    "editor": {
+      "add": "Lisa vastaspool/konkurent",
+      "company": "Ettevõte",
+      "name": "Nimi",
+      "notes": "Märkmed",
+      "party": "Pidu {{n}}",
+      "relationship": "Suhe*"
+    },
+    "relationship": {
+      "adverse_party": "Ebasoodne pool",
+      "competitor": "Konkurent",
+      "licensee": "Litsentsisaaja",
+      "licensor": "Litsentsiandja"
+    },
+    "save": "Salvesta pidu",
+    "section": {
+      "description": "Osapooled, kes võivad tekitada huvide konflikti.",
+      "title": "Ebasoodsad osapooled/konkurendid",
+      "unnamed": "Nimetu erakond"
+    }
+  },
+  "create": {
+    "back": "← Tagasi sissevõtu juurde",
+    "description": "Jäädvustage uus päring enne konflikti kontrollimist ja teisendamist.",
+    "title": "Uus päring"
+  },
+  "detail": {
+    "back": "← Tagasi vastuvõtujärjekorda",
+    "company": "Ettevõte",
+    "contactName": "Kontakti nimi",
+    "country": "Riik",
+    "converted": "See päring on teisendatud.",
+    "description": "Kirjeldus",
+    "email": "Meil",
+    "enquiryDetails": "Päringu üksikasjad",
+    "error": "Sisselaskejuhtme laadimine ebaõnnestus.",
+    "fullName": "Täisnimi",
+    "internalNotes": "Sisemised märkmed",
+    "loading": "Laadimine…",
+    "loadingLead": "Sisselaskejuhtme laadimine…",
+    "notAssigned": "Pole määratud",
+    "matterType": "Aine tüüp",
+    "notFound": "Sisselaske juhet ei leitud.",
+    "phone": "Telefon",
+    "portalSubmission": "Portaali esitamine",
+    "referralSource": "Viiteallikas",
+    "referredBy": "Viidatud",
+    "responsibleAttorney": "Vastutav advokaat",
+    "type": "Tüüp",
+    "urgency": "Kiireloomulisus",
+    "urgent": "Kiireloomuline"
+  },
+  "form": {
+    "companyName": "Ettevõtte nimi *",
+    "description": "Kirjeldus",
+    "email": "Meil",
+    "enquirerType": "Küsija tüüp",
+    "error": "Sissevõtuplii loomine ebaõnnestus",
+    "fullName": "Täisnimi*",
+    "matterType": "Aine tüüp *",
+    "phone": "Telefon",
+    "referralSource": "Viiteallikas",
+    "submit": "Esitage päring",
+    "submitInternal": "Loo sissevõtuplii",
+    "type": {
+      "company": "Ettevõte",
+      "individual": "Individuaalne"
+    },
+    "urgent": "Märgi kiireloomuliseks"
+  },
+  "list": {
+    "description": "Vaadake üle sissetulevad päringud, kontrollige konflikte ja teisendage kinnitatud müügivihjeid.",
+    "empty": "Sisselaskejuhtmeid ei leitud",
+    "emptyDescription": "Proovige filtreid kohandada või looge uus päring.",
+    "error": "Sisselaskejuhtmete laadimine ebaõnnestus.",
+    "new": "Uus päring",
+    "searchPlaceholder": "Otsi nime või e-posti aadressi…",
+    "title": "Vastuvõtu järjekord"
+  },
+  "matterType": {
+    "design": "Disain",
+    "other": "muud",
+    "patent": "Patent",
+    "trademark": "Kaubamärk",
+    "utility_model": "Kasulik mudel"
+  },
+  "referralSource": {
+    "email": "Meil",
+    "other": "muud",
+    "phone": "Telefon",
+    "referral": "Suunamine",
+    "walk_in": "Sissekäimine",
+    "website": "Veebisait"
+  },
+  "status": {
+    "approved": "Kinnitatud",
+    "conflict_check": "Konflikti kontroll",
+    "conflict_flagged": "Konflikt märgistati",
+    "converted": "Teisendatud",
+    "new": "Uus",
+    "rejected": "Tagasi lükatud",
+    "reviewing": "Ülevaatamine"
+  },
+  "table": {
+    "date": "Vastu võetud",
+    "matterType": "Aine tüüp",
+    "name": "Küsija",
+    "portal": "Portaal",
+    "referral": "Allikas",
+    "status": "Olek",
+    "urgent": "Kiireloomuline",
+    "viewAria": "Kuva {{name}}"
+  },
+  "unknownCompany": "Tundmatu firma",
+  "unknownIndividual": "Tundmatu isik"
+}

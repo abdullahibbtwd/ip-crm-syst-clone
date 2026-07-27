@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "Na čekanju",
+    "in_progress": "U tijeku",
+    "completed": "Završeno",
+    "missed": "Promašeno",
+    "escalated": "Eskaliralo",
+    "superseded": "Zamijenjeno"
+  },
+  "urgency": {
+    "dueToday": "Rok je danas",
+    "overdue": "Zakašnjelo"
+  },
+  "allDeadlines": {
+    "title": "Svi rokovi",
+    "description": "Registar rokova za cijelu tvrtku za svaku stvar i opunomoćenika.",
+    "newDeadline": "Novi rok",
+    "firmDueToday_one": "Danas ističe 1 čvrsti rok za sve predmete.",
+    "firmDueToday_other": "{{count}} danas stižu čvrsti rokovi za sva pitanja.",
+    "filters": {
+      "attorney": "odvjetnik",
+      "allAttorneys": "Svi odvjetnici",
+      "matterType": "Vrsta materije",
+      "allTypes": "Sve vrste",
+      "jurisdiction": "Nadležnost",
+      "allJurisdictions": "Sve jurisdikcije",
+      "status": "Status",
+      "allStatuses": "Svi statusi",
+      "overdue": "Zakašnjelo",
+      "dueFrom": "Dospjelo od",
+      "dueTo": "Zbog"
+    },
+    "loading": "Učitavanje rokova…",
+    "error": "Učitavanje rokova nije uspjelo.",
+    "table": {
+      "matter": "Materija",
+      "attorney": "odvjetnik",
+      "type": "Tip",
+      "jurisdiction": "Nadležnost",
+      "dueDate": "Datum dospijeća",
+      "grace": "Milost",
+      "status": "Status"
+    },
+    "empty": "Nijedan rok ne odgovara vašim filtrima.",
+    "previous": "Prethodno",
+    "next": "Sljedeći"
+  },
+  "myDeadlines": {
+    "title": "Moji rokovi",
+    "descriptionStaff": "Vaš osobni radni popis u svim dodijeljenim predmetima. Ovdje ažurirajte status bez otvaranja svakog predmeta.",
+    "descriptionPortal": "Nadolazeći i zakašnjeli rokovi u vašim predmetima.",
+    "tabs": {
+      "all": "Sve",
+      "pending": "Na čekanju",
+      "in_progress": "U tijeku",
+      "overdue": "Zakašnjelo",
+      "completed": "Završeno"
+    },
+    "loading": "Učitavanje rokova…",
+    "error": "Učitavanje rokova nije uspjelo.",
+    "table": {
+      "matter": "Materija",
+      "type": "Tip",
+      "jurisdiction": "Nadležnost",
+      "dueDate": "Datum dospijeća",
+      "grace": "Milost",
+      "status": "Status"
+    },
+    "empty": "U ovom prikazu nema rokova.",
+    "previous": "Prethodno",
+    "next": "Sljedeći"
+  },
+  "widget": {
+    "title": "Moji rokovi",
+    "viewAll": "Pogledaj sve",
+    "loading": "Obrada podataka o rokovima...",
+    "error": "Nije moguće učitati rokove.",
+    "empty": "Nisu vam dodijeljeni nadolazeći rokovi.",
+    "table": {
+      "matterClient": "Stvar i klijent",
+      "deadline": "Rok",
+      "dueDateStatus": "Datum dospijeća i status"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "Rok je danas",
+    "view": "Pogled",
+    "personal_one": "Danas imate 1 rok.",
+    "personal_other": "Danas imate {{count}} rokova."
+  }
+}

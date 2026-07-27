@@ -1,0 +1,37 @@
+{
+  "title": "Baris gilir e-mel",
+  "subtitle": "E-mel yang dinyahpaut ditarik dari peti mel yang disambungkan. Buka e-mel, kemudian lampirkan pada daftar surat menyurat sesuatu perkara.",
+  "fetchEmails": "Ambil 5 e-mel",
+  "mailboxSettings": "Tetapan peti mel",
+  "fetchSuccess": "Diambil sehingga {{limit}} mesej peti masuk — {{ingested}} baharu dalam baris gilir{{emptyHint}}.",
+  "fetchEmptyHint": "(sudah diimport atau peti masuk kosong)",
+  "fetchFailed": "Gagal mengambil e-mel",
+  "columns": {
+    "received": "Diterima",
+    "from": "daripada",
+    "subject": "Subjek",
+    "mailbox": "Peti surat",
+    "suggestion": "Cadangan",
+    "actions": "Tindakan"
+  },
+  "loading": "Memuatkan baris gilir…",
+  "loadFailed": "Gagal memuatkan baris gilir e-mel.",
+  "emptyTitle": "Baris gilir kosong",
+  "emptyDescription": "Sambungkan peti mel dalam tetapan dan ambil e-mel untuk mengimport mesej baharu.",
+  "noSubject": "(Tiada subjek)",
+  "suggestions": {
+    "subjectRef": "Rujuk pelanggan dalam subjek",
+    "bodyRef": "Rujukan pelanggan dalam badan",
+    "singleActiveMatter": "Bahan aktif tunggal",
+    "contactMatch": "Perlawanan kenalan",
+    "default": "Perkara yang dicadangkan",
+    "officeAction": "Tindakan pejabat",
+    "renewal": "Pembaharuan"
+  },
+  "actions": {
+    "viewEmail": "Lihat e-mel",
+    "reply": "Balas",
+    "attachToMatter": "Lampirkan pada surat-menyurat perkara",
+    "downloadEml": "Muat turun .eml"
+  }
+}

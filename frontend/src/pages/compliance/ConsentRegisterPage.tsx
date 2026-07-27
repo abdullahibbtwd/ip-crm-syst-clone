@@ -35,6 +35,7 @@ type ClientsResponse = {
 
 export function ConsentRegisterPage() {
   const { t } = useTranslation('settings')
+  const { t: tCommon } = useTranslation('common')
   const [filter, setFilter] = useState<'all' | 'true' | 'false'>('all')
 
   const { data, isLoading, isError } = useQuery({
@@ -51,12 +52,10 @@ export function ConsentRegisterPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-            {t('consent.title', { defaultValue: 'Consent records' })}
+            {t('consent.title')}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            {t('consent.subtitle', {
-              defaultValue: 'GDPR consent status across clients.',
-            })}
+            {t('consent.subtitle')}
           </p>
         </div>
         <Select value={filter} onValueChange={(v) => setFilter(v as typeof filter)}>
@@ -64,37 +63,39 @@ export function ConsentRegisterPage() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All</SelectItem>
-            <SelectItem value="true">Consented</SelectItem>
-            <SelectItem value="false">Missing</SelectItem>
+            <SelectItem value="all">{t('filters.all', { ns: 'common' })}</SelectItem>
+            <SelectItem value="true">{t('consent.filters.consented')}</SelectItem>
+            <SelectItem value="false">{t('consent.filters.missing')}</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <RoleGate
         roles={['managing_partner', 'dpo_compliance']}
-        fallback={<p className="text-sm text-muted-foreground">No permission.</p>}
+        fallback={
+          <p className="text-sm text-muted-foreground">{tCommon('noPermission')}</p>
+        }
       >
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <p className="text-sm text-muted-foreground">{tCommon('loading.default')}</p>
         ) : isError ? (
-          <p className="text-sm text-destructive">Failed to load consent records.</p>
+          <p className="text-sm text-destructive">{t('consent.failedToLoad')}</p>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-border/80">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Client</TableHead>
-                  <TableHead>Code</TableHead>
-                  <TableHead>Consent</TableHead>
-                  <TableHead>Date</TableHead>
+                  <TableHead>{t('consent.table.client')}</TableHead>
+                  <TableHead>{t('consent.table.code')}</TableHead>
+                  <TableHead>{t('consent.table.consent')}</TableHead>
+                  <TableHead>{t('consent.table.date')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {(data?.items ?? []).length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={4} className="py-10 text-center text-muted-foreground">
-                      No clients found.
+                      {t('consent.noClientsFound')}
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -109,7 +110,9 @@ export function ConsentRegisterPage() {
                         </Link>
                       </TableCell>
                       <TableCell>{c.internalCode || '—'}</TableCell>
-                      <TableCell>{c.gdprConsent ? 'Yes' : 'No'}</TableCell>
+                      <TableCell>
+                        {c.gdprConsent ? tCommon('yesNo.yes') : tCommon('yesNo.no')}
+                      </TableCell>
                       <TableCell>
                         {c.gdprConsentDate
                           ? new Date(c.gdprConsentDate).toLocaleDateString()

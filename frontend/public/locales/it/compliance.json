@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Pista di controllo",
+    "subtitle": "Registro di controllo a livello di sistema per la revisione della conformità.",
+    "loading": "Caricamento traccia di controllo...",
+    "loadFailed": "Impossibile caricare la traccia di controllo.",
+    "empty": "Nessuna voce di controllo trovata.",
+    "columns": {
+      "when": "Quando",
+      "user": "Utente",
+      "action": "Azione",
+      "resource": "Risorsa",
+      "module": "Modulo"
+    }
+  },
+  "dataExports": {
+    "title": "Registro delle esportazioni di dati",
+    "subtitle": "Esportazioni e download di dati personali monitorati per la conformità al GDPR.",
+    "loading": "Caricamento registro di esportazione…",
+    "loadFailed": "Impossibile caricare il registro di esportazione.",
+    "empty": "Nessuna esportazione ancora registrata.",
+    "columns": {
+      "when": "Quando",
+      "user": "Utente",
+      "resource": "Risorsa",
+      "clientId": "ID cliente"
+    }
+  },
+  "retention": {
+    "title": "Regole di conservazione",
+    "subtitle": "Criteri di conservazione GDPR applicati dal processo di scansione notturna (impostazione predefinita: 3:00). Utilizzare l'esecuzione di prova per visualizzare in anteprima il numero di record interessati.",
+    "noPermission": "Non hai l'autorizzazione per gestire le regole di conservazione.",
+    "newRule": "Nuova regola",
+    "loading": "Caricamento delle regole di conservazione…",
+    "loadFailed": "Impossibile caricare le regole di conservazione.",
+    "empty": "Nessuna regola di conservazione ancora.",
+    "dryRun": "Prova a secco",
+    "dryRunAria": "Regola di conservazione di prova",
+    "editAria": "Modifica regola di conservazione",
+    "dryRunResult": "Prova di funzionamento: influenzerebbe i record {{count}} (limite {{cutoff}}).",
+    "dryRunFailed": "L'esecuzione del test non è riuscita",
+    "auditTrailHint": "Visualizza la cronologia delle eliminazioni nel file",
+    "auditTrailLink": "pista di controllo",
+    "auditTrailFilter": "(azione filtro:tention_rule_executed).",
+    "columns": {
+      "entity": "Entità",
+      "condition": "Condizione",
+      "retention": "Conservazione",
+      "action": "Azione",
+      "status": "Stato",
+      "description": "Descrizione"
+    },
+    "drawer": {
+      "createTitle": "Nuova regola di conservazione",
+      "editTitle": "Modifica regola di conservazione",
+      "entityType": "Tipo di entità",
+      "condition": "Condizione",
+      "conditionRejected": "Stato = rifiutato",
+      "conditionNotConverted": "Non convertito (escl. rifiutato)",
+      "auditLogsHint": "Le regole del registro di controllo si applicano a tutti i record precedenti al periodo di conservazione. L'azione è sempre elimina.",
+      "retentionDays": "Conservazione (giorni)",
+      "action": "Azione",
+      "description": "Descrizione",
+      "status": "Stato",
+      "createRule": "Crea regola"
+    },
+    "entityTypes": {
+      "intake_leads": "Lead di assunzione",
+      "audit_logs": "Registri di controllo"
+    },
+    "actions": {
+      "anonymize": "Anonimizza",
+      "delete": "Eliminare"
+    },
+    "conditions": {
+      "allRecords": "Tutti i record",
+      "rejected": "Stato = rifiutato",
+      "notConverted": "Non convertito (escl. rifiutato)",
+      "noStatusFilter": "Nessun filtro di stato"
+    },
+    "status": {
+      "active": "Attiva",
+      "inactive": "Inattiva"
+    },
+    "errors": {
+      "invalidDays": "Inserisci un periodo di conservazione valido espresso in giorni",
+      "saveFailed": "Impossibile salvare la regola di conservazione",
+      "confirmSave": "Le regole di conservazione vengono eseguite sul processo di scansione notturno (impostazione predefinita alle 3:00). Continuare a salvare?"
+    },
+    "duration": {
+      "days": "{{days}} giorni",
+      "daysWithYears_one": "{{days}} giorni ({{count}} anno)",
+      "daysWithYears_other": "{{days}} giorni ({{count}} anni)",
+      "daysWithMonths_one": "{{days}} giorni ({{count}} mese)",
+      "daysWithMonths_other": "{{days}} giorni ({{count}} mesi)",
+      "daysApproxYears": "{{days}} giorni (~{{years}} anni)",
+      "daysApproxMonths": "{{days}} giorni (~{{months}} mesi)"
+    }
+  }
+}

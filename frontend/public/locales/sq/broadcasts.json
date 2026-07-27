@@ -1,0 +1,68 @@
+{
+  "title": "Transmetimet",
+  "subtitle": "Dërgoni njoftime me shumicë tek emailet e kontaktit të klientit nëpërmjet SMTP të firmës. Çdo dërgesë auditohet si njoftim_bulk. Përgjigjet e kutisë postare të çështjes qëndrojnë në radhën e postës elektronike / korrespondencën.",
+  "compose": {
+    "title": "Shkruani transmetimin",
+    "recipientGroup": "Grupi i marrësve",
+    "selectClients": "Zgjidhni klientët",
+    "searchClientsPlaceholder": "Kërko klientët (min 2 karaktere)",
+    "selected": "Zgjedhur",
+    "add": "Shtoni",
+    "clientsSelected": "{{count}} klient(ët) e zgjedhur",
+    "countingRecipients": "Po numëron marrësit…",
+    "previewFailed": "Audienca nuk mund të shikohej paraprakisht",
+    "recipientMatched": "marrësi përputhet",
+    "recipientsMatched": "marrësit përputhen",
+    "andMore": "…dhe {{count}} më shumë",
+    "subject": "Subjekti",
+    "subjectPlaceholder": "p.sh. Përkujtuesit e ardhshëm të rinovimit të BE-së",
+    "message": "Mesazh",
+    "messagePlaceholder": "Shkruani njoftimin që klientët tuaj do të marrin…",
+    "queuing": "Në radhë…",
+    "sendBroadcast": "Dërgo transmetim"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Kërkohet subjekti dhe mesazhi",
+    "selectClient": "Zgjidhni të paktën një klient",
+    "queueFailed": "Transmetimi në radhë dështoi"
+  },
+  "success": {
+    "queued": "Transmetimi në radhë te {{count}} marrës(ët). Dorëzimi kryhet në sfond."
+  },
+  "history": {
+    "title": "Transmetimet e fundit",
+    "when": "Kur",
+    "subject": "Subjekti",
+    "audience": "Audienca",
+    "status": "Statusi",
+    "sent": "Dërguar",
+    "by": "Nga",
+    "loading": "Po ngarkohet…",
+    "empty": "Nuk ka ende transmetime.",
+    "failedCount": "({{count}} dështoi)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Të gjithë klientët aktivë",
+      "description": "Email kontakti kryesor për çdo klient aktiv"
+    },
+    "pending_eu_renewals": {
+      "label": "Në pritje të rinovimeve të BE-së",
+      "description": "Klientë aktivë me rinovime të ardhshme / të udhëzuara / të paraqitura në BE"
+    },
+    "trademark_matters": {
+      "label": "Marka tregtare ka rëndësi",
+      "description": "Klientë me të paktën një çështje aktive të markës tregtare"
+    },
+    "manual": {
+      "label": "Zgjedhja manuale",
+      "description": "Zgjidhni klientë të veçantë nga kërkimi"
+    }
+  },
+  "status": {
+    "queued": "Në radhë",
+    "sending": "Dërgimi",
+    "completed": "E përfunduar",
+    "failed": "Dështoi"
+  }
+}

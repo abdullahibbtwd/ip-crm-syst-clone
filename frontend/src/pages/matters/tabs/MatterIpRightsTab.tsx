@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import {
   AlertCircle,
@@ -60,8 +61,8 @@ import type { IpRight, IpRightStatus, MatterType } from '@/features/matters/type
 import { formatDeadlineDate, JURISDICTION_OPTIONS, jurisdictionLabel } from '@/features/deadlines/utils'
 import { cn } from '@/lib/utils'
 import {
-  IP_RIGHT_STATUS_LABELS,
-  MATTER_TYPE_LABELS,
+  ipRightStatusLabel,
+  matterTypeLabel,
   formatMatterDate,
 } from '@/features/matters/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
@@ -97,6 +98,7 @@ function canCheckEpoStatus(right: {
 }
 
 export function MatterIpRightsTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId, matter } = useOutletContext<MatterTabContext>()
   const { data: ipRights, isLoading } = useMatterIpRights(matterId)
   const { data: documents } = useMatterDocuments(matterId)
@@ -125,7 +127,7 @@ export function MatterIpRightsTab() {
     } catch (err) {
       setEpoBanner({
         tone: 'error',
-        message: getApiErrorMessage(err, 'EPO status check failed'),
+        message: getApiErrorMessage(err, t('matters:ipRights.epoCheckFailed')),
       })
     } finally {
       setCheckingRightId(null)
@@ -231,7 +233,7 @@ export function MatterIpRightsTab() {
     if (!registerTarget) return
     setRegisterError(null)
     if (!regNumber.trim()) {
-      setRegisterError('Enter the registration number')
+      setRegisterError(t('matters:ipRights.errors.registrationNumberRequired'))
       return
     }
     try {
@@ -247,7 +249,7 @@ export function MatterIpRightsTab() {
       setRegisterTarget(null)
       setExpandedRightId(registerTarget.id)
     } catch (err) {
-      setRegisterError(getApiErrorMessage(err, 'Failed to register IP right'))
+      setRegisterError(getApiErrorMessage(err, t('matters:ipRights.errors.registerFailed')))
     }
   }
 
@@ -255,7 +257,7 @@ export function MatterIpRightsTab() {
     e.preventDefault()
     setError(null)
     if (!title.trim()) {
-      setError('Enter a title for the IP right')
+      setError(t('matters:ipRights.errors.titleRequired'))
       return
     }
     try {
@@ -273,7 +275,7 @@ export function MatterIpRightsTab() {
       resetForm()
       setDrawerOpen(false)
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to add IP right'))
+      setError(getApiErrorMessage(err, t('matters:ipRights.errors.addFailed')))
     }
   }
 
@@ -282,11 +284,11 @@ export function MatterIpRightsTab() {
     setFileError(null)
     if (!fileTarget) return
     if (!fileDocumentVersionId) {
-      setFileError('Select the filing package document version')
+      setFileError(t('matters:ipRights.errors.documentVersionRequired'))
       return
     }
     if (!fileApplicationNumber.trim()) {
-      setFileError('Enter the official application number')
+      setFileError(t('matters:ipRights.errors.applicationNumberRequired'))
       return
     }
     try {
@@ -302,20 +304,18 @@ export function MatterIpRightsTab() {
       resetFileForm()
       setFileDrawerOpen(false)
     } catch (err) {
-      setFileError(getApiErrorMessage(err, 'Failed to file application'))
+      setFileError(getApiErrorMessage(err, t('matters:ipRights.errors.fileFailed')))
     }
   }
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading IP rights…</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('matters:ipRights.loading')}</p>
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <h2 className="font-medium">IP rights register</h2>
-          <p className="text-sm text-muted-foreground">
-            File draft rights once the client confirms and the filing package is ready.
-          </p>
+          <h2 className="font-medium">{t('matters:ipRights.titleRegister')}</h2>
+          <p className="text-sm text-muted-foreground">{t('matters:ipRights.description')}</p>
         </div>
         <PermissionGate resource="matter" action="update">
           <Button
@@ -326,7 +326,7 @@ export function MatterIpRightsTab() {
             }}
           >
             <Plus className="size-4" />
-            Add IP right
+            {t('matters:ipRights.add')}
           </Button>
         </PermissionGate>
       </div>
@@ -352,21 +352,20 @@ export function MatterIpRightsTab() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Application no.</TableHead>
-            <TableHead>Jurisdiction</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Filing date</TableHead>
-            <TableHead className="min-w-[220px]">Actions</TableHead>
+            <TableHead>{t('matters:ipRights.table.title')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.type')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.applicationNo')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.jurisdiction')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.status')}</TableHead>
+            <TableHead>{t('matters:ipRights.filingDate')}</TableHead>
+            <TableHead className="min-w-[220px]">{t('matters:ipRights.table.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {(ipRights ?? []).length === 0 ? (
             <TableRow>
               <TableCell colSpan={7} className="text-center text-muted-foreground">
-                No IP rights yet. A draft is created automatically when an intake is converted;
-                add more rights manually after prosecution.
+                {t('matters:ipRights.empty')}
               </TableCell>
             </TableRow>
           ) : (
@@ -390,11 +389,11 @@ export function MatterIpRightsTab() {
                     <span className="font-medium">{right.title}</span>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
-                    {MATTER_TYPE_LABELS[right.rightType]}
+                    {matterTypeLabel(right.rightType)}
                   </TableCell>
                   <TableCell>{right.applicationNumber ?? right.registrationNumber ?? '-'}</TableCell>
                   <TableCell>{jurisdictionLabel(right.jurisdiction)}</TableCell>
-                  <TableCell>{IP_RIGHT_STATUS_LABELS[right.status]}</TableCell>
+                  <TableCell>{ipRightStatusLabel(right.status)}</TableCell>
                   <TableCell className="text-muted-foreground">
                     {right.filingDate ? formatMatterDate(right.filingDate) : '-'}
                   </TableCell>
@@ -404,7 +403,7 @@ export function MatterIpRightsTab() {
                         <PermissionGate resource="matter" action="update">
                           <Button size="sm" variant="outline" onClick={() => openFileDrawer(right)}>
                             <FileText className="size-4" />
-                            File
+                            {t('matters:ipRights.file')}
                           </Button>
                         </PermissionGate>
                       ) : null}
@@ -416,7 +415,7 @@ export function MatterIpRightsTab() {
                             onClick={() => openRegisterDrawer(right)}
                           >
                             <Stamp className="size-4" />
-                            Register
+                            {t('matters:ipRights.register')}
                           </Button>
                         </PermissionGate>
                       ) : null}
@@ -431,8 +430,8 @@ export function MatterIpRightsTab() {
                             onClick={() => void handleCheckEpo(right)}
                             title={
                               epoLookupNumber(right)
-                                ? 'Check EPO legal status (OPS)'
-                                : 'Add an application number before checking EPO'
+                                ? t('matters:ipRights.checkEpoTitle')
+                                : t('matters:ipRights.checkEpoAddNumber')
                             }
                           >
                             {checkingRightId === right.id ? (
@@ -440,7 +439,7 @@ export function MatterIpRightsTab() {
                             ) : (
                               <RefreshCw className="size-4" />
                             )}
-                            Check EPO
+                            {t('matters:ipRights.checkEpo')}
                           </Button>
                         </PermissionGate>
                       ) : null}
@@ -469,14 +468,14 @@ export function MatterIpRightsTab() {
         </TableBody>
       </Table>
 
-      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} title="Add IP right">
+      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} title={t('matters:ipRights.addTitle')}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Title</label>
+            <label className="text-sm text-muted-foreground">{t('matters:ipRights.titleField')}</label>
             <Input value={title} onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Application number</label>
+            <label className="text-sm text-muted-foreground">{t('matters:ipRights.applicationNumber')}</label>
             <Input
               value={applicationNumber}
               onChange={(e) => setApplicationNumber(e.target.value)}
@@ -484,7 +483,7 @@ export function MatterIpRightsTab() {
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Registration number</label>
+            <label className="text-sm text-muted-foreground">{t('matters:ipRights.registrationNumber')}</label>
             <Input
               value={registrationNumber}
               onChange={(e) => setRegistrationNumber(e.target.value)}
@@ -492,7 +491,7 @@ export function MatterIpRightsTab() {
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Filing office / jurisdiction</label>
+            <label className="text-sm text-muted-foreground">{t('matters:ipRights.filingOffice')}</label>
             <Select value={jurisdiction} onValueChange={(v) => v && setJurisdiction(v)}>
               <SelectTrigger>
                 <SelectValue>
@@ -507,21 +506,20 @@ export function MatterIpRightsTab() {
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-xs text-muted-foreground">
-              Use EPO (EP) for European patents, EUIPO (EU) for EU trademarks/designs, BPO (BG)
-              for Bulgaria, WIPO (WO) for PCT.
-            </p>
+            <p className="text-xs text-muted-foreground">{t('matters:ipRights.jurisdictionHint')}</p>
           </div>
           <div className="space-y-1.5">
-            <label className="text-sm text-muted-foreground">Status</label>
+            <label className="text-sm text-muted-foreground">{t('matters:ipRights.table.status')}</label>
             <Select value={status} onValueChange={(v) => setStatus(v as IpRightStatus)}>
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {(Object.keys(IP_RIGHT_STATUS_LABELS) as IpRightStatus[]).map((s) => (
+                {(
+                  ['pending', 'filed', 'registered', 'expired', 'cancelled'] as IpRightStatus[]
+                ).map((s) => (
                   <SelectItem key={s} value={s}>
-                    {IP_RIGHT_STATUS_LABELS[s]}
+                    {ipRightStatusLabel(s)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -529,11 +527,11 @@ export function MatterIpRightsTab() {
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="space-y-1.5">
-              <label className="text-sm text-muted-foreground">Filing date</label>
+              <label className="text-sm text-muted-foreground">{t('matters:ipRights.filingDate')}</label>
               <Input type="date" value={filingDate} onChange={(e) => setFilingDate(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm text-muted-foreground">Registration date</label>
+              <label className="text-sm text-muted-foreground">{t('matters:ipRights.registrationDate')}</label>
               <Input
                 type="date"
                 value={registrationDate}
@@ -541,7 +539,7 @@ export function MatterIpRightsTab() {
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm text-muted-foreground">Expiry date</label>
+              <label className="text-sm text-muted-foreground">{t('matters:ipRights.expiryDate')}</label>
               <Input type="date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} />
             </div>
           </div>
@@ -550,10 +548,10 @@ export function MatterIpRightsTab() {
 
           <div className="flex justify-end gap-2 border-t pt-4">
             <Button type="button" variant="outline" onClick={() => setDrawerOpen(false)}>
-              Cancel
+              {t('common:actions.cancel')}
             </Button>
             <Button type="submit" disabled={createIpRight.isPending}>
-              {createIpRight.isPending ? 'Saving…' : 'Add right'}
+              {createIpRight.isPending ? t('common:loading.saving') : t('matters:ipRights.addRight')}
             </Button>
           </div>
         </form>
@@ -562,26 +560,26 @@ export function MatterIpRightsTab() {
       <Drawer
         open={fileDrawerOpen}
         onClose={() => setFileDrawerOpen(false)}
-        title="File application"
+        title={t('matters:ipRights.fileApplication')}
       >
         {fileTarget ? (
           <form onSubmit={handleFileSubmit} className="space-y-5">
             <div className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
               <p className="font-medium">{fileTarget.title}</p>
               <p className="text-muted-foreground">
-                {MATTER_TYPE_LABELS[fileTarget.rightType]} ·{' '}
+                {matterTypeLabel(fileTarget.rightType)} ·{' '}
                 {jurisdictionLabel(fileTarget.jurisdiction)}
               </p>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Filing package</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.fileDrawer.filingPackage')}</label>
               <p className="text-xs text-muted-foreground">
-                Select the document version uploaded for this filing (typically under Application).
+                {t('matters:ipRights.fileDrawer.filingPackageHint')}
               </p>
               {documentVersionOptions.length === 0 ? (
                 <p className="rounded-md border border-dashed px-3 py-4 text-sm text-muted-foreground">
-                  No documents on this matter yet. Upload the filing PDF on the Documents tab first.
+                  {t('matters:ipRights.fileDrawer.noDocuments')}
                 </p>
               ) : (
                 <Select
@@ -596,7 +594,8 @@ export function MatterIpRightsTab() {
                           : 'truncate text-muted-foreground/70'
                       }
                     >
-                      {selectedFilingDocument?.fileName ?? 'Select document version…'}
+                      {selectedFilingDocument?.fileName ??
+                        t('matters:ipRights.fileDrawer.selectDocument')}
                     </span>
                   </SelectTrigger>
                   <SelectContent>
@@ -616,7 +615,7 @@ export function MatterIpRightsTab() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Filing date</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.filingDate')}</label>
               <Input
                 type="date"
                 value={fileFilingDate}
@@ -625,16 +624,16 @@ export function MatterIpRightsTab() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Application number</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.applicationNumber')}</label>
               <Input
                 value={fileApplicationNumber}
                 onChange={(e) => setFileApplicationNumber(e.target.value)}
-                placeholder="Official number from BPO / EUIPO / EPO"
+                placeholder={t('matters:ipRights.fileDrawer.applicationNumberPlaceholder')}
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Filing office / jurisdiction</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.filingOffice')}</label>
               <Select value={fileJurisdiction} onValueChange={(v) => v && setFileJurisdiction(v)}>
                 <SelectTrigger>
                   <SelectValue>
@@ -650,7 +649,7 @@ export function MatterIpRightsTab() {
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground">
-                Choose EPO (EP) to enable prosecution status checks against OPS.
+                {t('matters:ipRights.fileDrawer.jurisdictionHint')}
               </p>
             </div>
 
@@ -658,13 +657,15 @@ export function MatterIpRightsTab() {
 
             <div className="flex justify-end gap-2 border-t pt-4">
               <Button type="button" variant="outline" onClick={() => setFileDrawerOpen(false)}>
-                Cancel
+                {t('common:actions.cancel')}
               </Button>
               <Button
                 type="submit"
                 disabled={fileIpRight.isPending || documentVersionOptions.length === 0}
               >
-                {fileIpRight.isPending ? 'Filing…' : 'Confirm filing'}
+                {fileIpRight.isPending
+                  ? t('matters:ipRights.filing')
+                  : t('matters:ipRights.confirmFiling')}
               </Button>
             </div>
           </form>
@@ -674,38 +675,36 @@ export function MatterIpRightsTab() {
       <Drawer
         open={registerDrawerOpen}
         onClose={() => setRegisterDrawerOpen(false)}
-        title="Register IP right"
+        title={t('matters:ipRights.registerTitle')}
       >
         {registerTarget ? (
           <form onSubmit={handleRegisterSubmit} className="space-y-4">
             <div className="rounded-lg border bg-muted/30 px-3 py-2 text-sm">
               <p className="font-medium">{registerTarget.title}</p>
-              <p className="text-muted-foreground">
-                Opens cycle 1 renewal window and generates renewal deadlines.
-              </p>
+              <p className="text-muted-foreground">{t('matters:ipRights.registerDrawerHint')}</p>
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Registration number</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.registrationNumber')}</label>
               <Input value={regNumber} onChange={(e) => setRegNumber(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Registration date</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.registrationDate')}</label>
               <Input type="date" value={regDate} onChange={(e) => setRegDate(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm font-medium">Expiry date (optional)</label>
+              <label className="text-sm font-medium">{t('matters:ipRights.expiryDateOptional')}</label>
               <Input type="date" value={regExpiry} onChange={(e) => setRegExpiry(e.target.value)} />
-              <p className="text-xs text-muted-foreground">
-                Leave blank to compute from jurisdiction renewal cycle.
-              </p>
+              <p className="text-xs text-muted-foreground">{t('matters:ipRights.expiryDateHint')}</p>
             </div>
             {registerError ? <p className="text-sm text-destructive">{registerError}</p> : null}
             <div className="flex justify-end gap-2 border-t pt-4">
               <Button type="button" variant="outline" onClick={() => setRegisterDrawerOpen(false)}>
-                Cancel
+                {t('common:actions.cancel')}
               </Button>
               <Button type="submit" disabled={registerIpRight.isPending}>
-                {registerIpRight.isPending ? 'Registering…' : 'Confirm registration'}
+                {registerIpRight.isPending
+                  ? t('matters:ipRights.registering')
+                  : t('matters:ipRights.confirmRegistration')}
               </Button>
             </div>
           </form>
@@ -730,6 +729,7 @@ function SplitRenewalDrawer({
   onClose: () => void
   window: RenewalWindow | null
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const split = useSplitRenewalWindow()
   const [rows, setRows] = useState<Array<{ jurisdiction: string; niceClasses: string; notes: string }>>([
     { jurisdiction: '', niceClasses: '', notes: '' },
@@ -778,28 +778,25 @@ function SplitRenewalDrawer({
       })
     }
     if (parts.length < 1) {
-      setError('Add at least one part with a jurisdiction')
+      setError(t('matters:ipRights.errors.splitJurisdictionRequired'))
       return
     }
     try {
       await split.mutateAsync({ windowId: renewalWindow.id, data: { parts } })
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not split renewal'))
+      setError(getApiErrorMessage(err, t('matters:ipRights.errors.splitFailed')))
     }
   }
 
   return (
-    <Drawer open={open} onClose={onClose} title="Split renewal" className="max-w-lg">
+    <Drawer open={open} onClose={onClose} title={t('matters:ipRights.splitRenewalTitle')} className="max-w-lg">
       <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4">
-        <p className="text-sm text-muted-foreground">
-          Split this renewal into jurisdiction / Nice-class parts. Each part is instructed and
-          completed separately; the window status rolls up from the parts.
-        </p>
+        <p className="text-sm text-muted-foreground">{t('matters:ipRights.splitRenewalDescription')}</p>
         {rows.map((row, index) => (
           <div key={index} className="space-y-2 rounded-md border p-3">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium">Part {index + 1}</p>
+              <p className="text-sm font-medium">{t('matters:ipRights.splitPart', { n: index + 1 })}</p>
               {rows.length > 1 ? (
                 <Button
                   type="button"
@@ -807,12 +804,12 @@ function SplitRenewalDrawer({
                   variant="ghost"
                   onClick={() => setRows((prev) => prev.filter((_, i) => i !== index))}
                 >
-                  Remove
+                  {t('common:actions.remove')}
                 </Button>
               ) : null}
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs text-muted-foreground">Jurisdiction</label>
+              <label className="text-xs text-muted-foreground">{t('matters:ipRights.splitJurisdiction')}</label>
               <Input
                 value={row.jurisdiction}
                 onChange={(e) =>
@@ -827,7 +824,7 @@ function SplitRenewalDrawer({
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs text-muted-foreground">Nice classes (comma-separated)</label>
+              <label className="text-xs text-muted-foreground">{t('matters:ipRights.splitNiceClasses')}</label>
               <Input
                 value={row.niceClasses}
                 onChange={(e) =>
@@ -841,7 +838,7 @@ function SplitRenewalDrawer({
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs text-muted-foreground">Notes</label>
+              <label className="text-xs text-muted-foreground">{t('matters:ipRights.splitNotes')}</label>
               <Input
                 value={row.notes}
                 onChange={(e) =>
@@ -861,15 +858,15 @@ function SplitRenewalDrawer({
             setRows((prev) => [...prev, { jurisdiction: '', niceClasses: '', notes: '' }])
           }
         >
-          Add part
+          {t('matters:ipRights.splitAddPart')}
         </Button>
         {error ? <p className="text-sm text-destructive">{error}</p> : null}
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
           <Button type="submit" disabled={split.isPending}>
-            {split.isPending ? 'Saving…' : 'Save parts'}
+            {split.isPending ? t('common:loading.saving') : t('matters:ipRights.splitSaveParts')}
           </Button>
         </div>
       </form>
@@ -888,16 +885,17 @@ function RenewalPartsTable({
   onFile: (partId: string) => void
   onComplete: (partId: string) => void
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   return (
     <div className="mt-2 rounded-md border bg-background/60 p-2">
-      <p className="mb-2 text-xs font-medium text-muted-foreground">Partial renewals</p>
+      <p className="mb-2 text-xs font-medium text-muted-foreground">{t('matters:ipRights.partialRenewals')}</p>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Jurisdiction</TableHead>
-            <TableHead>Nice classes</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="min-w-[180px]">Actions</TableHead>
+            <TableHead>{t('matters:ipRights.table.jurisdiction')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.niceClasses')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.status')}</TableHead>
+            <TableHead className="min-w-[180px]">{t('matters:ipRights.table.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -920,25 +918,25 @@ function RenewalPartsTable({
                           variant="outline"
                           onClick={() => onInstruct(p.id, 'proceed')}
                         >
-                          Proceed
+                          {t('matters:ipRights.proceed')}
                         </Button>
                         <Button
                           size="sm"
                           variant="ghost"
                           onClick={() => onInstruct(p.id, 'abandon')}
                         >
-                          Abandon
+                          {t('matters:ipRights.abandon')}
                         </Button>
                       </>
                     ) : null}
                     {p.status === 'instructed' ? (
                       <Button size="sm" variant="outline" onClick={() => onFile(p.id)}>
-                        Mark filed
+                        {t('matters:ipRights.markFiled')}
                       </Button>
                     ) : null}
                     {p.status === 'instructed' || p.status === 'filed' ? (
                       <Button size="sm" onClick={() => onComplete(p.id)}>
-                        Complete
+                        {t('matters:ipRights.complete')}
                       </Button>
                     ) : null}
                   </div>
@@ -967,24 +965,25 @@ function IpRightRenewalsPanel({
   onFile: (id: string) => void
   onComplete: (id: string) => void
 }) {
+  const { t } = useTranslation(['matters', 'common'])
   const { data: renewals, isLoading } = useIpRightRenewals(matterId, ipRightId)
   const instructPart = useInstructRenewalPart()
   const markPartFiled = useMarkRenewalPartFiled()
   const completePart = useCompleteRenewalPart()
   const [splitTarget, setSplitTarget] = useState<RenewalWindow | null>(null)
   const isAnnuity = rightType === 'patent' || rightType === 'utility_model'
-  const scheduleTitle = isAnnuity ? 'Annuity schedule' : 'Renewal windows'
+  const scheduleTitle = isAnnuity
+    ? t('matters:ipRights.annuitySchedule')
+    : t('matters:ipRights.renewalSchedule')
 
   if (isLoading) {
-    return <p className="text-sm text-muted-foreground">Loading renewals…</p>
+    return <p className="text-sm text-muted-foreground">{t('matters:ipRights.loadingRenewals')}</p>
   }
 
   if (!renewals?.length) {
     return (
       <p className="text-sm text-muted-foreground">
-        {isAnnuity
-          ? 'No annuity windows yet. Register the patent to open year 1.'
-          : 'No renewal windows yet. Register the IP right to open cycle 1.'}
+        {isAnnuity ? t('matters:ipRights.noAnnuityWindows') : t('matters:ipRights.noRenewalWindows')}
       </p>
     )
   }
@@ -995,10 +994,12 @@ function IpRightRenewalsPanel({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>{isAnnuity ? 'Year / cycle' : 'Cycle'}</TableHead>
-            <TableHead>Due date</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="min-w-[200px]">Actions</TableHead>
+            <TableHead>
+              {isAnnuity ? t('matters:ipRights.table.yearCycle') : t('matters:ipRights.table.cycle')}
+            </TableHead>
+            <TableHead>{t('matters:ipRights.table.dueDate')}</TableHead>
+            <TableHead>{t('matters:ipRights.table.status')}</TableHead>
+            <TableHead className="min-w-[200px]">{t('matters:ipRights.table.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -1010,10 +1011,12 @@ function IpRightRenewalsPanel({
               <Fragment key={w.id}>
                 <TableRow className={RENEWAL_URGENCY_ROW_CLASS[urgency]}>
                   <TableCell className="font-medium">
-                    {isAnnuity ? `Year ${w.cycleNumber}` : `Cycle ${w.cycleNumber}`}
+                    {isAnnuity
+                      ? t('matters:ipRights.yearLabel', { n: w.cycleNumber })
+                      : t('matters:ipRights.cycleLabel', { n: w.cycleNumber })}
                     {hasParts ? (
                       <span className="ml-2 text-xs text-muted-foreground">
-                        ({parts.length} parts)
+                        {t('matters:ipRights.partsCount', { count: parts.length })}
                       </span>
                     ) : null}
                   </TableCell>
@@ -1030,7 +1033,7 @@ function IpRightRenewalsPanel({
                             variant="outline"
                             onClick={() => setSplitTarget(w)}
                           >
-                            {hasParts ? 'Edit split' : 'Split renewal'}
+                            {hasParts ? t('matters:ipRights.editSplit') : t('matters:ipRights.splitRenewal')}
                           </Button>
                         ) : null}
                         {!hasParts && w.status === 'upcoming' ? (
@@ -1040,26 +1043,26 @@ function IpRightRenewalsPanel({
                               variant="outline"
                               onClick={() => onInstruct(w.id, 'proceed')}
                             >
-                              Record proceed
+                              {t('matters:ipRights.proceed')}
                             </Button>
                             <Button
                               size="sm"
                               variant="ghost"
                               onClick={() => onInstruct(w.id, 'abandon')}
                             >
-                              Abandon
+                              {t('matters:ipRights.abandon')}
                             </Button>
                           </>
                         ) : null}
                         {!hasParts && w.status === 'instructed' ? (
                           <Button size="sm" variant="outline" onClick={() => onFile(w.id)}>
-                            Mark filed
+                            {t('matters:ipRights.markFiled')}
                           </Button>
                         ) : null}
                         {!hasParts &&
                         (w.status === 'instructed' || w.status === 'filed') ? (
                           <Button size="sm" onClick={() => onComplete(w.id)}>
-                            Complete
+                            {t('matters:ipRights.complete')}
                           </Button>
                         ) : null}
                       </div>

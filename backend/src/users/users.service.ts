@@ -14,6 +14,7 @@ import {
   type UpdateUserRoleDto,
 } from './dto/update-user-role.dto';
 import { UserQueryDto, UserSegment } from './dto/user-query.dto';
+import { UserInviteService } from './user-invite.service';
 
 const ATTORNEY_ROLES = [
   SYSTEM_ROLES.IP_ATTORNEY,
@@ -39,7 +40,10 @@ const userListSelect = {
   passwordHash: true,
   clientId: true,
   lastLoginAt: true,
+  lastSignInMethod: true,
   createdAt: true,
+  inviteEmailSentAt: true,
+  inviteEmailLastError: true,
   portalClient: {
     select: {
       id: true,
@@ -61,7 +65,10 @@ type UserListRow = Prisma.UserGetPayload<{ select: typeof userListSelect }>;
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly userInvite: UserInviteService,
+  ) {}
 
   async findAll(query: UserQueryDto) {
     const take = parseLimit(query.limit, 20);
@@ -284,7 +291,52 @@ export class UsersService {
       select: userListSelect,
     });
 
-    return this.toListItem(refreshed);
+    const emailResult = await this.userInvite.sendInviteEmail(user.id);
+
+    return {
+      ...this.toListItem(refreshed),
+      inviteEmailSent: emailResult.sent,
+      inviteEmailError: emailResult.error,
+    };
+  }
+
+  async resendInvite(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        isActive: true,
+        passwordHash: true,
+        lastLoginAt: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (!user.isActive) {
+      throw new BadRequestException('Cannot resend invite to inactive user');
+    }
+
+    if (user.passwordHash || user.lastLoginAt) {
+      throw new BadRequestException(
+        'User has already signed in or set a password',
+      );
+    }
+
+    const emailResult = await this.userInvite.sendInviteEmail(userId);
+
+    const refreshed = await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+      select: userListSelect,
+    });
+
+    return {
+      ...this.toListItem(refreshed),
+      inviteEmailSent: emailResult.sent,
+      inviteEmailError: emailResult.error,
+    };
   }
 
   async updateRole(
@@ -366,6 +418,22 @@ export class UsersService {
 
   private toListItem(user: UserListRow) {
     const roles = user.userRoles.map((r) => r.role.name);
+    const invitePending = !user.passwordHash && !user.lastLoginAt;
+    const neverSignedIn = !user.lastLoginAt;
+
+    let authMethod: 'pending' | 'password' | 'sso';
+    if (neverSignedIn) {
+      authMethod = 'pending';
+    } else if (
+      user.lastSignInMethod === 'sso' ||
+      user.lastSignInMethod === 'password'
+    ) {
+      authMethod = user.lastSignInMethod;
+    } else if (user.passwordHash) {
+      authMethod = 'password';
+    } else {
+      authMethod = 'sso';
+    }
 
     return {
       id: user.id,
@@ -373,7 +441,7 @@ export class UsersService {
       fullName: user.fullName,
       isActive: user.isActive,
       mfaEnabled: user.mfaEnabled,
-      authMethod: user.passwordHash ? ('password' as const) : ('sso' as const),
+      authMethod,
       roles,
       clientId: user.clientId,
       client: user.portalClient
@@ -385,6 +453,10 @@ export class UsersService {
         : null,
       lastLoginAt: user.lastLoginAt,
       createdAt: user.createdAt,
+      inviteEmailSentAt: user.inviteEmailSentAt,
+      inviteEmailLastError: user.inviteEmailLastError,
+      invitePending,
+      neverSignedIn,
     };
   }
 }

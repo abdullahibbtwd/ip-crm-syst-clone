@@ -90,7 +90,7 @@ export function AppTopbar({
             external ? 'text-emerald-200/90' : 'text-primary/70',
           )}
         >
-          {external ? 'Client portal' : 'CRM'}
+          {external ? tCommon('clientPortal') : tCommon('crm')}
         </span>
         <span
           className={cn(
@@ -123,10 +123,10 @@ export function AppTopbar({
             type="button"
             variant="ghost"
             size="icon-sm"
-            aria-label="Tasks"
+            aria-label={tCommon('tasks')}
             className="group hidden sm:inline-flex"
             disabled
-            title="Coming soon"
+            title={tCommon('comingSoon')}
           >
             <ListChecks className="size-4 transition-transform duration-300 group-hover:scale-110" />
           </Button>

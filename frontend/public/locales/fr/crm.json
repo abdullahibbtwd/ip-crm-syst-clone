@@ -1,0 +1,239 @@
+{
+  "clients": {
+    "description": "Gérer les dossiers des entreprises et des clients individuels. De nouveaux clients sont créés via l’admission.",
+    "emptyDescription": "Essayez d'ajuster les filtres ou créez un client via l'admission.",
+    "emptyTitle": "Aucun client trouvé",
+    "error": "Échec du chargement des clients.",
+    "newViaIntake": "Nouveau client via l'admission",
+    "perPage": "{{count}} par page",
+    "searchPlaceholder": "Rechercher un nom ou un code…",
+    "title": "Clientèle",
+    "viewAria": "Afficher {{name}}"
+  },
+  "contacts": {
+    "add": "Ajouter un contact",
+    "drawerTitle": "Ajouter un contact",
+    "email": "E-mail",
+    "empty": "Aucun contact trouvé.",
+    "firstName": "Prénom *",
+    "lastName": "Nom de famille *",
+    "loading": "Chargement des contacts…",
+    "remove": "Retirer",
+    "role": {
+      "all": "Toute",
+      "billing": "Facturation",
+      "conflict": "Conflit",
+      "general": "Générale",
+      "primary": "Primaire"
+    },
+    "save": "Enregistrer le contact",
+    "table": {
+      "email": "E-mail",
+      "name": "Nom",
+      "office": "Bureau",
+      "phone": "Téléphone",
+      "role": "Rôle"
+    }
+  },
+  "countrySelect": {
+    "empty": "Aucun pays trouvé",
+    "none": "Aucune",
+    "placeholder": "Sélectionnez un pays",
+    "search": "Rechercher des pays…"
+  },
+  "drawer": {
+    "closeAria": "Fermer le tiroir"
+  },
+  "holdingGroups": {
+    "back": "← Retour aux groupes de détention",
+    "clientsUnder": "Clients de ce groupe",
+    "create": "Créer un groupe de détention",
+    "creating": "Création…",
+    "description": "Parapluies parents pour les entités clientes associées.",
+    "descriptionField": "Description",
+    "detailDescription": "Créez un parapluie parent pour les entités client associées.",
+    "empty": "Aucun groupe de détention trouvé",
+    "emptyClients": "Aucun client lié pour l'instant.",
+    "emptyDescription": "Essayez d'ajuster la recherche ou créez un nouveau groupe de détention.",
+    "error": "Échec du chargement des groupes de détention.",
+    "formError": "Échec de la création du groupe de détention",
+    "name": "Nom *",
+    "namePlaceholder": "par ex. Acme Group BV",
+    "new": "Nouveau groupe de détention",
+    "notesPlaceholder": "Notes facultatives sur cette structure de détention",
+    "notFound": "Groupe de maintien introuvable.",
+    "allGroups": "Tous les groupes de détention",
+    "perPage": "{{count}} par page",
+    "searchPlaceholder": "Rechercher un nom ou un pays…",
+    "title": "Groupes de maintien",
+    "viewAria": "Afficher {{name}}"
+  },
+  "layout": {
+    "backToClients": "← Retour aux clients"
+  },
+  "offices": {
+    "add": "Ajouter un bureau",
+    "city": "Ville",
+    "drawerTitle": "Ajouter un bureau",
+    "empty": "Pas encore de bureaux.",
+    "errorPrimary": "Échec de la définition du bureau principal",
+    "label": "Étiquette *",
+    "loading": "Chargement des bureaux…",
+    "noAddress": "Pas d'adresse",
+    "primary": "Primaire",
+    "remove": "Retirer",
+    "save": "Enregistrer le bureau",
+    "setPrimary": "Définir comme bureau principal",
+    "setPrimaryAction": "Définir le primaire",
+    "title": "Bureaux"
+  },
+  "overview": {
+    "assignedTo": "Attribué à",
+    "cancel": "Annuler",
+    "companyName": "Nom de l'entreprise *",
+    "country": "Pays",
+    "edit": "Modifier",
+    "exportClientData": "Exporter les données clients",
+    "error": "Échec du chargement du profil client.",
+    "errorSave": "Échec de l'enregistrement du client",
+    "firstName": "Prénom *",
+    "gdprConsent": "Consentement RGPD",
+    "holdingGroup": "Groupe de maintien",
+    "lastName": "Nom de famille *",
+    "legalForm": "Forme juridique",
+    "loading": "Chargement du profil…",
+    "none": "Aucune",
+    "notes": "Remarques",
+    "registrationNo": "Numéro d'enregistrement.",
+    "save": "Enregistrer les modifications",
+    "saving": "Économie…",
+    "status": "Statut",
+    "type": "Taper",
+    "validation": {
+      "companyName": "Le nom de l'entreprise est requis",
+      "name": "Le prénom et le nom sont obligatoires",
+      "website": "Le site Web doit commencer par http:// ou https://"
+    },
+    "vatNo": "Numéro de TVA.",
+    "website": "Site web",
+    "websitePlaceholder": "https://"
+  },
+  "relatedCompanies": {
+    "add": "Ajouter une société associée",
+    "drawerTitle": "Ajouter une société associée",
+    "empty": "Aucune société liée liée.",
+    "externalName": "Nom externe",
+    "existingClient": "Client existant",
+    "linkType": "Type de lien",
+    "loading": "Chargement…",
+    "notes": "Remarques",
+    "notesPlaceholder": "Contexte facultatif",
+    "relationship": "Relation *",
+    "remove": "Retirer",
+    "save": "Enregistrer la société associée",
+    "searchClients": "Rechercher des clients *",
+    "searchPlaceholder": "Recherche par nom ou code…",
+    "noClients": "Aucun client trouvé",
+    "companyName": "Nom de l'entreprise *",
+    "table": {
+      "name": "Nom",
+      "notes": "Remarques",
+      "relationship": "Relation"
+    },
+    "title": "Sociétés liées"
+  },
+  "relationship": {
+    "affiliate": "Filiale",
+    "parent": "Parente",
+    "subsidiary": "Filiale"
+  },
+  "history": {
+    "empty": "Pas d'historique pour l'instant.",
+    "loadMore": "Charger plus",
+    "loading": "Chargement de l'historique…",
+    "title": "Histoire de la relation"
+  },
+  "matters": {
+    "empty": "Rien n’a encore d’importance. Ouvrez un dossier pour lancer les poursuites pour ce client.",
+    "loading": "Le chargement compte…",
+    "openNew": "Ouvrir un nouveau sujet",
+    "table": {
+      "assigned": "Attribué",
+      "jurisdictions": "Juridictions",
+      "status": "Statut",
+      "title": "Titre",
+      "type": "Taper"
+    },
+    "title": "Importe"
+  },
+  "accessHistory": {
+    "title": "Historique d'accès aux données",
+    "subtitle": "Personnel qui a consulté ou exporté des données personnelles pour ce client.",
+    "loading": "Chargement de l'historique des accès…",
+    "loadFailed": "Échec du chargement de l'historique des accès.",
+    "empty": "Aucun événement d'accès enregistré pour le moment.",
+    "systemUser": "Système",
+    "columns": {
+      "when": "Quand",
+      "user": "Utilisatrice",
+      "action": "Action",
+      "ip": "PI"
+    }
+  },
+  "billing": {
+    "byMatter": "Par matière",
+    "error": "Échec du chargement des données de facturation.",
+    "loading": "Chargement de la facturation…",
+    "noPermission": "Vous n'êtes pas autorisé à afficher la facturation de ce client.",
+    "title": "Facturation",
+    "wipDescription": "Travaux en cours et montants non facturés pour ce client.",
+    "wipDescriptionLong": "Travaux en cours et totaux facturables pour tous les sujets pour ce client.",
+    "matterTable": {
+      "matter": "Matière",
+      "type": "Taper",
+      "status": "Statut",
+      "billableHours": "Heures facturables",
+      "total": "Totale",
+      "unbilled": "Non facturé",
+      "empty": "Rien n’a encore d’importance. Ouvrez un sujet pour commencer à suivre le travail facturable."
+    }
+  },
+  "sidebar": {
+    "country": "Pays:",
+    "loading": "Chargement…",
+    "primaryContact": "Contact principal",
+    "primaryOffice": "Bureau principal",
+    "viewProfile": "Voir le profil complet"
+  },
+  "status": {
+    "active": "Active",
+    "archived": "Archivé",
+    "inactive": "Inactive",
+    "prospect": "Perspective"
+  },
+  "table": {
+    "action": "Action",
+    "client": "Cliente",
+    "country": "Pays",
+    "created": "Créé",
+    "holdingGroup": "Groupe de maintien",
+    "status": "Statut",
+    "type": "Taper"
+  },
+  "tabs": {
+    "accessHistory": "Historique d'accès",
+    "billing": "Facturation",
+    "contacts": "Contacts",
+    "history": "Histoire",
+    "matters": "Importe",
+    "watch": "Montre",
+    "offices": "Bureaux",
+    "overview": "Aperçu",
+    "related": "En rapport"
+  },
+  "type": {
+    "company": "Entreprise",
+    "individual": "Individuelle"
+  },
+  "unnamedClient": "Client anonyme"
+}

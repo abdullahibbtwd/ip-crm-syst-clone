@@ -1,0 +1,15 @@
+{
+  "title": "Unterlagen",
+  "subtitle": "Unternehmensweite Dokumentenbibliothek.",
+  "searchPlaceholder": "Dokumente durchsuchen…",
+  "loading": "Laden…",
+  "loadFailed": "Dokumente konnten nicht geladen werden.",
+  "empty": "Keine Dokumente gefunden.",
+  "columns": {
+    "name": "Name",
+    "matter": "Gegenstand",
+    "category": "Kategorie",
+    "updated": "Aktualisiert",
+    "by": "Von"
+  }
+}

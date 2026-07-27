@@ -1,10 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { CreateIntakeForm } from '@/components/intake/CreateIntakeForm'
 import { buttonVariants } from '@/components/ui/button'
 import { useCreateIntake } from '@/features/intake/hooks/useIntake'
 import { cn } from '@/lib/utils'
 
 export function CreateIntakePage() {
+  const { t } = useTranslation('intake')
   const navigate = useNavigate()
   const createIntake = useCreateIntake()
 
@@ -14,14 +16,12 @@ export function CreateIntakePage() {
         to="/intake"
         className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
       >
-        ← Back to intake
+        {t('create.back')}
       </Link>
 
       <div>
-        <h1 className="font-serif text-2xl text-foreground">New enquiry</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Log a new lead before conflict check and client conversion.
-        </p>
+        <h1 className="font-serif text-2xl text-foreground">{t('create.title')}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t('create.description')}</p>
       </div>
 
       <CreateIntakeForm

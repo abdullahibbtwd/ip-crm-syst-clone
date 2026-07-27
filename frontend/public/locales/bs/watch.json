@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Trademark Watch",
+    "description": "Pregledajte potencijalne konflikte otkrivene na aktivnim profilima gledanja.",
+    "empty": "Nijedno upozorenje o gledanju ne odgovara vašim filterima.",
+    "loading": "Učitavanje upozorenja sata…"
+  },
+  "detail": {
+    "title": "Gledajte upozorenje",
+    "back": "Nazad na radnu listu za gledanje",
+    "loading": "Učitavanje upozorenja…",
+    "notFound": "Upozorenje o gledanju nije pronađeno.",
+    "watchedMark": "Gledao marku",
+    "conflictingMark": "Konfliktna oznaka",
+    "registrySource": "Izvor registra",
+    "jurisdiction": "Nadležnost",
+    "applicationNumber": "Broj prijave",
+    "similarity": "Sličnost",
+    "detectedAt": "Detected",
+    "client": "Klijent",
+    "profile": "Pogledajte profil",
+    "niceClasses": "Lijepi časovi",
+    "reject": "Upozorenje o odbijanju",
+    "accept": "Prihvatite i kreirajte materiju",
+    "rejectConfirm": "Označiti ovo upozorenje kao lažno pozitivno?",
+    "acceptConfirm": "Napraviti pitanje opozicije iz ovog upozorenja?",
+    "triagedBy": "Triaged by {{name}}",
+    "linkedMatter": "Povezana materija"
+  },
+  "clientTab": {
+    "title": "Gledajte profile",
+    "description": "Pratite oznake u svim registrima koristeći kanonske kodove nadležnosti (BG, EU, EP).",
+    "add": "Dodajte sat sa zaštitnim znakom",
+    "empty": "Još nema profila za gledanje. Dodajte profil da počnete pratiti ocjene ovog klijenta.",
+    "loading": "Učitavanje profila gledanja…",
+    "pause": "Pauza",
+    "resume": "Nastavi",
+    "archive": "Arhiva",
+    "epoScan": "Skenirajte EPO za upozorenja",
+    "epoScanning": "Skeniranje EPO…",
+    "epoScanSuccess": "Kreirano {{alerts}} novih EPO upozorenja od {{profiles}} profila(a).",
+    "epoScanFailed": "Skeniranje EPO sata nije uspjelo",
+    "viewAlerts": "Pogledajte upozorenja za sat"
+  },
+  "drawer": {
+    "title": "Dodajte sat sa zaštitnim znakom",
+    "markText": "Označi tekst *",
+    "markPlaceholder": "npr. Coca-Cola",
+    "jurisdictions": "jurisdikcije *",
+    "jurisdictionsHint": "Kanonski kodovi — ne imena registra. BPO satovi koriste BG; EUIPO satovi koriste EU.",
+    "niceClasses": "Lijepi časovi",
+    "niceClassesPlaceholder": "npr. 32, 33",
+    "frequency": "Frekvencija skeniranja",
+    "save": "Sačuvaj profil gledanja"
+  },
+  "filters": {
+    "status": "Status",
+    "jurisdiction": "Nadležnost",
+    "source": "Izvor registra",
+    "minSimilarity": "Min sličnosti",
+    "anySimilarity": "Bilo kakva sličnost",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Sortiraj po",
+    "sortDetected": "Najnovije prvo",
+    "sortSimilarity": "Najveća sličnost",
+    "all": "Sve"
+  },
+  "stats": {
+    "new": "Nova upozorenja",
+    "accepted": "Prihvaćeno",
+    "rejected": "Odbijeno"
+  },
+  "profileStatus": {
+    "active": "Aktivan",
+    "paused": "Pauzirano",
+    "archived": "Arhivirano"
+  },
+  "alertStatus": {
+    "new": "Novo",
+    "rejected": "Odbijeno",
+    "accepted": "Prihvaćeno"
+  },
+  "frequency": {
+    "daily": "Dnevno",
+    "weekly": "Weekly"
+  },
+  "table": {
+    "mark": "Gledao marku",
+    "conflict": "Sukob",
+    "client": "Klijent",
+    "similarity": "Sličnost",
+    "source": "Izvor",
+    "jurisdiction": "Nadležnost",
+    "status": "Status",
+    "detected": "Detected",
+    "frequency": "Frekvencija",
+    "classes": "Časovi",
+    "profiles": "Profili",
+    "actions": "Akcije"
+  }
+}

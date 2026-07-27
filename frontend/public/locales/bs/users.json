@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Učitavanje advokata…",
+    "placeholder": "Odaberite odgovornog advokata",
+    "unassigned": "Nedodijeljeno"
+  },
+  "filters": {
+    "activeOnly": "Samo aktivno",
+    "allStatuses": "Svi statusi",
+    "inactiveOnly": "Samo neaktivan",
+    "searchPortal": "Pretražite korisnike portala…",
+    "searchTeam": "Traži članove tima…"
+  },
+  "invite": {
+    "button": "Pozovi korisnika",
+    "cancel": "Otkaži",
+    "clientPlaceholder": "Odaberite zapis o klijentu…",
+    "clientRecord": "Zapis o klijentu",
+    "description": "Pozovite člana tima ili klijenta portala. Primit će e-poruku s vezom za postavljanje lozinke ili prijavu na Microsoft ili Google.",
+    "email": "Email",
+    "emailFailed": "E-poruka s pozivnicom nije mogla biti poslana",
+    "emailFailedContinue": "Korisnik je kreiran — zatvorite i ponovo pošaljite kasnije",
+    "emailFailedTitle": "Korisnik je pozvan, ali e-mail nije mogao biti poslan.",
+    "emailHint": "E-mail sa pozivnicom se šalje sa vezom za postavljanje lozinke. Oni se također mogu prijaviti s Microsoftom ili Googleom koristeći tačnu e-poštu. Ako email ne uspije, korisnik je i dalje kreiran i možete ga ponovo poslati sa liste korisnika.",
+    "emailPlaceholder": "ime@kompanija.com",
+    "errors": {
+      "clientRequired": "Odaberite zapis klijenta za korisnike portala",
+      "failed": "Pozivanje korisnika nije uspjelo",
+      "required": "Email i puno ime su obavezni"
+    },
+    "fullName": "Puno ime",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Zadnji pokušaj e-pošte nije uspio",
+    "resend": "Ponovo pošaljite pozivnicu",
+    "resendFailed": "Ponovno slanje e-pošte s pozivom nije uspjelo",
+    "resendSuccess": "E-mail s pozivnicom je poslan",
+    "role": "Uloga",
+    "submit": "Pošalji pozivnicu",
+    "submitting": "Pozivanje…",
+    "title": "Pozovi korisnika",
+    "typePortal": "Klijent portala",
+    "typeTeam": "Član tima",
+    "userType": "Tip korisnika"
+  },
+  "layout": {
+    "accessRestricted": "Pristup ograničen",
+    "description": "Upravljajte internim članovima tima i nalozima klijenata eksternog portala. SSO i prijava zasnovana na lozinki se prikazuju po korisniku.",
+    "noPermission": "Nemate dozvolu za pregled korisnika i članova tima.",
+    "title": "Korisnici i tim"
+  },
+  "portal": {
+    "description": "Eksterni klijentski nalozi sa pristupom portalu zajedničkim pitanjima i dokumentima.",
+    "title": "Korisnici portala"
+  },
+  "role": {
+    "errors": {
+      "failed": "Ažuriranje uloge nije uspjelo"
+    },
+    "ownRoleHint": "Ne možete promijeniti vlastitu ulogu"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Lozinka",
+      "pending": "Na čekanju",
+      "sso": "SSO"
+    },
+    "clientRecord": "Zapis o klijentu",
+    "empty": "Nema pronađenih korisnika",
+    "emptyDescription": "Pokušajte podesiti pretragu ili filtere.",
+    "error": "Učitavanje korisnika nije uspjelo.",
+    "headers": {
+      "invite": "Pozovi",
+      "lastLogin": "Zadnja prijava",
+      "mfa": "MFA",
+      "registered": "Registrovan",
+      "role": "Uloga",
+      "signIn": "Prijava",
+      "status": "Status",
+      "user": "Korisnik"
+    },
+    "mfa": {
+      "enabled": "Omogućeno",
+      "off": "Isključeno"
+    },
+    "status": {
+      "active": "Aktivan",
+      "inactive": "Neaktivan",
+      "invited": "Pozvani"
+    },
+    "viewAria": "Pogledaj {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Klijentski računi",
+      "label": "Korisnici portala"
+    },
+    "team": {
+      "description": "Interno osoblje",
+      "label": "Tim"
+    }
+  },
+  "team": {
+    "description": "Interno osoblje sa ulogama, načinom prijave i MFA statusom. Upravljački partneri i IT administratori mogu pozvati korisnike i promijeniti uloge.",
+    "title": "Članovi tima"
+  },
+  "teamMemberSelect": {
+    "loading": "Učitavanje…",
+    "placeholder": "Odaberite člana tima"
+  }
+}

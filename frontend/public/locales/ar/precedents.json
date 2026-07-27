@@ -1,0 +1,43 @@
+{
+  "title": "سوابق",
+  "subtitle": "قاعدة معرفية للمراسلات القابلة لإعادة الاستخدام ولغة حفظ الملفات.",
+  "newDraft": "مسودة جديدة",
+  "searchPlaceholder": "البحث في النص الأساسي...",
+  "loading": "جارٍ تحميل السوابق…",
+  "loadFailed": "فشل تحميل السوابق.",
+  "empty": "لا توجد سوابق حتى الآن. إنشاء مسودة أو الحصاد من المراسلات.",
+  "columns": {
+    "title": "عنوان",
+    "category": "فئة",
+    "jurisdiction": "الولاية القضائية",
+    "status": "حالة",
+    "updated": "تم التحديث"
+  },
+  "filters": {
+    "allStatuses": "جميع الحالات"
+  },
+  "status": {
+    "draft": "مسودة",
+    "published": "تم النشر",
+    "archived": "مؤرشف"
+  },
+  "editAria": "يحرر",
+  "drawer": {
+    "createTitle": "سابقة جديدة",
+    "editTitle": "تحرير سابقة",
+    "title": "عنوان",
+    "category": "فئة",
+    "matterType": "نوع المسألة",
+    "optional": "خياري",
+    "jurisdiction": "الولاية القضائية",
+    "tags": "العلامات",
+    "body": "جسم",
+    "bodyPlaceholder": "اكتب النص السابق — غامق ومائل، والقوائم مدعومة",
+    "publish": "نشر",
+    "archive": "أرشيف",
+    "publishFailed": "فشل النشر",
+    "archiveFailed": "فشل الأرشفة",
+    "saveFailed": "تعذر حفظ السابقة",
+    "requiredFields": "العنوان والفئة والنص مطلوبة"
+  }
+}

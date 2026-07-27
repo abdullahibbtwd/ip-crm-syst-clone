@@ -1,0 +1,198 @@
+{
+  "clientFallback": "Cliente",
+  "disbursements": {
+    "title": "Desembolsos",
+    "subtitle": "Honorarios fijos para toda la empresa categorizados como desembolsos.",
+    "loadFailed": "No se pudieron cargar los desembolsos.",
+    "empty": "No se encontraron desembolsos.",
+    "columns": {
+      "date": "Fecha",
+      "matter": "Asunto",
+      "description": "Descripción",
+      "amount": "Cantidad"
+    }
+  },
+  "fixedFeeCategory": {
+    "disbursement": "Desembolso",
+    "expense": "Gastos",
+    "professional_fee": "honorarios profesionales"
+  },
+  "invoices": {
+    "actions": {
+      "download": "Descargar",
+      "issue": "Asunto",
+      "pay": "Pagar",
+      "void": "Vacía"
+    },
+    "confirmIssue": "¿Emitir esta factura?",
+    "confirmVoid": "¿Anular esta factura? Esto no se puede deshacer.",
+    "createFromUnbilled": "Crear factura desde no facturada",
+    "description": "Realice un seguimiento de las facturas emitidas, el estado de los pagos y los saldos pendientes.",
+    "draft": "Borrador",
+    "empty": "No se encontraron facturas",
+    "emptyDescription": "Intente ajustar los filtros o crear una factura a partir del trabajo no facturado.",
+    "error": "No se pudieron cargar las facturas.",
+    "invoiceStatus": {
+      "draft": "Borrador",
+      "issued": "Emitida",
+      "void": "Vacía"
+    },
+    "loading": "Cargando facturas…",
+    "noPermission": "No tienes permiso para ver facturas.",
+    "searchPlaceholder": "Buscar número de factura. o cliente…",
+    "sectionTitle": "Facturas",
+    "table": {
+      "amount": "Cantidad",
+      "client": "Cliente",
+      "due": "Pendiente",
+      "invoiceNo": "Factura no.",
+      "issued": "Emitida",
+      "payment": "Pago",
+      "status": "Estado"
+    },
+    "title": "Facturas",
+    "listSubtitle": "Registro de facturas en toda la empresa en todos los aspectos. Emita facturas desde las pestañas de facturación de materias y luego registre los pagos aquí.",
+    "exportFrom": "Exportar desde",
+    "exportTo": "Exportar a",
+    "exportFormats": {
+      "journal": "Revista CSV",
+      "xero": "XeroCSV",
+      "quickbooks": "CSV de QuickBooks"
+    },
+    "exporting": "Exportador…",
+    "exportFailed": "Error en la exportación contable",
+    "syncXero": "Sincronizar Xero",
+    "syncQuickBooks": "Sincronizar QuickBooks",
+    "syncFailed": "Error al sincronizar la contabilidad",
+    "searchListPlaceholder": "Buscar nº de factura, asunto, cliente…",
+    "filters": {
+      "allPayments": "Todos los pagos",
+      "allStatuses": "Todos los estados"
+    }
+  },
+  "payment": {
+    "amount": "Cantidad *",
+    "balance": "Saldo pendiente",
+    "date": "Fecha de pago *",
+    "drawerTitle": "Pago récord",
+    "error": "No se pudo registrar el pago",
+    "method": "Método de pago *",
+    "methods": {
+      "bank_transfer": "transferencia bancaria",
+      "card": "Tarjeta",
+      "cash": "Dinero",
+      "other": "Otra"
+    },
+    "notes": "Notas",
+    "reference": "Referencia",
+    "save": "Pago récord",
+    "success": "Pago registrado exitosamente.",
+    "validation": {
+      "amount": "El importe debe ser mayor que cero.",
+      "exceeds": "El monto excede el saldo pendiente"
+    }
+  },
+  "paymentStatus": {
+    "paid": "Pagada",
+    "partial": "Parcialmente pagado",
+    "unpaid": "No pagado"
+  },
+  "rateCards": {
+    "any": "Cualquier",
+    "create": "Crear hoja de tarifas",
+    "description": "Configure las tarifas de facturación por función, tipo de asunto y fecha de vigencia.",
+    "drawerTitle": "Nueva hoja de tarifas",
+    "drawerTitleEdit": "Editar hoja de tarifas",
+    "effectiveFrom": "Efectiva desde *",
+    "effectiveTo": "Efectiva para",
+    "error": "No se pudo guardar la hoja de tarifas",
+    "firmWide": "Toda la empresa",
+    "internalCost": "Costo interno / hora",
+    "matterType": "tipo de asunto",
+    "new": "Nueva hoja de tarifas",
+    "noPermission": "No tienes permiso para gestionar hojas de tarifas.",
+    "viewNoPermission": "No tiene permiso para ver las hojas de tarifas.",
+    "rate": "Tarifa / hora *",
+    "role": "Role *",
+    "save": "Guardar cambios",
+    "scope": "Alcance",
+    "table": {
+      "effective": "Efectiva",
+      "internalCost": "Costo interno",
+      "matterType": "tipo de asunto",
+      "rate": "Tasa",
+      "role": "Role",
+      "scope": "Alcance"
+    },
+    "title": "Tarjetas de tarifas",
+    "pageDescription": "Lista de precios firmes por función, tipo de asunto y anulación opcional del cliente. La tarifa facturable se utiliza al registrar el tiempo; El costo interno opcional impulsa la rentabilidad del margen real.",
+    "anyMatterType": "cualquier tipo de asunto",
+    "clientOverride": "Anulación del cliente",
+    "firmWideDefault": "Incumplimiento en toda la empresa",
+    "editAria": "Editar hoja de tarifas",
+    "loadFailed": "No se pudieron cargar las hojas de tarifas.",
+    "loading": "Cargando hojas de tarifas…",
+    "empty": "Aún no hay hojas de tarifas.",
+    "billable": "facturable",
+    "validation": {
+      "hourlyRate": "Introduce una tarifa por hora válida",
+      "internalCost": "Ingrese un costo interno válido o déjelo en blanco"
+    },
+    "internalCostHint": "Opcional. Se utiliza para obtener rentabilidad con margen real cuando se establece en hojas de tarifas.",
+    "billableRate": "Tarifa facturable (EUR/hora)",
+    "internalCostOptional": "Coste interno (EUR/h)",
+    "internalCostPlaceholder": "Opcional: para informes de márgenes",
+    "internalCostResolutionHint": "Refleja la resolución de la tasa de facturación (cliente → empresa + tipo de asunto → empresa predeterminada). Tomado una instantánea de las nuevas entradas de tiempo como cost_snapshot.",
+    "effectiveToOptional": "Efectiva para (opcional)"
+  },
+  "rateRole": {
+    "coordinator": "Coordinadora",
+    "ip_attorney": "abogado de propiedad intelectual",
+    "managing_partner": "Socia gerente",
+    "paralegal": "asistente legal",
+    "trademark_attorney": "abogado de marcas"
+  },
+  "billingOverview": {
+    "collectedHint": "Recogido en periodo",
+    "collectedLabel": "Coleccionada",
+    "criticalHint": "Vencidas más de 60 días",
+    "criticalLabel": "Riesgo crítico",
+    "description": "Estado de los ingresos (facturas) más preparación de la hoja de tarifas (hojas de tarifas + cobertura de costos internos).",
+    "error": "No se pudo cargar la descripción general de facturación.",
+    "invoicedHint": "{{count}} facturas en periodo",
+    "invoicedLabel": "Facturada",
+    "internalCostHintRevenue": "Base de representación de ingresos",
+    "internalCostHintTrueMargin": "Base de margen verdadero habilitada",
+    "internalCostLabel": "Costo interno",
+    "manageRateCards": "Administrar hojas de tarifas",
+    "nextStep": "Siguiente paso",
+    "nextStepFix": "Cobertura de tarifa fija en /rate-cards",
+    "nextStepHealthy": "La cobertura tarifaria es saludable",
+    "nextStepHint": "Los resúmenes de facturación serán más precisos cuando cada entrada de tiempo facturable se resuelva en una tarifa.",
+    "noPermissionBilling": "No tienes permiso para ver la facturación.",
+    "noPermissionInvoice": "No tiene permiso para ver los datos de la factura.",
+    "openFullReport": "Abrir informe completo",
+    "outstandingHint": "{{count}} cuentas por cobrar abiertas",
+    "outstandingLabel": "Pendiente",
+    "rateCardHealth": "Estado de la hoja de tarifas",
+    "rateCardHealthDescription": "¿Están configuradas las tarifas de facturación y están listos los márgenes?",
+    "rateCardsHintConfigured": "Tarifas disponibles",
+    "rateCardsHintMissing": "No hay hojas de tarifas configuradas",
+    "rateCardsLabel": "Tarjetas de tarifas",
+    "receivablesAging": "Antigüedad de cuentas por cobrar",
+    "receivablesHint": "Utilice el informe completo para tablas y detalles.",
+    "tip": "Consejo: El costo interno en las hojas de tarifas controla si el sistema puede calcular la rentabilidad del margen real.",
+    "title": "Resumen de facturación",
+    "unratedHintBad": "Algunas entradas facturables tienen una instantánea de tarifa de 0 €",
+    "unratedHintGood": "se ve bien",
+    "unratedLabel": "Entradas de tiempo sin clasificar"
+  },
+  "summary": {
+    "billable": "facturable",
+    "billableAmount": "Monto facturable",
+    "fixedFees": "Tarifas fijas",
+    "total": "Total",
+    "totalHours": "Horas totales",
+    "unbilled": "No facturado"
+  }
+}

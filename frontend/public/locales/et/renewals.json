@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Tulemas",
+    "instructed": "Juhendatud",
+    "filed": "Esitatud",
+    "completed": "Lõpetatud",
+    "lapsed": "Kulunud"
+  },
+  "page": {
+    "title": "Uuendused",
+    "descriptionMy": "Uuendage aknaid teile määratud asjades.",
+    "descriptionFirm": "Kogu ettevõtet hõlmav uuendamise tööloend kõigi IP-õigustega.",
+    "filters": {
+      "status": "Olek",
+      "allStatuses": "Kõik olekud",
+      "jurisdiction": "Jurisdiktsioon",
+      "allJurisdictions": "Kõik jurisdiktsioonid",
+      "assignee": "Volitaja",
+      "allAssignees": "Kõik volitatud isikud"
+    },
+    "loading": "Uuenduste laadimine…",
+    "empty": "Ükski uuendusaken ei vasta teie filtritele.",
+    "table": {
+      "ipRight": "IP õige",
+      "matter": "Asi",
+      "client": "Klient",
+      "cycle": "Tsükkel",
+      "due": "Tähtaeg",
+      "status": "Olek",
+      "assignee": "Volitaja"
+    }
+  },
+  "widget": {
+    "title": "Eelseisvad uuendused",
+    "subtitle": "Järgmised 90 päeva juhised",
+    "viewPipeline": "Vaata torujuhet",
+    "loading": "Uuendusakende arvutamine…",
+    "error": "Uuenduste analüüse ei saanud laadida.",
+    "stats": {
+      "totalPipeline": "Kokku torujuhe",
+      "activeWindows": "Aktiivsed aknad",
+      "awaiting": "Ootab",
+      "noInstruction": "Õpetust veel pole",
+      "urgent": "Kiireloomuline",
+      "due7Days": "Tähtaeg ≤ 7 päeva",
+      "instructed": "Juhendatud",
+      "proceedConfirmed": "Jätkamine on kinnitatud"
+    },
+    "empty": "Selles aknas ei jälgitud ühtegi uuendust.",
+    "table": {
+      "ipAsset": "IP-vara",
+      "client": "Klient",
+      "dueStatus": "Tähtaeg / olek"
+    },
+    "cycle": "Tsükkel {{number}}"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "title": "Meili järjekord",
+  "subtitle": "Ühendatud postkastidest tõmmatud linkimata meilid. Avage meil ja lisage see asja kirjavahetuse registrisse.",
+  "fetchEmails": "Tooge 5 meili",
+  "mailboxSettings": "Postkasti seaded",
+  "fetchSuccess": "Toodi kuni {{limit}} postkasti sõnumit – {{ingested}} uut järjekorras{{emptyHint}}.",
+  "fetchEmptyHint": "(juba imporditud või postkast tühi)",
+  "fetchFailed": "Meilide toomine ebaõnnestus",
+  "columns": {
+    "received": "Vastu võetud",
+    "from": "Alates",
+    "subject": "Teema",
+    "mailbox": "Postkast",
+    "suggestion": "Soovitus",
+    "actions": "Tegevused"
+  },
+  "loading": "Järjekorra laadimine…",
+  "loadFailed": "Meilijärjekorra laadimine ebaõnnestus.",
+  "emptyTitle": "Järjekord on tühi",
+  "emptyDescription": "Ühendage seadetes postkast ja hankige uute sõnumite importimiseks meilid.",
+  "noSubject": "(Teema puudub)",
+  "suggestions": {
+    "subjectRef": "Kliendi viide teemas",
+    "bodyRef": "Kliendi viide kehas",
+    "singleActiveMatter": "Üksik aktiivne aine",
+    "contactMatch": "Kontakti vaste",
+    "default": "Soovitatav asi",
+    "officeAction": "Kontori tegevus",
+    "renewal": "Uuendamine"
+  },
+  "actions": {
+    "viewEmail": "Vaata meili",
+    "reply": "Vasta",
+    "attachToMatter": "Lisa asjale kirjavahetus",
+    "downloadEml": "Laadige alla .eml"
+  }
+}

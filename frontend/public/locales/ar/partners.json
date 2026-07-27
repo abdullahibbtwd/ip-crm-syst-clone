@@ -1,0 +1,87 @@
+{
+  "title": "الشركاء الأجانب",
+  "subtitle": "يتم استخدام الوكلاء المحليين والمحامين المساعدين لتقديم الطلبات وتعليمات المسألة.",
+  "newPartner": "شريك جديد",
+  "noPermission": "ليس لديك إذن لعرض الشركاء.",
+  "loading": "جارٍ تحميل الشركاء…",
+  "loadError": "فشل تحميل الشركاء.",
+  "empty": "لا يوجد شركاء يتطابقون مع عوامل التصفية هذه.",
+  "searchPlaceholder": "البحث بالاسم والشركة والبريد الإلكتروني...",
+  "filters": {
+    "all": "جميع الشركاء",
+    "activeOnly": "نشط فقط"
+  },
+  "columns": {
+    "name": "اسم",
+    "company": "شركة",
+    "email": "بريد إلكتروني",
+    "jurisdictions": "الولايات القضائية",
+    "status": "حالة"
+  },
+  "status": {
+    "active": "نشيط",
+    "inactive": "غير نشط"
+  },
+  "editAria": "تحرير الشريك",
+  "deactivateAria": "إلغاء تنشيط الشريك",
+  "confirmDeactivate": "هل تريد إلغاء تنشيط الشريك \"{{name}}\"؟",
+  "drawer": {
+    "createTitle": "شريك جديد",
+    "editTitle": "تحرير الشريك",
+    "name": "اسم",
+    "company": "شركة",
+    "email": "بريد إلكتروني",
+    "phone": "هاتف",
+    "countryCode": "رمز البلد",
+    "jurisdictions": "الولايات القضائية",
+    "jurisdictionsHint": "رموز مفصولة بفواصل، على سبيل المثال. بي جي، الاتحاد الأوروبي، إب",
+    "notes": "ملحوظات",
+    "status": "حالة",
+    "cancel": "يلغي",
+    "create": "إنشاء شريك",
+    "save": "حفظ التغييرات"
+  },
+  "errors": {
+    "nameRequired": "الاسم مطلوب",
+    "saveFailed": "فشل حفظ الشريك"
+  },
+  "instructions": {
+    "title": "تعليمات الشريك",
+    "subtitle": "صياغة وإرسال وتتبع التعليمات إلى الشركاء الأجانب بشأن هذا الشأن.",
+    "newDraft": "مسودة جديدة",
+    "noPermission": "ليس لديك إذن لعرض تعليمات الشريك.",
+    "loading": "جارٍ تحميل التعليمات…",
+    "loadError": "فشل تحميل التعليمات.",
+    "empty": "لا توجد تعليمات شريك حتى الآن.",
+    "columns": {
+      "title": "عنوان",
+      "partner": "شريك",
+      "status": "حالة",
+      "created": "مخلوق"
+    },
+    "status": {
+      "draft": "مسودة",
+      "sent": "مرسل",
+      "acknowledged": "معترف به",
+      "complete": "مكتمل"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "شريك",
+      "partnerPlaceholder": "حدد الشريك",
+      "title": "عنوان",
+      "body": "تعليمات",
+      "cancel": "يلغي",
+      "create": "إنشاء مسودة"
+    },
+    "errors": {
+      "required": "الشريك والعنوان مطلوبان",
+      "saveFailed": "فشل في إنشاء التعليمات"
+    }
+  },
+  "actions": {
+    "send": "يرسل",
+    "acknowledge": "يُقرّ",
+    "complete": "مكتمل"
+  }
+}

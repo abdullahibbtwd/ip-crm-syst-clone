@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Seitenleiste erweitern",
+    "collapse": "Seitenleiste einklappen",
+    "close": "Seitenleiste schließen"
+  },
+  "sections": {
+    "overview": "Überblick",
+    "clients": "Kunden",
+    "matters": "Angelegenheiten",
+    "ipRights": "IP-Rechte",
+    "finance": "Finanzen",
+    "reports": "Berichte",
+    "myWork": "Meine Arbeit",
+    "rights": "Rechte",
+    "communication": "Kommunikation",
+    "trademarks": "Marken",
+    "deadlines": "Fristen",
+    "correspondence": "Korrespondenz",
+    "documentsAndMail": "Dokumente und Post",
+    "billing": "Abrechnung",
+    "compliance": "Einhaltung",
+    "gdpr": "DSGVO",
+    "audit": "Prüfung",
+    "usersAndAccess": "Benutzer und Zugriff",
+    "system": "System",
+    "myPortfolio": "Mein Portfolio",
+    "myMatters": "Meine Angelegenheiten"
+  },
+  "items": {
+    "dashboard": "Armaturenbrett",
+    "deadlines": "Fristen",
+    "alerts": "Warnungen",
+    "clients": "Kunden",
+    "holdingGroups": "Gruppen halten",
+    "allMatters": "Alles zählt",
+    "matters": "Angelegenheiten",
+    "intakeQueue": "Einlasswarteschlange",
+    "rightsRegister": "Rechteregister",
+    "renewals": "Erneuerungen",
+    "watch": "Betrachten",
+    "billingOverview": "Abrechnungsübersicht",
+    "deadlineRisk": "Terminrisiko",
+    "filingVolumes": "Archivbände",
+    "renewalsSummary": "Zusammenfassung der Verlängerungen",
+    "revenueReceivables": "Einnahmen und Forderungen",
+    "team": "Team",
+    "settings": "Einstellungen",
+    "myDashboard": "Mein Dashboard",
+    "myDeadlines": "Meine Fristen",
+    "myMatters": "Meine Angelegenheiten",
+    "patentFilings": "Patentanmeldungen",
+    "officeActions": "Büroaktionen",
+    "documents": "Unterlagen",
+    "correspondence": "Korrespondenz",
+    "myTmMatters": "Mein TM ist wichtig",
+    "oppositions": "Oppositionen",
+    "watchAlerts": "Sehen Sie sich Benachrichtigungen an",
+    "conflictCheck": "Konfliktprüfung",
+    "allDeadlines": "Alle Fristen",
+    "escalations": "Eskalationen",
+    "gracePeriods": "Schonfristen",
+    "addDeadline": "Frist hinzufügen",
+    "incomingMail": "Eingehende Post",
+    "emailQueue": "E-Mail-Warteschlange",
+    "broadcasts": "Sendungen",
+    "outgoingMail": "Ausgehende Mail",
+    "myTasks": "Meine Aufgaben",
+    "assignedMatters": "Zugeordnete Angelegenheiten",
+    "financeDashboard": "Finanz-Dashboard",
+    "invoices": "Rechnungen",
+    "timeEntries": "Zeiteinträge",
+    "payments": "Zahlungen",
+    "rateCards": "Preislisten",
+    "disbursements": "Auszahlungen",
+    "complianceDashboard": "Compliance-Dashboard",
+    "personalDataRegister": "Persönliches Datenregister",
+    "dataExportsLog": "Datenexportprotokoll",
+    "retentionRules": "Aufbewahrungsregeln",
+    "deadlineRules": "Fristregeln",
+    "holidays": "Feiertagskalender",
+    "documentTemplates": "Dokumentvorlagen",
+    "precedents": "Präzedenzfälle",
+    "partners": "Partner",
+    "consentRecords": "Einwilligungsaufzeichnungen",
+    "auditTrail": "Audit-Trail",
+    "accessLog": "Zugriffsprotokoll",
+    "systemDashboard": "System-Dashboard",
+    "users": "Benutzer",
+    "rolesPermissions": "Rollen und Berechtigungen",
+    "ssoMfaConfig": "SSO/MFA-Konfiguration",
+    "integrations": "Integrationen",
+    "systemHealth": "Systemgesundheit",
+    "auditLog": "Audit-Protokoll",
+    "overview": "Überblick",
+    "enquiries": "Anfragen",
+    "myDocuments": "Meine Dokumente",
+    "myInvoices": "Meine Rechnungen",
+    "messages": "Nachrichten",
+    "approvals": "Zulassungen",
+    "help": "Helfen",
+    "myPortfolio": "Mein Portfolio"
+  },
+  "roles": {
+    "managing_partner": "Geschäftsführender Gesellschafter",
+    "ip_attorney": "IP-/Patentanwalt",
+    "trademark_attorney": "Markenanwalt",
+    "coordinator": "Koordinator / Aufnahme",
+    "docketing_admin": "Docketing-Administrator",
+    "paralegal": "Rechtsassistentin",
+    "finance": "Finanzen",
+    "dpo_compliance": "Datenschutzbeauftragter / Compliance",
+    "it_admin": "IT / Admin",
+    "portal_client": "Kunde (Portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Demnächst verfügbar – in diesem Bereich werden Live-Daten angezeigt, sobald das Modul angeschlossen ist."
+    },
+    "managing_partner": {
+      "eyebrow": "Firmenübersicht",
+      "title": "Firmenübersicht",
+      "description": "Portfolio-Terminrisiko, Anmeldevolumen, Verlängerungspipeline, Umsatz, Teamarbeitsbelastung und Kundenrentabilität – unternehmensweite Berichterstattung aus einer Hand."
+    },
+    "coordinator": {
+      "eyebrow": "Koordinierung",
+      "title": "Aufnahme & Koordination",
+      "description": "Aufnahmepipeline, Anmeldevolumen und bevorstehende Erneuerungen – koordinieren Sie die Anfragen bis zur Strafverfolgung."
+    },
+    "docketing_admin": {
+      "eyebrow": "Docketing",
+      "title": "Fristentafel",
+      "description": "Firmenweites Fristen- und Aktenrisiko – gruppiert nach Kunde, Gerichtsbarkeit und Bevollmächtigtem mit Hervorhebung der Dringlichkeit."
+    },
+    "finance": {
+      "eyebrow": "Finanzen",
+      "title": "Finanzübersicht",
+      "description": "Ausgestellte Einnahmen, Inkasso und Fälligkeit von Forderungen – stellen Sie Rechnungen aus und verfolgen Sie Zahlungen von einem Ort aus."
+    },
+    "portal_client": {
+      "eyebrow": "Kundenportal",
+      "title": "Willkommen zurück",
+      "description": "Senden Sie Anmeldeanfragen und verfolgen Sie Angelegenheiten für Ihre Organisation."
+    },
+    "myDashboard": {
+      "title": "Mein Dashboard"
+    },
+    "myTasks": {
+      "title": "Meine Aufgaben"
+    },
+    "compliance": {
+      "eyebrow": "DSGVO & Compliance",
+      "title": "Einhaltung",
+      "description": "Aufbewahrungsrichtlinien, Zugriffsregister und Subjektzugriffsexporte."
+    },
+    "systemDashboard": {
+      "title": "System-Dashboard"
+    }
+  }
+}

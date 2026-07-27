@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "backToDashboard": "Natrag na nadzornu ploču",
+    "cancel": "Otkazati",
+    "edit": "Uredi",
+    "loadMore": "Učitaj više",
+    "next": "Sljedeći",
+    "previous": "Prethodno",
+    "refresh": "Osvježiti",
+    "remove": "Ukloniti",
+    "retry": "Pokušaj ponovo",
+    "save": "Uštedjeti",
+    "saveChanges": "Spremite promjene",
+    "view": "Pogled"
+  },
+  "errors": {
+    "loadFailed": "Učitavanje nije uspjelo.",
+    "retryHint": "Provjerite vezu i dopuštenja, a zatim pokušajte ponovno."
+  },
+  "filters": {
+    "all": "Sve",
+    "allStatuses": "Svi statusi",
+    "allTypes": "Sve vrste"
+  },
+  "language": {
+    "ar": "arapski",
+    "bg": "bugarski",
+    "bs": "bosanski",
+    "de": "njemački",
+    "en": "engleski",
+    "es": "španjolski",
+    "et": "estonski",
+    "fr": "francuski",
+    "hr": "hrvatski",
+    "hy": "armenski",
+    "it": "talijanski",
+    "mk": "makedonski",
+    "ms": "malajski",
+    "ro": "rumunjski",
+    "ru": "ruski",
+    "sq": "albanski",
+    "sr": "srpski",
+    "switch": "Promjena jezika",
+    "tr": "turski",
+    "zh-CN": "kineski (pojednostavljeni)"
+  },
+  "loading": {
+    "default": "učitavanje...",
+    "refreshing": "osvježavajući…",
+    "saving": "Spremanje..."
+  },
+  "nav": {
+    "breadcrumb": "Breadcrumb",
+    "closeMenu": "Zatvori izbornik",
+    "openMenu": "Otvori izbornik"
+  },
+  "pagination": {
+    "noResults": "Nema rezultata",
+    "page": "Stranica {{page}}",
+    "showing": "Prikazujem {{start}}–{{end}}"
+  },
+  "reports": {
+    "eyebrow": "izvješća"
+  },
+  "noPermission": "Nema dopuštenja.",
+  "crm": "CRM",
+  "clientPortal": "Portal za klijente",
+  "tasks": "Zadaci",
+  "comingSoon": "Dolazi uskoro",
+  "notifications": {
+    "title": "Obavijesti",
+    "unread": "nepročitano",
+    "markAllRead": "Označi sve pročitano",
+    "couldNotLoad": "Nije moguće učitati obavijesti.",
+    "noNotificationsYet": "Još nema obavijesti."
+  },
+  "yesNo": {
+    "dash": "-",
+    "no": "Ne",
+    "none": "Nijedan",
+    "yes": "Da"
+  }
+}

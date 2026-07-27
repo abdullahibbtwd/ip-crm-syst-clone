@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Cargando abogados…",
+    "placeholder": "Seleccionar abogado responsable",
+    "unassigned": "No asignado"
+  },
+  "filters": {
+    "activeOnly": "Solo activa",
+    "allStatuses": "Todos los estados",
+    "inactiveOnly": "Solo inactiva",
+    "searchPortal": "Buscar usuarios del portal…",
+    "searchTeam": "Buscar miembros del equipo..."
+  },
+  "invite": {
+    "button": "Invitar usuario",
+    "cancel": "Cancelar",
+    "clientPlaceholder": "Seleccionar registro de cliente…",
+    "clientRecord": "Registro de cliente",
+    "description": "Invite a un miembro del equipo o a un cliente del portal. Recibirán un correo electrónico con un enlace para establecer su contraseña o iniciar sesión con Microsoft o Google.",
+    "email": "Correo electrónico",
+    "emailFailed": "No se pudo enviar el correo electrónico de invitación",
+    "emailFailedContinue": "Se creó el usuario: ciérrelo y reenvíelo más tarde",
+    "emailFailedTitle": "Usuario invitado, pero no se pudo enviar el correo electrónico.",
+    "emailHint": "Se envía un correo electrónico de invitación con un enlace para establecer una contraseña. También pueden iniciar sesión en Microsoft o Google utilizando este correo electrónico exacto. Si el correo electrónico falla, el usuario aún se crea y puede reenviarlo desde la lista de usuarios.",
+    "emailPlaceholder": "nombre@empresa.com",
+    "errors": {
+      "clientRequired": "Seleccionar un registro de cliente para usuarios del portal",
+      "failed": "No se pudo invitar a la usuaria",
+      "required": "Se requiere correo electrónico y nombre completo"
+    },
+    "fullName": "nombre completo",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "El último intento de correo electrónico falló",
+    "resend": "Reenviar invitación",
+    "resendFailed": "No se pudo reenviar el correo electrónico de invitación",
+    "resendSuccess": "Correo electrónico de invitación enviado",
+    "role": "Role",
+    "submit": "enviar invitación",
+    "submitting": "Atractiva…",
+    "title": "Invitar usuario",
+    "typePortal": "Cliente del portal",
+    "typeTeam": "Miembro del equipo",
+    "userType": "Tipo de usuario"
+  },
+  "layout": {
+    "accessRestricted": "Acceso restringido",
+    "description": "Administre los miembros del equipo interno y las cuentas de clientes del portal externo. El SSO y el inicio de sesión basado en contraseña se muestran por usuario.",
+    "noPermission": "No tienes permiso para ver usuarios y miembros del equipo.",
+    "title": "Usuarios y equipo"
+  },
+  "portal": {
+    "description": "Cuentas de clientes externos con acceso al portal para asuntos y documentos compartidos.",
+    "title": "Usuarios del portal"
+  },
+  "role": {
+    "errors": {
+      "failed": "No se pudo actualizar el rol"
+    },
+    "ownRoleHint": "No puedes cambiar tu propio rol."
+  },
+  "table": {
+    "authMethod": {
+      "password": "Contraseña",
+      "pending": "Pendiente",
+      "sso": "SSO"
+    },
+    "clientRecord": "Registro de cliente",
+    "empty": "No se encontraron usuarios",
+    "emptyDescription": "Intente ajustar la búsqueda o los filtros.",
+    "error": "No se pudieron cargar los usuarios.",
+    "headers": {
+      "invite": "Invitar",
+      "lastLogin": "Último inicio de sesión",
+      "mfa": "Ministerio de Asuntos Exteriores",
+      "registered": "Registrada",
+      "role": "Role",
+      "signIn": "Iniciar sesión",
+      "status": "Estado",
+      "user": "Usuaria"
+    },
+    "mfa": {
+      "enabled": "Activada",
+      "off": "Apagada"
+    },
+    "status": {
+      "active": "Activa",
+      "inactive": "Inactiva",
+      "invited": "Invitada"
+    },
+    "viewAria": "Ver {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "cuentas de clientes",
+      "label": "Usuarios del portal"
+    },
+    "team": {
+      "description": "Personal interna",
+      "label": "Equipo"
+    }
+  },
+  "team": {
+    "description": "Personal interno con roles, método de inicio de sesión y estado de MFA. Los socios administradores y los administradores de TI pueden invitar a usuarios y cambiar roles.",
+    "title": "Miembros del equipo"
+  },
+  "teamMemberSelect": {
+    "loading": "Cargando…",
+    "placeholder": "Seleccionar miembro del equipo"
+  }
+}

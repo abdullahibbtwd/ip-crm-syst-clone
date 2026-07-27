@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Pista de auditoría",
+    "subtitle": "Registro de auditoría de todo el sistema para revisión del cumplimiento.",
+    "loading": "Cargando pista de auditoría...",
+    "loadFailed": "No se pudo cargar el registro de auditoría.",
+    "empty": "No se encontraron entradas de auditoría.",
+    "columns": {
+      "when": "Cuando",
+      "user": "Usuaria",
+      "action": "Acción",
+      "resource": "Recurso",
+      "module": "Módulo"
+    }
+  },
+  "dataExports": {
+    "title": "Registro de exportaciones de datos",
+    "subtitle": "Se realiza un seguimiento de las exportaciones y descargas de datos personales para cumplir con el RGPD.",
+    "loading": "Cargando registro de exportación…",
+    "loadFailed": "No se pudo cargar el registro de exportación.",
+    "empty": "Aún no se han registrado exportaciones.",
+    "columns": {
+      "when": "Cuando",
+      "user": "Usuaria",
+      "resource": "Recurso",
+      "clientId": "ID de cliente"
+    }
+  },
+  "retention": {
+    "title": "Reglas de retención",
+    "subtitle": "Políticas de retención de GDPR aplicadas por el trabajo de análisis nocturno (predeterminado a las 3:00 a. m.). Utilice el ensayo para obtener una vista previa de cuántos registros se verían afectados.",
+    "noPermission": "No tienes permiso para gestionar las reglas de retención.",
+    "newRule": "Nueva regla",
+    "loading": "Cargando reglas de retención…",
+    "loadFailed": "No se pudieron cargar las reglas de retención.",
+    "empty": "Aún no hay reglas de retención.",
+    "dryRun": "Ejecución en seco",
+    "dryRunAria": "Regla de retención de ejecución en seco",
+    "editAria": "Editar regla de retención",
+    "dryRunResult": "Ejecución en seco: afectaría los registros {{count}} (límite {{cutoff}}).",
+    "dryRunFailed": "Error en el ensayo",
+    "auditTrailHint": "Ver el historial de purga en el",
+    "auditTrailLink": "pista de auditoría",
+    "auditTrailFilter": "(acción de filtro: retención_rule_executed).",
+    "columns": {
+      "entity": "Entidad",
+      "condition": "Condición",
+      "retention": "Retención",
+      "action": "Acción",
+      "status": "Estado",
+      "description": "Descripción"
+    },
+    "drawer": {
+      "createTitle": "Nueva regla de retención",
+      "editTitle": "Editar regla de retención",
+      "entityType": "Tipo de entidad",
+      "condition": "Condición",
+      "conditionRejected": "Estado = rechazado",
+      "conditionNotConverted": "No convertida (excl. Rechazada)",
+      "auditLogsHint": "Las reglas del registro de auditoría se aplican a todos los registros anteriores al período de retención. La acción siempre es eliminar.",
+      "retentionDays": "Retención (días)",
+      "action": "Acción",
+      "description": "Descripción",
+      "status": "Estado",
+      "createRule": "Crear regla"
+    },
+    "entityTypes": {
+      "intake_leads": "La ingesta conduce",
+      "audit_logs": "Registros de auditoría"
+    },
+    "actions": {
+      "anonymize": "Anonimizar",
+      "delete": "Borrar"
+    },
+    "conditions": {
+      "allRecords": "Todos los registros",
+      "rejected": "Estado = rechazado",
+      "notConverted": "No convertida (excl. Rechazada)",
+      "noStatusFilter": "Sin filtro de estado"
+    },
+    "status": {
+      "active": "Activa",
+      "inactive": "Inactiva"
+    },
+    "errors": {
+      "invalidDays": "Introduzca un período de retención válido en días",
+      "saveFailed": "No se pudo guardar la regla de retención",
+      "confirmSave": "Las reglas de retención se ejecutan en el trabajo de análisis nocturno (predeterminado a las 3:00 a. m.). ¿Continuar guardando?"
+    },
+    "duration": {
+      "days": "{{days}} días",
+      "daysWithYears_one": "{{days}} días ({{count}} año)",
+      "daysWithYears_other": "{{days}} días ({{count}} años)",
+      "daysWithMonths_one": "{{days}} días ({{count}} mes)",
+      "daysWithMonths_other": "{{days}} días ({{count}} meses)",
+      "daysApproxYears": "{{days}} días (~{{years}} años)",
+      "daysApproxMonths": "{{days}} días (~{{months}} meses)"
+    }
+  }
+}

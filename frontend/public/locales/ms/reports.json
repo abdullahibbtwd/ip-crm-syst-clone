@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "semasa",
+      "overdue30": "1–30 hari",
+      "overdue60": "31–60 hari",
+      "overdue90plus": "90+ hari"
+    },
+    "bucketsShort": {
+      "current": "semasa",
+      "overdue30": "30h",
+      "overdue60": "60h",
+      "overdue90plus": "90h+"
+    },
+    "legend": "Lagenda penuaan",
+    "noOpenReceivables": "Tiada penghutang terbuka"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} kumpulan pelanggan",
+    "clientGroups_other": "{{count}} kumpulan pelanggan",
+    "clientMatters": "Perkara pelanggan",
+    "clientsInWindow": "{{clients}} pelanggan · {{days}} hari ufuk",
+    "crossTabTitle": "Pelanggan × bidang kuasa × peguam",
+    "description": "Tarikh akhir kritikal yang akan datang dikumpulkan mengikut klien, bidang kuasa dan peguam yang bertanggungjawab. Warna kecemasan sepadan dengan senarai kerja tarikh akhir dan peristiwa penting pemberitahuan.",
+    "emptyDescription": "Cuba luaskan tetingkap portfolio atau kosongkan penapis.",
+    "emptyTitle": "Tiada tarikh akhir dalam tetingkap ini",
+    "error": "Tidak dapat memuatkan laporan risiko tarikh akhir.",
+    "filters": {
+      "allAssignees": "Semua penerima tugasan",
+      "allAttorneys": "Semua peguam",
+      "allJurisdictions": "Semua bidang kuasa",
+      "jurisdiction": "Bidang kuasa",
+      "portfolioWindow": "Tetingkap portfolio (hari)",
+      "responsibleAttorney": "Peguam yang bertanggungjawab"
+    },
+    "generated": "Dijana {{date}}",
+    "loading": "Memuatkan risiko portfolio…",
+    "openWorklist": "Buka senarai kerja",
+    "stats": {
+      "critical": "kritikal",
+      "criticalHint": "Tertunggak, hari ini, atau ≤7 hari",
+      "dueToday": "Diperuntukkan hari ini",
+      "dueTodayHint": "Tindakan diperlukan hari ini",
+      "inWindow": "Dalam tingkap",
+      "overdue": "Tertunggak",
+      "overdueHint": "Sudah lewat tempoh atau meningkat"
+    },
+    "table": {
+      "deadline": "Tarikh akhir",
+      "due": "kena bayar",
+      "matter": "Perkara",
+      "status": "Status"
+    },
+    "title": "Risiko portfolio tarikh akhir"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Mengikut bidang kuasa",
+    "byMonth": "Pemfailan mengikut bulan",
+    "description": "Permohonan yang difailkan - diagregatkan daripada acara pemfailan garis masa perkara, dikumpulkan mengikut bulan, jenis perkara dan bidang kuasa.",
+    "error": "Tidak dapat memuatkan volum pemfailan.",
+    "filters": {
+      "allJurisdictions": "Semua bidang kuasa",
+      "allTypes": "Semua jenis",
+      "jurisdiction": "Bidang kuasa",
+      "matterType": "Jenis jirim",
+      "periodFrom": "Tempoh dari",
+      "periodTo": "Tempoh ke"
+    },
+    "generated": "Dijana {{date}}",
+    "loading": "Memuatkan volum pemfailan…",
+    "matterPortfolio": "Portfolio perkara",
+    "noFilings": "Tiada pemfailan dalam tempoh.",
+    "stats": {
+      "jurisdictions": "Bidang kuasa",
+      "jurisdictionsHint": "Pihak berkuasa pemfailan",
+      "matterTypes": "Jenis jirim",
+      "matterTypesHint": "Jenis berbeza difailkan",
+      "totalFilings": "Jumlah pemfailan",
+      "totalFilingsHint": "Dalam tempoh yang dipilih"
+    },
+    "table": {
+      "filingDate": "Tarikh pemfailan",
+      "filings": "Pemfailan",
+      "jurisdiction": "Bidang kuasa",
+      "matter": "Perkara",
+      "month": "bulan",
+      "type": "taip"
+    },
+    "title": "Jumlah pemfailan"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Menjelang bulan yang sepatutnya",
+    "byJurisdiction": "Mengikut bidang kuasa",
+    "cycle": "kitaran {{number}}",
+    "description": "Tetingkap pembaharuan akan datang mengikut status, bidang kuasa dan bulan tamat tempoh - dengan peringkat segera diselaraskan dengan pelaporan risiko tarikh akhir.",
+    "dueBefore": "Diperuntukkan sebelum ini",
+    "dueBeforeLabel": "Perlu dibayar sebelum {{date}}",
+    "error": "Tidak dapat memuatkan ringkasan pembaharuan.",
+    "filters": {
+      "allJurisdictions": "Semua bidang kuasa",
+      "jurisdiction": "Bidang kuasa"
+    },
+    "generated": "Dijana {{date}}",
+    "loading": "Memuatkan ringkasan pembaharuan…",
+    "noRenewals": "Tiada pembaharuan dalam tetingkap.",
+    "renewalsWorklist": "Senarai kerja pembaharuan",
+    "stats": {
+      "critical": "kritikal",
+      "criticalHint": "Tertunggak atau perlu dibayar ≤7 hari",
+      "instructed": "Diarahkan",
+      "instructedHint": "Teruskan disahkan",
+      "pipeline": "Saluran paip",
+      "pipelineHint": "Tetingkap pembaharuan aktif",
+      "upcoming": "Akan datang",
+      "upcomingHint": "Menunggu arahan"
+    },
+    "table": {
+      "client": "Pelanggan",
+      "due": "kena bayar",
+      "ipRight": "IP betul",
+      "month": "bulan",
+      "status": "Status",
+      "windows": "Windows"
+    },
+    "title": "Ringkasan pembaharuan"
+  },
+  "renewalUrgency": {
+    "legend": "Pembaharuan segera",
+    "noPipeline": "Tiada pembaharuan saluran paip",
+    "overdue": "Tertunggak",
+    "soon": "≤30 hari",
+    "today": "Diperuntukkan hari ini",
+    "urgent": "≤7 hari"
+  },
+  "revenueSummary": {
+    "agingDetail": "Butiran penghutang terbuka",
+    "agingSection": {
+      "description": "Gambar bagi semua penghutang terbuka mengikut hari yang telah lewat",
+      "title": "Ringkasan penuaan"
+    },
+    "description": "Jumlah invois yang dikeluarkan mengikut bulan, kutipan dan penghutang terbuka yang berumur mengikut hari yang telah lewat tempoh - sejajar dengan senario penjejakan pembayaran Kewangan.",
+    "error": "Tidak dapat memuatkan ringkasan hasil.",
+    "filters": {
+      "periodFrom": "Tempoh dari",
+      "periodTo": "Tempoh ke"
+    },
+    "generated": "Dijana {{date}}",
+    "invoice_one": "{{count}} invois",
+    "invoice_other": "{{count}} invois",
+    "invoiceRegister": "Daftar invois",
+    "issuedInPeriod_one": "revenueSummary.issuedInPeriod",
+    "issuedInPeriod_other": "revenueSummary.issuedInPeriod",
+    "loading": "Memuatkan ringkasan hasil…",
+    "noInvoices": "Tiada invois dikeluarkan dalam tempoh ini.",
+    "noReceivables": "Tiada hutang tertunggak.",
+    "openInvoices_one": "revenueSummary.openInvois",
+    "openInvoices_other": "revenueSummary.openInvois",
+    "period": "Tempoh {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Jumlah invois yang dikeluarkan dikumpulkan mengikut bulan terbitan",
+      "title": "Hasil mengikut bulan"
+    },
+    "stats": {
+      "collected": "Dikumpul",
+      "collectedHint": "Pembayaran direkodkan dalam tempoh",
+      "criticalReceivables": "60+ hari tertunggak",
+      "criticalReceivablesHint": "Penghutang yang memerlukan susulan",
+      "outstanding": "Cemerlang",
+      "totalInvoiced": "Jumlah invois"
+    },
+    "table": {
+      "aging": "Penuaan",
+      "client": "Pelanggan",
+      "due": "kena bayar",
+      "invoice": "Invois",
+      "invoiced": "Diinvois",
+      "month": "bulan",
+      "open": "Buka",
+      "outstanding": "Cemerlang",
+      "paid": "Dibayar"
+    },
+    "title": "Hasil & belum terima"
+  },
+  "urgency": {
+    "legend": "Legenda mendesak",
+    "noActiveRisk": "Tiada risiko aktif",
+    "overdue": "Tertunggak",
+    "soon": "Tempoh ≤30 hari",
+    "soonShort": "≤30 hari",
+    "today": "Diperuntukkan hari ini",
+    "todayShort": "Hari ini",
+    "urgent": "Tempoh ≤7 hari",
+    "urgentShort": "≤7 hari"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "kritikal",
+      "criticalHint": "≤ 7 hari",
+      "overdue": "Tertunggak",
+      "actionRequired": "Tindakan diperlukan",
+      "dueToday": "Diperuntukkan hari ini",
+      "requiresSignOff": "Memerlukan log keluar",
+      "nextDays": "{{days}} hari seterusnya",
+      "clientsInWindow": "{{count}} pelanggan dalam tetingkap",
+      "windowSummary": "Ringkasan tetingkap",
+      "priorityDeadlines": "Tarikh akhir keutamaan",
+      "prioritySubtitle": "Perkara paling mendesak yang memerlukan pemantauan",
+      "openReport": "Buka laporan",
+      "loading": "Mengimbas vektor risiko…",
+      "error": "Tidak dapat memuatkan analitis risiko.",
+      "highestExposure": "Pendedahan berisiko tertinggi",
+      "criticalCount": "{{count}} kritikal",
+      "portfolioClear": "Portfolio jelas",
+      "noCriticalInWindow": "Tiada risiko kritikal dikesan dalam {{days}} hari berikutnya.",
+      "table": {
+        "priorityDeadline": "Tarikh akhir keutamaan",
+        "clientJurisdiction": "Pelanggan & bidang kuasa",
+        "dueDate": "Tarikh Akhir"
+      },
+      "showingOf": "Menunjukkan {{shown}} daripada {{total}} item keutamaan",
+      "viewCrossTab": "Lihat laporan tab silang penuh"
+    },
+    "filingVolumes": {
+      "title": "Jumlah pemfailan",
+      "subtitle": "Permohonan difailkan di seluruh firma (12 bln terakhir)",
+      "fullReport": "Laporan penuh",
+      "loading": "Mengagregatkan sejarah pemfailan…",
+      "error": "Tidak dapat memuatkan analitis pemfailan.",
+      "totalFilings": "Jumlah pemfailan",
+      "yearToDate": "Tahun hingga kini",
+      "primaryType": "Jenis utama",
+      "applications_one": "{{count}} permohonan",
+      "applications_other": "{{count}} aplikasi",
+      "noData": "Tiada data",
+      "topRegion": "Wilayah teratas",
+      "monthActivity": "{{month}} Aktiviti:",
+      "newFiling_one": "{{count}} pemfailan baharu",
+      "newFiling_other": "{{count}} pemfailan baharu",
+      "empty": "Tiada pemfailan dikesan dalam sejarah terkini.",
+      "table": {
+        "matterInfo": "Maklumat perkara",
+        "type": "taip",
+        "filingDate": "Tarikh Pemfailan"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Diinvois (12 bln)",
+      "issued_one": "{{count}} dikeluarkan",
+      "issued_other": "{{count}} dikeluarkan",
+      "collected": "Dikumpul",
+      "paidInPeriod": "Dibayar dalam tempoh",
+      "outstanding": "Cemerlang",
+      "open_one": "{{count}} terbuka",
+      "open_other": "{{count}} terbuka",
+      "criticalRisk": "Risiko Kritikal",
+      "overdue60Days": "60+ hari tertunggak",
+      "receivablesAging": "Penghutang penuaan",
+      "agingSubtitle": "Buka invois yang dikeluarkan mengikut hari yang lewat",
+      "fullReport": "Laporan penuh",
+      "loading": "Menganalisis data penuaan…",
+      "error": "Tidak dapat memuatkan data penuaan.",
+      "portfolioHealthy": "Portfolio sihat",
+      "noReceivables": "Tiada hutang belum terima ditemui.",
+      "draftRef": "Ruj draf",
+      "table": {
+        "invoiceInfo": "Maklumat invois",
+        "client": "Pelanggan",
+        "outstanding": "Cemerlang"
+      },
+      "showingOf": "Menunjukkan {{shown}} daripada {{total}} invois terbuka",
+      "viewPortfolio": "Lihat keseluruhan portfolio"
+    },
+    "teamWorkload": {
+      "title": "Beban kerja pasukan",
+      "subtitle": "Perkara terbuka, tugas dan tarikh akhir setiap ahli",
+      "viewTeam": "Lihat pasukan",
+      "loading": "Mengira pengagihan beban kerja…",
+      "error": "Tidak dapat memuatkan data pasukan.",
+      "matters": "Perkara",
+      "members_one": "{{count}} ahli",
+      "members_other": "{{count}} ahli",
+      "tasks": "Tugasan",
+      "pendingAction": "Tindakan menunggu",
+      "deadlines": "Tarikh akhir",
+      "activeWindow": "Tetingkap aktif",
+      "busiest": "paling sibuk",
+      "items_one": "{{count}} item",
+      "items_other": "{{count}} item",
+      "clear": "Jelas",
+      "empty": "Tiada data pasukan aktif",
+      "table": {
+        "teamMember": "ahli pasukan",
+        "matters": "Perkara",
+        "tasks": "Tugasan",
+        "deadlines": "Tarikh akhir",
+        "total": "Jumlah"
+      }
+    },
+    "clientProfitability": {
+      "title": "Keuntungan pelanggan",
+      "subtitle": "Pengagihan hasil yang dibilkan mengikut portfolio pelanggan",
+      "viewAllClients": "Lihat semua pelanggan",
+      "loading": "Mengagregatkan data keuntungan…",
+      "error": "Tidak dapat memuatkan analitis pelanggan.",
+      "trueMargin": "Margin sebenar:",
+      "revenueProxy": "Proksi hasil:",
+      "totalRevenue": "Jumlah hasil",
+      "clients_one": "{{count}} pelanggan",
+      "clients_other": "{{count}} pelanggan",
+      "totalMargin": "Jumlah margin",
+      "topClient": "Pelanggan teratas",
+      "internalCost": "{{amount}} kos dalaman",
+      "noBillingData": "Tiada data pengebilan",
+      "unbilledWip": "WIP tidak dibilkan",
+      "pendingAccrual": "Akruan belum selesai",
+      "firmBilled": "Firma Dibilkan",
+      "totalMatters": "Jumlah perkara",
+      "empty": "Tiada data pengebilan pelanggan dikesan.",
+      "table": {
+        "clientPortfolio": "Portfolio pelanggan",
+        "matters": "Perkara",
+        "billable": "Boleh dibilkan",
+        "unbilled": "Tidak dibilkan",
+        "margin": "Margin",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Menunjukkan {{shown}} teratas daripada {{total}} pelanggan oleh {{basis}}",
+      "basisMargin": "margin",
+      "basisRevenue": "hasil",
+      "viewLeaderboard": "Lihat papan pendahulu penuh"
+    }
+  }
+}

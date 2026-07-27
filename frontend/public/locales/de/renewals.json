@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Demnächst",
+    "instructed": "Angewiesen",
+    "filed": "Abgelegt",
+    "completed": "Vollendet",
+    "lapsed": "Verfallen"
+  },
+  "page": {
+    "title": "Erneuerungen",
+    "descriptionMy": "Erneuerungsfenster für Ihnen zugewiesene Angelegenheiten.",
+    "descriptionFirm": "Firmenweite Erneuerungsarbeitsliste für alle IP-Rechte.",
+    "filters": {
+      "status": "Status",
+      "allStatuses": "Alle Status",
+      "jurisdiction": "Zuständigkeit",
+      "allJurisdictions": "Alle Gerichtsbarkeiten",
+      "assignee": "Abtretungsempfängerin",
+      "allAssignees": "Alle Beauftragten"
+    },
+    "loading": "Verlängerungen werden geladen…",
+    "empty": "Kein Verlängerungsfenster entspricht Ihren Filtern.",
+    "table": {
+      "ipRight": "IP richtig",
+      "matter": "Gegenstand",
+      "client": "Kunde",
+      "cycle": "Zyklus",
+      "due": "Fällig",
+      "status": "Status",
+      "assignee": "Abtretungsempfängerin"
+    }
+  },
+  "widget": {
+    "title": "Bevorstehende Erneuerungen",
+    "subtitle": "Nächste 90-Tage-Anweisungspipeline",
+    "viewPipeline": "Pipeline anzeigen",
+    "loading": "Erneuerungsfenster berechnen…",
+    "error": "Die Verlängerungsanalyse konnte nicht geladen werden.",
+    "stats": {
+      "totalPipeline": "Gesamtpipeline",
+      "activeWindows": "Aktive Fenster",
+      "awaiting": "Warten",
+      "noInstruction": "Noch keine Anleitung",
+      "urgent": "Dringend",
+      "due7Days": "Fälligkeit ≤ 7 Tage",
+      "instructed": "Angewiesen",
+      "proceedConfirmed": "Vorgang bestätigt"
+    },
+    "empty": "In diesem Fenster wurden keine Verlängerungen erfasst.",
+    "table": {
+      "ipAsset": "IP-Asset",
+      "client": "Kunde",
+      "dueStatus": "Fällig/Status"
+    },
+    "cycle": "Zyklus {{number}}"
+  }
+}

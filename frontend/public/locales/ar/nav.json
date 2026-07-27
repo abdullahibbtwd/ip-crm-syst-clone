@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "قم بتوسيع الشريط الجانبي",
+    "collapse": "طي الشريط الجانبي",
+    "close": "إغلاق الشريط الجانبي"
+  },
+  "sections": {
+    "overview": "ملخص",
+    "clients": "العملاء",
+    "matters": "يهم",
+    "ipRights": "حقوق الملكية الفكرية",
+    "finance": "تمويل",
+    "reports": "التقارير",
+    "myWork": "عملي",
+    "rights": "حقوق",
+    "communication": "تواصل",
+    "trademarks": "العلامات التجارية",
+    "deadlines": "المواعيد النهائية",
+    "correspondence": "مراسلة",
+    "documentsAndMail": "المستندات والبريد",
+    "billing": "الفواتير",
+    "compliance": "امتثال",
+    "gdpr": "اللائحة العامة لحماية البيانات",
+    "audit": "مراجعة",
+    "usersAndAccess": "المستخدمون والوصول",
+    "system": "نظام",
+    "myPortfolio": "محفظتي",
+    "myMatters": "أموري"
+  },
+  "items": {
+    "dashboard": "لوحة القيادة",
+    "deadlines": "المواعيد النهائية",
+    "alerts": "التنبيهات",
+    "clients": "العملاء",
+    "holdingGroups": "عقد المجموعات",
+    "allMatters": "كل الأمور",
+    "matters": "يهم",
+    "intakeQueue": "قائمة انتظار المدخول",
+    "rightsRegister": "سجل الحقوق",
+    "renewals": "التجديدات",
+    "watch": "يشاهد",
+    "billingOverview": "نظرة عامة على الفواتير",
+    "deadlineRisk": "خطر الموعد النهائي",
+    "filingVolumes": "مجلدات الايداع",
+    "renewalsSummary": "ملخص التجديدات",
+    "revenueReceivables": "الإيرادات والمستحقات",
+    "team": "فريق",
+    "settings": "إعدادات",
+    "myDashboard": "لوحة القيادة الخاصة بي",
+    "myDeadlines": "المواعيد النهائية الخاصة بي",
+    "myMatters": "أموري",
+    "patentFilings": "إيداعات براءات الاختراع",
+    "officeActions": "إجراءات المكتب",
+    "documents": "وثائق",
+    "correspondence": "مراسلة",
+    "myTmMatters": "يهم TM الخاص بي",
+    "oppositions": "المعارضة",
+    "watchAlerts": "مشاهدة التنبيهات",
+    "conflictCheck": "فحص الصراع",
+    "allDeadlines": "جميع المواعيد النهائية",
+    "escalations": "التصعيد",
+    "gracePeriods": "فترات السماح",
+    "addDeadline": "إضافة الموعد النهائي",
+    "incomingMail": "البريد الوارد",
+    "emailQueue": "قائمة انتظار البريد الإلكتروني",
+    "broadcasts": "البث",
+    "outgoingMail": "البريد الصادر",
+    "myTasks": "مهامي",
+    "assignedMatters": "الأمور المكلفة",
+    "financeDashboard": "لوحة القيادة المالية",
+    "invoices": "الفواتير",
+    "timeEntries": "إدخالات الوقت",
+    "payments": "المدفوعات",
+    "rateCards": "بطاقات المعدل",
+    "disbursements": "المدفوعات",
+    "complianceDashboard": "لوحة معلومات الامتثال",
+    "personalDataRegister": "سجل البيانات الشخصية",
+    "dataExportsLog": "سجل تصدير البيانات",
+    "retentionRules": "قواعد الاحتفاظ",
+    "deadlineRules": "قواعد الموعد النهائي",
+    "holidays": "تقويم العطلة",
+    "documentTemplates": "قوالب المستندات",
+    "precedents": "سوابق",
+    "partners": "الشركاء",
+    "consentRecords": "سجلات الموافقة",
+    "auditTrail": "مسار التدقيق",
+    "accessLog": "سجل الوصول",
+    "systemDashboard": "لوحة تحكم النظام",
+    "users": "المستخدمين",
+    "rolesPermissions": "الأدوار والأذونات",
+    "ssoMfaConfig": "تكوين SSO / MFA",
+    "integrations": "التكامل",
+    "systemHealth": "صحة النظام",
+    "auditLog": "سجل التدقيق",
+    "overview": "ملخص",
+    "enquiries": "الاستفسارات",
+    "myDocuments": "المستندات الخاصة بي",
+    "myInvoices": "فواتيري",
+    "messages": "رسائل",
+    "approvals": "الموافقات",
+    "help": "يساعد",
+    "myPortfolio": "محفظتي"
+  },
+  "roles": {
+    "managing_partner": "الشريك الإداري",
+    "ip_attorney": "الملكية الفكرية / محامي براءات الاختراع",
+    "trademark_attorney": "محامي العلامات التجارية",
+    "coordinator": "منسق / تناول",
+    "docketing_admin": "مسؤول الإرساء",
+    "paralegal": "مساعد قانوني",
+    "finance": "تمويل",
+    "dpo_compliance": "DPO / الامتثال",
+    "it_admin": "تكنولوجيا المعلومات / المشرف",
+    "portal_client": "العميل (البوابة)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "قريبًا - ستعرض هذه المنطقة بيانات حية بمجرد توصيل الوحدة."
+    },
+    "managing_partner": {
+      "eyebrow": "نظرة عامة ثابتة",
+      "title": "نظرة عامة ثابتة",
+      "description": "مخاطر الموعد النهائي للمحفظة، وأحجام الملفات، ومسارات التجديد، والإيرادات، وعبء عمل الفريق، وربحية العميل - إعداد التقارير على مستوى الشركة من منزل واحد."
+    },
+    "coordinator": {
+      "eyebrow": "تنسيق",
+      "title": "الاستيعاب والتنسيق",
+      "description": "خط أنابيب السحب وأحجام الملفات والتجديدات القادمة - تنسيق الاستفسارات حتى النيابة."
+    },
+    "docketing_admin": {
+      "eyebrow": "وضع الأجندات",
+      "title": "لوحة الموعد النهائي",
+      "description": "الموعد النهائي ومخاطر جدول الأعمال على مستوى الشركة - مجمعة حسب العميل والولاية القضائية والمكلف به مع تسليط الضوء على الحاجة الملحة."
+    },
+    "finance": {
+      "eyebrow": "تمويل",
+      "title": "نظرة عامة على التمويل",
+      "description": "إصدار الإيرادات والتحصيلات وتقادم المستحقات - إصدار الفواتير وتتبع المدفوعات من مكان واحد."
+    },
+    "portal_client": {
+      "eyebrow": "بوابة العميل",
+      "title": "مرحبًا بعودتك",
+      "description": "إرسال استفسارات التسجيل وتتبع الأمور لمؤسستك."
+    },
+    "myDashboard": {
+      "title": "لوحة القيادة الخاصة بي"
+    },
+    "myTasks": {
+      "title": "مهامي"
+    },
+    "compliance": {
+      "eyebrow": "اللائحة العامة لحماية البيانات والامتثال",
+      "title": "امتثال",
+      "description": "سياسات الاستبقاء وسجلات الوصول وصادرات الوصول إلى الموضوع."
+    },
+    "systemDashboard": {
+      "title": "لوحة تحكم النظام"
+    }
+  }
+}

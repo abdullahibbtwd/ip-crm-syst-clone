@@ -1,0 +1,87 @@
+{
+  "title": "Partnerët e huaj",
+  "subtitle": "Agjentët lokalë dhe këshilltarët e bashkëpunëtorëve të përdorur për dosjet dhe udhëzimet e çështjes.",
+  "newPartner": "Partner i ri",
+  "noPermission": "Ju nuk keni leje për të parë partnerët.",
+  "loading": "Partnerët po ngarkohen…",
+  "loadError": "Ngarkimi i partnerëve dështoi.",
+  "empty": "Asnjë partner nuk përputhet me këto filtra.",
+  "searchPlaceholder": "Kërkoni emrin, kompaninë, emailin…",
+  "filters": {
+    "all": "Të gjithë partnerët",
+    "activeOnly": "Vetëm aktive"
+  },
+  "columns": {
+    "name": "Emri",
+    "company": "Kompania",
+    "email": "Email",
+    "jurisdictions": "Juridiksionet",
+    "status": "Statusi"
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Joaktiv"
+  },
+  "editAria": "Redakto partnerin",
+  "deactivateAria": "Çaktivizo partnerin",
+  "confirmDeactivate": "Të çaktivizohet partneri \"{{name}}\"?",
+  "drawer": {
+    "createTitle": "Partner i ri",
+    "editTitle": "Redakto partnerin",
+    "name": "Emri",
+    "company": "Kompania",
+    "email": "Email",
+    "phone": "Telefoni",
+    "countryCode": "Kodi i shtetit",
+    "jurisdictions": "Juridiksionet",
+    "jurisdictionsHint": "Kodet e ndara me presje, p.sh. BG, BE, PE",
+    "notes": "Shënime",
+    "status": "Statusi",
+    "cancel": "Anulo",
+    "create": "Krijo partner",
+    "save": "Ruaj ndryshimet"
+  },
+  "errors": {
+    "nameRequired": "Kërkohet emri",
+    "saveFailed": "Shpëtimi i partnerit dështoi"
+  },
+  "instructions": {
+    "title": "Udhëzimet e partnerit",
+    "subtitle": "Hartoni, dërgoni dhe gjurmoni udhëzime për partnerët e huaj për këtë çështje.",
+    "newDraft": "Drafti i ri",
+    "noPermission": "Ju nuk keni leje për të parë udhëzimet e partnerit.",
+    "loading": "Udhëzimet po ngarkohen…",
+    "loadError": "Ngarkimi i udhëzimeve dështoi.",
+    "empty": "Nuk ka ende udhëzime për partnerin.",
+    "columns": {
+      "title": "Titulli",
+      "partner": "Partner",
+      "status": "Statusi",
+      "created": "Krijuar"
+    },
+    "status": {
+      "draft": "Drafti",
+      "sent": "Dërguar",
+      "acknowledged": "I pranuar",
+      "complete": "Kompletuar"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Zgjidhni partnerin",
+      "title": "Titulli",
+      "body": "Udhëzimet",
+      "cancel": "Anulo",
+      "create": "Krijo draft"
+    },
+    "errors": {
+      "required": "Kërkohet partneri dhe titulli",
+      "saveFailed": "Krijimi i udhëzimit dështoi"
+    }
+  },
+  "actions": {
+    "send": "Dërgo",
+    "acknowledge": "pranoni",
+    "complete": "Kompletuar"
+  }
+}

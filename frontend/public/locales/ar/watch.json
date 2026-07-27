@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "مراقبة العلامات التجارية",
+    "description": "قم بمراجعة التعارضات المحتملة التي تم اكتشافها في ملفات تعريف المراقبة النشطة.",
+    "empty": "لا توجد تنبيهات مشاهدة تتطابق مع عوامل التصفية الخاصة بك.",
+    "loading": "جارٍ تحميل تنبيهات الساعة…"
+  },
+  "detail": {
+    "title": "شاهد التنبيه",
+    "back": "العودة لمشاهدة قائمة العمل",
+    "loading": "جارٍ تحميل التنبيه…",
+    "notFound": "لم يتم العثور على تنبيه الساعة.",
+    "watchedMark": "علامة شاهدت",
+    "conflictingMark": "علامة متعارضة",
+    "registrySource": "مصدر التسجيل",
+    "jurisdiction": "الولاية القضائية",
+    "applicationNumber": "رقم الطلب",
+    "similarity": "تشابه",
+    "detectedAt": "مُكتَشَف",
+    "client": "عميل",
+    "profile": "مشاهدة الملف الشخصي",
+    "niceClasses": "فصول جميلة",
+    "reject": "رفض التنبيه",
+    "accept": "قبول وإنشاء المسألة",
+    "rejectConfirm": "هل تريد وضع علامة على هذا التنبيه باعتباره نتيجة إيجابية كاذبة؟",
+    "acceptConfirm": "إنشاء مسألة معارضة من هذا التنبيه؟",
+    "triagedBy": "تم الفرز بواسطة {{name}}",
+    "linkedMatter": "أمر مرتبط"
+  },
+  "clientTab": {
+    "title": "مشاهدة الملفات الشخصية",
+    "description": "مراقبة العلامات عبر السجلات باستخدام رموز الاختصاص القانوني (BG، EU، EP).",
+    "add": "إضافة ساعة العلامة التجارية",
+    "empty": "لا توجد ملفات تعريف للمشاهدة حتى الآن. أضف ملفًا شخصيًا لبدء مراقبة علامات هذا العميل.",
+    "loading": "جارٍ تحميل ملفات تعريف المشاهدة…",
+    "pause": "يوقف",
+    "resume": "سيرة ذاتية",
+    "archive": "أرشيف",
+    "epoScan": "مسح EPO للتنبيهات",
+    "epoScanning": "جارٍ مسح EPO...",
+    "epoScanSuccess": "تم إنشاء {{alerts}} تنبيه (تنبيهات) EPO جديدة من {{profiles}} ملف (ملفات) شخصية.",
+    "epoScanFailed": "فشل فحص ساعة EPO",
+    "viewAlerts": "عرض تنبيهات الساعة"
+  },
+  "drawer": {
+    "title": "إضافة ساعة العلامة التجارية",
+    "markText": "وضع علامة على النص *",
+    "markPlaceholder": "على سبيل المثال كوكا كولا",
+    "jurisdictions": "الولايات القضائية *",
+    "jurisdictionsHint": "الرموز الأساسية — وليس أسماء التسجيل. تستخدم ساعات BPO BG؛ ساعات EUIPO تستخدم الاتحاد الأوروبي.",
+    "niceClasses": "فصول جميلة",
+    "niceClassesPlaceholder": "على سبيل المثال 32، 33",
+    "frequency": "تردد المسح",
+    "save": "حفظ الملف الشخصي للساعة"
+  },
+  "filters": {
+    "status": "حالة",
+    "jurisdiction": "الولاية القضائية",
+    "source": "مصدر التسجيل",
+    "minSimilarity": "مين التشابه",
+    "anySimilarity": "أي التشابه",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "الترتيب حسب",
+    "sortDetected": "الأحدث أولاً",
+    "sortSimilarity": "أعلى التشابه",
+    "all": "الجميع"
+  },
+  "stats": {
+    "new": "تنبيهات جديدة",
+    "accepted": "مقبول",
+    "rejected": "مرفوض"
+  },
+  "profileStatus": {
+    "active": "نشيط",
+    "paused": "متوقف مؤقتًا",
+    "archived": "مؤرشف"
+  },
+  "alertStatus": {
+    "new": "جديد",
+    "rejected": "مرفوض",
+    "accepted": "مقبول"
+  },
+  "frequency": {
+    "daily": "يوميًا",
+    "weekly": "أسبوعي"
+  },
+  "table": {
+    "mark": "علامة شاهدت",
+    "conflict": "صراع",
+    "client": "عميل",
+    "similarity": "تشابه",
+    "source": "مصدر",
+    "jurisdiction": "الولاية القضائية",
+    "status": "حالة",
+    "detected": "مُكتَشَف",
+    "frequency": "تكرار",
+    "classes": "فصول",
+    "profiles": "الملفات الشخصية",
+    "actions": "الإجراءات"
+  }
+}

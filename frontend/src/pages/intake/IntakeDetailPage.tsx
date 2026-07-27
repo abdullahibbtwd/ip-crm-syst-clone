@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { AlertTriangle, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { CounterpartiesSection } from '@/components/intake/CounterpartiesSection'
 import { useAuth } from '@/features/auth/AuthProvider'
@@ -11,13 +12,13 @@ import {
 } from '@/features/intake/hooks/useIntake'
 import { convertIntakeSchema } from '@/features/intake/schemas'
 import {
-  INTAKE_STATUS_LABELS,
-  MATTER_TYPE_LABELS,
-  REFERRAL_SOURCE_LABELS,
-  CONFLICT_ENTITY_LABELS,
+  conflictEntityLabel,
   formatSimilarity,
   groupConflictHits,
   intakeDisplayName,
+  intakeMatterTypeLabel,
+  intakeStatusLabel,
+  referralSourceLabel,
 } from '@/features/intake/utils'
 import { useHoldingGroups } from '@/features/crm/hooks/useHoldingGroups'
 import { Badge } from '@/components/ui/badge'
@@ -35,6 +36,7 @@ import { getCountryLabel } from '@/lib/countries'
 import { cn } from '@/lib/utils'
 
 export function IntakeDetailPage() {
+  const { t } = useTranslation(['intake', 'common'])
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { user } = useAuth()
@@ -52,9 +54,11 @@ export function IntakeDetailPage() {
   const latestCheck = lead?.conflictChecks[0]
   const isPortalSubmission = lead?.source === 'portal' && Boolean(lead?.submittedClient)
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading intake lead…</p>
+  if (isLoading) {
+    return <p className="text-sm text-muted-foreground">{t('intake:detail.loadingLead')}</p>
+  }
   if (isError || !lead) {
-    return <p className="text-sm text-destructive">Intake lead not found.</p>
+    return <p className="text-sm text-destructive">{t('intake:detail.notFound')}</p>
   }
 
   const handleConvert = async () => {
@@ -64,7 +68,7 @@ export function IntakeDetailPage() {
       holdingGroupId,
     })
     if (!parsed.success) {
-      setConvertError(parsed.error.issues[0]?.message ?? 'Invalid form')
+      setConvertError(parsed.error.issues[0]?.message ?? t('intake:convert.invalidForm'))
       return
     }
     try {
@@ -77,11 +81,11 @@ export function IntakeDetailPage() {
       const clientId = result.convertedClient?.id
       if (clientId) navigate(`/clients/${clientId}/overview`, { replace: true })
     } catch (err) {
-      setConvertError(getApiErrorMessage(err, 'Conversion failed'))
+      setConvertError(getApiErrorMessage(err, t('intake:convert.conversionFailed')))
     }
   }
 
-  const matterPreviewTitle = `${intakeDisplayName(lead)} - ${MATTER_TYPE_LABELS[lead.matterType]}`
+  const matterPreviewTitle = `${intakeDisplayName(lead)} - ${intakeMatterTypeLabel(lead.matterType)}`
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -89,49 +93,53 @@ export function IntakeDetailPage() {
         to="/intake"
         className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
       >
-        ← Back to intake
+        {t('intake:detail.back')}
       </Link>
 
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl">{intakeDisplayName(lead)}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            {MATTER_TYPE_LABELS[lead.matterType]} · {REFERRAL_SOURCE_LABELS[lead.referralSource]}
+            {intakeMatterTypeLabel(lead.matterType)} · {referralSourceLabel(lead.referralSource)}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {isPortalSubmission && (
             <Badge variant="outline" className="border-primary/40 bg-primary/5 text-primary">
-              Portal submission
+              {t('intake:detail.portalSubmission')}
             </Badge>
           )}
-          <Badge variant="secondary">{INTAKE_STATUS_LABELS[lead.status]}</Badge>
+          <Badge variant="secondary">{intakeStatusLabel(lead.status)}</Badge>
         </div>
       </div>
 
       <Card className="shadow-none">
         <CardHeader>
-          <CardTitle className="text-base">Enquiry details</CardTitle>
+          <CardTitle className="text-base">{t('intake:detail.enquiryDetails')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 text-sm sm:grid-cols-2">
-          <Field label="Type" value={lead.enquirerType} />
-          <Field label="Country" value={getCountryLabel(lead.country)} />
-          {lead.companyName && <Field label="Company" value={lead.companyName} />}
-          {lead.fullName && <Field label="Contact name" value={lead.fullName} />}
-          <Field label="Email" value={lead.email} />
-          <Field label="Phone" value={lead.phone} />
-          <Field label="Urgency" value={lead.urgency} />
+          <Field label={t('intake:detail.type')} value={lead.enquirerType} />
+          <Field label={t('intake:detail.country')} value={getCountryLabel(lead.country)} />
+          {lead.companyName && <Field label={t('intake:detail.company')} value={lead.companyName} />}
+          {lead.fullName && (
+            <Field label={t('intake:detail.contactName')} value={lead.fullName} />
+          )}
+          <Field label={t('intake:detail.email')} value={lead.email} />
+          <Field label={t('intake:detail.phone')} value={lead.phone} />
+          <Field label={t('intake:detail.urgency')} value={lead.urgency} />
           <Field
-            label="Responsible attorney"
-            value={lead.assignedUser?.fullName ?? 'Not assigned'}
+            label={t('intake:detail.responsibleAttorney')}
+            value={lead.assignedUser?.fullName ?? t('intake:detail.notAssigned')}
           />
-          {lead.referredBy && <Field label="Referred by" value={lead.referredBy} />}
+          {lead.referredBy && (
+            <Field label={t('intake:detail.referredBy')} value={lead.referredBy} />
+          )}
           <div className="sm:col-span-2">
-            <Field label="Description" value={lead.description} />
+            <Field label={t('intake:detail.description')} value={lead.description} />
           </div>
           {lead.notes && (
             <div className="sm:col-span-2">
-              <Field label="Internal notes" value={lead.notes} />
+              <Field label={t('intake:detail.internalNotes')} value={lead.notes} />
             </div>
           )}
         </CardContent>
@@ -145,20 +153,17 @@ export function IntakeDetailPage() {
 
       <Card className="shadow-none">
         <CardHeader>
-          <CardTitle className="text-base">Conflict check</CardTitle>
+          <CardTitle className="text-base">{t('intake:conflict.title')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {!latestCheck && lead.status !== 'converted' && lead.status !== 'rejected' && (
             <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
-                Fuzzy search across clients, contacts, related companies, and recorded
-                counterparties. Matches above 30% composite similarity are flagged for review.
-              </p>
+              <p className="text-sm text-muted-foreground">{t('intake:conflict.description')}</p>
               <Button
                 onClick={() => conflictCheck.mutate()}
                 disabled={conflictCheck.isPending}
               >
-                {conflictCheck.isPending ? 'Running…' : 'Run conflict check'}
+                {conflictCheck.isPending ? t('intake:conflict.running') : t('intake:conflict.run')}
               </Button>
               {conflictCheck.isError && (
                 <p className="text-sm text-destructive">
@@ -186,17 +191,18 @@ export function IntakeDetailPage() {
                 <div>
                   <p className="font-medium">
                     {latestCheck.result === 'flagged'
-                      ? `${latestCheck.hits.length} potential match(es) - review required`
-                      : 'No similar names found - cleared for conversion'}
+                      ? t('intake:conflict.flaggedMatches', { count: latestCheck.hits.length })
+                      : t('intake:conflict.clearedForConversion')}
                   </p>
                   {latestCheck.result === 'flagged' && (
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Similar names are surfaced for human review. Approve if there is no real
-                      conflict, or reject if the lead cannot proceed.
+                      {t('intake:conflict.reviewHint')}
                     </p>
                   )}
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Checked {new Date(latestCheck.createdAt).toLocaleString()}
+                    {t('intake:conflict.checkedAt', {
+                      date: new Date(latestCheck.createdAt).toLocaleString(),
+                    })}
                   </p>
                 </div>
               </div>
@@ -206,7 +212,7 @@ export function IntakeDetailPage() {
                   {[...groupConflictHits(latestCheck.hits).entries()].map(([entityType, hits]) => (
                     <div key={entityType}>
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        {CONFLICT_ENTITY_LABELS[entityType]} ({hits.length})
+                        {conflictEntityLabel(entityType)} ({hits.length})
                       </p>
                       <ul className="space-y-2">
                         {hits.map((hit) => (
@@ -218,13 +224,24 @@ export function IntakeDetailPage() {
                             <p className="mt-1 text-xs text-muted-foreground">
                               {hit.matchedTerm ? (
                                 <>
-                                  Matched “{hit.matchedTerm}” on {hit.matchField.replace(/_/g, ' ')}
+                                  {t('intake:conflict.matchedTerm', {
+                                    term: hit.matchedTerm,
+                                    field: hit.matchField.replace(/_/g, ' '),
+                                  })}
                                   {hit.similarity != null && (
-                                    <> · {formatSimilarity(hit.similarity)} similar</>
+                                    <>
+                                      {' '}
+                                      ·{' '}
+                                      {t('intake:conflict.similarPct', {
+                                        pct: formatSimilarity(hit.similarity),
+                                      })}
+                                    </>
                                   )}
                                 </>
                               ) : (
-                                <>Matched on {hit.matchField.replace(/_/g, ' ')}</>
+                                t('intake:conflict.matchedOn', {
+                                  field: hit.matchField.replace(/_/g, ' '),
+                                })
                               )}
                             </p>
                           </li>
@@ -247,7 +264,7 @@ export function IntakeDetailPage() {
                     }
                     disabled={resolveConflict.isPending}
                   >
-                    Approve - no conflict
+                    {t('intake:conflict.approve')}
                   </Button>
                   {isManagingPartner && (
                     <Button
@@ -261,7 +278,7 @@ export function IntakeDetailPage() {
                       }
                       disabled={resolveConflict.isPending}
                     >
-                      MP override
+                      {t('intake:conflict.mpOverride')}
                     </Button>
                   )}
                   <Button
@@ -270,7 +287,7 @@ export function IntakeDetailPage() {
                     onClick={() => resolveConflict.mutate({ decision: 'rejected' })}
                     disabled={resolveConflict.isPending}
                   >
-                    Reject lead
+                    {t('intake:conflict.rejectLead')}
                   </Button>
                 </div>
               )}
@@ -284,37 +301,39 @@ export function IntakeDetailPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-base">
               <ShieldCheck className="size-4" />
-              Convert to matter
+              {t('intake:convert.title')}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
               {isPortalSubmission
-                ? 'Opens a matter under the portal client’s existing account - no duplicate client record.'
-                : 'Creates a client record and opens a matter in one step - no re-entering enquiry details. GDPR consent is required at this step.'}
+                ? t('intake:convert.portalDescription')
+                : t('intake:convert.standardDescription')}
             </p>
 
             <div className="rounded-md border bg-muted/30 p-3 text-sm">
-              <p className="font-medium">Will create</p>
+              <p className="font-medium">{t('intake:convert.willCreate')}</p>
               <ul className="mt-2 space-y-1 text-muted-foreground">
                 {!isPortalSubmission && (
                   <li>
-                    <span className="text-foreground">Client:</span> {intakeDisplayName(lead)}
+                    <span className="text-foreground">{t('intake:convert.clientLabel')}</span>{' '}
+                    {intakeDisplayName(lead)}
                     {lead.country ? ` (${getCountryLabel(lead.country)})` : ''}
                   </li>
                 )}
                 {isPortalSubmission && lead.submittedClient && (
                   <li>
-                    <span className="text-foreground">Client:</span>{' '}
+                    <span className="text-foreground">{t('intake:convert.clientLabel')}</span>{' '}
                     {lead.submittedClient.companyName ??
                       [lead.submittedClient.firstName, lead.submittedClient.lastName]
                         .filter(Boolean)
                         .join(' ')}{' '}
-                    <span className="text-xs">(existing portal account)</span>
+                    <span className="text-xs">{t('intake:convert.existingPortalAccount')}</span>
                   </li>
                 )}
                 <li>
-                  <span className="text-foreground">Matter:</span> {matterPreviewTitle}
+                  <span className="text-foreground">{t('intake:convert.matterLabel')}</span>{' '}
+                  {matterPreviewTitle}
                   {lead.country ? ` · ${lead.country}` : ''}
                   {lead.assignedUser ? ` · ${lead.assignedUser.fullName}` : ''}
                 </li>
@@ -329,23 +348,21 @@ export function IntakeDetailPage() {
                   onChange={(e) => setGdprConsent(e.target.checked)}
                   className="mt-0.5 rounded"
                 />
-                <span>
-                  I confirm valid GDPR consent has been obtained for this client before conversion.
-                </span>
+                <span>{t('intake:convert.gdprConsent')}</span>
               </label>
             )}
 
             <div className="max-w-xs space-y-1.5">
-              <p className="text-sm font-medium">Holding group (optional)</p>
+              <p className="text-sm font-medium">{t('intake:convert.holdingGroup')}</p>
               <Select
                 value={holdingGroupId ?? ''}
                 onValueChange={(v) => setHoldingGroupId(v || undefined)}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="None" />
+                  <SelectValue placeholder={t('intake:convert.none')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">None</SelectItem>
+                  <SelectItem value="">{t('intake:convert.none')}</SelectItem>
                   {holdingGroups?.items.map((g) => (
                     <SelectItem key={g.id} value={g.id}>
                       {g.name}
@@ -361,7 +378,9 @@ export function IntakeDetailPage() {
               onClick={handleConvert}
               disabled={(!isPortalSubmission && !gdprConsent) || convertIntake.isPending}
             >
-              {convertIntake.isPending ? 'Converting…' : 'Convert to matter'}
+              {convertIntake.isPending
+                ? t('intake:convert.converting')
+                : t('intake:convert.button')}
             </Button>
           </CardContent>
         </Card>
@@ -371,7 +390,7 @@ export function IntakeDetailPage() {
         <Card className="shadow-none border-emerald-500/20 bg-emerald-500/5">
           <CardContent className="flex flex-wrap items-center justify-between gap-4 pt-6">
             <div>
-              <p className="font-medium">Converted to matter</p>
+              <p className="font-medium">{t('intake:convert.converted')}</p>
               <p className="text-sm text-muted-foreground">
                 {lead.convertedMatter?.title}
                 {lead.convertedClient?.internalCode
@@ -385,7 +404,7 @@ export function IntakeDetailPage() {
                   to={`/matters/${lead.convertedMatter.id}/overview`}
                   className={buttonVariants({ variant: 'default', size: 'sm' })}
                 >
-                  Open matter
+                  {t('intake:convert.openMatter')}
                 </Link>
               ) : null}
               {lead.convertedClient ? (
@@ -393,7 +412,7 @@ export function IntakeDetailPage() {
                   to={`/clients/${lead.convertedClient.id}/overview`}
                   className={buttonVariants({ variant: 'outline', size: 'sm' })}
                 >
-                  View client
+                  {t('intake:convert.viewClient')}
                 </Link>
               ) : null}
             </div>

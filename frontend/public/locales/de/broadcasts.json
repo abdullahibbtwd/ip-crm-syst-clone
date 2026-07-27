@@ -1,0 +1,68 @@
+{
+  "title": "Sendungen",
+  "subtitle": "Senden Sie Massenbenachrichtigungen über festes SMTP an Kundenkontakt-E-Mails. Jeder Versand wird als bulk_notification geprüft. Antworten aus dem Sachpostfach bleiben in der E-Mail-Warteschlange/Korrespondenz.",
+  "compose": {
+    "title": "Sendung verfassen",
+    "recipientGroup": "Empfängergruppe",
+    "selectClients": "Wählen Sie Kunden aus",
+    "searchClientsPlaceholder": "Kunden suchen (mindestens 2 Zeichen)",
+    "selected": "Ausgewählt",
+    "add": "Hinzufügen",
+    "clientsSelected": "{{count}} Kunde(n) ausgewählt",
+    "countingRecipients": "Empfänger zählen…",
+    "previewFailed": "Vorschau der Zielgruppe konnte nicht angezeigt werden",
+    "recipientMatched": "Empfänger abgeglichen",
+    "recipientsMatched": "Empfänger übereinstimmend",
+    "andMore": "…und {{count}} mehr",
+    "subject": "Thema",
+    "subjectPlaceholder": "z.B. Bevorstehende EU-Erneuerungserinnerungen",
+    "message": "Nachricht",
+    "messagePlaceholder": "Schreiben Sie die Benachrichtigung, die Ihre Kunden erhalten werden ...",
+    "queuing": "Warteschlange…",
+    "sendBroadcast": "Sendung senden"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Betreff und Nachricht sind erforderlich",
+    "selectClient": "Wählen Sie mindestens einen Kunden aus",
+    "queueFailed": "Die Übertragung konnte nicht in die Warteschlange gestellt werden"
+  },
+  "success": {
+    "queued": "Übertragung an {{count}} Empfänger in der Warteschlange. Die Lieferung läuft im Hintergrund."
+  },
+  "history": {
+    "title": "Aktuelle Sendungen",
+    "when": "Wann",
+    "subject": "Thema",
+    "audience": "Publikum",
+    "status": "Status",
+    "sent": "Gesendet",
+    "by": "Von",
+    "loading": "Laden…",
+    "empty": "Noch keine Sendungen.",
+    "failedCount": "({{count}} fehlgeschlagen)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Alle aktiven Kunden",
+      "description": "Primäre Kontakt-E-Mail für jeden aktiven Kunden"
+    },
+    "pending_eu_renewals": {
+      "label": "Ausstehende EU-Verlängerungen",
+      "description": "Aktive Kunden mit bevorstehenden / beauftragten / eingereichten EU-Verlängerungen"
+    },
+    "trademark_matters": {
+      "label": "Markenangelegenheiten",
+      "description": "Kunden mit mindestens einer aktiven Markenangelegenheit"
+    },
+    "manual": {
+      "label": "Manuelle Auswahl",
+      "description": "Wählen Sie bestimmte Kunden aus der Suche aus"
+    }
+  },
+  "status": {
+    "queued": "In der Warteschlange",
+    "sending": "Senden",
+    "completed": "Vollendet",
+    "failed": "Fehlgeschlagen"
+  }
+}

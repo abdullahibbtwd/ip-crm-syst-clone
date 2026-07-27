@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Confirmar y habilitar 2FA",
+      "enable": "Habilitar 2FA",
+      "preparing": "Preparante…",
+      "verifying": "Verificando…"
+    },
+    "authCode": "código de autenticación",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Activa",
+      "description": "Su cuenta requiere un código de su aplicación de autenticación al iniciar sesión.",
+      "title": "La autenticación de dos factores está habilitada"
+    },
+    "errors": {
+      "enableFailed": "No se pudo habilitar 2FA",
+      "invalidCode": "código no válido",
+      "setupFailed": "No se pudo iniciar la configuración 2FA"
+    },
+    "setup": {
+      "description": "Agregue una capa adicional de seguridad al solicitar un código de 6 dígitos de una aplicación de autenticación (Google Authenticator, Authy, etc.) cuando inicie sesión.",
+      "manualKey": "O ingrese esta clave manualmente",
+      "scanQr": "1. Escanea este código QR",
+      "scanQrHint": "Abra su aplicación de autenticación y escanee el código a continuación.",
+      "verify": "2. Confirma con un código de 6 dígitos",
+      "verifyHint": "Ingrese el código que se muestra en su aplicación para verificar la configuración."
+    }
+  },
+  "security": {
+    "description": "La autenticación de dos factores protege su cuenta incluso si su contraseña está comprometida.",
+    "title": "Seguridad"
+  },
+  "subtitle": "Administre las preferencias y la seguridad de su cuenta.",
+  "title": "Ajustes",
+  "links": {
+    "email": {
+      "title": "Integración de correo electrónico",
+      "description": "Conecte Microsoft 365 o Google Workspace para sincronizar los mensajes de la bandeja de entrada con la cola de correo electrónico.",
+      "action": "Administrar buzones de correo"
+    },
+    "deadlineRules": {
+      "title": "Reglas de plazo",
+      "description": "Configure compensaciones de jurisdicción y tipo de materia para plazos creados automáticamente.",
+      "action": "Administrar reglas de plazos"
+    },
+    "holidays": {
+      "title": "Calendario de vacaciones",
+      "description": "Los feriados jurisdiccionales se utilizan al contar los días hábiles para los plazos.",
+      "action": "Gestionar vacaciones"
+    },
+    "documentTemplates": {
+      "title": "Plantillas de documentos",
+      "description": "Edite plantillas de cartas, combine campos y obtenga una vista previa de los archivos PDF generados.",
+      "action": "Administrar plantillas"
+    },
+    "integrations": {
+      "title": "Integraciones de registro",
+      "description": "Conecte EPO OPS y otros registros de IP para escaneos de relojes y búsquedas bibliográficas.",
+      "action": "Gestionar integraciones"
+    },
+    "ssoMfa": {
+      "title": "SSO y MFA",
+      "description": "Configure las aplicaciones de inicio de sesión de Google/Microsoft y firme la política de MFA. Los secretos están cifrados en la base de datos.",
+      "action": "Administrar SSO y MFA"
+    },
+    "roles": {
+      "title": "Roles y permisos",
+      "description": "Matriz de solo lectura de roles del sistema y sus permisos otorgados.",
+      "action": "Ver matriz de roles"
+    },
+    "systemHealth": {
+      "title": "Salud del sistema",
+      "description": "Comprobaciones en vivo para bases de datos, Redis y almacenamiento de objetos.",
+      "action": "Ver el estado del sistema"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO y MFA",
+    "subtitle": "Proveedores de identidad y política de autenticación multifactor para la firma.",
+    "noPermission": "No tiene permiso para administrar la configuración de SSO o MFA.",
+    "loading": "Cargando configuración de SSO...",
+    "saveButton": "Guardar configuración",
+    "saveSuccess": "La configuración de SSO y MFA se guarda de forma segura.",
+    "saveFailed": "No se pudieron guardar las configuraciones de SSO y MFA",
+    "securityHint": "Los secretos del cliente se cifran en reposo (AES-256-GCM). La API nunca devuelve todos los secretos.",
+    "leaveBlankToKeep": "Déjelo en blanco para mantener el secreto actual",
+    "clientId": "ID de cliente",
+    "clientSecret": "secreto del cliente",
+    "tenantId": "ID de inquilino",
+    "redirectUri": "URI de redireccionamiento (registro en la consola del proveedor)",
+    "sourceDatabase": "Base de datos",
+    "sourceEnv": "Entorno (.env)",
+    "sourceNone": "No configurada",
+    "editButton": "Editar",
+    "cancelEdit": "Cancelar",
+    "configuredViaEnv": "Configurado a través del entorno",
+    "microsoft": {
+      "title": "microsoft",
+      "description": "Aplicación Entra ID/Microsoft 365 OIDC utilizada para el inicio de sesión SSO del personal y del portal.",
+      "saveButton": "Salva Microsoft",
+      "saveSuccess": "Se guardó la configuración de SSO de Microsoft."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Cliente Google OAuth utilizado para iniciar sesión en SSO.",
+      "saveButton": "Guardar Google",
+      "saveSuccess": "Se guardó la configuración de SSO de Google."
+    },
+    "mfa": {
+      "title": "política de ayuda macrofinanciera",
+      "description": "Configuración de MFA en toda la organización. Los usuarios aún se inscriben desde su propia página de Configuración.",
+      "requireInternal": "Requerir MFA para el personal interno",
+      "requireInternalHint": "Cuando está habilitado, los usuarios internos deben inscribir MFA en Configuración → Seguridad. La aplicación del inicio de sesión se puede reforzar en un seguimiento.",
+      "saveButton": "Guardar política MFA",
+      "saveSuccess": "Política MFA guardada."
+    }
+  },
+  "roles": {
+    "title": "Roles y permisos",
+    "subtitle": "Matriz de solo lectura de roles del sistema y permisos otorgados (RBAC inicializado).",
+    "noPermission": "No tienes permiso para ver roles.",
+    "loading": "Cargando roles…",
+    "error": "No se pudieron cargar roles.",
+    "system": "Sistema",
+    "columns": {
+      "role": "Role",
+      "description": "Descripción",
+      "permissions": "Permisos"
+    }
+  },
+  "systemHealth": {
+    "title": "Salud del sistema",
+    "subtitle": "Comprobaciones en vivo para bases de datos, Redis y almacenamiento de objetos.",
+    "noPermission": "No tiene permiso para ver el estado del sistema.",
+    "loading": "Comprobando servicios…",
+    "error": "No se pudo cargar el estado de salud.",
+    "overall": "En general",
+    "statusOk": "Saludable",
+    "statusDegraded": "Degradada",
+    "database": "Base de datos",
+    "redis": "Redis",
+    "storage": "Almacenamiento de objetos",
+    "checkOk": "Accesible",
+    "checkFailed": "Inalcanzable",
+    "refresh": "Refrescar",
+    "refreshing": "Refrescante…"
+  },
+  "integrations": {
+    "title": "Integraciones",
+    "subtitle": "Conexiones de registro externo y proveedor de datos utilizadas por los flujos de trabajo de vigilancia y archivo.",
+    "noPermission": "No tienes permiso para ver las integraciones del registro.",
+    "epo": {
+      "title": "Registro OEP (OPS)",
+      "description": "Servicios abiertos de patentes v3.2. Los tokens de acceso se actualizan automáticamente a partir de su clave y secreto de consumidor.",
+      "statusConfigured": "Configurada",
+      "statusNotConfigured": "No configurada",
+      "statusLoading": "De cheques…",
+      "testButton": "Conexión de prueba",
+      "testing": "Pruebas…",
+      "testSuccess": "Conexión EPO exitosa. Patente recuperada: {{title}}",
+      "testFailed": "La conexión EPO falló",
+      "envHint": "Configure EPO_CONSUMER_KEY y EPO_CONSUMER_SECRET en el servidor .env, luego reinicie la API.",
+      "consumerKey": "Clave del consumidor",
+      "consumerSecret": "secreto del consumidor",
+      "consumerKeyPlaceholder": "Ingrese la clave de consumidor de EPO",
+      "consumerSecretPlaceholder": "Ingrese el secreto del consumidor de EPO",
+      "leaveBlankToKeep": "Déjelo en blanco para mantener el valor actual",
+      "apiBaseUrl": "URL base de API (opcional)",
+      "authUrl": "URL de autenticación (opcional)",
+      "saveButton": "Guardar credenciales",
+      "clearButton": "Borrar credenciales almacenadas",
+      "saveSuccess": "Credenciales de EPO guardadas de forma segura.",
+      "saveFailed": "No se pudieron guardar las credenciales de EPO",
+      "clearSuccess": "Se borraron las credenciales de EPO almacenadas. La reserva de entorno aún se aplica si está configurada.",
+      "clearFailed": "No se pudieron borrar las credenciales de EPO",
+      "securityHint": "Los secretos se cifran en reposo (AES-256-GCM). La API nunca devuelve los valores completos.",
+      "sourceLabel": "fuente activa",
+      "sourceDatabase": "Base de datos",
+      "sourceEnv": "Entorno (.env)",
+      "sourceNone": "No configurada",
+      "keyHint": "clave …{{lastFour}}",
+      "editButton": "Editar",
+      "cancelEdit": "Cancelar",
+      "configuredViaEnv": "Configurado a través del entorno",
+      "defaultEndpoint": "Punto final de EPO predeterminado"
+    },
+    "accounting": {
+      "xeroTitle": "xero",
+      "xeroDescription": "Envíe las facturas emitidas a Xero Accounting a través de API. Solo se envían las facturas modificadas desde la última sincronización exitosa.",
+      "quickbooksTitle": "QuickBooks en línea",
+      "quickbooksDescription": "Envíe las facturas emitidas a QuickBooks. Los clientes se relacionan (o se crean) por nombre para mostrar.",
+      "xeroTenantId": "ID de inquilino de Xero",
+      "quickbooksRealmId": "ID de empresa/dominio de QuickBooks",
+      "statusConfigured": "Configurada",
+      "statusNotConfigured": "No configurada",
+      "loading": "Cargando…",
+      "clientId": "ID de cliente (opcional)",
+      "clientSecret": "Secreto de cliente (opcional)",
+      "accessToken": "token de acceso",
+      "leaveBlankToKeep": "Déjelo en blanco para mantener el valor actual",
+      "saveButton": "Guardar credenciales",
+      "clearButton": "Clara",
+      "editButton": "Editar",
+      "cancelEdit": "Cancelar",
+      "syncNow": "Sincronizar ahora",
+      "lastSync": "Última sincronización",
+      "neverSynced": "Nunca",
+      "saveSuccess": "Credenciales contables guardadas de forma segura.",
+      "saveFailed": "No se pudieron guardar las credenciales de contabilidad",
+      "clearSuccess": "Credenciales contables borradas.",
+      "clearFailed": "No se pudieron borrar las credenciales contables",
+      "syncFailed": "No se pudo sincronizar la contabilidad en cola"
+    }
+  },
+  "deadlineRules": {
+    "title": "Reglas de plazo",
+    "subtitle": "Compensaciones de jurisdicción y tipo de materia utilizadas al crear automáticamente fechas límite a partir de la creación de materia, acciones de oficina y renovaciones.",
+    "newRule": "Nueva regla",
+    "noPermission": "No tienes permiso para ver las reglas de plazos.",
+    "loading": "Cargando reglas de fecha límite…",
+    "loadError": "No se pudieron cargar las reglas de fecha límite.",
+    "empty": "Ninguna regla de fecha límite coincide con estos filtros.",
+    "allJurisdictions": "Todas las jurisdicciones",
+    "allMatterTypes": "Todo tipo de materia",
+    "filters": {
+      "jurisdiction": "Jurisdicción",
+      "matterType": "tipo de asunto"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdicción",
+      "matterType": "tipo de asunto",
+      "event": "Evento",
+      "trigger": "Desencadenar",
+      "offset": "Compensar",
+      "grace": "Gracia",
+      "priority": "Prioridad",
+      "status": "Estado"
+    },
+    "status": {
+      "active": "Activa",
+      "inactive": "Inactiva"
+    },
+    "editAria": "Editar regla de fecha límite",
+    "drawer": {
+      "createTitle": "Nueva regla de plazo",
+      "editTitle": "Editar regla de fecha límite",
+      "jurisdiction": "Jurisdicción",
+      "matterType": "tipo de asunto",
+      "eventType": "Tipo de evento",
+      "triggerType": "Tipo de disparador",
+      "daysOffset": "Días compensados",
+      "dayCounting": "contando dias",
+      "businessDays": "Días hábiles",
+      "calendarDays": "Días calendario",
+      "gracePeriod": "Periodo de gracia (días)",
+      "priority": "Prioridad (1–10)",
+      "description": "Descripción",
+      "status": "Estado",
+      "cancel": "Cancelar",
+      "create": "Crear regla",
+      "save": "Guardar cambios"
+    },
+    "errors": {
+      "daysOffset": "Introduzca un desplazamiento de días válido",
+      "grace": "Introduzca un período de gracia válido",
+      "priority": "La prioridad debe estar entre 1 y 10.",
+      "saveFailed": "No se pudo guardar la regla de fecha límite"
+    },
+    "offset": {
+      "businessDay": "día hábil",
+      "businessDays": "días hábiles",
+      "calendarDay": "día calendario",
+      "calendarDays": "días calendario",
+      "sameDay": "El mismo día ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "Presentación",
+      "examination_response": "Respuesta al examen",
+      "renewal": "Renovación",
+      "opposition": "Oposición",
+      "grace_period": "periodo de gracia"
+    },
+    "triggerType": {
+      "matter_created": "Materia creada",
+      "office_action": "acción de oficina",
+      "renewal_due": "Renovación pendiente"
+    }
+  },
+  "documentTemplates": {
+    "title": "Plantillas de documentos",
+    "subtitle": "Plantillas de cartas y archivos con campos combinados. Genere archivos PDF a partir de asuntos o obtenga una vista previa con datos de muestra.",
+    "newTemplate": "Nueva plantilla",
+    "noPermission": "No tiene permiso para ver plantillas de documentos.",
+    "loading": "Cargando plantillas…",
+    "loadError": "No se pudieron cargar las plantillas de documentos.",
+    "empty": "Aún no hay plantillas de documentos.",
+    "columns": {
+      "name": "Nombre",
+      "slug": "Babosa",
+      "category": "Categoría",
+      "status": "Estado",
+      "docx": "Palabra",
+      "updated": "Actualizada"
+    },
+    "status": {
+      "active": "Activa",
+      "inactive": "Inactiva"
+    },
+    "editAria": "Editar plantilla de documento",
+    "uploadDocx": "Subir .docx",
+    "removeDocx": "Quitar .docx",
+    "uploadDocxAria": "Subir plantilla de Word",
+    "removeDocxAria": "Quitar plantilla de Word",
+    "confirmRemoveDocx": "¿Eliminar la plantilla de Word (.docx) de esta plantilla de carta?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Nueva plantilla de documento",
+      "editTitle": "Editar plantilla de documento",
+      "loading": "Cargando plantilla…",
+      "slug": "Babosa",
+      "slugHint": "Kebab minúscula, única.",
+      "slugReadonly": "Babosa:",
+      "name": "Nombre",
+      "category": "Categoría",
+      "description": "Descripción",
+      "referenceLine": "Línea de referencia",
+      "mergeFields": "Fusionar campos",
+      "insertIntoReference": "Insertar en la línea de referencia",
+      "insertIntoHtml": "Insertar en el cuerpo HTML",
+      "htmlBody": "cuerpo HTML",
+      "livePreview": "Vista previa en vivo",
+      "status": "Estado",
+      "previewPdf": "Vista previa de PDF",
+      "cancel": "Cancelar",
+      "create": "Crear plantilla",
+      "save": "Guardar cambios"
+    },
+    "errors": {
+      "required": "El nombre y el cuerpo HTML son obligatorios.",
+      "slugRequired": "Se requiere babosa",
+      "saveFailed": "No se pudo guardar la plantilla del documento",
+      "previewFailed": "No se pudo generar la vista previa del PDF",
+      "docxUploadFailed": "No se pudo cargar la plantilla de Word",
+      "docxDeleteFailed": "No se pudo eliminar la plantilla de Word"
+    }
+  },
+  "holidays": {
+    "title": "Calendario de vacaciones",
+    "subtitle": "Días festivos por jurisdicción. Los feriados recurrentes se aplican todos los años en el mismo mes y día contando los días hábiles.",
+    "newHoliday": "Nuevas vacaciones",
+    "noPermission": "No tienes permiso para ver los días festivos.",
+    "loading": "Cargando vacaciones…",
+    "loadError": "No se pudieron cargar los días festivos.",
+    "empty": "Ningún día festivo coincide con este filtro.",
+    "allJurisdictions": "Todas las jurisdicciones",
+    "filters": {
+      "jurisdiction": "Jurisdicción"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdicción",
+      "date": "Fecha",
+      "name": "Nombre",
+      "recurring": "Periódica"
+    },
+    "recurring": {
+      "yes": "Periódica",
+      "no": "una sola vez"
+    },
+    "editAria": "Editar vacaciones",
+    "deleteAria": "Eliminar vacaciones",
+    "confirmDelete": "¿Eliminar el feriado “{{name}}”?",
+    "drawer": {
+      "createTitle": "Nuevas vacaciones",
+      "editTitle": "Editar vacaciones",
+      "jurisdiction": "Jurisdicción",
+      "date": "Fecha",
+      "name": "Nombre",
+      "recurring": "Recurrente anualmente",
+      "cancel": "Cancelar",
+      "create": "crear vacaciones",
+      "save": "Guardar cambios"
+    },
+    "errors": {
+      "required": "El nombre y la fecha son obligatorios.",
+      "saveFailed": "No se han podido guardar las vacaciones"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "Ajustes",
+    "title": "Integración de correo electrónico",
+    "description": "Conecte su buzón de trabajo para sincronizar el correo entrante en la cola de correo electrónico y enviar respuestas desde CRM. Requiere Mail.Read + Mail.Send (Microsoft) o gmail.readonly + gmail.send (Google). Vuelva a conectarse después de las actualizaciones del alcance para otorgar permiso de envío.",
+    "fetchEmails": "Obtener 5 correos electrónicos",
+    "connectedSuccess": "Se conectó {{provider}} exitosamente.",
+    "microsoft365": "microsoft 365",
+    "googleWorkspace": "Espacio de trabajo de Google",
+    "connected": "Conectada",
+    "error": "Error",
+    "notConnected": "No conectada",
+    "providerEnabledDescription": "Introduzca nuevos mensajes de la bandeja de entrada en la cola de correo electrónico.",
+    "providerDisabledDescription": "No configurado en este servidor (faltan credenciales de OAuth).",
+    "redirectUriHint": "Registre este URI de redireccionamiento en su aplicación {{provider}} OAuth:",
+    "lastSync": "Última sincronización: {{time}}",
+    "neverSynced": "Nunca sincronizado",
+    "reconnect": "Reconectar",
+    "disconnect": "Desconectar",
+    "connect": "Conectar {{provider}}",
+    "loadingConnections": "Cargando conexiones…",
+    "fetchSuccess": "Se obtuvieron hasta {{limit}} mensajes: {{ingested}} nuevos en la cola.",
+    "fetchFailed": "No se pudieron recuperar los correos electrónicos"
+  },
+  "consent": {
+    "title": "Registros de consentimiento",
+    "subtitle": "Estado de consentimiento del RGPD entre las clientas.",
+    "filters": {
+      "all": "Toda",
+      "consented": "Consentida",
+      "missing": "Desaparecida"
+    },
+    "failedToLoad": "No se pudieron cargar los registros de consentimiento.",
+    "noClientsFound": "No se encontraron clientes.",
+    "table": {
+      "client": "Cliente",
+      "code": "Código",
+      "consent": "Consentir",
+      "date": "Fecha"
+    }
+  }
+}

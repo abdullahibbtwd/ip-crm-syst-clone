@@ -1,0 +1,43 @@
+{
+  "title": "Precedenti",
+  "subtitle": "Base di conoscenza della corrispondenza riutilizzabile e del linguaggio di archiviazione.",
+  "newDraft": "Nuova bozza",
+  "searchPlaceholder": "Cerca nel corpo del testo…",
+  "loading": "Caricamento precedenti…",
+  "loadFailed": "Impossibile caricare i precedenti.",
+  "empty": "Nessun precedente ancora. Crea una bozza o un raccolto dalla corrispondenza.",
+  "columns": {
+    "title": "Titolo",
+    "category": "Categoria",
+    "jurisdiction": "Giurisdizione",
+    "status": "Stato",
+    "updated": "Aggiornata"
+  },
+  "filters": {
+    "allStatuses": "Tutti gli stati"
+  },
+  "status": {
+    "draft": "Bozza",
+    "published": "Pubblicata",
+    "archived": "Archiviata"
+  },
+  "editAria": "Modificare",
+  "drawer": {
+    "createTitle": "Nuovo precedente",
+    "editTitle": "Modifica precedente",
+    "title": "Titolo",
+    "category": "Categoria",
+    "matterType": "Tipo di materia",
+    "optional": "Opzionale",
+    "jurisdiction": "Giurisdizione",
+    "tags": "Tag",
+    "body": "Corpo",
+    "bodyPlaceholder": "Scrivi il testo precedente: sono supportati il ​​grassetto, il corsivo e gli elenchi",
+    "publish": "Pubblicare",
+    "archive": "Archivio",
+    "publishFailed": "Pubblicazione non riuscita",
+    "archiveFailed": "Archivio non riuscito",
+    "saveFailed": "Impossibile salvare il precedente",
+    "requiredFields": "Titolo, categoria e corpo sono obbligatori"
+  }
+}

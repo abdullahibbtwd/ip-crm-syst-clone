@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Download,
   Eye,
@@ -42,27 +43,33 @@ function formatReceived(iso: string) {
   }).format(new Date(iso))
 }
 
-function suggestionLabel(reason: string | null) {
+function suggestionLabel(
+  reason: string | null,
+  t: (key: string) => string,
+) {
   switch (reason) {
     case 'subject_ref':
-      return 'Client ref in subject'
+      return t('suggestions.subjectRef')
     case 'body_ref':
-      return 'Client ref in body'
+      return t('suggestions.bodyRef')
     case 'single_active_matter':
-      return 'Single active matter'
+      return t('suggestions.singleActiveMatter')
     case 'contact_match':
-      return 'Contact match'
+      return t('suggestions.contactMatch')
     default:
-      return 'Suggested matter'
+      return t('suggestions.default')
   }
 }
 
-function categorySuggestionLabel(category: UnlinkedEmail['suggestedCategory']) {
+function categorySuggestionLabel(
+  category: UnlinkedEmail['suggestedCategory'],
+  t: (key: string) => string,
+) {
   switch (category) {
     case 'office_action':
-      return 'Office action'
+      return t('suggestions.officeAction')
     case 'renewal':
-      return 'Renewal'
+      return t('suggestions.renewal')
     default:
       return null
   }
@@ -73,12 +80,14 @@ function displaySender(row: UnlinkedEmail) {
   return row.sender?.trim() || meta?.sender?.trim() || '—'
 }
 
-function displaySubject(row: UnlinkedEmail) {
+function displaySubject(row: UnlinkedEmail, noSubjectLabel: string) {
   const meta = row.metadata as { subject?: string } | null
-  return row.subject?.trim() || meta?.subject?.trim() || '(No subject)'
+  return row.subject?.trim() || meta?.subject?.trim() || noSubjectLabel
 }
 
 export function EmailQueuePage() {
+  const { t } = useTranslation('emailQueue')
+  const { t: tCommon } = useTranslation('common')
   const { data: rows, isLoading, isError } = useEmailQueue()
   const fetchEmails = useFetchMailboxEmails()
   const [previewId, setPreviewId] = useState<string | null>(null)
@@ -88,6 +97,7 @@ export function EmailQueuePage() {
   const list = rows ?? []
   const linkRow = linkEmailId ? list.find((r) => r.id === linkEmailId) : undefined
   const previewRow = previewId ? list.find((r) => r.id === previewId) : undefined
+  const noSubjectLabel = t('noSubject')
 
   const openLink = (row: UnlinkedEmail) => {
     setPreviewId(null)
@@ -96,15 +106,14 @@ export function EmailQueuePage() {
 
   const openReply = (row: UnlinkedEmail) => {
     setPreviewId(null)
+    const subject = displaySubject(row, noSubjectLabel)
     setReplyContext({
       unlinkedEmailId: row.id,
       connectionId: row.mailboxConnectionId,
       matterId: row.suggestedMatter?.id,
       matterTitle: row.suggestedMatter?.title,
       to: displaySender(row),
-      subject: displaySubject(row).startsWith('Re:')
-        ? displaySubject(row)
-        : `Re: ${displaySubject(row)}`,
+      subject: subject.startsWith('Re:') ? subject : `Re: ${subject}`,
       inReplyToMessageId: row.internetMessageId,
     })
   }
@@ -114,15 +123,14 @@ export function EmailQueuePage() {
     window.open(data.url, '_blank', 'noopener,noreferrer')
   }
 
+  const ingested = fetchEmails.data?.ingested ?? 0
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl text-foreground md:text-3xl">Email queue</h1>
-          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-            Unlinked emails pulled from connected mailboxes. Open an email, then attach it to a
-            matter&apos;s correspondence register.
-          </p>
+          <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('title')}</h1>
+          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{t('subtitle')}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <PermissionGate resource="email" action="create">
@@ -137,50 +145,52 @@ export function EmailQueuePage() {
               ) : (
                 <RefreshCw className="size-4" />
               )}
-              Fetch 5 emails
+              {t('fetchEmails')}
             </Button>
           </PermissionGate>
           <Link to="/settings/email" className={buttonVariants({ variant: 'outline', size: 'sm' })}>
-            Mailbox settings
+            {t('mailboxSettings')}
           </Link>
         </div>
       </div>
 
       {fetchEmails.isSuccess ? (
         <p className="text-sm text-emerald-700">
-          Fetched up to {fetchEmails.data?.limit ?? 5} inbox message(s) —{' '}
-          {fetchEmails.data?.ingested ?? 0} new in queue
-          {(fetchEmails.data?.ingested ?? 0) === 0 ? ' (already imported or inbox empty)' : ''}.
+          {t('fetchSuccess', {
+            limit: fetchEmails.data?.limit ?? 5,
+            ingested,
+            emptyHint: ingested === 0 ? t('fetchEmptyHint') : '',
+          })}
         </p>
       ) : null}
       {fetchEmails.isError ? (
         <p className="text-sm text-destructive">
-          {getApiErrorMessage(fetchEmails.error, 'Failed to fetch emails')}
+          {getApiErrorMessage(fetchEmails.error, t('fetchFailed'))}
         </p>
       ) : null}
 
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Received</TableHead>
-            <TableHead>From</TableHead>
-            <TableHead>Subject</TableHead>
-            <TableHead>Mailbox</TableHead>
-            <TableHead>Suggestion</TableHead>
-            <TableHead className="w-[140px] text-right">Actions</TableHead>
+            <TableHead>{t('columns.received')}</TableHead>
+            <TableHead>{t('columns.from')}</TableHead>
+            <TableHead>{t('columns.subject')}</TableHead>
+            <TableHead>{t('columns.mailbox')}</TableHead>
+            <TableHead>{t('columns.suggestion')}</TableHead>
+            <TableHead className="w-[140px] text-right">{t('columns.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {isLoading ? (
             <TableRow>
               <TableCell colSpan={6} className="py-12 text-center text-muted-foreground">
-                Loading queue…
+                {t('loading')}
               </TableCell>
             </TableRow>
           ) : isError ? (
             <TableRow>
               <TableCell colSpan={6} className="py-12 text-center text-destructive">
-                Failed to load email queue.
+                {t('loadFailed')}
               </TableCell>
             </TableRow>
           ) : list.length === 0 ? (
@@ -190,10 +200,8 @@ export function EmailQueuePage() {
                   <div className="flex size-12 items-center justify-center rounded-full bg-muted">
                     <Inbox className="size-5 opacity-60" />
                   </div>
-                  <p className="font-medium text-foreground">Queue is empty</p>
-                  <p className="text-sm">
-                    Connect a mailbox in settings and fetch emails to import new messages.
-                  </p>
+                  <p className="font-medium text-foreground">{t('emptyTitle')}</p>
+                  <p className="text-sm">{t('emptyDescription')}</p>
                 </div>
               </TableCell>
             </TableRow>
@@ -212,7 +220,9 @@ export function EmailQueuePage() {
                 </TableCell>
                 <TableCell className="max-w-[280px]">
                   <div className="flex items-center gap-2">
-                    <span className="line-clamp-2 font-medium">{displaySubject(row)}</span>
+                    <span className="line-clamp-2 font-medium">
+                      {displaySubject(row, noSubjectLabel)}
+                    </span>
                     {row.hasAttachments ? (
                       <Paperclip className="size-4 shrink-0 text-muted-foreground" />
                     ) : null}
@@ -225,10 +235,10 @@ export function EmailQueuePage() {
                   <div className="flex flex-col items-start gap-1">
                     {row.suggestedMatter ? (
                       <Badge variant="outline" className="normal-case">
-                        {suggestionLabel(row.suggestionReason)}
+                        {suggestionLabel(row.suggestionReason, t)}
                       </Badge>
                     ) : null}
-                    {categorySuggestionLabel(row.suggestedCategory) ? (
+                    {categorySuggestionLabel(row.suggestedCategory, t) ? (
                       <Badge
                         variant="outline"
                         className={
@@ -237,11 +247,11 @@ export function EmailQueuePage() {
                             : 'normal-case border-sky-500/40 bg-sky-500/10 text-sky-800'
                         }
                       >
-                        {categorySuggestionLabel(row.suggestedCategory)}
+                        {categorySuggestionLabel(row.suggestedCategory, t)}
                       </Badge>
                     ) : null}
                     {!row.suggestedMatter && !row.suggestedCategory ? (
-                      <span className="text-muted-foreground">—</span>
+                      <span className="text-muted-foreground">{tCommon('yesNo.dash')}</span>
                     ) : null}
                   </div>
                 </TableCell>
@@ -254,8 +264,8 @@ export function EmailQueuePage() {
                       type="button"
                       size="icon-sm"
                       variant="ghost"
-                      title="View email"
-                      aria-label="View email"
+                      title={t('actions.viewEmail')}
+                      aria-label={t('actions.viewEmail')}
                       className="text-sky-600 hover:bg-sky-500/10 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
                       onClick={() => setPreviewId(row.id)}
                     >
@@ -266,8 +276,8 @@ export function EmailQueuePage() {
                         type="button"
                         size="icon-sm"
                         variant="ghost"
-                        title="Reply"
-                        aria-label="Reply"
+                        title={t('actions.reply')}
+                        aria-label={t('actions.reply')}
                         className="text-amber-600 hover:bg-amber-500/10 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300"
                         onClick={() => openReply(row)}
                       >
@@ -279,8 +289,8 @@ export function EmailQueuePage() {
                         type="button"
                         size="icon-sm"
                         variant="ghost"
-                        title="Attach to matter correspondence"
-                        aria-label="Attach to matter correspondence"
+                        title={t('actions.attachToMatter')}
+                        aria-label={t('actions.attachToMatter')}
                         className="text-emerald-600 hover:bg-emerald-500/10 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
                         onClick={() => openLink(row)}
                       >
@@ -291,8 +301,8 @@ export function EmailQueuePage() {
                       type="button"
                       size="icon-sm"
                       variant="ghost"
-                      title="Download .eml"
-                      aria-label="Download .eml"
+                      title={t('actions.downloadEml')}
+                      aria-label={t('actions.downloadEml')}
                       className="text-violet-600 hover:bg-violet-500/10 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
                       onClick={() => void handleDownload(row.id)}
                     >
@@ -328,7 +338,7 @@ export function EmailQueuePage() {
 
       <LinkEmailToMatterDrawer
         emailId={linkEmailId}
-        emailSubject={linkRow ? displaySubject(linkRow) : undefined}
+        emailSubject={linkRow ? displaySubject(linkRow, noSubjectLabel) : undefined}
         suggestedMatter={linkRow?.suggestedMatter}
         suggestedCategory={linkRow?.suggestedCategory}
         suggestionReason={linkRow?.suggestionReason}

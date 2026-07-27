@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "În viitor",
+    "instructed": "Instruit",
+    "filed": "Depus",
+    "completed": "Terminat",
+    "lapsed": "Decăzut"
+  },
+  "page": {
+    "title": "Reînnoiri",
+    "descriptionMy": "Ferestre de reînnoire pentru chestiunile care ți-au fost atribuite.",
+    "descriptionFirm": "Lista de lucru de reînnoire la nivel de firmă pentru toate drepturile de proprietate intelectuală.",
+    "filters": {
+      "status": "Stare",
+      "allStatuses": "Toate stările",
+      "jurisdiction": "Jurisdicția",
+      "allJurisdictions": "Toate jurisdicțiile",
+      "assignee": "Cesionar",
+      "allAssignees": "Toți cesionații"
+    },
+    "loading": "Se încarcă reînnoiri…",
+    "empty": "Nicio fereastră de reînnoire nu se potrivește cu filtrele dvs.",
+    "table": {
+      "ipRight": "Dreptul de IP",
+      "matter": "materie",
+      "client": "Client",
+      "cycle": "Ciclu",
+      "due": "Datorită",
+      "status": "Stare",
+      "assignee": "Cesionar"
+    }
+  },
+  "widget": {
+    "title": "Reînnoiri viitoare",
+    "subtitle": "Următoarele 90 de zile canalizare de instrucțiuni",
+    "viewPipeline": "Vedeți conducta",
+    "loading": "Se calculează ferestrele de reînnoire...",
+    "error": "Nu s-au putut încărca analizele reînnoirilor.",
+    "stats": {
+      "totalPipeline": "Conducta totală",
+      "activeWindows": "Ferestre active",
+      "awaiting": "În așteptare",
+      "noInstruction": "Nicio instrucțiune încă",
+      "urgent": "Urgent",
+      "due7Days": "Datorită ≤ 7 zile",
+      "instructed": "Instruit",
+      "proceedConfirmed": "Continuare confirmată"
+    },
+    "empty": "Nu au fost urmărite reînnoiri în această fereastră.",
+    "table": {
+      "ipAsset": "activ IP",
+      "client": "Client",
+      "dueStatus": "Datorită / Stare"
+    },
+    "cycle": "Ciclul {{number}}"
+  }
+}

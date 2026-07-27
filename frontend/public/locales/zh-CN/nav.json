@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "展开侧边栏",
+    "collapse": "折叠侧边栏",
+    "close": "关闭侧边栏"
+  },
+  "sections": {
+    "overview": "概述",
+    "clients": "客户",
+    "matters": "事项",
+    "ipRights": "知识产权",
+    "finance": "金融",
+    "reports": "报告",
+    "myWork": "我的工作",
+    "rights": "权利",
+    "communication": "沟通",
+    "trademarks": "商标",
+    "deadlines": "截止日期",
+    "correspondence": "一致",
+    "documentsAndMail": "文件和邮件",
+    "billing": "计费",
+    "compliance": "遵守",
+    "gdpr": "通用数据保护条例",
+    "audit": "审计",
+    "usersAndAccess": "用户和访问",
+    "system": "系统",
+    "myPortfolio": "我的投资组合",
+    "myMatters": "我的事"
+  },
+  "items": {
+    "dashboard": "仪表板",
+    "deadlines": "截止日期",
+    "alerts": "警报",
+    "clients": "客户",
+    "holdingGroups": "控股集团",
+    "allMatters": "一切事宜",
+    "matters": "事项",
+    "intakeQueue": "摄入队列",
+    "rightsRegister": "权利登记册",
+    "renewals": "续订",
+    "watch": "手表",
+    "billingOverview": "计费概览",
+    "deadlineRisk": "期限风险",
+    "filingVolumes": "归档量",
+    "renewalsSummary": "续订摘要",
+    "revenueReceivables": "收入和应收账款",
+    "team": "团队",
+    "settings": "设置",
+    "myDashboard": "我的仪表板",
+    "myDeadlines": "我的截止日期",
+    "myMatters": "我的事",
+    "patentFilings": "专利申请",
+    "officeActions": "办公室行动",
+    "documents": "文件",
+    "correspondence": "一致",
+    "myTmMatters": "我的TM很重要",
+    "oppositions": "反对派",
+    "watchAlerts": "观看提醒",
+    "conflictCheck": "冲突检查",
+    "allDeadlines": "所有截止日期",
+    "escalations": "升级",
+    "gracePeriods": "宽限期",
+    "addDeadline": "添加截止日期",
+    "incomingMail": "接收邮件",
+    "emailQueue": "电子邮件队列",
+    "broadcasts": "广播",
+    "outgoingMail": "外发邮件",
+    "myTasks": "我的任务",
+    "assignedMatters": "交办事项",
+    "financeDashboard": "财务仪表板",
+    "invoices": "发票",
+    "timeEntries": "时间条目",
+    "payments": "付款方式",
+    "rateCards": "价目表",
+    "disbursements": "支出",
+    "complianceDashboard": "合规仪表板",
+    "personalDataRegister": "个人资料登记",
+    "dataExportsLog": "数据导出日志",
+    "retentionRules": "保留规则",
+    "deadlineRules": "截止日期规则",
+    "holidays": "假期日历",
+    "documentTemplates": "文档模板",
+    "precedents": "先例",
+    "partners": "合作伙伴",
+    "consentRecords": "同意记录",
+    "auditTrail": "审计追踪",
+    "accessLog": "访问日志",
+    "systemDashboard": "系统仪表板",
+    "users": "用户",
+    "rolesPermissions": "角色和权限",
+    "ssoMfaConfig": "SSO/MFA 配置",
+    "integrations": "集成",
+    "systemHealth": "系统健康状况",
+    "auditLog": "审核日志",
+    "overview": "概述",
+    "enquiries": "查询",
+    "myDocuments": "我的文件",
+    "myInvoices": "我的发票",
+    "messages": "留言",
+    "approvals": "批准",
+    "help": "帮助",
+    "myPortfolio": "我的投资组合"
+  },
+  "roles": {
+    "managing_partner": "管理合伙人",
+    "ip_attorney": "知识产权/专利律师",
+    "trademark_attorney": "商标代理人",
+    "coordinator": "协调员/摄入量",
+    "docketing_admin": "归档管理员",
+    "paralegal": "律师助理",
+    "finance": "金融",
+    "dpo_compliance": "DPO/合规性",
+    "it_admin": "信息技术/管理",
+    "portal_client": "客户端（门户）"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "即将推出 - 连接模块后，该区域将显示实时数据。"
+    },
+    "managing_partner": {
+      "eyebrow": "公司概况",
+      "title": "公司概况",
+      "description": "投资组合截止日期风险、申请量、续订渠道、收入、团队工作量和客户盈利能力 - 来自单一家庭的全公司报告。"
+    },
+    "coordinator": {
+      "eyebrow": "协调",
+      "title": "摄入与协调",
+      "description": "受理渠道、申请量和即将到来的更新——协调调查直至起诉。"
+    },
+    "docketing_admin": {
+      "eyebrow": "立案",
+      "title": "截止日期板",
+      "description": "公司范围内的截止日期和案件风险 - 按客户、司法管辖区和受让人进行分组，并强调紧急程度。"
+    },
+    "finance": {
+      "eyebrow": "金融",
+      "title": "财务概览",
+      "description": "开具收入、收款和应收账款账龄 - 从一处开具发票并跟踪付款。"
+    },
+    "portal_client": {
+      "eyebrow": "客户门户",
+      "title": "欢迎回来",
+      "description": "为您的组织提交备案查询并跟踪事务。"
+    },
+    "myDashboard": {
+      "title": "我的仪表板"
+    },
+    "myTasks": {
+      "title": "我的任务"
+    },
+    "compliance": {
+      "eyebrow": "GDPR 与合规性",
+      "title": "遵守",
+      "description": "保留策略、访问寄存器和主题访问导出。"
+    },
+    "systemDashboard": {
+      "title": "系统仪表板"
+    }
+  }
+}

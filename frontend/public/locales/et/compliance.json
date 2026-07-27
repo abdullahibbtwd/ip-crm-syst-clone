@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Kontrolljälg",
+    "subtitle": "Kogu süsteemi hõlmav auditilogi vastavuse ülevaatamiseks.",
+    "loading": "Kontrolljälje laadimine…",
+    "loadFailed": "Kontrolljälje laadimine ebaõnnestus.",
+    "empty": "Auditi kirjeid ei leitud.",
+    "columns": {
+      "when": "Millal",
+      "user": "Kasutaja",
+      "action": "Tegevus",
+      "resource": "Ressurss",
+      "module": "Moodul"
+    }
+  },
+  "dataExports": {
+    "title": "Andmete ekspordi logi",
+    "subtitle": "Isikuandmete eksporti ja allalaadimisi jälgitakse GDPR-i järgimise tagamiseks.",
+    "loading": "Ekspordilogi laadimine…",
+    "loadFailed": "Ekspordilogi laadimine ebaõnnestus.",
+    "empty": "Eksporti pole veel registreeritud.",
+    "columns": {
+      "when": "Millal",
+      "user": "Kasutaja",
+      "resource": "Ressurss",
+      "clientId": "Kliendi ID"
+    }
+  },
+  "retention": {
+    "title": "Säilitamise reeglid",
+    "subtitle": "Igaöise skannimistööga jõustatud GDPR-i säilitamiseeskirjad (vaikeseade 3:00). Kasutage kuivkäivitust, et vaadata, mitut kirjet see mõjutab.",
+    "noPermission": "Teil pole säilitusreeglite haldamise luba.",
+    "newRule": "Uus reegel",
+    "loading": "Säilitusreeglite laadimine…",
+    "loadFailed": "Säilitusreeglite laadimine ebaõnnestus.",
+    "empty": "Säilitusreegleid veel pole.",
+    "dryRun": "Kuivjooks",
+    "dryRunAria": "Kuivkäigu säilitamise reegel",
+    "editAria": "Säilitusreegli muutmine",
+    "dryRunResult": "Kuivtöö: mõjutaks {{count}} kirjet (läbipiir {{cutoff}}).",
+    "dryRunFailed": "Kuivsõit ebaõnnestus",
+    "auditTrailHint": "Vaadake puhastamise ajalugu jaotises",
+    "auditTrailLink": "kontrolljälg",
+    "auditTrailFilter": "(filtri toiming: retention_rule_executed).",
+    "columns": {
+      "entity": "Üksus",
+      "condition": "Seisund",
+      "retention": "Säilitamine",
+      "action": "Tegevus",
+      "status": "Olek",
+      "description": "Kirjeldus"
+    },
+    "drawer": {
+      "createTitle": "Uus säilitamise reegel",
+      "editTitle": "Säilitusreegli muutmine",
+      "entityType": "Olemi tüüp",
+      "condition": "Seisund",
+      "conditionRejected": "Staatus = tagasi lükatud",
+      "conditionNotConverted": "Konverteerimata (v.a tagasi lükatud)",
+      "auditLogsHint": "Auditilogi reeglid kehtivad kõikidele säilitusperioodist vanematele dokumentidele. Toiming on alati kustutamine.",
+      "retentionDays": "Säilitamine (päevades)",
+      "action": "Tegevus",
+      "description": "Kirjeldus",
+      "status": "Olek",
+      "createRule": "Loo reegel"
+    },
+    "entityTypes": {
+      "intake_leads": "Sisselaskejuhtmed",
+      "audit_logs": "Auditi logid"
+    },
+    "actions": {
+      "anonymize": "Anonüümseks muutmine",
+      "delete": "Kustuta"
+    },
+    "conditions": {
+      "allRecords": "Kõik rekordid",
+      "rejected": "Staatus = tagasi lükatud",
+      "notConverted": "Konverteerimata (v.a tagasi lükatud)",
+      "noStatusFilter": "Olekufiltrit pole"
+    },
+    "status": {
+      "active": "Aktiivne",
+      "inactive": "Mitteaktiivne"
+    },
+    "errors": {
+      "invalidDays": "Sisestage kehtiv säilitusperiood päevades",
+      "saveFailed": "Säilitusreegli salvestamine ebaõnnestus",
+      "confirmSave": "Säilitusreegleid rakendatakse igaöises skannimistöös (vaikeseade 3:00). Kas jätkata salvestamist?"
+    },
+    "duration": {
+      "days": "{{days}} päeva",
+      "daysWithYears_one": "{{days}} päeva ({{count}} aasta)",
+      "daysWithYears_other": "{{days}} päeva ({{count}} aastat)",
+      "daysWithMonths_one": "{{days}} päeva ({{count}} kuu)",
+      "daysWithMonths_other": "{{days}} päeva ({{count}} kuud)",
+      "daysApproxYears": "{{days}} päeva (~{{years}} aastat)",
+      "daysApproxMonths": "{{days}} päeva (~{{months}} kuud)"
+    }
+  }
+}

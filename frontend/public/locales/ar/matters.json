@@ -1,0 +1,709 @@
+{
+  "attributes": {
+    "border_measures": {
+      "customsOffice": {
+        "label": "مكتب الجمارك"
+      },
+      "infringingGoods": {
+        "label": "وصف البضائع المخالفة"
+      }
+    },
+    "copyright": {
+      "creationDate": {
+        "label": "تاريخ الإنشاء"
+      },
+      "workTitle": {
+        "label": "عنوان العمل"
+      },
+      "workType": {
+        "label": "نوع العمل"
+      }
+    },
+    "dispute_opposition": {
+      "basisSummary": {
+        "label": "ملخص الأساس"
+      },
+      "disputeType": {
+        "label": "نوع النزاع"
+      },
+      "opponentName": {
+        "label": "الخصم / الطرف المعادي"
+      }
+    },
+    "fto_analysis": {
+      "scopeSummary": {
+        "label": "ملخص النطاق"
+      },
+      "technologyArea": {
+        "label": "مجال التكنولوجيا"
+      }
+    },
+    "geographical_indication": {
+      "productName": {
+        "label": "اسم المنتج"
+      },
+      "region": {
+        "label": "المنطقة الجغرافية"
+      }
+    },
+    "industrial_design": {
+      "designViews": {
+        "helpText": "قم بإدراج أو وصف عروض التصميم المقدمة",
+        "label": "مناظر التصميم"
+      },
+      "locarnoClass": {
+        "label": "فئة لوكارنو"
+      },
+      "productDescription": {
+        "label": "وصف المنتج"
+      }
+    },
+    "patent": {
+      "claimsSummary": {
+        "label": "ملخص المطالبات"
+      },
+      "pctNumber": {
+        "label": "رقم معاهدة التعاون بشأن البراءات"
+      },
+      "priorityDate": {
+        "label": "تاريخ الأولوية"
+      },
+      "technicalField": {
+        "label": "المجال الفني"
+      }
+    },
+    "trademark": {
+      "colors": {
+        "label": "ادعى الألوان"
+      },
+      "markDescription": {
+        "label": "وصف العلامة"
+      },
+      "markType": {
+        "label": "نوع العلامة"
+      },
+      "niceClasses": {
+        "label": "فصول جميلة",
+        "placeholder": "على سبيل المثال 12، 35"
+      }
+    },
+    "utility_model": {
+      "claimsSummary": {
+        "label": "ملخص المطالبات"
+      },
+      "priorityDate": {
+        "label": "تاريخ الأولوية"
+      },
+      "technicalField": {
+        "label": "المجال الفني"
+      }
+    },
+    "valuation": {
+      "assetDescription": {
+        "label": "وصف الأصول"
+      },
+      "valuationPurpose": {
+        "label": "غرض التقييم"
+      }
+    }
+  },
+  "billing": {
+    "addFee": "إضافة رسوم ثابتة",
+    "addTime": "تسجيل الوقت",
+    "billableAria": "قابلة للفوترة",
+    "billableWithoutRate": "قابلة للفوترة بدون معدل",
+    "confirmDeleteFee": "هل تريد حذف الرسوم الثابتة؟",
+    "confirmDeleteFeeMessage": "سيتم إزالة هذه الرسوم من هذه المسألة.",
+    "confirmDeleteFeeTitle": "هل تريد حذف الرسوم الثابتة؟",
+    "confirmDeleteTime": "هل تريد حذف إدخال الوقت هذا؟",
+    "confirmDeleteTimeMessage": "ستتم إزالة هذا الخط القابل للفوترة من المسألة.",
+    "confirmDeleteTimeTitle": "هل تريد حذف إدخال الوقت؟",
+    "description": "قيود الوقت والرسوم الثابتة والفواتير الخاصة بهذا الأمر.",
+    "emptyFees": "لا توجد رسوم ثابتة حتى الآن.",
+    "emptyTime": "لم يتم تسجيل الوقت بعد.",
+    "error": "فشل تحميل بيانات الفوترة.",
+    "feeDrawer": {
+      "amount": "المبلغ (€)",
+      "billable": "قابلة للفوترة",
+      "createTitle": "إضافة رسوم ثابتة",
+      "descriptionPlaceholder": "على سبيل المثال رسوم إيداع العلامات التجارية BPO",
+      "editTitle": "تحرير الرسوم الثابتة",
+      "errors": {
+        "amountMin": "يجب أن يكون المبلغ صفرًا أو أكبر",
+        "descriptionRequired": "الوصف مطلوب"
+      },
+      "saveFailed": "فشل في حفظ الرسوم الثابتة"
+    },
+    "fixedFees": "رسوم ثابتة",
+    "loading": "جارٍ تحميل الفواتير…",
+    "loadingInvoices": "جارٍ تحميل الفواتير…",
+    "loadInvoicesFailed": "فشل تحميل الفواتير.",
+    "noPermission": "ليس لديك إذن لعرض الفواتير لهذه المسألة.",
+    "noRateCard": "لا توجد بطاقة سعر",
+    "nonBillableAria": "غير قابلة للفوترة",
+    "portalDescription": "الفواتير وحالة الدفع لهذه المسألة.",
+    "timeDrawer": {
+      "amount": "كمية:",
+      "billable": "قابلة للفوترة",
+      "billableDisabledHint": "تم تعطيل الفاتورة عندما يكون السعر 0 يورو.",
+      "createTitle": "تسجيل الوقت",
+      "descriptionPlaceholder": "ماذا تم",
+      "editTitle": "تحرير إدخال الوقت",
+      "errors": {
+        "billableRequiresRate": "يتطلب الوقت القابل للفوترة معدلًا بالساعة. أدخل سعرًا أو ضع علامة على أنه غير قابل للفوترة.",
+        "descriptionRequired": "الوصف مطلوب",
+        "hoursMin": "يجب أن تكون الساعات على الأقل 0.25",
+        "rateMin": "يجب أن يكون المعدل صفرًا أو أكبر"
+      },
+      "hourlyRate": "سعر الساعة (€)",
+      "hoursHint": "زيادات ربع ساعة (0.25 كحد أدنى)",
+      "noRateCardWarning": "لم يتم العثور على بطاقة أسعار لدورك. سيتم حفظ هذا الإدخال على أنه غير قابل للفوترة حتى يحدد التمويل السعر أو تقوم بإدخاله يدويًا.",
+      "resolvingRate": "معدل الحل...",
+      "saveFailed": "فشل في حفظ إدخال الوقت"
+    },
+    "timeEntries": "إدخالات الوقت",
+    "table": {
+      "amount": "كمية",
+      "attorney": "محامي",
+      "billable": "قابلة للفوترة",
+      "category": "فئة",
+      "date": "تاريخ",
+      "description": "وصف",
+      "hours": "ساعات",
+      "rate": "معدل",
+      "user": "مستخدم"
+    },
+    "title": "الفواتير"
+  },
+  "correspondence": {
+    "add": "سجل المراسلات",
+    "attachFromQueue": "إرفاق من قائمة الانتظار",
+    "attachmentFallback": "مرفق المراسلة",
+    "badges": {
+      "clientVisible": "العميل مرئي",
+      "email": "بريد إلكتروني",
+      "synced": "تمت المزامنة"
+    },
+    "category": {
+      "application": "طلب",
+      "certificate": "شهادة",
+      "correspondence": "المراسلات العامة",
+      "evidence": "شهادة",
+      "office_action": "عمل المكتب",
+      "renewal": "تجديد"
+    },
+    "direction": {
+      "incoming": "وارد",
+      "outgoing": "المنتهية ولايته"
+    },
+    "description": "غرفة البريد الرقمية - خطابات السجل والإجراءات المكتبية ورسائل البريد الإلكتروني الخاصة بهذا الشأن. استخدم {{logEmail}} لملفات .eml أو نص البريد الوارد الملصق؛ استخدم {{logCorrespondence}} للإدخالات المنظمة والبريد الصادر ومرفقات المستندات.",
+    "documentReady": "الوثيقة جاهزة",
+    "downloadAttachment": "تحميل المرفق",
+    "downloadTitle": "تنزيل {{fileName}}",
+    "drawerTitle": "سجل المراسلات",
+    "empty": "لم يتم تسجيل أي مراسلة حتى الآن.",
+    "emptyHint": "سجل المراسلات أو البريد الإلكتروني لبناء سجل هذه المسألة.",
+    "emptyTitle": "لا توجد مراسلات حتى الآن",
+    "error": "فشل تحميل المراسلات.",
+    "errorLog": "فشل في تسجيل المراسلات",
+    "fetchingDocument": "جارٍ جلب المستند…",
+    "from": "من:",
+    "hideFromClient": "إخفاء من البريد الوارد للعميل",
+    "hideFromClientTitle": "إخفاء من بوابة العميل",
+    "loading": "جارٍ تحميل المراسلات...",
+    "logEmail": "سجل البريد الإلكتروني",
+    "markReplied": "أجاب مارك",
+    "markSent": "أرسل مارك",
+    "openEpoRegister": "مفتوح في سجل EPO",
+    "reply": "رد",
+    "replyTitle": "الرد عبر صندوق البريد المتصل",
+    "replaceFile": "استبدال الملف",
+    "replaceFileTitle": "استبدال الملف المرفق",
+    "saveAsPrecedent": "حفظ كسابقة",
+    "saveAsPrecedentTitle": "حفظ كمسودة سابقة",
+    "savedUnder": "محفوظة تحت عنوان المراسلة أدناه",
+    "sendToClient": "إرسال إلى البريد الوارد للعميل",
+    "showInClientTitle": "تظهر في بوابة العميل",
+    "status": {
+      "draft": "مسودة",
+      "received": "تلقى",
+      "replied": "أجاب",
+      "sent": "مرسل"
+    },
+    "table": {
+      "category": "فئة",
+      "date": "تاريخ",
+      "direction": "اتجاه",
+      "file": "ملف",
+      "fromTo": "من / الى",
+      "status": "حالة",
+      "subject": "موضوع"
+    },
+    "title": "مراسلة",
+    "to": "ل:",
+    "uploadFailed": "فشل تحميل الملف وإرفاقه",
+    "uploadFile": "تحميل الملف",
+    "uploadFileTitle": "قم بتحميل ملف PDF أو مستند لهذه المراسلات",
+    "viewOnEpo": "عرض على EPO",
+    "viewOnEpoTitle": "فتح السجل الرسمي في سجل EPO"
+  },
+  "createDrawer": {
+    "client": "عميل *",
+    "creating": "جارٍ الإنشاء…",
+    "error": "فشل في إنشاء المادة",
+    "jurisdictionHelp": "اختر واحدة أو أكثر من ولايات تقديم الطلبات.",
+    "jurisdictions": "الولايات القضائية",
+    "matterType": "نوع المادة *",
+    "open": "مسألة مفتوحة",
+    "responsibleAttorney": "المحامي المسؤول",
+    "title": "فتح مسألة جديدة",
+    "titleField": "عنوان *",
+    "titlePlaceholder": "على سبيل المثال علامة كلمة ACME - الاتحاد الأوروبي"
+  },
+  "deadlines": {
+    "complete": "مكتمل",
+    "daysLeft": "{{count}} يوم متبقي",
+    "daysOverdue": "{{count}} من الأيام متأخرة",
+    "dueToday": "مستحق اليوم",
+    "empty": "لا توجد مواعيد نهائية بشأن هذه المسألة.",
+    "error": "فشل في تحميل المواعيد النهائية.",
+    "loading": "جارٍ تحميل المواعيد النهائية...",
+    "start": "يبدأ",
+    "table": {
+      "assigned": "مُكَلَّف",
+      "due": "تاريخ الاستحقاق",
+      "grace": "جمال",
+      "jurisdiction": "الولاية القضائية",
+      "status": "حالة",
+      "title": "عنوان",
+      "type": "يكتب"
+    },
+    "title": "المواعيد النهائية"
+  },
+  "documents": {
+    "allCategories": "جميع الفئات",
+    "browse": "تصفح",
+    "category": "فئة",
+    "chooseFile": "اختر ملفًا لتحميله",
+    "chooseTemplate": "اختر قالب الرسالة",
+    "description": "خزانة الملفات الخاصة بهذا الأمر - قم بتحميل ملفات PDF وملفات Word والأدلة.",
+    "displayName": "اسم العرض",
+    "displayNamePlaceholder": "على سبيل المثال حزمة إيداع BPO - نهائية",
+    "dragDrop": "اسحب ملفًا هنا، أو",
+    "empty": "لم يتم تحميل أي وثائق حتى الآن.",
+    "error": "فشل في تحميل المستندات.",
+    "errorGeneration": "فشل إنشاء المستند",
+    "errorNoDocx": "لا يحتوي هذا القالب على ملف Word (.docx) تم تحميله",
+    "errorUpload": "فشل التحميل",
+    "format": "شكل",
+    "generate": "إنشاء وثيقة",
+    "generateDescription": "اختر قالب خطاب. تتم تعبئة تفاصيل الأمر والعميل تلقائيًا وحفظها في هذا المجلد.",
+    "generatePdf": "توليد قوات الدفاع الشعبي",
+    "generateWord": "توليد كلمة",
+    "generating": "جارٍ الإنشاء…",
+    "loading": "جارٍ تحميل المستندات…",
+    "noTemplates": "لا توجد قوالب متاحة.",
+    "notAvailable": "- غير متوفر",
+    "search": "البحث في الاسم أو العلامات...",
+    "table": {
+      "category": "فئة",
+      "displayName": "اسم العرض",
+      "name": "اسم",
+      "tags": "العلامات",
+      "uploaded": "تم الرفع",
+      "version": "إصدار"
+    },
+    "tags": "العلامات",
+    "tagsHint": "الكلمات الرئيسية مفصولة بفواصل للبحث",
+    "tagsPlaceholder": "عاجل، BPO، معتمد من قبل العميل",
+    "title": "وثائق",
+    "upload": "تحميل الوثيقة",
+    "uploadAction": "رفع",
+    "uploadNew": "تحميل مستند جديد",
+    "uploading": "جارٍ التحميل…",
+    "word": "كلمة"
+  },
+  "ipRightStatus": {
+    "cancelled": "تم الإلغاء",
+    "expired": "منتهي الصلاحية",
+    "filed": "قدم",
+    "pending": "في انتظار الايداع",
+    "registered": "مسجل"
+  },
+  "ipRights": {
+    "abandon": "يتخلى عن",
+    "add": "أضف IP الصحيح",
+    "addRight": "أضف الحق",
+    "addTitle": "أضف IP الصحيح",
+    "annuitySchedule": "جدول المعاشات",
+    "applicationNumber": "رقم الطلب",
+    "checkEpo": "تحقق من EPO",
+    "checkEpoAddNumber": "أضف رقم الطلب قبل التحقق من EPO",
+    "checkEpoTitle": "التحقق من الوضع القانوني لـ EPO (OPS)",
+    "complete": "مكتمل",
+    "confirmFiling": "تأكيد الايداع",
+    "confirmRegistration": "تأكيد التسجيل",
+    "cycleDue": "الدورة {{n}} · موعد التسليم {{date}}",
+    "cycleLabel": "دورة {{n}}",
+    "description": "قم بتقديم حقوق المسودة بمجرد تأكيد العميل وتكون حزمة التسجيل جاهزة.",
+    "editSplit": "تحرير الانقسام",
+    "empty": "لا توجد حقوق الملكية الفكرية حتى الآن. يتم إنشاء المسودة تلقائيًا عند تحويل المدخول؛ إضافة المزيد من الحقوق يدويا بعد الملاحقة القضائية.",
+    "epoCheckFailed": "فشل التحقق من حالة EPO",
+    "error": "فشل تحميل حقوق IP.",
+    "errors": {
+      "addFailed": "فشل في إضافة حق IP",
+      "applicationNumberRequired": "أدخل رقم الطلب الرسمي",
+      "documentVersionRequired": "حدد إصدار مستند حزمة التسجيل",
+      "fileFailed": "فشل في تقديم الطلب",
+      "registerFailed": "فشل في تسجيل حق IP",
+      "registrationNumberRequired": "أدخل رقم التسجيل",
+      "splitFailed": "لا يمكن تقسيم التجديد",
+      "splitJurisdictionRequired": "قم بإضافة جزء واحد على الأقل مع الاختصاص القضائي",
+      "titleRequired": "أدخل عنوانًا لحق IP"
+    },
+    "expiryDate": "تاريخ انتهاء الصلاحية",
+    "expiryDateOptional": "تاريخ انتهاء الصلاحية (اختياري)",
+    "expiryDateHint": "اتركه فارغًا لحساب دورة تجديد الاختصاص.",
+    "file": "ملف",
+    "fileApplication": "تطبيق الملف",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "الرقم الرسمي من BPO / EUIPO / EPO",
+      "filingPackage": "حزمة الايداع",
+      "filingPackageHint": "حدد إصدار المستند الذي تم تحميله لهذا الملف (عادةً ضمن التطبيق).",
+      "jurisdictionHint": "اختر EPO (EP) لتمكين التحقق من حالة الملاحقة القضائية ضد OPS.",
+      "noDocuments": "لا توجد وثائق حول هذا الموضوع حتى الآن. قم بتحميل ملف PDF في علامة التبويب \"المستندات\" أولاً.",
+      "selectDocument": "تحديد إصدار الوثيقة..."
+    },
+    "filing": "الايداع…",
+    "filingDate": "تاريخ الايداع",
+    "filingOffice": "مكتب الإيداع/الاختصاص القضائي",
+    "jurisdictionHint": "استخدم EPO (EP) لبراءات الاختراع الأوروبية، وEUIPO (EU) للعلامات التجارية/التصاميم في الاتحاد الأوروبي، وBPO (BG) لبلغاريا، وWIPO (WO) لمعاهدة التعاون بشأن البراءات.",
+    "loading": "جارٍ تحميل حقوق IP…",
+    "loadingRenewals": "جارٍ تحميل التجديدات…",
+    "markFiled": "قدم مارك",
+    "noAnnuityWindows": "لا توجد نوافذ المعاش حتى الآن. تسجيل براءة الاختراع لفتح سنة 1.",
+    "noRenewalWindows": "لا توجد نوافذ للتجديد بعد. سجل حق الملكية الفكرية لفتح الدورة 1.",
+    "partialRenewals": "التجديدات الجزئية",
+    "partsCount": "({{count}} أجزاء)",
+    "proceed": "سجل المضي قدما",
+    "register": "يسجل",
+    "registerDrawerHint": "يفتح نافذة تجديد الدورة الأولى وينشئ مواعيد نهائية للتجديد.",
+    "registerTitle": "سجل IP الصحيح",
+    "registering": "جارٍ التسجيل…",
+    "registrationDate": "تاريخ التسجيل",
+    "registrationNumber": "رقم التسجيل",
+    "renewalSchedule": "نوافذ التجديد",
+    "renewalWindows": "نوافذ التجديد",
+    "splitRenewal": "تجديد الانقسام",
+    "splitRenewalDescription": "قم بتقسيم هذا التجديد إلى اختصاص / أجزاء من الدرجة اللطيفة. يتم توجيه كل جزء وإكماله بشكل منفصل؛ تتدحرج حالة النافذة من الأجزاء.",
+    "splitRenewalTitle": "تجديد الانقسام",
+    "splitPart": "الجزء {{n}}",
+    "splitAddPart": "أضف جزءًا",
+    "splitSaveParts": "حفظ الأجزاء",
+    "splitNiceClasses": "فصول جميلة (مفصولة بفواصل)",
+    "splitNotes": "ملحوظات",
+    "splitJurisdiction": "الولاية القضائية",
+    "table": {
+      "actions": "الإجراءات",
+      "applicationNo": "رقم الطلب",
+      "cycle": "دورة",
+      "dueDate": "تاريخ الاستحقاق",
+      "jurisdiction": "الولاية القضائية",
+      "localRef": "المرجع المحلي.",
+      "niceClasses": "فصول جميلة",
+      "status": "حالة",
+      "title": "عنوان",
+      "type": "يكتب",
+      "yearCycle": "السنة / الدورة"
+    },
+    "title": "حقوق الملكية الفكرية",
+    "titleField": "عنوان",
+    "titleRegister": "سجل حقوق الملكية الفكرية",
+    "yearLabel": "السنة {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "أضف أفا",
+      "authority": "سلطة",
+      "authorityRequired": "السلطة مطلوبة",
+      "createFailed": "لا يمكن إنشاء AFA",
+      "empty": "لم يتم تسجيل أي AFAs حتى الآن.",
+      "linkedSeizure": "النوبة المرتبطة (اختياري)",
+      "loading": "جارٍ تحميل التطبيقات…",
+      "none": "لا أحد",
+      "number": "رقم الطلب",
+      "sectionDescription": "التطبيقات الجمركية تحمي الحقوق على الحدود.",
+      "sectionTitle": "طلبات العمل (AFA)",
+      "validUntil": "صالحة حتى"
+    },
+    "columns": {
+      "authority": "سلطة",
+      "custody": "كفالة",
+      "date": "تاريخ",
+      "goods": "بضائع",
+      "number": "رقم",
+      "office": "مكتب",
+      "status": "حالة",
+      "validUntil": "صالحة حتى"
+    },
+    "custody": {
+      "addEntry": "إضافة إدخال الحضانة",
+      "append": "إلحاق",
+      "empty": "لا توجد إدخالات الحضانة حتى الآن.",
+      "notesPlaceholder": "ملاحظات (اختياري)",
+      "timeline": "الجدول الزمني للحضانة"
+    },
+    "detail": {
+      "clearLink": "رابط واضح",
+      "linkedMatter": "مسألة التقاضي المرتبطة",
+      "loading": "تحميل…",
+      "saveChanges": "حفظ التغييرات",
+      "searchMatters": "البحث يهم التصعيد…",
+      "seizedOn": "تم الاستيلاء عليها {{date}}",
+      "title": "تفاصيل النوبة",
+      "updateFailed": "تعذر تحديث النوبة"
+    },
+    "errors": {
+      "addCustodyFailed": "تعذر إضافة إدخال الحضانة",
+      "createSeizureFailed": "لا يمكن إنشاء النوبة",
+      "officeAndGoodsRequired": "مطلوب مكتب جمركي ووصف البضائع"
+    },
+    "open": "يفتح",
+    "seizures": {
+      "consignmentRef": "المرجع شحنة",
+      "create": "خلق الاستيلاء",
+      "createTitle": "سجل الضبطية الجمركية",
+      "deadlineHint": "يتم إنشاء الموعد النهائي للرد تلقائيًا (10 أيام عمل من تاريخ الحجز).",
+      "empty": "لم يتم تسجيل أي مضبوطات حتى الآن.",
+      "goodsDescription": "وصف البضائع",
+      "loadFailed": "فشل تحميل النوبات.",
+      "loading": "جارٍ تحميل المضبوطات…",
+      "logSeizure": "الاستيلاء على السجل",
+      "office": "مكتب الجمارك",
+      "portOfEntry": "ميناء الدخول",
+      "quantity": "كمية",
+      "sectionDescription": "الاعتقالات والاحتجاز على الحدود لهذا الأمر.",
+      "sectionTitle": "النوبات",
+      "seizureDate": "تاريخ النوبة",
+      "status": "حالة"
+    },
+    "wrongMatterType": "السجلات الجمركية متاحة فقط فيما يتعلق بمسائل التدابير الحدودية."
+  },
+  "jurisdictionStatus": {
+    "approved": "موافقة",
+    "filed": "قدم",
+    "pending": "قيد الانتظار",
+    "rejected": "مرفوض"
+  },
+  "layout": {
+    "backToMatters": "← العودة إلى الأمور",
+    "loading": "جارٍ تحميل المادة…",
+    "notFound": "لم يتم العثور على المسألة."
+  },
+  "list": {
+    "description": "عرض المحفظة لجميع المسائل القانونية - البحث حسب العنوان أو العميل أو رقم الطلب.",
+    "descriptionPortal": "تم فتح الأمور لمؤسستك بعد تحويل المدخول.",
+    "filters": {
+      "allStatuses": "جميع الحالات",
+      "allTypes": "جميع الأنواع"
+    },
+    "intakeQueue": "قائمة انتظار المدخول",
+    "perPage": "{{count}} لكل صفحة",
+    "searchPlaceholder": "عنوان البحث، العميل، رقم الطلب...",
+    "title": "يهم",
+    "titlePortal": "أموري"
+  },
+  "ipRightsRegister": {
+    "description": "تسجيل حقوق الملكية الفكرية على مستوى الشركة مع عوامل تصفية حسب العميل والولاية القضائية والنوع والحالة وانتهاء الصلاحية.",
+    "empty": "لم يتم العثور على حقوق IP لهذه المرشحات.",
+    "filters": {
+      "all": "الجميع",
+      "allClients": "جميع العملاء",
+      "allJurisdictions": "جميع الولايات القضائية",
+      "allStatuses": "جميع الحالات",
+      "allTypes": "جميع الأنواع",
+      "client": "عميل",
+      "expiryFrom": "انتهاء الصلاحية من",
+      "expiryTo": "انتهاء الصلاحية إلى",
+      "jurisdiction": "الولاية القضائية",
+      "matterType": "نوع المسألة",
+      "status": "حالة"
+    },
+    "loading": "تحميل…",
+    "table": {
+      "applicationNo": "رقم الطلب",
+      "client": "عميل",
+      "expiry": "انتهاء الصلاحية",
+      "ipRight": "حق الملكية الفكرية",
+      "jurisdiction": "الولاية القضائية",
+      "matter": "موضوع",
+      "status": "حالة",
+      "type": "يكتب"
+    },
+    "title": "سجل حقوق الملكية الفكرية"
+  },
+  "markType": {
+    "combined": "مجموع",
+    "figurative": "رمزي",
+    "sound": "صوت",
+    "three_dimensional": "3D",
+    "wordmark": "علامة الكلمة"
+  },
+  "overview": {
+    "assignedTo": "المحامي الرئيسي",
+    "description": "وصف",
+    "jurisdictions": "الولايات القضائية",
+    "jurisdictionsEmpty": "لم يتم تسجيل أي ولايات قضائية.",
+    "openedBy": "افتتح بواسطة",
+    "status": "حالة",
+    "table": {
+      "country": "دولة",
+      "localRef": "المرجع المحلي.",
+      "status": "حالة"
+    },
+    "title": "تفاصيل المسألة",
+    "type": "يكتب",
+    "typeSpecific": "سمات خاصة بالنوع"
+  },
+  "status": {
+    "abandoned": "متروك",
+    "active": "نشيط",
+    "closed": "مغلق",
+    "draft": "مسودة",
+    "on_hold": "في الانتظار"
+  },
+  "table": {
+    "assigned": "مُكَلَّف",
+    "client": "عميل",
+    "empty": "لم يتم العثور على أي مسائل",
+    "emptyDescription": "حاول تعديل المرشحات أو فتح مسألة قانونية جديدة.",
+    "emptyPortal": "لم تتم مشاركة أية أمور معك حتى الآن.",
+    "error": "فشل تحميل المسائل.",
+    "jurisdictions": "الولايات القضائية",
+    "status": "حالة",
+    "title": "عنوان",
+    "type": "يكتب",
+    "upcoming": "{{count}} قادم",
+    "viewAria": "عرض {{title}}"
+  },
+  "tabs": {
+    "billing": "الفواتير",
+    "correspondence": "مراسلة",
+    "deadlines": "المواعيد النهائية",
+    "documents": "وثائق",
+    "instructions": "تعليمات",
+    "approvals": "الموافقات",
+    "ipRights": "حقوق الملكية الفكرية",
+    "customs": "جمارك",
+    "overview": "ملخص",
+    "tasks": "المهام",
+    "timeline": "الجدول الزمني"
+  },
+  "approvals": {
+    "title": "موافقات العميل",
+    "subtitle": "صياغة وتقديم طلبات الموافقة لبوابة العميل.",
+    "newDraft": "مسودة جديدة",
+    "loading": "جارٍ تحميل الموافقات…",
+    "loadError": "فشل تحميل الموافقات.",
+    "empty": "لا توجد طلبات موافقة حتى الآن.",
+    "noPermission": "ليس لديك إذن لعرض الموافقات الخاصة بهذا الأمر.",
+    "decisionNote": "ملاحظة العميل: {{note}}",
+    "columns": {
+      "title": "عنوان",
+      "status": "حالة",
+      "dueDate": "حق",
+      "created": "مخلوق"
+    },
+    "status": {
+      "draft": "مسودة",
+      "pending": "قيد الانتظار",
+      "approved": "موافقة",
+      "rejected": "مرفوض"
+    },
+    "actions": {
+      "submit": "يُقدِّم"
+    },
+    "drawer": {
+      "createTitle": "طلب موافقة جديد",
+      "title": "عنوان",
+      "description": "وصف",
+      "dueDate": "تاريخ الاستحقاق",
+      "cancel": "يلغي",
+      "create": "إنشاء مسودة"
+    },
+    "errors": {
+      "titleRequired": "العنوان مطلوب",
+      "saveFailed": "فشل في إنشاء الموافقة"
+    }
+  },
+  "tasks": {
+    "add": "أضف مهمة",
+    "assignedTo": "المخصصة ل",
+    "assignedToUser": "تم التعيين إلى {{name}}",
+    "completed": "مكتمل",
+    "completedByUser": "اكتمل بواسطة {{name}}",
+    "confirmComplete": "هل تريد وضع علامة على هذه المهمة كمكتملة؟",
+    "confirmDelete": "هل تريد حذف هذه المهمة؟",
+    "delete": "يمسح",
+    "deleteMessage": "ستتم إزالة هذه المهمة نهائيًا.",
+    "deleteTitle": "هل تريد حذف المهمة؟",
+    "description": "العمل الذي يتعين القيام به في هذا الشأن – منفصل عن المواعيد النهائية التي يحددها النظام.",
+    "drawerTitle": "أضف مهمة",
+    "dueOn": "مستحق {{date}}",
+    "empty": "لا توجد مهام في هذا الشأن.",
+    "emptyOpen": "لا توجد مهام مفتوحة. قم بإضافة واحد عندما يكون هناك عمل لتتبعه في هذا الشأن.",
+    "error": "فشل في تحميل المهام.",
+    "errorCreate": "فشل في إنشاء المهمة",
+    "form": {
+      "assigneeLabel": "المخصصة ل",
+      "assigneeRequired": "حدد من يجب عليه القيام بهذه المهمة",
+      "dueDateOptional": "تاريخ الاستحقاق (اختياري)",
+      "notesOptional": "ملاحظات (اختياري)",
+      "notesPlaceholder": "أي سياق إضافي للمكلف",
+      "priorityLabel": "أولوية",
+      "titleLabel": "ما يجب القيام به",
+      "titlePlaceholder": "على سبيل المثال استدعاء العميل لإعادة: استجابة BPO",
+      "titleRequired": "العنوان مطلوب"
+    },
+    "loading": "جارٍ تحميل المهام...",
+    "markComplete": "وضع علامة مكتملة",
+    "noDueDate": "لا يوجد تاريخ استحقاق",
+    "open": "يفتح",
+    "priority": {
+      "high": "عالي",
+      "normal": "طبيعي"
+    },
+    "title": "المهام"
+  },
+  "timeline": {
+    "description": "التاريخ الزمني للملاحقات القضائية والمراسلات في هذا الشأن.",
+    "empty": "لا توجد أحداث الجدول الزمني حتى الآن. قم بتسجيل المراسلات أو قم بتقديم طلب لرؤية النشاط هنا.",
+    "error": "فشل تحميل المخطط الزمني.",
+    "eventType": {
+      "correspondence": "مراسلة",
+      "deadline": "موعد التسليم",
+      "filing": "الايداع",
+      "note": "ملحوظة",
+      "task": "مهمة"
+    },
+    "loading": "جارٍ تحميل المخطط الزمني…",
+    "loggedBy": "تم التسجيل بواسطة {{name}}",
+    "title": "الجدول الزمني"
+  },
+  "type": {
+    "border_measures": "التدابير الحدودية",
+    "copyright": "حقوق الطبع والنشر",
+    "dispute_opposition": "النزاع / المعارضة",
+    "fto_analysis": "تحليل منظمة إرهابية أجنبية",
+    "geographical_indication": "الإشارة الجغرافية",
+    "industrial_design": "التصميم الصناعي",
+    "patent": "براءة اختراع",
+    "trademark": "علامة تجارية",
+    "utility_model": "نموذج المنفعة",
+    "valuation": "تقييم"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "يختار…",
+    "title": "تفاصيل خاصة بالنوع"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Jejak audit",
+    "subtitle": "Log audit seluruh sistem untuk semakan pematuhan.",
+    "loading": "Memuatkan jejak audit…",
+    "loadFailed": "Gagal memuatkan jejak audit.",
+    "empty": "Tiada entri audit ditemui.",
+    "columns": {
+      "when": "bila",
+      "user": "pengguna",
+      "action": "Tindakan",
+      "resource": "sumber",
+      "module": "Modul"
+    }
+  },
+  "dataExports": {
+    "title": "Log eksport data",
+    "subtitle": "Eksport dan muat turun data peribadi dijejaki untuk pematuhan GDPR.",
+    "loading": "Memuatkan log eksport…",
+    "loadFailed": "Gagal memuatkan log eksport.",
+    "empty": "Tiada eksport direkodkan lagi.",
+    "columns": {
+      "when": "bila",
+      "user": "pengguna",
+      "resource": "sumber",
+      "clientId": "ID Pelanggan"
+    }
+  },
+  "retention": {
+    "title": "Peraturan pengekalan",
+    "subtitle": "Dasar pengekalan GDPR yang dikuatkuasakan oleh kerja imbasan setiap malam (lalai 3:00 PG). Gunakan larian kering untuk pratonton bilangan rekod yang akan terjejas.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk mengurus peraturan pengekalan.",
+    "newRule": "Peraturan baru",
+    "loading": "Memuatkan peraturan pengekalan…",
+    "loadFailed": "Gagal memuatkan peraturan pengekalan.",
+    "empty": "Tiada peraturan pengekalan lagi.",
+    "dryRun": "Larian kering",
+    "dryRunAria": "Peraturan pengekalan larian kering",
+    "editAria": "Edit peraturan pengekalan",
+    "dryRunResult": "Larian kering: akan menjejaskan rekod {{count}} (cutoff {{cutoff}}).",
+    "dryRunFailed": "Larian kering gagal",
+    "auditTrailHint": "Lihat sejarah pembersihan dalam",
+    "auditTrailLink": "jejak audit",
+    "auditTrailFilter": "(tindakan penapis: retention_rule_executed).",
+    "columns": {
+      "entity": "Entiti",
+      "condition": "keadaan",
+      "retention": "Pengekalan",
+      "action": "Tindakan",
+      "status": "Status",
+      "description": "Penerangan"
+    },
+    "drawer": {
+      "createTitle": "Peraturan pengekalan baharu",
+      "editTitle": "Edit peraturan pengekalan",
+      "entityType": "Jenis entiti",
+      "condition": "keadaan",
+      "conditionRejected": "Status = ditolak",
+      "conditionNotConverted": "Tidak ditukar (tidak termasuk ditolak)",
+      "auditLogsHint": "Peraturan log audit digunakan untuk semua rekod yang lebih lama daripada tempoh pengekalan. Tindakan sentiasa dipadamkan.",
+      "retentionDays": "Pengekalan (hari)",
+      "action": "Tindakan",
+      "description": "Penerangan",
+      "status": "Status",
+      "createRule": "Buat peraturan"
+    },
+    "entityTypes": {
+      "intake_leads": "Pengambilan petunjuk",
+      "audit_logs": "Log audit"
+    },
+    "actions": {
+      "anonymize": "anonimkan",
+      "delete": "Padam"
+    },
+    "conditions": {
+      "allRecords": "Semua rekod",
+      "rejected": "Status = ditolak",
+      "notConverted": "Tidak ditukar (tidak termasuk ditolak)",
+      "noStatusFilter": "Tiada penapis status"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Tidak aktif"
+    },
+    "errors": {
+      "invalidDays": "Masukkan tempoh pengekalan yang sah dalam beberapa hari",
+      "saveFailed": "Gagal menyimpan peraturan pengekalan",
+      "confirmSave": "Peraturan pengekalan dijalankan pada kerja imbasan setiap malam (lalai 3:00 PG). Teruskan menyimpan?"
+    },
+    "duration": {
+      "days": "{{days}} hari",
+      "daysWithYears_one": "{{days}} hari ({{count}} tahun)",
+      "daysWithYears_other": "{{days}} hari ({{count}} tahun)",
+      "daysWithMonths_one": "{{days}} hari ({{count}} bulan)",
+      "daysWithMonths_other": "{{days}} hari ({{count}} bulan)",
+      "daysApproxYears": "{{days}} hari (~{{years}} tahun)",
+      "daysApproxMonths": "{{days}} hari (~{{months}} bulan)"
+    }
+  }
+}

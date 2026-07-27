@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Plus, Star } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
@@ -18,6 +19,7 @@ import { getApiErrorMessage } from '@/lib/api-client'
 import type { ClientTabContext } from '../ClientLayout'
 
 export function OfficesTab() {
+  const { t } = useTranslation(['crm', 'common'])
   const { clientId } = useOutletContext<ClientTabContext>()
   const { data: offices, isLoading } = useOffices(clientId)
   const setPrimary = useSetOfficePrimary(clientId)
@@ -25,16 +27,16 @@ export function OfficesTab() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  if (isLoading) return <p className="text-sm text-muted-foreground">Loading offices…</p>
+  if (isLoading) return <p className="text-sm text-muted-foreground">{t('offices.loading')}</p>
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="font-medium">Offices</h2>
+        <h2 className="font-medium">{t('offices.title')}</h2>
         <PermissionGate resource="client" action="update">
           <Button size="sm" onClick={() => setDrawerOpen(true)}>
             <Plus className="size-4" />
-            Add office
+            {t('offices.add')}
           </Button>
         </PermissionGate>
       </div>
@@ -50,7 +52,7 @@ export function OfficesTab() {
                 {office.isPrimary && (
                   <Badge variant="secondary" className="mt-1 gap-1">
                     <Star className="size-3" />
-                    Primary
+                    {t('offices.primary')}
                   </Badge>
                 )}
               </div>
@@ -64,11 +66,11 @@ export function OfficesTab() {
                       setError(null)
                       setPrimary.mutate(office.id, {
                         onError: (err) =>
-                          setError(getApiErrorMessage(err, 'Failed to set primary office')),
+                          setError(getApiErrorMessage(err, t('offices.errorPrimary'))),
                       })
                     }}
                   >
-                    Set primary
+                    {t('offices.setPrimaryAction')}
                   </Button>
                 )}
               </PermissionGate>
@@ -76,7 +78,7 @@ export function OfficesTab() {
             <p className="mt-2 text-sm text-muted-foreground">
               {[office.addressLine1, office.city, office.country ? getCountryLabel(office.country) : null]
                 .filter(Boolean)
-                .join(', ') || 'No address'}
+                .join(', ') || t('offices.noAddress')}
             </p>
             {office.phone && (
               <p className="mt-1 text-xs text-muted-foreground">{office.phone}</p>
@@ -88,7 +90,7 @@ export function OfficesTab() {
                 className="mt-2 text-destructive"
                 onClick={() => deleteOffice.mutate(office.id)}
               >
-                Remove
+                {t('offices.remove')}
               </Button>
             </PermissionGate>
           </div>
@@ -96,7 +98,7 @@ export function OfficesTab() {
       </div>
 
       {offices?.length === 0 && (
-        <p className="text-sm text-muted-foreground">No offices yet.</p>
+        <p className="text-sm text-muted-foreground">{t('offices.empty')}</p>
       )}
 
       <AddOfficeDrawer
@@ -117,6 +119,7 @@ function AddOfficeDrawer({
   open: boolean
   onClose: () => void
 }) {
+  const { t } = useTranslation(['crm', 'common'])
   const createOffice = useCreateOffice(clientId)
   const [label, setLabel] = useState('')
   const [city, setCity] = useState('')
@@ -140,15 +143,15 @@ function AddOfficeDrawer({
   }
 
   return (
-    <Drawer open={open} onClose={onClose} title="Add office">
+    <Drawer open={open} onClose={onClose} title={t('offices.drawerTitle')}>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <Field label="Label *">
+        <Field label={t('offices.label')}>
           <Input value={label} onChange={(e) => setLabel(e.target.value)} required />
         </Field>
-        <Field label="City">
+        <Field label={t('offices.city')}>
           <Input value={city} onChange={(e) => setCity(e.target.value)} />
         </Field>
-        <Field label="Country">
+        <Field label={t('overview.country')}>
           <CountrySelect value={country} onValueChange={setCountry} />
         </Field>
         <label className="flex items-center gap-2 text-sm">
@@ -157,11 +160,11 @@ function AddOfficeDrawer({
             checked={isPrimary}
             onChange={(e) => setIsPrimary(e.target.checked)}
           />
-          Set as primary office
+          {t('offices.setPrimary')}
         </label>
         {error && <p className="text-sm text-destructive">{error}</p>}
         <Button type="submit" disabled={createOffice.isPending}>
-          {createOffice.isPending ? 'Saving…' : 'Save office'}
+          {createOffice.isPending ? t('loading.saving', { ns: 'common' }) : t('offices.save')}
         </Button>
       </form>
     </Drawer>

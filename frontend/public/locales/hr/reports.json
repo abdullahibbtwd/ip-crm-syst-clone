@@ -1,0 +1,333 @@
+{
+  "aging": {
+    "buckets": {
+      "current": "Trenutni",
+      "overdue30": "1–30 dana",
+      "overdue60": "31-60 dana",
+      "overdue90plus": "90+ dana"
+    },
+    "bucketsShort": {
+      "current": "Trenutni",
+      "overdue30": "30d",
+      "overdue60": "60d",
+      "overdue90plus": "90d+"
+    },
+    "legend": "Legenda koja stari",
+    "noOpenReceivables": "Nema otvorenih potraživanja"
+  },
+  "deadlineRisk": {
+    "clientGroups_one": "{{count}} grupa klijenata",
+    "clientGroups_other": "{{count}} grupa klijenata",
+    "clientMatters": "Klijent je bitan",
+    "clientsInWindow": "{{clients}} klijenata · {{days}} dnevni horizont",
+    "crossTabTitle": "Klijent × nadležnost × odvjetnik",
+    "description": "Nadolazeći kritični rokovi grupirani prema klijentu, jurisdikciji i odgovornom odvjetniku. Boje hitnosti odgovaraju radnim popisima rokova i ključnim točkama obavijesti.",
+    "emptyDescription": "Pokušajte proširiti prozor portfelja ili očistiti filtre.",
+    "emptyTitle": "U ovom prozoru nema rokova",
+    "error": "Nije moguće učitati izvješće o riziku roka.",
+    "filters": {
+      "allAssignees": "Svi opunomoćenici",
+      "allAttorneys": "Svi odvjetnici",
+      "allJurisdictions": "Sve jurisdikcije",
+      "jurisdiction": "Nadležnost",
+      "portfolioWindow": "Period portfelja (dani)",
+      "responsibleAttorney": "Odgovorni odvjetnik"
+    },
+    "generated": "Generirano {{date}}",
+    "loading": "Učitavanje rizika portfelja…",
+    "openWorklist": "Otvori radnu listu",
+    "stats": {
+      "critical": "Kritično",
+      "criticalHint": "Kasni, danas ili ≤7 dana",
+      "dueToday": "Rok je danas",
+      "dueTodayHint": "Radnja je potrebna danas",
+      "inWindow": "U prozoru",
+      "overdue": "Zakašnjelo",
+      "overdueHint": "Zakasnio ili eskalirao"
+    },
+    "table": {
+      "deadline": "Rok",
+      "due": "Duge",
+      "matter": "Materija",
+      "status": "Status"
+    },
+    "title": "Rizik portfelja roka"
+  },
+  "filingVolumes": {
+    "byJurisdiction": "Po nadležnosti",
+    "byMonth": "Prijave po mjesecima",
+    "description": "Podnesene prijave - agregirano iz događaja podnošenja vremenskog slijeda predmeta, grupiranih po mjesecu, vrsti predmeta i nadležnosti.",
+    "error": "Nije moguće učitati sveske arhiviranja.",
+    "filters": {
+      "allJurisdictions": "Sve jurisdikcije",
+      "allTypes": "Sve vrste",
+      "jurisdiction": "Nadležnost",
+      "matterType": "Vrsta materije",
+      "periodFrom": "Razdoblje od",
+      "periodTo": "Točka do"
+    },
+    "generated": "Generirano {{date}}",
+    "loading": "Učitavanje svezaka arhiviranja…",
+    "matterPortfolio": "Matter portfelj",
+    "noFilings": "Nema prijava u razdoblju.",
+    "stats": {
+      "jurisdictions": "Nadležnosti",
+      "jurisdictionsHint": "Organi za podnošenje",
+      "matterTypes": "Vrste materija",
+      "matterTypesHint": "Podnesene različite vrste",
+      "totalFilings": "Ukupno podnesaka",
+      "totalFilingsHint": "U odabranom periodu"
+    },
+    "table": {
+      "filingDate": "Datum podnošenja",
+      "filings": "Strugotine",
+      "jurisdiction": "Nadležnost",
+      "matter": "Materija",
+      "month": "Mjesec",
+      "type": "Tip"
+    },
+    "title": "Svesci arhiviranja"
+  },
+  "renewalsSummary": {
+    "byDueMonth": "Do predviđenog mjeseca",
+    "byJurisdiction": "Po nadležnosti",
+    "cycle": "ciklus {{number}}",
+    "description": "Nadolazeći prozori obnove prema statusu, nadležnosti i mjesecu dospijeća - s razinama hitnosti usklađenim s izvješćivanjem o riziku u roku.",
+    "dueBefore": "Rok prije",
+    "dueBeforeLabel": "Rok do {{date}}",
+    "error": "Nije moguće učitati sažetak obnova.",
+    "filters": {
+      "allJurisdictions": "Sve jurisdikcije",
+      "jurisdiction": "Nadležnost"
+    },
+    "generated": "Generirano {{date}}",
+    "loading": "Učitavanje sažetka obnova...",
+    "noRenewals": "Nema obnova u prozoru.",
+    "renewalsWorklist": "Radni popis obnova",
+    "stats": {
+      "critical": "Kritično",
+      "criticalHint": "Kasni ili dospijeva ≤7 dana",
+      "instructed": "Upućen",
+      "instructedHint": "Nastavak potvrđen",
+      "pipeline": "Cjevovod",
+      "pipelineHint": "Prozori aktivne obnove",
+      "upcoming": "Nadolazeće",
+      "upcomingHint": "Čeka upute"
+    },
+    "table": {
+      "client": "Klijent",
+      "due": "Duge",
+      "ipRight": "IP pravo",
+      "month": "Mjesec",
+      "status": "Status",
+      "windows": "Windows"
+    },
+    "title": "Sažetak obnova"
+  },
+  "renewalUrgency": {
+    "legend": "Hitnost obnove",
+    "noPipeline": "Nema obnavljanja cjevovoda",
+    "overdue": "Zakašnjelo",
+    "soon": "≤30 dana",
+    "today": "Rok je danas",
+    "urgent": "≤7 dana"
+  },
+  "revenueSummary": {
+    "agingDetail": "Detalj otvorenih potraživanja",
+    "agingSection": {
+      "description": "Snimak svih otvorenih potraživanja po danima kašnjenja",
+      "title": "Sažetak starenja"
+    },
+    "description": "Ukupni iznosi izdanih računa po mjesecima, naplate i otvorena potraživanja stara prema danima kašnjenja - usklađeno sa scenarijem praćenja plaćanja Financija.",
+    "error": "Nije moguće učitati sažetak prihoda.",
+    "filters": {
+      "periodFrom": "Razdoblje od",
+      "periodTo": "Točka do"
+    },
+    "generated": "Generirano {{date}}",
+    "invoice_one": "{{count}} faktura",
+    "invoice_other": "{{count}} faktura",
+    "invoiceRegister": "Registar faktura",
+    "issuedInPeriod_one": "prihodSummary.issuedInPeriod",
+    "issuedInPeriod_other": "prihodSummary.issuedInPeriod",
+    "loading": "Učitavanje sažetka prihoda…",
+    "noInvoices": "Nema izdanih računa u ovom razdoblju.",
+    "noReceivables": "Nema nenaplaćenih potraživanja.",
+    "openInvoices_one": "prihodSummary.openInvoices",
+    "openInvoices_other": "prihodSummary.openInvoices",
+    "period": "Razdoblje {{from}} – {{to}}",
+    "revenueByMonth": {
+      "description": "Ukupni iznosi izdanih računa grupirani prema mjesecu izdavanja",
+      "title": "Prihod po mjesecima"
+    },
+    "stats": {
+      "collected": "Prikupljeno",
+      "collectedHint": "Uplate zabilježene u razdoblju",
+      "criticalReceivables": "60+ dana kašnjenja",
+      "criticalReceivablesHint": "Potraživanja koja zahtijevaju praćenje",
+      "outstanding": "Izvanredan",
+      "totalInvoiced": "Ukupno fakturirano"
+    },
+    "table": {
+      "aging": "Starenje",
+      "client": "Klijent",
+      "due": "Duge",
+      "invoice": "Dostavnica",
+      "invoiced": "Fakturirano",
+      "month": "Mjesec",
+      "open": "Otvoriti",
+      "outstanding": "Izvanredan",
+      "paid": "Plaćeno"
+    },
+    "title": "Prihodi i potraživanja"
+  },
+  "urgency": {
+    "legend": "Legenda hitnosti",
+    "noActiveRisk": "Nema aktivnog rizika",
+    "overdue": "Zakašnjelo",
+    "soon": "Rok ≤30 dana",
+    "soonShort": "≤30 dana",
+    "today": "Rok je danas",
+    "todayShort": "Danas",
+    "urgent": "Rok ≤7 dana",
+    "urgentShort": "≤7 dana"
+  },
+  "widgets": {
+    "deadlineRisk": {
+      "critical": "Kritično",
+      "criticalHint": "≤ 7 dana",
+      "overdue": "Zakašnjelo",
+      "actionRequired": "Potrebna akcija",
+      "dueToday": "Rok je danas",
+      "requiresSignOff": "Zahtijeva odjavu",
+      "nextDays": "Sljedećih {{days}} dana",
+      "clientsInWindow": "{{count}} klijenata u prozoru",
+      "windowSummary": "Sažetak prozora",
+      "priorityDeadlines": "Prioritetni rokovi",
+      "prioritySubtitle": "Najhitnije stvari koje zahtijevaju nadzor",
+      "openReport": "Otvori izvješće",
+      "loading": "Skeniranje vektora rizika...",
+      "error": "Nije moguće učitati analizu rizika.",
+      "highestExposure": "Izloženost najvećem riziku",
+      "criticalCount": "{{count}} kritično",
+      "portfolioClear": "Portfelj čist",
+      "noCriticalInWindow": "Nijedan kritični rizik nije otkriven u sljedećih {{days}} dana.",
+      "table": {
+        "priorityDeadline": "Prioritetni rok",
+        "clientJurisdiction": "Klijent i nadležnost",
+        "dueDate": "Datum dospijeća"
+      },
+      "showingOf": "Prikazuje se {{shown}} od {{total}} prioritetnih stavki",
+      "viewCrossTab": "Pogledajte cjelovito unakrsno izvješće"
+    },
+    "filingVolumes": {
+      "title": "Svesci arhiviranja",
+      "subtitle": "Prijave podnesene u cijeloj tvrtki (posljednjih 12 mjeseci)",
+      "fullReport": "Cijeli izvještaj",
+      "loading": "Skupljanje povijesti arhiviranja…",
+      "error": "Nije moguće učitati analitiku arhiviranja.",
+      "totalFilings": "Ukupno podnesaka",
+      "yearToDate": "Od godine do danas",
+      "primaryType": "Primarni tip",
+      "applications_one": "{{count}} aplikacija",
+      "applications_other": "{{count}} aplikacija",
+      "noData": "Nema podataka",
+      "topRegion": "Top regija",
+      "monthActivity": "{{month}} Aktivnost:",
+      "newFiling_one": "{{count}} nova prijava",
+      "newFiling_other": "{{count}} novih prijava",
+      "empty": "U novijoj povijesti nisu otkrivene nikakve prijave.",
+      "table": {
+        "matterInfo": "Podaci o materiji",
+        "type": "Tip",
+        "filingDate": "Datum podnošenja"
+      }
+    },
+    "revenueSummary": {
+      "invoiced12Mo": "Fakturirano (12 mjeseci)",
+      "issued_one": "{{count}} izdano",
+      "issued_other": "{{count}} izdano",
+      "collected": "Prikupljeno",
+      "paidInPeriod": "Plaćeno u periodu",
+      "outstanding": "Izvanredan",
+      "open_one": "{{count}} otvoren",
+      "open_other": "{{count}} otvoren",
+      "criticalRisk": "Kritični rizik",
+      "overdue60Days": "60+ dana kašnjenja",
+      "receivablesAging": "Starost potraživanja",
+      "agingSubtitle": "Otvoreni izdani računi po danima kašnjenja",
+      "fullReport": "Cijeli izvještaj",
+      "loading": "Analiza podataka o starenju...",
+      "error": "Nije moguće učitati podatke o starenju.",
+      "portfolioHealthy": "Portfelj zdrav",
+      "noReceivables": "Nisu pronađena nepodmirena potraživanja.",
+      "draftRef": "Nacrt ref",
+      "table": {
+        "invoiceInfo": "Podaci o fakturi",
+        "client": "Klijent",
+        "outstanding": "Izvanredan"
+      },
+      "showingOf": "Prikazuje se {{shown}} od {{total}} otvorenih faktura",
+      "viewPortfolio": "Pogledajte cijeli portfelj"
+    },
+    "teamWorkload": {
+      "title": "Opterećenje tima",
+      "subtitle": "Otvoreni predmeti, zadaci i rokovi po članu",
+      "viewTeam": "Pogledaj tim",
+      "loading": "Izračunavanje raspodjele radnog opterećenja…",
+      "error": "Nije moguće učitati podatke o timu.",
+      "matters": "Pitanja",
+      "members_one": "{{count}} član",
+      "members_other": "{{count}} članova",
+      "tasks": "Zadaci",
+      "pendingAction": "Radnja na čekanju",
+      "deadlines": "Rokovi",
+      "activeWindow": "Aktivni prozor",
+      "busiest": "Najprometniji",
+      "items_one": "{{count}} stavka",
+      "items_other": "{{count}} stavke",
+      "clear": "Jasan",
+      "empty": "Nema aktivnih podataka o timu",
+      "table": {
+        "teamMember": "Član tima",
+        "matters": "Pitanja",
+        "tasks": "Zadaci",
+        "deadlines": "Rokovi",
+        "total": "Ukupno"
+      }
+    },
+    "clientProfitability": {
+      "title": "Profitabilnost klijenta",
+      "subtitle": "Raspodjela naplaćenog prihoda po portfelju klijenata",
+      "viewAllClients": "Pogledajte sve klijente",
+      "loading": "Agregiranje podataka o profitabilnosti...",
+      "error": "Nije moguće učitati analitiku klijenta.",
+      "trueMargin": "Prava marža:",
+      "revenueProxy": "Zamjena prihoda:",
+      "totalRevenue": "Ukupni prihod",
+      "clients_one": "{{count}} klijent",
+      "clients_other": "{{count}} klijenata",
+      "totalMargin": "Ukupna marža",
+      "topClient": "Vrhunski klijent",
+      "internalCost": "{{amount}} interni trošak",
+      "noBillingData": "Nema podataka o naplati",
+      "unbilledWip": "Nenaplaćeni WIP",
+      "pendingAccrual": "Čeka se razgraničenje",
+      "firmBilled": "Čvrsto naplaćeno",
+      "totalMatters": "Ukupno je bitno",
+      "empty": "Nisu otkriveni podaci o naplati klijenta.",
+      "table": {
+        "clientPortfolio": "Portfelj klijenata",
+        "matters": "Pitanja",
+        "billable": "Naplativo",
+        "unbilled": "Nenaplaćeno",
+        "margin": "Margina",
+        "revenue": "Rev (EUR)"
+      },
+      "showingTop": "Prikazuje se {{shown}} od {{total}} klijenata prema {{basis}}",
+      "basisMargin": "margina",
+      "basisRevenue": "prihod",
+      "viewLeaderboard": "Pogledajte cijelu ploču s najboljim rezultatima"
+    }
+  }
+}

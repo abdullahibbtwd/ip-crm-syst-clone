@@ -1,0 +1,87 @@
+{
+  "title": "国外合作伙伴",
+  "subtitle": "用于备案和事项指示的当地代理人和助理律师。",
+  "newPartner": "新伙伴",
+  "noPermission": "您无权查看合作伙伴。",
+  "loading": "正在加载合作伙伴...",
+  "loadError": "无法加载合作伙伴。",
+  "empty": "没有合作伙伴符合这些筛选条件。",
+  "searchPlaceholder": "搜索姓名、公司、电子邮件...",
+  "filters": {
+    "all": "所有合作伙伴",
+    "activeOnly": "仅活动"
+  },
+  "columns": {
+    "name": "姓名",
+    "company": "公司",
+    "email": "电子邮件",
+    "jurisdictions": "司法管辖区",
+    "status": "地位"
+  },
+  "status": {
+    "active": "积极的",
+    "inactive": "不活跃"
+  },
+  "editAria": "编辑合作伙伴",
+  "deactivateAria": "停用合作伙伴",
+  "confirmDeactivate": "停用合作伙伴“{{name}}”？",
+  "drawer": {
+    "createTitle": "新伙伴",
+    "editTitle": "编辑合作伙伴",
+    "name": "姓名",
+    "company": "公司",
+    "email": "电子邮件",
+    "phone": "电话",
+    "countryCode": "国家代码",
+    "jurisdictions": "司法管辖区",
+    "jurisdictionsHint": "以逗号分隔的代码，例如 BG、欧盟、欧洲",
+    "notes": "笔记",
+    "status": "地位",
+    "cancel": "取消",
+    "create": "创建合作伙伴",
+    "save": "保存更改"
+  },
+  "errors": {
+    "nameRequired": "姓名为必填项",
+    "saveFailed": "未能保存伙伴"
+  },
+  "instructions": {
+    "title": "合作伙伴说明",
+    "subtitle": "就此事向外国合作伙伴起草、发送和跟踪指示。",
+    "newDraft": "新草案",
+    "noPermission": "您无权查看合作伙伴说明。",
+    "loading": "加载说明...",
+    "loadError": "无法加载说明。",
+    "empty": "尚无合作伙伴说明。",
+    "columns": {
+      "title": "标题",
+      "partner": "伙伴",
+      "status": "地位",
+      "created": "已创建"
+    },
+    "status": {
+      "draft": "草稿",
+      "sent": "发送",
+      "acknowledged": "已确认",
+      "complete": "完全的"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "伙伴",
+      "partnerPlaceholder": "选择合作伙伴",
+      "title": "标题",
+      "body": "指示",
+      "cancel": "取消",
+      "create": "创建草稿"
+    },
+    "errors": {
+      "required": "合伙人和头衔为必填项",
+      "saveFailed": "创建指令失败"
+    }
+  },
+  "actions": {
+    "send": "发送",
+    "acknowledge": "承认",
+    "complete": "完全的"
+  }
+}

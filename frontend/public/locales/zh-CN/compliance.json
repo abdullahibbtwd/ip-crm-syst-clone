@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "审计追踪",
+    "subtitle": "用于合规性审查的系统范围审计日志。",
+    "loading": "正在加载审计跟踪...",
+    "loadFailed": "无法加载审计跟踪。",
+    "empty": "未找到审核条目。",
+    "columns": {
+      "when": "什么时候",
+      "user": "用户",
+      "action": "行动",
+      "resource": "资源",
+      "module": "模块"
+    }
+  },
+  "dataExports": {
+    "title": "数据导出日志",
+    "subtitle": "跟踪个人数据导出和下载以确保 GDPR 合规性。",
+    "loading": "正在加载导出日志...",
+    "loadFailed": "无法加载导出日志。",
+    "empty": "尚未有出口记录。",
+    "columns": {
+      "when": "什么时候",
+      "user": "用户",
+      "resource": "资源",
+      "clientId": "客户ID"
+    }
+  },
+  "retention": {
+    "title": "保留规则",
+    "subtitle": "GDPR 保留策略由夜间扫描作业执行（默认为凌晨 3:00）。 使用试运行来预览有多少记录会受到影响。",
+    "noPermission": "您无权管理保留规则。",
+    "newRule": "新规则",
+    "loading": "正在加载保留规则...",
+    "loadFailed": "无法加载保留规则。",
+    "empty": "尚无保留规则。",
+    "dryRun": "试运行",
+    "dryRunAria": "试运行保留规则",
+    "editAria": "编辑保留规则",
+    "dryRunResult": "试运行：会影响 {{count}} 记录（截止 {{cutoff}}）。",
+    "dryRunFailed": "试运行失败",
+    "auditTrailHint": "查看清除历史记录",
+    "auditTrailLink": "审计追踪",
+    "auditTrailFilter": "（过滤器操作：retention_rule_executed）。",
+    "columns": {
+      "entity": "实体",
+      "condition": "健康）状况",
+      "retention": "保留",
+      "action": "行动",
+      "status": "地位",
+      "description": "描述"
+    },
+    "drawer": {
+      "createTitle": "新的保留规则",
+      "editTitle": "编辑保留规则",
+      "entityType": "实体类型",
+      "condition": "健康）状况",
+      "conditionRejected": "状态=拒绝",
+      "conditionNotConverted": "未转换（不包括拒绝）",
+      "auditLogsHint": "审核日志规则适用于所有早于保留期的记录。 操作始终是删除。",
+      "retentionDays": "保留（天）",
+      "action": "行动",
+      "description": "描述",
+      "status": "地位",
+      "createRule": "创建规则"
+    },
+    "entityTypes": {
+      "intake_leads": "进气引线",
+      "audit_logs": "审核日志"
+    },
+    "actions": {
+      "anonymize": "匿名化",
+      "delete": "删除"
+    },
+    "conditions": {
+      "allRecords": "所有记录",
+      "rejected": "状态=拒绝",
+      "notConverted": "未转换（不包括拒绝）",
+      "noStatusFilter": "无状态过滤器"
+    },
+    "status": {
+      "active": "积极的",
+      "inactive": "不活跃"
+    },
+    "errors": {
+      "invalidDays": "输入有效的保留期（以天为单位）",
+      "saveFailed": "保存保留规则失败",
+      "confirmSave": "保留规则在夜间扫描作业上运行（默认为凌晨 3:00）。 继续保存吗？"
+    },
+    "duration": {
+      "days": "{{days}} 天",
+      "daysWithYears_one": "{{days}} 天（{{count}} 年）",
+      "daysWithYears_other": "{{days}} 天（{{count}} 年）",
+      "daysWithMonths_one": "{{days}} 天（{{count}} 月）",
+      "daysWithMonths_other": "{{days}} 天（{{count}} 个月）",
+      "daysApproxYears": "{{days}} 天（~{{years}} 年）",
+      "daysApproxMonths": "{{days}} 天（~{{months}} 个月）"
+    }
+  }
+}

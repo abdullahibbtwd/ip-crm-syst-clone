@@ -1,0 +1,15 @@
+{
+  "title": "Documente",
+  "subtitle": "Biblioteca de documente la nivel de firmă.",
+  "searchPlaceholder": "Căutați documente...",
+  "loading": "Încărcare…",
+  "loadFailed": "Nu s-au încărcat documentele.",
+  "empty": "Nu s-au găsit documente.",
+  "columns": {
+    "name": "Nume",
+    "matter": "materie",
+    "category": "Categorie",
+    "updated": "Actualizat",
+    "by": "De"
+  }
+}

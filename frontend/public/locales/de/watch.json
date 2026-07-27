@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Markenuhr",
+    "description": "Überprüfen Sie potenzielle Konflikte, die anhand aktiver Überwachungsprofile erkannt wurden.",
+    "empty": "Keine Uhrenwarnungen entsprechen Ihren Filtern.",
+    "loading": "Uhrwarnungen werden geladen…"
+  },
+  "detail": {
+    "title": "Achtung",
+    "back": "Zurück zur Beobachtungsarbeitsliste",
+    "loading": "Ladealarm…",
+    "notFound": "Uhrenalarm nicht gefunden.",
+    "watchedMark": "Beobachtete Marke",
+    "conflictingMark": "Widersprüchliche Marke",
+    "registrySource": "Registrierungsquelle",
+    "jurisdiction": "Zuständigkeit",
+    "applicationNumber": "Bewerbungsnummer",
+    "similarity": "Ähnlichkeit",
+    "detectedAt": "Erkannt",
+    "client": "Kunde",
+    "profile": "Profil ansehen",
+    "niceClasses": "Schöne Kurse",
+    "reject": "Warnung ablehnen",
+    "accept": "Materie annehmen und erschaffen",
+    "rejectConfirm": "Diese Warnung als falsch positiv markieren?",
+    "acceptConfirm": "Aus dieser Benachrichtigung eine Einspruchssache erstellen?",
+    "triagedBy": "Getestet von {{name}}",
+    "linkedMatter": "Verknüpfte Angelegenheit"
+  },
+  "clientTab": {
+    "title": "Profile ansehen",
+    "description": "Überwachen Sie Marken in verschiedenen Registern mithilfe kanonischer Gerichtsbarkeitscodes (BG, EU, EP).",
+    "add": "Markenuhr hinzufügen",
+    "empty": "Noch keine Uhrenprofile. Fügen Sie ein Profil hinzu, um mit der Überwachung der Noten dieses Kunden zu beginnen.",
+    "loading": "Uhrenprofile werden geladen…",
+    "pause": "Pause",
+    "resume": "Wieder aufnehmen",
+    "archive": "Archiv",
+    "epoScan": "Durchsuchen Sie das EPA nach Warnmeldungen",
+    "epoScanning": "EPA scannen…",
+    "epoScanSuccess": "Erstellt {{alerts}} neue EPA-Benachrichtigung(en) aus {{profiles}} Profil(en).",
+    "epoScanFailed": "Der Scan der EPO-Uhr ist fehlgeschlagen",
+    "viewAlerts": "Sehen Sie sich Uhrenwarnungen an"
+  },
+  "drawer": {
+    "title": "Markenuhr hinzufügen",
+    "markText": "Text markieren *",
+    "markPlaceholder": "z.B. Coca-Cola",
+    "jurisdictions": "Gerichtsbarkeiten *",
+    "jurisdictionsHint": "Kanonische Codes – keine Registrierungsnamen. BPO-Uhren verwenden BG; EUIPO-Uhren verwenden EU.",
+    "niceClasses": "Schöne Kurse",
+    "niceClassesPlaceholder": "z.B. 32, 33",
+    "frequency": "Scanfrequenz",
+    "save": "Uhrenprofil speichern"
+  },
+  "filters": {
+    "status": "Status",
+    "jurisdiction": "Zuständigkeit",
+    "source": "Registrierungsquelle",
+    "minSimilarity": "Minimale Ähnlichkeit",
+    "anySimilarity": "Irgendeine Ähnlichkeit",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Sortieren nach",
+    "sortDetected": "Das Neueste zuerst",
+    "sortSimilarity": "Höchste Ähnlichkeit",
+    "all": "Alle"
+  },
+  "stats": {
+    "new": "Neue Warnungen",
+    "accepted": "Akzeptiert",
+    "rejected": "Abgelehnt"
+  },
+  "profileStatus": {
+    "active": "Aktiv",
+    "paused": "Angehalten",
+    "archived": "Archiviert"
+  },
+  "alertStatus": {
+    "new": "Neu",
+    "rejected": "Abgelehnt",
+    "accepted": "Akzeptiert"
+  },
+  "frequency": {
+    "daily": "Täglich",
+    "weekly": "Wöchentlich"
+  },
+  "table": {
+    "mark": "Beobachtete Marke",
+    "conflict": "Konflikt",
+    "client": "Kunde",
+    "similarity": "Ähnlichkeit",
+    "source": "Quelle",
+    "jurisdiction": "Zuständigkeit",
+    "status": "Status",
+    "detected": "Erkannt",
+    "frequency": "Frequenz",
+    "classes": "Klassen",
+    "profiles": "Profile",
+    "actions": "Aktionen"
+  }
+}

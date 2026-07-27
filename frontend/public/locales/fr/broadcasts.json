@@ -1,0 +1,68 @@
+{
+  "title": "Diffusions",
+  "subtitle": "Envoyez des notifications groupées aux e-mails des contacts des clients via SMTP de l'entreprise. Chaque envoi est audité en tant que Bulk_notification. Les réponses de la boîte aux lettres du sujet restent dans la file d'attente des e-mails/correspondance.",
+  "compose": {
+    "title": "Composer une diffusion",
+    "recipientGroup": "Groupe de destinataires",
+    "selectClients": "Sélectionnez les clients",
+    "searchClientsPlaceholder": "Rechercher des clients (min 2 caractères)",
+    "selected": "Choisie",
+    "add": "Ajouter",
+    "clientsSelected": "{{count}} client(s) sélectionné(s)",
+    "countingRecipients": "Compter les destinataires…",
+    "previewFailed": "Impossible de prévisualiser l'audience",
+    "recipientMatched": "destinataire correspondant",
+    "recipientsMatched": "destinataires correspondants",
+    "andMore": "…et {{count}} plus",
+    "subject": "Sujette",
+    "subjectPlaceholder": "par ex. Prochains rappels de renouvellement de l’UE",
+    "message": "Message",
+    "messagePlaceholder": "Rédigez la notification que vos clients recevront…",
+    "queuing": "Faire la queue…",
+    "sendBroadcast": "Envoyer la diffusion"
+  },
+  "errors": {
+    "subjectAndMessageRequired": "Le sujet et le message sont obligatoires",
+    "selectClient": "Sélectionnez au moins un client",
+    "queueFailed": "Échec de la mise en file d'attente de diffusion"
+  },
+  "success": {
+    "queued": "Diffusion mise en file d'attente vers {{count}} destinataire(s). La livraison s'effectue en arrière-plan."
+  },
+  "history": {
+    "title": "Diffusions récentes",
+    "when": "Quand",
+    "subject": "Sujette",
+    "audience": "Public",
+    "status": "Statut",
+    "sent": "Envoyée",
+    "by": "Par",
+    "loading": "Chargement…",
+    "empty": "Aucune diffusion pour l'instant.",
+    "failedCount": "({{count}} a échoué)"
+  },
+  "audience": {
+    "active_clients": {
+      "label": "Tous les clients actifs",
+      "description": "Adresse e-mail de contact principal pour chaque client actif"
+    },
+    "pending_eu_renewals": {
+      "label": "En attente de renouvellements de l'UE",
+      "description": "Clients actifs avec des renouvellements UE à venir / demandés / déposés"
+    },
+    "trademark_matters": {
+      "label": "Questions relatives aux marques",
+      "description": "Clients avec au moins un dossier de marque actif"
+    },
+    "manual": {
+      "label": "Sélection manuelle",
+      "description": "Choisissez des clients spécifiques dans la recherche"
+    }
+  },
+  "status": {
+    "queued": "En file d'attente",
+    "sending": "Envoi",
+    "completed": "Complété",
+    "failed": "Échoué"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "page": {
+    "title": "Ceas de marcă comercială",
+    "description": "Examinați potențialele conflicte detectate împotriva profilurilor de ceasuri active.",
+    "empty": "Nicio alertă de ceas nu se potrivește cu filtrele dvs.",
+    "loading": "Se încarcă alertele pentru ceas..."
+  },
+  "detail": {
+    "title": "Vizionați alerta",
+    "back": "Înapoi la lista de lucru pentru vizionare",
+    "loading": "Se încarcă alerta...",
+    "notFound": "Alerta ceasului nu a fost găsită.",
+    "watchedMark": "Marcă urmărită",
+    "conflictingMark": "Semn conflictual",
+    "registrySource": "Sursa registrului",
+    "jurisdiction": "Jurisdicția",
+    "applicationNumber": "Numărul cererii",
+    "similarity": "Similitudine",
+    "detectedAt": "Detectat",
+    "client": "Client",
+    "profile": "Urmărește profilul",
+    "niceClasses": "Cursuri frumoase",
+    "reject": "Respingeți alerta",
+    "accept": "Acceptați și creați materie",
+    "rejectConfirm": "Marcați această alertă drept fals pozitiv?",
+    "acceptConfirm": "Creați o chestiune de opoziție din această alertă?",
+    "triagedBy": "Triat de {{name}}",
+    "linkedMatter": "Materie legată"
+  },
+  "clientTab": {
+    "title": "Vizionați profiluri",
+    "description": "Monitorizați mărcile din registre folosind coduri de jurisdicție canonice (BG, EU, EP).",
+    "add": "Adăugați ceas marca înregistrată",
+    "empty": "Încă nu există profiluri de ceas. Adăugați un profil pentru a începe să monitorizați notele acestui client.",
+    "loading": "Se încarcă profilurile ceasului...",
+    "pause": "Pauză",
+    "resume": "Relua",
+    "archive": "Arhivă",
+    "epoScan": "Scanați EPO pentru alerte",
+    "epoScanning": "Se scanează EPO…",
+    "epoScanSuccess": "S-au creat {{alerts}} noi alerte EPO din profil(ele) {{profiles}}.",
+    "epoScanFailed": "Scanarea ceasului EPO a eșuat",
+    "viewAlerts": "Vizualizați alertele pentru ceas"
+  },
+  "drawer": {
+    "title": "Adăugați ceas marca înregistrată",
+    "markText": "Marcați textul *",
+    "markPlaceholder": "de ex. Coca cola",
+    "jurisdictions": "Jurisdictii *",
+    "jurisdictionsHint": "Coduri canonice — nu nume de registru. Ceasurile BPO folosesc BG; Ceasurile EUIPO folosesc EU.",
+    "niceClasses": "Cursuri frumoase",
+    "niceClassesPlaceholder": "de ex. 32, 33",
+    "frequency": "Frecvența de scanare",
+    "save": "Salvați profilul ceasului"
+  },
+  "filters": {
+    "status": "Stare",
+    "jurisdiction": "Jurisdicția",
+    "source": "Sursa registrului",
+    "minSimilarity": "Asemănare minimă",
+    "anySimilarity": "Orice asemănare",
+    "similarityAtLeast": "{{pct}}%+",
+    "sortBy": "Filtrează după",
+    "sortDetected": "Cel mai nou primul",
+    "sortSimilarity": "Cea mai mare asemănare",
+    "all": "Toate"
+  },
+  "stats": {
+    "new": "Alerte noi",
+    "accepted": "Acceptat",
+    "rejected": "Respins"
+  },
+  "profileStatus": {
+    "active": "Activ",
+    "paused": "Întrerupt",
+    "archived": "Arhivat"
+  },
+  "alertStatus": {
+    "new": "Nou",
+    "rejected": "Respins",
+    "accepted": "Acceptat"
+  },
+  "frequency": {
+    "daily": "Zilnic",
+    "weekly": "Săptămânal"
+  },
+  "table": {
+    "mark": "Marcă urmărită",
+    "conflict": "Conflict",
+    "client": "Client",
+    "similarity": "Similitudine",
+    "source": "Sursă",
+    "jurisdiction": "Jurisdicția",
+    "status": "Stare",
+    "detected": "Detectat",
+    "frequency": "Frecvenţă",
+    "classes": "Clasele",
+    "profiles": "Profiluri",
+    "actions": "Acțiuni"
+  }
+}

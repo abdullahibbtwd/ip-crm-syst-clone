@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Proširite bočnu traku",
+    "collapse": "Skupi bočnu traku",
+    "close": "Zatvori bočnu traku"
+  },
+  "sections": {
+    "overview": "Pregled",
+    "clients": "Klijenti",
+    "matters": "Stvari",
+    "ipRights": "IP prava",
+    "finance": "finansije",
+    "reports": "Izvještaji",
+    "myWork": "Moj posao",
+    "rights": "Prava",
+    "communication": "Komunikacija",
+    "trademarks": "žigovi",
+    "deadlines": "Rokovi",
+    "correspondence": "Prepiska",
+    "documentsAndMail": "Dokumenti i pošta",
+    "billing": "Naplata",
+    "compliance": "Usklađenost",
+    "gdpr": "GDPR",
+    "audit": "Revizija",
+    "usersAndAccess": "Korisnici i pristup",
+    "system": "Sistem",
+    "myPortfolio": "Moj portfolio",
+    "myMatters": "Moje stvari"
+  },
+  "items": {
+    "dashboard": "Dashboard",
+    "deadlines": "Rokovi",
+    "alerts": "Alerts",
+    "clients": "Klijenti",
+    "holdingGroups": "Holding grupe",
+    "allMatters": "Sve stvari",
+    "matters": "Stvari",
+    "intakeQueue": "Intake queue",
+    "rightsRegister": "Registar prava",
+    "renewals": "Obnove",
+    "watch": "Gledaj",
+    "billingOverview": "Pregled naplate",
+    "deadlineRisk": "Rizik roka",
+    "filingVolumes": "Obim arhiviranja",
+    "renewalsSummary": "Sažetak obnavljanja",
+    "revenueReceivables": "Prihodi i potraživanja",
+    "team": "Tim",
+    "settings": "Postavke",
+    "myDashboard": "Moja kontrolna tabla",
+    "myDeadlines": "Moji rokovi",
+    "myMatters": "Moje stvari",
+    "patentFilings": "Patentni podnesci",
+    "officeActions": "Kancelarijske radnje",
+    "documents": "Dokumenti",
+    "correspondence": "Prepiska",
+    "myTmMatters": "Moj TM je važan",
+    "oppositions": "Opozicije",
+    "watchAlerts": "Gledajte upozorenja",
+    "conflictCheck": "Provjera sukoba",
+    "allDeadlines": "Svi rokovi",
+    "escalations": "Eskalacije",
+    "gracePeriods": "Grejs periodi",
+    "addDeadline": "Dodajte rok",
+    "incomingMail": "Dolazna pošta",
+    "emailQueue": "Red e-pošte",
+    "broadcasts": "Emisije",
+    "outgoingMail": "Odlazna pošta",
+    "myTasks": "Moji zadaci",
+    "assignedMatters": "Dodijeljene stvari",
+    "financeDashboard": "Finansijska kontrolna tabla",
+    "invoices": "Računi",
+    "timeEntries": "Unosi vremena",
+    "payments": "Plaćanja",
+    "rateCards": "Cenovnici",
+    "disbursements": "Isplate",
+    "complianceDashboard": "Kontrolna tabla za usklađenost",
+    "personalDataRegister": "Registar ličnih podataka",
+    "dataExportsLog": "Dnevnik izvoza podataka",
+    "retentionRules": "Pravila zadržavanja",
+    "deadlineRules": "Pravila o rokovima",
+    "holidays": "Kalendar praznika",
+    "documentTemplates": "Predlošci dokumenata",
+    "precedents": "Presedani",
+    "partners": "Partneri",
+    "consentRecords": "Evidencija o saglasnosti",
+    "auditTrail": "Revizijski trag",
+    "accessLog": "Dnevnik pristupa",
+    "systemDashboard": "Sistemska kontrolna tabla",
+    "users": "Korisnici",
+    "rolesPermissions": "Uloge i dozvole",
+    "ssoMfaConfig": "SSO / MFA konfiguracija",
+    "integrations": "Integracije",
+    "systemHealth": "Zdravlje sistema",
+    "auditLog": "Dnevnik revizije",
+    "overview": "Pregled",
+    "enquiries": "Upiti",
+    "myDocuments": "Moji dokumenti",
+    "myInvoices": "Moje fakture",
+    "messages": "Poruke",
+    "approvals": "Odobrenja",
+    "help": "Upomoć",
+    "myPortfolio": "Moj portfolio"
+  },
+  "roles": {
+    "managing_partner": "Managing Partner",
+    "ip_attorney": "IP / patentni zastupnik",
+    "trademark_attorney": "Trademark Attorney",
+    "coordinator": "Koordinator / Intake",
+    "docketing_admin": "Docketing Admin",
+    "paralegal": "Paralegal",
+    "finance": "finansije",
+    "dpo_compliance": "DPO / Usklađenost",
+    "it_admin": "IT / Admin",
+    "portal_client": "Klijent (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Uskoro - ovo područje će prikazati podatke uživo kada se modul poveže."
+    },
+    "managing_partner": {
+      "eyebrow": "Pregled firme",
+      "title": "Pregled firme",
+      "description": "Rizik rokova za portfelj, obim arhiviranja, tok obnove, prihod, opterećenje tima i profitabilnost klijenata – izvještavanje za cijelu firmu iz jednog doma."
+    },
+    "coordinator": {
+      "eyebrow": "Koordinacija",
+      "title": "Prijem i koordinacija",
+      "description": "Cjevovod za unos, količine arhiviranja i predstojeće obnove - koordinirajte istrage do tužilaštva."
+    },
+    "docketing_admin": {
+      "eyebrow": "Docketing",
+      "title": "Deadline board",
+      "description": "Rizik za rokove i dokumentaciju u cijeloj firmi - grupiran prema klijentu, nadležnosti i ovlašteniku s naglaskom na hitnost."
+    },
+    "finance": {
+      "eyebrow": "finansije",
+      "title": "Pregled finansija",
+      "description": "Starost izdatih prihoda, naplata i potraživanja - izdavanje faktura i praćenje plaćanja sa jednog mjesta."
+    },
+    "portal_client": {
+      "eyebrow": "Portal za klijente",
+      "title": "Dobrodošli nazad",
+      "description": "Pošaljite upite za podnošenje i pratite pitanja za svoju organizaciju."
+    },
+    "myDashboard": {
+      "title": "Moja kontrolna tabla"
+    },
+    "myTasks": {
+      "title": "Moji zadaci"
+    },
+    "compliance": {
+      "eyebrow": "GDPR i usklađenost",
+      "title": "Usklađenost",
+      "description": "Politike zadržavanja, pristupni registri i izvoz predmeta pristupa."
+    },
+    "systemDashboard": {
+      "title": "Sistemska kontrolna tabla"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Precedentes",
+  "subtitle": "Base de conocimientos sobre correspondencia reutilizable y lenguaje de archivo.",
+  "newDraft": "Nuevo borrador",
+  "searchPlaceholder": "Buscar texto del cuerpo…",
+  "loading": "Cargando precedentes…",
+  "loadFailed": "No se pudieron cargar los precedentes.",
+  "empty": "Aún no hay precedentes. Cree un borrador o una cosecha a partir de la correspondencia.",
+  "columns": {
+    "title": "Título",
+    "category": "Categoría",
+    "jurisdiction": "Jurisdicción",
+    "status": "Estado",
+    "updated": "Actualizada"
+  },
+  "filters": {
+    "allStatuses": "Todos los estados"
+  },
+  "status": {
+    "draft": "Borrador",
+    "published": "Publicada",
+    "archived": "Archivada"
+  },
+  "editAria": "Editar",
+  "drawer": {
+    "createTitle": "Nuevo precedente",
+    "editTitle": "Editar precedente",
+    "title": "Título",
+    "category": "Categoría",
+    "matterType": "tipo de asunto",
+    "optional": "Opcional",
+    "jurisdiction": "Jurisdicción",
+    "tags": "Etiquetas",
+    "body": "Cuerpo",
+    "bodyPlaceholder": "Escriba el texto anterior: se admiten negrita, cursiva y listas.",
+    "publish": "Publicar",
+    "archive": "Archivo",
+    "publishFailed": "Error de publicación",
+    "archiveFailed": "Error de archivado",
+    "saveFailed": "No se pudo guardar el precedente",
+    "requiredFields": "Se requieren título, categoría y cuerpo."
+  }
+}

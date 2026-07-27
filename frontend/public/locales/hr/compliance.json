@@ -1,0 +1,100 @@
+{
+  "auditTrail": {
+    "title": "Revizijski trag",
+    "subtitle": "Dnevnik revizije cijelog sustava za pregled sukladnosti.",
+    "loading": "Učitavanje revizijskog traga…",
+    "loadFailed": "Učitavanje revizijskog traga nije uspjelo.",
+    "empty": "Nema pronađenih revizijskih unosa.",
+    "columns": {
+      "when": "Kada",
+      "user": "Korisnik",
+      "action": "Akcijski",
+      "resource": "Resurs",
+      "module": "Modul"
+    }
+  },
+  "dataExports": {
+    "title": "Dnevnik izvoza podataka",
+    "subtitle": "Izvozi i preuzimanja osobnih podataka prate se radi usklađenosti s GDPR-om.",
+    "loading": "Učitavanje dnevnika izvoza…",
+    "loadFailed": "Učitavanje dnevnika izvoza nije uspjelo.",
+    "empty": "Još nije zabilježen nijedan izvoz.",
+    "columns": {
+      "when": "Kada",
+      "user": "Korisnik",
+      "resource": "Resurs",
+      "clientId": "ID klijenta"
+    }
+  },
+  "retention": {
+    "title": "Pravila zadržavanja",
+    "subtitle": "GDPR pravila zadržavanja koja se provode noćnim poslom skeniranja (zadano 3:00 ujutro). Upotrijebite provjeru za pregled koliko bi zapisa to zahvatilo.",
+    "noPermission": "Nemate dopuštenje za upravljanje pravilima zadržavanja.",
+    "newRule": "Novo pravilo",
+    "loading": "Učitavanje pravila zadržavanja…",
+    "loadFailed": "Učitavanje pravila zadržavanja nije uspjelo.",
+    "empty": "Još nema pravila zadržavanja.",
+    "dryRun": "Rad na suho",
+    "dryRunAria": "Pravilo zadržavanja rada na suho",
+    "editAria": "Uredi pravilo zadržavanja",
+    "dryRunResult": "Rad na suho: utjecao bi na {{count}} rekord(e) (granična vrijednost {{cutoff}}).",
+    "dryRunFailed": "Suhi rad nije uspio",
+    "auditTrailHint": "Pogledajte povijest čišćenja u",
+    "auditTrailLink": "revizijski trag",
+    "auditTrailFilter": "(akcija filtra: retention_rule_executed).",
+    "columns": {
+      "entity": "Entitet",
+      "condition": "Stanje",
+      "retention": "Zadržavanje",
+      "action": "Akcijski",
+      "status": "Status",
+      "description": "Opis"
+    },
+    "drawer": {
+      "createTitle": "Novo pravilo zadržavanja",
+      "editTitle": "Uredi pravilo zadržavanja",
+      "entityType": "Vrsta entiteta",
+      "condition": "Stanje",
+      "conditionRejected": "Status = odbijeno",
+      "conditionNotConverted": "Nije pretvoreno (osim odbijenih)",
+      "auditLogsHint": "Pravila dnevnika revizije primjenjuju se na sve zapise starije od razdoblja čuvanja. Radnja je uvijek brisanje.",
+      "retentionDays": "Zadržavanje (dani)",
+      "action": "Akcijski",
+      "description": "Opis",
+      "status": "Status",
+      "createRule": "Stvori pravilo"
+    },
+    "entityTypes": {
+      "intake_leads": "Usisni vodovi",
+      "audit_logs": "Dnevnici revizije"
+    },
+    "actions": {
+      "anonymize": "Anonimiziraj",
+      "delete": "Izbrisati"
+    },
+    "conditions": {
+      "allRecords": "Svi zapisi",
+      "rejected": "Status = odbijeno",
+      "notConverted": "Nije pretvoreno (osim odbijenih)",
+      "noStatusFilter": "Nema filtera statusa"
+    },
+    "status": {
+      "active": "Aktivan",
+      "inactive": "Neaktivan"
+    },
+    "errors": {
+      "invalidDays": "Unesite važeće razdoblje zadržavanja u danima",
+      "saveFailed": "Spremanje pravila zadržavanja nije uspjelo",
+      "confirmSave": "Pravila zadržavanja pokreću se na noćnom poslu skeniranja (zadano 3:00 ujutro). Nastaviti sa spremanjem?"
+    },
+    "duration": {
+      "days": "{{days}} dana",
+      "daysWithYears_one": "{{days}} dana ({{count}} godina)",
+      "daysWithYears_other": "{{days}} dana ({{count}} godina)",
+      "daysWithMonths_one": "{{days}} dana ({{count}} mjesec)",
+      "daysWithMonths_other": "{{days}} dana ({{count}} mjeseci)",
+      "daysApproxYears": "{{days}} dana (~{{years}} godina)",
+      "daysApproxMonths": "{{days}} dana (~{{months}} mjeseci)"
+    }
+  }
+}

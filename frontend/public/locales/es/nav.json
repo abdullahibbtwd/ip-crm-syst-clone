@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Expandir barra lateral",
+    "collapse": "Contraer barra lateral",
+    "close": "Cerrar barra lateral"
+  },
+  "sections": {
+    "overview": "Descripción general",
+    "clients": "Clientas",
+    "matters": "Asuntos",
+    "ipRights": "Derechos de propiedad intelectual",
+    "finance": "Finanzas",
+    "reports": "Informes",
+    "myWork": "mi trabajo",
+    "rights": "Derechos",
+    "communication": "Comunicación",
+    "trademarks": "Marcas registradas",
+    "deadlines": "Plazos",
+    "correspondence": "Correspondencia",
+    "documentsAndMail": "Documentos y correo",
+    "billing": "Facturación",
+    "compliance": "Cumplimiento",
+    "gdpr": "RGPD",
+    "audit": "Auditoría",
+    "usersAndAccess": "Usuarios y acceso",
+    "system": "Sistema",
+    "myPortfolio": "mi portafolio",
+    "myMatters": "mis asuntos"
+  },
+  "items": {
+    "dashboard": "Panel",
+    "deadlines": "Plazos",
+    "alerts": "Alertas",
+    "clients": "Clientas",
+    "holdingGroups": "Grupos de tenencia",
+    "allMatters": "todos los asuntos",
+    "matters": "Asuntos",
+    "intakeQueue": "cola de admisión",
+    "rightsRegister": "Registro de derechos",
+    "renewals": "Renovaciones",
+    "watch": "Mirar",
+    "billingOverview": "Resumen de facturación",
+    "deadlineRisk": "Riesgo de plazo",
+    "filingVolumes": "Volúmenes de presentación",
+    "renewalsSummary": "Resumen de renovaciones",
+    "revenueReceivables": "Ingresos y cuentas por cobrar",
+    "team": "Equipo",
+    "settings": "Ajustes",
+    "myDashboard": "mi tablero",
+    "myDeadlines": "Mis plazos",
+    "myMatters": "mis asuntos",
+    "patentFilings": "Presentaciones de patentes",
+    "officeActions": "Acciones de oficina",
+    "documents": "Documentos",
+    "correspondence": "Correspondencia",
+    "myTmMatters": "Mi MT importa",
+    "oppositions": "Oposiciones",
+    "watchAlerts": "Ver alertas",
+    "conflictCheck": "Verificación de conflictos",
+    "allDeadlines": "Todos los plazos",
+    "escalations": "Escaladas",
+    "gracePeriods": "periodos de gracia",
+    "addDeadline": "Agregar fecha límite",
+    "incomingMail": "Correo entrante",
+    "emailQueue": "Cola de correo electrónico",
+    "broadcasts": "Transmisiones",
+    "outgoingMail": "Correspondencia saliente",
+    "myTasks": "mis tareas",
+    "assignedMatters": "Asuntos asignados",
+    "financeDashboard": "Panel de finanzas",
+    "invoices": "Facturas",
+    "timeEntries": "Entradas de tiempo",
+    "payments": "Pagos",
+    "rateCards": "Tarjetas de tarifas",
+    "disbursements": "Desembolsos",
+    "complianceDashboard": "Panel de cumplimiento",
+    "personalDataRegister": "registro de datos personales",
+    "dataExportsLog": "Registro de exportaciones de datos",
+    "retentionRules": "Reglas de retención",
+    "deadlineRules": "Reglas de plazo",
+    "holidays": "Calendario de vacaciones",
+    "documentTemplates": "Plantillas de documentos",
+    "precedents": "Precedentes",
+    "partners": "Fogonadura",
+    "consentRecords": "Registros de consentimiento",
+    "auditTrail": "Pista de auditoría",
+    "accessLog": "Registro de acceso",
+    "systemDashboard": "Panel del sistema",
+    "users": "Usuarias",
+    "rolesPermissions": "Roles y permisos",
+    "ssoMfaConfig": "Configuración SSO/MFA",
+    "integrations": "Integraciones",
+    "systemHealth": "Salud del sistema",
+    "auditLog": "Registro de auditoría",
+    "overview": "Descripción general",
+    "enquiries": "Consultas",
+    "myDocuments": "Mis documentos",
+    "myInvoices": "Mis facturas",
+    "messages": "Mensajes",
+    "approvals": "Aprobaciones",
+    "help": "Ayuda",
+    "myPortfolio": "mi portafolio"
+  },
+  "roles": {
+    "managing_partner": "Socia gerente",
+    "ip_attorney": "Abogado de Propiedad Intelectual / Patentes",
+    "trademark_attorney": "Abogado de Marcas",
+    "coordinator": "Coordinadora / Admisión",
+    "docketing_admin": "Administrador de expedientes",
+    "paralegal": "asistente legal",
+    "finance": "Finanzas",
+    "dpo_compliance": "DPO / Cumplimiento",
+    "it_admin": "TI / Administrador",
+    "portal_client": "Cliente (portal)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Próximamente: esta área mostrará datos en vivo una vez que el módulo esté conectado."
+    },
+    "managing_partner": {
+      "eyebrow": "Descripción general de la empresa",
+      "title": "Descripción general de la empresa",
+      "description": "Riesgo de plazos de cartera, volúmenes de presentación, proceso de renovaciones, ingresos, carga de trabajo del equipo y rentabilidad del cliente: informes de toda la empresa desde un solo hogar."
+    },
+    "coordinator": {
+      "eyebrow": "Coordinación",
+      "title": "Admisión y coordinación",
+      "description": "Canal de admisión, volúmenes de presentación y próximas renovaciones: coordinar las consultas hasta el procesamiento."
+    },
+    "docketing_admin": {
+      "eyebrow": "Registro",
+      "title": "tablero de fecha límite",
+      "description": "Plazo de toda la empresa y riesgo de expediente, agrupados por cliente, jurisdicción y cesionario con resaltado de urgencia."
+    },
+    "finance": {
+      "eyebrow": "Finanzas",
+      "title": "Resumen de finanzas",
+      "description": "Ingresos emitidos, cobros y vencimiento de cuentas por cobrar: emita facturas y realice un seguimiento de los pagos desde un solo lugar."
+    },
+    "portal_client": {
+      "eyebrow": "Portal del cliente",
+      "title": "Bienvenido de nuevo",
+      "description": "Envíe consultas de presentación y realice un seguimiento de los asuntos de su organización."
+    },
+    "myDashboard": {
+      "title": "mi tablero"
+    },
+    "myTasks": {
+      "title": "mis tareas"
+    },
+    "compliance": {
+      "eyebrow": "RGPD y cumplimiento",
+      "title": "Cumplimiento",
+      "description": "Políticas de retención, registros de acceso y exportaciones de acceso de sujetos."
+    },
+    "systemDashboard": {
+      "title": "Panel del sistema"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { BookMarked, Download, ExternalLink, FileText, Link2, Loader2, Mail, Plus, Reply, Upload } from 'lucide-react'
 import { LogCorrespondenceDrawer } from '@/components/correspondence/LogCorrespondenceDrawer'
@@ -28,10 +29,10 @@ import {
 } from '@/features/correspondence/hooks/useCorrespondence'
 import type { Correspondence } from '@/features/correspondence/types'
 import {
-  CORRESPONDENCE_CATEGORY_LABELS,
-  DIRECTION_LABELS,
-  STATUS_LABELS,
+  correspondenceCategoryLabel,
+  correspondenceDirectionLabel,
   correspondenceEpoRegisterLink,
+  correspondenceStatusLabel,
   formatCorrespondenceDate,
   isEpoDocumentAutoFetched,
   isEpoDocumentFetching,
@@ -51,6 +52,7 @@ function isEmailLog(item: Correspondence): boolean {
 }
 
 export function MatterCorrespondenceTab() {
+  const { t } = useTranslation(['matters', 'common'])
   const { matterId, matter } = useOutletContext<MatterTabContext>()
   const { data: rows, isLoading, isError } = useMatterCorrespondence(matterId)
   const updateStatus = useUpdateCorrespondenceStatus(matterId)
@@ -86,7 +88,7 @@ export function MatterCorrespondenceTab() {
         displayName:
           file.name.replace(/\.[^.]+$/, '') ||
           target?.subject?.slice(0, 80) ||
-          'Correspondence attachment',
+          t('matters:correspondence.attachmentFallback'),
         category: target?.category ?? 'correspondence',
         tags: 'epo-upload',
       })
@@ -99,7 +101,7 @@ export function MatterCorrespondenceTab() {
         documentVersionId: versionId,
       })
     } catch (err) {
-      setUploadError(getApiErrorMessage(err, 'Failed to upload and attach file'))
+      setUploadError(getApiErrorMessage(err, t('matters:correspondence.uploadFailed')))
     } finally {
       setUploadTargetId(null)
       if (fileInputRef.current) fileInputRef.current.value = ''
@@ -107,10 +109,10 @@ export function MatterCorrespondenceTab() {
   }
 
   if (isLoading && !rows) {
-    return <p className="text-sm text-muted-foreground">Loading correspondence…</p>
+    return <p className="text-sm text-muted-foreground">{t('matters:correspondence.loading')}</p>
   }
   if (isError) {
-    return <p className="text-sm text-destructive">Failed to load correspondence.</p>
+    return <p className="text-sm text-destructive">{t('matters:correspondence.error')}</p>
   }
 
   const list = rows ?? []
@@ -133,12 +135,12 @@ export function MatterCorrespondenceTab() {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="font-medium">Correspondence</h2>
+          <h2 className="font-medium">{t('matters:correspondence.title')}</h2>
           <p className="text-sm text-muted-foreground">
-            Digital mailroom — log letters, office actions, and emails for this matter. Use{' '}
-            <strong className="font-medium text-foreground">Log email</strong> for .eml files or
-            pasted inbox text; use <strong className="font-medium text-foreground">Log correspondence</strong>{' '}
-            for structured entries, outgoing mail, and document attachments.
+            {t('matters:correspondence.description', {
+              logEmail: t('matters:correspondence.logEmail'),
+              logCorrespondence: t('matters:correspondence.add'),
+            })}
           </p>
         </div>
         <PermissionGate resource="correspondence" action="create">
@@ -146,16 +148,16 @@ export function MatterCorrespondenceTab() {
             <PermissionGate resource="email_queue" action="link">
               <Button size="sm" variant="secondary" onClick={() => setQueueDrawerOpen(true)}>
                 <Link2 className="size-4" />
-                Attach from queue
+                {t('matters:correspondence.attachFromQueue')}
               </Button>
             </PermissionGate>
             <Button size="sm" variant="outline" onClick={() => setCorrespondenceDrawerOpen(true)}>
               <FileText className="size-4" />
-              Log correspondence
+              {t('matters:correspondence.add')}
             </Button>
             <Button size="sm" onClick={() => setEmailDrawerOpen(true)}>
               <Mail className="size-4" />
-              Log email
+              {t('matters:correspondence.logEmail')}
             </Button>
           </div>
         </PermissionGate>
@@ -164,13 +166,13 @@ export function MatterCorrespondenceTab() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Direction</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>From / To</TableHead>
-            <TableHead>Subject</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="w-[72px]">File</TableHead>
+            <TableHead>{t('matters:correspondence.table.direction')}</TableHead>
+            <TableHead>{t('matters:correspondence.table.category')}</TableHead>
+            <TableHead>{t('matters:correspondence.table.date')}</TableHead>
+            <TableHead>{t('matters:correspondence.table.fromTo')}</TableHead>
+            <TableHead>{t('matters:correspondence.table.subject')}</TableHead>
+            <TableHead>{t('matters:correspondence.table.status')}</TableHead>
+            <TableHead className="w-[72px]">{t('matters:correspondence.table.file')}</TableHead>
             <TableHead className="w-[120px]" />
           </TableRow>
         </TableHeader>
@@ -183,10 +185,8 @@ export function MatterCorrespondenceTab() {
                     <Mail className="size-5 opacity-60" />
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium text-foreground">No correspondence yet</p>
-                    <p className="text-sm">
-                      Log correspondence or an email to build this matter&apos;s record.
-                    </p>
+                    <p className="font-medium text-foreground">{t('matters:correspondence.emptyTitle')}</p>
+                    <p className="text-sm">{t('matters:correspondence.emptyHint')}</p>
                   </div>
                   <PermissionGate resource="correspondence" action="create">
                     <div className="flex flex-wrap justify-center gap-2">
@@ -196,11 +196,11 @@ export function MatterCorrespondenceTab() {
                         onClick={() => setCorrespondenceDrawerOpen(true)}
                       >
                         <FileText className="size-4" />
-                        Log correspondence
+                        {t('matters:correspondence.add')}
                       </Button>
                       <Button size="sm" onClick={() => setEmailDrawerOpen(true)}>
                         <Plus className="size-4" />
-                        Log email
+                        {t('matters:correspondence.logEmail')}
                       </Button>
                     </div>
                   </PermissionGate>
@@ -223,14 +223,14 @@ export function MatterCorrespondenceTab() {
                           : 'border-blue-500/50 bg-blue-500/10 text-blue-700 dark:text-blue-400',
                       )}
                     >
-                      {DIRECTION_LABELS[item.direction]}
+                      {correspondenceDirectionLabel(item.direction)}
                     </Badge>
                     {isEmailLog(item) ? (
                       <Badge
                         variant="outline"
                         className="normal-case border-violet-500/40 bg-violet-500/10 text-violet-700 dark:text-violet-400"
                       >
-                        Email
+                        {t('matters:correspondence.badges.email')}
                       </Badge>
                     ) : null}
                     {item.source === 'synced' ? (
@@ -238,7 +238,7 @@ export function MatterCorrespondenceTab() {
                         variant="outline"
                         className="normal-case border-sky-500/40 bg-sky-500/10 text-sky-700 dark:text-sky-400"
                       >
-                        Synced
+                        {t('matters:correspondence.badges.synced')}
                       </Badge>
                     ) : null}
                     {item.isClientVisible ? (
@@ -246,23 +246,23 @@ export function MatterCorrespondenceTab() {
                         variant="outline"
                         className="normal-case border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-300"
                       >
-                        Client visible
+                        {t('matters:correspondence.badges.clientVisible')}
                       </Badge>
                     ) : null}
                   </div>
                 </TableCell>
                 <TableCell className="text-muted-foreground">
-                  {CORRESPONDENCE_CATEGORY_LABELS[item.category]}
+                  {correspondenceCategoryLabel(item.category)}
                 </TableCell>
                 <TableCell className="text-muted-foreground">
                   {formatCorrespondenceDate(item.correspondenceDate)}
                 </TableCell>
                 <TableCell className="whitespace-normal text-sm">
                   <div>
-                    <span className="text-muted-foreground">From:</span> {item.sender}
+                    <span className="text-muted-foreground">{t('matters:correspondence.from')}</span> {item.sender}
                   </div>
                   <div>
-                    <span className="text-muted-foreground">To:</span> {item.recipient}
+                    <span className="text-muted-foreground">{t('matters:correspondence.to')}</span> {item.recipient}
                   </div>
                 </TableCell>
                 <TableCell className="max-w-[240px] font-medium">
@@ -272,7 +272,7 @@ export function MatterCorrespondenceTab() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="line-clamp-2 text-primary underline-offset-2 hover:underline"
-                      title="Open on EPO Register"
+                      title={t('matters:correspondence.openEpoRegister')}
                     >
                       {item.subject}
                     </a>
@@ -282,7 +282,7 @@ export function MatterCorrespondenceTab() {
                 </TableCell>
                 <TableCell>
                   <Badge variant="outline" className="normal-case">
-                    {STATUS_LABELS[item.status]}
+                    {correspondenceStatusLabel(item.status)}
                   </Badge>
                 </TableCell>
                 <TableCell>
@@ -293,7 +293,9 @@ export function MatterCorrespondenceTab() {
                         variant="ghost"
                         size="icon-sm"
                         className="text-muted-foreground hover:text-foreground"
-                        title={`Download ${item.documentVersion.fileName}`}
+                        title={t('matters:correspondence.downloadTitle', {
+                          fileName: item.documentVersion.fileName,
+                        })}
                         disabled={download.isPending}
                         onClick={() =>
                           download.mutate({
@@ -303,18 +305,18 @@ export function MatterCorrespondenceTab() {
                         }
                       >
                         <Download className="size-4" />
-                        <span className="sr-only">Download attachment</span>
+                        <span className="sr-only">{t('matters:correspondence.downloadAttachment')}</span>
                       </Button>
                       {isEpoDocumentAutoFetched(item) ? (
                         <Badge variant="success" className="normal-case">
-                          Document ready
+                          {t('matters:correspondence.documentReady')}
                         </Badge>
                       ) : null}
                     </div>
                   ) : isEpoDocumentFetching(item) ? (
                     <Badge variant="info" className="normal-case gap-1">
                       <Loader2 className="size-3 animate-spin" />
-                      Fetching document…
+                      {t('matters:correspondence.fetchingDocument')}
                     </Badge>
                   ) : (
                     <span className="text-muted-foreground/40">—</span>
@@ -326,13 +328,13 @@ export function MatterCorrespondenceTab() {
                       <Button
                         size="sm"
                         variant="outline"
-                        title="Open official record on EPO Register"
+                        title={t('matters:correspondence.viewOnEpoTitle')}
                         onClick={() =>
                           window.open(epoLink, '_blank', 'noopener,noreferrer')
                         }
                       >
                         <ExternalLink className="size-3.5" />
-                        View on EPO
+                        {t('matters:correspondence.viewOnEpo')}
                       </Button>
                     ) : null}
                     <PermissionGate resource="document" action="create">
@@ -342,8 +344,8 @@ export function MatterCorrespondenceTab() {
                           variant="outline"
                           title={
                             item.documentVersion
-                              ? 'Replace attached file'
-                              : 'Upload PDF or document for this correspondence'
+                              ? t('matters:correspondence.replaceFileTitle')
+                              : t('matters:correspondence.uploadFileTitle')
                           }
                           disabled={uploading}
                           onClick={() => openUploadPicker(item.id)}
@@ -353,7 +355,9 @@ export function MatterCorrespondenceTab() {
                           ) : (
                             <Upload className="size-3.5" />
                           )}
-                          {item.documentVersion ? 'Replace file' : 'Upload file'}
+                          {item.documentVersion
+                            ? t('matters:correspondence.replaceFile')
+                            : t('matters:correspondence.uploadFile')}
                         </Button>
                       </PermissionGate>
                     </PermissionGate>
@@ -362,7 +366,7 @@ export function MatterCorrespondenceTab() {
                         <Button
                           size="sm"
                           variant="outline"
-                          title="Reply via connected mailbox"
+                          title={t('matters:correspondence.replyTitle')}
                           onClick={() =>
                             setReplyContext({
                               matterId,
@@ -378,7 +382,7 @@ export function MatterCorrespondenceTab() {
                           }
                         >
                           <Reply className="size-3.5" />
-                          Reply
+                          {t('matters:correspondence.reply')}
                         </Button>
                       </PermissionGate>
                     ) : null}
@@ -387,11 +391,11 @@ export function MatterCorrespondenceTab() {
                         <Button
                           size="sm"
                           variant="outline"
-                          title="Save as draft precedent"
+                          title={t('matters:correspondence.saveAsPrecedentTitle')}
                           onClick={() => setSavePrecedentTarget(item)}
                         >
                           <BookMarked className="size-3.5" />
-                          Save as precedent
+                          {t('matters:correspondence.saveAsPrecedent')}
                         </Button>
                       </PermissionGate>
                     ) : null}
@@ -402,8 +406,8 @@ export function MatterCorrespondenceTab() {
                         disabled={updateCorrespondence.isPending}
                         title={
                           item.isClientVisible
-                            ? 'Hide from client portal'
-                            : 'Show in client portal'
+                            ? t('matters:correspondence.hideFromClientTitle')
+                            : t('matters:correspondence.showInClientTitle')
                         }
                         onClick={() =>
                           updateCorrespondence.mutate({
@@ -412,7 +416,9 @@ export function MatterCorrespondenceTab() {
                           })
                         }
                       >
-                        {item.isClientVisible ? 'Hide from client inbox' : 'Send to client inbox'}
+                        {item.isClientVisible
+                          ? t('matters:correspondence.hideFromClient')
+                          : t('matters:correspondence.sendToClient')}
                       </Button>
                       {item.status !== 'replied' && item.direction === 'incoming' ? (
                         <Button
@@ -423,7 +429,7 @@ export function MatterCorrespondenceTab() {
                             updateStatus.mutate({ id: item.id, status: 'replied' })
                           }
                         >
-                          Mark replied
+                          {t('matters:correspondence.markReplied')}
                         </Button>
                       ) : item.status === 'draft' && item.direction === 'outgoing' ? (
                         <Button
@@ -432,7 +438,7 @@ export function MatterCorrespondenceTab() {
                           disabled={updateStatus.isPending}
                           onClick={() => updateStatus.mutate({ id: item.id, status: 'sent' })}
                         >
-                          Mark sent
+                          {t('matters:correspondence.markSent')}
                         </Button>
                       ) : null}
                     </PermissionGate>

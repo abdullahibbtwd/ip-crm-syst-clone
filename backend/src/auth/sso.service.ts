@@ -263,11 +263,12 @@ export class SsoService implements OnModuleInit {
         )
       }
 
-      const result = await this.authService.login(user)
+      const result = await this.authService.login(user, { method: 'sso' })
 
       if (result.mfaRequired) {
         const mfaToken = await this.authService.createMfaPendingToken(
           result.pendingUserId,
+          result.pendingMethod ?? 'sso',
         )
         this.cookies.setMfaPendingCookie(res, mfaToken)
         return res.redirect(`${frontendUrl}/login?mfa=1`)

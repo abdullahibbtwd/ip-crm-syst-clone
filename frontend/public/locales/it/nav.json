@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Espandi la barra laterale",
+    "collapse": "Comprimi la barra laterale",
+    "close": "Chiudi la barra laterale"
+  },
+  "sections": {
+    "overview": "Panoramica",
+    "clients": "Clienti",
+    "matters": "Importa",
+    "ipRights": "Diritti di proprietà intellettuale",
+    "finance": "Finanza",
+    "reports": "Rapporti",
+    "myWork": "Il mio lavoro",
+    "rights": "Diritti",
+    "communication": "Comunicazione",
+    "trademarks": "Marchi",
+    "deadlines": "Scadenze",
+    "correspondence": "Corrispondenza",
+    "documentsAndMail": "Documenti e posta",
+    "billing": "Fatturazione",
+    "compliance": "Conformità",
+    "gdpr": "GDPR",
+    "audit": "Controllo",
+    "usersAndAccess": "Utenti e accesso",
+    "system": "Sistema",
+    "myPortfolio": "Il mio portafoglio",
+    "myMatters": "Le mie questioni"
+  },
+  "items": {
+    "dashboard": "Pannello di controllo",
+    "deadlines": "Scadenze",
+    "alerts": "Avvisi",
+    "clients": "Clienti",
+    "holdingGroups": "Gruppi di tenuta",
+    "allMatters": "Tutto conta",
+    "matters": "Importa",
+    "intakeQueue": "Coda di assunzione",
+    "rightsRegister": "Registro dei diritti",
+    "renewals": "Rinnovi",
+    "watch": "Orologio",
+    "billingOverview": "Panoramica della fatturazione",
+    "deadlineRisk": "Rischio scadenza",
+    "filingVolumes": "Volumi di archiviazione",
+    "renewalsSummary": "Riepilogo dei rinnovi",
+    "revenueReceivables": "Ricavi e crediti",
+    "team": "Squadra",
+    "settings": "Impostazioni",
+    "myDashboard": "Il mio cruscotto",
+    "myDeadlines": "Le mie scadenze",
+    "myMatters": "Le mie questioni",
+    "patentFilings": "Depositi di brevetti",
+    "officeActions": "Azioni d'ufficio",
+    "documents": "Documenti",
+    "correspondence": "Corrispondenza",
+    "myTmMatters": "La mia Meditazione Trascendentale è importante",
+    "oppositions": "Opposizioni",
+    "watchAlerts": "Guarda gli avvisi",
+    "conflictCheck": "Controllo dei conflitti",
+    "allDeadlines": "Tutte le scadenze",
+    "escalations": "Escalation",
+    "gracePeriods": "Periodi di grazia",
+    "addDeadline": "Aggiungi scadenza",
+    "incomingMail": "Posta in arrivo",
+    "emailQueue": "Coda di posta elettronica",
+    "broadcasts": "Trasmissioni",
+    "outgoingMail": "Posta in uscita",
+    "myTasks": "I miei compiti",
+    "assignedMatters": "Questioni assegnate",
+    "financeDashboard": "Cruscotto finanziario",
+    "invoices": "Fatture",
+    "timeEntries": "Immissioni di tempo",
+    "payments": "Pagamenti",
+    "rateCards": "Tariffari",
+    "disbursements": "Erogazioni",
+    "complianceDashboard": "Cruscotto di conformità",
+    "personalDataRegister": "Registro dei dati personali",
+    "dataExportsLog": "Registro delle esportazioni di dati",
+    "retentionRules": "Regole di conservazione",
+    "deadlineRules": "Regole di scadenza",
+    "holidays": "Calendario delle festività",
+    "documentTemplates": "Modelli di documenti",
+    "precedents": "Precedenti",
+    "partners": "Partner",
+    "consentRecords": "Record di consenso",
+    "auditTrail": "Pista di controllo",
+    "accessLog": "Registro degli accessi",
+    "systemDashboard": "Cruscotto di sistema",
+    "users": "Utenti",
+    "rolesPermissions": "Ruoli e autorizzazioni",
+    "ssoMfaConfig": "Configurazione SSO/MFA",
+    "integrations": "Integrazioni",
+    "systemHealth": "Salute del sistema",
+    "auditLog": "Registro di controllo",
+    "overview": "Panoramica",
+    "enquiries": "Richieste",
+    "myDocuments": "I miei documenti",
+    "myInvoices": "Le mie fatture",
+    "messages": "Messaggi",
+    "approvals": "Approvazioni",
+    "help": "Aiuto",
+    "myPortfolio": "Il mio portafoglio"
+  },
+  "roles": {
+    "managing_partner": "Socio amministratore",
+    "ip_attorney": "Consulente in proprietà intellettuale/brevetti",
+    "trademark_attorney": "Avvocato specializzato in marchi",
+    "coordinator": "Coordinatore/Assunzione",
+    "docketing_admin": "Amministratore di registrazione",
+    "paralegal": "Paralegale",
+    "finance": "Finanza",
+    "dpo_compliance": "DPO/Conformità",
+    "it_admin": "IT/Amministrazione",
+    "portal_client": "Cliente (portale)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Prossimamente: quest'area mostrerà i dati in tempo reale una volta collegato il modulo."
+    },
+    "managing_partner": {
+      "eyebrow": "Panoramica aziendale",
+      "title": "Panoramica aziendale",
+      "description": "Rischio di scadenza del portafoglio, volumi di archiviazione, pipeline di rinnovi, entrate, carico di lavoro del team e redditività del cliente: reporting a livello aziendale da un'unica sede."
+    },
+    "coordinator": {
+      "eyebrow": "Coordinamento",
+      "title": "Assunzione e coordinamento",
+      "description": "Pipeline di assunzione, volumi di archiviazione e prossimi rinnovi: coordina le indagini fino all'azione giudiziaria."
+    },
+    "docketing_admin": {
+      "eyebrow": "Registrazione",
+      "title": "Scheda scadenza",
+      "description": "Scadenza e rischio di carico a livello aziendale: raggruppati per cliente, giurisdizione e cessionario con evidenziazione dell'urgenza."
+    },
+    "finance": {
+      "eyebrow": "Finanza",
+      "title": "Panoramica finanziaria",
+      "description": "Entrate emesse, incassi e invecchiamento dei crediti: emetti fatture e monitora i pagamenti da un unico posto."
+    },
+    "portal_client": {
+      "eyebrow": "Portale clienti",
+      "title": "Bentornato",
+      "description": "Invia richieste di archiviazione e tieni traccia delle questioni per la tua organizzazione."
+    },
+    "myDashboard": {
+      "title": "Il mio cruscotto"
+    },
+    "myTasks": {
+      "title": "I miei compiti"
+    },
+    "compliance": {
+      "eyebrow": "GDPR e conformità",
+      "title": "Conformità",
+      "description": "Politiche di conservazione, registri di accesso ed esportazioni di accessi dei soggetti."
+    },
+    "systemDashboard": {
+      "title": "Cruscotto di sistema"
+    }
+  }
+}

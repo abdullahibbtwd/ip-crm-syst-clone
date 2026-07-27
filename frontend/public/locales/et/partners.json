@@ -1,0 +1,87 @@
+{
+  "title": "Välispartnerid",
+  "subtitle": "Kohalikke agente ja abinõustajaid kasutatakse dokumentide esitamiseks ja asjade juhiste esitamiseks.",
+  "newPartner": "Uus partner",
+  "noPermission": "Teil pole luba partnerite vaatamiseks.",
+  "loading": "Partnerite laadimine…",
+  "loadError": "Partnerite laadimine ebaõnnestus.",
+  "empty": "Nendele filtritele ei vasta ükski partner.",
+  "searchPlaceholder": "Otsi nime, ettevõtte, e-posti aadressi…",
+  "filters": {
+    "all": "Kõik partnerid",
+    "activeOnly": "Ainult aktiivne"
+  },
+  "columns": {
+    "name": "Nimi",
+    "company": "Ettevõte",
+    "email": "Meil",
+    "jurisdictions": "Jurisdiktsioonid",
+    "status": "Olek"
+  },
+  "status": {
+    "active": "Aktiivne",
+    "inactive": "Mitteaktiivne"
+  },
+  "editAria": "Muuda partnerit",
+  "deactivateAria": "Inaktiveeri partner",
+  "confirmDeactivate": "Inaktiveerida partner \"{{name}}\"?",
+  "drawer": {
+    "createTitle": "Uus partner",
+    "editTitle": "Muuda partnerit",
+    "name": "Nimi",
+    "company": "Ettevõte",
+    "email": "Meil",
+    "phone": "Telefon",
+    "countryCode": "Riigi kood",
+    "jurisdictions": "Jurisdiktsioonid",
+    "jurisdictionsHint": "Komaga eraldatud koodid, nt. BG, EL, EP",
+    "notes": "Märkmed",
+    "status": "Olek",
+    "cancel": "Tühista",
+    "create": "Loo partner",
+    "save": "Salvestage muudatused"
+  },
+  "errors": {
+    "nameRequired": "Nimi on kohustuslik",
+    "saveFailed": "Partneri salvestamine ebaõnnestus"
+  },
+  "instructions": {
+    "title": "Partneri juhised",
+    "subtitle": "Koostage, saatke ja jälgige välispartneritele selles küsimuses juhiseid.",
+    "newDraft": "Uus mustand",
+    "noPermission": "Teil pole luba partnerite juhiseid vaadata.",
+    "loading": "Juhiste laadimine…",
+    "loadError": "Juhiste laadimine ebaõnnestus.",
+    "empty": "Partneri juhiseid pole veel.",
+    "columns": {
+      "title": "Pealkiri",
+      "partner": "Partner",
+      "status": "Olek",
+      "created": "Loodud"
+    },
+    "status": {
+      "draft": "Mustand",
+      "sent": "Saadetud",
+      "acknowledged": "Tunnustatud",
+      "complete": "Täielik"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "Partner",
+      "partnerPlaceholder": "Valige partner",
+      "title": "Pealkiri",
+      "body": "Juhised",
+      "cancel": "Tühista",
+      "create": "Loo mustand"
+    },
+    "errors": {
+      "required": "Vajalik on partner ja tiitel",
+      "saveFailed": "Juhise loomine ebaõnnestus"
+    }
+  },
+  "actions": {
+    "send": "Saada",
+    "acknowledge": "Tunnista",
+    "complete": "Täielik"
+  }
+}

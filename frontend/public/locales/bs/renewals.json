@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "Nadolazeće",
+    "instructed": "Instruirani",
+    "filed": "Podneseno",
+    "completed": "Završeno",
+    "lapsed": "Prošlo"
+  },
+  "page": {
+    "title": "Obnove",
+    "descriptionMy": "Period obnove o pitanjima koja su vam dodijeljena.",
+    "descriptionFirm": "Radna lista za obnavljanje u cijeloj firmi za sva prava intelektualne svojine.",
+    "filters": {
+      "status": "Status",
+      "allStatuses": "Svi statusi",
+      "jurisdiction": "Nadležnost",
+      "allJurisdictions": "Sve jurisdikcije",
+      "assignee": "Primalac",
+      "allAssignees": "Svi primaoci"
+    },
+    "loading": "Učitavanje obnove…",
+    "empty": "Nijedan prozor za obnovu ne odgovara vašim filterima.",
+    "table": {
+      "ipRight": "IP desno",
+      "matter": "Materija",
+      "client": "Klijent",
+      "cycle": "Ciklus",
+      "due": "Due",
+      "status": "Status",
+      "assignee": "Primalac"
+    }
+  },
+  "widget": {
+    "title": "Predstojeće obnove",
+    "subtitle": "Narednih 90 dana instrukcija",
+    "viewPipeline": "View pipeline",
+    "loading": "Izračunavanje perioda obnove…",
+    "error": "Nije moguće učitati analizu obnova.",
+    "stats": {
+      "totalPipeline": "Total Pipeline",
+      "activeWindows": "Aktivni prozori",
+      "awaiting": "Čekam",
+      "noInstruction": "Još nema instrukcija",
+      "urgent": "Hitno",
+      "due7Days": "Rok ≤ 7 dana",
+      "instructed": "Instruirani",
+      "proceedConfirmed": "Nastavite potvrđeno"
+    },
+    "empty": "U ovom prozoru nisu praćene obnove.",
+    "table": {
+      "ipAsset": "IP imovina",
+      "client": "Klijent",
+      "dueStatus": "Rok / Status"
+    },
+    "cycle": "Ciklus {{number}}"
+  }
+}

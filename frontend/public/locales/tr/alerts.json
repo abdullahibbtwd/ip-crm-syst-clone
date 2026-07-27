@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Uyarılar",
+    "description": "Vadesi bugün gelen, acil öğeler ve okunmamış bildirimler."
+  },
+  "sections": {
+    "overdue": "vadesi geçmiş",
+    "today": "Bugün vadesi doluyor",
+    "urgent": "Acil",
+    "notifications": "Bildirimler"
+  },
+  "empty": {
+    "notifications": "Bildirim yok",
+    "urgent": "Acil öğe yok",
+    "overdue": "Geciken öğe yok",
+    "today": "Bugün teslim edilmesi gereken öğe yok"
+  }
+}

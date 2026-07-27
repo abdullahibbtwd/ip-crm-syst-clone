@@ -1,0 +1,91 @@
+{
+  "status": {
+    "pending": "En attente",
+    "in_progress": "En cours",
+    "completed": "Complété",
+    "missed": "Manquée",
+    "escalated": "Escaladé",
+    "superseded": "Remplacé"
+  },
+  "urgency": {
+    "dueToday": "À rendre aujourd'hui",
+    "overdue": "En retard"
+  },
+  "allDeadlines": {
+    "title": "Tous les délais",
+    "description": "Enregistrez les délais à l’échelle de l’entreprise pour chaque dossier et chaque cessionnaire.",
+    "newDeadline": "Nouveau délai",
+    "firmDueToday_one": "1 échéance ferme est due aujourd'hui sur tous les sujets.",
+    "firmDueToday_other": "{{count}} des délais fermes sont attendus aujourd'hui dans tous les domaines.",
+    "filters": {
+      "attorney": "Avocate",
+      "allAttorneys": "Tous les avocats",
+      "matterType": "Type de matière",
+      "allTypes": "Tous types",
+      "jurisdiction": "Juridiction",
+      "allJurisdictions": "Toutes les juridictions",
+      "status": "Statut",
+      "allStatuses": "Tous les statuts",
+      "overdue": "En retard",
+      "dueFrom": "Due à partir de",
+      "dueTo": "En raison de"
+    },
+    "loading": "Délais de chargement…",
+    "error": "Échec du chargement des délais.",
+    "table": {
+      "matter": "Matière",
+      "attorney": "Avocate",
+      "type": "Taper",
+      "jurisdiction": "Juridiction",
+      "dueDate": "Date d'échéance",
+      "grace": "Grâce",
+      "status": "Statut"
+    },
+    "empty": "Aucune date limite ne correspond à vos filtres.",
+    "previous": "Précédente",
+    "next": "Suivante"
+  },
+  "myDeadlines": {
+    "title": "Mes délais",
+    "descriptionStaff": "Votre liste de travail personnelle pour tous les sujets assignés. Mettez à jour le statut ici sans ouvrir chaque sujet.",
+    "descriptionPortal": "Délais à venir et en retard dans vos dossiers.",
+    "tabs": {
+      "all": "Toute",
+      "pending": "En attente",
+      "in_progress": "En cours",
+      "overdue": "En retard",
+      "completed": "Complété"
+    },
+    "loading": "Délais de chargement…",
+    "error": "Échec du chargement des délais.",
+    "table": {
+      "matter": "Matière",
+      "type": "Taper",
+      "jurisdiction": "Juridiction",
+      "dueDate": "Date d'échéance",
+      "grace": "Grâce",
+      "status": "Statut"
+    },
+    "empty": "Pas de délais de ce point de vue.",
+    "previous": "Précédente",
+    "next": "Suivante"
+  },
+  "widget": {
+    "title": "Mes délais",
+    "viewAll": "Voir tout",
+    "loading": "Analyse des données sur les délais…",
+    "error": "Impossible de charger les délais.",
+    "empty": "Aucune échéance à venir ne vous est assignée.",
+    "table": {
+      "matterClient": "Sujet & Client",
+      "deadline": "Date limite",
+      "dueDateStatus": "Date d'échéance et statut"
+    }
+  },
+  "dueTodayAlert": {
+    "title": "À rendre aujourd'hui",
+    "view": "Voir",
+    "personal_one": "Vous avez 1 date limite à respecter aujourd'hui.",
+    "personal_other": "Vous avez {{count}} échéances à échéance aujourd'hui."
+  }
+}

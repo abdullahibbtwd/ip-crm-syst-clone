@@ -1,0 +1,15 @@
+{
+  "title": "Dokumenti",
+  "subtitle": "Biblioteka dokumenata o stvarima za cijelu firmu.",
+  "searchPlaceholder": "Pretražite dokumente…",
+  "loading": "Učitavanje…",
+  "loadFailed": "Učitavanje dokumenata nije uspjelo.",
+  "empty": "Nije pronađen nijedan dokument.",
+  "columns": {
+    "name": "Ime",
+    "matter": "Materija",
+    "category": "Kategorija",
+    "updated": "Ažurirano",
+    "by": "By"
+  }
+}

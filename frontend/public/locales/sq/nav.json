@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "expand": "Zgjero shiritin anësor",
+    "collapse": "Palos shiritin anësor",
+    "close": "Mbyll shiritin anësor"
+  },
+  "sections": {
+    "overview": "Vështrim i përgjithshëm",
+    "clients": "Klientët",
+    "matters": "Çështjet",
+    "ipRights": "Të drejtat e IP",
+    "finance": "Financa",
+    "reports": "Raportet",
+    "myWork": "Puna ime",
+    "rights": "Të drejtat",
+    "communication": "Komunikimi",
+    "trademarks": "Markat tregtare",
+    "deadlines": "Afatet",
+    "correspondence": "Korrespondencë",
+    "documentsAndMail": "Dokumentet dhe posta",
+    "billing": "Faturimi",
+    "compliance": "Pajtueshmëria",
+    "gdpr": "GDPR",
+    "audit": "Auditimi",
+    "usersAndAccess": "Përdoruesit dhe aksesi",
+    "system": "Sistemi",
+    "myPortfolio": "Portofoli im",
+    "myMatters": "Çështjet e mia"
+  },
+  "items": {
+    "dashboard": "Paneli",
+    "deadlines": "Afatet",
+    "alerts": "Alarmet",
+    "clients": "Klientët",
+    "holdingGroups": "Grupet mbajtëse",
+    "allMatters": "Të gjitha çështjet",
+    "matters": "Çështjet",
+    "intakeQueue": "Radha e marrjes",
+    "rightsRegister": "Regjistri i të drejtave",
+    "renewals": "Rinovimet",
+    "watch": "Shikoni",
+    "billingOverview": "Pasqyrë e faturimit",
+    "deadlineRisk": "Rreziku i afatit",
+    "filingVolumes": "Vëllimet e depozitimit",
+    "renewalsSummary": "Përmbledhja e rinovimeve",
+    "revenueReceivables": "Të ardhurat dhe të arkëtueshmet",
+    "team": "Ekipi",
+    "settings": "Cilësimet",
+    "myDashboard": "Paneli im",
+    "myDeadlines": "Afatet e mia",
+    "myMatters": "Çështjet e mia",
+    "patentFilings": "Regjistrimet e patentave",
+    "officeActions": "Veprimet e zyrës",
+    "documents": "Dokumentet",
+    "correspondence": "Korrespondencë",
+    "myTmMatters": "TM-ja ime ka rëndësi",
+    "oppositions": "opozita",
+    "watchAlerts": "Shikoni sinjalizimet",
+    "conflictCheck": "Kontrolli i konfliktit",
+    "allDeadlines": "Të gjitha afatet",
+    "escalations": "Përshkallëzimi",
+    "gracePeriods": "Periudhat e hirit",
+    "addDeadline": "Shto afatin",
+    "incomingMail": "Posta hyrëse",
+    "emailQueue": "Radha e postës elektronike",
+    "broadcasts": "Transmetimet",
+    "outgoingMail": "Postë dalëse",
+    "myTasks": "Detyrat e mia",
+    "assignedMatters": "Çështjet e caktuara",
+    "financeDashboard": "Paneli i financave",
+    "invoices": "Faturat",
+    "timeEntries": "Regjistrimet në kohë",
+    "payments": "Pagesat",
+    "rateCards": "Kartat e vlerësimit",
+    "disbursements": "Disbursimet",
+    "complianceDashboard": "Paneli i pajtueshmërisë",
+    "personalDataRegister": "Regjistri i të dhënave personale",
+    "dataExportsLog": "Regjistri i eksporteve të të dhënave",
+    "retentionRules": "Rregullat e mbajtjes",
+    "deadlineRules": "Rregullat e afatit",
+    "holidays": "Kalendari i festave",
+    "documentTemplates": "Modelet e dokumenteve",
+    "precedents": "Precedentët",
+    "partners": "Partnerët",
+    "consentRecords": "Të dhënat e pëlqimit",
+    "auditTrail": "Gjurma e auditimit",
+    "accessLog": "Regjistri i qasjes",
+    "systemDashboard": "Paneli i sistemit",
+    "users": "Përdoruesit",
+    "rolesPermissions": "Rolet dhe lejet",
+    "ssoMfaConfig": "Konfigurimi i SSO / MPJ",
+    "integrations": "Integrimet",
+    "systemHealth": "Shëndeti i sistemit",
+    "auditLog": "Regjistri i auditimit",
+    "overview": "Vështrim i përgjithshëm",
+    "enquiries": "Hetimet",
+    "myDocuments": "Dokumentet e mia",
+    "myInvoices": "Faturat e mia",
+    "messages": "Mesazhet",
+    "approvals": "Miratimet",
+    "help": "Ndihmë",
+    "myPortfolio": "Portofoli im"
+  },
+  "roles": {
+    "managing_partner": "Partner Menaxhues",
+    "ip_attorney": "IP / Avokati i Patentave",
+    "trademark_attorney": "Avokati i Markave Tregtare",
+    "coordinator": "Koordinatori / Marrja",
+    "docketing_admin": "Docketing Admin",
+    "paralegal": "Paraligjor",
+    "finance": "Financa",
+    "dpo_compliance": "DPO / Pajtueshmëria",
+    "it_admin": "IT / Admin",
+    "portal_client": "Klienti (portali)"
+  },
+  "roleHomes": {
+    "_comingSoon": {
+      "description": "Së shpejti - kjo zonë do të shfaqë të dhëna të drejtpërdrejta pasi të lidhet moduli."
+    },
+    "managing_partner": {
+      "eyebrow": "Vështrim i përgjithshëm i firmës",
+      "title": "Vështrim i përgjithshëm i firmës",
+      "description": "Rreziku i afatit të portofolit, vëllimet e dosjeve, tubacioni i rinovimeve, të ardhurat, ngarkesa e ekipit dhe përfitimi i klientit - raportim në të gjithë firmën nga një shtëpi e vetme."
+    },
+    "coordinator": {
+      "eyebrow": "Koordinimi",
+      "title": "Marrja dhe koordinimi",
+      "description": "Tubacioni i marrjes, vëllimet e dosjeve dhe rinovimet e ardhshme - koordinoni hetimet deri në ndjekje penale."
+    },
+    "docketing_admin": {
+      "eyebrow": "Docketing",
+      "title": "Bordi i afatit",
+      "description": "Afati i gjithë firmës dhe rreziku i doket - të grupuara sipas klientit, juridiksionit dhe të caktuarit me theksim urgjent."
+    },
+    "finance": {
+      "eyebrow": "Financa",
+      "title": "Pasqyrë e financave",
+      "description": "Të ardhurat e emetuara, arkëtimet dhe të arkëtueshmet e vjetra - lëshoni fatura dhe gjurmoni pagesat nga një vend."
+    },
+    "portal_client": {
+      "eyebrow": "Portali i klientit",
+      "title": "Mirë se vini përsëri",
+      "description": "Paraqisni kërkesat e depozitimit dhe gjurmoni çështjet për organizatën tuaj."
+    },
+    "myDashboard": {
+      "title": "Paneli im"
+    },
+    "myTasks": {
+      "title": "Detyrat e mia"
+    },
+    "compliance": {
+      "eyebrow": "GDPR dhe pajtueshmëria",
+      "title": "Pajtueshmëria",
+      "description": "Politikat e mbajtjes, regjistrat e aksesit dhe eksportet e aksesit të subjekteve."
+    },
+    "systemDashboard": {
+      "title": "Paneli i sistemit"
+    }
+  }
+}

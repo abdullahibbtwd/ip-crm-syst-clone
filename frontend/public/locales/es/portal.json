@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Envíe consultas sobre nuevas presentaciones y realice un seguimiento de los asuntos abiertos en su organización. Tu portafolio de un vistazo.",
+    "eyebrow": "Portal del cliente",
+    "filePatent": "Presentar una patente",
+    "fileTrademark": "Presentar una marca",
+    "stats": {
+      "activeMatters": "Asuntos activos",
+      "activeMattersHint": "Portafolio de organizaciones",
+      "openDeadlines": "Plazos abiertos",
+      "openDeadlinesHint": "En espera de acción",
+      "overdue": "Atrasada",
+      "overdueCurrent": "Todo actual",
+      "overdueUrgent": "Atención urgente",
+      "renewals": "Renovaciones",
+      "renewalsCurrent": "Corriente de mantenimiento",
+      "renewalsNeedAction_one": "{{count}} necesita acción",
+      "renewalsNeedAction_other": "{{count}} necesita acción"
+    },
+    "title": "Bienvenido de nuevo"
+  },
+  "correspondence": {
+    "title": "Mensajes",
+    "description": "Correspondencia que su empresa ha compartido con usted.",
+    "loading": "Cargando mensajes…",
+    "error": "No se pudieron cargar los mensajes.",
+    "empty": "Aún no hay mensajes. La correspondencia compartida aparecerá aquí.",
+    "table": {
+      "subject": "Sujeta",
+      "date": "Fecha",
+      "direction": "Dirección",
+      "matter": "Asunto"
+    }
+  },
+  "messages": {
+    "title": "Mensajes",
+    "description": "Transmisiones firmes y mensajes importantes compartidos con su organización.",
+    "loading": "Cargando mensajes…",
+    "loadingDetail": "Apertura…",
+    "error": "No se pudieron cargar los mensajes.",
+    "empty": "Aún no hay mensajes. Las actualizaciones firmes y la correspondencia compartida aparecerán aquí.",
+    "selectHint": "Seleccione un mensaje para leerlo.",
+    "unread": "No leído",
+    "relatedMatter": "Asunto",
+    "noBody": "Sin cuerpo de mensaje.",
+    "openLink": "Abrir enlace de mensaje",
+    "kindBroadcast": "Transmisión",
+    "kindCorrespondence": "Asunto",
+    "table": {
+      "type": "Tipo",
+      "subject": "Sujeta",
+      "date": "Fecha",
+      "matter": "Asunto"
+    }
+  },
+  "approvals": {
+    "title": "Aprobaciones",
+    "description": "Revisar y decidir sobre las solicitudes de aprobación de su empresa.",
+    "loading": "Cargando aprobaciones…",
+    "couldNotLoad": "No se pudieron cargar las aprobaciones",
+    "retry": "Rever",
+    "decideError": "No se pudo enviar su decisión",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "notePlaceholder": "Nota opcional...",
+    "due": "Vencimiento {{date}}",
+    "pendingSection": "esperando tu decisión",
+    "historySection": "Decisiones anteriores",
+    "empty": {
+      "title": "Sin solicitudes de aprobación",
+      "description": "Cuando su empresa envíe una solicitud de aprobación, aparecerá aquí."
+    },
+    "status": {
+      "draft": "Borrador",
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "rejected": "Rechazada"
+    }
+  },
+  "documentCategories": {
+    "application": "Solicitud",
+    "certificate": "Certificado",
+    "correspondence": "Correspondencia",
+    "evidence": "Evidencia",
+    "office_action": "acción de oficina"
+  },
+  "documents": {
+    "allCategories": "Todas las categorias",
+    "allMatters": "todos los asuntos",
+    "description": "Documentos compartidos en todos sus asuntos.",
+    "download": "Descargar",
+    "empty": "Aún no hay documentos. Los documentos aparecerán aquí cuando su empresa los comparta sobre sus asuntos.",
+    "error": "No se pudieron cargar los documentos.",
+    "loading": "Cargando documentos…",
+    "searchPlaceholder": "Buscar documentos…",
+    "table": {
+      "category": "Categoría",
+      "document": "Documento",
+      "matter": "Asunto",
+      "size": "Tamaño",
+      "updated": "Actualizada"
+    },
+    "title": "Mis documentos"
+  },
+  "intake": {
+    "description": "Presente una nueva solicitud de presentación o revise las consultas que ya ha enviado.",
+    "empty": {
+      "action": "Presentar una consulta",
+      "description": "Presente una consulta de marca comercial o patente para comenzar.",
+      "title": "Aún no hay consultas"
+    },
+    "error": "No se pudieron cargar sus consultas.",
+    "filed": "Archivado {{date}}",
+    "fileNew": "Presentar nueva consulta",
+    "loading": "Cargando tus consultas…",
+    "myEnquiries": "Mis consultas",
+    "status": {
+      "accepted": "Aceptada",
+      "inReview": "En revisión",
+      "matterOpened": "Asunto abierto",
+      "notAccepted": "No aceptado",
+      "submitted": "Enviada"
+    },
+    "submitted": {
+      "description": "Realizamos una verificación de conflicto inicial automáticamente. Un coordinador confirmará y abrirá su asunto. Puede revisar o editar su consulta en cualquier momento hasta que sea aceptada.",
+      "reviewEnquiry": "Revisa esta consulta",
+      "title": "Consulta enviada"
+    },
+    "title": "Consultas",
+    "untitled": "Consulta sin título"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Volver a mis consultas",
+    "cancel": "Cancelar",
+    "defaultTitle": "Consulta",
+    "edit": "Editar",
+    "editDescription": "Al guardar se actualizará su consulta y se volverá a ejecutar la verificación de conflictos automáticamente.",
+    "editTitle": "Editar consulta",
+    "enquirer": "Investigadora",
+    "enquirerCompany": "Compañía",
+    "enquirerIndividual": "Individual",
+    "enquiryDetails": "Detalles de la consulta",
+    "error": "No se pudo cargar esta consulta.",
+    "fields": {
+      "companyName": "Nombre de empresa",
+      "country": "País",
+      "description": "Descripción",
+      "email": "Correo electrónico",
+      "fullName": "nombre completo",
+      "matterType": "tipo de asunto",
+      "otherParties": "Otros partidos",
+      "phone": "Teléfono",
+      "urgency": "Urgencia"
+    },
+    "filed": "Archivado {{date}}",
+    "loading": "Cargando consulta…",
+    "saveChanges": "Guardar cambios",
+    "statusHints": {
+      "approved": "Su consulta ha sido aceptada y se está configurando como asunto.",
+      "conflictFlagged": "Un coordinador está revisando su consulta antes de que pueda ser aceptada.",
+      "converted": "Se ha abierto un asunto. Puedes rastrearlo en Mis asuntos.",
+      "new": "Recibió. Se ha ejecutado automáticamente una verificación de conflictos y un coordinador la revisará en breve.",
+      "rejected": "Esta consulta no fue aceptada. Contáctenos si tiene preguntas.",
+      "reviewing": "Una coordinadora está revisando su consulta."
+    },
+    "urgency": {
+      "normal": "Normal",
+      "urgent": "Urgente"
+    },
+    "viewMatter": "Ver asunto"
+  },
+  "invoices": {
+    "description": "Facturas y estado de pago en todos sus asuntos.",
+    "error": "No se pudieron cargar las facturas.",
+    "loading": "Cargando facturas…",
+    "title": "Mis facturas"
+  },
+  "matterTypes": {
+    "design": "Diseño",
+    "other": "Otra",
+    "patent": "Patentar",
+    "trademark": "Marca",
+    "utility_model": "Modelo de utilidad"
+  },
+  "renewals": {
+    "couldNotLoad": "No se pudieron cargar las renovaciones",
+    "cycle": "ciclo {{number}}",
+    "decline": "Rechazar",
+    "description": "Próximas renovaciones de marcas y diseños para sus derechos de propiedad intelectual.",
+    "due": "Vencimiento {{date}}",
+    "empty": {
+      "description": "Las renovaciones aparecen aquí después de que su empresa registra un derecho de propiedad intelectual sobre uno de sus asuntos. Se le pedirá que continúe o rechace antes de cada fecha de vencimiento de renovación.",
+      "title": "Ninguna renovación requiere tu atención.",
+      "viewDeadlines": "Ver mis plazos",
+      "viewMatters": "ver mis asuntos"
+    },
+    "errorFallback": "Inténtelo de nuevo o cierre sesión y vuelva a iniciarla si los permisos cambiaron.",
+    "instructionError": "No se pudo enviar la instrucción",
+    "loading": "Cargando…",
+    "proceed": "Proceder",
+    "retry": "Rever",
+    "title": "Renovaciones"
+  },
+  "renewalStatus": {
+    "completed": "Terminada",
+    "filed": "Archivada",
+    "instructed": "Instruida",
+    "lapsed": "Transcurrida",
+    "upcoming": "Próxima"
+  },
+  "help": {
+    "title": "Ayuda",
+    "subtitle": "Cómo utilizar el portal del cliente para su cartera de propiedad intelectual.",
+    "enquiriesTitle": "Presentar una consulta",
+    "enquiriesBody": "Utilice Consultas para enviar una solicitud de asunto nuevo. La firma revisará las verificaciones de conflictos y convertirá las pistas aprobadas en asuntos.",
+    "openEnquiries": "Consultas abiertas",
+    "approvalsTitle": "Aprobaciones",
+    "approvalsBody": "Cuando la empresa solicite su aprobación (por ejemplo, renovaciones o instrucciones), responda desde la página Aprobaciones.",
+    "openApprovals": "Aprobaciones abiertas",
+    "contactTitle": "¿Necesitas más ayuda?",
+    "contactBody": "Comuníquese con su abogado o coordinador asignado a través de Mensajes, o responda a la correspondencia firme sobre un asunto.",
+    "openMessages": "Mensajes abiertos"
+  }
+}

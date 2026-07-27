@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Aprobar: no hay conflicto",
+    "checkedAt": "Marcado {{date}}",
+    "cleared": "No se detectaron conflictos",
+    "clearedForConversion": "No se encontraron nombres similares; aprobado para conversión",
+    "description": "Búsqueda difusa entre clientes, contactos, empresas relacionadas y contrapartes registradas. Las coincidencias con una similitud compuesta superior al 30 % se marcan para su revisión.",
+    "flaggedMatches": "{{count}} posibles coincidencias: se requiere revisión",
+    "entityType": {
+      "client": "Cliente",
+      "contact": "Contacto",
+      "counterparty": "Contraparte",
+      "ip_right": "Derecho de propiedad intelectual/registro de marca",
+      "matter": "Materia existente",
+      "related_company": "Empresa relacionada",
+      "sign": "Firmar/marcar en el archivo"
+    },
+    "flagged": "Posibles conflictos encontrados",
+    "matchedOn": "Coincidido el {{field}}",
+    "matchedTerm": "Coincidió con \"{{term}}\" en {{field}}",
+    "mpOverride": "anulación de MP",
+    "rejectLead": "Rechazar cliente potencial",
+    "reviewHint": "Aparecen nombres similares para revisión humana. Apruebe si no hay un conflicto real o rechace si el líder no puede continuar.",
+    "run": "Ejecutar verificación de conflictos",
+    "running": "Correr…",
+    "similarPct": "{{pct}} similares",
+    "similarity": "Semejanza",
+    "title": "Verificación de conflictos"
+  },
+  "convert": {
+    "button": "Convertir a materia",
+    "clientLabel": "Cliente:",
+    "conversionFailed": "La conversión falló",
+    "converting": "Mudada…",
+    "existingPortalAccount": "(cuenta del portal existente)",
+    "invalidForm": "Formulario no válido",
+    "matterLabel": "Asunto:",
+    "none": "Ninguna",
+    "portalDescription": "Abre un asunto en la cuenta existente del cliente del portal: no hay registros de cliente duplicados.",
+    "standardDescription": "Crea un registro de cliente y abre un asunto en un solo paso, sin volver a ingresar los detalles de la consulta. En este paso se requiere el consentimiento del RGPD.",
+    "willCreate": "creará",
+    "converted": "Convertida a la materia",
+    "gdprConsent": "Confirmo que se ha obtenido el consentimiento RGPD de este solicitante.",
+    "holdingGroup": "Grupo de retención (opcional)",
+    "openMatter": "Materia abierta",
+    "preview": "Vista previa de la materia",
+    "title": "Convertir a cliente y asunto",
+    "viewClient": "Ver cliente"
+  },
+  "counterparty": {
+    "add": "Agregar fiesta",
+    "editor": {
+      "add": "Añadir parte adversa/competidor",
+      "company": "Compañía",
+      "name": "Nombre",
+      "notes": "Notas",
+      "party": "Parte {{n}}",
+      "relationship": "Relación *"
+    },
+    "relationship": {
+      "adverse_party": "parte adversa",
+      "competitor": "Competidora",
+      "licensee": "Concesionario",
+      "licensor": "Licenciante"
+    },
+    "save": "guardar fiesta",
+    "section": {
+      "description": "Partes que puedan crear un conflicto de intereses.",
+      "title": "Partes adversas / competidoras",
+      "unnamed": "Parte sin nombre"
+    }
+  },
+  "create": {
+    "back": "← Volver a ingesta",
+    "description": "Capture una nueva consulta antes de la verificación y conversión del conflicto.",
+    "title": "Nueva consulta"
+  },
+  "detail": {
+    "back": "← Volver a la cola de admisión",
+    "company": "Compañía",
+    "contactName": "Nombre de contacto",
+    "country": "País",
+    "converted": "Esta consulta ha sido convertida.",
+    "description": "Descripción",
+    "email": "Correo electrónico",
+    "enquiryDetails": "Detalles de la consulta",
+    "error": "No se pudo cargar el cable de entrada.",
+    "fullName": "nombre completo",
+    "internalNotes": "Notas internas",
+    "loading": "Cargando…",
+    "loadingLead": "Cargando cable de admisión...",
+    "notAssigned": "No asignado",
+    "matterType": "tipo de asunto",
+    "notFound": "Cable de entrada no encontrado.",
+    "phone": "Teléfono",
+    "portalSubmission": "Envío del portal",
+    "referralSource": "fuente de referencia",
+    "referredBy": "Referido por",
+    "responsibleAttorney": "abogado responsable",
+    "type": "Tipo",
+    "urgency": "Urgencia",
+    "urgent": "Urgente"
+  },
+  "form": {
+    "companyName": "Nombre de empresa *",
+    "description": "Descripción",
+    "email": "Correo electrónico",
+    "enquirerType": "tipo de solicitante",
+    "error": "No se pudo crear el cliente potencial de admisión",
+    "fullName": "Nombre completo *",
+    "matterType": "Tipo de asunto *",
+    "phone": "Teléfono",
+    "referralSource": "fuente de referencia",
+    "submit": "Enviar consulta",
+    "submitInternal": "Crear cliente potencial de admisión",
+    "type": {
+      "company": "Compañía",
+      "individual": "Individual"
+    },
+    "urgent": "Marcar como urgente"
+  },
+  "list": {
+    "description": "Revise las consultas entrantes, realice comprobaciones de conflictos y convierta clientes potenciales aprobados.",
+    "empty": "No se encontraron pistas de admisión",
+    "emptyDescription": "Intente ajustar los filtros o cree una nueva consulta.",
+    "error": "No se pudieron cargar los cables de admisión.",
+    "new": "Nueva consulta",
+    "searchPlaceholder": "Buscar nombre o correo electrónico…",
+    "title": "cola de admisión"
+  },
+  "matterType": {
+    "design": "Diseño",
+    "other": "Otra",
+    "patent": "Patentar",
+    "trademark": "Marca",
+    "utility_model": "Modelo de utilidad"
+  },
+  "referralSource": {
+    "email": "Correo electrónico",
+    "other": "Otra",
+    "phone": "Teléfono",
+    "referral": "Remisión",
+    "walk_in": "Sin cita previa",
+    "website": "Sitio web"
+  },
+  "status": {
+    "approved": "Aprobada",
+    "conflict_check": "Verificación de conflictos",
+    "conflict_flagged": "Conflicto marcado",
+    "converted": "Convertida",
+    "new": "Nueva",
+    "rejected": "Rechazada",
+    "reviewing": "Revisando"
+  },
+  "table": {
+    "date": "Recibida",
+    "matterType": "tipo de asunto",
+    "name": "Investigadora",
+    "portal": "Portal",
+    "referral": "Fuente",
+    "status": "Estado",
+    "urgent": "Urgente",
+    "viewAria": "Ver {{name}}"
+  },
+  "unknownCompany": "Empresa desconocida",
+  "unknownIndividual": "Individuo desconocido"
+}

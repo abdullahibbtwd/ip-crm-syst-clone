@@ -1,0 +1,87 @@
+{
+  "title": "Rakan kongsi asing",
+  "subtitle": "Ejen tempatan dan peguam bersekutu yang digunakan untuk pemfailan dan arahan perkara.",
+  "newPartner": "Rakan kongsi baru",
+  "noPermission": "Anda tidak mempunyai kebenaran untuk melihat rakan kongsi.",
+  "loading": "Memuatkan rakan kongsi…",
+  "loadError": "Gagal memuatkan rakan kongsi.",
+  "empty": "Tiada rakan kongsi yang sepadan dengan penapis ini.",
+  "searchPlaceholder": "Cari nama, syarikat, e-mel…",
+  "filters": {
+    "all": "Semua rakan kongsi",
+    "activeOnly": "Aktif sahaja"
+  },
+  "columns": {
+    "name": "Nama",
+    "company": "Syarikat",
+    "email": "E-mel",
+    "jurisdictions": "Bidang kuasa",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Tidak aktif"
+  },
+  "editAria": "Edit rakan kongsi",
+  "deactivateAria": "Nyahaktifkan rakan kongsi",
+  "confirmDeactivate": "Nyahaktifkan rakan kongsi “{{name}}”?",
+  "drawer": {
+    "createTitle": "Rakan kongsi baru",
+    "editTitle": "Edit rakan kongsi",
+    "name": "Nama",
+    "company": "Syarikat",
+    "email": "E-mel",
+    "phone": "telefon",
+    "countryCode": "Kod negara",
+    "jurisdictions": "Bidang kuasa",
+    "jurisdictionsHint": "Kod yang dipisahkan koma, mis. BG, EU, EP",
+    "notes": "Nota",
+    "status": "Status",
+    "cancel": "Batal",
+    "create": "Buat rakan kongsi",
+    "save": "Simpan perubahan"
+  },
+  "errors": {
+    "nameRequired": "Nama diperlukan",
+    "saveFailed": "Gagal menyelamatkan rakan kongsi"
+  },
+  "instructions": {
+    "title": "Arahan rakan kongsi",
+    "subtitle": "Draf, hantar dan jejak arahan kepada rakan kongsi asing mengenai perkara ini.",
+    "newDraft": "Draf baharu",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat arahan rakan kongsi.",
+    "loading": "Memuatkan arahan…",
+    "loadError": "Gagal memuatkan arahan.",
+    "empty": "Tiada arahan rakan kongsi lagi.",
+    "columns": {
+      "title": "Tajuk",
+      "partner": "rakan kongsi",
+      "status": "Status",
+      "created": "Dicipta"
+    },
+    "status": {
+      "draft": "Draf",
+      "sent": "Dihantar",
+      "acknowledged": "Diakui",
+      "complete": "lengkap"
+    },
+    "drawer": {
+      "createTitle": "New instruction draft",
+      "partner": "rakan kongsi",
+      "partnerPlaceholder": "Pilih pasangan",
+      "title": "Tajuk",
+      "body": "Arahan",
+      "cancel": "Batal",
+      "create": "Buat draf"
+    },
+    "errors": {
+      "required": "Rakan kongsi dan gelaran diperlukan",
+      "saveFailed": "Gagal membuat arahan"
+    }
+  },
+  "actions": {
+    "send": "Hantar",
+    "acknowledge": "Akui",
+    "complete": "lengkap"
+  }
+}

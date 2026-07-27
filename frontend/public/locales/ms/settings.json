@@ -1,0 +1,435 @@
+{
+  "mfa": {
+    "actions": {
+      "cancel": "Batal",
+      "confirm": "Sahkan & dayakan 2FA",
+      "enable": "Dayakan 2FA",
+      "preparing": "Menyediakan…",
+      "verifying": "Mengesahkan…"
+    },
+    "authCode": "Kod pengesahan",
+    "authCodePlaceholder": "000000",
+    "enabled": {
+      "active": "Aktif",
+      "description": "Akaun anda memerlukan kod daripada apl pengesah anda semasa log masuk.",
+      "title": "Pengesahan dua faktor didayakan"
+    },
+    "errors": {
+      "enableFailed": "Gagal mendayakan 2FA",
+      "invalidCode": "Kod tidak sah",
+      "setupFailed": "Gagal memulakan persediaan 2FA"
+    },
+    "setup": {
+      "description": "Tambahkan lapisan keselamatan tambahan dengan memerlukan kod 6 digit daripada apl pengesah (Google Authenticator, Authy, dll.) apabila anda log masuk.",
+      "manualKey": "Atau masukkan kunci ini secara manual",
+      "scanQr": "1. Imbas kod QR ini",
+      "scanQrHint": "Buka apl pengesah anda dan imbas kod di bawah.",
+      "verify": "2. Sahkan dengan kod 6 digit",
+      "verifyHint": "Masukkan kod yang ditunjukkan dalam apl anda untuk mengesahkan persediaan."
+    }
+  },
+  "security": {
+    "description": "Pengesahan dua faktor melindungi akaun anda walaupun kata laluan anda terjejas.",
+    "title": "Keselamatan"
+  },
+  "subtitle": "Urus pilihan dan keselamatan akaun anda.",
+  "title": "tetapan",
+  "links": {
+    "email": {
+      "title": "Penyepaduan e-mel",
+      "description": "Sambungkan Microsoft 365 atau Google Workspace untuk menyegerakkan mesej peti masuk ke dalam Baris Gilir E-mel.",
+      "action": "Urus peti mel"
+    },
+    "deadlineRules": {
+      "title": "Peraturan tarikh akhir",
+      "description": "Konfigurasikan bidang kuasa dan ofset jenis perkara untuk tarikh akhir yang dibuat secara automatik.",
+      "action": "Urus peraturan tarikh akhir"
+    },
+    "holidays": {
+      "title": "Kalendar cuti",
+      "description": "Cuti bidang kuasa digunakan apabila mengira hari perniagaan untuk tarikh akhir.",
+      "action": "Urus cuti"
+    },
+    "documentTemplates": {
+      "title": "Templat dokumen",
+      "description": "Edit templat huruf, cantumkan medan dan pratonton PDF yang dijana.",
+      "action": "Urus templat"
+    },
+    "integrations": {
+      "title": "Penyepaduan pendaftaran",
+      "description": "Sambungkan EPO OPS dan pendaftaran IP lain untuk imbasan jam tangan dan carian bibliografi.",
+      "action": "Uruskan integrasi"
+    },
+    "ssoMfa": {
+      "title": "SSO & MFA",
+      "description": "Konfigurasikan apl log masuk Google/Microsoft dan dasar MFA yang kukuh. Rahsia disulitkan dalam pangkalan data.",
+      "action": "Urus SSO & MFA"
+    },
+    "roles": {
+      "title": "Peranan & kebenaran",
+      "description": "Matriks baca sahaja peranan sistem dan kebenaran yang diberikan.",
+      "action": "Lihat matriks peranan"
+    },
+    "systemHealth": {
+      "title": "Kesihatan sistem",
+      "description": "Semakan langsung untuk pangkalan data, Redis dan storan objek.",
+      "action": "Lihat kesihatan sistem"
+    }
+  },
+  "ssoMfa": {
+    "title": "SSO & MFA",
+    "subtitle": "Pembekal identiti dan dasar pengesahan pelbagai faktor untuk firma.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk mengurus tetapan SSO atau MFA.",
+    "loading": "Memuatkan tetapan SSO…",
+    "saveButton": "Simpan tetapan",
+    "saveSuccess": "Tetapan SSO dan MFA disimpan dengan selamat.",
+    "saveFailed": "Gagal menyimpan tetapan SSO dan MFA",
+    "securityHint": "Rahsia pelanggan disulitkan semasa rehat (AES-256-GCM). Rahsia penuh tidak pernah dikembalikan oleh API.",
+    "leaveBlankToKeep": "Biarkan kosong untuk menyimpan rahsia semasa",
+    "clientId": "ID Pelanggan",
+    "clientSecret": "Rahsia pelanggan",
+    "tenantId": "ID penyewa",
+    "redirectUri": "Ubah hala URI (daftar dalam konsol pembekal)",
+    "sourceDatabase": "Pangkalan data",
+    "sourceEnv": "Persekitaran (.env)",
+    "sourceNone": "Tidak dikonfigurasikan",
+    "editButton": "Sunting",
+    "cancelEdit": "Batal",
+    "configuredViaEnv": "Dikonfigurasikan melalui persekitaran",
+    "microsoft": {
+      "title": "Microsoft",
+      "description": "Entra ID / apl Microsoft 365 OIDC digunakan untuk log masuk SSO kakitangan dan portal.",
+      "saveButton": "Simpan Microsoft",
+      "saveSuccess": "Tetapan SSO Microsoft disimpan."
+    },
+    "google": {
+      "title": "Google",
+      "description": "Pelanggan Google OAuth digunakan untuk log masuk SSO.",
+      "saveButton": "Simpan Google",
+      "saveSuccess": "Tetapan SSO Google disimpan."
+    },
+    "mfa": {
+      "title": "dasar MFA",
+      "description": "Tetapan MFA seluruh organisasi. Pengguna masih mendaftar dari halaman Tetapan mereka sendiri.",
+      "requireInternal": "Memerlukan MFA untuk kakitangan dalaman",
+      "requireInternalHint": "Apabila didayakan, pengguna dalaman harus mendaftarkan MFA di bawah Tetapan → Keselamatan. Penguatkuasaan log masuk boleh diperketatkan dalam tindakan susulan.",
+      "saveButton": "Simpan dasar MFA",
+      "saveSuccess": "Dasar MFA disimpan."
+    }
+  },
+  "roles": {
+    "title": "Peranan & kebenaran",
+    "subtitle": "Matriks baca sahaja peranan sistem dan kebenaran yang diberikan (RBAC berbiji).",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat peranan.",
+    "loading": "Memuatkan peranan…",
+    "error": "Gagal memuatkan peranan.",
+    "system": "Sistem",
+    "columns": {
+      "role": "Peranan",
+      "description": "Penerangan",
+      "permissions": "kebenaran"
+    }
+  },
+  "systemHealth": {
+    "title": "Kesihatan sistem",
+    "subtitle": "Semakan langsung untuk pangkalan data, Redis dan storan objek.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat kesihatan sistem.",
+    "loading": "Menyemak perkhidmatan…",
+    "error": "Gagal memuatkan status kesihatan.",
+    "overall": "Keseluruhannya",
+    "statusOk": "Sihat",
+    "statusDegraded": "Dihina",
+    "database": "Pangkalan data",
+    "redis": "Redis",
+    "storage": "Penyimpanan objek",
+    "checkOk": "Boleh dicapai",
+    "checkFailed": "Tidak dapat dihubungi",
+    "refresh": "Segarkan semula",
+    "refreshing": "Menyegarkan…"
+  },
+  "integrations": {
+    "title": "Integrasi",
+    "subtitle": "Sambungan pendaftaran dan pembekal data luaran yang digunakan oleh aliran kerja menonton dan memfailkan.",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat penyepaduan pendaftaran.",
+    "epo": {
+      "title": "Pendaftaran EPO (OPS)",
+      "description": "Perkhidmatan Paten Terbuka v3.2. Token akses dimuat semula secara automatik daripada kunci dan rahsia pengguna anda.",
+      "statusConfigured": "Dikonfigurasikan",
+      "statusNotConfigured": "Tidak dikonfigurasikan",
+      "statusLoading": "Menyemak…",
+      "testButton": "Uji sambungan",
+      "testing": "Menguji…",
+      "testSuccess": "Sambungan EPO berjaya. Paten yang diperoleh: {{title}}",
+      "testFailed": "Sambungan EPO gagal",
+      "envHint": "Tetapkan EPO_CONSUMER_KEY dan EPO_CONSUMER_SECRET dalam pelayan .env, kemudian mulakan semula API.",
+      "consumerKey": "Kunci pengguna",
+      "consumerSecret": "Rahsia pengguna",
+      "consumerKeyPlaceholder": "Masukkan kunci pengguna EPO",
+      "consumerSecretPlaceholder": "Masukkan rahsia pengguna EPO",
+      "leaveBlankToKeep": "Biarkan kosong untuk mengekalkan nilai semasa",
+      "apiBaseUrl": "URL asas API (pilihan)",
+      "authUrl": "URL Pengesahan (pilihan)",
+      "saveButton": "Simpan bukti kelayakan",
+      "clearButton": "Kosongkan bukti kelayakan yang disimpan",
+      "saveSuccess": "Bukti kelayakan EPO disimpan dengan selamat.",
+      "saveFailed": "Gagal menyimpan bukti kelayakan EPO",
+      "clearSuccess": "Bukti kelayakan EPO yang disimpan dibersihkan. Env fallback masih terpakai jika ditetapkan.",
+      "clearFailed": "Gagal mengosongkan kelayakan EPO",
+      "securityHint": "Rahsia disulitkan semasa rehat (AES-256-GCM). Nilai penuh tidak pernah dikembalikan oleh API.",
+      "sourceLabel": "Sumber aktif",
+      "sourceDatabase": "Pangkalan data",
+      "sourceEnv": "Persekitaran (.env)",
+      "sourceNone": "Tidak dikonfigurasikan",
+      "keyHint": "kunci …{{lastFour}}",
+      "editButton": "Sunting",
+      "cancelEdit": "Batal",
+      "configuredViaEnv": "Dikonfigurasikan melalui persekitaran",
+      "defaultEndpoint": "Titik akhir EPO lalai"
+    },
+    "accounting": {
+      "xeroTitle": "Xero",
+      "xeroDescription": "Tolak mengeluarkan invois kepada Xero Accounting melalui API. Hanya invois yang diubah sejak penyegerakan terakhir yang berjaya dihantar.",
+      "quickbooksTitle": "QuickBooks Dalam Talian",
+      "quickbooksDescription": "Tolak invois yang dikeluarkan ke QuickBooks. Pelanggan dipadankan (atau dicipta) dengan nama paparan.",
+      "xeroTenantId": "ID penyewa Xero",
+      "quickbooksRealmId": "Alam QuickBooks / ID syarikat",
+      "statusConfigured": "Dikonfigurasikan",
+      "statusNotConfigured": "Tidak dikonfigurasikan",
+      "loading": "Memuatkan…",
+      "clientId": "ID Pelanggan (pilihan)",
+      "clientSecret": "Rahsia pelanggan (pilihan)",
+      "accessToken": "Token akses",
+      "leaveBlankToKeep": "Biarkan kosong untuk mengekalkan nilai semasa",
+      "saveButton": "Simpan bukti kelayakan",
+      "clearButton": "Jelas",
+      "editButton": "Sunting",
+      "cancelEdit": "Batal",
+      "syncNow": "Segerakkan sekarang",
+      "lastSync": "Penyegerakan terakhir",
+      "neverSynced": "tidak pernah",
+      "saveSuccess": "Bukti kelayakan perakaunan disimpan dengan selamat.",
+      "saveFailed": "Gagal menyimpan bukti kelayakan perakaunan",
+      "clearSuccess": "Bukti kelayakan perakaunan dibersihkan.",
+      "clearFailed": "Gagal mengosongkan kelayakan perakaunan",
+      "syncFailed": "Gagal membuat baris gilir penyegerakan perakaunan"
+    }
+  },
+  "deadlineRules": {
+    "title": "Peraturan tarikh akhir",
+    "subtitle": "Bidang kuasa dan ofset jenis jirim digunakan apabila auto membuat tarikh akhir daripada penciptaan perkara, tindakan pejabat dan pembaharuan.",
+    "newRule": "Peraturan baru",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat peraturan tarikh akhir.",
+    "loading": "Memuatkan peraturan tarikh akhir…",
+    "loadError": "Gagal memuatkan peraturan tarikh akhir.",
+    "empty": "Tiada peraturan tarikh akhir sepadan dengan penapis ini.",
+    "allJurisdictions": "Semua bidang kuasa",
+    "allMatterTypes": "Semua jenis perkara",
+    "filters": {
+      "jurisdiction": "Bidang kuasa",
+      "matterType": "Jenis jirim"
+    },
+    "columns": {
+      "jurisdiction": "Bidang kuasa",
+      "matterType": "Jenis jirim",
+      "event": "Peristiwa",
+      "trigger": "Pencetus",
+      "offset": "Offset",
+      "grace": "Rahmat",
+      "priority": "Keutamaan",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Tidak aktif"
+    },
+    "editAria": "Edit peraturan tarikh akhir",
+    "drawer": {
+      "createTitle": "Peraturan tarikh akhir baharu",
+      "editTitle": "Edit peraturan tarikh akhir",
+      "jurisdiction": "Bidang kuasa",
+      "matterType": "Jenis jirim",
+      "eventType": "Jenis acara",
+      "triggerType": "Jenis pencetus",
+      "daysOffset": "Hari mengimbangi",
+      "dayCounting": "Pengiraan hari",
+      "businessDays": "hari perniagaan",
+      "calendarDays": "Hari kalendar",
+      "gracePeriod": "Tempoh tangguh (hari)",
+      "priority": "Keutamaan (1–10)",
+      "description": "Penerangan",
+      "status": "Status",
+      "cancel": "Batal",
+      "create": "Buat peraturan",
+      "save": "Simpan perubahan"
+    },
+    "errors": {
+      "daysOffset": "Masukkan offset hari yang sah",
+      "grace": "Masukkan tempoh tangguh yang sah",
+      "priority": "Keutamaan mestilah antara 1 dan 10",
+      "saveFailed": "Gagal menyimpan peraturan tarikh akhir"
+    },
+    "offset": {
+      "businessDay": "hari perniagaan",
+      "businessDays": "hari perniagaan",
+      "calendarDay": "hari kalendar",
+      "calendarDays": "hari kalendar",
+      "sameDay": "Hari yang sama ({{unit}})",
+      "plus": "+{{days}} {{unit}}",
+      "minus": "{{days}} {{unit}}"
+    },
+    "eventType": {
+      "filing": "pemfailan",
+      "examination_response": "Sambutan peperiksaan",
+      "renewal": "Pembaharuan",
+      "opposition": "Pembangkang",
+      "grace_period": "Tempoh tangguh"
+    },
+    "triggerType": {
+      "matter_created": "Perkara dicipta",
+      "office_action": "Tindakan pejabat",
+      "renewal_due": "Pembaharuan perlu dibayar"
+    }
+  },
+  "documentTemplates": {
+    "title": "Templat dokumen",
+    "subtitle": "Templat surat dan pemfailan dengan medan gabungan. Hasilkan PDF daripada perkara atau pratonton dengan data sampel.",
+    "newTemplate": "Templat baharu",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat templat dokumen.",
+    "loading": "Memuatkan templat…",
+    "loadError": "Gagal memuatkan templat dokumen.",
+    "empty": "Tiada templat dokumen lagi.",
+    "columns": {
+      "name": "Nama",
+      "slug": "Slug",
+      "category": "kategori",
+      "status": "Status",
+      "docx": "Firman",
+      "updated": "dikemas kini"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Tidak aktif"
+    },
+    "editAria": "Edit templat dokumen",
+    "uploadDocx": "Muat naik .docx",
+    "removeDocx": "Alih keluar .docx",
+    "uploadDocxAria": "Muat naik templat Word",
+    "removeDocxAria": "Alih keluar templat Word",
+    "confirmRemoveDocx": "Alih keluar templat Word (.docx) daripada templat surat ini?",
+    "docx": {
+      "attached": "DOCX",
+      "none": "—"
+    },
+    "drawer": {
+      "createTitle": "Templat dokumen baharu",
+      "editTitle": "Edit templat dokumen",
+      "loading": "Memuatkan templat…",
+      "slug": "Slug",
+      "slugHint": "Huruf kecil kebab, unik.",
+      "slugReadonly": "Slug:",
+      "name": "Nama",
+      "category": "kategori",
+      "description": "Penerangan",
+      "referenceLine": "Garis rujukan",
+      "mergeFields": "Gabungkan medan",
+      "insertIntoReference": "Masukkan ke dalam baris rujukan",
+      "insertIntoHtml": "Masukkan ke dalam badan HTML",
+      "htmlBody": "badan HTML",
+      "livePreview": "Pratonton langsung",
+      "status": "Status",
+      "previewPdf": "Pratonton PDF",
+      "cancel": "Batal",
+      "create": "Buat templat",
+      "save": "Simpan perubahan"
+    },
+    "errors": {
+      "required": "Nama dan badan HTML diperlukan",
+      "slugRequired": "Slug diperlukan",
+      "saveFailed": "Gagal menyimpan templat dokumen",
+      "previewFailed": "Gagal menjana pratonton PDF",
+      "docxUploadFailed": "Gagal memuat naik templat Word",
+      "docxDeleteFailed": "Gagal mengalih keluar templat Word"
+    }
+  },
+  "holidays": {
+    "title": "Kalendar cuti",
+    "subtitle": "Cuti umum mengikut bidang kuasa. Cuti berulang dikenakan setiap tahun pada bulan dan hari yang sama apabila mengira hari perniagaan.",
+    "newHoliday": "Cuti baru",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk melihat cuti.",
+    "loading": "Memuatkan cuti…",
+    "loadError": "Gagal memuatkan cuti.",
+    "empty": "Tiada cuti yang sepadan dengan penapis ini.",
+    "allJurisdictions": "Semua bidang kuasa",
+    "filters": {
+      "jurisdiction": "Bidang kuasa"
+    },
+    "columns": {
+      "jurisdiction": "Bidang kuasa",
+      "date": "tarikh",
+      "name": "Nama",
+      "recurring": "Berulang"
+    },
+    "recurring": {
+      "yes": "Berulang",
+      "no": "Sekali"
+    },
+    "editAria": "Edit cuti",
+    "deleteAria": "Padam cuti",
+    "confirmDelete": "Padamkan cuti “{{name}}”?",
+    "drawer": {
+      "createTitle": "Cuti baru",
+      "editTitle": "Edit cuti",
+      "jurisdiction": "Bidang kuasa",
+      "date": "tarikh",
+      "name": "Nama",
+      "recurring": "Berulang setiap tahun",
+      "cancel": "Batal",
+      "create": "Buat cuti",
+      "save": "Simpan perubahan"
+    },
+    "errors": {
+      "required": "Nama dan tarikh diperlukan",
+      "saveFailed": "Gagal menyelamatkan cuti"
+    }
+  },
+  "emailIntegration": {
+    "breadcrumbSettings": "tetapan",
+    "title": "Penyepaduan e-mel",
+    "description": "Sambungkan peti mel kerja anda untuk menyegerakkan mel masuk ke dalam Baris Gilir E-mel dan hantar balasan daripada CRM. Memerlukan Mail.Read + Mail.Send (Microsoft) atau gmail.readonly + gmail.send (Google). Sambung semula selepas kemas kini skop untuk memberikan kebenaran penghantaran.",
+    "fetchEmails": "Ambil 5 e-mel",
+    "connectedSuccess": "Berjaya disambungkan {{provider}}.",
+    "microsoft365": "Microsoft 365",
+    "googleWorkspace": "Google Workspace",
+    "connected": "Bersambung",
+    "error": "ralat",
+    "notConnected": "Tidak bersambung",
+    "providerEnabledDescription": "Tarik mesej peti masuk baharu ke dalam Baris Gilir E-mel.",
+    "providerDisabledDescription": "Tidak dikonfigurasikan pada pelayan ini (tiada bukti kelayakan OAuth).",
+    "redirectUriHint": "Daftarkan URI ubah hala ini dalam apl OAuth {{provider}} anda:",
+    "lastSync": "Penyegerakan terakhir: {{time}}",
+    "neverSynced": "Tidak pernah disegerakkan",
+    "reconnect": "Sambung semula",
+    "disconnect": "Putuskan sambungan",
+    "connect": "Sambungkan {{provider}}",
+    "loadingConnections": "Memuatkan sambungan…",
+    "fetchSuccess": "Diambil sehingga {{limit}} mesej — {{ingested}} baharu dalam baris gilir.",
+    "fetchFailed": "Gagal mengambil e-mel"
+  },
+  "consent": {
+    "title": "Rekod persetujuan",
+    "subtitle": "Status persetujuan GDPR merentas pelanggan.",
+    "filters": {
+      "all": "Semua",
+      "consented": "dipersetujui",
+      "missing": "hilang"
+    },
+    "failedToLoad": "Gagal memuatkan rekod persetujuan.",
+    "noClientsFound": "Tiada pelanggan ditemui.",
+    "table": {
+      "client": "Pelanggan",
+      "code": "Kod",
+      "consent": "Persetujuan",
+      "date": "tarikh"
+    }
+  }
+}

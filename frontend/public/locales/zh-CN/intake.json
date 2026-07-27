@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "批准-无冲突",
+    "checkedAt": "已检查 {{date}}",
+    "cleared": "未检测到冲突",
+    "clearedForConversion": "未找到类似名称 - 已清除转换",
+    "description": "跨客户、联系人、相关公司和记录的交易对手进行模糊搜索。 综合相似度超过 30% 的匹配将被标记以供审核。",
+    "flaggedMatches": "{{count}} 潜在匹配 - 需要审核",
+    "entityType": {
+      "client": "客户",
+      "contact": "接触",
+      "counterparty": "交易对手",
+      "ip_right": "知识产权/商标注册",
+      "matter": "现有事项",
+      "related_company": "关联公司",
+      "sign": "在文件上签名/标记"
+    },
+    "flagged": "发现潜在冲突",
+    "matchedOn": "匹配于 {{field}}",
+    "matchedTerm": "与 {{field}} 上的“{{term}}”匹配",
+    "mpOverride": "MP覆盖",
+    "rejectLead": "拒绝引线",
+    "reviewHint": "类似的名称也会出现以供人工审核。 如果没有真正的冲突，则批准；如果线索无法继续，则拒绝。",
+    "run": "运行冲突检查",
+    "running": "跑步…",
+    "similarPct": "{{pct}} 类似",
+    "similarity": "相似",
+    "title": "冲突检查"
+  },
+  "convert": {
+    "button": "转换为物质",
+    "clientLabel": "客户：",
+    "conversionFailed": "转换失败",
+    "converting": "转换…",
+    "existingPortalAccount": "（现有门户帐户）",
+    "invalidForm": "表格无效",
+    "matterLabel": "事情：",
+    "none": "没有任何",
+    "portalDescription": "在门户客户的现有帐户下打开诉讼案件 - 无重复的客户记录。",
+    "standardDescription": "一步创建客户记录并打开问题 - 无需重新输入查询详细信息。 此步骤需要 GDPR 同意。",
+    "willCreate": "会创造",
+    "converted": "转化为物质",
+    "gdprConsent": "我确认已获得该询问者的 GDPR 同意。",
+    "holdingGroup": "持有组（可选）",
+    "openMatter": "开放问题",
+    "preview": "事项预览",
+    "title": "转换为客户和事务",
+    "viewClient": "查看客户"
+  },
+  "counterparty": {
+    "add": "添加队伍",
+    "editor": {
+      "add": "添加敌方/竞争对手",
+      "company": "公司",
+      "name": "姓名",
+      "notes": "笔记",
+      "party": "派对 {{n}}",
+      "relationship": "关系 *"
+    },
+    "relationship": {
+      "adverse_party": "对方",
+      "competitor": "竞争者",
+      "licensee": "被许可人",
+      "licensor": "许可人"
+    },
+    "save": "拯救派对",
+    "section": {
+      "description": "可能产生利益冲突的各方。",
+      "title": "对方/竞争对手",
+      "unnamed": "未透露姓名的一方"
+    }
+  },
+  "create": {
+    "back": "← 返回摄入量",
+    "description": "在冲突检查和转换之前捕获新的查询。",
+    "title": "新询价"
+  },
+  "detail": {
+    "back": "← 返回接收队列",
+    "company": "公司",
+    "contactName": "联系人姓名",
+    "country": "国家",
+    "converted": "此查询已转换。",
+    "description": "描述",
+    "email": "电子邮件",
+    "enquiryDetails": "查询详情",
+    "error": "无法加载进气引线。",
+    "fullName": "姓名",
+    "internalNotes": "内部注释",
+    "loading": "加载中…",
+    "loadingLead": "正在加载进气铅…",
+    "notAssigned": "未分配",
+    "matterType": "物质类型",
+    "notFound": "未找到摄入铅。",
+    "phone": "电话",
+    "portalSubmission": "门户提交",
+    "referralSource": "推荐来源",
+    "referredBy": "推荐人",
+    "responsibleAttorney": "责任律师",
+    "type": "类型",
+    "urgency": "紧迫性",
+    "urgent": "紧迫的"
+  },
+  "form": {
+    "companyName": "公司名称 *",
+    "description": "描述",
+    "email": "电子邮件",
+    "enquirerType": "询问者类型",
+    "error": "无法创建引入线索",
+    "fullName": "全名 *",
+    "matterType": "事项类型 *",
+    "phone": "电话",
+    "referralSource": "推荐来源",
+    "submit": "提交询问",
+    "submitInternal": "创建摄入量",
+    "type": {
+      "company": "公司",
+      "individual": "个人"
+    },
+    "urgent": "标记为紧急"
+  },
+  "list": {
+    "description": "审查传入的查询、运行冲突检查并转换批准的潜在客户。",
+    "empty": "未找到摄入线索",
+    "emptyDescription": "尝试调整过滤器或创建新的查询。",
+    "error": "无法加载引入线索。",
+    "new": "新询价",
+    "searchPlaceholder": "搜索姓名或电子邮件...",
+    "title": "摄入队列"
+  },
+  "matterType": {
+    "design": "设计",
+    "other": "其他",
+    "patent": "专利",
+    "trademark": "商标",
+    "utility_model": "实用新型"
+  },
+  "referralSource": {
+    "email": "电子邮件",
+    "other": "其他",
+    "phone": "电话",
+    "referral": "推荐",
+    "walk_in": "步入式",
+    "website": "网站"
+  },
+  "status": {
+    "approved": "得到正式认可的",
+    "conflict_check": "冲突检查",
+    "conflict_flagged": "已标记冲突",
+    "converted": "已转换",
+    "new": "新的",
+    "rejected": "被拒绝",
+    "reviewing": "审阅"
+  },
+  "table": {
+    "date": "已收到",
+    "matterType": "物质类型",
+    "name": "询问者",
+    "portal": "门户网站",
+    "referral": "来源",
+    "status": "地位",
+    "urgent": "紧迫的",
+    "viewAria": "查看{{name}}"
+  },
+  "unknownCompany": "未知公司",
+  "unknownIndividual": "身份不明"
+}

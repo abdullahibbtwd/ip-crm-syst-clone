@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Alertes",
+    "description": "Articles en retard, à échéance aujourd'hui et urgents, ainsi que notifications non lues."
+  },
+  "sections": {
+    "overdue": "En retard",
+    "today": "À rendre aujourd'hui",
+    "urgent": "Urgente",
+    "notifications": "Notifications"
+  },
+  "empty": {
+    "notifications": "Aucune notification",
+    "urgent": "Aucun élément urgent",
+    "overdue": "Aucun article en retard",
+    "today": "Aucun article à rendre aujourd'hui"
+  }
+}

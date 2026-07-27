@@ -1,8 +1,9 @@
 import { Link, Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { MatterTabNav } from '@/components/matters/MatterTabNav'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
 import { useMatter } from '@/features/matters/hooks/useMatters'
-import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { matterTypeLabel } from '@/features/matters/utils'
 import { clientDisplayName } from '@/features/crm/utils'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { getMatterTabFromPath, isPortalMatterTab } from '@/config/matter-tabs'
@@ -10,6 +11,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function MatterLayout() {
+  const { t } = useTranslation('matters')
   const { id = '' } = useParams()
   const location = useLocation()
   const { user } = useAuth()
@@ -22,11 +24,7 @@ export function MatterLayout() {
   if (isPortalClient && activeTab && !isPortalMatterTab(activeTab)) {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
-  if (
-    matter &&
-    activeTab === 'customs' &&
-    matter.matterType !== 'border_measures'
-  ) {
+  if (matter && activeTab === 'customs' && matter.matterType !== 'border_measures') {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
 
@@ -36,13 +34,13 @@ export function MatterLayout() {
         to="/matters"
         className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
       >
-        ← Back to matters
+        {t('layout.backToMatters')}
       </Link>
 
       {isLoading ? (
-        <p className="text-sm text-muted-foreground">Loading matter…</p>
+        <p className="text-sm text-muted-foreground">{t('layout.loading')}</p>
       ) : isError || !matter ? (
-        <p className="text-sm text-destructive">Matter not found.</p>
+        <p className="text-sm text-destructive">{t('layout.notFound')}</p>
       ) : (
         <>
           <div className="space-y-1">
@@ -51,7 +49,7 @@ export function MatterLayout() {
               <MatterStatusBadge status={matter.status} />
             </div>
             <p className="text-sm text-muted-foreground">
-              {MATTER_TYPE_LABELS[matter.matterType]} ·{' '}
+              {matterTypeLabel(matter.matterType)} ·{' '}
               {isPortalClient ? (
                 <span>{clientDisplayName(matter.client)}</span>
               ) : (

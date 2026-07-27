@@ -1,0 +1,224 @@
+{
+  "dashboard": {
+    "description": "Soumettez de nouvelles demandes de dépôt et suivez les dossiers ouverts au sein de votre organisation. Votre portefeuille en un coup d'œil.",
+    "eyebrow": "Portail clients",
+    "filePatent": "Déposer un brevet",
+    "fileTrademark": "Déposer une marque",
+    "stats": {
+      "activeMatters": "Affaires actives",
+      "activeMattersHint": "Portefeuille d'organisation",
+      "openDeadlines": "Dates limites ouvertes",
+      "openDeadlinesHint": "En attente d'action",
+      "overdue": "En retard",
+      "overdueCurrent": "Tout actuel",
+      "overdueUrgent": "Attention urgente",
+      "renewals": "Renouvellements",
+      "renewalsCurrent": "Courant d'entretien",
+      "renewalsNeedAction_one": "{{count}} a besoin d'action",
+      "renewalsNeedAction_other": "{{count}} a besoin d'action"
+    },
+    "title": "Content de te revoir"
+  },
+  "correspondence": {
+    "title": "Messages",
+    "description": "Correspondance que votre entreprise a partagée avec vous.",
+    "loading": "Chargement des messages…",
+    "error": "Échec du chargement des messages.",
+    "empty": "Aucun message pour l'instant. La correspondance partagée apparaîtra ici.",
+    "table": {
+      "subject": "Sujette",
+      "date": "Date",
+      "direction": "Direction",
+      "matter": "Matière"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "description": "Diffusions fermes et messages importants partagés avec votre organisation.",
+    "loading": "Chargement des messages…",
+    "loadingDetail": "Ouverture…",
+    "error": "Échec du chargement des messages.",
+    "empty": "Aucun message pour l'instant. Les mises à jour fermes et la correspondance partagée apparaîtront ici.",
+    "selectHint": "Sélectionnez un message pour le lire.",
+    "unread": "Non lu",
+    "relatedMatter": "Matière",
+    "noBody": "Aucun corps de message.",
+    "openLink": "Ouvrir le lien du message",
+    "kindBroadcast": "Diffuser",
+    "kindCorrespondence": "Matière",
+    "table": {
+      "type": "Taper",
+      "subject": "Sujette",
+      "date": "Date",
+      "matter": "Matière"
+    }
+  },
+  "approvals": {
+    "title": "Approbations",
+    "description": "Examinez et décidez des demandes d’approbation de votre entreprise.",
+    "loading": "Chargement des approbations…",
+    "couldNotLoad": "Impossible de charger les approbations",
+    "retry": "Réessayer",
+    "decideError": "Impossible de soumettre votre décision",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "notePlaceholder": "Remarque facultative…",
+    "due": "À payer {{date}}",
+    "pendingSection": "En attendant votre décision",
+    "historySection": "Décisions antérieures",
+    "empty": {
+      "title": "Aucune demande d'approbation",
+      "description": "Lorsque votre entreprise soumettra une demande d’approbation, celle-ci apparaîtra ici."
+    },
+    "status": {
+      "draft": "Brouillon",
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "rejected": "Rejetée"
+    }
+  },
+  "documentCategories": {
+    "application": "Application",
+    "certificate": "Certificat",
+    "correspondence": "Correspondance",
+    "evidence": "Preuve",
+    "office_action": "Action de bureau"
+  },
+  "documents": {
+    "allCategories": "Toutes les catégories",
+    "allMatters": "Toutes les questions",
+    "description": "Documents partagés sur tous vos dossiers.",
+    "download": "Télécharger",
+    "empty": "Aucun document pour l'instant. Les documents apparaîtront ici lorsque votre entreprise les partagera sur vos dossiers.",
+    "error": "Échec du chargement des documents.",
+    "loading": "Chargement de documents…",
+    "searchPlaceholder": "Rechercher des documents…",
+    "table": {
+      "category": "Catégorie",
+      "document": "Document",
+      "matter": "Matière",
+      "size": "Taille",
+      "updated": "Mis à jour"
+    },
+    "title": "Mes documents"
+  },
+  "intake": {
+    "description": "Déposez une nouvelle demande de dépôt ou examinez les demandes de renseignements que vous avez déjà soumises.",
+    "empty": {
+      "action": "Déposer une demande",
+      "description": "Déposez une demande de marque ou de brevet pour commencer.",
+      "title": "Aucune demande pour l'instant"
+    },
+    "error": "Impossible de charger vos demandes.",
+    "filed": "Déposé {{date}}",
+    "fileNew": "Déposer une nouvelle demande",
+    "loading": "Chargement de vos demandes…",
+    "myEnquiries": "Mes demandes",
+    "status": {
+      "accepted": "Accepté",
+      "inReview": "En revue",
+      "matterOpened": "Dossier ouvert",
+      "notAccepted": "Non accepté",
+      "submitted": "Soumise"
+    },
+    "submitted": {
+      "description": "Nous avons effectué automatiquement une première vérification des conflits. Un coordinateur confirmera et ouvrira votre dossier. Vous pouvez consulter ou modifier votre demande à tout moment jusqu'à ce qu'elle soit acceptée.",
+      "reviewEnquiry": "Consultez cette demande",
+      "title": "Demande soumise"
+    },
+    "title": "Demandes de renseignements",
+    "untitled": "Enquête sans titre"
+  },
+  "intakeDetail": {
+    "backToEnquiries": "Retour à mes demandes",
+    "cancel": "Annuler",
+    "defaultTitle": "Enquête",
+    "edit": "Modifier",
+    "editDescription": "L’enregistrement mettra à jour votre demande et réexécutera automatiquement la vérification des conflits.",
+    "editTitle": "Modifier la demande",
+    "enquirer": "Demandeur",
+    "enquirerCompany": "Entreprise",
+    "enquirerIndividual": "Individuelle",
+    "enquiryDetails": "Détails de la demande",
+    "error": "Impossible de charger cette demande.",
+    "fields": {
+      "companyName": "Nom de l'entreprise",
+      "country": "Pays",
+      "description": "Description",
+      "email": "E-mail",
+      "fullName": "Nom et prénom",
+      "matterType": "Type de matière",
+      "otherParties": "Autres partis",
+      "phone": "Téléphone",
+      "urgency": "Urgence"
+    },
+    "filed": "Déposé {{date}}",
+    "loading": "Chargement de la demande…",
+    "saveChanges": "Enregistrer les modifications",
+    "statusHints": {
+      "approved": "Votre demande a été acceptée et est en cours de constitution.",
+      "conflictFlagged": "Un coordinateur examine votre demande avant qu’elle puisse être acceptée.",
+      "converted": "Un dossier a été ouvert. Vous pouvez le suivre sous Mes affaires.",
+      "new": "Reçu. Une vérification des conflits a été effectuée automatiquement et un coordinateur l'examinera sous peu.",
+      "rejected": "Cette demande n'a pas été acceptée. Contactez-nous si vous avez des questions.",
+      "reviewing": "Un coordinateur examine votre demande."
+    },
+    "urgency": {
+      "normal": "Normale",
+      "urgent": "Urgente"
+    },
+    "viewMatter": "Afficher le sujet"
+  },
+  "invoices": {
+    "description": "Factures et statut de paiement pour tous vos dossiers.",
+    "error": "Échec du chargement des factures.",
+    "loading": "Chargement des factures…",
+    "title": "Mes factures"
+  },
+  "matterTypes": {
+    "design": "Conception",
+    "other": "Autre",
+    "patent": "Brevet",
+    "trademark": "Marque déposée",
+    "utility_model": "Modèle d'utilité"
+  },
+  "renewals": {
+    "couldNotLoad": "Impossible de charger les renouvellements",
+    "cycle": "cycle {{number}}",
+    "decline": "Déclin",
+    "description": "Renouvellements à venir de marques et de modèles pour vos droits de propriété intellectuelle.",
+    "due": "À payer {{date}}",
+    "empty": {
+      "description": "Les renouvellements apparaissent ici après que votre entreprise a enregistré un droit de propriété intellectuelle sur l'un de vos dossiers. Il vous sera demandé de continuer ou de refuser avant chaque date d'échéance de renouvellement.",
+      "title": "Aucun renouvellement ne nécessite votre attention",
+      "viewDeadlines": "Consulter mes délais",
+      "viewMatters": "Afficher mes dossiers"
+    },
+    "errorFallback": "Veuillez réessayer ou vous déconnecter et vous reconnecter si les autorisations ont changé.",
+    "instructionError": "Impossible de soumettre l'instruction",
+    "loading": "Chargement…",
+    "proceed": "Procéder",
+    "retry": "Réessayer",
+    "title": "Renouvellements"
+  },
+  "renewalStatus": {
+    "completed": "Complété",
+    "filed": "Déposée",
+    "instructed": "Instruite",
+    "lapsed": "Péchu",
+    "upcoming": "Prochaine"
+  },
+  "help": {
+    "title": "Aide",
+    "subtitle": "Comment utiliser le portail client pour votre portefeuille IP.",
+    "enquiriesTitle": "Déposer une demande",
+    "enquiriesBody": "Utilisez les demandes de renseignements pour soumettre une nouvelle demande de sujet. Le cabinet examinera les contrôles de conflits et convertira les pistes approuvées en dossiers.",
+    "openEnquiries": "Demandes ouvertes",
+    "approvalsTitle": "Approbations",
+    "approvalsBody": "Lorsque le cabinet demande votre approbation (par exemple des renouvellements ou des instructions), répondez à partir de la page Approbations.",
+    "openApprovals": "Approbations ouvertes",
+    "contactTitle": "Besoin d'aide supplémentaire ?",
+    "contactBody": "Contactez votre avocat ou coordinateur désigné via Messages, ou répondez à la correspondance du cabinet sur un sujet.",
+    "openMessages": "Messages ouverts"
+  }
+}

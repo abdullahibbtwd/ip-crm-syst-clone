@@ -1,0 +1,57 @@
+{
+  "status": {
+    "upcoming": "E ardhme",
+    "instructed": "I udhëzuar",
+    "filed": "Paraqitur",
+    "completed": "E përfunduar",
+    "lapsed": "I skaduar"
+  },
+  "page": {
+    "title": "Rinovimet",
+    "descriptionMy": "Dritare rinovimi për çështjet që ju janë caktuar.",
+    "descriptionFirm": "Lista e punës për rinovimin e gjerë të firmës për të gjitha të drejtat e IP.",
+    "filters": {
+      "status": "Statusi",
+      "allStatuses": "Të gjitha statuset",
+      "jurisdiction": "Juridiksioni",
+      "allJurisdictions": "Të gjitha juridiksionet",
+      "assignee": "I ngarkuari",
+      "allAssignees": "Të gjithë të ngarkuarit"
+    },
+    "loading": "Po ngarkon rinovimet…",
+    "empty": "Asnjë dritare rinovimi nuk përputhet me filtrat tuaj.",
+    "table": {
+      "ipRight": "IP e drejtë",
+      "matter": "Materie",
+      "client": "Klienti",
+      "cycle": "Cikli",
+      "due": "Për shkak",
+      "status": "Statusi",
+      "assignee": "I ngarkuari"
+    }
+  },
+  "widget": {
+    "title": "Rinovimet e ardhshme",
+    "subtitle": "Tubacioni i udhëzimeve 90 ditët e ardhshme",
+    "viewPipeline": "Shiko tubacionin",
+    "loading": "Po llogarit dritaret e rinovimit…",
+    "error": "Analitika e rinovimeve nuk mund të ngarkohej.",
+    "stats": {
+      "totalPipeline": "Gazsjellësi total",
+      "activeWindows": "Dritare aktive",
+      "awaiting": "në pritje",
+      "noInstruction": "Ende asnjë udhëzim",
+      "urgent": "Urgjente",
+      "due7Days": "Afati ≤ 7 ditë",
+      "instructed": "I udhëzuar",
+      "proceedConfirmed": "Vazhdoni i konfirmuar"
+    },
+    "empty": "Asnjë rinovim nuk u gjurmua në këtë dritare.",
+    "table": {
+      "ipAsset": "aktive IP",
+      "client": "Klienti",
+      "dueStatus": "Detyrimi / Statusi"
+    },
+    "cycle": "Cikli {{number}}"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Precedentët",
+  "subtitle": "Baza e njohurive për korrespondencën e ripërdorshme dhe gjuhën e dosjeve.",
+  "newDraft": "Drafti i ri",
+  "searchPlaceholder": "Kërko tekstin e trupit…",
+  "loading": "Precedentët po ngarkohen…",
+  "loadFailed": "Ngarkimi i precedentëve dështoi.",
+  "empty": "Nuk ka ende precedentë. Krijoni një draft ose korrje nga korrespondenca.",
+  "columns": {
+    "title": "Titulli",
+    "category": "Kategoria",
+    "jurisdiction": "Juridiksioni",
+    "status": "Statusi",
+    "updated": "Përditësuar"
+  },
+  "filters": {
+    "allStatuses": "Të gjitha statuset"
+  },
+  "status": {
+    "draft": "Drafti",
+    "published": "Publikuar",
+    "archived": "Arkivuar"
+  },
+  "editAria": "Redakto",
+  "drawer": {
+    "createTitle": "Precedent i ri",
+    "editTitle": "Redakto precedentin",
+    "title": "Titulli",
+    "category": "Kategoria",
+    "matterType": "Lloji i materies",
+    "optional": "Fakultative",
+    "jurisdiction": "Juridiksioni",
+    "tags": "Etiketat",
+    "body": "Trupi",
+    "bodyPlaceholder": "Shkruani tekstin precedent - të theksuara, të pjerrëta dhe listat mbështeten",
+    "publish": "Publikoni",
+    "archive": "Arkivi",
+    "publishFailed": "Publikimi dështoi",
+    "archiveFailed": "Arkivi dështoi",
+    "saveFailed": "Precedenti nuk mund të ruhej",
+    "requiredFields": "Kërkohet titulli, kategoria dhe trupi"
+  }
+}

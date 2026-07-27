@@ -1,0 +1,110 @@
+{
+  "assigneeSelect": {
+    "loading": "Chargement des avocats…",
+    "placeholder": "Choisir un avocat responsable",
+    "unassigned": "Non attribué"
+  },
+  "filters": {
+    "activeOnly": "Actif uniquement",
+    "allStatuses": "Tous les statuts",
+    "inactiveOnly": "Inactif uniquement",
+    "searchPortal": "Rechercher les utilisateurs du portail…",
+    "searchTeam": "Rechercher des membres de l’équipe…"
+  },
+  "invite": {
+    "button": "Inviter un utilisateur",
+    "cancel": "Annuler",
+    "clientPlaceholder": "Sélectionnez la fiche client…",
+    "clientRecord": "Dossier client",
+    "description": "Invitez un membre de l’équipe ou un client du portail. Ils recevront un e-mail avec un lien pour définir leur mot de passe ou se connecter avec Microsoft ou Google.",
+    "email": "E-mail",
+    "emailFailed": "L'e-mail d'invitation n'a pas pu être envoyé",
+    "emailFailedContinue": "L'utilisateur a été créé — fermez et renvoyez plus tard",
+    "emailFailedTitle": "Utilisateur invité, mais l'e-mail n'a pas pu être envoyé.",
+    "emailHint": "Un email d'invitation est envoyé avec un lien pour définir un mot de passe. Ils peuvent également se connecter avec Microsoft ou Google en utilisant exactement cette adresse e-mail. Si l'e-mail échoue, l'utilisateur est toujours créé et vous pouvez le renvoyer à partir de la liste des utilisateurs.",
+    "emailPlaceholder": "nom@entreprise.com",
+    "errors": {
+      "clientRequired": "Sélectionnez un enregistrement client pour les utilisateurs du portail",
+      "failed": "Échec de l'invitation de l'utilisateur",
+      "required": "L'e-mail et le nom complet sont requis"
+    },
+    "fullName": "Nom et prénom",
+    "fullNamePlaceholder": "Jane Doe",
+    "lastEmailFailed": "Échec de la dernière tentative d'envoi d'e-mail",
+    "resend": "Renvoyer l'invitation",
+    "resendFailed": "Échec du renvoi de l'e-mail d'invitation",
+    "resendSuccess": "E-mail d'invitation envoyé",
+    "role": "Rôle",
+    "submit": "Envoyer une invitation",
+    "submitting": "Attrayante…",
+    "title": "Inviter un utilisateur",
+    "typePortal": "Client de portail",
+    "typeTeam": "Membre de l'équipe",
+    "userType": "Type d'utilisateur"
+  },
+  "layout": {
+    "accessRestricted": "Accès restreint",
+    "description": "Gérer les membres de l’équipe interne et les comptes clients du portail externe. La connexion SSO et par mot de passe est affichée par utilisateur.",
+    "noPermission": "Vous n'êtes pas autorisé à afficher les utilisateurs et les membres de l'équipe.",
+    "title": "Utilisateurs et équipe"
+  },
+  "portal": {
+    "description": "Comptes clients externes avec accès au portail aux affaires et documents partagés.",
+    "title": "Utilisateurs du portail"
+  },
+  "role": {
+    "errors": {
+      "failed": "Échec de la mise à jour du rôle"
+    },
+    "ownRoleHint": "Vous ne pouvez pas changer votre propre rôle"
+  },
+  "table": {
+    "authMethod": {
+      "password": "Mot de passe",
+      "pending": "En attente",
+      "sso": "SSO"
+    },
+    "clientRecord": "Dossier client",
+    "empty": "Aucun utilisateur trouvé",
+    "emptyDescription": "Essayez d'ajuster la recherche ou les filtres.",
+    "error": "Échec du chargement des utilisateurs.",
+    "headers": {
+      "invite": "Inviter",
+      "lastLogin": "Dernière connexion",
+      "mfa": "MAE",
+      "registered": "Inscrite",
+      "role": "Rôle",
+      "signIn": "Se connecter",
+      "status": "Statut",
+      "user": "Utilisatrice"
+    },
+    "mfa": {
+      "enabled": "Activé",
+      "off": "Désactivé"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "invited": "Invitée"
+    },
+    "viewAria": "Afficher {{name}}"
+  },
+  "tabs": {
+    "portal": {
+      "description": "Comptes clients",
+      "label": "Utilisateurs du portail"
+    },
+    "team": {
+      "description": "Personnel interne",
+      "label": "Équipe"
+    }
+  },
+  "team": {
+    "description": "Personnel interne avec rôles, méthode de connexion et statut MFA. Les partenaires de gestion et les administrateurs informatiques peuvent inviter des utilisateurs et modifier les rôles.",
+    "title": "Membres de l'équipe"
+  },
+  "teamMemberSelect": {
+    "loading": "Chargement…",
+    "placeholder": "Sélectionner un membre de l'équipe"
+  }
+}

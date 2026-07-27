@@ -1,0 +1,167 @@
+{
+  "conflict": {
+    "approve": "Onayla - çakışma yok",
+    "checkedAt": "Kontrol edildi {{date}}",
+    "cleared": "Çakışma algılanmadı",
+    "clearedForConversion": "Benzer ad bulunamadı - dönüşüm için temizlendi",
+    "description": "Müşteriler, kişiler, ilgili şirketler ve kayıtlı karşı taraflar arasında bulanık arama. %30 bileşik benzerliğin üzerindeki eşleşmeler incelenmek üzere işaretlenir.",
+    "flaggedMatches": "{{count}} potansiyel eşleşme(ler) - inceleme gerekli",
+    "entityType": {
+      "client": "Müşteri",
+      "contact": "Temas etmek",
+      "counterparty": "Karşı taraf",
+      "ip_right": "Fikri mülkiyet hakkı / ticari marka kaydı",
+      "matter": "Mevcut konu",
+      "related_company": "İlgili şirket",
+      "sign": "Dosyayı imzala / işaretle"
+    },
+    "flagged": "Olası çakışmalar bulundu",
+    "matchedOn": "{{field}} tarihinde eşleşti",
+    "matchedTerm": "{{field}} üzerinde \"{{term}}\" ile eşleşti",
+    "mpOverride": "MP geçersiz kılma",
+    "rejectLead": "Potansiyel müşteriyi reddet",
+    "reviewHint": "Gerçek kişilerin incelemesi için benzer isimler ortaya çıkar. Gerçek bir çatışma yoksa onaylayın veya müşteri adayı ilerleyemiyorsa reddedin.",
+    "run": "Çakışma kontrolünü çalıştır",
+    "running": "Koşma…",
+    "similarPct": "{{pct}} benzer",
+    "similarity": "Benzerlik",
+    "title": "Uyuşmazlık kontrolü"
+  },
+  "convert": {
+    "button": "Maddeye dönüştür",
+    "clientLabel": "Müşteri:",
+    "conversionFailed": "Dönüşüm başarısız oldu",
+    "converting": "Dönüştürülüyor…",
+    "existingPortalAccount": "(mevcut portal hesabı)",
+    "invalidForm": "Geçersiz form",
+    "matterLabel": "Konu:",
+    "none": "Hiçbiri",
+    "portalDescription": "Portal istemcisinin mevcut hesabı altında bir konu açar; mükerrer müşteri kaydı yoktur.",
+    "standardDescription": "Bir müşteri kaydı oluşturur ve tek adımda bir konuyu açar; sorgulama ayrıntılarının yeniden girilmesine gerek yoktur. Bu adımda GDPR onayı gereklidir.",
+    "willCreate": "Yaratacak",
+    "converted": "Maddeye dönüştürüldü",
+    "gdprConsent": "Bu sorgulayıcıdan GDPR onayının alındığını onaylıyorum.",
+    "holdingGroup": "Tutma grubu (isteğe bağlı)",
+    "openMatter": "Açık konu",
+    "preview": "Konu önizlemesi",
+    "title": "İstemciye ve konuya dönüştür",
+    "viewClient": "Müşteriyi görüntüle"
+  },
+  "counterparty": {
+    "add": "Parti ekle",
+    "editor": {
+      "add": "Olumsuz taraf/rakip ekle",
+      "company": "Şirket",
+      "name": "İsim",
+      "notes": "Notlar",
+      "party": "Parti {{n}}",
+      "relationship": "İlişki *"
+    },
+    "relationship": {
+      "adverse_party": "Karşı taraf",
+      "competitor": "Yarışmacı",
+      "licensee": "Lisans Sahibi",
+      "licensor": "Lisans Veren"
+    },
+    "save": "Partiyi kaydet",
+    "section": {
+      "description": "Çıkar çatışması yaratabilecek taraflar.",
+      "title": "Olumsuz taraflar / rakipler",
+      "unnamed": "İsimsiz parti"
+    }
+  },
+  "create": {
+    "back": "← Alım'e geri dön",
+    "description": "Çakışma kontrolü ve dönüştürmeden önce yeni bir sorgu yakalayın.",
+    "title": "Yeni sorgulama"
+  },
+  "detail": {
+    "back": "← Giriş kuyruğuna geri dön",
+    "company": "Şirket",
+    "contactName": "Kişi adı",
+    "country": "Ülke",
+    "converted": "Bu sorgu dönüştürüldü.",
+    "description": "Tanım",
+    "email": "E-posta",
+    "enquiryDetails": "Sorgu ayrıntıları",
+    "error": "Giriş kablosu yüklenemedi.",
+    "fullName": "Ad Soyad",
+    "internalNotes": "Dahili notlar",
+    "loading": "Yükleniyor…",
+    "loadingLead": "Giriş kablosu yükleniyor…",
+    "notAssigned": "Atanmadı",
+    "matterType": "Madde türü",
+    "notFound": "Giriş kablosu bulunamadı.",
+    "phone": "Telefon",
+    "portalSubmission": "Portal gönderimi",
+    "referralSource": "Yönlendirme kaynağı",
+    "referredBy": "Tarafından yönlendirilen",
+    "responsibleAttorney": "Sorumlu avukat",
+    "type": "Tip",
+    "urgency": "Aciliyet",
+    "urgent": "Acil"
+  },
+  "form": {
+    "companyName": "Firma Adı *",
+    "description": "Tanım",
+    "email": "E-posta",
+    "enquirerType": "Sorgulayan türü",
+    "error": "Giriş potansiyel müşterisi oluşturulamadı",
+    "fullName": "Ad Soyad *",
+    "matterType": "Madde türü *",
+    "phone": "Telefon",
+    "referralSource": "Yönlendirme kaynağı",
+    "submit": "Soruşturmayı gönder",
+    "submitInternal": "Alım potansiyel müşterisi oluşturun",
+    "type": {
+      "company": "Şirket",
+      "individual": "Bireysel"
+    },
+    "urgent": "Acil olarak işaretle"
+  },
+  "list": {
+    "description": "Gelen talepleri inceleyin, çakışma kontrolleri yapın ve onaylanan potansiyel müşterileri dönüştürün.",
+    "empty": "Giriş ipucu bulunamadı",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir sorgu oluşturun.",
+    "error": "Giriş kabloları yüklenemedi.",
+    "new": "Yeni sorgulama",
+    "searchPlaceholder": "Adı veya e-postayı arayın…",
+    "title": "Giriş kuyruğu"
+  },
+  "matterType": {
+    "design": "Tasarım",
+    "other": "Diğer",
+    "patent": "Patent",
+    "trademark": "Ticari marka",
+    "utility_model": "Faydalı model"
+  },
+  "referralSource": {
+    "email": "E-posta",
+    "other": "Diğer",
+    "phone": "Telefon",
+    "referral": "Yönlendirme",
+    "walk_in": "Walk-in",
+    "website": "Web sitesi"
+  },
+  "status": {
+    "approved": "Onaylı",
+    "conflict_check": "Uyuşmazlık kontrolü",
+    "conflict_flagged": "Çakışma işaretlendi",
+    "converted": "Dönüştürülen",
+    "new": "Yeni",
+    "rejected": "Reddedilmiş",
+    "reviewing": "İnceleniyor"
+  },
+  "table": {
+    "date": "Kabul edilmiş",
+    "matterType": "Madde türü",
+    "name": "Araştırmacı",
+    "portal": "Portal",
+    "referral": "Kaynak",
+    "status": "Durum",
+    "urgent": "Acil",
+    "viewAria": "{{name}} görüntüle"
+  },
+  "unknownCompany": "Bilinmeyen şirket",
+  "unknownIndividual": "Bilinmeyen kişi"
+}

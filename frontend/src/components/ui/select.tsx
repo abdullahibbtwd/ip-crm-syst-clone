@@ -1,11 +1,53 @@
 import * as React from 'react'
 import { Select as SelectPrimitive } from '@base-ui/react/select'
+import { useTranslation } from 'react-i18next'
 
+import i18n from '@/i18n'
 import { cn } from '@/lib/utils'
 import { Check, ChevronDown, ChevronUp } from 'lucide-react'
 import { fieldVariants, focusRing } from './shared'
 
-const Select = SelectPrimitive.Root
+type SelectLabelRegistry = {
+  register: (value: string, label: string) => void
+  getLabel: (value: unknown) => string | undefined
+}
+
+const SelectLabelRegistryContext = React.createContext<SelectLabelRegistry | null>(null)
+
+function isFilterAllValue(value: unknown): boolean {
+  if (value == null) return false
+  const normalized = String(value)
+  return normalized === 'all' || normalized === 'All'
+}
+
+function Select({ children, ...props }: SelectPrimitive.Root.Props) {
+  const labelsRef = React.useRef<Map<string, string>>(new Map())
+
+  React.useEffect(() => {
+    const clearLabels = () => labelsRef.current.clear()
+    i18n.on('languageChanged', clearLabels)
+    return () => i18n.off('languageChanged', clearLabels)
+  }, [])
+
+  const registry = React.useMemo<SelectLabelRegistry>(
+    () => ({
+      register: (value, label) => {
+        labelsRef.current.set(value, label)
+      },
+      getLabel: (value) => {
+        if (value == null) return undefined
+        return labelsRef.current.get(String(value))
+      },
+    }),
+    [],
+  )
+
+  return (
+    <SelectLabelRegistryContext.Provider value={registry}>
+      <SelectPrimitive.Root {...props}>{children}</SelectPrimitive.Root>
+    </SelectLabelRegistryContext.Provider>
+  )
+}
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
@@ -17,13 +59,47 @@ function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   )
 }
 
-function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
+function SelectValue({
+  className,
+  children,
+  placeholder,
+  ...props
+}: SelectPrimitive.Value.Props) {
+  const registry = React.useContext(SelectLabelRegistryContext)
+  const { t } = useTranslation('common')
+
+  const formatValue = React.useCallback(
+    (value: unknown) => {
+      if (children != null) {
+        if (typeof children === 'function') {
+          return children(value)
+        }
+        return children
+      }
+
+      const registered = registry?.getLabel(value)
+      if (registered) return registered
+
+      if (isFilterAllValue(value)) {
+        if (placeholder != null) return placeholder
+        return t('filters.all')
+      }
+
+      if (value == null) return null
+      return String(value)
+    },
+    [children, registry, placeholder, t],
+  )
+
   return (
     <SelectPrimitive.Value
       data-slot="select-value"
       className={cn('flex flex-1 truncate text-left', className)}
+      placeholder={placeholder}
       {...props}
-    />
+    >
+      {formatValue}
+    </SelectPrimitive.Value>
   )
 }
 
@@ -127,8 +203,21 @@ function SelectLabel({
 function SelectItem({
   className,
   children,
+  label,
+  value,
   ...props
 }: SelectPrimitive.Item.Props) {
+  const registry = React.useContext(SelectLabelRegistryContext)
+  const itemLabel =
+    label ??
+    (typeof children === 'string' || typeof children === 'number' ? String(children) : undefined)
+
+  React.useLayoutEffect(() => {
+    if (registry && value != null && itemLabel) {
+      registry.register(String(value), itemLabel)
+    }
+  }, [registry, value, itemLabel])
+
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -140,6 +229,8 @@ function SelectItem({
         'data-disabled:pointer-events-none data-disabled:opacity-40',
         className,
       )}
+      label={itemLabel}
+      value={value}
       {...props}
     >
       <SelectPrimitive.ItemText className="flex flex-1 truncate">
