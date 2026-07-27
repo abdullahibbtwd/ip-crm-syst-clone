@@ -178,7 +178,7 @@ export function InviteUserDrawer({ open, onClose }: InviteUserDrawerProps) {
             <Label>{t('invite.clientRecord')}</Label>
             <Select
               value={clientCode}
-              onValueChange={setClientCode}
+              onValueChange={(v) => setClientCode(v ?? '')}
               disabled={clientsLoading}
             >
               <SelectTrigger className="w-full">

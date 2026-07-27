@@ -19,6 +19,7 @@ function authValue(roles: string[]) {
     roles,
     permissions: [],
     mfaEnabled: false,
+    preferredLocale: null,
   }
   return {
     user,

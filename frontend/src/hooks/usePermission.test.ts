@@ -18,6 +18,7 @@ function authUser(permissions: string[]): AuthUser {
     roles: ['paralegal'],
     permissions,
     mfaEnabled: false,
+    preferredLocale: null,
   }
 }
 

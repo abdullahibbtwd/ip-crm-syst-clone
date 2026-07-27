@@ -20,7 +20,10 @@ function isFilterAllValue(value: unknown): boolean {
   return normalized === 'all' || normalized === 'All'
 }
 
-function Select({ children, ...props }: SelectPrimitive.Root.Props) {
+function Select<Value = string, Multiple extends boolean | undefined = false>({
+  children,
+  ...props
+}: SelectPrimitive.Root.Props<Value, Multiple>) {
   const labelsRef = React.useRef<Map<string, string>>(new Map())
 
   React.useEffect(() => {

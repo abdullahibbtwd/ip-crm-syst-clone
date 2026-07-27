@@ -387,6 +387,7 @@ export function UserMenu({
 }
 
 export function NotificationsMenu({ external }: { external?: boolean }) {
+  const { t } = useTranslation('common')
   const { notificationsOpen, setNotificationsOpen } = useShell()
   const ref = useRef<HTMLDivElement>(null)
   const theme = menuTheme(external)
