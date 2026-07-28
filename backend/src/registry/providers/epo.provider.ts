@@ -636,16 +636,23 @@ export class EpoProvider implements RegistryConnector, OnModuleInit {
       'applicant',
     ]);
     let applicant: string | null = null;
+    let applicantRecord: Record<string, unknown> | undefined;
     for (const a of asArray(applicants)) {
+      const record = a as Record<string, unknown>;
       const name =
-        textOf(dig(a, ['applicant-name', 'name'])) ??
-        textOf(dig(a, ['name'])) ??
-        pickEnglishOrFirst(dig(a, ['applicant-name']));
+        textOf(dig(record, ['applicant-name', 'name'])) ??
+        textOf(dig(record, ['name'])) ??
+        pickEnglishOrFirst(dig(record, ['applicant-name']));
       if (name) {
         applicant = name;
+        applicantRecord = record;
         break;
       }
     }
+
+    const applicantAddress = applicantRecord
+      ? this.parseApplicantAddress(applicantRecord)
+      : null;
 
     const pubRefs = asArray(
       dig(biblio, ['publication-reference', 'document-id']),
@@ -669,7 +676,58 @@ export class EpoProvider implements RegistryConnector, OnModuleInit {
       publicationNumber,
       title,
       applicant,
+      applicantAddress,
       publicationDate,
+    };
+  }
+
+  private parseApplicantAddress(
+    applicant: Record<string, unknown>,
+  ): RegistryBibliographicData['applicantAddress'] {
+    const addressbook =
+      dig(applicant, ['addressbook']) ??
+      dig(applicant, ['applicant-address', 'addressbook']);
+    const book =
+      (asArray(addressbook)[0] as Record<string, unknown> | undefined) ??
+      (addressbook as Record<string, unknown> | undefined);
+
+    if (!book) return null;
+
+    const addressLine1 =
+      textOf(dig(book, ['address-1'])) ?? textOf(dig(book, ['street']));
+    const addressLine2 = textOf(dig(book, ['address-2']));
+    const city = textOf(dig(book, ['city']));
+    const region =
+      textOf(dig(book, ['state'])) ?? textOf(dig(book, ['county']));
+    const postalCode =
+      textOf(dig(book, ['postcode'])) ?? textOf(dig(book, ['postal-code']));
+    const country = textOf(dig(book, ['country']));
+
+    const parts = {
+      addressLine1,
+      addressLine2,
+      city,
+      region,
+      postalCode,
+      country,
+    };
+
+    const hasContent = Object.values(parts).some((value) => value?.trim());
+    if (!hasContent) return null;
+
+    const formattedAddress = [
+      addressLine1,
+      addressLine2,
+      [postalCode, city].filter(Boolean).join(' '),
+      region,
+      country,
+    ]
+      .filter((line) => line?.trim())
+      .join('\n');
+
+    return {
+      ...parts,
+      formattedAddress,
     };
   }
 

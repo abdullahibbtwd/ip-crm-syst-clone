@@ -12,8 +12,10 @@
     "test:run": "vitest run",
     "i18n:extract": "npx i18next-parser --config i18next-parser.config.cjs",
     "i18n:scaffold": "node scripts/i18n-scaffold.mjs",
+    "i18n:sync-keys": "node scripts/i18n-sync-keys.mjs",
     "i18n:audit": "node scripts/i18n-audit.mjs",
-    "i18n:translate": "node scripts/i18n-translate.mjs"
+    "i18n:translate": "node scripts/i18n-translate.mjs",
+    "i18n:export-master": "node scripts/i18n-export-master.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

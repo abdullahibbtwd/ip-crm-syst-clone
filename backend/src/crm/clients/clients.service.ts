@@ -11,13 +11,49 @@ import {
 } from '../../../generated/prisma/client';
 import { PrismaService } from '../../prisma/prisma.service';
 import { clientDisplayName } from '../crm.utils';
-import { parseLimit } from '../dto/pagination.dto';
+import { parseLimit, parsePage } from '../dto/pagination.dto';
 import { HistoryService } from '../history/history.service';
 import {
+  CLIENT_OFFICE_ADDRESS_TYPE,
+  createTypedClientAddressesInTransaction,
+} from '../offices/client-office-address.util';
+import {
+  compareAddresses,
+  formatAddress,
+  hasAddressContent,
+  type AddressParts,
+} from '../address/address-compare.util';
+import type { RegistryApplicantSnapshot } from '../../registry/registry-address.types';
+import {
   ClientQueryDto,
+  ClientSortBy,
   CreateClientDto,
+  SortOrder,
   UpdateClientDto,
 } from './dto/client.dto';
+
+function buildClientOrderBy(
+  sortBy: ClientSortBy,
+  sortOrder: SortOrder,
+): Prisma.ClientOrderByWithRelationInput[] {
+  const dir = sortOrder;
+  switch (sortBy) {
+    case ClientSortBy.name:
+      return [
+        { companyName: dir },
+        { lastName: dir },
+        { firstName: dir },
+        { id: dir },
+      ];
+    case ClientSortBy.internalCode:
+      return [{ internalCode: dir }, { id: dir }];
+    case ClientSortBy.updatedAt:
+      return [{ updatedAt: dir }, { id: dir }];
+    case ClientSortBy.createdAt:
+    default:
+      return [{ createdAt: dir }, { id: dir }];
+  }
+}
 
 const clientInclude = {
   assignedUser: { select: { id: true, fullName: true, email: true } },
@@ -73,7 +109,7 @@ export class ClientsService {
     const internalCode = await this.generateInternalCode(tx);
     const gdprConsent = dto.gdprConsent ?? false;
 
-    return tx.client.create({
+    const client = await tx.client.create({
       data: {
         type: dto.type,
         status: dto.status ?? ClientStatus.active,
@@ -94,10 +130,26 @@ export class ClientsService {
       },
       include: clientInclude,
     });
+
+    await createTypedClientAddressesInTransaction(
+      tx,
+      client.id,
+      dto.registeredLegalAddress,
+      dto.correspondenceAddress,
+    );
+
+    return tx.client.findUniqueOrThrow({
+      where: { id: client.id },
+      include: clientInclude,
+    });
   }
 
   async findAll(query: ClientQueryDto) {
-    const take = parseLimit(query.limit);
+    const limit = parseLimit(query.limit, 20);
+    const page = parsePage(query.page);
+    const skip = (page - 1) * limit;
+    const sortBy = query.sortBy ?? ClientSortBy.createdAt;
+    const sortOrder = query.sortOrder ?? SortOrder.desc;
     const search = query.search?.trim();
 
     const where: Prisma.ClientWhereInput = {
@@ -120,37 +172,46 @@ export class ClientsService {
         : {}),
     };
 
-    const rows = await this.prisma.client.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      take: take + 1,
-      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
-      select: {
-        id: true,
-        type: true,
-        status: true,
-        internalCode: true,
-        companyName: true,
-        firstName: true,
-        lastName: true,
-        country: true,
-        gdprConsent: true,
-        gdprConsentDate: true,
-        createdAt: true,
-        assignedUser: { select: { id: true, fullName: true } },
-        holdingGroup: { select: { id: true, name: true } },
-      },
-    });
+    const orderBy = buildClientOrderBy(sortBy, sortOrder);
 
-    const hasMore = rows.length > take;
-    const items = hasMore ? rows.slice(0, take) : rows;
+    const [total, rows] = await this.prisma.$transaction([
+      this.prisma.client.count({ where }),
+      this.prisma.client.findMany({
+        where,
+        orderBy,
+        skip,
+        take: limit,
+        select: {
+          id: true,
+          type: true,
+          status: true,
+          internalCode: true,
+          companyName: true,
+          firstName: true,
+          lastName: true,
+          country: true,
+          gdprConsent: true,
+          gdprConsentDate: true,
+          createdAt: true,
+          updatedAt: true,
+          assignedUser: { select: { id: true, fullName: true } },
+          holdingGroup: { select: { id: true, name: true } },
+        },
+      }),
+    ]);
+
+    const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
 
     return {
-      items: items.map((c) => ({
+      items: rows.map((c) => ({
         ...c,
         displayName: clientDisplayName(c),
       })),
-      nextCursor: hasMore ? items[items.length - 1]?.id : null,
+      total,
+      page,
+      limit,
+      pageCount,
+      nextCursor: null,
     };
   }
 
@@ -172,12 +233,38 @@ export class ClientsService {
           take: 1,
         },
         offices: {
-          where: { isPrimary: true },
-          take: 1,
+          where: {
+            addressType: {
+              in: [
+                CLIENT_OFFICE_ADDRESS_TYPE.registered_legal,
+                CLIENT_OFFICE_ADDRESS_TYPE.correspondence,
+                CLIENT_OFFICE_ADDRESS_TYPE.branch,
+              ],
+            },
+          },
+          orderBy: [{ addressType: 'asc' }, { isPrimary: 'desc' }],
         },
       },
     });
     if (!client) throw new NotFoundException('Client not found');
+
+    const registeredLegalOffice = client.offices.find(
+      (office) =>
+        office.addressType === CLIENT_OFFICE_ADDRESS_TYPE.registered_legal,
+    );
+    const correspondenceOffice = client.offices.find(
+      (office) =>
+        office.addressType === CLIENT_OFFICE_ADDRESS_TYPE.correspondence,
+    );
+    const registeredVsCorrespondence = compareAddresses(
+      registeredLegalOffice,
+      correspondenceOffice,
+    );
+    const primaryOffice =
+      registeredLegalOffice ??
+      client.offices.find((office) => office.isPrimary) ??
+      client.offices[0] ??
+      null;
 
     return {
       id: client.id,
@@ -187,7 +274,123 @@ export class ClientsService {
       type: client.type,
       country: client.country,
       primaryContact: client.contacts[0] ?? null,
-      primaryOffice: client.offices[0] ?? null,
+      primaryOffice,
+      registeredLegalOffice: registeredLegalOffice ?? null,
+      correspondenceOffice: correspondenceOffice ?? null,
+      addressesDiffer:
+        registeredVsCorrespondence.match === 'mismatch' ||
+        registeredVsCorrespondence.match === 'partial',
+    };
+  }
+
+  async getAddressInsights(id: string) {
+    await this.findOne(id);
+
+    const offices = await this.prisma.clientOffice.findMany({
+      where: { clientId: id },
+      orderBy: [{ addressType: 'asc' }, { isPrimary: 'desc' }],
+    });
+
+    const registeredLegalOffice = offices.find(
+      (office) =>
+        office.addressType === CLIENT_OFFICE_ADDRESS_TYPE.registered_legal,
+    );
+    const correspondenceOffice = offices.find(
+      (office) =>
+        office.addressType === CLIENT_OFFICE_ADDRESS_TYPE.correspondence,
+    );
+
+    const registeredVsCorrespondence = compareAddresses(
+      registeredLegalOffice,
+      correspondenceOffice,
+    );
+
+    const ipRights = await this.prisma.ipRight.findMany({
+      where: { clientId: id },
+      select: {
+        id: true,
+        matterId: true,
+        title: true,
+        applicationNumber: true,
+        registrationNumber: true,
+        jurisdiction: true,
+        attributes: true,
+      },
+      orderBy: { updatedAt: 'desc' },
+      take: 100,
+    });
+
+    const ipAssetComparisons = ipRights
+      .map((right) => {
+        const attrs = (right.attributes ?? {}) as {
+          registryApplicant?: RegistryApplicantSnapshot;
+        };
+        const registryApplicant = attrs.registryApplicant ?? null;
+        const registryAddress = registryApplicant?.address ?? null;
+        const comparisonToRegisteredLegal = compareAddresses(
+          registeredLegalOffice,
+          registryAddress,
+        );
+
+        return {
+          ipRightId: right.id,
+          matterId: right.matterId,
+          title: right.title,
+          applicationNumber: right.applicationNumber,
+          registrationNumber: right.registrationNumber,
+          jurisdiction: right.jurisdiction,
+          registryApplicant,
+          comparisonToRegisteredLegal,
+        };
+      })
+      .filter(
+        (row) =>
+          row.registryApplicant?.address &&
+          hasAddressContent(row.registryApplicant.address),
+      );
+
+    const mismatchCount =
+      (registeredVsCorrespondence.match === 'mismatch' ? 1 : 0) +
+      ipAssetComparisons.filter(
+        (row) =>
+          row.comparisonToRegisteredLegal.match === 'mismatch' ||
+          row.comparisonToRegisteredLegal.match === 'partial',
+      ).length;
+
+    return {
+      registeredLegalAddress: this.toAddressPayload(registeredLegalOffice),
+      correspondenceAddress: this.toAddressPayload(correspondenceOffice),
+      registeredLegalFormatted: formatAddress(registeredLegalOffice),
+      correspondenceFormatted: formatAddress(correspondenceOffice),
+      registeredVsCorrespondence,
+      ipAssetComparisons,
+      hasAddressMismatch: mismatchCount > 0,
+      mismatchCount,
+    };
+  }
+
+  private toAddressPayload(
+    office: {
+      addressLine1: string | null;
+      addressLine2: string | null;
+      city: string | null;
+      region: string | null;
+      postalCode: string | null;
+      country: string | null;
+      phone: string | null;
+      fax: string | null;
+    } | null | undefined,
+  ): AddressParts & { phone?: string | null; fax?: string | null } | null {
+    if (!office) return null;
+    return {
+      addressLine1: office.addressLine1,
+      addressLine2: office.addressLine2,
+      city: office.city,
+      region: office.region,
+      postalCode: office.postalCode,
+      country: office.country,
+      phone: office.phone,
+      fax: office.fax,
     };
   }
 

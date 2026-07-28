@@ -453,6 +453,9 @@
       "allTypes": "All types"
     },
     "intakeQueue": "Intake queue",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    },
     "perPage": "{{count}} per page",
     "searchPlaceholder": "Search title, client, application no…",
     "title": "Matters",
@@ -520,11 +523,15 @@
   "table": {
     "assigned": "Assigned",
     "client": "Client",
+    "created": "Created",
+    "deadlines": "Deadlines",
     "empty": "No matters found",
     "emptyDescription": "Try adjusting filters or open a new matter.",
     "emptyPortal": "No matters shared with you yet.",
     "error": "Failed to load matters.",
+    "jurisdiction": "Jurisdiction",
     "jurisdictions": "Jurisdictions",
+    "leadAttorney": "Lead attorney",
     "status": "Status",
     "title": "Title",
     "type": "Type",

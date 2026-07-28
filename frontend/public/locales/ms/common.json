@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Tiada hasil",
     "page": "Halaman {{page}}",
-    "showing": "Menunjukkan {{start}}–{{end}}"
+    "showing": "Menunjukkan {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Laporan"

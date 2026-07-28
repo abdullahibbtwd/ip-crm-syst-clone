@@ -126,7 +126,10 @@
     "error": "Учитавање водова за унос није успело.",
     "new": "Нови упит",
     "searchPlaceholder": "Претражи име или имејл…",
-    "title": "Интаке куеуе"
+    "title": "Интаке куеуе",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Дизајн",

@@ -126,7 +126,10 @@
     "error": "Sisselaskejuhtmete laadimine ebaõnnestus.",
     "new": "Uus päring",
     "searchPlaceholder": "Otsi nime või e-posti aadressi…",
-    "title": "Vastuvõtu järjekord"
+    "title": "Vastuvõtu järjekord",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Disain",

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
 import { CounterpartiesEditor } from '@/components/intake/CounterpartiesEditor'
 import { AttorneyAssigneeSelect } from '@/components/users/AttorneyAssigneeSelect'
 import { Button } from '@/components/ui/button'
@@ -20,6 +22,10 @@ import {
   type CreateIntakeFormValues,
 } from '@/features/intake/schemas'
 import { getApiErrorMessage } from '@/lib/api-client'
+import {
+  emptyClientAddressInput,
+  toClientAddressPayload,
+} from '@/features/crm/addressInput'
 import { cn } from '@/lib/utils'
 
 export type IntakeFormInitialValues = {
@@ -60,6 +66,7 @@ export function CreateIntakeForm({
   initialValues,
   submitLabel,
 }: CreateIntakeFormProps) {
+  const { t } = useTranslation(['crm', 'common'])
   const isPortal = variant === 'portal'
   const [enquirerType, setEnquirerType] = useState<'company' | 'individual'>(
     initialValues?.enquirerType ?? 'company',
@@ -85,6 +92,12 @@ export function CreateIntakeForm({
   const [counterparties, setCounterparties] = useState<CounterpartyFormValues[]>(
     initialValues?.counterparties ?? [],
   )
+  const [registeredLegalAddress, setRegisteredLegalAddress] = useState(
+    emptyClientAddressInput(),
+  )
+  const [correspondenceAddress, setCorrespondenceAddress] = useState(
+    emptyClientAddressInput(),
+  )
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [formError, setFormError] = useState<string | null>(null)
 
@@ -109,6 +122,8 @@ export function CreateIntakeForm({
             assignedUserId,
             notes: notes || undefined,
             counterparties: counterparties.length ? counterparties : undefined,
+            registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
+            correspondenceAddress: toClientAddressPayload(correspondenceAddress),
           }
         : {
             enquirerType: 'individual' as const,
@@ -124,6 +139,8 @@ export function CreateIntakeForm({
             assignedUserId,
             notes: notes || undefined,
             counterparties: counterparties.length ? counterparties : undefined,
+            registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
+            correspondenceAddress: toClientAddressPayload(correspondenceAddress),
           }
 
     const parsed = createIntakeSchema.safeParse(payload)
@@ -207,6 +224,24 @@ export function CreateIntakeForm({
             aria-invalid={Boolean(fieldErrors.phone)}
           />
         </Field>
+
+        <div className="space-y-4 border-t pt-4 sm:col-span-2">
+          <p className="text-sm font-medium">{t('offices.addresses.title', { ns: 'crm' })}</p>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <ClientAddressFields
+              idPrefix="intake-registered"
+              title={t('offices.addresses.registeredLegal', { ns: 'crm' })}
+              value={registeredLegalAddress}
+              onChange={setRegisteredLegalAddress}
+            />
+            <ClientAddressFields
+              idPrefix="intake-correspondence"
+              title={t('offices.addresses.correspondence', { ns: 'crm' })}
+              value={correspondenceAddress}
+              onChange={setCorrespondenceAddress}
+            />
+          </div>
+        </div>
 
         <Field label="Matter type *" error={fieldErrors.matterType}>
           <Select

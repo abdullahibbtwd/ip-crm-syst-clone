@@ -511,7 +511,10 @@
     "perPage": "{{count}} на странице",
     "searchPlaceholder": "Поиск по названию, клиенту, номеру приложения…",
     "title": "Имеет значение",
-    "titlePortal": "Мои дела"
+    "titlePortal": "Мои дела",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Общефирменный реестр прав интеллектуальной собственности с фильтрами по клиенту, юрисдикции, типу, статусу и сроку действия.",
@@ -584,7 +587,11 @@
     "title": "Заголовок",
     "type": "Тип",
     "upcoming": "{{count}} предстоящий",
-    "viewAria": "Посмотреть {{title}}"
+    "viewAria": "Посмотреть {{title}}",
+    "created": "Созданный",
+    "deadlines": "Сроки",
+    "jurisdiction": "Юрисдикция",
+    "leadAttorney": "Ведущий адвокат"
   },
   "tabs": {
     "billing": "Биллинг",

@@ -16,10 +16,18 @@ describe('ClientsService', () => {
   let prisma: {
     client: {
       findUnique: jest.Mock;
+      findUniqueOrThrow: jest.Mock;
       findFirst: jest.Mock;
       findMany: jest.Mock;
+      count: jest.Mock;
       create: jest.Mock;
       update: jest.Mock;
+    };
+    clientOffice: {
+      findFirst: jest.Mock;
+      create: jest.Mock;
+      update: jest.Mock;
+      updateMany: jest.Mock;
     };
     $transaction: jest.Mock;
     $executeRaw: jest.Mock;
@@ -30,10 +38,18 @@ describe('ClientsService', () => {
     prisma = {
       client: {
         findUnique: jest.fn(),
+        findUniqueOrThrow: jest.fn(),
         findFirst: jest.fn(),
         findMany: jest.fn(),
+        count: jest.fn(),
         create: jest.fn(),
         update: jest.fn(),
+      },
+      clientOffice: {
+        findFirst: jest.fn(),
+        create: jest.fn(),
+        update: jest.fn(),
+        updateMany: jest.fn(),
       },
       $transaction: jest.fn(async (fn) => fn(prisma)),
       $executeRaw: jest.fn(),
@@ -67,14 +83,17 @@ describe('ClientsService', () => {
 
     it('creates a company client and logs history', async () => {
       prisma.client.findFirst.mockResolvedValue(null);
-      prisma.client.create.mockResolvedValue({
+      const created = {
         id: 'c1',
         internalCode: `CL-${new Date().getFullYear()}-001`,
         type: ClientType.company,
         companyName: 'Acme',
         firstName: null,
         lastName: null,
-      });
+      };
+      prisma.client.create.mockResolvedValue(created);
+      prisma.client.findUniqueOrThrow.mockResolvedValue(created);
+      prisma.clientOffice.findFirst.mockResolvedValue(null);
 
       const result = await service.create(
         {
@@ -96,7 +115,8 @@ describe('ClientsService', () => {
   });
 
   describe('findAll', () => {
-    it('returns paginated clients with display names', async () => {
+    it('returns paginated clients with display names and totals', async () => {
+      prisma.client.count = jest.fn().mockResolvedValue(3);
       prisma.client.findMany.mockResolvedValue([
         {
           id: 'c1',
@@ -106,19 +126,43 @@ describe('ClientsService', () => {
           lastName: null,
           internalCode: 'CL-2026-001',
         },
-        { id: 'c2', type: ClientType.company, companyName: 'Beta' },
-        { id: 'c3', type: ClientType.company, companyName: 'Gamma' },
+        {
+          id: 'c2',
+          type: ClientType.company,
+          companyName: 'Beta',
+          firstName: null,
+          lastName: null,
+          internalCode: 'CL-2026-002',
+        },
       ]);
+      prisma.$transaction = jest.fn(async (ops) => {
+        if (Array.isArray(ops)) {
+          return Promise.all(ops.map((op) => op));
+        }
+        return ops(prisma);
+      });
 
-      const result = await service.findAll({ limit: 2 } as never);
+      const result = await service.findAll({ limit: 2, page: 1 } as never);
 
       expect(result.items).toHaveLength(2);
       expect(result.items[0].displayName).toBe('Acme');
-      expect(result.nextCursor).toBe('c2');
+      expect(result.total).toBe(3);
+      expect(result.page).toBe(1);
+      expect(result.limit).toBe(2);
+      expect(result.pageCount).toBe(2);
+      expect(result.nextCursor).toBeNull();
     });
 
-    it('applies search and filter query params', async () => {
+    it('applies search, filters, and sort order', async () => {
+      prisma.client.count = jest.fn().mockResolvedValue(0);
       prisma.client.findMany.mockResolvedValue([]);
+      prisma.$transaction = jest.fn(async (ops) => {
+        if (Array.isArray(ops)) {
+          return Promise.all(ops.map((op) => op));
+        }
+        return ops(prisma);
+      });
+
       await service.findAll({
         search: ' acme ',
         status: ClientStatus.active,
@@ -126,6 +170,10 @@ describe('ClientsService', () => {
         assignedUserId: 'u1',
         holdingGroupId: 'hg1',
         gdprConsent: true,
+        sortBy: 'name',
+        sortOrder: 'asc',
+        page: 2,
+        limit: 25,
       } as never);
 
       expect(prisma.client.findMany).toHaveBeenCalledWith(
@@ -138,6 +186,14 @@ describe('ClientsService', () => {
             gdprConsent: true,
             OR: expect.any(Array),
           }),
+          skip: 25,
+          take: 25,
+          orderBy: [
+            { companyName: 'asc' },
+            { lastName: 'asc' },
+            { firstName: 'asc' },
+            { id: 'asc' },
+          ],
         }),
       );
     });

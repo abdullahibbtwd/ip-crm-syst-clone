@@ -511,7 +511,10 @@
     "perPage": "{{count}} pe pagină",
     "searchPlaceholder": "Căutați titlu, client, aplicație nr...",
     "title": "Contează",
-    "titlePortal": "Treburile mele"
+    "titlePortal": "Treburile mele",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Registrul de drepturi IP la nivelul întregii firme cu filtre în funcție de client, jurisdicție, tip, stare și expirare.",
@@ -584,7 +587,11 @@
     "title": "Titlu",
     "type": "Tip",
     "upcoming": "{{count}} viitoare",
-    "viewAria": "Vedeți {{title}}"
+    "viewAria": "Vedeți {{title}}",
+    "created": "Creat",
+    "deadlines": "Termenele limită",
+    "jurisdiction": "Jurisdicția",
+    "leadAttorney": "Avocat principal"
   },
   "tabs": {
     "billing": "Facturare",

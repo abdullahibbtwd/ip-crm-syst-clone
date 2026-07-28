@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Nessun risultato",
     "page": "Pagina {{page}}",
-    "showing": "Mostrando {{start}}–{{end}}"
+    "showing": "Mostrando {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Rapporti"

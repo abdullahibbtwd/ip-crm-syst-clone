@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Nema rezultata",
     "page": "Stranica {{page}}",
-    "showing": "Prikazujem {{start}}–{{end}}"
+    "showing": "Prikazujem {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Izvještaji"

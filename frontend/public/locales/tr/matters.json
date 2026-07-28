@@ -511,7 +511,10 @@
     "perPage": "{{count}} sayfa başına",
     "searchPlaceholder": "Arama başlığı, müşteri, başvuru numarası…",
     "title": "Önemlidir",
-    "titlePortal": "benim konularım"
+    "titlePortal": "benim konularım",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Müşteriye, yetki alanına, türe, duruma ve sona erme tarihine göre filtrelerle firma çapında fikri mülkiyet hakları kaydı.",
@@ -584,7 +587,11 @@
     "title": "Başlık",
     "type": "Tip",
     "upcoming": "{{count}} yaklaşıyor",
-    "viewAria": "{{title}} görüntüle"
+    "viewAria": "{{title}} görüntüle",
+    "created": "Oluşturuldu",
+    "deadlines": "Son teslim tarihleri",
+    "jurisdiction": "Yargı yetkisi",
+    "leadAttorney": "Baş avukat"
   },
   "tabs": {
     "billing": "Faturalandırma",

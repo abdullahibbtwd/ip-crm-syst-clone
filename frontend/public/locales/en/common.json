@@ -55,8 +55,14 @@
     "openMenu": "Open menu"
   },
   "pagination": {
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
     "noResults": "No results",
+    "ofPages": "of {{count}}",
     "page": "Page {{page}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page",
     "showing": "Showing {{start}}–{{end}}"
   },
   "reports": {

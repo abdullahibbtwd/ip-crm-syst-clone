@@ -1,4 +1,9 @@
 import { useMutation } from '@tanstack/react-query'
+import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
+import {
+  emptyClientAddressInput,
+  toClientAddressPayload,
+} from '@/features/crm/addressInput'
 import { Eye, EyeOff, KeyRound, Loader2, Lock } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -106,8 +111,14 @@ function SignupForm({
   onSuccess: (user: import('../features/auth/types').AuthUser) => void
   errorMessage: string | null
 }) {
-  const { t } = useTranslation(['auth', 'common'])
+  const { t } = useTranslation(['auth', 'crm', 'common'])
   const [showPassword, setShowPassword] = useState(false)
+  const [registeredLegalAddress, setRegisteredLegalAddress] = useState(
+    emptyClientAddressInput(),
+  )
+  const [correspondenceAddress, setCorrespondenceAddress] = useState(
+    emptyClientAddressInput(),
+  )
 
   const {
     register,
@@ -139,7 +150,11 @@ function SignupForm({
       }
       return
     }
-    registerMutation.mutate(parsed.data)
+    registerMutation.mutate({
+      ...parsed.data,
+      registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
+      correspondenceAddress: toClientAddressPayload(correspondenceAddress),
+    })
   })
 
   const apiError =
@@ -210,6 +225,27 @@ function SignupForm({
         {errors.companyName && (
           <p className="auth-error">{errors.companyName.message}</p>
         )}
+      </div>
+
+      <div className="space-y-4 border-t border-brand-green/10 pt-4">
+        <p className="text-sm font-medium text-brand-green">
+          {t('signup.addressesTitle', { ns: 'auth' })}
+          <span className="ml-1 text-brand-green/50">{t('signup.optional')}</span>
+        </p>
+        <ClientAddressFields
+          idPrefix="registered"
+          title={t('offices.addresses.registeredLegal', { ns: 'crm' })}
+          value={registeredLegalAddress}
+          onChange={setRegisteredLegalAddress}
+          variant="auth"
+        />
+        <ClientAddressFields
+          idPrefix="correspondence"
+          title={t('offices.addresses.correspondence', { ns: 'crm' })}
+          value={correspondenceAddress}
+          onChange={setCorrespondenceAddress}
+          variant="auth"
+        />
       </div>
 
       <div>

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Building,
   ChevronLeft,
@@ -74,6 +75,7 @@ export function HoldingGroupsTable({
   onPreviousPage,
   onNextPage,
 }: HoldingGroupsTableProps) {
+  const { t } = useTranslation(['crm', 'common'])
   const navigate = useNavigate()
 
   const rangeStart = items.length === 0 ? 0 : pageIndex * HOLDING_GROUP_PAGE_SIZE + 1
@@ -83,10 +85,10 @@ export function HoldingGroupsTable({
     <Table>
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
-          <TableHead className="w-[40%]">Holding group</TableHead>
-          <TableHead>Country</TableHead>
-          <TableHead>Created</TableHead>
-          <TableHead className="text-right">Action</TableHead>
+          <TableHead className="w-[40%]">{t('table.holdingGroup')}</TableHead>
+          <TableHead>{t('table.country')}</TableHead>
+          <TableHead>{t('table.created')}</TableHead>
+          <TableHead className="text-right">{t('table.action')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

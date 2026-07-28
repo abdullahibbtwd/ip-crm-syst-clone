@@ -35,6 +35,8 @@ export async function registerRequest(data: RegisterFormData) {
     password: data.password,
     companyName: data.companyName?.trim() || undefined,
     gdprConsent: data.gdprConsent,
+    registeredLegalAddress: data.registeredLegalAddress,
+    correspondenceAddress: data.correspondenceAddress,
   })
   return response.data
 }

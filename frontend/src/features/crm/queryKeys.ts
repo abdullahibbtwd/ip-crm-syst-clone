@@ -15,6 +15,7 @@ export const clientKeys = {
   details: () => [...clientKeys.all, 'detail'] as const,
   detail: (id: string) => [...clientKeys.details(), id] as const,
   summary: (id: string) => [...clientKeys.detail(id), 'summary'] as const,
+  addressInsights: (id: string) => [...clientKeys.detail(id), 'address-insights'] as const,
   offices: (id: string) => [...clientKeys.detail(id), 'offices'] as const,
   contacts: (id: string, role?: string) =>
     [...clientKeys.detail(id), 'contacts', role ?? 'all'] as const,

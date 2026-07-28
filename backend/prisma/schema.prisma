@@ -259,6 +259,14 @@ enum RelationshipEventType {
   @@map("relationship_event_type")
 }
 
+enum ClientOfficeAddressType {
+  registered_legal
+  correspondence
+  branch
+
+  @@map("client_office_address_type")
+}
+
 model HoldingGroup {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String
@@ -324,10 +332,11 @@ model Client {
 }
 
 model ClientOffice {
-  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  clientId     String   @map("client_id") @db.Uuid
+  id           String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId     String                  @map("client_id") @db.Uuid
   label        String
-  isPrimary    Boolean  @default(false) @map("is_primary")
+  addressType  ClientOfficeAddressType @default(branch) @map("address_type")
+  isPrimary    Boolean                 @default(false) @map("is_primary")
   addressLine1 String?  @map("address_line_1")
   addressLine2 String?  @map("address_line_2")
   city         String?
@@ -492,6 +501,7 @@ model IntakeLead {
   referredBy        String?              @map("referred_by")
   assignedUserId    String?              @map("assigned_user_id") @db.Uuid
   notes             String?
+  clientAddresses   Json?                @map("client_addresses")
   createdById       String               @map("created_by_id") @db.Uuid
   source            IntakeSource         @default(internal)
   submittedClientId String?              @map("submitted_client_id") @db.Uuid

@@ -1,7 +1,10 @@
+import type { RegistryAddressSnapshot } from '../registry-address.types';
+
 export type RegistryBibliographicData = {
   publicationNumber: string;
   title: string | null;
   applicant: string | null;
+  applicantAddress: RegistryAddressSnapshot | null;
   publicationDate: string | null;
 };
 

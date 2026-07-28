@@ -23,6 +23,7 @@ import {
   IntakeUrgency,
 } from '../../../generated/prisma/client';
 import { PaginationQueryDto } from '../../crm/dto/pagination.dto';
+import { ClientAddressInputDto } from '../../crm/dto/client-address.dto';
 
 export class CreateCounterpartyDto {
   @IsOptional()
@@ -111,6 +112,16 @@ export class CreateIntakeLeadDto {
   notes?: string;
 
   @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  registeredLegalAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  correspondenceAddress?: ClientAddressInputDto;
+
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreateCounterpartyDto)
@@ -177,6 +188,16 @@ export class UpdateIntakeLeadDto {
   @IsString()
   @MaxLength(2000)
   notes?: string;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  registeredLegalAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  correspondenceAddress?: ClientAddressInputDto;
 }
 
 export class ResolveConflictDto {
@@ -201,6 +222,16 @@ export class ConvertIntakeDto {
   @IsString()
   @MaxLength(2000)
   notes?: string;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  registeredLegalAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  correspondenceAddress?: ClientAddressInputDto;
 }
 
 export class IntakeQueryDto extends PaginationQueryDto {

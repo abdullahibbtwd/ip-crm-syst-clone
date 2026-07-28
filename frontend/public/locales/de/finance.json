@@ -48,7 +48,11 @@
       "invoiceNo": "Rechnungsnr.",
       "issued": "Ausgegeben",
       "payment": "Zahlung",
-      "status": "Status"
+      "status": "Status",
+      "invoice": "Rechnung",
+      "issueDate": "Ausgabedatum",
+      "matter": "Gegenstand",
+      "total": "Gesamt"
     },
     "title": "Rechnungen",
     "listSubtitle": "Firmenweites Rechnungsregister über alle Sachverhalte hinweg. Stellen Sie Rechnungen über die Registerkarten „Fachabrechnung“ aus und erfassen Sie die Zahlungen hier.",

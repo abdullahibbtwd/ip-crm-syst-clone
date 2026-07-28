@@ -8,7 +8,27 @@
     "perPage": "{{count}} për faqe",
     "searchPlaceholder": "Kërko emrin ose kodin…",
     "title": "Klientët",
-    "viewAria": "Shiko {{name}}"
+    "viewAria": "Shiko {{name}}",
+    "pageSize": {
+      "inputLabel": "Per page",
+      "label": "Page size",
+      "maxHint": "Maximum {{max}}",
+      "option": "{{count}} per page",
+      "perPage": "per page"
+    },
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    },
+    "sort": {
+      "label": "Sort by",
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "recentlyUpdated": "Recently updated",
+      "nameAsc": "Name (A–Z)",
+      "nameDesc": "Name (Z–A)",
+      "codeAsc": "Code (A–Z)",
+      "codeDesc": "Code (Z–A)"
+    }
   },
   "contacts": {
     "add": "Shto kontakt",
@@ -66,7 +86,21 @@
     "perPage": "{{count}} për faqe",
     "searchPlaceholder": "Kërko emrin ose shtetin…",
     "title": "Grupet mbajtëse",
-    "viewAria": "Shiko {{name}}"
+    "viewAria": "Shiko {{name}}",
+    "alreadyInGroup": "Currently in {{name}} — linking will move this client",
+    "clientCount": "{{count}} clients",
+    "emptyClientsHint": "Search and link existing clients here. You can also assign a group from the client profile.",
+    "linkClient": "Link client",
+    "linkClientDescription": "Search for an existing client and add them under this holding group.",
+    "linkClientDrawerTitle": "Link client to group",
+    "linkFailed": "Failed to link client",
+    "linking": "Linking…",
+    "noClientsFound": "No clients found",
+    "searchClients": "Search clients",
+    "searchClientsPlaceholder": "Search by name or code…",
+    "selectClient": "Select a client from the search results",
+    "unlink": "Remove from group",
+    "unlinkFailed": "Failed to remove client from group"
   },
   "layout": {
     "backToClients": "← Kthehu te klientët"
@@ -85,7 +119,22 @@
     "save": "Ruaj zyrën",
     "setPrimary": "Caktuar si zyrë kryesore",
     "setPrimaryAction": "Cakto primar",
-    "title": "Zyrat"
+    "title": "Zyrat",
+    "addresses": {
+      "additionalOffices": "Additional offices",
+      "addressLine1": "Address line 1",
+      "addressLine2": "Address line 2",
+      "correspondence": "Correspondence address",
+      "errorSave": "Failed to save address",
+      "fax": "Fax",
+      "phone": "Phone",
+      "postalCode": "Postal code",
+      "region": "Region / state",
+      "registeredLegal": "Registered / legal address",
+      "save": "Save address",
+      "saved": "Address saved.",
+      "title": "Addresses"
+    }
   },
   "overview": {
     "assignedTo": "Caktuar për",
@@ -235,5 +284,22 @@
     "company": "Kompania",
     "individual": "Individuale"
   },
-  "unnamedClient": "Klient pa emër"
+  "unnamedClient": "Klient pa emër",
+  "addressInsights": {
+    "crmRegistered": "CRM registered / legal address",
+    "hint": "Registry addresses are refreshed when EPO status checks run on EP patents. Review mismatches before filings and official correspondence.",
+    "loading": "Loading address comparison…",
+    "manageAddresses": "Manage addresses",
+    "matchExact": "Exact match",
+    "matchMissing": "Not recorded",
+    "matchMismatch": "Mismatch",
+    "matchPartial": "Partial match",
+    "mismatchCount": "{{count}} mismatch(es)",
+    "noMismatch": "Addresses align",
+    "registrySource": "Official registry (EPO)",
+    "registryVsCrm": "Official registry vs CRM",
+    "registeredVsCorrespondence": "Registered / legal vs correspondence",
+    "sidebarWarning": "Registered and correspondence addresses differ.",
+    "title": "Address comparison"
+  }
 }

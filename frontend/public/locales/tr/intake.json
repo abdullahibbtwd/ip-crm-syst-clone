@@ -126,7 +126,10 @@
     "error": "Giriş kabloları yüklenemedi.",
     "new": "Yeni sorgulama",
     "searchPlaceholder": "Adı veya e-postayı arayın…",
-    "title": "Giriş kuyruğu"
+    "title": "Giriş kuyruğu",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Tasarım",

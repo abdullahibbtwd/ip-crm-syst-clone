@@ -48,7 +48,11 @@
       "invoiceNo": "Račun br.",
       "issued": "Izdano",
       "payment": "Plaćanje",
-      "status": "Status"
+      "status": "Status",
+      "invoice": "Račun",
+      "issueDate": "Datum izdavanja",
+      "matter": "Materija",
+      "total": "Ukupno"
     },
     "title": "Računi",
     "listSubtitle": "Registar faktura u cijeloj firmi za sva pitanja. Izdajte fakture iz kartica za naplatu stvari, a zatim ovdje zabilježite plaćanja.",

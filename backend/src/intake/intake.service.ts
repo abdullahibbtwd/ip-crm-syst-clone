@@ -21,8 +21,10 @@ import type { AuthenticatedUser } from '../auth/auth.types';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import { PortalAccessService } from '../common/portal-access.service';
 import { ClientsService } from '../crm/clients/clients.service';
+import type { ClientAddressInputDto } from '../crm/dto/client-address.dto';
 import { HistoryService } from '../crm/history/history.service';
-import { parseLimit } from '../crm/dto/pagination.dto';
+import { parseLimit, parsePage } from '../crm/dto/pagination.dto';
+import { hasClientAddressData } from '../crm/offices/client-office-address.util';
 import { MattersService } from '../matters/matters.service';
 import { DeadlinesService } from '../deadlines/deadlines.service';
 import { PrismaService } from '../prisma/prisma.service';
@@ -79,6 +81,36 @@ const intakeInclude = {
   },
 } satisfies Prisma.IntakeLeadInclude;
 
+type StoredClientAddresses = {
+  registeredLegalAddress?: ClientAddressInputDto;
+  correspondenceAddress?: ClientAddressInputDto;
+};
+
+function packClientAddresses(dto: {
+  registeredLegalAddress?: ClientAddressInputDto;
+  correspondenceAddress?: ClientAddressInputDto;
+}): Prisma.InputJsonValue | null {
+  const registered = dto.registeredLegalAddress;
+  const correspondence = dto.correspondenceAddress;
+  if (!hasClientAddressData(registered) && !hasClientAddressData(correspondence)) {
+    return null;
+  }
+  const packed: StoredClientAddresses = {
+    ...(hasClientAddressData(registered)
+      ? { registeredLegalAddress: registered }
+      : {}),
+    ...(hasClientAddressData(correspondence)
+      ? { correspondenceAddress: correspondence }
+      : {}),
+  };
+  return packed as Prisma.InputJsonValue;
+}
+
+function readStoredClientAddresses(value: unknown): StoredClientAddresses {
+  if (!value || typeof value !== 'object') return {};
+  return value as StoredClientAddresses;
+}
+
 @Injectable()
 export class IntakeService {
   constructor(
@@ -133,6 +165,7 @@ export class IntakeService {
         referredBy: dto.referredBy,
         assignedUserId,
         notes: dto.notes,
+        clientAddresses: packClientAddresses(dto) ?? undefined,
         createdById: user.userId,
         status: IntakeStatus.new,
         ...portalFields,
@@ -188,6 +221,7 @@ export class IntakeService {
           matterType: dto.matterType,
           description: dto.description,
           urgency: dto.urgency,
+          clientAddresses: packClientAddresses(dto) ?? undefined,
           ...(counterparties.length
             ? { counterparties: { create: counterparties } }
             : {}),
@@ -256,7 +290,9 @@ export class IntakeService {
   }
 
   async findAll(query: IntakeQueryDto, user: AuthenticatedUser) {
-    const take = parseLimit(query.limit);
+    const limit = parseLimit(query.limit, 20);
+    const page = parsePage(query.page);
+    const skip = (page - 1) * limit;
     const search = query.search?.trim();
     const scopeClientId = this.portalAccess.requireScopeClientId(user);
 
@@ -275,20 +311,26 @@ export class IntakeService {
         : {}),
     };
 
-    const rows = await this.prisma.intakeLead.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      take: take + 1,
-      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
-      include: intakeInclude,
-    });
+    const [total, items] = await this.prisma.$transaction([
+      this.prisma.intakeLead.count({ where }),
+      this.prisma.intakeLead.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        include: intakeInclude,
+      }),
+    ]);
 
-    const hasMore = rows.length > take;
-    const items = hasMore ? rows.slice(0, take) : rows;
+    const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
 
     return {
       items,
-      nextCursor: hasMore ? items[items.length - 1]?.id : undefined,
+      total,
+      page,
+      limit,
+      pageCount,
+      nextCursor: null,
     };
   }
 
@@ -320,9 +362,28 @@ export class IntakeService {
       throw new BadRequestException('Converted leads cannot be edited');
     }
 
+    const {
+      registeredLegalAddress,
+      correspondenceAddress,
+      ...rest
+    } = dto;
+    const clientAddresses =
+      registeredLegalAddress !== undefined ||
+      correspondenceAddress !== undefined
+        ? packClientAddresses({
+            registeredLegalAddress,
+            correspondenceAddress,
+          })
+        : undefined;
+
     return this.prisma.intakeLead.update({
       where: { id },
-      data: dto,
+      data: {
+        ...rest,
+        ...(clientAddresses !== undefined
+          ? { clientAddresses: clientAddresses ?? Prisma.JsonNull }
+          : {}),
+      } as Prisma.IntakeLeadUpdateInput,
       include: intakeInclude,
     });
   }
@@ -463,6 +524,7 @@ export class IntakeService {
 
     const isCompany = lead.enquirerType === IntakeEnquirerType.company;
     const nameParts = lead.fullName?.trim().split(/\s+/).filter(Boolean) ?? [];
+    const storedAddresses = readStoredClientAddresses(lead.clientAddresses);
 
     const { client, matter, clientCreated } = await this.prisma.$transaction(
       async (tx) => {
@@ -484,6 +546,12 @@ export class IntakeService {
             holdingGroupId: dto.holdingGroupId,
             notes: dto.notes ?? lead.notes ?? undefined,
             gdprConsent: true,
+            registeredLegalAddress:
+              dto.registeredLegalAddress ??
+              storedAddresses.registeredLegalAddress,
+            correspondenceAddress:
+              dto.correspondenceAddress ??
+              storedAddresses.correspondenceAddress,
           }));
 
         const createdMatter = await this.mattersService.createFromIntake(

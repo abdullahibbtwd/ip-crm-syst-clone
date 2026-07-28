@@ -153,15 +153,15 @@ describe('IntakeService (core paths)', () => {
     );
   });
 
-  it('findAll returns cursor page', async () => {
-    prisma.intakeLead.findMany.mockResolvedValue([
-      { id: '1' },
-      { id: '2' },
-      { id: '3' },
-    ]);
-    const result = await service.findAll({ limit: 2 } as never, staff);
+  it('findAll returns page metadata', async () => {
+    prisma.intakeLead.count.mockResolvedValue(3);
+    prisma.intakeLead.findMany.mockResolvedValue([{ id: '1' }, { id: '2' }]);
+    const result = await service.findAll({ limit: 2, page: 1 } as never, staff);
     expect(result.items).toHaveLength(2);
-    expect(result.nextCursor).toBe('2');
+    expect(result.total).toBe(3);
+    expect(result.page).toBe(1);
+    expect(result.pageCount).toBe(2);
+    expect(result.nextCursor).toBeNull();
   });
 
   it('findOne / update guard converted leads', async () => {
@@ -654,10 +654,11 @@ describe('IntakeService (core paths)', () => {
       );
     });
 
-    it('findAll applies search filter and cursor', async () => {
+    it('findAll applies search filter with page offset', async () => {
+      prisma.intakeLead.count.mockResolvedValue(1);
       prisma.intakeLead.findMany.mockResolvedValue([{ id: '2' }]);
       await service.findAll(
-        { limit: 10, search: 'Acme', cursor: '1' } as never,
+        { limit: 10, search: 'Acme', page: 2 } as never,
         staff,
       );
       expect(prisma.intakeLead.findMany).toHaveBeenCalledWith(
@@ -669,8 +670,8 @@ describe('IntakeService (core paths)', () => {
               }),
             ]),
           }),
-          cursor: { id: '1' },
-          skip: 1,
+          skip: 10,
+          take: 10,
         }),
       );
     });
@@ -846,10 +847,12 @@ describe('IntakeService (core paths)', () => {
       ).rejects.toThrow(/No flagged conflict check/);
     });
 
-    it('findAll returns undefined cursor when page is exact size', async () => {
+    it('findAll returns null cursor with page metadata', async () => {
+      prisma.intakeLead.count.mockResolvedValue(2);
       prisma.intakeLead.findMany.mockResolvedValue([{ id: '1' }, { id: '2' }]);
-      const result = await service.findAll({ limit: 2 } as never, staff);
-      expect(result.nextCursor).toBeUndefined();
+      const result = await service.findAll({ limit: 2, page: 1 } as never, staff);
+      expect(result.nextCursor).toBeNull();
+      expect(result.pageCount).toBe(1);
     });
 
     it('create portal submission skips auto-assign when no attorneys exist', async () => {

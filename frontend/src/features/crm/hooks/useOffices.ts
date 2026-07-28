@@ -18,6 +18,7 @@ export function useCreateOffice(clientId: string) {
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: clientKeys.offices(clientId) })
       void queryClient.invalidateQueries({ queryKey: clientKeys.summary(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.addressInsights(clientId) })
     },
   })
 }
@@ -56,6 +57,23 @@ export function useDeleteOffice(clientId: string) {
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: clientKeys.offices(clientId) })
       void queryClient.invalidateQueries({ queryKey: clientKeys.summary(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.addressInsights(clientId) })
+    },
+  })
+}
+
+export function useUpsertTypedAddress(
+  clientId: string,
+  addressType: 'registered_legal' | 'correspondence',
+) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (data: Partial<ClientOffice>) =>
+      officesApi.upsertTyped(clientId, addressType, data),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: clientKeys.offices(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.summary(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.addressInsights(clientId) })
     },
   })
 }

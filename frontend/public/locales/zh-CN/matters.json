@@ -511,7 +511,10 @@
     "perPage": "每页 {{count}}",
     "searchPlaceholder": "搜索标题、客户、申请号...",
     "title": "事项",
-    "titlePortal": "我的事"
+    "titlePortal": "我的事",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "公司范围内的知识产权登记，并按客户、司法管辖区、类型、状态和有效期进行过滤。",
@@ -584,7 +587,11 @@
     "title": "标题",
     "type": "类型",
     "upcoming": "{{count}} 即将推出",
-    "viewAria": "查看{{title}}"
+    "viewAria": "查看{{title}}",
+    "created": "已创建",
+    "deadlines": "截止日期",
+    "jurisdiction": "管辖权",
+    "leadAttorney": "首席律师"
   },
   "tabs": {
     "billing": "计费",

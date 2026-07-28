@@ -511,7 +511,10 @@
     "perPage": "{{count}} لكل صفحة",
     "searchPlaceholder": "عنوان البحث، العميل، رقم الطلب...",
     "title": "يهم",
-    "titlePortal": "أموري"
+    "titlePortal": "أموري",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "تسجيل حقوق الملكية الفكرية على مستوى الشركة مع عوامل تصفية حسب العميل والولاية القضائية والنوع والحالة وانتهاء الصلاحية.",
@@ -584,7 +587,11 @@
     "title": "عنوان",
     "type": "يكتب",
     "upcoming": "{{count}} قادم",
-    "viewAria": "عرض {{title}}"
+    "viewAria": "عرض {{title}}",
+    "created": "مخلوق",
+    "deadlines": "المواعيد النهائية",
+    "jurisdiction": "الولاية القضائية",
+    "leadAttorney": "المحامي الرئيسي"
   },
   "tabs": {
     "billing": "الفواتير",

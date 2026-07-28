@@ -45,10 +45,14 @@
       "amount": "Amount",
       "client": "Client",
       "due": "Due",
+      "invoice": "Invoice",
       "invoiceNo": "Invoice no.",
+      "issueDate": "Issue date",
       "issued": "Issued",
+      "matter": "Matter",
       "payment": "Payment",
-      "status": "Status"
+      "status": "Status",
+      "total": "Total"
     },
     "title": "Invoices",
     "listSubtitle": "Firm-wide invoice register across all matters. Issue invoices from matter billing tabs, then record payments here.",

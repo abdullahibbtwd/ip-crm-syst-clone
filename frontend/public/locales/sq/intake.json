@@ -126,7 +126,10 @@
     "error": "Dështoi në ngarkimin e prizave të marrjes.",
     "new": "Hetim i ri",
     "searchPlaceholder": "Kërko emrin ose emailin…",
-    "title": "Radha e marrjes"
+    "title": "Radha e marrjes",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Dizajn",

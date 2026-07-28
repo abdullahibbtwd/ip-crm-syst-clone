@@ -3,7 +3,12 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AlertTriangle, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { CounterpartiesSection } from '@/components/intake/CounterpartiesSection'
+import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
 import { useAuth } from '@/features/auth/AuthProvider'
+import {
+  emptyClientAddressInput,
+  toClientAddressPayload,
+} from '@/features/crm/addressInput'
 import {
   useConvertIntake,
   useIntakeLead,
@@ -36,7 +41,7 @@ import { getCountryLabel } from '@/lib/countries'
 import { cn } from '@/lib/utils'
 
 export function IntakeDetailPage() {
-  const { t } = useTranslation(['intake', 'common'])
+  const { t } = useTranslation(['intake', 'crm', 'common'])
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { user } = useAuth()
@@ -48,6 +53,12 @@ export function IntakeDetailPage() {
 
   const [gdprConsent, setGdprConsent] = useState(false)
   const [holdingGroupId, setHoldingGroupId] = useState<string | undefined>()
+  const [registeredLegalAddress, setRegisteredLegalAddress] = useState(
+    emptyClientAddressInput(),
+  )
+  const [correspondenceAddress, setCorrespondenceAddress] = useState(
+    emptyClientAddressInput(),
+  )
   const [convertError, setConvertError] = useState<string | null>(null)
 
   const isManagingPartner = user?.roles.includes('managing_partner')
@@ -66,6 +77,8 @@ export function IntakeDetailPage() {
     const parsed = convertIntakeSchema.safeParse({
       gdprConsent: isPortalSubmission ? true : gdprConsent,
       holdingGroupId,
+      registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
+      correspondenceAddress: toClientAddressPayload(correspondenceAddress),
     })
     if (!parsed.success) {
       setConvertError(parsed.error.issues[0]?.message ?? t('intake:convert.invalidForm'))
@@ -350,6 +363,26 @@ export function IntakeDetailPage() {
                 />
                 <span>{t('intake:convert.gdprConsent')}</span>
               </label>
+            )}
+
+            {!isPortalSubmission && (
+              <div className="space-y-4 border-t pt-4">
+                <p className="text-sm font-medium">{t('crm:offices.addresses.title')}</p>
+                <div className="grid gap-4 lg:grid-cols-2">
+                  <ClientAddressFields
+                    idPrefix="convert-registered"
+                    title={t('crm:offices.addresses.registeredLegal')}
+                    value={registeredLegalAddress}
+                    onChange={setRegisteredLegalAddress}
+                  />
+                  <ClientAddressFields
+                    idPrefix="convert-correspondence"
+                    title={t('crm:offices.addresses.correspondence')}
+                    value={correspondenceAddress}
+                    onChange={setCorrespondenceAddress}
+                  />
+                </div>
+              </div>
             )}
 
             <div className="max-w-xs space-y-1.5">

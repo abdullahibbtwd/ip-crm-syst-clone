@@ -48,7 +48,11 @@
       "invoiceNo": "发票号码",
       "issued": "发布",
       "payment": "支付",
-      "status": "地位"
+      "status": "地位",
+      "invoice": "发票",
+      "issueDate": "签发日期",
+      "matter": "事情",
+      "total": "全部的"
     },
     "title": "发票",
     "listSubtitle": "公司范围内的发票登记涵盖所有事项。 从事项计费选项卡开具发票，然后在此处记录付款。",

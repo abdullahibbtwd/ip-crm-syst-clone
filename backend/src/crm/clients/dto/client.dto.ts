@@ -5,10 +5,24 @@ import {
   IsString,
   IsUUID,
   ValidateIf,
+  ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ClientStatus, ClientType } from '../../../../generated/prisma/client';
 import { PaginationQueryDto } from '../../dto/pagination.dto';
+import { ClientAddressInputDto } from '../../dto/client-address.dto';
+
+export enum ClientSortBy {
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  name = 'name',
+  internalCode = 'internalCode',
+}
+
+export enum SortOrder {
+  asc = 'asc',
+  desc = 'desc',
+}
 
 export class CreateClientDto {
   @IsEnum(ClientType)
@@ -65,6 +79,16 @@ export class CreateClientDto {
   @IsOptional()
   @IsBoolean()
   gdprConsent?: boolean;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  registeredLegalAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  correspondenceAddress?: ClientAddressInputDto;
 }
 
 export class UpdateClientDto {
@@ -146,4 +170,12 @@ export class ClientQueryDto extends PaginationQueryDto {
   @IsBoolean()
   @Type(() => Boolean)
   gdprConsent?: boolean;
+
+  @IsOptional()
+  @IsEnum(ClientSortBy)
+  sortBy?: ClientSortBy;
+
+  @IsOptional()
+  @IsEnum(SortOrder)
+  sortOrder?: SortOrder;
 }

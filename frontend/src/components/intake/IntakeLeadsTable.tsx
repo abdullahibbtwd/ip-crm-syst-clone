@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Building2,
-  ChevronLeft,
   ChevronRight,
   Inbox,
   Loader2,
@@ -9,7 +9,8 @@ import {
 } from 'lucide-react'
 import { IntakeStatusBadge } from '@/components/intake/IntakeStatusBadge'
 import { Badge } from '@/components/ui/badge'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { ListTablePaginationControls } from '@/components/ui/list-table-pagination'
 import {
   Table,
   TableBody,
@@ -26,18 +27,23 @@ import {
   intakeDisplayName,
 } from '@/features/intake/utils'
 import { getCountryLabel } from '@/lib/countries'
+import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 import { cn } from '@/lib/utils'
 
-export const INTAKE_PAGE_SIZE = 20
+export const INTAKE_PAGE_SIZE = DEFAULT_PAGE_SIZE
 
 type IntakeLeadsTableProps = {
   items: IntakeLead[]
   isLoading?: boolean
   isError?: boolean
-  pageIndex: number
-  hasNextPage: boolean
+  page: number
+  pageSize: number
+  total?: number
+  pageCount?: number
   onPreviousPage: () => void
   onNextPage: () => void
+  onPageChange: (page: number) => void
+  onPageSizeChange: (pageSize: number) => void
 }
 
 function EnquirerCell({ lead }: { lead: IntakeLead }) {
@@ -99,26 +105,31 @@ export function IntakeLeadsTable({
   items,
   isLoading,
   isError,
-  pageIndex,
-  hasNextPage,
+  page,
+  pageSize,
+  total,
+  pageCount,
   onPreviousPage,
   onNextPage,
+  onPageChange,
+  onPageSizeChange,
 }: IntakeLeadsTableProps) {
+  const { t } = useTranslation(['intake', 'common'])
   const navigate = useNavigate()
 
-  const rangeStart = items.length === 0 ? 0 : pageIndex * INTAKE_PAGE_SIZE + 1
-  const rangeEnd = pageIndex * INTAKE_PAGE_SIZE + items.length
+  const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
+  const rangeEnd = (page - 1) * pageSize + items.length
 
   return (
     <Table>
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
-          <TableHead className="w-[32%]">Enquirer</TableHead>
-          <TableHead>Country</TableHead>
-          <TableHead>Matter</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Created</TableHead>
-          <TableHead className="text-right">Action</TableHead>
+          <TableHead className="w-[32%]">{t('table.name')}</TableHead>
+          <TableHead>{t('detail.country')}</TableHead>
+          <TableHead>{t('table.matterType')}</TableHead>
+          <TableHead>{t('table.status')}</TableHead>
+          <TableHead>{t('table.date')}</TableHead>
+          <TableHead className="text-right">{t('common:actions.view')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -127,10 +138,8 @@ export function IntakeLeadsTable({
           {!isLoading && isError && (
             <TableRow>
               <TableCell colSpan={6} className="py-16 text-center">
-                <p className="text-sm font-medium text-destructive">Failed to load intake leads.</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Check your connection and permissions, then try again.
-                </p>
+                <p className="text-sm font-medium text-destructive">{t('list.error')}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{t('common:errors.retryHint')}</p>
               </TableCell>
             </TableRow>
           )}
@@ -143,9 +152,9 @@ export function IntakeLeadsTable({
                     <Inbox className="size-5 text-muted-foreground" />
                   </span>
                   <div>
-                    <p className="font-medium text-foreground">No intake leads found</p>
+                    <p className="font-medium text-foreground">{t('list.empty')}</p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Try adjusting filters or create a new enquiry.
+                      {t('list.emptyDescription')}
                     </p>
                   </div>
                 </div>
@@ -164,7 +173,7 @@ export function IntakeLeadsTable({
                 )}
                 tabIndex={0}
                 role="link"
-                aria-label={`View ${intakeDisplayName(lead)}`}
+                aria-label={t('table.viewAria', { name: intakeDisplayName(lead) })}
                 onClick={() => navigate(`/intake/${lead.id}`)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -196,7 +205,7 @@ export function IntakeLeadsTable({
                     className={buttonVariants({ variant: 'outline', size: 'sm' })}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    View
+                    {t('common:actions.view')}
                     <ChevronRight className="size-4 opacity-60" />
                   </Link>
                 </TableCell>
@@ -211,49 +220,32 @@ export function IntakeLeadsTable({
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 className="size-3.5 animate-spin" />
-                    Loading…
+                    {t('common:loading.default')}
                   </span>
                 ) : items.length === 0 ? (
-                  'No results'
+                  t('common:pagination.noResults')
                 ) : (
                   <>
-                    Showing{' '}
-                    <span className="font-medium text-foreground">
-                      {rangeStart}–{rangeEnd}
-                    </span>
-                    {pageIndex > 0 && (
+                    {t('common:pagination.showing', { start: rangeStart, end: rangeEnd })}
+                    {total != null ? (
                       <>
                         {' '}
-                        · Page{' '}
-                        <span className="font-medium text-foreground">{pageIndex + 1}</span>
+                        {t('list.pagination.ofTotal', { total })}
                       </>
-                    )}
+                    ) : null}
                   </>
                 )}
               </p>
-
-              <div className="flex items-center gap-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || pageIndex === 0}
-                  onClick={onPreviousPage}
-                >
-                  <ChevronLeft className="size-4" />
-                  Previous
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || !hasNextPage}
-                  onClick={onNextPage}
-                >
-                  Next
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
+              <ListTablePaginationControls
+                page={page}
+                pageSize={pageSize}
+                pageCount={pageCount}
+                isLoading={isLoading}
+                onPreviousPage={onPreviousPage}
+                onNextPage={onNextPage}
+                onPageChange={onPageChange}
+                onPageSizeChange={onPageSizeChange}
+              />
             </div>
           </TableCell>
         </TableRow>

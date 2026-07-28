@@ -126,7 +126,10 @@
     "error": "Gagal memuatkan petunjuk pengambilan.",
     "new": "Siasatan baru",
     "searchPlaceholder": "Cari nama atau e-mel…",
-    "title": "Barisan pengambilan"
+    "title": "Barisan pengambilan",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Reka bentuk",

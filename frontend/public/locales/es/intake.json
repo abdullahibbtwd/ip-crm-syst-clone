@@ -126,7 +126,10 @@
     "error": "No se pudieron cargar los cables de admisión.",
     "new": "Nueva consulta",
     "searchPlaceholder": "Buscar nombre o correo electrónico…",
-    "title": "cola de admisión"
+    "title": "cola de admisión",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Diseño",

@@ -30,6 +30,7 @@ import {
   EPO_DOCUMENT_FETCH_QUEUE,
   EPO_STATUS_SCAN_CONCURRENCY,
 } from './registry.constants';
+import type { RegistryApplicantSnapshot } from './registry-address.types';
 import {
   epoRegisterUrl,
   epoRegisterUrlFromParts,
@@ -50,6 +51,7 @@ type IpRightAttributes = {
   epoLastChecked?: string;
   epoLastEventId?: string;
   epoSeenEventIds?: string[];
+  registryApplicant?: RegistryApplicantSnapshot;
   [key: string]: unknown;
 };
 
@@ -252,12 +254,35 @@ export class EpoStatusService {
       actionable[actionable.length - 1]?.eventId ??
       null;
 
+    let registryApplicant: RegistryApplicantSnapshot | undefined =
+      attrs.registryApplicant;
+
+    try {
+      const biblio = await this.epo.getBibliographicData(lookupNumber);
+      if (biblio.applicant || biblio.applicantAddress) {
+        registryApplicant = {
+          name: biblio.applicant,
+          address: biblio.applicantAddress,
+          source: 'epo',
+          publicationNumber: biblio.publicationNumber,
+          fetchedAt: new Date().toISOString(),
+        };
+      }
+    } catch (err) {
+      this.logger.warn(
+        `EPO biblio address fetch failed for ${lookupNumber}: ${
+          err instanceof Error ? err.message : err
+        }`,
+      );
+    }
+
     const nextAttrs: IpRightAttributes = {
       ...attrs,
       epoLastChecked: new Date().toISOString().slice(0, 10),
       epoSeenEventIds: [...seen].slice(-200),
       ...(lastEventId ? { epoLastEventId: lastEventId } : {}),
       ...(publicationNumber ? { epoPublicationNumber: publicationNumber } : {}),
+      ...(registryApplicant ? { registryApplicant } : {}),
       ...(legal.applicationRef
         ? {
             epoAppNumber: legal.applicationRef.fullAppNumber,

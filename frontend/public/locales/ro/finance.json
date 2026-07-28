@@ -48,7 +48,11 @@
       "invoiceNo": "Factura nr.",
       "issued": "Emis",
       "payment": "Plată",
-      "status": "Stare"
+      "status": "Stare",
+      "invoice": "Factura",
+      "issueDate": "Data emiterii",
+      "matter": "materie",
+      "total": "Total"
     },
     "title": "Facturi",
     "listSubtitle": "Registrul de facturi la nivel de firmă pentru toate problemele. Emiteți facturi din filele de facturare, apoi înregistrați plățile aici.",

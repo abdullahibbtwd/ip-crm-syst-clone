@@ -511,7 +511,10 @@
     "perPage": "{{count}} по страница",
     "searchPlaceholder": "Пребарај наслов, клиент, апликација бр…",
     "title": "Работи",
-    "titlePortal": "Моите работи"
+    "titlePortal": "Моите работи",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Регистар на права на ИС на ниво на фирма со филтри по клиент, јурисдикција, тип, статус и истекување.",
@@ -584,7 +587,11 @@
     "title": "Наслов",
     "type": "Тип",
     "upcoming": "{{count}} претстојно",
-    "viewAria": "Прикажи {{title}}"
+    "viewAria": "Прикажи {{title}}",
+    "created": "Создаден",
+    "deadlines": "Рокови",
+    "jurisdiction": "Надлежност",
+    "leadAttorney": "Водечки адвокат"
   },
   "tabs": {
     "billing": "Наплата",

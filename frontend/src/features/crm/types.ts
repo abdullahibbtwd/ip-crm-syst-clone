@@ -1,3 +1,5 @@
+import type { ClientAddressInput } from './addressInput'
+
 export type ClientType = 'company' | 'individual'
 export type ClientStatus = 'active' | 'inactive' | 'prospect' | 'archived'
 export type ContactRole = 'primary' | 'billing' | 'conflict' | 'general'
@@ -5,8 +7,17 @@ export type RelationshipType = 'subsidiary' | 'affiliate' | 'parent'
 
 export type Paginated<T> = {
   items: T[]
-  nextCursor: string | null
+  nextCursor?: string | null
+  total?: number
+  page?: number
+  limit?: number
+  pageCount?: number
 }
+
+export type ClientSortBy = 'createdAt' | 'updatedAt' | 'name' | 'internalCode'
+export type SortOrder = 'asc' | 'desc'
+
+export type ClientSort = `${ClientSortBy}_${SortOrder}`
 
 export type HoldingGroup = {
   id: string
@@ -38,10 +49,16 @@ export type ClientListItem = {
   holdingGroup: { id: string; name: string } | null
 }
 
+export type ClientOfficeAddressType =
+  | 'registered_legal'
+  | 'correspondence'
+  | 'branch'
+
 export type ClientOffice = {
   id: string
   clientId: string
   label: string
+  addressType: ClientOfficeAddressType
   isPrimary: boolean
   addressLine1: string | null
   addressLine2: string | null
@@ -112,6 +129,47 @@ export type ClientSummary = {
   country: string | null
   primaryContact: Contact | null
   primaryOffice: ClientOffice | null
+  registeredLegalOffice: ClientOffice | null
+  correspondenceOffice: ClientOffice | null
+  addressesDiffer?: boolean
+}
+
+export type AddressMatchLevel = 'exact' | 'partial' | 'mismatch' | 'missing'
+
+export type AddressComparison = {
+  match: AddressMatchLevel
+  score: number
+  differingFields: string[]
+}
+
+export type RegistryApplicantSnapshot = {
+  name: string | null
+  address: (ClientAddressInput & { formattedAddress?: string | null }) | null
+  source: 'epo'
+  publicationNumber?: string | null
+  fetchedAt: string
+}
+
+export type IpAssetAddressComparison = {
+  ipRightId: string
+  matterId: string
+  title: string
+  applicationNumber: string | null
+  registrationNumber: string | null
+  jurisdiction: string
+  registryApplicant: RegistryApplicantSnapshot | null
+  comparisonToRegisteredLegal: AddressComparison
+}
+
+export type ClientAddressInsights = {
+  registeredLegalAddress: ClientAddressInput | null
+  correspondenceAddress: ClientAddressInput | null
+  registeredLegalFormatted: string
+  correspondenceFormatted: string
+  registeredVsCorrespondence: AddressComparison
+  ipAssetComparisons: IpAssetAddressComparison[]
+  hasAddressMismatch: boolean
+  mismatchCount: number
 }
 
 export type ClientDetail = ClientListItem & {
@@ -137,7 +195,10 @@ export type ClientFilters = {
   holdingGroupId?: string
   search?: string
   cursor?: string
+  page?: number
   limit?: number
+  sortBy?: ClientSortBy
+  sortOrder?: SortOrder
 }
 
 export type HoldingGroupFilters = {

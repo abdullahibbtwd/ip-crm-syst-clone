@@ -48,7 +48,11 @@
       "invoiceNo": "Factura no.",
       "issued": "Emitida",
       "payment": "Pago",
-      "status": "Estado"
+      "status": "Estado",
+      "invoice": "Factura",
+      "issueDate": "Fecha de asunto",
+      "matter": "Asunto",
+      "total": "Total"
     },
     "title": "Facturas",
     "listSubtitle": "Registro de facturas en toda la empresa en todos los aspectos. Emita facturas desde las pestañas de facturación de materias y luego registre los pagos aquí.",

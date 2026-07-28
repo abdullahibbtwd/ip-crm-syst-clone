@@ -50,6 +50,12 @@ export class ClientsController {
     return this.clientsService.getSummary(id);
   }
 
+  @Get(':id/address-insights')
+  @Audit({ action: 'client.read', resource: 'client', module: CRM_MODULE })
+  getAddressInsights(@Param('id') id: string) {
+    return this.clientsService.getAddressInsights(id);
+  }
+
   @Get(':id/data-access')
   @Roles(SYSTEM_ROLES.DPO_COMPLIANCE, SYSTEM_ROLES.MANAGING_PARTNER)
   @RequirePermissions('audit:read')

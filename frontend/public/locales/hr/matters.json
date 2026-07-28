@@ -511,7 +511,10 @@
     "perPage": "{{count}} po stranici",
     "searchPlaceholder": "Naslov pretraživanja, klijent, broj aplikacije…",
     "title": "Pitanja",
-    "titlePortal": "Moje stvari"
+    "titlePortal": "Moje stvari",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Registar prava intelektualnog vlasništva za cijelu tvrtku s filtrima prema klijentu, jurisdikciji, vrsti, statusu i isteku.",
@@ -584,7 +587,11 @@
     "title": "Titula",
     "type": "Tip",
     "upcoming": "{{count}} nadolazeće",
-    "viewAria": "Prikaži {{title}}"
+    "viewAria": "Prikaži {{title}}",
+    "created": "Stvoreno",
+    "deadlines": "Rokovi",
+    "jurisdiction": "Nadležnost",
+    "leadAttorney": "Glavni odvjetnik"
   },
   "tabs": {
     "billing": "Naplata",

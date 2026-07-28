@@ -15,7 +15,7 @@ import {
 } from '../../generated/prisma/client';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { PortalAccessService } from '../common/portal-access.service';
-import { parseLimit } from '../crm/dto/pagination.dto';
+import { parseLimit, parsePage } from '../crm/dto/pagination.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import {
   buildMatterAttributesFromIntake,
@@ -180,7 +180,9 @@ export class MattersService {
   }
 
   async findAll(query: MatterQueryDto, user: AuthenticatedUser) {
-    const take = parseLimit(query.limit);
+    const limit = parseLimit(query.limit, 20);
+    const page = parsePage(query.page);
+    const skip = (page - 1) * limit;
     const search = query.search?.trim();
 
     const scopeClientId = this.portalAccess.requireScopeClientId(user);
@@ -217,27 +219,33 @@ export class MattersService {
         : {}),
     };
 
-    const rows = await this.prisma.matter.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      take: take + 1,
-      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
-      include: matterListInclude,
-    });
+    const [total, rows] = await this.prisma.$transaction([
+      this.prisma.matter.count({ where }),
+      this.prisma.matter.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        include: matterListInclude,
+      }),
+    ]);
 
-    const hasMore = rows.length > take;
-    const items = hasMore ? rows.slice(0, take) : rows;
+    const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
 
     const upcomingCounts = await this.deadlinesService.countUpcomingByMatterIds(
-      items.map((m) => m.id),
+      rows.map((m) => m.id),
     );
 
     return {
-      items: items.map((m) => ({
+      items: rows.map((m) => ({
         ...m,
         upcomingDeadlineCount: upcomingCounts.get(m.id) ?? 0,
       })),
-      nextCursor: hasMore ? items[items.length - 1]?.id : null,
+      total,
+      page,
+      limit,
+      pageCount,
+      nextCursor: null,
     };
   }
 

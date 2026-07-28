@@ -511,7 +511,10 @@
     "perPage": "{{count}} për faqe",
     "searchPlaceholder": "Kërkoni titullin, klientin, aplikacionin nr…",
     "title": "Çështjet",
-    "titlePortal": "Çështjet e mia"
+    "titlePortal": "Çështjet e mia",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Regjistri gjithëpërfshirës i të drejtave IP me filtra sipas klientit, juridiksionit, llojit, statusit dhe skadimit.",
@@ -584,7 +587,11 @@
     "title": "Titulli",
     "type": "Lloji",
     "upcoming": "{{count}} e ardhshme",
-    "viewAria": "Shiko {{title}}"
+    "viewAria": "Shiko {{title}}",
+    "created": "Krijuar",
+    "deadlines": "Afatet",
+    "jurisdiction": "Juridiksioni",
+    "leadAttorney": "Avokati kryesor"
   },
   "tabs": {
     "billing": "Faturimi",

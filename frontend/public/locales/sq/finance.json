@@ -48,7 +48,11 @@
       "invoiceNo": "Fatura nr.",
       "issued": "Lëshuar",
       "payment": "Pagesa",
-      "status": "Statusi"
+      "status": "Statusi",
+      "invoice": "Fatura",
+      "issueDate": "Data e lëshimit",
+      "matter": "Materie",
+      "total": "Gjithsej"
     },
     "title": "Faturat",
     "listSubtitle": "Regjistrimi i faturave në të gjithë firmën për të gjitha çështjet. Lëshoni fatura nga skedat e faturimit të çështjeve, më pas regjistroni pagesat këtu.",

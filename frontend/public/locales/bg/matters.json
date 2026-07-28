@@ -453,6 +453,9 @@
       "allTypes": "Всички типове"
     },
     "intakeQueue": "Опашка за приемане",
+    "pagination": {
+      "ofTotal": "от {{total}}"
+    },
     "perPage": "{{count}} на страница",
     "searchPlaceholder": "Търсене по заглавие, клиент, номер на заявка…",
     "title": "Дела",
@@ -520,11 +523,15 @@
   "table": {
     "assigned": "Възложено",
     "client": "Клиент",
+    "created": "Създадено",
+    "deadlines": "Срокове",
     "empty": "Няма намерени дела",
     "emptyDescription": "Опитайте да промените филтрите или отворете ново дело.",
     "emptyPortal": "Все още няма споделени с вас дела.",
     "error": "Неуспешно зареждане на дела.",
+    "jurisdiction": "Юрисдикция",
     "jurisdictions": "Юрисдикции",
+    "leadAttorney": "Водещ адвокат",
     "status": "Статус",
     "title": "Заглавие",
     "type": "Тип",

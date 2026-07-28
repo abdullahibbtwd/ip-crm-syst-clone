@@ -48,7 +48,11 @@
       "invoiceNo": "Arve nr.",
       "issued": "Välja antud",
       "payment": "Makse",
-      "status": "Olek"
+      "status": "Olek",
+      "invoice": "Arve",
+      "issueDate": "Väljastamise kuupäev",
+      "matter": "Asi",
+      "total": "Kokku"
     },
     "title": "Arved",
     "listSubtitle": "Ettevõtteülene arvete register kõigis küsimustes. Väljastage arveid asjaarvelduse vahekaartidelt, seejärel salvestage maksed siia.",

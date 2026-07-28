@@ -126,7 +126,10 @@
     "error": "Impossibile caricare i lead di assunzione.",
     "new": "Nuova inchiesta",
     "searchPlaceholder": "Cerca nome o email...",
-    "title": "Coda di assunzione"
+    "title": "Coda di assunzione",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Progetto",

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Building2,
-  ChevronLeft,
   ChevronRight,
   Loader2,
   UserRound,
@@ -9,7 +9,8 @@ import {
 } from 'lucide-react'
 import { ClientStatusBadge } from '@/components/crm/ClientStatusBadge'
 import { Badge } from '@/components/ui/badge'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { ListTablePaginationControls } from '@/components/ui/list-table-pagination'
 import {
   Table,
   TableBody,
@@ -20,20 +21,22 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import type { ClientListItem } from '@/features/crm/types'
-import { CLIENT_TYPE_LABELS } from '@/features/crm/utils'
+import { clientTypeLabel } from '@/features/crm/utils'
 import { getCountryLabel } from '@/lib/countries'
 import { cn } from '@/lib/utils'
-
-export const CLIENT_PAGE_SIZE = 20
 
 type ClientsTableProps = {
   items: ClientListItem[]
   isLoading?: boolean
   isError?: boolean
-  pageIndex: number
-  hasNextPage: boolean
+  page: number
+  pageSize: number
+  total?: number
+  pageCount?: number
   onPreviousPage: () => void
   onNextPage: () => void
+  onPageChange: (page: number) => void
+  onPageSizeChange: (pageSize: number) => void
 }
 
 function ClientNameCell({ client }: { client: ClientListItem }) {
@@ -82,26 +85,31 @@ export function ClientsTable({
   items,
   isLoading,
   isError,
-  pageIndex,
-  hasNextPage,
+  page,
+  pageSize,
+  total,
+  pageCount,
   onPreviousPage,
   onNextPage,
+  onPageChange,
+  onPageSizeChange,
 }: ClientsTableProps) {
+  const { t } = useTranslation(['crm', 'common'])
   const navigate = useNavigate()
 
-  const rangeStart = items.length === 0 ? 0 : pageIndex * CLIENT_PAGE_SIZE + 1
-  const rangeEnd = pageIndex * CLIENT_PAGE_SIZE + items.length
+  const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
+  const rangeEnd = (page - 1) * pageSize + items.length
 
   return (
     <Table>
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
-          <TableHead className="w-[30%]">Client</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Country</TableHead>
-          <TableHead>Holding group</TableHead>
-          <TableHead className="text-right">Action</TableHead>
+          <TableHead className="w-[30%]">{t('table.client')}</TableHead>
+          <TableHead>{t('table.type')}</TableHead>
+          <TableHead>{t('table.status')}</TableHead>
+          <TableHead>{t('table.country')}</TableHead>
+          <TableHead>{t('table.holdingGroup')}</TableHead>
+          <TableHead className="text-right">{t('table.action')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -110,10 +118,8 @@ export function ClientsTable({
         {!isLoading && isError && (
           <TableRow>
             <TableCell colSpan={6} className="py-16 text-center">
-              <p className="text-sm font-medium text-destructive">Failed to load clients.</p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Check your connection and permissions, then try again.
-              </p>
+              <p className="text-sm font-medium text-destructive">{t('clients.error')}</p>
+              <p className="mt-1 text-xs text-muted-foreground">{t('common:errors.retryHint')}</p>
             </TableCell>
           </TableRow>
         )}
@@ -126,9 +132,9 @@ export function ClientsTable({
                   <Users className="size-5 text-muted-foreground" />
                 </span>
                 <div>
-                  <p className="font-medium text-foreground">No clients found</p>
+                  <p className="font-medium text-foreground">{t('clients.emptyTitle')}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Try adjusting filters or create a client via intake.
+                    {t('clients.emptyDescription')}
                   </p>
                 </div>
               </div>
@@ -147,7 +153,7 @@ export function ClientsTable({
               )}
               tabIndex={0}
               role="link"
-              aria-label={`View ${client.displayName}`}
+              aria-label={t('clients.viewAria', { name: client.displayName })}
               onClick={() => navigate(`/clients/${client.id}/overview`)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -161,7 +167,7 @@ export function ClientsTable({
               </TableCell>
               <TableCell>
                 <Badge variant="outline" className="normal-case font-medium tracking-normal">
-                  {CLIENT_TYPE_LABELS[client.type]}
+                  {clientTypeLabel(client.type)}
                 </Badge>
               </TableCell>
               <TableCell>
@@ -179,7 +185,7 @@ export function ClientsTable({
                   className={buttonVariants({ variant: 'outline', size: 'sm' })}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  View
+                  {t('common:actions.view')}
                   <ChevronRight className="size-4 opacity-60" />
                 </Link>
               </TableCell>
@@ -194,48 +200,32 @@ export function ClientsTable({
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 className="size-3.5 animate-spin" />
-                    Loading…
+                    {t('common:loading.default')}
                   </span>
                 ) : items.length === 0 ? (
-                  'No results'
+                  t('common:pagination.noResults')
                 ) : (
                   <>
-                    Showing{' '}
-                    <span className="font-medium text-foreground">
-                      {rangeStart}–{rangeEnd}
-                    </span>
-                    {pageIndex > 0 && (
+                    {t('common:pagination.showing', { start: rangeStart, end: rangeEnd })}
+                    {total != null ? (
                       <>
                         {' '}
-                        · Page{' '}
-                        <span className="font-medium text-foreground">{pageIndex + 1}</span>
+                        {t('clients.pagination.ofTotal', { total })}
                       </>
-                    )}
+                    ) : null}
                   </>
                 )}
               </p>
-              <div className="flex items-center gap-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || pageIndex === 0}
-                  onClick={onPreviousPage}
-                >
-                  <ChevronLeft className="size-4" />
-                  Previous
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || !hasNextPage}
-                  onClick={onNextPage}
-                >
-                  Next
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
+              <ListTablePaginationControls
+                page={page}
+                pageSize={pageSize}
+                pageCount={pageCount}
+                isLoading={isLoading}
+                onPreviousPage={onPreviousPage}
+                onNextPage={onNextPage}
+                onPageChange={onPageChange}
+                onPageSizeChange={onPageSizeChange}
+              />
             </div>
           </TableCell>
         </TableRow>

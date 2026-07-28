@@ -48,7 +48,11 @@
       "invoiceNo": "Numéro de facture.",
       "issued": "Émis",
       "payment": "Paiement",
-      "status": "Statut"
+      "status": "Statut",
+      "invoice": "Facture",
+      "issueDate": "Date d'émission",
+      "matter": "Matière",
+      "total": "Totale"
     },
     "title": "Factures",
     "listSubtitle": "Registre des factures à l’échelle de l’entreprise pour tous les sujets. Émettez des factures à partir des onglets de facturation du sujet, puis enregistrez les paiements ici.",

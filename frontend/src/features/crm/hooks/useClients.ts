@@ -34,6 +34,14 @@ export function useClientSummary(id: string) {
   })
 }
 
+export function useClientAddressInsights(id: string) {
+  return useQuery({
+    queryKey: clientKeys.addressInsights(id),
+    queryFn: () => clientsApi.addressInsights(id),
+    enabled: Boolean(id),
+  })
+}
+
 export function useUpdateClient(id: string) {
   const queryClient = useQueryClient()
   return useMutation({

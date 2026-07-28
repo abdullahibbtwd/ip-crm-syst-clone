@@ -55,8 +55,14 @@
     "openMenu": "Отвори менюто"
   },
   "pagination": {
+    "go": "Отиди",
+    "maxPerPage": "Максимум {{max}}",
     "noResults": "Няма резултати",
+    "ofPages": "от {{count}}",
     "page": "Страница {{page}}",
+    "pageLabel": "Страница",
+    "perPage": "на страница",
+    "perPageLabel": "На страница",
     "showing": "Показване {{start}}–{{end}}"
   },
   "reports": {

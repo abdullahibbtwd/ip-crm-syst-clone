@@ -511,7 +511,10 @@
     "perPage": "{{count}} pro Seite",
     "searchPlaceholder": "Suchen Sie nach Titel, Kunde, Antragsnummer ...",
     "title": "Angelegenheiten",
-    "titlePortal": "Meine Angelegenheiten"
+    "titlePortal": "Meine Angelegenheiten",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Firmenweites Register von IP-Rechten mit Filtern nach Kunde, Gerichtsbarkeit, Art, Status und Ablauf.",
@@ -584,7 +587,11 @@
     "title": "Titel",
     "type": "Typ",
     "upcoming": "{{count}} steht bevor",
-    "viewAria": "Anzeigen {{title}}"
+    "viewAria": "Anzeigen {{title}}",
+    "created": "Erstellt",
+    "deadlines": "Fristen",
+    "jurisdiction": "Zuständigkeit",
+    "leadAttorney": "Hauptanwalt"
   },
   "tabs": {
     "billing": "Abrechnung",

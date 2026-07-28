@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Inbox, Search } from 'lucide-react'
-import { MattersTable, MATTER_PAGE_SIZE } from '@/components/matters/MattersTable'
+import { MattersTable } from '@/components/matters/MattersTable'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -17,6 +17,7 @@ import { useAuth } from '@/features/auth/AuthProvider'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import type { MatterFilters, MatterStatus, MatterType } from '@/features/matters/types'
 import { matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
+import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 
 const ALL_STATUSES = 'all'
 const ALL_TYPES = 'all'
@@ -60,8 +61,8 @@ export function MatterListPage() {
 
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
-  const [pageIndex, setPageIndex] = useState(0)
-  const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE)
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)
@@ -69,9 +70,8 @@ export function MatterListPage() {
   }, [searchInput])
 
   useEffect(() => {
-    setPageIndex(0)
-    setCursors([undefined])
-  }, [debouncedSearch, statusFilter, typeFilter])
+    setPage(1)
+  }, [debouncedSearch, statusFilter, typeFilter, pageSize])
 
   const setTypeFilter = (value: MatterType | undefined) => {
     setSearchParams(
@@ -101,25 +101,11 @@ export function MatterListPage() {
     search: debouncedSearch || undefined,
     status: statusFilter,
     matterType: typeFilter,
-    limit: MATTER_PAGE_SIZE,
-    cursor: cursors[pageIndex],
+    page,
+    limit: pageSize,
   }
 
   const { data, isLoading, isError, isFetching } = useMatters(filters)
-
-  const handleNextPage = () => {
-    if (!data?.nextCursor) return
-    setCursors((prev) => {
-      const next = [...prev]
-      next[pageIndex + 1] = data.nextCursor ?? undefined
-      return next
-    })
-    setPageIndex((p) => p + 1)
-  }
-
-  const handlePreviousPage = () => {
-    if (pageIndex > 0) setPageIndex((p) => p - 1)
-  }
 
   return (
     <div className="space-y-6">
@@ -129,8 +115,7 @@ export function MatterListPage() {
             {isPortalClient ? t('list.titlePortal') : t('list.title')}
           </h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            {isPortalClient ? t('list.descriptionPortal') : t('list.description')}{' '}
-            {t('list.perPage', { count: MATTER_PAGE_SIZE })}
+            {isPortalClient ? t('list.descriptionPortal') : t('list.description')}
           </p>
         </div>
         <PermissionGate resource="intake" action="read">
@@ -191,10 +176,14 @@ export function MatterListPage() {
         items={data?.items ?? []}
         isLoading={isLoading || (isFetching && !data)}
         isError={isError}
-        pageIndex={pageIndex}
-        hasNextPage={Boolean(data?.nextCursor)}
-        onPreviousPage={handlePreviousPage}
-        onNextPage={handleNextPage}
+        page={data?.page ?? page}
+        pageSize={data?.limit ?? pageSize}
+        total={data?.total}
+        pageCount={data?.pageCount}
+        onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+        onNextPage={() => setPage((current) => current + 1)}
+        onPageChange={setPage}
+        onPageSizeChange={setPageSize}
         compact={isPortalClient}
       />
     </div>

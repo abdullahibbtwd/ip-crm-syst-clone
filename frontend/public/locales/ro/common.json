@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Niciun rezultat",
     "page": "Pagina {{page}}",
-    "showing": "Se afișează {{start}}–{{end}}"
+    "showing": "Se afișează {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Rapoarte"

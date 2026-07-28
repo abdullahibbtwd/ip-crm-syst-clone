@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Нема резултати",
     "page": "Страница {{page}}",
-    "showing": "Се прикажува {{start}}–{{end}}"
+    "showing": "Се прикажува {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Извештаи"

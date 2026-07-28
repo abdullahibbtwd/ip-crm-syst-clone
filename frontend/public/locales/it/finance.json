@@ -48,7 +48,11 @@
       "invoiceNo": "Fattura n.",
       "issued": "Rilasciato",
       "payment": "Pagamento",
-      "status": "Stato"
+      "status": "Stato",
+      "invoice": "Fattura",
+      "issueDate": "Data di emissione",
+      "matter": "Questione",
+      "total": "Totale"
     },
     "title": "Fatture",
     "listSubtitle": "Registro delle fatture a livello aziendale per tutte le questioni. Emetti fatture dalle schede di fatturazione degli argomenti, quindi registra i pagamenti qui.",

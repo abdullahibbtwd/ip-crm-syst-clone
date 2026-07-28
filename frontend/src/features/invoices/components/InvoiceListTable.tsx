@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Banknote, Download, FileText } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
@@ -41,6 +42,7 @@ export function InvoiceListTable({
   showMatter = false,
   enableFinanceActions = false,
 }: InvoiceListTableProps) {
+  const { t } = useTranslation('finance')
   const { confirm, showError } = useAppAlert()
   const downloadPdf = useInvoicePdf(portal)
   const issueInvoice = useIssueInvoice(matterId)
@@ -124,12 +126,12 @@ export function InvoiceListTable({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Invoice</TableHead>
-              {showMatter && <TableHead>Matter</TableHead>}
-              <TableHead>Issue date</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Payment</TableHead>
-              <TableHead className="text-right">Total</TableHead>
+              <TableHead>{t('invoices.table.invoice')}</TableHead>
+              {showMatter && <TableHead>{t('invoices.table.matter')}</TableHead>}
+              <TableHead>{t('invoices.table.issueDate')}</TableHead>
+              <TableHead>{t('invoices.table.status')}</TableHead>
+              <TableHead>{t('invoices.table.payment')}</TableHead>
+              <TableHead className="text-right">{t('invoices.table.total')}</TableHead>
               <TableHead className="w-[160px]" />
             </TableRow>
           </TableHeader>

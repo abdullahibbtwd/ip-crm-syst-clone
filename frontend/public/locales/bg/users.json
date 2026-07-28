@@ -19,7 +19,8 @@
     "emailPlaceholder": "name@company.com",
     "errors": {
       "failed": "Неуспешна покана",
-      "required": "Имейлът и пълното име са задължителни"
+      "required": "Имейлът и пълното име са задължителни",
+      "clientRequired": "Select a client record for portal users"
     },
     "fullName": "Пълно име",
     "fullNamePlaceholder": "Иван Иванов",
@@ -27,7 +28,20 @@
     "ssoHint": "След поканата помолете човека да влезе със SSO с този имейл. При смяна на роля трябва да излезе и да влезе отново.",
     "submit": "Покани за SSO",
     "submitting": "Поканване…",
-    "title": "Покани член на екипа"
+    "title": "Покани член на екипа",
+    "clientPlaceholder": "Select client record…",
+    "clientRecord": "Client record",
+    "emailFailed": "Invite email could not be sent",
+    "emailFailedContinue": "User was created — close and resend later",
+    "emailFailedTitle": "User invited, but the email could not be sent.",
+    "emailHint": "An invitation email is sent with a link to set a password. They can also sign in with Microsoft or Google using this exact email. If email fails, the user is still created and you can resend from the users list.",
+    "lastEmailFailed": "Last email attempt failed",
+    "resend": "Resend invite",
+    "resendFailed": "Failed to resend invite email",
+    "resendSuccess": "Invite email sent",
+    "typePortal": "Portal client",
+    "typeTeam": "Team member",
+    "userType": "User type"
   },
   "layout": {
     "accessRestricted": "Ограничен достъп",
@@ -48,7 +62,8 @@
   "table": {
     "authMethod": {
       "password": "Парола",
-      "sso": "SSO"
+      "sso": "SSO",
+      "pending": "Pending"
     },
     "clientRecord": "Клиентски запис",
     "empty": "Няма намерени потребители",
@@ -61,7 +76,8 @@
       "role": "Роля",
       "signIn": "Вход",
       "status": "Статус",
-      "user": "Потребител"
+      "user": "Потребител",
+      "invite": "Invite"
     },
     "mfa": {
       "enabled": "Включено",
@@ -69,7 +85,8 @@
     },
     "status": {
       "active": "Активен",
-      "inactive": "Неактивен"
+      "inactive": "Неактивен",
+      "invited": "Invited"
     },
     "viewAria": "Преглед на {{name}}"
   },

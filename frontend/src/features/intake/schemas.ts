@@ -107,6 +107,30 @@ const enquirerBase = {
     z.union([z.undefined(), z.uuid("Invalid assignee")]),
   ),
   notes: optionalTrimmed(2000, "Notes"),
+  registeredLegalAddress: z
+    .object({
+      addressLine1: z.string().optional(),
+      addressLine2: z.string().optional(),
+      city: z.string().optional(),
+      region: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      phone: z.string().optional(),
+      fax: z.string().optional(),
+    })
+    .optional(),
+  correspondenceAddress: z
+    .object({
+      addressLine1: z.string().optional(),
+      addressLine2: z.string().optional(),
+      city: z.string().optional(),
+      region: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      phone: z.string().optional(),
+      fax: z.string().optional(),
+    })
+    .optional(),
   counterparties: z.array(counterpartySchema).optional(),
 };
 
@@ -151,6 +175,30 @@ export const convertIntakeSchema = z.object({
     z.union([z.undefined(), z.uuid("Select a valid holding group")]),
   ),
   notes: optionalTrimmed(2000, "Notes"),
+  registeredLegalAddress: z
+    .object({
+      addressLine1: z.string().optional(),
+      addressLine2: z.string().optional(),
+      city: z.string().optional(),
+      region: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      phone: z.string().optional(),
+      fax: z.string().optional(),
+    })
+    .optional(),
+  correspondenceAddress: z
+    .object({
+      addressLine1: z.string().optional(),
+      addressLine2: z.string().optional(),
+      city: z.string().optional(),
+      region: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      phone: z.string().optional(),
+      fax: z.string().optional(),
+    })
+    .optional(),
 });
 
 export type ConvertIntakeFormValues = z.infer<typeof convertIntakeSchema>;

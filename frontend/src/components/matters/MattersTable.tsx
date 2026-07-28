@@ -1,14 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
-  ChevronLeft,
-  ChevronRight,
   CalendarClock,
   FolderOpen,
   Loader2,
 } from 'lucide-react'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { ListTablePaginationControls } from '@/components/ui/list-table-pagination'
 import {
   Table,
   TableBody,
@@ -25,19 +24,24 @@ import {
   formatJurisdictions,
   formatMatterDate,
 } from '@/features/matters/utils'
+import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 import { cn } from '@/lib/utils'
 
-export const MATTER_PAGE_SIZE = 20
+export const MATTER_PAGE_SIZE = DEFAULT_PAGE_SIZE
 
 type MattersTableProps = {
   items: MatterListItem[]
   isLoading?: boolean
   isError?: boolean
-  pageIndex: number
-  hasNextPage: boolean
+  page: number
+  pageSize: number
+  total?: number
+  pageCount?: number
   onPreviousPage: () => void
   onNextPage: () => void
-  /** Portal preview: hide client column and pagination footer */
+  onPageChange: (page: number) => void
+  onPageSizeChange: (pageSize: number) => void
+  /** Portal preview: hide client column */
   compact?: boolean
 }
 
@@ -61,17 +65,22 @@ export function MattersTable({
   items,
   isLoading,
   isError,
-  pageIndex,
-  hasNextPage,
+  page,
+  pageSize,
+  total,
+  pageCount,
   onPreviousPage,
   onNextPage,
+  onPageChange,
+  onPageSizeChange,
   compact = false,
 }: MattersTableProps) {
+  const { t } = useTranslation(['matters', 'common'])
   const navigate = useNavigate()
   const colCount = compact ? 7 : 8
 
-  const rangeStart = items.length === 0 ? 0 : pageIndex * MATTER_PAGE_SIZE + 1
-  const rangeEnd = pageIndex * MATTER_PAGE_SIZE + items.length
+  const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
+  const rangeEnd = (page - 1) * pageSize + items.length
 
   return (
     <div className="space-y-3">
@@ -129,14 +138,14 @@ export function MattersTable({
     <Table>
       <TableHeader>
         <TableRow className="border-border/80 bg-muted/50 hover:bg-muted/50">
-          <TableHead className="w-[26%]">Title</TableHead>
-          {!compact && <TableHead>Client</TableHead>}
-          <TableHead>Type</TableHead>
-          <TableHead>Jurisdiction</TableHead>
-          <TableHead>Lead attorney</TableHead>
-          <TableHead>Deadlines</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead className="text-right">Created</TableHead>
+          <TableHead className="w-[26%]">{t('table.title')}</TableHead>
+          {!compact && <TableHead>{t('table.client')}</TableHead>}
+          <TableHead>{t('table.type')}</TableHead>
+          <TableHead>{t('table.jurisdiction')}</TableHead>
+          <TableHead>{t('table.leadAttorney')}</TableHead>
+          <TableHead>{t('table.deadlines')}</TableHead>
+          <TableHead>{t('table.status')}</TableHead>
+          <TableHead className="text-right">{t('table.created')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -275,48 +284,32 @@ export function MattersTable({
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 className="size-3.5 animate-spin" />
-                    Loading…
+                    {t('common:loading.default')}
                   </span>
                 ) : items.length === 0 ? (
-                  'No results'
+                  t('common:pagination.noResults')
                 ) : (
                   <>
-                    Showing{' '}
-                    <span className="font-medium text-foreground">
-                      {rangeStart}–{rangeEnd}
-                    </span>
-                    {pageIndex > 0 && (
+                    {t('common:pagination.showing', { start: rangeStart, end: rangeEnd })}
+                    {total != null ? (
                       <>
                         {' '}
-                        · Page{' '}
-                        <span className="font-medium text-foreground">{pageIndex + 1}</span>
+                        {t('list.pagination.ofTotal', { total })}
                       </>
-                    )}
+                    ) : null}
                   </>
                 )}
               </p>
-              <div className="flex items-center gap-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || pageIndex === 0}
-                  onClick={onPreviousPage}
-                >
-                  <ChevronLeft className="size-4" />
-                  Previous
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  disabled={isLoading || !hasNextPage}
-                  onClick={onNextPage}
-                >
-                  Next
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
+              <ListTablePaginationControls
+                page={page}
+                pageSize={pageSize}
+                pageCount={pageCount}
+                isLoading={isLoading}
+                onPreviousPage={onPreviousPage}
+                onNextPage={onNextPage}
+                onPageChange={onPageChange}
+                onPageSizeChange={onPageSizeChange}
+              />
             </div>
           </TableCell>
         </TableRow>

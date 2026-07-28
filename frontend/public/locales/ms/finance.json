@@ -48,7 +48,11 @@
       "invoiceNo": "No. invois",
       "issued": "Dikeluarkan",
       "payment": "Bayaran",
-      "status": "Status"
+      "status": "Status",
+      "invoice": "Invois",
+      "issueDate": "Tarikh keluaran",
+      "matter": "Perkara",
+      "total": "Jumlah"
     },
     "title": "Invois",
     "listSubtitle": "Daftar invois seluruh firma merentas semua perkara. Keluarkan invois daripada tab pengebilan perkara, kemudian rekod pembayaran di sini.",

@@ -7,8 +7,11 @@ import {
   Length,
   MinLength,
   Equals,
+  ValidateNested,
 } from 'class-validator';
+import { Type } from 'class-transformer';
 import { SUPPORTED_LOCALES } from '../../common/supported-locales';
+import { ClientAddressInputDto } from '../../crm/dto/client-address.dto';
 
 export class LoginDto {
   @IsEmail()
@@ -78,6 +81,16 @@ export class RegisterDto {
   @IsBoolean()
   @Equals(true, { message: 'GDPR consent is required to create an account' })
   gdprConsent!: boolean;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  registeredLegalAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ClientAddressInputDto)
+  correspondenceAddress?: ClientAddressInputDto;
 }
 
 export class UpdateLocaleDto {

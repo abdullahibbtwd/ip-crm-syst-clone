@@ -58,13 +58,14 @@ describe('MattersService', () => {
     prisma = {
       client: { findUnique: jest.fn() },
       user: { findUnique: jest.fn() },
-      matter: {
-        create: jest.fn(),
-        findUnique: jest.fn(),
-        findMany: jest.fn(),
-        update: jest.fn(),
-        delete: jest.fn(),
-      },
+    matter: {
+      create: jest.fn(),
+      findUnique: jest.fn(),
+      findMany: jest.fn(),
+      count: jest.fn(),
+      update: jest.fn(),
+      delete: jest.fn(),
+    },
       matterJurisdiction: {
         deleteMany: jest.fn(),
         createMany: jest.fn(),
@@ -79,7 +80,12 @@ describe('MattersService', () => {
       },
       matterDocumentVersion: { findFirst: jest.fn() },
       matterTimelineEvent: { create: jest.fn() },
-      $transaction: jest.fn(async (fn) => fn(prisma)),
+      $transaction: jest.fn(async (ops) => {
+        if (Array.isArray(ops)) {
+          return Promise.all(ops.map((op) => op));
+        }
+        return ops(prisma);
+      }),
     };
     deadlinesService = {
       generateInitialDeadlines: jest.fn().mockResolvedValue({}),
@@ -159,19 +165,22 @@ describe('MattersService', () => {
     } as AuthenticatedUser;
 
     it('returns paginated matters with deadline counts', async () => {
+      prisma.matter.count.mockResolvedValue(3);
       prisma.matter.findMany.mockResolvedValue([
         { id: 'm1', title: 'A' },
         { id: 'm2', title: 'B' },
-        { id: 'm3', title: 'C' },
       ]);
       deadlinesService.countUpcomingByMatterIds.mockResolvedValue(
         new Map([['m1', 2]]),
       );
 
-      const result = await service.findAll({ limit: 2 }, user);
+      const result = await service.findAll({ limit: 2, page: 1 }, user);
 
       expect(result.items).toHaveLength(2);
-      expect(result.nextCursor).toBe('m2');
+      expect(result.total).toBe(3);
+      expect(result.page).toBe(1);
+      expect(result.pageCount).toBe(2);
+      expect(result.nextCursor).toBeNull();
       expect(result.items[0].upcomingDeadlineCount).toBe(2);
       expect(portalAccess.requireScopeClientId).toHaveBeenCalledWith(user);
     });
@@ -467,6 +476,7 @@ describe('MattersService', () => {
 
     it('findAll scopes to portal client when required', async () => {
       portalAccess.requireScopeClientId.mockReturnValue('c1');
+      prisma.matter.count.mockResolvedValue(1);
       prisma.matter.findMany.mockResolvedValue([{ id: 'm1', title: 'Scoped' }]);
       deadlinesService.countUpcomingByMatterIds.mockResolvedValue(new Map());
       await service.findAll({ limit: 10 } as never, {

@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Ոչ մի արդյունք",
     "page": "Էջ {{page}}",
-    "showing": "Ցուցադրվում է {{start}}–{{end}}"
+    "showing": "Ցուցադրվում է {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Հաշվետվություններ"

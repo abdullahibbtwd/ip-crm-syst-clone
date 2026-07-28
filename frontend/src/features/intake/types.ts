@@ -1,3 +1,5 @@
+import type { Paginated } from '@/features/crm/types'
+
 export type IntakeStatus =
   | 'new'
   | 'reviewing'
@@ -115,14 +117,12 @@ export type IntakeLead = {
   conflictChecks: IntakeConflictCheck[]
 }
 
-export type IntakeListResponse = {
-  items: IntakeLead[]
-  nextCursor?: string
-}
+export type IntakeListResponse = Paginated<IntakeLead>
 
 export type IntakeFilters = {
   search?: string
   status?: IntakeStatus
+  page?: number
   limit?: number
   cursor?: string
 }

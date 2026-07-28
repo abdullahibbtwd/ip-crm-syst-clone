@@ -511,7 +511,10 @@
     "perPage": "{{count}} lehekülje kohta",
     "searchPlaceholder": "Otsingu pealkiri, klient, rakenduse nr…",
     "title": "Küsimused",
-    "titlePortal": "Minu asjad"
+    "titlePortal": "Minu asjad",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Ettevõtteülene IP-õiguste register koos filtritega kliendi, jurisdiktsiooni, tüübi, oleku ja aegumise järgi.",
@@ -584,7 +587,11 @@
     "title": "Pealkiri",
     "type": "Tüüp",
     "upcoming": "{{count}} tulemas",
-    "viewAria": "Kuva {{title}}"
+    "viewAria": "Kuva {{title}}",
+    "created": "Loodud",
+    "deadlines": "Tähtajad",
+    "jurisdiction": "Jurisdiktsioon",
+    "leadAttorney": "Juhtivadvokaat"
   },
   "tabs": {
     "billing": "Arveldamine",

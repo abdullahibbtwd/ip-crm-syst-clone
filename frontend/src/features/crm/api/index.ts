@@ -1,5 +1,6 @@
 import { apiClient } from '@/lib/api-client'
 import type {
+  ClientAddressInsights,
   ClientDetail,
   ClientFilters,
   ClientListItem,
@@ -35,6 +36,9 @@ export const clientsApi = {
 
   summary: (id: string) => apiClient.get<ClientSummary>(`/clients/${id}/summary`),
 
+  addressInsights: (id: string) =>
+    apiClient.get<ClientAddressInsights>(`/clients/${id}/address-insights`),
+
   update: (id: string, data: Record<string, unknown>) =>
     apiClient.patch<ClientDetail>(`/clients/${id}`, data),
 
@@ -53,6 +57,16 @@ export const officesApi = {
 
   remove: (clientId: string, officeId: string) =>
     apiClient.delete<{ deleted: boolean }>(`/clients/${clientId}/offices/${officeId}`),
+
+  upsertTyped: (
+    clientId: string,
+    addressType: 'registered_legal' | 'correspondence',
+    data: Partial<ClientOffice>,
+  ) =>
+    apiClient.put<ClientOffice>(
+      `/clients/${clientId}/offices/by-type/${addressType}`,
+      data,
+    ),
 }
 
 export const contactsApi = {

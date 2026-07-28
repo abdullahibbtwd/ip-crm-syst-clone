@@ -511,7 +511,10 @@
     "perPage": "{{count}} մեկ էջում",
     "searchPlaceholder": "Որոնել վերնագիրը, հաճախորդը, հավելվածի համարը…",
     "title": "Հարցեր",
-    "titlePortal": "Իմ գործերը"
+    "titlePortal": "Իմ գործերը",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "ՄՍ իրավունքների ֆիրմային ռեգիստր՝ զտիչներով ըստ հաճախորդի, իրավասության, տեսակի, կարգավիճակի և ժամկետի:",
@@ -584,7 +587,11 @@
     "title": "Վերնագիր",
     "type": "Տեսակ",
     "upcoming": "{{count}} առաջիկայում",
-    "viewAria": "Դիտել {{title}}"
+    "viewAria": "Դիտել {{title}}",
+    "created": "Ստեղծվել է",
+    "deadlines": "Վերջնաժամկետներ",
+    "jurisdiction": "Իրավասություն",
+    "leadAttorney": "Առաջատար փաստաբան"
   },
   "tabs": {
     "billing": "Բիլինգ",

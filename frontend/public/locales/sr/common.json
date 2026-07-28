@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "Нема резултата",
     "page": "Страница __И18Н_ПХ_0__",
-    "showing": "Приказујем __И18Н_ПХ_0__–__И18Н_ПХ_1__"
+    "showing": "Приказујем __И18Н_ПХ_0__–__И18Н_ПХ_1__",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "Извештаји"

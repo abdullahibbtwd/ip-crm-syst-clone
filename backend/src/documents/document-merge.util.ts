@@ -125,8 +125,14 @@ function formatOfficeAddress(
   return lines.join('\n') || fallbackCountry || '—';
 }
 
-function primaryOffice(offices: ClientOffice[]): ClientOffice | undefined {
-  return offices.find((o) => o.isPrimary) ?? offices[0];
+function registeredLegalOffice(offices: ClientOffice[]): ClientOffice | undefined {
+  return (
+    offices.find(
+      (office) => office.addressType === 'registered_legal',
+    ) ??
+    offices.find((office) => office.isPrimary) ??
+    offices[0]
+  );
 }
 
 export function buildDocumentMergeContext(
@@ -136,7 +142,7 @@ export function buildDocumentMergeContext(
   const jurisdiction =
     ip?.jurisdiction ??
     (matter.jurisdictions.map((j) => j.countryCode).join(', ') || '—');
-  const office = primaryOffice(matter.client.offices);
+  const office = registeredLegalOffice(matter.client.offices);
   const clientName = clientDisplayName(matter.client);
   const attorneyName = matter.assignedTo?.fullName ?? FIRM_NAME;
 

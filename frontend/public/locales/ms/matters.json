@@ -511,7 +511,10 @@
     "perPage": "{{count}} setiap halaman",
     "searchPlaceholder": "Tajuk carian, pelanggan, no aplikasi…",
     "title": "Perkara",
-    "titlePortal": "urusan saya"
+    "titlePortal": "urusan saya",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Daftar seluruh firma hak IP dengan penapis mengikut pelanggan, bidang kuasa, jenis, status dan tamat tempoh.",
@@ -584,7 +587,11 @@
     "title": "Tajuk",
     "type": "taip",
     "upcoming": "{{count}} akan datang",
-    "viewAria": "Lihat {{title}}"
+    "viewAria": "Lihat {{title}}",
+    "created": "Dicipta",
+    "deadlines": "Tarikh akhir",
+    "jurisdiction": "Bidang kuasa",
+    "leadAttorney": "Peguam utama"
   },
   "tabs": {
     "billing": "Pengebilan",

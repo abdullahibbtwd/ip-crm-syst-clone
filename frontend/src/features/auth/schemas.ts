@@ -23,6 +23,17 @@ export const mfaVerifySchema = z.object({
   code: z.string().length(6, 'validation.mfaCodeLength'),
 })
 
+const clientAddressSchema = z.object({
+  addressLine1: z.string().optional(),
+  addressLine2: z.string().optional(),
+  city: z.string().optional(),
+  region: z.string().optional(),
+  postalCode: z.string().optional(),
+  country: z.string().optional(),
+  phone: z.string().optional(),
+  fax: z.string().optional(),
+})
+
 export const registerSchema = z
   .object({
     fullName: z.string().min(2, 'validation.fullNameMin'),
@@ -33,6 +44,8 @@ export const registerSchema = z
     gdprConsent: z.boolean().refine((value) => value === true, {
       message: 'validation.gdprRequired',
     }),
+    registeredLegalAddress: clientAddressSchema.optional(),
+    correspondenceAddress: clientAddressSchema.optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'validation.passwordsMismatch',

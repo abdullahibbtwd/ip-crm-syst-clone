@@ -511,7 +511,10 @@
     "perPage": "{{count}} per pagina",
     "searchPlaceholder": "Cerca titolo, cliente, numero di domanda...",
     "title": "Importa",
-    "titlePortal": "Le mie questioni"
+    "titlePortal": "Le mie questioni",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Registro dei diritti di proprietà intellettuale a livello aziendale con filtri per cliente, giurisdizione, tipologia, stato e scadenza.",
@@ -584,7 +587,11 @@
     "title": "Titolo",
     "type": "Tipa",
     "upcoming": "{{count}} imminente",
-    "viewAria": "Visualizza {{title}}"
+    "viewAria": "Visualizza {{title}}",
+    "created": "Creata",
+    "deadlines": "Scadenze",
+    "jurisdiction": "Giurisdizione",
+    "leadAttorney": "Avvocato principale"
   },
   "tabs": {
     "billing": "Fatturazione",

@@ -92,8 +92,9 @@ export type MatterFilters = {
   matterType?: MatterType
   assignedToId?: string
   search?: string
-  cursor?: string
+  page?: number
   limit?: number
+  cursor?: string
 }
 
 export type MatterListResponse = Paginated<MatterListItem>

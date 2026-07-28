@@ -57,7 +57,13 @@
   "pagination": {
     "noResults": "لا توجد نتائج",
     "page": "الصفحة {{page}}",
-    "showing": "عرض {{start}}–{{end}}"
+    "showing": "عرض {{start}}–{{end}}",
+    "go": "Go",
+    "maxPerPage": "Maximum {{max}}",
+    "ofPages": "of {{count}}",
+    "pageLabel": "Page",
+    "perPage": "per page",
+    "perPageLabel": "Per page"
   },
   "reports": {
     "eyebrow": "التقارير"

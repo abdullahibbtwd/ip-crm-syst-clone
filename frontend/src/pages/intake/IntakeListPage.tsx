@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Plus, Search } from 'lucide-react'
-import { IntakeLeadsTable, INTAKE_PAGE_SIZE } from '@/components/intake/IntakeLeadsTable'
+import { IntakeLeadsTable } from '@/components/intake/IntakeLeadsTable'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -16,6 +16,7 @@ import {
 import { useIntakeLeads } from '@/features/intake/hooks/useIntake'
 import type { IntakeFilters, IntakeStatus } from '@/features/intake/types'
 import { intakeStatusLabel } from '@/features/intake/utils'
+import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 
 const ALL_STATUSES = 'all'
 const INTAKE_STATUSES: IntakeStatus[] = [
@@ -42,8 +43,8 @@ export function IntakeListPage() {
 
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
-  const [pageIndex, setPageIndex] = useState(0)
-  const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE)
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)
@@ -51,9 +52,8 @@ export function IntakeListPage() {
   }, [searchInput])
 
   useEffect(() => {
-    setPageIndex(0)
-    setCursors([undefined])
-  }, [debouncedSearch, statusFilter])
+    setPage(1)
+  }, [debouncedSearch, statusFilter, pageSize])
 
   const setStatusFilter = (value: IntakeStatus | undefined) => {
     setSearchParams(
@@ -70,25 +70,11 @@ export function IntakeListPage() {
   const filters: IntakeFilters = {
     search: debouncedSearch || undefined,
     status: statusFilter,
-    limit: INTAKE_PAGE_SIZE,
-    cursor: cursors[pageIndex],
+    page,
+    limit: pageSize,
   }
 
   const { data, isLoading, isError, isFetching } = useIntakeLeads(filters)
-
-  const handleNextPage = () => {
-    if (!data?.nextCursor) return
-    setCursors((prev) => {
-      const next = [...prev]
-      next[pageIndex + 1] = data.nextCursor
-      return next
-    })
-    setPageIndex((p) => p + 1)
-  }
-
-  const handlePreviousPage = () => {
-    if (pageIndex > 0) setPageIndex((p) => p - 1)
-  }
 
   return (
     <div className="space-y-6">
@@ -139,10 +125,14 @@ export function IntakeListPage() {
         items={data?.items ?? []}
         isLoading={isLoading || (isFetching && !data)}
         isError={isError}
-        pageIndex={pageIndex}
-        hasNextPage={Boolean(data?.nextCursor)}
-        onPreviousPage={handlePreviousPage}
-        onNextPage={handleNextPage}
+        page={data?.page ?? page}
+        pageSize={data?.limit ?? pageSize}
+        total={data?.total}
+        pageCount={data?.pageCount}
+        onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+        onNextPage={() => setPage((current) => current + 1)}
+        onPageChange={setPage}
+        onPageSizeChange={setPageSize}
       />
     </div>
   )

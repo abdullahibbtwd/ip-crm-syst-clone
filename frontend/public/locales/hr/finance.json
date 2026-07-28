@@ -48,7 +48,11 @@
       "invoiceNo": "Faktura br.",
       "issued": "Izdan",
       "payment": "Plaćanje",
-      "status": "Status"
+      "status": "Status",
+      "invoice": "Dostavnica",
+      "issueDate": "Datum izdavanja",
+      "matter": "Materija",
+      "total": "Ukupno"
     },
     "title": "Fakture",
     "listSubtitle": "Registar faktura u cijeloj tvrtki za sva pitanja. Izdajte fakture sa značajnih kartica naplate, a zatim ovdje zabilježite plaćanja.",

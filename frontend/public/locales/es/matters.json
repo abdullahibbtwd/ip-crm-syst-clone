@@ -511,7 +511,10 @@
     "perPage": "{{count}} por página",
     "searchPlaceholder": "Título de búsqueda, cliente, número de aplicación…",
     "title": "Asuntos",
-    "titlePortal": "mis asuntos"
+    "titlePortal": "mis asuntos",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Registro de derechos de propiedad intelectual de toda la empresa con filtros por cliente, jurisdicción, tipo, estado y vencimiento.",
@@ -584,7 +587,11 @@
     "title": "Título",
     "type": "Tipo",
     "upcoming": "{{count}} próxima",
-    "viewAria": "Ver {{title}}"
+    "viewAria": "Ver {{title}}",
+    "created": "Creada",
+    "deadlines": "Plazos",
+    "jurisdiction": "Jurisdicción",
+    "leadAttorney": "Abogado principal"
   },
   "tabs": {
     "billing": "Facturación",

@@ -125,6 +125,9 @@
     "emptyDescription": "Try adjusting filters or create a new enquiry.",
     "error": "Failed to load intake leads.",
     "new": "New enquiry",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    },
     "searchPlaceholder": "Search name or email…",
     "title": "Intake queue"
   },

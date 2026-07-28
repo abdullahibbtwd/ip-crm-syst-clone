@@ -126,7 +126,10 @@
     "error": "Échec du chargement des pistes d'admission.",
     "new": "Nouvelle enquête",
     "searchPlaceholder": "Rechercher un nom ou une adresse e-mail…",
-    "title": "File d'attente d'admission"
+    "title": "File d'attente d'admission",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "matterType": {
     "design": "Conception",

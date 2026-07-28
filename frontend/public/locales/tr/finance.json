@@ -48,7 +48,11 @@
       "invoiceNo": "Fatura no.",
       "issued": "Veriliş",
       "payment": "Ödeme",
-      "status": "Durum"
+      "status": "Durum",
+      "invoice": "Fatura",
+      "issueDate": "Düzenleme tarihi",
+      "matter": "Konu",
+      "total": "Toplam"
     },
     "title": "Faturalar",
     "listSubtitle": "Tüm konularda firma çapında fatura kaydı. Konu faturalandırma sekmelerinden faturaları düzenleyin, ardından ödemeleri buraya kaydedin.",

@@ -117,6 +117,8 @@ export class AuthService {
         companyName: companyName || undefined,
         ...(companyName ? {} : splitFullName(dto.fullName.trim())),
         gdprConsent: true,
+        registeredLegalAddress: dto.registeredLegalAddress,
+        correspondenceAddress: dto.correspondenceAddress,
       });
 
       const portalRole = await tx.role.findUniqueOrThrow({

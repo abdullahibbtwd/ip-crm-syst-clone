@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { holdingGroupsApi } from '../api'
-import { holdingGroupKeys } from '../queryKeys'
+import { clientsApi, holdingGroupsApi } from '../api'
+import { clientKeys, holdingGroupKeys } from '../queryKeys'
 import type { HoldingGroupFilters } from '../types'
 import type { CreateHoldingGroupFormValues } from '../schemas'
 
@@ -26,6 +26,30 @@ export function useCreateHoldingGroup() {
     mutationFn: (data: CreateHoldingGroupFormValues) => holdingGroupsApi.create(data),
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: holdingGroupKeys.lists() })
+    },
+  })
+}
+
+export function useSetClientHoldingGroup() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({
+      clientId,
+      holdingGroupId,
+    }: {
+      clientId: string
+      holdingGroupId: string | null
+      holdingGroupIdForInvalidate?: string
+    }) => clientsApi.update(clientId, { holdingGroupId }),
+    onSuccess: (_, { clientId, holdingGroupIdForInvalidate }) => {
+      void queryClient.invalidateQueries({ queryKey: holdingGroupKeys.all })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.detail(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.lists() })
+      if (holdingGroupIdForInvalidate) {
+        void queryClient.invalidateQueries({
+          queryKey: holdingGroupKeys.detail(holdingGroupIdForInvalidate),
+        })
+      }
     },
   })
 }

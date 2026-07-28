@@ -511,7 +511,10 @@
     "perPage": "{{count}} par page",
     "searchPlaceholder": "Rechercher titre, client, numéro de candidature…",
     "title": "Importe",
-    "titlePortal": "Mes affaires"
+    "titlePortal": "Mes affaires",
+    "pagination": {
+      "ofTotal": "of {{total}}"
+    }
   },
   "ipRightsRegister": {
     "description": "Registre des droits de propriété intellectuelle à l'échelle de l'entreprise avec filtres par client, juridiction, type, statut et expiration.",
@@ -584,7 +587,11 @@
     "title": "Titre",
     "type": "Taper",
     "upcoming": "{{count}} à venir",
-    "viewAria": "Afficher {{title}}"
+    "viewAria": "Afficher {{title}}",
+    "created": "Créé",
+    "deadlines": "Délais",
+    "jurisdiction": "Juridiction",
+    "leadAttorney": "Avocat principal"
   },
   "tabs": {
     "billing": "Facturation",
