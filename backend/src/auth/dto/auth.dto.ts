@@ -2,9 +2,12 @@ import {
   IsBoolean,
   IsEmail,
   IsIn,
+  IsInt,
   IsOptional,
   IsString,
   Length,
+  Max,
+  Min,
   MinLength,
   Equals,
   ValidateNested,
@@ -12,6 +15,9 @@ import {
 import { Type } from 'class-transformer';
 import { SUPPORTED_LOCALES } from '../../common/supported-locales';
 import { ClientAddressInputDto } from '../../crm/dto/client-address.dto';
+import { SUPPORTED_INVOICE_CURRENCIES } from '../../crm/clients/client-billing.utils';
+
+const currencyValues = [...SUPPORTED_INVOICE_CURRENCIES];
 
 export class LoginDto {
   @IsEmail()
@@ -91,6 +97,53 @@ export class RegisterDto {
   @ValidateNested()
   @Type(() => ClientAddressInputDto)
   correspondenceAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @IsString()
+  billingName?: string;
+
+  @IsOptional()
+  @IsEmail()
+  billingEmail?: string;
+
+  @IsOptional()
+  @IsString()
+  vatNo?: string;
+
+  @IsOptional()
+  @IsIn(currencyValues)
+  preferredCurrency?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(365)
+  paymentTermsDays?: number;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine1?: string;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine2?: string;
+
+  @IsOptional()
+  @IsString()
+  billingCity?: string;
+
+  @IsOptional()
+  @IsString()
+  billingRegion?: string;
+
+  @IsOptional()
+  @IsString()
+  billingPostalCode?: string;
+
+  @IsOptional()
+  @IsString()
+  billingCountry?: string;
 }
 
 export class UpdateLocaleDto {

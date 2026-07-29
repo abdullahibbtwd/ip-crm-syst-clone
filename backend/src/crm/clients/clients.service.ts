@@ -31,6 +31,7 @@ import {
   SortOrder,
   UpdateClientDto,
 } from './dto/client.dto';
+import { assessBillingReadiness } from './client-billing.utils';
 
 function buildClientOrderBy(
   sortBy: ClientSortBy,
@@ -127,6 +128,16 @@ export class ClientsService {
         notes: dto.notes,
         gdprConsent,
         gdprConsentDate: gdprConsent ? new Date() : null,
+        billingName: dto.billingName?.trim() || null,
+        billingEmail: dto.billingEmail?.trim().toLowerCase() || null,
+        preferredCurrency: dto.preferredCurrency?.toUpperCase() || 'EUR',
+        paymentTermsDays: dto.paymentTermsDays ?? 30,
+        billingAddressLine1: dto.billingAddressLine1?.trim() || null,
+        billingAddressLine2: dto.billingAddressLine2?.trim() || null,
+        billingCity: dto.billingCity?.trim() || null,
+        billingRegion: dto.billingRegion?.trim() || null,
+        billingPostalCode: dto.billingPostalCode?.trim() || null,
+        billingCountry: dto.billingCountry?.trim() || null,
       },
       include: clientInclude,
     });
@@ -221,7 +232,11 @@ export class ClientsService {
       include: clientInclude,
     });
     if (!client) throw new NotFoundException('Client not found');
-    return { ...client, displayName: clientDisplayName(client) };
+    return {
+      ...client,
+      displayName: clientDisplayName(client),
+      billingReadiness: assessBillingReadiness(client),
+    };
   }
 
   async getSummary(id: string) {
@@ -421,6 +436,42 @@ export class ClientsService {
       where: { id },
       data: {
         ...dto,
+        billingEmail:
+          dto.billingEmail === undefined
+            ? undefined
+            : dto.billingEmail?.trim().toLowerCase() || null,
+        preferredCurrency:
+          dto.preferredCurrency === undefined
+            ? undefined
+            : dto.preferredCurrency.toUpperCase(),
+        billingName:
+          dto.billingName === undefined
+            ? undefined
+            : dto.billingName?.trim() || null,
+        billingAddressLine1:
+          dto.billingAddressLine1 === undefined
+            ? undefined
+            : dto.billingAddressLine1?.trim() || null,
+        billingAddressLine2:
+          dto.billingAddressLine2 === undefined
+            ? undefined
+            : dto.billingAddressLine2?.trim() || null,
+        billingCity:
+          dto.billingCity === undefined
+            ? undefined
+            : dto.billingCity?.trim() || null,
+        billingRegion:
+          dto.billingRegion === undefined
+            ? undefined
+            : dto.billingRegion?.trim() || null,
+        billingPostalCode:
+          dto.billingPostalCode === undefined
+            ? undefined
+            : dto.billingPostalCode?.trim() || null,
+        billingCountry:
+          dto.billingCountry === undefined
+            ? undefined
+            : dto.billingCountry?.trim() || null,
         gdprConsent,
         gdprConsentDate,
       },
@@ -453,7 +504,11 @@ export class ClientsService {
       });
     }
 
-    return { ...client, displayName: clientDisplayName(client) };
+    return {
+      ...client,
+      displayName: clientDisplayName(client),
+      billingReadiness: assessBillingReadiness(client),
+    };
   }
 
   async archive(id: string, userId?: string) {

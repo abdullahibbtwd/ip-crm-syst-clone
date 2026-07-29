@@ -1,9 +1,14 @@
 import {
   IsBoolean,
+  IsEmail,
   IsEnum,
+  IsIn,
+  IsInt,
   IsOptional,
   IsString,
   IsUUID,
+  Max,
+  Min,
   ValidateIf,
   ValidateNested,
 } from 'class-validator';
@@ -11,6 +16,7 @@ import { Type } from 'class-transformer';
 import { ClientStatus, ClientType } from '../../../../generated/prisma/client';
 import { PaginationQueryDto } from '../../dto/pagination.dto';
 import { ClientAddressInputDto } from '../../dto/client-address.dto';
+import { SUPPORTED_INVOICE_CURRENCIES } from '../client-billing.utils';
 
 export enum ClientSortBy {
   createdAt = 'createdAt',
@@ -23,6 +29,8 @@ export enum SortOrder {
   asc = 'asc',
   desc = 'desc',
 }
+
+const currencyValues = [...SUPPORTED_INVOICE_CURRENCIES];
 
 export class CreateClientDto {
   @IsEnum(ClientType)
@@ -79,6 +87,49 @@ export class CreateClientDto {
   @IsOptional()
   @IsBoolean()
   gdprConsent?: boolean;
+
+  @IsOptional()
+  @IsString()
+  billingName?: string;
+
+  @IsOptional()
+  @IsEmail()
+  billingEmail?: string;
+
+  @IsOptional()
+  @IsIn(currencyValues)
+  preferredCurrency?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(365)
+  paymentTermsDays?: number;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine1?: string;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine2?: string;
+
+  @IsOptional()
+  @IsString()
+  billingCity?: string;
+
+  @IsOptional()
+  @IsString()
+  billingRegion?: string;
+
+  @IsOptional()
+  @IsString()
+  billingPostalCode?: string;
+
+  @IsOptional()
+  @IsString()
+  billingCountry?: string;
 
   @IsOptional()
   @ValidateNested()
@@ -143,6 +194,49 @@ export class UpdateClientDto {
   @IsOptional()
   @IsBoolean()
   gdprConsent?: boolean;
+
+  @IsOptional()
+  @IsString()
+  billingName?: string | null;
+
+  @IsOptional()
+  @IsEmail()
+  billingEmail?: string | null;
+
+  @IsOptional()
+  @IsIn(currencyValues)
+  preferredCurrency?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(365)
+  paymentTermsDays?: number;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine1?: string | null;
+
+  @IsOptional()
+  @IsString()
+  billingAddressLine2?: string | null;
+
+  @IsOptional()
+  @IsString()
+  billingCity?: string | null;
+
+  @IsOptional()
+  @IsString()
+  billingRegion?: string | null;
+
+  @IsOptional()
+  @IsString()
+  billingPostalCode?: string | null;
+
+  @IsOptional()
+  @IsString()
+  billingCountry?: string | null;
 }
 
 export class ClientQueryDto extends PaginationQueryDto {

@@ -8,6 +8,9 @@ type InvoicePdfData = {
   issueDate: string;
   dueDate: string | null;
   clientName: string;
+  clientVatNo?: string | null;
+  clientEmail?: string | null;
+  clientAddressLines?: string[];
   matterTitle: string;
   currency: string;
   subtotal: number;
@@ -262,6 +265,12 @@ export class InvoicePdfService {
       font-weight: 600;
     }
 
+    .bill-to-line {
+      margin: 3px 0 0;
+      font-size: 10pt;
+      color: #334155;
+    }
+
     .bill-to-matter {
       margin: 6px 0 0;
       font-size: 10pt;
@@ -401,6 +410,19 @@ export class InvoicePdfService {
     <section class="bill-to">
       <p class="bill-to-label">Bill to</p>
       <p class="bill-to-name">${escapeHtml(data.clientName)}</p>
+      ${(data.clientAddressLines ?? [])
+        .map((line) => `<p class="bill-to-line">${escapeHtml(line)}</p>`)
+        .join('')}
+      ${
+        data.clientVatNo
+          ? `<p class="bill-to-line">VAT: ${escapeHtml(data.clientVatNo)}</p>`
+          : ''
+      }
+      ${
+        data.clientEmail
+          ? `<p class="bill-to-line">${escapeHtml(data.clientEmail)}</p>`
+          : ''
+      }
       <p class="bill-to-matter">Matter: ${escapeHtml(data.matterTitle)}</p>
     </section>
 

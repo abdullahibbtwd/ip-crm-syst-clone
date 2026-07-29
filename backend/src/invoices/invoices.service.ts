@@ -18,6 +18,12 @@ import {
 } from './dto/invoice.dto';
 import { InvoicePdfService } from './invoice-pdf.service';
 import { INVOICE_NUMBER_PREFIX } from './invoices.constants';
+import {
+  addDays,
+  assessBillingReadiness,
+  BILLING_INCOMPLETE_CODE,
+  resolveBillToName,
+} from '../crm/clients/client-billing.utils';
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
@@ -25,10 +31,22 @@ const invoiceInclude = {
   client: {
     select: {
       id: true,
+      type: true,
       companyName: true,
       firstName: true,
       lastName: true,
       internalCode: true,
+      vatNo: true,
+      billingName: true,
+      billingEmail: true,
+      preferredCurrency: true,
+      paymentTermsDays: true,
+      billingAddressLine1: true,
+      billingAddressLine2: true,
+      billingCity: true,
+      billingRegion: true,
+      billingPostalCode: true,
+      billingCountry: true,
     },
   },
   matter: { select: { id: true, title: true, matterType: true } },
@@ -185,7 +203,17 @@ export class InvoicesService {
   async createDraft(matterId: string, dto: CreateInvoiceDto, userId: string) {
     const matter = await this.prisma.matter.findUnique({
       where: { id: matterId },
-      select: { id: true, clientId: true, title: true },
+      select: {
+        id: true,
+        clientId: true,
+        title: true,
+        client: {
+          select: {
+            preferredCurrency: true,
+            paymentTermsDays: true,
+          },
+        },
+      },
     });
     if (!matter) throw new NotFoundException('Matter not found');
 
@@ -218,6 +246,10 @@ export class InvoicesService {
     const taxRate = dto.taxRate ?? null;
     const taxAmount = taxRate != null ? roundMoney(subtotal * (taxRate / 100)) : 0;
     const totalAmount = roundMoney(subtotal + taxAmount);
+    const currency = matter.client?.preferredCurrency || 'EUR';
+    const dueDate = dto.dueDate
+      ? new Date(dto.dueDate)
+      : addDays(new Date(), matter.client?.paymentTermsDays || 30);
 
     const invoice = await this.prisma.$transaction(async (tx) => {
       const created = await tx.invoice.create({
@@ -225,12 +257,12 @@ export class InvoicesService {
           clientId: matter.clientId,
           matterId,
           status: InvoiceStatus.draft,
-          currency: 'EUR',
+          currency,
           subtotal,
           taxRate,
           taxAmount,
           totalAmount,
-          dueDate: dto.dueDate ? new Date(dto.dueDate) : null,
+          dueDate,
           notes: dto.notes?.trim() || null,
           createdById: userId,
         },
@@ -318,8 +350,21 @@ export class InvoicesService {
       throw new BadRequestException('Only draft invoices can be issued');
     }
 
+    const billing = assessBillingReadiness(existing.client);
+    if (!billing.ready) {
+      throw new BadRequestException({
+        message:
+          'Client billing profile is incomplete. Add billing details before issuing this invoice.',
+        code: BILLING_INCOMPLETE_CODE,
+        clientId: existing.client.id,
+        missingFields: billing.missingFields,
+      });
+    }
+
     const invoiceNumber = await this.nextInvoiceNumber();
     const issueDate = new Date();
+    const dueDate =
+      existing.dueDate ?? addDays(issueDate, billing.paymentTermsDays);
 
     const issued = await this.prisma.invoice.update({
       where: { id },
@@ -327,6 +372,8 @@ export class InvoicesService {
         status: InvoiceStatus.issued,
         invoiceNumber,
         issueDate,
+        dueDate,
+        currency: existing.currency || billing.preferredCurrency,
       },
       include: invoiceInclude,
     });
@@ -334,8 +381,11 @@ export class InvoicesService {
     const pdfStorageKey = await this.pdf.generateAndStore(id, {
       invoiceNumber,
       issueDate: issueDate.toISOString().slice(0, 10),
-      dueDate: issued.dueDate ? issued.dueDate.toISOString().slice(0, 10) : null,
-      clientName: clientDisplayName(issued.client),
+      dueDate: dueDate.toISOString().slice(0, 10),
+      clientName: resolveBillToName(issued.client),
+      clientVatNo: billing.billToVatNo,
+      clientEmail: billing.billToEmail,
+      clientAddressLines: billing.billToAddressLines,
       matterTitle: issued.matter.title,
       currency: issued.currency,
       subtotal: decimalToNumber(issued.subtotal),

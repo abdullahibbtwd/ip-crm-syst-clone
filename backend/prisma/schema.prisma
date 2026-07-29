@@ -298,6 +298,18 @@ model Client {
   notes          String?
   gdprConsent    Boolean      @default(false) @map("gdpr_consent")
   gdprConsentDate DateTime?   @map("gdpr_consent_date") @db.Timestamptz(6)
+  /// Optional invoice bill-to name (falls back to company / person name).
+  billingName    String?      @map("billing_name")
+  /// Email used when sending invoices.
+  billingEmail   String?      @map("billing_email")
+  preferredCurrency String    @default("EUR") @map("preferred_currency")
+  paymentTermsDays  Int       @default(30) @map("payment_terms_days")
+  billingAddressLine1 String? @map("billing_address_line1")
+  billingAddressLine2 String? @map("billing_address_line2")
+  billingCity         String? @map("billing_city")
+  billingRegion       String? @map("billing_region")
+  billingPostalCode   String? @map("billing_postal_code")
+  billingCountry      String? @map("billing_country")
   createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
 
@@ -862,6 +874,33 @@ enum DeadlineRuleTriggerType {
   customs_seizure
 
   @@map("deadline_rule_trigger_type")
+}
+
+/// Filing office / authority used across IP rights, deadlines, renewals, and watch.
+enum JurisdictionType {
+  national
+  regional
+  international
+
+  @@map("jurisdiction_type")
+}
+
+model Jurisdiction {
+  id         String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  code       String           @unique
+  name       String
+  officeName String           @map("office_name")
+  type       JurisdictionType @default(national)
+  isPriority Boolean          @default(false) @map("is_priority")
+  isActive   Boolean          @default(true) @map("is_active")
+  sortOrder  Int              @default(100) @map("sort_order")
+  createdAt  DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([isActive])
+  @@index([isPriority])
+  @@index([sortOrder])
+  @@map("jurisdictions")
 }
 
 model DeadlineRule {

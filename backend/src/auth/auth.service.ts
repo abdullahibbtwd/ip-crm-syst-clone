@@ -119,6 +119,17 @@ export class AuthService {
         gdprConsent: true,
         registeredLegalAddress: dto.registeredLegalAddress,
         correspondenceAddress: dto.correspondenceAddress,
+        vatNo: dto.vatNo,
+        billingName: dto.billingName,
+        billingEmail: dto.billingEmail ?? email,
+        preferredCurrency: dto.preferredCurrency,
+        paymentTermsDays: dto.paymentTermsDays,
+        billingAddressLine1: dto.billingAddressLine1,
+        billingAddressLine2: dto.billingAddressLine2,
+        billingCity: dto.billingCity,
+        billingRegion: dto.billingRegion,
+        billingPostalCode: dto.billingPostalCode,
+        billingCountry: dto.billingCountry,
       });
 
       const portalRole = await tx.role.findUniqueOrThrow({
