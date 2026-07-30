@@ -125,11 +125,11 @@
     "emptyDescription": "Essayez d'ajuster les filtres ou créez une nouvelle demande.",
     "error": "Échec du chargement des pistes d'admission.",
     "new": "Nouvelle enquête",
-    "searchPlaceholder": "Rechercher un nom ou une adresse e-mail…",
-    "title": "File d'attente d'admission",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "du {{total}}"
+    },
+    "searchPlaceholder": "Rechercher un nom ou une adresse e-mail…",
+    "title": "File d'attente d'admission"
   },
   "matterType": {
     "design": "Conception",

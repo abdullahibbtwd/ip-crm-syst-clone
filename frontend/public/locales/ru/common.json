@@ -55,15 +55,15 @@
     "openMenu": "Открыть меню"
   },
   "pagination": {
+    "go": "Идти",
+    "maxPerPage": "Максимум {{max}}",
     "noResults": "Нет результатов",
+    "ofPages": "из {{count}}",
     "page": "Страница {{page}}",
-    "showing": "Показаны {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Страница",
+    "perPage": "за страницу",
+    "perPageLabel": "За страницу",
+    "showing": "Показаны {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Отчеты"

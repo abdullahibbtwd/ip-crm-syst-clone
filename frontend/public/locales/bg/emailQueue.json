@@ -7,9 +7,9 @@
   "fetchEmptyHint": " (вече импортирани или входящата е празна)",
   "fetchFailed": "Неуспешно извличане на имейли",
   "columns": {
-    "received": "Получен",
+    "received": "Получено",
     "from": "От",
-    "subject": "Тема",
+    "subject": "Относно",
     "mailbox": "Пощенска кутия",
     "suggestion": "Предложение",
     "actions": "Действия"
@@ -30,7 +30,7 @@
   },
   "actions": {
     "viewEmail": "Преглед на имейл",
-    "reply": "Отговор",
+    "reply": "Отговори",
     "attachToMatter": "Прикачи към кореспонденция на дело",
     "downloadEml": "Изтегли .eml"
   }

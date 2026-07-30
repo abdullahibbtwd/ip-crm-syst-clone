@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "商标观察",
     "title": "商标观察",
     "description": "检查针对活动手表配置文件检测到的潜在冲突。",
     "empty": "没有手表提醒符合您的过滤条件。",
-    "loading": "正在加载手表警报..."
+    "loading": "正在加载手表警报...",
+    "worklist": "工作清单",
+    "worklistDescription": "按状态、管辖权或注册来源过滤。"
   },
   "detail": {
     "title": "观看警报",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "新警报",
     "accepted": "公认",
-    "rejected": "被拒绝"
+    "rejected": "被拒绝",
+    "hintAwaitingTriage": "待分诊",
+    "hintMattersCreated": "已创建事项",
+    "hintFalsePositives": "误报"
   },
   "profileStatus": {
     "active": "积极的",

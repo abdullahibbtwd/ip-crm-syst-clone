@@ -125,11 +125,11 @@
     "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծեք նոր հարցում:",
     "error": "Չհաջողվեց բեռնել ընդունման լարերը:",
     "new": "Նոր հարցում",
-    "searchPlaceholder": "Որոնել անունը կամ էլ․ հասցեն…",
-    "title": "Ընդունման հերթ",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "{{total}}-ից"
+    },
+    "searchPlaceholder": "Որոնել անունը կամ էլ․ հասցեն…",
+    "title": "Ընդունման հերթ"
   },
   "matterType": {
     "design": "Դիզայն",

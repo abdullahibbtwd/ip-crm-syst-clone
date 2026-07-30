@@ -45,6 +45,19 @@ function buildStorageKey(
   return `matters/${matterId}/${documentId}/v${version}/${sanitizeFileName(fileName)}`;
 }
 
+function buildClientStorageKey(
+  clientId: string,
+  documentId: string,
+  version: number,
+  fileName: string,
+) {
+  return `clients/${clientId}/${documentId}/v${version}/${sanitizeFileName(fileName)}`;
+}
+
+const clientVersionInclude = {
+  uploadedBy: { select: userSelect },
+} satisfies Prisma.ClientDocumentVersionInclude;
+
 @Injectable()
 export class DocumentsService {
   constructor(
@@ -486,5 +499,282 @@ export class DocumentsService {
       select: { id: true },
     });
     if (!matter) throw new NotFoundException('Matter not found');
+  }
+
+  private async assertClientExists(clientId: string) {
+    const client = await this.prisma.client.findUnique({
+      where: { id: clientId },
+      select: { id: true },
+    });
+    if (!client) throw new NotFoundException('Client not found');
+  }
+
+  async listUnifiedForClient(clientId: string, query: DocumentQueryDto) {
+    await this.assertClientExists(clientId);
+    const search = query.search?.trim();
+    const searchWhere = search
+      ? {
+          OR: [
+            { displayName: { contains: search, mode: 'insensitive' as const } },
+            { tags: { has: search.toLowerCase() } },
+          ],
+        }
+      : {};
+
+    const [clientDocs, matterDocs] = await Promise.all([
+      this.prisma.clientDocument.findMany({
+        where: {
+          clientId,
+          category: query.category,
+          ...searchWhere,
+        },
+        orderBy: { updatedAt: 'desc' },
+        include: {
+          createdBy: { select: userSelect },
+          versions: {
+            orderBy: { version: 'desc' },
+            take: 1,
+            include: clientVersionInclude,
+          },
+          _count: { select: { versions: true } },
+        },
+      }),
+      this.prisma.matterDocument.findMany({
+        where: {
+          matter: { clientId },
+          category: query.category,
+          ...searchWhere,
+        },
+        orderBy: { updatedAt: 'desc' },
+        include: {
+          matter: { select: { id: true, title: true } },
+          createdBy: { select: userSelect },
+          versions: {
+            orderBy: { version: 'desc' },
+            take: 1,
+            include: versionInclude,
+          },
+          _count: { select: { versions: true } },
+        },
+      }),
+    ]);
+
+    const matters = await this.prisma.matter.findMany({
+      where: { clientId },
+      select: { id: true, title: true },
+      orderBy: { title: 'asc' },
+    });
+
+    return {
+      matters,
+      clientDocuments: clientDocs.map((doc) => ({
+        id: doc.id,
+        clientId: doc.clientId,
+        scope: 'client' as const,
+        displayName: doc.displayName,
+        category: doc.category,
+        tags: doc.tags,
+        createdAt: doc.createdAt,
+        updatedAt: doc.updatedAt,
+        createdBy: doc.createdBy,
+        versionCount: doc._count.versions,
+        latestVersion: doc.versions[0] ?? null,
+      })),
+      matterDocuments: matterDocs.map((doc) => ({
+        id: doc.id,
+        matterId: doc.matterId,
+        matterTitle: doc.matter.title,
+        scope: 'matter' as const,
+        displayName: doc.displayName,
+        category: doc.category,
+        tags: doc.tags,
+        createdAt: doc.createdAt,
+        updatedAt: doc.updatedAt,
+        createdBy: doc.createdBy,
+        versionCount: doc._count.versions,
+        latestVersion: doc.versions[0] ?? null,
+      })),
+    };
+  }
+
+  async uploadForClient(
+    clientId: string,
+    file: Express.Multer.File,
+    dto: UploadDocumentDto,
+    userId: string,
+  ) {
+    await this.assertClientExists(clientId);
+    this.validateFile(file);
+
+    const displayName = dto.displayName?.trim() || file.originalname;
+    const tags = parseTags(dto.tags);
+
+    return this.createClientFromBuffer({
+      clientId,
+      userId,
+      displayName,
+      category: dto.category,
+      tags,
+      fileName: file.originalname,
+      mimeType: file.mimetype,
+      buffer: file.buffer,
+    });
+  }
+
+  async createClientFromBuffer(input: {
+    clientId: string;
+    userId: string;
+    displayName: string;
+    category: DocumentCategory;
+    tags: string[];
+    fileName: string;
+    mimeType: string;
+    buffer: Buffer;
+  }) {
+    await this.assertClientExists(input.clientId);
+
+    if (input.buffer.length > MAX_UPLOAD_BYTES) {
+      throw new BadRequestException(
+        `File exceeds maximum size of ${MAX_UPLOAD_BYTES} bytes`,
+      );
+    }
+    if (!isAllowedUploadMime(input.mimeType, input.fileName)) {
+      throw new BadRequestException(`MIME type not allowed: ${input.mimeType}`);
+    }
+
+    const document = await this.prisma.clientDocument.create({
+      data: {
+        clientId: input.clientId,
+        displayName: input.displayName,
+        category: input.category,
+        tags: input.tags,
+        createdById: input.userId,
+      },
+    });
+
+    const storageKey = buildClientStorageKey(
+      input.clientId,
+      document.id,
+      1,
+      input.fileName,
+    );
+
+    try {
+      await this.storage.putObject(storageKey, input.buffer, input.mimeType);
+      const version = await this.prisma.clientDocumentVersion.create({
+        data: {
+          documentId: document.id,
+          version: 1,
+          fileName: input.fileName,
+          mimeType: input.mimeType,
+          sizeBytes: input.buffer.length,
+          storageKey,
+          uploadedById: input.userId,
+        },
+        include: clientVersionInclude,
+      });
+
+      return {
+        id: document.id,
+        clientId: document.clientId,
+        scope: 'client' as const,
+        displayName: document.displayName,
+        category: document.category,
+        tags: document.tags,
+        createdAt: document.createdAt,
+        updatedAt: document.updatedAt,
+        versionCount: 1,
+        latestVersion: version,
+      };
+    } catch (err) {
+      await this.prisma.clientDocument.delete({ where: { id: document.id } });
+      throw err;
+    }
+  }
+
+  async uploadClientVersion(
+    documentId: string,
+    file: Express.Multer.File,
+    userId: string,
+  ) {
+    this.validateFile(file);
+
+    const document = await this.prisma.clientDocument.findUnique({
+      where: { id: documentId },
+      include: { versions: { orderBy: { version: 'desc' }, take: 1 } },
+    });
+    if (!document) throw new NotFoundException('Document not found');
+
+    const nextVersion = (document.versions[0]?.version ?? 0) + 1;
+    const storageKey = buildClientStorageKey(
+      document.clientId,
+      document.id,
+      nextVersion,
+      file.originalname,
+    );
+
+    await this.storage.putObject(storageKey, file.buffer, file.mimetype);
+
+    const version = await this.prisma.clientDocumentVersion.create({
+      data: {
+        documentId: document.id,
+        version: nextVersion,
+        fileName: file.originalname,
+        mimeType: file.mimetype,
+        sizeBytes: file.size,
+        storageKey,
+        uploadedById: userId,
+      },
+      include: clientVersionInclude,
+    });
+
+    await this.prisma.clientDocument.update({
+      where: { id: document.id },
+      data: { updatedAt: new Date() },
+    });
+
+    return version;
+  }
+
+  async listClientVersions(documentId: string) {
+    const document = await this.prisma.clientDocument.findUnique({
+      where: { id: documentId },
+      select: { id: true },
+    });
+    if (!document) throw new NotFoundException('Document not found');
+
+    return this.prisma.clientDocumentVersion.findMany({
+      where: { documentId },
+      orderBy: { version: 'desc' },
+      include: clientVersionInclude,
+    });
+  }
+
+  async getClientDownloadUrl(documentId: string, versionId?: string) {
+    const doc = await this.prisma.clientDocument.findUnique({
+      where: { id: documentId },
+      select: { clientId: true },
+    });
+    if (!doc) throw new NotFoundException('Document not found');
+
+    const version = versionId
+      ? await this.prisma.clientDocumentVersion.findFirst({
+          where: { id: versionId, documentId },
+        })
+      : await this.prisma.clientDocumentVersion.findFirst({
+          where: { documentId },
+          orderBy: { version: 'desc' },
+        });
+
+    if (!version) throw new NotFoundException('Document version not found');
+
+    const url = await this.storage.getPresignedDownloadUrl(version.storageKey);
+    return {
+      url,
+      fileName: version.fileName,
+      mimeType: version.mimeType,
+      version: version.version,
+      clientId: doc.clientId,
+    };
   }
 }

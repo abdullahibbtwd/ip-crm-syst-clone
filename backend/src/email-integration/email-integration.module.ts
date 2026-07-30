@@ -2,6 +2,7 @@ import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
 import { AiModule } from '../ai/ai.module';
 import { CorrespondenceModule } from '../correspondence/correspondence.module';
+import { DocumentsModule } from '../documents/documents.module';
 import {
   EMAIL_SYNC_BACKOFF_MS,
   EMAIL_SYNC_JOB_ATTEMPTS,
@@ -28,6 +29,7 @@ import { OutboundEmailProcessor } from './processors/outbound-email.processor';
 @Module({
   imports: [
     CorrespondenceModule,
+    DocumentsModule,
     AiModule,
     BullModule.registerQueue(
       {

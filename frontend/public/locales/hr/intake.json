@@ -125,11 +125,11 @@
     "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novi upit.",
     "error": "Nije uspjelo učitavanje usisnih vodova.",
     "new": "Novi upit",
-    "searchPlaceholder": "Traži ime ili e-poštu…",
-    "title": "Red čekanja za unos",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "od {{total}}"
+    },
+    "searchPlaceholder": "Traži ime ili e-poštu…",
+    "title": "Red čekanja za unos"
   },
   "matterType": {
     "design": "Dizajn",

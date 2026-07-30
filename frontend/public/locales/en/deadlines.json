@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Start",
+    "complete": "Complete"
+  },
   "status": {
     "pending": "Pending",
     "in_progress": "In progress",

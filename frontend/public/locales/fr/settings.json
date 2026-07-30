@@ -45,6 +45,11 @@
       "description": "Configurez les décalages de juridiction et de type de sujet pour les délais créés automatiquement.",
       "action": "Gérer les règles de délais"
     },
+    "jurisdictions": {
+      "title": "Juridictions",
+      "description": "Un seul endroit pour gérer les bureaux de classement, les règles de délais et les calendriers de jours fériés pour chaque pays ou bureau régional.",
+      "action": "Gérer les juridictions"
+    },
     "holidays": {
       "title": "Calendrier des jours fériés",
       "description": "Jours fériés dans les juridictions utilisés pour compter les jours ouvrables pour les délais.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Le nom et la date sont obligatoires",
       "saveFailed": "Échec de l'enregistrement des vacances"
+    }
+  },
+  "jurisdictions": {
+    "title": "Juridictions",
+    "subtitle": "Ouvrez un bureau de classement pour gérer ses règles de délais et ses jours fériés en un seul endroit. Les bureaux prioritaires apparaissent en premier dans les sélecteurs.",
+    "newJurisdiction": "Ajouter une juridiction",
+    "noPermission": "Vous n'êtes pas autorisé à gérer les juridictions.",
+    "loading": "Chargement des juridictions…",
+    "loadError": "Échec du chargement des juridictions.",
+    "empty": "Aucune juridiction ne correspond à ces filtres.",
+    "searchPlaceholder": "Rechercher un code, un bureau ou un nom…",
+    "editAria": "Modifier la juridiction",
+    "filters": {
+      "all": "Tous les statuts"
+    },
+    "columns": {
+      "jurisdiction": "Juridiction",
+      "type": "Taper",
+      "automation": "Automation",
+      "rules": "Règles",
+      "holidays": "Vacances",
+      "status": "Statut"
+    },
+    "type": {
+      "national": "National",
+      "regional": "Régional",
+      "international": "Internationale"
+    },
+    "automation": {
+      "full": "Complète",
+      "partial": "Partielle",
+      "manual": "Manuel"
+    },
+    "priority": {
+      "yes": "Priorité",
+      "no": "Standard",
+      "badge": "Priorité"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "hub": {
+      "back": "Toutes les juridictions",
+      "editOffice": "Modifier le bureau",
+      "manageRules": "Ajouter ou modifier des règles de délai",
+      "manageHolidays": "Ajouter ou modifier des jours fériés",
+      "noRules": "Il n'y a pas encore de règles de délais pour ce bureau. Ajoutez-en un pour activer l’enregistrement automatique.",
+      "noHolidays": "Pas encore de vacances. Ajoutez-les pour que les délais des jours ouvrables évitent les fermetures de bureaux.",
+      "tabs": {
+        "overview": "Aperçu",
+        "rules": "Règles de délai",
+        "holidays": "Vacances"
+      },
+      "automationHint": {
+        "full": "L'enregistrement automatique est prêt : les règles et les jours fériés sont configurés.",
+        "partial": "Des règles existent, mais il manque des jours fériés. Le décompte des jours ouvrables utilise uniquement les week-ends.",
+        "manual": "Aucune règle de délai pour l’instant. Les droits peuvent toujours être déposés ici ; les délais doivent être créés manuellement jusqu'à ce que des règles soient ajoutées."
+      }
+    },
+    "drawer": {
+      "createTitle": "Ajouter une juridiction",
+      "editTitle": "Modifier la juridiction",
+      "code": "Code",
+      "codeHint": "Code de bureau de 2 à 4 caractères (par exemple US, EU, WO). Ne peut pas être modifié ultérieurement.",
+      "officeName": "Nom du bureau",
+      "name": "Nom du pays/région",
+      "type": "Taper",
+      "priority": "Liste prioritaire",
+      "status": "Statut",
+      "sortOrder": "Ordre de tri",
+      "cancel": "Annuler",
+      "create": "Créer une juridiction",
+      "save": "Enregistrer les modifications"
+    },
+    "errors": {
+      "required": "Le nom du bureau et le nom du pays/région sont requis",
+      "codeRequired": "Le code est requis",
+      "sortOrder": "Entrez un ordre de tri valide",
+      "saveFailed": "Échec de la sauvegarde de la juridiction"
     }
   },
   "emailIntegration": {

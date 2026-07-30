@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ForbiddenException,
   Injectable,
   NotFoundException,
@@ -12,6 +13,7 @@ import {
   UnlinkedEmailStatus,
 } from '../../generated/prisma/client';
 import { CorrespondenceService } from '../correspondence/correspondence.service';
+import { DocumentsService } from '../documents/documents.service';
 import { EmlParserService } from '../correspondence/eml-parser.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { MinioStorageService } from '../storage/minio-storage.service';
@@ -42,6 +44,15 @@ const queueInclude = {
       },
     },
   },
+  suggestedClient: {
+    select: {
+      id: true,
+      internalCode: true,
+      companyName: true,
+      firstName: true,
+      lastName: true,
+    },
+  },
 } satisfies Prisma.UnlinkedEmailInclude;
 
 @Injectable()
@@ -50,6 +61,7 @@ export class UnlinkedEmailService {
     private readonly prisma: PrismaService,
     private readonly storage: MinioStorageService,
     private readonly correspondence: CorrespondenceService,
+    private readonly documents: DocumentsService,
     private readonly emlParser: EmlParserService,
   ) {}
 
@@ -107,6 +119,7 @@ export class UnlinkedEmailService {
       mailboxConnectionId: row.mailboxConnectionId,
       mailboxConnection: row.mailboxConnection,
       suggestedMatter: row.suggestedMatter,
+      suggestedClient: row.suggestedClient,
       suggestedCategory: row.suggestedCategory,
       metadata: row.metadata,
     };
@@ -134,6 +147,30 @@ export class UnlinkedEmailService {
     }
 
     return updated;
+  }
+
+  async link(
+    id: string,
+    userId: string,
+    roles: string[],
+    opts: {
+      matterId?: string;
+      clientId?: string;
+      category?: DocumentCategory;
+    },
+  ) {
+    const matterId = opts.matterId?.trim() || undefined;
+    const clientId = opts.clientId?.trim() || undefined;
+    if ((!matterId && !clientId) || (matterId && clientId)) {
+      throw new BadRequestException(
+        'Provide exactly one of matterId or clientId',
+      );
+    }
+    const category = opts.category ?? DocumentCategory.correspondence;
+    if (matterId) {
+      return this.linkToMatter(id, matterId, userId, roles, category);
+    }
+    return this.linkToClient(id, clientId!, userId, roles, category);
   }
 
   async linkToMatter(
@@ -189,6 +226,90 @@ export class UnlinkedEmailService {
         messageId: row.internetMessageId ?? parsed.messageId ?? undefined,
         bodyText,
         documentVersionId,
+        mailboxConnectionId: row.mailboxConnectionId,
+        metadata: {
+          logMethod: 'synced',
+          unlinkedEmailId: row.id,
+          mailboxProvider: row.mailboxConnection.provider,
+        },
+      },
+      userId,
+    );
+
+    await this.prisma.unlinkedEmail.update({
+      where: { id },
+      data: {
+        status: UnlinkedEmailStatus.linked,
+        linkedCorrespondenceId: correspondence.id,
+        linkedById: userId,
+        linkedAt: new Date(),
+      },
+    });
+
+    return { correspondence, unlinkedEmailId: id };
+  }
+
+  async linkToClient(
+    id: string,
+    clientId: string,
+    userId: string,
+    roles: string[],
+    category: DocumentCategory = DocumentCategory.correspondence,
+  ) {
+    if (!this.canLink(roles)) {
+      throw new ForbiddenException('Not allowed to link queued emails');
+    }
+
+    const client = await this.prisma.client.findUnique({
+      where: { id: clientId },
+      select: { id: true },
+    });
+    if (!client) throw new NotFoundException('Client not found');
+
+    const row = await this.prisma.unlinkedEmail.findUnique({
+      where: { id },
+      include: { mailboxConnection: true },
+    });
+    if (!row || row.status !== UnlinkedEmailStatus.pending) {
+      throw new NotFoundException('Queued email not found or already processed');
+    }
+
+    const emlBuffer = await this.storage.getObjectBuffer(row.emlStorageKey);
+    const parsed = await this.emlParser.parseBuffer(emlBuffer);
+    const metadata = row.metadata as Record<string, unknown> | null;
+
+    const sender = parsed.sender || row.sender || 'Unknown sender';
+    const recipient = parsed.recipient || row.recipient || '';
+    const subject = parsed.subject || row.subject || '(No subject)';
+    const bodyText =
+      parsed.bodyText ??
+      (typeof metadata?.bodyPreview === 'string' ? metadata.bodyPreview : undefined);
+
+    const clientDoc = await this.documents.createClientFromBuffer({
+      clientId,
+      userId,
+      displayName: subject.trim() || 'Synced email',
+      category: DocumentCategory.correspondence,
+      tags: ['email', 'synced', 'eml'],
+      fileName: `${subject.replace(/[^a-zA-Z0-9._-]+/g, '_').slice(0, 80) || 'email'}.eml`,
+      mimeType: 'message/rfc822',
+      buffer: emlBuffer,
+    });
+
+    const correspondence = await this.correspondence.createForClient(
+      clientId,
+      {
+        direction: CorrespondenceDirection.incoming,
+        category,
+        correspondenceDate: row.receivedAt.toISOString().slice(0, 10),
+        sender,
+        recipient,
+        subject,
+        status: CorrespondenceStatus.received,
+        source: CorrespondenceSource.synced,
+        messageId: row.internetMessageId ?? parsed.messageId ?? undefined,
+        bodyText,
+        clientDocumentVersionId: clientDoc.latestVersion.id,
         mailboxConnectionId: row.mailboxConnectionId,
         metadata: {
           logMethod: 'synced',

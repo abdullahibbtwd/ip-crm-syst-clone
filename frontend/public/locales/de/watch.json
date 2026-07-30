@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Markenuhr",
     "title": "Markenuhr",
     "description": "Überprüfen Sie potenzielle Konflikte, die anhand aktiver Überwachungsprofile erkannt wurden.",
     "empty": "Keine Uhrenwarnungen entsprechen Ihren Filtern.",
-    "loading": "Uhrwarnungen werden geladen…"
+    "loading": "Uhrwarnungen werden geladen…",
+    "worklist": "Arbeitsliste",
+    "worklistDescription": "Filtern Sie nach Status, Gerichtsbarkeit oder Registrierungsquelle."
   },
   "detail": {
     "title": "Achtung",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Neue Warnungen",
     "accepted": "Akzeptiert",
-    "rejected": "Abgelehnt"
+    "rejected": "Abgelehnt",
+    "hintAwaitingTriage": "Wartet auf Prüfung",
+    "hintMattersCreated": "Angelegte Sachen",
+    "hintFalsePositives": "Falschmeldungen"
   },
   "profileStatus": {
     "active": "Aktiv",

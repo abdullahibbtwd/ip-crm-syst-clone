@@ -55,15 +55,15 @@
     "openMenu": "Menüyü aç"
   },
   "pagination": {
+    "go": "Gitmek",
+    "maxPerPage": "Maksimum {{max}}",
     "noResults": "Sonuç yok",
+    "ofPages": "{{count}}",
     "page": "Sayfa {{page}}",
-    "showing": "Gösterilen {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Sayfa",
+    "perPage": "sayfa başına",
+    "perPageLabel": "Sayfa başına",
+    "showing": "Gösterilen {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Raporlar"

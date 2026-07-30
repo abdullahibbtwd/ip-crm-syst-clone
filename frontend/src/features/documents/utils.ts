@@ -8,6 +8,7 @@ export const DOCUMENT_CATEGORY_LABELS: Record<
   certificate: 'Certificate',
   correspondence: 'Correspondence',
   renewal: 'Renewal',
+  general: 'General',
 }
 
 export function formatFileSize(bytes: number) {

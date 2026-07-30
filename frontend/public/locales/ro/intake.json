@@ -125,11 +125,11 @@
     "emptyDescription": "Încercați să ajustați filtrele sau să creați o nouă întrebare.",
     "error": "Nu s-au încărcat cablurile de admisie.",
     "new": "Noua ancheta",
-    "searchPlaceholder": "Căutați numele sau adresa de e-mail...",
-    "title": "Coada de admisie",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "din {{total}}"
+    },
+    "searchPlaceholder": "Căutați numele sau adresa de e-mail...",
+    "title": "Coada de admisie"
   },
   "matterType": {
     "design": "Proiecta",

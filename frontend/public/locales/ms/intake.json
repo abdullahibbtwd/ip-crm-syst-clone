@@ -125,11 +125,11 @@
     "emptyDescription": "Cuba laraskan penapis atau buat pertanyaan baharu.",
     "error": "Gagal memuatkan petunjuk pengambilan.",
     "new": "Siasatan baru",
-    "searchPlaceholder": "Cari nama atau e-mel…",
-    "title": "Barisan pengambilan",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "daripada {{total}}"
+    },
+    "searchPlaceholder": "Cari nama atau e-mel…",
+    "title": "Barisan pengambilan"
   },
   "matterType": {
     "design": "Reka bentuk",

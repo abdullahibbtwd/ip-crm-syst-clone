@@ -125,11 +125,11 @@
     "emptyDescription": "Proovige filtreid kohandada või looge uus päring.",
     "error": "Sisselaskejuhtmete laadimine ebaõnnestus.",
     "new": "Uus päring",
-    "searchPlaceholder": "Otsi nime või e-posti aadressi…",
-    "title": "Vastuvõtu järjekord",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "{{total}}"
+    },
+    "searchPlaceholder": "Otsi nime või e-posti aadressi…",
+    "title": "Vastuvõtu järjekord"
   },
   "matterType": {
     "design": "Disain",

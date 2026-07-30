@@ -79,7 +79,9 @@ export function WatchAlertsPage() {
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-primary">
               <Eye className="size-5" />
-              <span className="text-xs font-semibold uppercase tracking-wider">Trademark Watch</span>
+              <span className="text-xs font-semibold uppercase tracking-wider">
+                {t('page.eyebrow')}
+              </span>
             </div>
             <h1 className="font-serif text-3xl font-semibold tracking-tight">{t('page.title')}</h1>
             <p className="max-w-2xl text-sm text-muted-foreground">{t('page.description')}</p>
@@ -93,21 +95,21 @@ export function WatchAlertsPage() {
           value={data?.newCount ?? 0}
           icon={AlertTriangle}
           tone="alert"
-          hint="Awaiting triage"
+          hint={t('stats.hintAwaitingTriage')}
         />
         <ReportStatCard
           label={t('stats.accepted')}
           value={data?.acceptedCount ?? 0}
           icon={CheckCircle2}
           tone="green"
-          hint="Matters created"
+          hint={t('stats.hintMattersCreated')}
         />
         <ReportStatCard
           label={t('stats.rejected')}
           value={data?.rejectedCount ?? 0}
           icon={XCircle}
           tone="neutral"
-          hint="False positives"
+          hint={t('stats.hintFalsePositives')}
         />
       </div>
 
@@ -115,11 +117,9 @@ export function WatchAlertsPage() {
         <div className="space-y-1">
           <div className="flex items-center gap-2 text-brand-green">
             <Eye className="size-4" />
-            <h2 className="font-medium">Worklist</h2>
+            <h2 className="font-medium">{t('page.worklist')}</h2>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Filter by status, jurisdiction, or registry source.
-          </p>
+          <p className="text-sm text-muted-foreground">{t('page.worklistDescription')}</p>
         </div>
         <div className="flex flex-wrap gap-3">
           <Select

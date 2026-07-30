@@ -259,10 +259,10 @@ export class PrecedentsService {
         title: dto.title,
         category: dto.category,
         bodyHtml: textToHtml(bodySource),
-        matterType: dto.matterType ?? correspondence.matter.matterType,
+        matterType: dto.matterType ?? correspondence.matter?.matterType,
         jurisdiction: dto.jurisdiction,
         tags: dto.tags,
-        sourceMatterId: correspondence.matterId,
+        sourceMatterId: correspondence.matterId ?? undefined,
       },
       user,
     );

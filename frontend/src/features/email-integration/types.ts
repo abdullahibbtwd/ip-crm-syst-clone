@@ -38,6 +38,14 @@ export type QueueMatterSuggestion = {
   }
 }
 
+export type QueueClientSuggestion = {
+  id: string
+  internalCode: string | null
+  companyName: string | null
+  firstName: string | null
+  lastName: string | null
+}
+
 export type UnlinkedEmail = {
   id: string
   mailboxConnectionId: string
@@ -50,6 +58,7 @@ export type UnlinkedEmail = {
   hasAttachments: boolean
   status: UnlinkedEmailStatus
   suggestedMatterId: string | null
+  suggestedClientId: string | null
   suggestionReason: string | null
   suggestedCategory: CorrespondenceCategory | null
   metadata: Record<string, unknown> | null
@@ -63,6 +72,7 @@ export type UnlinkedEmail = {
     userId: string
   }
   suggestedMatter: QueueMatterSuggestion | null
+  suggestedClient: QueueClientSuggestion | null
 }
 
 export type EmailQueueStats = {
@@ -72,7 +82,8 @@ export type EmailQueueStats = {
 export type LinkEmailResult = {
   correspondence: {
     id: string
-    matterId: string
+    matterId: string | null
+    clientId?: string | null
     subject: string
     source: 'manual' | 'synced'
   }
@@ -94,6 +105,7 @@ export type QueuedEmailPreview = {
   mailboxConnectionId: string
   mailboxConnection: UnlinkedEmail['mailboxConnection']
   suggestedMatter: QueueMatterSuggestion | null
+  suggestedClient: QueueClientSuggestion | null
   suggestedCategory: CorrespondenceCategory | null
   metadata?: {
     aiSummary?: { text: string; generatedAt: string; model: string }

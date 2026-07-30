@@ -55,6 +55,7 @@ describe('EmailSyncService', () => {
     suggestions = {
       suggest: jest.fn().mockResolvedValue({
         suggestedMatterId: 'm1',
+        suggestedClientId: 'c1',
         suggestionReason: 'sender match',
       }),
     };
@@ -132,6 +133,7 @@ describe('EmailSyncService', () => {
         data: expect.objectContaining({
           status: UnlinkedEmailStatus.pending,
           suggestedMatterId: 'm1',
+          suggestedClientId: 'c1',
         }),
       }),
     );

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   CheckCircle2,
   ClipboardPaste,
@@ -23,9 +24,12 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { InsertPrecedentPicker } from '@/features/precedents/components/InsertPrecedentPicker'
 import {
+  useCreateClientCorrespondence,
   useCreateCorrespondence,
   useParseEml,
+  useParseEmlForClient,
   useParsePastedEmail,
+  useParsePastedEmailForClient,
 } from '@/features/correspondence/hooks/useCorrespondence'
 import type {
   CorrespondenceCategory,
@@ -35,36 +39,27 @@ import type {
 } from '@/features/correspondence/types'
 import {
   CORRESPONDENCE_CATEGORIES,
-  CORRESPONDENCE_CATEGORY_LABELS,
+  correspondenceCategoryLabel,
 } from '@/features/correspondence/utils'
-import { useUploadDocument } from '@/features/documents/hooks/useDocuments'
+import {
+  useUploadClientDocument,
+  useUploadDocument,
+} from '@/features/documents/hooks/useDocuments'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 
-const MODES: Array<{
-  id: Extract<LogEmailMode, 'eml' | 'paste'>
-  label: string
-  description: string
-  icon: typeof Mail
-}> = [
-  {
-    id: 'eml',
-    label: 'Upload .eml',
-    description: 'Drag a file saved from Outlook or Gmail',
-    icon: Mail,
-  },
-  {
-    id: 'paste',
-    label: 'Paste email',
-    description: 'Copy the full email text from your inbox',
-    icon: ClipboardPaste,
-  },
-]
+type MatterOption = { id: string; title: string }
 
 type LogEmailDrawerProps = {
   open: boolean
   onClose: () => void
-  matterId: string
+  /** Matter page: fixed matter scope. */
+  matterId?: string
+  /** Client page: enable client / matter scope picker. */
+  clientId?: string
+  matters?: MatterOption[]
+  /** Prefer opening on client files or a matter folder. */
+  initialScope?: 'client' | string
 }
 
 function applyParsedFields(
@@ -94,12 +89,73 @@ function applyParsedFields(
   })
 }
 
-export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps) {
+export function LogEmailDrawer({
+  open,
+  onClose,
+  matterId,
+  clientId,
+  matters = [],
+  initialScope = 'client',
+}: LogEmailDrawerProps) {
+  const { t } = useTranslation(['matters', 'common'])
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const createCorrespondence = useCreateCorrespondence(matterId)
-  const parseEml = useParseEml(matterId)
-  const parseText = useParsePastedEmail(matterId)
-  const uploadDocument = useUploadDocument(matterId)
+  const allowScopePicker = Boolean(clientId) && !matterId
+
+  const modes = useMemo(
+    () =>
+      [
+        {
+          id: 'eml' as const,
+          label: t('correspondence.logEmail.modeEml'),
+          description: t('correspondence.logEmail.modeEmlDesc'),
+          icon: Mail,
+        },
+        {
+          id: 'paste' as const,
+          label: t('correspondence.logEmail.modePaste'),
+          description: t('correspondence.logEmail.modePasteDesc'),
+          icon: ClipboardPaste,
+        },
+      ] satisfies Array<{
+        id: Extract<LogEmailMode, 'eml' | 'paste'>
+        label: string
+        description: string
+        icon: typeof Mail
+      }>,
+    [t],
+  )
+
+  const [linkScope, setLinkScope] = useState<'client' | string>(
+    matterId ? matterId : initialScope,
+  )
+
+  useEffect(() => {
+    if (!open) return
+    setLinkScope(matterId ? matterId : initialScope)
+  }, [open, matterId, initialScope])
+
+  const resolvedMatterId = matterId ?? (linkScope !== 'client' ? linkScope : undefined)
+  const isClientScope = Boolean(clientId) && !resolvedMatterId
+  const scopeWord = t(
+    isClientScope
+      ? 'correspondence.logEmail.scopeWordClient'
+      : 'correspondence.logEmail.scopeWordMatter',
+  )
+
+  const createForMatter = useCreateCorrespondence(resolvedMatterId ?? '')
+  const createForClient = useCreateClientCorrespondence(clientId ?? '')
+  const parseEmlMatter = useParseEml(resolvedMatterId ?? '')
+  const parseEmlClient = useParseEmlForClient(clientId ?? '')
+  const parseTextMatter = useParsePastedEmail(resolvedMatterId ?? '')
+  const parseTextClient = useParsePastedEmailForClient(clientId ?? '')
+  const uploadMatterDoc = useUploadDocument(resolvedMatterId ?? '')
+  const uploadClientDoc = useUploadClientDocument(clientId ?? '')
+
+  const parseEml = isClientScope || (!resolvedMatterId && clientId) ? parseEmlClient : parseEmlMatter
+  const parseText =
+    isClientScope || (!resolvedMatterId && clientId) ? parseTextClient : parseTextMatter
+  const uploadDocument = isClientScope ? uploadClientDoc : uploadMatterDoc
+  const createCorrespondence = isClientScope ? createForClient : createForMatter
 
   const [mode, setMode] = useState<Extract<LogEmailMode, 'eml' | 'paste'>>('eml')
   const [step, setStep] = useState<'capture' | 'review'>('capture')
@@ -171,13 +227,13 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
       setStep('review')
     } catch (err) {
       setEmlFile(null)
-      setError(getApiErrorMessage(err, 'Could not read the .eml file'))
+      setError(getApiErrorMessage(err, t('correspondence.logEmail.errors.emlFailed')))
     }
   }
 
   const processPastedText = async () => {
     if (!pastedText.trim()) {
-      setError('Paste the email content first')
+      setError(t('correspondence.logEmail.errors.pasteEmpty'))
       return
     }
     setError(null)
@@ -187,7 +243,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
       setStatus('received')
       setStep('review')
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Could not parse pasted email'))
+      setError(getApiErrorMessage(err, t('correspondence.logEmail.errors.pasteFailed')))
     }
   }
 
@@ -196,12 +252,21 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
     setError(null)
 
     if (!sender.trim() || !recipient.trim() || !subject.trim()) {
-      setError('Sender, recipient, and subject are required')
+      setError(t('correspondence.logEmail.errors.requiredFields'))
+      return
+    }
+    if (allowScopePicker && linkScope !== 'client' && !linkScope) {
+      setError(t('correspondence.logEmail.errors.selectMatterOrClient'))
+      return
+    }
+    if (!isClientScope && !resolvedMatterId) {
+      setError(t('correspondence.logEmail.errors.selectScope'))
       return
     }
 
     try {
       let documentVersionId: string | undefined
+      let clientDocumentVersionId: string | undefined
 
       if (mode === 'eml' && emlFile) {
         const uploaded = await uploadDocument.mutateAsync({
@@ -210,32 +275,42 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
           category: 'correspondence',
           tags: 'email,eml',
         })
-        documentVersionId = uploaded.latestVersion?.id
+        const versionId = uploaded.latestVersion?.id
+        if (isClientScope) clientDocumentVersionId = versionId
+        else documentVersionId = versionId
       }
 
-      await createCorrespondence.mutateAsync({
-        direction: 'incoming',
+      const payload = {
+        direction: 'incoming' as const,
         category,
         correspondenceDate,
         sender: sender.trim(),
         recipient: recipient.trim(),
         subject: subject.trim(),
         status,
-        source: 'manual',
+        source: 'manual' as const,
         messageId: messageId ?? undefined,
         bodyText: bodyText ?? undefined,
         metadata: {
           ...parsedMeta,
           logMethod: parsedMeta.logMethod ?? mode,
         },
-        documentVersionId,
         isClientVisible,
-      })
+        ...(isClientScope
+          ? { clientDocumentVersionId }
+          : { documentVersionId }),
+      }
+
+      if (isClientScope) {
+        await createForClient.mutateAsync(payload)
+      } else {
+        await createForMatter.mutateAsync(payload)
+      }
 
       resetForm()
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to log email'))
+      setError(getApiErrorMessage(err, t('correspondence.logEmail.errors.saveFailed')))
     }
   }
 
@@ -243,18 +318,46 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
   const isSaving = createCorrespondence.isPending || uploadDocument.isPending
   const attachmentCount = Number(parsedMeta.attachmentCount ?? 0)
   const showPreview = step === 'review'
+  const saveLabel = isClientScope
+    ? t('correspondence.logEmail.saveToClient')
+    : t('correspondence.logEmail.saveToMatter')
 
   return (
     <Drawer
       open={open}
       onClose={onClose}
-      title="Log email"
+      title={t('correspondence.logEmail.title')}
       className="max-w-lg"
     >
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Mode selector */}
+        {allowScopePicker ? (
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-muted-foreground">
+              {t('correspondence.logEmail.saveTo')}
+            </label>
+            <Select
+              value={linkScope}
+              onValueChange={(v) => v && setLinkScope(v)}
+            >
+              <SelectTrigger className="bg-background">
+                <SelectValue placeholder={t('correspondence.logEmail.chooseScope')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="client">
+                  {t('correspondence.logEmail.scopeClient')}
+                </SelectItem>
+                {matters.map((m) => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {t('correspondence.logEmail.scopeMatter', { title: m.title })}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        ) : null}
+
         <div className="grid gap-2 rounded-xl border bg-muted/20 p-1.5">
-          {MODES.map(({ id, label, description, icon: Icon }) => (
+          {modes.map(({ id, label, description, icon: Icon }) => (
             <button
               key={id}
               type="button"
@@ -282,7 +385,6 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
           ))}
         </div>
 
-        {/* Capture step */}
         {mode === 'eml' && step === 'capture' ? (
           <div
             className={cn(
@@ -305,13 +407,15 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
             {isParsing ? (
               <>
                 <Loader2 className="size-8 animate-spin text-primary" />
-                <p className="text-sm font-medium">Reading email file…</p>
+                <p className="text-sm font-medium">{t('correspondence.logEmail.readingFile')}</p>
               </>
             ) : emlFile ? (
               <>
                 <CheckCircle2 className="size-8 text-emerald-600" />
                 <p className="text-sm font-medium">{emlFile.name}</p>
-                <p className="text-xs text-muted-foreground">Parsed — review details below</p>
+                <p className="text-xs text-muted-foreground">
+                  {t('correspondence.logEmail.parsedReview')}
+                </p>
               </>
             ) : (
               <>
@@ -319,9 +423,9 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
                   <Upload className="size-5 text-primary" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium">Drop your .eml file here</p>
+                  <p className="text-sm font-medium">{t('correspondence.logEmail.dropEml')}</p>
                   <p className="text-xs text-muted-foreground">
-                    Save the message from Outlook or Gmail, then drag it in
+                    {t('correspondence.logEmail.dropEmlHint')}
                   </p>
                 </div>
                 <Button
@@ -330,7 +434,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
                   size="sm"
                   onClick={() => fileInputRef.current?.click()}
                 >
-                  Browse files
+                  {t('correspondence.logEmail.browseFiles')}
                 </Button>
               </>
             )}
@@ -349,7 +453,7 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
             <Textarea
               value={pastedText}
               onChange={(e) => setPastedText(e.target.value)}
-              placeholder={`Paste the full email here, including headers if available:\n\nFrom: client@example.com\nTo: you@firm.com\nSubject: Office Action\nDate: Mon, 9 Jul 2026\n\nDear Counsel,…`}
+              placeholder={t('correspondence.logEmail.pastePlaceholder')}
               className="min-h-[220px] resize-y font-mono text-xs leading-relaxed"
             />
             <Button
@@ -361,64 +465,66 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
               {parseText.isPending ? (
                 <>
                   <Loader2 className="size-4 animate-spin" />
-                  Parsing…
+                  {t('correspondence.logEmail.parsing')}
                 </>
               ) : (
                 <>
                   <Sparkles className="size-4" />
-                  Extract email details
+                  {t('correspondence.logEmail.extractDetails')}
                 </>
               )}
             </Button>
           </div>
         ) : null}
 
-        {/* Parsed preview */}
         {showPreview ? (
           <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4">
             <div className="mb-3 flex items-center gap-2 text-sm font-medium text-emerald-800 dark:text-emerald-300">
               <CheckCircle2 className="size-4 shrink-0" />
-              Email details extracted
+              {t('correspondence.logEmail.extractedTitle')}
               {attachmentCount > 0 ? (
                 <Badge variant="outline" className="ml-auto normal-case">
-                  {attachmentCount} attachment{attachmentCount === 1 ? '' : 's'} in file
+                  {t('correspondence.logEmail.attachmentCount', { count: attachmentCount })}
                 </Badge>
               ) : null}
             </div>
             <dl className="grid gap-2 text-sm">
               <div className="grid grid-cols-[4rem_1fr] gap-2">
-                <dt className="text-muted-foreground">From</dt>
+                <dt className="text-muted-foreground">{t('correspondence.logEmail.from')}</dt>
                 <dd className="font-medium">{sender || '—'}</dd>
               </div>
               <div className="grid grid-cols-[4rem_1fr] gap-2">
-                <dt className="text-muted-foreground">To</dt>
+                <dt className="text-muted-foreground">{t('correspondence.logEmail.to')}</dt>
                 <dd>{recipient || '—'}</dd>
               </div>
               <div className="grid grid-cols-[4rem_1fr] gap-2">
-                <dt className="text-muted-foreground">Subject</dt>
+                <dt className="text-muted-foreground">{t('correspondence.logEmail.subject')}</dt>
                 <dd className="font-medium">{subject || '—'}</dd>
               </div>
             </dl>
             {mode === 'eml' && emlFile ? (
               <p className="mt-3 text-xs text-muted-foreground">
-                Original <span className="font-mono">{emlFile.name}</span> will be saved to this
-                matter.
+                {t('correspondence.logEmail.originalSaved', {
+                  fileName: emlFile.name,
+                  scope: scopeWord,
+                })}
               </p>
             ) : null}
           </div>
         ) : null}
 
-        {/* Review form */}
         {step === 'review' && (
           <section className="space-y-4 rounded-xl border bg-muted/10 p-4">
             <div className="flex items-center gap-2 text-sm font-medium">
               <FileText className="size-4 text-muted-foreground" />
-              Confirm & adjust
+              {t('correspondence.logEmail.confirmAdjust')}
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-muted-foreground">Category</label>
+                <label className="text-xs font-medium text-muted-foreground">
+                  {t('correspondence.logEmail.category')}
+                </label>
                 <Select
                   value={category}
                   onValueChange={(v) => v && setCategory(v as CorrespondenceCategory)}
@@ -429,14 +535,16 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
                   <SelectContent>
                     {CORRESPONDENCE_CATEGORIES.map((c) => (
                       <SelectItem key={c} value={c}>
-                        {CORRESPONDENCE_CATEGORY_LABELS[c]}
+                        {correspondenceCategoryLabel(c)}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-muted-foreground">Date</label>
+                <label className="text-xs font-medium text-muted-foreground">
+                  {t('correspondence.logEmail.date')}
+                </label>
                 <Input
                   type="date"
                   className="bg-background"
@@ -447,91 +555,72 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Sender</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.logEmail.sender')}
+              </label>
               <Input
                 className="bg-background"
                 value={sender}
                 onChange={(e) => setSender(e.target.value)}
-                placeholder="sender@example.com"
+                placeholder={t('correspondence.logEmail.senderPlaceholder')}
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Recipient</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.logEmail.recipient')}
+              </label>
               <Input
                 className="bg-background"
                 value={recipient}
                 onChange={(e) => setRecipient(e.target.value)}
-                placeholder="recipient@firm.com"
+                placeholder={t('correspondence.logEmail.recipientPlaceholder')}
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Subject</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.logEmail.subject')}
+              </label>
               <Input
                 className="bg-background"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                placeholder="Email subject"
+                placeholder={t('correspondence.logEmail.subjectPlaceholder')}
               />
             </div>
 
-            {bodyText ? (
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between gap-2">
-                  <label className="text-xs font-medium text-muted-foreground">Body preview</label>
-                  <PermissionGate resource="precedent" action="read">
-                    <InsertPrecedentPicker
-                      onInsert={(html) => {
-                        const plain = html
-                          .replace(/<br\s*\/?>/gi, '\n')
-                          .replace(/<\/p>/gi, '\n\n')
-                          .replace(/<[^>]+>/g, '')
-                          .replace(/&nbsp;/g, ' ')
-                          .trim()
-                        setBodyText((prev) =>
-                          prev?.trim() ? `${prev.trim()}\n\n${plain}` : plain,
-                        )
-                      }}
-                    />
-                  </PermissionGate>
-                </div>
-                <Textarea
-                  className="max-h-40 bg-background text-xs leading-relaxed"
-                  rows={6}
-                  value={bodyText}
-                  onChange={(e) => setBodyText(e.target.value)}
-                />
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between gap-2">
+                <label className="text-xs font-medium text-muted-foreground">
+                  {t('correspondence.logEmail.body')}
+                </label>
+                <PermissionGate resource="precedent" action="read">
+                  <InsertPrecedentPicker
+                    onInsert={(html) => {
+                      const plain = html
+                        .replace(/<br\s*\/?>/gi, '\n')
+                        .replace(/<\/p>/gi, '\n\n')
+                        .replace(/<[^>]+>/g, '')
+                        .replace(/&nbsp;/g, ' ')
+                        .trim()
+                      setBodyText((prev) =>
+                        prev?.trim() ? `${prev.trim()}\n\n${plain}` : plain,
+                      )
+                    }}
+                  />
+                </PermissionGate>
               </div>
-            ) : (
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between gap-2">
-                  <label className="text-xs font-medium text-muted-foreground">Body</label>
-                  <PermissionGate resource="precedent" action="read">
-                    <InsertPrecedentPicker
-                      onInsert={(html) => {
-                        const plain = html
-                          .replace(/<br\s*\/?>/gi, '\n')
-                          .replace(/<\/p>/gi, '\n\n')
-                          .replace(/<[^>]+>/g, '')
-                          .replace(/&nbsp;/g, ' ')
-                          .trim()
-                        setBodyText(plain)
-                      }}
-                    />
-                  </PermissionGate>
-                </div>
-                <Textarea
-                  className="bg-background text-xs"
-                  rows={4}
-                  value={bodyText ?? ''}
-                  onChange={(e) => setBodyText(e.target.value || null)}
-                  placeholder="Optional — paste text or insert a precedent"
-                />
-              </div>
-            )}
+              <Textarea
+                className="max-h-40 bg-background text-xs leading-relaxed"
+                rows={6}
+                value={bodyText ?? ''}
+                onChange={(e) => setBodyText(e.target.value || null)}
+                placeholder={t('correspondence.logEmail.bodyPlaceholder')}
+              />
+            </div>
 
-            {category === 'office_action' ? (
+            {category === 'office_action' && !isClientScope ? (
               <p className="text-xs text-amber-700 dark:text-amber-400">
-                A response deadline will be added to the attorney worklist automatically.
+                {t('correspondence.logEmail.officeActionHint')}
               </p>
             ) : null}
 
@@ -543,9 +632,11 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
                 onChange={(e) => setIsClientVisible(e.target.checked)}
               />
               <span>
-                <span className="block text-sm font-medium">Send to client inbox</span>
+                <span className="block text-sm font-medium">
+                  {t('correspondence.logEmail.sendToInbox')}
+                </span>
                 <span className="text-xs text-muted-foreground">
-                  Show this entry in the client portal Messages inbox.
+                  {t('correspondence.logEmail.sendToInboxHint')}
                 </span>
               </span>
             </label>
@@ -560,17 +651,17 @@ export function LogEmailDrawer({ open, onClose, matterId }: LogEmailDrawerProps)
 
         <div className="flex justify-end gap-2 border-t pt-4">
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
-          {(step === 'review') && (
+          {step === 'review' && (
             <Button type="submit" disabled={isSaving || isParsing}>
               {isSaving ? (
                 <>
                   <Loader2 className="size-4 animate-spin" />
-                  Saving…
+                  {t('correspondence.logEmail.saving')}
                 </>
               ) : (
-                'Save to matter'
+                saveLabel
               )}
             </Button>
           )}

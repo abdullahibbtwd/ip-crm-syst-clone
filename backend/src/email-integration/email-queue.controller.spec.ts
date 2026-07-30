@@ -11,7 +11,7 @@ describe('EmailQueueController', () => {
     getPreview: jest.fn(),
     getDownloadUrl: jest.fn(),
     getById: jest.fn(),
-    linkToMatter: jest.fn(),
+    link: jest.fn(),
     dismiss: jest.fn(),
   };
 
@@ -54,13 +54,11 @@ describe('EmailQueueController', () => {
     );
     await controller.dismiss('ue1', req);
 
-    expect(queue.linkToMatter).toHaveBeenCalledWith(
-      'ue1',
-      'm1',
-      'u1',
-      user.roles,
-      'correspondence',
-    );
+    expect(queue.link).toHaveBeenCalledWith('ue1', 'u1', user.roles, {
+      matterId: 'm1',
+      clientId: undefined,
+      category: 'correspondence',
+    });
     expect(queue.dismiss).toHaveBeenCalledWith('ue1', 'u1', user.roles);
   });
 });

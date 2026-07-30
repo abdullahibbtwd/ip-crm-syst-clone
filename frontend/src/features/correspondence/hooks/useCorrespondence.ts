@@ -22,6 +22,23 @@ export function useMatterCorrespondence(matterId: string) {
   })
 }
 
+export function useClientCorrespondence(clientId: string) {
+  return useQuery({
+    queryKey: correspondenceKeys.client(clientId),
+    queryFn: () => correspondenceApi.listForClient(clientId),
+    enabled: Boolean(clientId),
+    refetchInterval: (query) => {
+      const data = query.state.data
+      const rows = [
+        ...(data?.clientCorrespondence ?? []),
+        ...(data?.matterCorrespondence ?? []),
+      ]
+      if (!rows.some(isEpoDocumentFetching)) return false
+      return 5_000
+    },
+  })
+}
+
 export function useMatterTimeline(matterId: string) {
   return useQuery({
     queryKey: correspondenceKeys.timeline(matterId),
@@ -52,6 +69,18 @@ export function useCreateCorrespondence(matterId: string) {
   })
 }
 
+export function useCreateClientCorrespondence(clientId: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (input: CreateCorrespondenceInput) =>
+      correspondenceApi.createForClient(clientId, input),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: correspondenceKeys.client(clientId) })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.portal() })
+    },
+  })
+}
+
 export function useParseEml(matterId: string) {
   return useMutation({
     mutationFn: (file: File) => correspondenceApi.parseEml(matterId, file),
@@ -61,6 +90,18 @@ export function useParseEml(matterId: string) {
 export function useParsePastedEmail(matterId: string) {
   return useMutation({
     mutationFn: (text: string) => correspondenceApi.parseText(matterId, text),
+  })
+}
+
+export function useParseEmlForClient(clientId: string) {
+  return useMutation({
+    mutationFn: (file: File) => correspondenceApi.parseEmlForClient(clientId, file),
+  })
+}
+
+export function useParsePastedEmailForClient(clientId: string) {
+  return useMutation({
+    mutationFn: (text: string) => correspondenceApi.parseTextForClient(clientId, text),
   })
 }
 

@@ -55,15 +55,15 @@
     "openMenu": "Otvorite meni"
   },
   "pagination": {
+    "go": "Idi",
+    "maxPerPage": "Maksimalno {{max}}",
     "noResults": "Nema rezultata",
+    "ofPages": "od {{count}}",
     "page": "Stranica {{page}}",
-    "showing": "Prikazujem {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Stranica",
+    "perPage": "po stranici",
+    "perPageLabel": "Po stranici",
+    "showing": "Prikazujem {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Izvještaji"

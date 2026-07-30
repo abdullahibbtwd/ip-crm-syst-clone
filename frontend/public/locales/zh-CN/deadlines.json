@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "开始",
+    "complete": "完全的"
+  },
   "status": {
     "pending": "待办的",
     "in_progress": "进行中",

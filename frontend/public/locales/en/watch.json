@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Trademark Watch",
     "title": "Trademark Watch",
     "description": "Review potential conflicts detected against active watch profiles.",
     "empty": "No watch alerts match your filters.",
-    "loading": "Loading watch alerts…"
+    "loading": "Loading watch alerts…",
+    "worklist": "Worklist",
+    "worklistDescription": "Filter by status, jurisdiction, or registry source."
   },
   "detail": {
     "title": "Watch alert",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "New alerts",
     "accepted": "Accepted",
-    "rejected": "Rejected"
+    "rejected": "Rejected",
+    "hintAwaitingTriage": "Awaiting triage",
+    "hintMattersCreated": "Matters created",
+    "hintFalsePositives": "False positives"
   },
   "profileStatus": {
     "active": "Active",

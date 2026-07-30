@@ -45,6 +45,11 @@
       "description": "为自动创建的截止日期配置管辖权和事项类型偏移。",
       "action": "管理截止日期规则"
     },
+    "jurisdictions": {
+      "title": "司法管辖区",
+      "description": "一个管理每个国家或地区办事处的档案办公室、截止日期规则和假期日历的地方。",
+      "action": "管理管辖区"
+    },
     "holidays": {
       "title": "假期日历",
       "description": "计算截止日期的工作日时使用的司法管辖区假期。",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "姓名和日期为必填项",
       "saveFailed": "未能保存假期"
+    }
+  },
+  "jurisdictions": {
+    "title": "司法管辖区",
+    "subtitle": "开设档案办公室，在一个地方管理其截止日期规则和假期。 优先办公室首先出现在选择器中。",
+    "newJurisdiction": "添加管辖权",
+    "noPermission": "您无权管理管辖区。",
+    "loading": "正在加载司法管辖区...",
+    "loadError": "无法加载管辖区。",
+    "empty": "没有司法管辖区匹配这些过滤器。",
+    "searchPlaceholder": "搜索代码、办公室或姓名...",
+    "editAria": "编辑管辖范围",
+    "filters": {
+      "all": "所有状态"
+    },
+    "columns": {
+      "jurisdiction": "管辖权",
+      "type": "类型",
+      "automation": "自动化",
+      "rules": "规则",
+      "holidays": "假期",
+      "status": "地位"
+    },
+    "type": {
+      "national": "国家的",
+      "regional": "区域性",
+      "international": "国际的"
+    },
+    "automation": {
+      "full": "满的",
+      "partial": "部分的",
+      "manual": "手动的"
+    },
+    "priority": {
+      "yes": "优先事项",
+      "no": "标准",
+      "badge": "优先事项"
+    },
+    "status": {
+      "active": "积极的",
+      "inactive": "不活跃"
+    },
+    "hub": {
+      "back": "所有司法管辖区",
+      "editOffice": "编辑办公室",
+      "manageRules": "添加或编辑截止时间规则",
+      "manageHolidays": "添加或编辑假期",
+      "noRules": "该办公室尚无截止日期规则。 添加一项以启用自动归档。",
+      "noHolidays": "还没有假期。 添加它们，以便工作日截止日期可以跳过办公室关闭的时间。",
+      "tabs": {
+        "overview": "概述",
+        "rules": "截止日期规则",
+        "holidays": "假期"
+      },
+      "automationHint": {
+        "full": "自动记录已准备就绪 - 规则和假期已配置。",
+        "partial": "规则是有的，但假期却没有。 工作日计算仅使用周末。",
+        "manual": "还没有截止日期规则。 仍可在此处提交权利； 在添加规则之前，必须手动创建截止日期。"
+      }
+    },
+    "drawer": {
+      "createTitle": "添加管辖权",
+      "editTitle": "编辑管辖范围",
+      "code": "代码",
+      "codeHint": "2–4 个字符的办事处代码（例如 US、EU、WO）。 以后无法更改。",
+      "officeName": "办事处名称",
+      "name": "国家/地区名称",
+      "type": "类型",
+      "priority": "优先上市",
+      "status": "地位",
+      "sortOrder": "排序顺序",
+      "cancel": "取消",
+      "create": "创建管辖权",
+      "save": "保存更改"
+    },
+    "errors": {
+      "required": "办公室名称和国家/地区名称为必填项",
+      "codeRequired": "需要代码",
+      "sortOrder": "输入有效的排序顺序",
+      "saveFailed": "未能保存管辖权"
     }
   },
   "emailIntegration": {

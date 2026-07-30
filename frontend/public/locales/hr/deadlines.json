@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Pokreni",
+    "complete": "Kompletan"
+  },
   "status": {
     "pending": "Na čekanju",
     "in_progress": "U tijeku",

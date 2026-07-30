@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Начинать",
+    "complete": "Полный"
+  },
   "status": {
     "pending": "В ожидании",
     "in_progress": "В ходе выполнения",

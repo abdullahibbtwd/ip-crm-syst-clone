@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Започнете",
+    "complete": "Целосно"
+  },
   "status": {
     "pending": "Во очекување",
     "in_progress": "Во тек",

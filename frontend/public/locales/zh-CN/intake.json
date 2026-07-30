@@ -125,11 +125,11 @@
     "emptyDescription": "尝试调整过滤器或创建新的查询。",
     "error": "无法加载引入线索。",
     "new": "新询价",
-    "searchPlaceholder": "搜索姓名或电子邮件...",
-    "title": "摄入队列",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "{{total}} 的"
+    },
+    "searchPlaceholder": "搜索姓名或电子邮件...",
+    "title": "摄入队列"
   },
   "matterType": {
     "design": "设计",

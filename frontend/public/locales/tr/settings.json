@@ -45,6 +45,11 @@
       "description": "Otomatik olarak oluşturulan son tarihler için yetki alanı ve konu türü denkleştirmelerini yapılandırın.",
       "action": "Son tarih kurallarını yönetin"
     },
+    "jurisdictions": {
+      "title": "Yargı bölgeleri",
+      "description": "Her ülke veya bölge ofisi için dosyalama ofislerini, son tarih kurallarını ve tatil takvimlerini yönetebileceğiniz tek yer.",
+      "action": "Yetki alanlarını yönetin"
+    },
     "holidays": {
       "title": "Tatil takvimi",
       "description": "Son teslim tarihlerine ilişkin iş günlerini sayarken yargı tatilleri kullanılır.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "İsim ve tarih gerekli",
       "saveFailed": "Tatil kaydedilemedi"
+    }
+  },
+  "jurisdictions": {
+    "title": "Yargı bölgeleri",
+    "subtitle": "Son teslim tarihi kurallarını ve tatillerini tek bir yerden yönetmek için bir dosyalama ofisi açın. Öncelikli ofisler toplayıcılarda ilk sırada görünür.",
+    "newJurisdiction": "Yetki alanı ekle",
+    "noPermission": "Yetki alanlarını yönetme izniniz yok.",
+    "loading": "Yetki alanları yükleniyor…",
+    "loadError": "Yetki alanları yüklenemedi.",
+    "empty": "Bu filtrelerle eşleşen hiçbir yetki alanı yok.",
+    "searchPlaceholder": "Kodu, ofisi veya adı arayın…",
+    "editAria": "Yargı yetkisini düzenle",
+    "filters": {
+      "all": "Tüm durumlar"
+    },
+    "columns": {
+      "jurisdiction": "Yargı yetkisi",
+      "type": "Tip",
+      "automation": "Otomasyon",
+      "rules": "Tüzük",
+      "holidays": "Tatiller",
+      "status": "Durum"
+    },
+    "type": {
+      "national": "Ulusal",
+      "regional": "Bölgesel",
+      "international": "Uluslararası"
+    },
+    "automation": {
+      "full": "Tam dolu",
+      "partial": "Kısmi",
+      "manual": "Manuel"
+    },
+    "priority": {
+      "yes": "Öncelik",
+      "no": "Standart",
+      "badge": "Öncelik"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Etkin değil"
+    },
+    "hub": {
+      "back": "Tüm yargı bölgeleri",
+      "editOffice": "Ofisi düzenle",
+      "manageRules": "Son tarih kurallarını ekleme veya düzenleme",
+      "manageHolidays": "Tatil ekleme veya düzenleme",
+      "noRules": "Bu ofis için henüz son tarih kuralı yok. Otomatik yerleştirmeyi etkinleştirmek için bir tane ekleyin.",
+      "noHolidays": "Henüz tatil yok. İş günü teslim tarihlerinin ofis kapanışlarını atlaması için bunları ekleyin.",
+      "tabs": {
+        "overview": "Genel Bakış",
+        "rules": "Son tarih kuralları",
+        "holidays": "Tatiller"
+      },
+      "automationHint": {
+        "full": "Otomatik yerleştirme hazır; kurallar ve tatiller yapılandırıldı.",
+        "partial": "Kurallar var ama tatiller eksik. İş günü sayımı yalnızca hafta sonlarını kullanır.",
+        "manual": "Henüz son tarih kuralı yok. Haklar hâlâ burada dosyalanabilir; Kurallar eklenene kadar son tarihler manuel olarak oluşturulmalıdır."
+      }
+    },
+    "drawer": {
+      "createTitle": "Yetki alanı ekle",
+      "editTitle": "Yargı yetkisini düzenle",
+      "code": "Kod",
+      "codeHint": "2–4 karakterli ofis kodu (ör. ABD, AB, WO). Daha sonra değiştirilemez.",
+      "officeName": "Ofis adı",
+      "name": "Ülke/bölge adı",
+      "type": "Tip",
+      "priority": "Öncelikli listeleme",
+      "status": "Durum",
+      "sortOrder": "Sıralama düzeni",
+      "cancel": "İptal etmek",
+      "create": "Yetki alanı oluştur",
+      "save": "Değişiklikleri kaydet"
+    },
+    "errors": {
+      "required": "Ofis adı ve ülke/bölge adı gerekli",
+      "codeRequired": "Kod gerekli",
+      "sortOrder": "Geçerli bir sıralama düzeni girin",
+      "saveFailed": "Yargı yetkisi kurtarılamadı"
     }
   },
   "emailIntegration": {

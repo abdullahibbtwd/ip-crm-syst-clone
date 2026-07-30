@@ -27,6 +27,7 @@ describe('MatterSuggestionService', () => {
       service.suggest('sender@example.com', 'Re: CL-2026-042 office action'),
     ).resolves.toEqual({
       suggestedMatterId: 'matter-1',
+      suggestedClientId: 'client-1',
       suggestionReason: 'subject_ref',
     });
   });
@@ -39,6 +40,7 @@ describe('MatterSuggestionService', () => {
       service.suggest('sender@example.com', 'Hello', 'Please see CL-2026-042'),
     ).resolves.toEqual({
       suggestedMatterId: 'matter-1',
+      suggestedClientId: 'client-1',
       suggestionReason: 'body_ref',
     });
   });
@@ -52,6 +54,7 @@ describe('MatterSuggestionService', () => {
       service.suggest('Ada <ada@client.com>', 'Status update'),
     ).resolves.toEqual({
       suggestedMatterId: 'matter-1',
+      suggestedClientId: 'client-1',
       suggestionReason: 'single_active_matter',
     });
 
@@ -77,6 +80,7 @@ describe('MatterSuggestionService', () => {
       service.suggest('client@example.com', 'Question'),
     ).resolves.toEqual({
       suggestedMatterId: 'matter-new',
+      suggestedClientId: 'client-1',
       suggestionReason: 'contact_match',
     });
   });
@@ -89,6 +93,7 @@ describe('MatterSuggestionService', () => {
       service.suggest('unknown@example.com', 'Hello'),
     ).resolves.toEqual({
       suggestedMatterId: null,
+      suggestedClientId: null,
       suggestionReason: null,
     });
 

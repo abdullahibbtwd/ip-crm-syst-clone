@@ -97,9 +97,11 @@ export function HoldingGroupsTable({
         {!isLoading && isError && (
           <TableRow>
             <TableCell colSpan={4} className="py-16 text-center">
-              <p className="text-sm font-medium text-destructive">Failed to load holding groups.</p>
+              <p className="text-sm font-medium text-destructive">
+                {t('holdingGroups.error')}
+              </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Check your connection and permissions, then try again.
+                {t('errors.retryHint', { ns: 'common' })}
               </p>
             </TableCell>
           </TableRow>
@@ -113,9 +115,9 @@ export function HoldingGroupsTable({
                   <Landmark className="size-5 text-muted-foreground" />
                 </span>
                 <div>
-                  <p className="font-medium text-foreground">No holding groups found</p>
+                  <p className="font-medium text-foreground">{t('holdingGroups.empty')}</p>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Try adjusting search or create a new holding group.
+                    {t('holdingGroups.emptyDescription')}
                   </p>
                 </div>
               </div>
@@ -134,7 +136,7 @@ export function HoldingGroupsTable({
               )}
               tabIndex={0}
               role="link"
-              aria-label={`View ${group.name}`}
+              aria-label={t('holdingGroups.viewAria', { name: group.name })}
               onClick={() => navigate(`/holding-groups/${group.id}`)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -158,7 +160,7 @@ export function HoldingGroupsTable({
                   className={buttonVariants({ variant: 'outline', size: 'sm' })}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  View
+                  {t('actions.view', { ns: 'common' })}
                   <ChevronRight className="size-4 opacity-60" />
                 </Link>
               </TableCell>
@@ -173,22 +175,25 @@ export function HoldingGroupsTable({
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 className="size-3.5 animate-spin" />
-                    Loading…
+                    {t('loading.default', { ns: 'common' })}
                   </span>
                 ) : items.length === 0 ? (
-                  'No results'
+                  t('pagination.noResults', { ns: 'common' })
                 ) : (
                   <>
-                    Showing{' '}
-                    <span className="font-medium text-foreground">
-                      {rangeStart}–{rangeEnd}
-                    </span>
+                    {t('pagination.showing', {
+                      ns: 'common',
+                      start: rangeStart,
+                      end: rangeEnd,
+                    })}
                     {pageIndex > 0 && (
-                      <>
-                        {' '}
-                        · Page{' '}
-                        <span className="font-medium text-foreground">{pageIndex + 1}</span>
-                      </>
+                      <span className="ml-2">
+                        ·{' '}
+                        {t('pagination.page', {
+                          ns: 'common',
+                          page: pageIndex + 1,
+                        })}
+                      </span>
                     )}
                   </>
                 )}
@@ -202,7 +207,7 @@ export function HoldingGroupsTable({
                   onClick={onPreviousPage}
                 >
                   <ChevronLeft className="size-4" />
-                  Previous
+                  {t('actions.previous', { ns: 'common' })}
                 </Button>
                 <Button
                   type="button"
@@ -211,7 +216,7 @@ export function HoldingGroupsTable({
                   disabled={isLoading || !hasNextPage}
                   onClick={onNextPage}
                 >
-                  Next
+                  {t('actions.next', { ns: 'common' })}
                   <ChevronRight className="size-4" />
                 </Button>
               </div>

@@ -69,6 +69,10 @@ export class CreateCorrespondenceDto {
 
   @IsOptional()
   @IsUUID()
+  clientDocumentVersionId?: string;
+
+  @IsOptional()
+  @IsUUID()
   mailboxConnectionId?: string;
 
   @IsOptional()

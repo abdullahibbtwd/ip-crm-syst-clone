@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Başlangıç",
+    "complete": "Tamamlamak"
+  },
   "status": {
     "pending": "Askıda olması",
     "in_progress": "Devam etmekte",

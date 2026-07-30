@@ -11,6 +11,7 @@ export type CorrespondenceCategory =
   | 'certificate'
   | 'correspondence'
   | 'renewal'
+  | 'general'
 
 export type CorrespondenceUser = {
   id: string
@@ -27,7 +28,8 @@ export type CorrespondenceDocumentLink = {
 
 export type Correspondence = {
   id: string
-  matterId: string
+  matterId?: string | null
+  clientId?: string | null
   direction: CorrespondenceDirection
   category: CorrespondenceCategory
   correspondenceDate: string
@@ -41,10 +43,27 @@ export type Correspondence = {
   metadata: Record<string, unknown> | null
   isClientVisible: boolean
   documentVersionId: string | null
+  clientDocumentVersionId?: string | null
   createdAt: string
   updatedAt: string
   createdBy: CorrespondenceUser | null
   documentVersion: CorrespondenceDocumentLink | null
+  clientDocumentVersion?: CorrespondenceDocumentLink | null
+}
+
+export type ClientOwnedCorrespondence = Correspondence & {
+  scope: 'client'
+}
+
+export type ClientMatterCorrespondence = Correspondence & {
+  scope: 'matter'
+  matterTitle: string | null
+}
+
+export type ClientCorrespondenceResponse = {
+  matters: Array<{ id: string; title: string }>
+  clientCorrespondence: ClientOwnedCorrespondence[]
+  matterCorrespondence: ClientMatterCorrespondence[]
 }
 
 export type ParsedEmailAttachment = {
@@ -78,6 +97,7 @@ export type CreateCorrespondenceInput = {
   bodyText?: string
   metadata?: Record<string, unknown>
   documentVersionId?: string
+  clientDocumentVersionId?: string
   isClientVisible?: boolean
 }
 

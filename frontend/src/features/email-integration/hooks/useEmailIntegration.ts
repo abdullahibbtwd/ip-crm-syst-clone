@@ -75,18 +75,25 @@ export function useLinkQueuedEmail() {
     mutationFn: ({
       id,
       matterId,
+      clientId,
       category,
     }: {
       id: string
-      matterId: string
+      matterId?: string
+      clientId?: string
       category?: CorrespondenceCategory
-    }) => emailIntegrationApi.linkToMatter(id, matterId, category),
+    }) => emailIntegrationApi.link(id, { matterId, clientId, category }),
     onSuccess: (_data, vars) => {
       qc.invalidateQueries({ queryKey: emailIntegrationKeys.queue() })
       qc.invalidateQueries({ queryKey: emailIntegrationKeys.queueStats() })
-      qc.invalidateQueries({ queryKey: correspondenceKeys.matter(vars.matterId) })
-      qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(vars.matterId) })
-      qc.invalidateQueries({ queryKey: deadlineKeys.matter(vars.matterId) })
+      if (vars.matterId) {
+        qc.invalidateQueries({ queryKey: correspondenceKeys.matter(vars.matterId) })
+        qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(vars.matterId) })
+        qc.invalidateQueries({ queryKey: deadlineKeys.matter(vars.matterId) })
+      }
+      if (vars.clientId) {
+        qc.invalidateQueries({ queryKey: correspondenceKeys.client(vars.clientId) })
+      }
     },
   })
 }

@@ -31,7 +31,8 @@ export class GdprExportService {
     });
     if (!client) throw new NotFoundException('Client not found');
 
-    const [matters, documents, invoices, intakeSubmissions] = await Promise.all([
+    const [matters, documents, clientDocuments, invoices, intakeSubmissions] =
+      await Promise.all([
       this.prisma.matter.findMany({
         where: { clientId },
         select: {
@@ -53,6 +54,17 @@ export class GdprExportService {
           tags: true,
           createdAt: true,
           matter: { select: { id: true, title: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.clientDocument.findMany({
+        where: { clientId },
+        select: {
+          id: true,
+          displayName: true,
+          category: true,
+          tags: true,
+          createdAt: true,
         },
         orderBy: { createdAt: 'desc' },
       }),
@@ -119,6 +131,7 @@ export class GdprExportService {
       relatedCompanies: client.relatedCompanies,
       matters,
       documents,
+      clientDocuments,
       invoices,
       intakeSubmissions,
     };

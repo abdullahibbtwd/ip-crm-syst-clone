@@ -1,5 +1,6 @@
 import { api } from '@/lib/api'
 import type {
+  ClientDocumentsResponse,
   DocumentDownloadResponse,
   DocumentFilters,
   DocumentTemplate,
@@ -13,6 +14,13 @@ export const documentsApi = {
   listForMatter: (matterId: string, filters?: DocumentFilters) =>
     api
       .get<MatterDocument[]>(`/matters/${matterId}/documents`, { params: filters })
+      .then((r) => r.data),
+
+  listForClient: (clientId: string, filters?: DocumentFilters) =>
+    api
+      .get<ClientDocumentsResponse>(`/clients/${clientId}/documents`, {
+        params: filters,
+      })
       .then((r) => r.data),
 
   listForPortal: (filters?: DocumentFilters) =>
@@ -31,11 +39,32 @@ export const documentsApi = {
       .then((r) => r.data)
   },
 
+  uploadForClient: (clientId: string, input: UploadDocumentInput) => {
+    const form = new FormData()
+    form.append('file', input.file)
+    if (input.displayName?.trim()) form.append('displayName', input.displayName.trim())
+    form.append('category', input.category)
+    if (input.tags?.trim()) form.append('tags', input.tags.trim())
+    return api
+      .post(`/clients/${clientId}/documents`, form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((r) => r.data)
+  },
+
   getDownloadUrl: (documentId: string, versionId?: string) =>
     api
       .get<DocumentDownloadResponse>(`/documents/${documentId}/download`, {
         params: versionId ? { versionId } : undefined,
       })
+      .then((r) => r.data),
+
+  getClientDownloadUrl: (clientId: string, documentId: string, versionId?: string) =>
+    api
+      .get<DocumentDownloadResponse>(
+        `/clients/${clientId}/documents/${documentId}/download`,
+        { params: versionId ? { versionId } : undefined },
+      )
       .then((r) => r.data),
 
   listVersions: (documentId: string) =>
@@ -48,6 +77,18 @@ export const documentsApi = {
       .post<DocumentVersion>(`/documents/${documentId}/versions`, form, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
+      .then((r) => r.data)
+  },
+
+  uploadClientVersion: (clientId: string, documentId: string, file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    return api
+      .post<DocumentVersion>(
+        `/clients/${clientId}/documents/${documentId}/versions`,
+        form,
+        { headers: { 'Content-Type': 'multipart/form-data' } },
+      )
       .then((r) => r.data)
   },
 

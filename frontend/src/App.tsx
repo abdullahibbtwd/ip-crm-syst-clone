@@ -15,6 +15,8 @@ import { ContactsTab } from './pages/crm/clients/tabs/ContactsTab'
 import { OfficesTab } from './pages/crm/clients/tabs/OfficesTab'
 import { ClientBillingTab } from './pages/crm/clients/tabs/ClientBillingTab'
 import { MattersTab } from './pages/crm/clients/tabs/MattersTab'
+import { ClientDocumentsTab } from './pages/crm/clients/tabs/ClientDocumentsTab'
+import { ClientCorrespondenceTab } from './pages/crm/clients/tabs/ClientCorrespondenceTab'
 import { ClientWatchTab } from './pages/crm/clients/tabs/ClientWatchTab'
 import { ClientAccessHistoryTab } from './pages/crm/clients/tabs/ClientAccessHistoryTab'
 import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTab'
@@ -121,6 +123,8 @@ export default function App() {
             <Route path="related" element={<RelatedCompaniesTab />} />
             <Route path="history" element={<RelationshipHistoryTab />} />
             <Route path="matters" element={<MattersTab />} />
+            <Route path="documents" element={<ClientDocumentsTab />} />
+            <Route path="correspondence" element={<ClientCorrespondenceTab />} />
             <Route path="watch" element={<ClientWatchTab />} />
             <Route path="access" element={<ClientAccessHistoryTab />} />
             <Route path="billing" element={<ClientBillingTab />} />

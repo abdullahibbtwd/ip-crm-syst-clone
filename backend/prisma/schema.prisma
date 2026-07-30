@@ -52,6 +52,8 @@ model User {
   deadlinesAssigned    Deadline[]             @relation("DeadlineAssignedTo")
   documentsCreated     MatterDocument[]       @relation("DocumentCreatedBy")
   documentVersions     MatterDocumentVersion[] @relation("DocumentVersionUploadedBy")
+  clientDocumentsCreated ClientDocument[]     @relation("ClientDocumentCreatedBy")
+  clientDocumentVersions ClientDocumentVersion[] @relation("ClientDocumentVersionUploadedBy")
   correspondenceCreated Correspondence[]      @relation("CorrespondenceCreatedBy")
   timelineEvents       MatterTimelineEvent[]  @relation("TimelineEventCreatedBy")
   timeEntriesLogged      TimeEntry[]            @relation("TimeEntryLoggedBy")
@@ -335,6 +337,9 @@ model Client {
   approvalRequests    ClientApprovalRequest[]
   retainerAccount     ClientRetainerAccount?
   customsSeizures     CustomsSeizure[]
+  documents           ClientDocument[]
+  correspondence      Correspondence[]
+  suggestedUnlinkedEmails UnlinkedEmail[]
 
   @@index([status])
   @@index([type])
@@ -993,6 +998,7 @@ enum DocumentCategory {
   certificate
   correspondence
   renewal
+  general
 
   @@map("document_category")
 }
@@ -1038,6 +1044,45 @@ model MatterDocumentVersion {
   @@unique([documentId, version])
   @@index([documentId])
   @@map("matter_document_versions")
+}
+
+model ClientDocument {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId    String           @map("client_id") @db.Uuid
+  displayName String           @map("display_name")
+  category    DocumentCategory
+  tags        String[]         @default([])
+  createdById String?          @map("created_by_id") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client    Client                  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  createdBy User?                   @relation("ClientDocumentCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  versions  ClientDocumentVersion[]
+
+  @@index([clientId])
+  @@index([category])
+  @@map("client_documents")
+}
+
+model ClientDocumentVersion {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  documentId   String   @map("document_id") @db.Uuid
+  version      Int
+  fileName     String   @map("file_name")
+  mimeType     String?  @map("mime_type")
+  sizeBytes    Int      @map("size_bytes")
+  storageKey   String   @map("storage_key")
+  uploadedById String   @map("uploaded_by_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  document       ClientDocument  @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  uploadedBy     User            @relation("ClientDocumentVersionUploadedBy", fields: [uploadedById], references: [id], onDelete: Restrict)
+  correspondence Correspondence[]
+
+  @@unique([documentId, version])
+  @@index([documentId])
+  @@map("client_document_versions")
 }
 
 model DocumentTemplate {
@@ -1149,36 +1194,42 @@ enum MatterTimelineEventType {
 }
 
 model Correspondence {
-  id                 String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  matterId           String                  @map("matter_id") @db.Uuid
-  direction          CorrespondenceDirection
-  category           DocumentCategory        @default(correspondence)
-  correspondenceDate DateTime                @map("correspondence_date") @db.Date
-  sender             String
-  recipient          String
-  subject            String
-  status             CorrespondenceStatus    @default(received)
-  source             CorrespondenceSource    @default(manual)
-  messageId          String?                 @map("message_id")
-  bodyText           String?                 @map("body_text")
-  metadata           Json?
-  isClientVisible    Boolean                 @default(false) @map("is_client_visible")
-  portalReadAt       DateTime?               @map("portal_read_at") @db.Timestamptz(6)
-  documentVersionId  String?                 @map("document_version_id") @db.Uuid
-  mailboxConnectionId String?                @map("mailbox_connection_id") @db.Uuid
-  createdById        String?                 @map("created_by_id") @db.Uuid
-  createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt          DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                      String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  /// Exactly one of matterId / clientId must be set (enforced by DB check).
+  matterId                String?                 @map("matter_id") @db.Uuid
+  clientId                String?                 @map("client_id") @db.Uuid
+  direction               CorrespondenceDirection
+  category                DocumentCategory        @default(correspondence)
+  correspondenceDate      DateTime                @map("correspondence_date") @db.Date
+  sender                  String
+  recipient               String
+  subject                 String
+  status                  CorrespondenceStatus    @default(received)
+  source                  CorrespondenceSource    @default(manual)
+  messageId               String?                 @map("message_id")
+  bodyText                String?                 @map("body_text")
+  metadata                Json?
+  isClientVisible         Boolean                 @default(false) @map("is_client_visible")
+  portalReadAt            DateTime?               @map("portal_read_at") @db.Timestamptz(6)
+  documentVersionId       String?                 @map("document_version_id") @db.Uuid
+  clientDocumentVersionId String?                 @map("client_document_version_id") @db.Uuid
+  mailboxConnectionId     String?                 @map("mailbox_connection_id") @db.Uuid
+  createdById             String?                 @map("created_by_id") @db.Uuid
+  createdAt               DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  matter             Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
-  documentVersion    MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
-  mailboxConnection  MailboxConnection?     @relation(fields: [mailboxConnectionId], references: [id], onDelete: SetNull)
-  createdBy          User?                  @relation("CorrespondenceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
-  timelineEvent      MatterTimelineEvent?
-  deadlines          Deadline[]
-  linkedFromQueue    UnlinkedEmail?
+  matter                Matter?                @relation(fields: [matterId], references: [id], onDelete: Cascade)
+  client                Client?                @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  documentVersion       MatterDocumentVersion? @relation(fields: [documentVersionId], references: [id], onDelete: SetNull)
+  clientDocumentVersion ClientDocumentVersion? @relation(fields: [clientDocumentVersionId], references: [id], onDelete: SetNull)
+  mailboxConnection     MailboxConnection?     @relation(fields: [mailboxConnectionId], references: [id], onDelete: SetNull)
+  createdBy             User?                  @relation("CorrespondenceCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  timelineEvent         MatterTimelineEvent?
+  deadlines             Deadline[]
+  linkedFromQueue       UnlinkedEmail?
 
   @@index([matterId])
+  @@index([clientId])
   @@index([correspondenceDate])
   @@index([status])
   @@index([category])
@@ -1247,6 +1298,7 @@ model UnlinkedEmail {
   hasAttachments         Boolean             @default(false) @map("has_attachments")
   status                 UnlinkedEmailStatus @default(pending)
   suggestedMatterId      String?             @map("suggested_matter_id") @db.Uuid
+  suggestedClientId      String?             @map("suggested_client_id") @db.Uuid
   suggestionReason       String?             @map("suggestion_reason")
   suggestedCategory      DocumentCategory?   @map("suggested_category")
   emlStorageKey          String              @map("eml_storage_key")
@@ -1259,12 +1311,14 @@ model UnlinkedEmail {
 
   mailboxConnection    MailboxConnection @relation(fields: [mailboxConnectionId], references: [id], onDelete: Cascade)
   suggestedMatter      Matter?           @relation(fields: [suggestedMatterId], references: [id], onDelete: SetNull)
+  suggestedClient      Client?           @relation(fields: [suggestedClientId], references: [id], onDelete: SetNull)
   linkedCorrespondence Correspondence?   @relation(fields: [linkedCorrespondenceId], references: [id], onDelete: SetNull)
   linkedBy             User?             @relation("UnlinkedEmailLinkedBy", fields: [linkedById], references: [id], onDelete: SetNull)
 
   @@unique([mailboxConnectionId, externalMessageId])
   @@index([status, receivedAt])
   @@index([internetMessageId])
+  @@index([suggestedClientId])
   @@map("unlinked_emails")
 }
 

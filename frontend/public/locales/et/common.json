@@ -55,15 +55,15 @@
     "openMenu": "Ava menüü"
   },
   "pagination": {
+    "go": "Mine",
+    "maxPerPage": "Maksimaalne {{max}}",
     "noResults": "Tulemusi pole",
+    "ofPages": "{{count}}",
     "page": "Lehekülg {{page}}",
-    "showing": "Kuvatakse {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Lehekülg",
+    "perPage": "lehekülje kohta",
+    "perPageLabel": "lehekülje kohta",
+    "showing": "Kuvatakse {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Aruanded"

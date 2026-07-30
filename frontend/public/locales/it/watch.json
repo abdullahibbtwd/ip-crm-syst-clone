@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Orologio sui marchi",
     "title": "Orologio sui marchi",
     "description": "Esamina i potenziali conflitti rilevati rispetto ai profili di controllo attivi.",
     "empty": "Nessun avviso di visualizzazione corrisponde ai tuoi filtri.",
-    "loading": "Caricamento avvisi orologio…"
+    "loading": "Caricamento avvisi orologio…",
+    "worklist": "Lista di lavoro",
+    "worklistDescription": "Filtra per stato, giurisdizione o fonte del registro."
   },
   "detail": {
     "title": "Guarda l'avviso",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Nuovi avvisi",
     "accepted": "Accettata",
-    "rejected": "Respinto"
+    "rejected": "Respinto",
+    "hintAwaitingTriage": "In attesa di triage",
+    "hintMattersCreated": "Pratiche create",
+    "hintFalsePositives": "Falsi positivi"
   },
   "profileStatus": {
     "active": "Attiva",

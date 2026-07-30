@@ -31,6 +31,17 @@ const correspondenceInclude = {
       document: { select: { id: true, displayName: true } },
     },
   },
+  clientDocumentVersion: {
+    select: {
+      id: true,
+      version: true,
+      fileName: true,
+      document: { select: { id: true, displayName: true } },
+    },
+  },
+  matter: {
+    select: { id: true, title: true },
+  },
 } satisfies Prisma.CorrespondenceInclude;
 
 const timelineInclude = {
@@ -94,6 +105,41 @@ export class CorrespondenceService {
       orderBy: [{ correspondenceDate: 'desc' }, { createdAt: 'desc' }],
       include: correspondenceInclude,
     });
+  }
+
+  async listUnifiedForClient(clientId: string) {
+    await this.assertClientExists(clientId);
+
+    const [matters, clientRows, matterRows] = await Promise.all([
+      this.prisma.matter.findMany({
+        where: { clientId },
+        select: { id: true, title: true },
+        orderBy: { title: 'asc' },
+      }),
+      this.prisma.correspondence.findMany({
+        where: { clientId },
+        orderBy: [{ correspondenceDate: 'desc' }, { createdAt: 'desc' }],
+        include: correspondenceInclude,
+      }),
+      this.prisma.correspondence.findMany({
+        where: { matter: { clientId } },
+        orderBy: [{ correspondenceDate: 'desc' }, { createdAt: 'desc' }],
+        include: correspondenceInclude,
+      }),
+    ]);
+
+    return {
+      matters,
+      clientCorrespondence: clientRows.map((row) => ({
+        ...row,
+        scope: 'client' as const,
+      })),
+      matterCorrespondence: matterRows.map((row) => ({
+        ...row,
+        scope: 'matter' as const,
+        matterTitle: row.matter?.title ?? null,
+      })),
+    };
   }
 
   async listTimeline(matterId: string) {
@@ -183,6 +229,53 @@ export class CorrespondenceService {
     return row;
   }
 
+  async createForClient(
+    clientId: string,
+    dto: CreateCorrespondenceDto,
+    userId: string,
+  ) {
+    await this.assertClientExists(clientId);
+    if (dto.clientDocumentVersionId) {
+      await this.assertDocumentVersionOnClient(
+        clientId,
+        dto.clientDocumentVersionId,
+      );
+    }
+    if (dto.documentVersionId) {
+      throw new BadRequestException(
+        'Matter document versions cannot be attached to client-scoped correspondence',
+      );
+    }
+
+    const status = dto.status ?? defaultStatusForDirection(dto.direction);
+    const correspondenceDate = new Date(dto.correspondenceDate);
+    const source = dto.source ?? CorrespondenceSource.manual;
+    const metadata = this.buildMetadata(dto.metadata, dto.bodyText);
+
+    return this.prisma.correspondence.create({
+      data: {
+        clientId,
+        matterId: null,
+        direction: dto.direction,
+        category: dto.category,
+        correspondenceDate,
+        sender: dto.sender.trim(),
+        recipient: dto.recipient.trim(),
+        subject: dto.subject.trim(),
+        status,
+        source,
+        messageId: dto.messageId?.trim() || null,
+        bodyText: dto.bodyText?.trim() || null,
+        metadata: metadata as Prisma.InputJsonValue,
+        clientDocumentVersionId: dto.clientDocumentVersionId,
+        mailboxConnectionId: dto.mailboxConnectionId,
+        createdById: userId,
+        isClientVisible: dto.isClientVisible ?? false,
+      },
+      include: correspondenceInclude,
+    });
+  }
+
   async update(id: string, dto: UpdateCorrespondenceDto) {
     const existing = await this.prisma.correspondence.findUnique({
       where: { id },
@@ -190,6 +283,11 @@ export class CorrespondenceService {
     if (!existing) throw new NotFoundException('Correspondence not found');
 
     if (dto.documentVersionId) {
+      if (!existing.matterId) {
+        throw new BadRequestException(
+          'Matter document versions require matter-scoped correspondence',
+        );
+      }
       await this.assertDocumentVersionOnMatter(
         existing.matterId,
         dto.documentVersionId,
@@ -232,6 +330,12 @@ export class CorrespondenceService {
         where: { id: correspondenceId },
         include: correspondenceInclude,
       });
+    }
+
+    if (!existing.matterId) {
+      throw new BadRequestException(
+        'EPO auto-link requires matter-scoped correspondence',
+      );
     }
 
     await this.assertDocumentVersionOnMatter(
@@ -335,6 +439,14 @@ export class CorrespondenceService {
     if (!matter) throw new NotFoundException('Matter not found');
   }
 
+  private async assertClientExists(clientId: string) {
+    const client = await this.prisma.client.findUnique({
+      where: { id: clientId },
+      select: { id: true },
+    });
+    if (!client) throw new NotFoundException('Client not found');
+  }
+
   private async assertDocumentVersionOnMatter(
     matterId: string,
     documentVersionId: string,
@@ -349,6 +461,24 @@ export class CorrespondenceService {
     if (!version) {
       throw new BadRequestException(
         'Document version not found on this matter',
+      );
+    }
+  }
+
+  private async assertDocumentVersionOnClient(
+    clientId: string,
+    documentVersionId: string,
+  ) {
+    const version = await this.prisma.clientDocumentVersion.findFirst({
+      where: {
+        id: documentVersionId,
+        document: { clientId },
+      },
+      select: { id: true },
+    });
+    if (!version) {
+      throw new BadRequestException(
+        'Document version not found on this client',
       );
     }
   }

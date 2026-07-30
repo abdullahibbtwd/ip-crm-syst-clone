@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Vigilancia de marcas",
     "title": "Vigilancia de marcas",
     "description": "Revise los posibles conflictos detectados con los perfiles de vigilancia activos.",
     "empty": "Ninguna alerta de reloj coincide con tus filtros.",
-    "loading": "Cargando alertas de vigilancia..."
+    "loading": "Cargando alertas de vigilancia...",
+    "worklist": "Lista de trabajo",
+    "worklistDescription": "Filtre por estado, jurisdicción o fuente de registro."
   },
   "detail": {
     "title": "Ver alerta",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Nuevas alertas",
     "accepted": "Aceptada",
-    "rejected": "Rechazada"
+    "rejected": "Rechazada",
+    "hintAwaitingTriage": "Pendiente de triaje",
+    "hintMattersCreated": "Asuntos creados",
+    "hintFalsePositives": "Falsos positivos"
   },
   "profileStatus": {
     "active": "Activa",

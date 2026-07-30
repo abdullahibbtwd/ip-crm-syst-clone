@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Sat zaštitnih znakova",
     "title": "Sat zaštitnih znakova",
     "description": "Pregledajte moguće sukobe otkrivene u odnosu na aktivne profile sata.",
     "empty": "Nijedno upozorenje na satu ne odgovara vašim filtrima.",
-    "loading": "Učitavanje upozorenja na satu…"
+    "loading": "Učitavanje upozorenja na satu…",
+    "worklist": "Radna lista",
+    "worklistDescription": "Filtrirajte prema statusu, nadležnosti ili izvoru registra."
   },
   "detail": {
     "title": "Upozorenje na sat",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Nova upozorenja",
     "accepted": "Prihvaćeno",
-    "rejected": "Odbijen"
+    "rejected": "Odbijen",
+    "hintAwaitingTriage": "Čeka se trijaža",
+    "hintMattersCreated": "Stvari stvorene",
+    "hintFalsePositives": "Lažno pozitivni"
   },
   "profileStatus": {
     "active": "Aktivan",

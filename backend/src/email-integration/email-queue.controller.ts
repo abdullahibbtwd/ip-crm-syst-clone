@@ -60,13 +60,11 @@ export class EmailQueueController {
     @Req() req: Request,
   ) {
     const user = req.user as AuthenticatedUser;
-    return this.queue.linkToMatter(
-      id,
-      dto.matterId,
-      user.userId,
-      user.roles,
-      dto.category,
-    );
+    return this.queue.link(id, user.userId, user.roles, {
+      matterId: dto.matterId,
+      clientId: dto.clientId,
+      category: dto.category,
+    });
   }
 
   @Post(':id/dismiss')

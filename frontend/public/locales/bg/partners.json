@@ -13,8 +13,8 @@
   },
   "columns": {
     "name": "Име",
-    "company": "Компания",
-    "email": "Имейл",
+    "company": "Фирма",
+    "email": "Служебен имейл",
     "jurisdictions": "Юрисдикции",
     "status": "Статус"
   },
@@ -22,15 +22,15 @@
     "active": "Активен",
     "inactive": "Неактивен"
   },
-  "editAria": "Редактирай партньор",
+  "editAria": "Редактиране на партньор",
   "deactivateAria": "Деактивирай партньор",
   "confirmDeactivate": "Деактивиране на партньор „{{name}}“?",
   "drawer": {
     "createTitle": "Нов партньор",
     "editTitle": "Редактиране на партньор",
     "name": "Име",
-    "company": "Компания",
-    "email": "Имейл",
+    "company": "Фирма",
+    "email": "Служебен имейл",
     "phone": "Телефон",
     "countryCode": "Код на държава",
     "jurisdictions": "Юрисдикции",
@@ -63,7 +63,7 @@
       "draft": "Чернова",
       "sent": "Изпратена",
       "acknowledged": "Потвърдена",
-      "complete": "Завършена"
+      "complete": "Завърши"
     },
     "drawer": {
       "createTitle": "Нова чернова на инструкция",

@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Surveillance des marques",
     "title": "Surveillance des marques",
     "description": "Examinez les conflits potentiels détectés par rapport aux profils de surveillance actifs.",
     "empty": "Aucune alerte de montre ne correspond à vos filtres.",
-    "loading": "Chargement des alertes de surveillance…"
+    "loading": "Chargement des alertes de surveillance…",
+    "worklist": "Liste de travail",
+    "worklistDescription": "Filtrez par statut, juridiction ou source de registre."
   },
   "detail": {
     "title": "Regarder l'alerte",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Nouvelles alertes",
     "accepted": "Accepté",
-    "rejected": "Rejetée"
+    "rejected": "Rejetée",
+    "hintAwaitingTriage": "En attente de triage",
+    "hintMattersCreated": "Dossiers créés",
+    "hintFalsePositives": "Faux positifs"
   },
   "profileStatus": {
     "active": "Active",

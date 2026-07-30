@@ -55,15 +55,15 @@
     "openMenu": "Hap menunë"
   },
   "pagination": {
+    "go": "Shkoni",
+    "maxPerPage": "Maksimumi {{max}}",
     "noResults": "Nuk ka rezultate",
+    "ofPages": "nga {{count}}",
     "page": "Faqe {{page}}",
-    "showing": "Po shfaq {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Faqe",
+    "perPage": "për faqe",
+    "perPageLabel": "Për faqe",
+    "showing": "Po shfaq {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Raportet"

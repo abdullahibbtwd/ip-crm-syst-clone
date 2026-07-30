@@ -55,15 +55,15 @@
     "openMenu": "Отворете го менито"
   },
   "pagination": {
+    "go": "Оди",
+    "maxPerPage": "Максимум {{max}}",
     "noResults": "Нема резултати",
+    "ofPages": "од {{count}}",
     "page": "Страница {{page}}",
-    "showing": "Се прикажува {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Страница",
+    "perPage": "по страница",
+    "perPageLabel": "По страница",
+    "showing": "Се прикажува {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Извештаи"

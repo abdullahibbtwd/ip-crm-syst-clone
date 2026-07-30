@@ -55,15 +55,15 @@
     "openMenu": "فتح القائمة"
   },
   "pagination": {
+    "go": "يذهب",
+    "maxPerPage": "الحد الأقصى {{max}}",
     "noResults": "لا توجد نتائج",
+    "ofPages": "من {{count}}",
     "page": "الصفحة {{page}}",
-    "showing": "عرض {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "صفحة",
+    "perPage": "لكل صفحة",
+    "perPageLabel": "لكل صفحة",
+    "showing": "عرض {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "التقارير"

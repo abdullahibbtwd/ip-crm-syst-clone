@@ -52,6 +52,7 @@ export const CORRESPONDENCE_CATEGORY_LABELS: Record<
   certificate: 'Certificate',
   correspondence: 'General correspondence',
   renewal: 'Renewal',
+  general: 'General',
 }
 
 export const CORRESPONDENCE_CATEGORIES: import('./types').CorrespondenceCategory[] = [
@@ -61,6 +62,7 @@ export const CORRESPONDENCE_CATEGORIES: import('./types').CorrespondenceCategory
   'evidence',
   'certificate',
   'correspondence',
+  'general',
 ]
 
 /** @deprecated Use timelineEventLabel() for translated labels */

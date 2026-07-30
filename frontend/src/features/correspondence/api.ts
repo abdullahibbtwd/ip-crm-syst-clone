@@ -1,6 +1,7 @@
 import { api } from '@/lib/api'
 import { apiClient } from '@/lib/api-client'
 import type {
+  ClientCorrespondenceResponse,
   Correspondence,
   CreateCorrespondenceInput,
   MatterTimelineEvent,
@@ -13,8 +14,14 @@ export const correspondenceApi = {
   listForMatter: (matterId: string) =>
     apiClient.get<Correspondence[]>(`/matters/${matterId}/correspondence`),
 
+  listForClient: (clientId: string) =>
+    apiClient.get<ClientCorrespondenceResponse>(`/clients/${clientId}/correspondence`),
+
   create: (matterId: string, data: CreateCorrespondenceInput) =>
     apiClient.post<Correspondence>(`/matters/${matterId}/correspondence`, data),
+
+  createForClient: (clientId: string, data: CreateCorrespondenceInput) =>
+    apiClient.post<Correspondence>(`/clients/${clientId}/correspondence`, data),
 
   parseEml: (matterId: string, file: File) => {
     const form = new FormData()
@@ -26,8 +33,23 @@ export const correspondenceApi = {
       .then((r) => r.data)
   },
 
+  parseEmlForClient: (clientId: string, file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    return api
+      .post<ParsedEmailResult>(`/clients/${clientId}/correspondence/parse-eml`, form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((r) => r.data)
+  },
+
   parseText: (matterId: string, text: string) =>
     apiClient.post<ParsedEmailResult>(`/matters/${matterId}/correspondence/parse-text`, {
+      text,
+    }),
+
+  parseTextForClient: (clientId: string, text: string) =>
+    apiClient.post<ParsedEmailResult>(`/clients/${clientId}/correspondence/parse-text`, {
       text,
     }),
 

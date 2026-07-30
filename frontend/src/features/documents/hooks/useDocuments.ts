@@ -12,6 +12,37 @@ export function useMatterDocuments(matterId: string, filters?: DocumentFilters) 
   })
 }
 
+export function useClientDocuments(clientId: string, filters?: DocumentFilters) {
+  return useQuery({
+    queryKey: documentKeys.client(clientId, filters),
+    queryFn: () => documentsApi.listForClient(clientId, filters),
+    enabled: Boolean(clientId),
+    placeholderData: keepPreviousData,
+  })
+}
+
+export function useUploadClientDocument(clientId: string, filters?: DocumentFilters) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (input: UploadDocumentInput) =>
+      documentsApi.uploadForClient(clientId, input),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: documentKeys.client(clientId, filters) })
+      qc.invalidateQueries({ queryKey: documentKeys.client(clientId) })
+    },
+  })
+}
+
+export function useClientDocumentDownload(clientId: string) {
+  return useMutation({
+    mutationFn: ({ documentId, versionId }: { documentId: string; versionId?: string }) =>
+      documentsApi.getClientDownloadUrl(clientId, documentId, versionId),
+    onSuccess: (data) => {
+      window.open(data.url, '_blank', 'noopener,noreferrer')
+    },
+  })
+}
+
 export function usePortalDocuments(filters?: DocumentFilters) {
   return useQuery({
     queryKey: documentKeys.portal(filters),

@@ -45,6 +45,11 @@
       "description": "Configura giurisdizione e offset del tipo di pratica per le scadenze create automaticamente.",
       "action": "Gestire le regole di scadenza"
     },
+    "jurisdictions": {
+      "title": "Giurisdizioni",
+      "description": "Un unico posto per gestire gli uffici di archiviazione, le regole di scadenza e i calendari delle festività per ciascun paese o ufficio regionale.",
+      "action": "Gestire le giurisdizioni"
+    },
     "holidays": {
       "title": "Calendario delle festività",
       "description": "Giorni festivi della giurisdizione utilizzati nel conteggio dei giorni lavorativi per le scadenze.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Nome e data sono obbligatori",
       "saveFailed": "Impossibile salvare la vacanza"
+    }
+  },
+  "jurisdictions": {
+    "title": "Giurisdizioni",
+    "subtitle": "Apri un ufficio di archiviazione per gestire le scadenze e le ferie in un unico posto. Gli uffici prioritari vengono visualizzati per primi nei selezionatori.",
+    "newJurisdiction": "Aggiungi giurisdizione",
+    "noPermission": "Non hai l'autorizzazione per gestire le giurisdizioni.",
+    "loading": "Caricamento giurisdizioni…",
+    "loadError": "Impossibile caricare le giurisdizioni.",
+    "empty": "Nessuna giurisdizione corrisponde a questi filtri.",
+    "searchPlaceholder": "Cerca codice, sede o nome...",
+    "editAria": "Modifica giurisdizione",
+    "filters": {
+      "all": "Tutti gli stati"
+    },
+    "columns": {
+      "jurisdiction": "Giurisdizione",
+      "type": "Tipa",
+      "automation": "Automazione",
+      "rules": "Regole",
+      "holidays": "Vacanze",
+      "status": "Stato"
+    },
+    "type": {
+      "national": "Nazionale",
+      "regional": "Regionale",
+      "international": "Internazionale"
+    },
+    "automation": {
+      "full": "Piena",
+      "partial": "Parziale",
+      "manual": "Manuale"
+    },
+    "priority": {
+      "yes": "Priorità",
+      "no": "Standard",
+      "badge": "Priorità"
+    },
+    "status": {
+      "active": "Attiva",
+      "inactive": "Inattiva"
+    },
+    "hub": {
+      "back": "Tutte le giurisdizioni",
+      "editOffice": "Ufficio modifica",
+      "manageRules": "Aggiungi o modifica le regole di scadenza",
+      "manageHolidays": "Aggiungi o modifica le festività",
+      "noRules": "Nessuna regola di scadenza per questo ufficio ancora. Aggiungine uno per abilitare la registrazione automatica.",
+      "noHolidays": "Nessuna vacanza ancora. Aggiungili in modo che le scadenze dei giorni lavorativi saltino le chiusure degli uffici.",
+      "tabs": {
+        "overview": "Panoramica",
+        "rules": "Regole di scadenza",
+        "holidays": "Vacanze"
+      },
+      "automationHint": {
+        "full": "La registrazione automatica è pronta: le regole e le festività sono configurate.",
+        "partial": "Le regole esistono, ma mancano le vacanze. Il conteggio dei giorni lavorativi utilizza solo i fine settimana.",
+        "manual": "Nessuna regola di scadenza ancora. I diritti possono ancora essere depositati qui; le scadenze devono essere create manualmente finché non vengono aggiunte le regole."
+      }
+    },
+    "drawer": {
+      "createTitle": "Aggiungi giurisdizione",
+      "editTitle": "Modifica giurisdizione",
+      "code": "Codice",
+      "codeHint": "Codice ufficio di 2-4 caratteri (ad esempio USA, UE, WO). Non può essere modificato in seguito.",
+      "officeName": "Nome dell'ufficio",
+      "name": "Nome del paese/regione",
+      "type": "Tipa",
+      "priority": "Elenco prioritario",
+      "status": "Stato",
+      "sortOrder": "Ordinamento",
+      "cancel": "Cancellare",
+      "create": "Creare giurisdizione",
+      "save": "Salva modifiche"
+    },
+    "errors": {
+      "required": "Il nome dell'ufficio e il nome del paese/regione sono obbligatori",
+      "codeRequired": "Il codice è obbligatorio",
+      "sortOrder": "Inserisci un ordinamento valido",
+      "saveFailed": "Impossibile salvare la giurisdizione"
     }
   },
   "emailIntegration": {

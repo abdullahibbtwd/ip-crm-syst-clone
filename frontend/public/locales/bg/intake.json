@@ -82,7 +82,7 @@
     "country": "Държава",
     "converted": "Това запитване е преобразувано.",
     "description": "Описание",
-    "email": "Имейл",
+    "email": "Служебен имейл",
     "enquiryDetails": "Детайли на запитването",
     "error": "Неуспешно зареждане на запитването.",
     "fullName": "Пълно име",
@@ -99,12 +99,12 @@
     "responsibleAttorney": "Отговорен адвокат",
     "type": "Тип",
     "urgency": "Спешност",
-    "urgent": "Спешно"
+    "urgent": "Спешни"
   },
   "form": {
     "companyName": "Име на фирмата *",
     "description": "Описание",
-    "email": "Имейл",
+    "email": "Служебен имейл",
     "enquirerType": "Тип на запитващия",
     "error": "Неуспешно създаване на запитване",
     "fullName": "Пълно име *",
@@ -135,11 +135,11 @@
     "design": "Дизайн",
     "other": "Друго",
     "patent": "Патент",
-    "trademark": "Търговска марка",
+    "trademark": "Марка",
     "utility_model": "Полезен модел"
   },
   "referralSource": {
-    "email": "Имейл",
+    "email": "Служебен имейл",
     "other": "Друго",
     "phone": "Телефон",
     "referral": "Препоръка",
@@ -151,18 +151,18 @@
     "conflict_check": "Проверка за конфликт",
     "conflict_flagged": "Маркиран конфликт",
     "converted": "Преобразувано",
-    "new": "Ново",
-    "rejected": "Отхвърлено",
+    "new": "Нов",
+    "rejected": "Отхвърлен",
     "reviewing": "В преглед"
   },
   "table": {
     "date": "Получено",
     "matterType": "Тип дело",
-    "name": "Запитващ",
+    "name": "Заявител",
     "portal": "Портал",
-    "referral": "Източник",
+    "referral": "Регистър",
     "status": "Статус",
-    "urgent": "Спешно",
+    "urgent": "Спешни",
     "viewAria": "Преглед на {{name}}"
   },
   "unknownCompany": "Неизвестна фирма",

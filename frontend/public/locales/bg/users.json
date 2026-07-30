@@ -12,36 +12,35 @@
     "searchTeam": "Търсене на членове на екипа…"
   },
   "invite": {
-    "button": "Покани потребител",
+    "button": "Покани член на екипа",
     "cancel": "Отказ",
+    "clientPlaceholder": "Изберете клиентски запис...",
+    "clientRecord": "Клиентски запис",
     "description": "Добавете член на екипа, за да влиза с Microsoft или Google SSO с този имейл. Не се задава парола.",
     "email": "Служебен имейл",
-    "emailPlaceholder": "name@company.com",
+    "emailFailed": "Имейлът с покана не можа да бъде изпратен",
+    "emailFailedContinue": "Потребителят е създаден — затворете и изпратете отново по-късно",
+    "emailFailedTitle": "Потребителят е поканен, но имейлът не може да бъде изпратен.",
+    "emailHint": "Изпраща се имейл с покана с връзка за задаване на парола. Те могат също да влязат с Microsoft или Google, като използват точно този имейл. Ако имейлът е неуспешен, потребителят все още е създаден и можете да изпратите отново от списъка с потребители.",
+    "emailPlaceholder": "име@компания.com",
     "errors": {
+      "clientRequired": "Изберете клиентски запис за потребители на портала",
       "failed": "Неуспешна покана",
-      "required": "Имейлът и пълното име са задължителни",
-      "clientRequired": "Select a client record for portal users"
+      "required": "Имейлът и пълното име са задължителни"
     },
     "fullName": "Пълно име",
     "fullNamePlaceholder": "Иван Иванов",
+    "lastEmailFailed": "Последният опит за имейл е неуспешен",
+    "resend": "Повторно изпращане на покана",
+    "resendFailed": "Неуспешно повторно изпращане на имейл с покана",
+    "resendSuccess": "Имейлът с покана е изпратен",
     "role": "Роля",
-    "ssoHint": "След поканата помолете човека да влезе със SSO с този имейл. При смяна на роля трябва да излезе и да влезе отново.",
     "submit": "Покани за SSO",
     "submitting": "Поканване…",
     "title": "Покани член на екипа",
-    "clientPlaceholder": "Select client record…",
-    "clientRecord": "Client record",
-    "emailFailed": "Invite email could not be sent",
-    "emailFailedContinue": "User was created — close and resend later",
-    "emailFailedTitle": "User invited, but the email could not be sent.",
-    "emailHint": "An invitation email is sent with a link to set a password. They can also sign in with Microsoft or Google using this exact email. If email fails, the user is still created and you can resend from the users list.",
-    "lastEmailFailed": "Last email attempt failed",
-    "resend": "Resend invite",
-    "resendFailed": "Failed to resend invite email",
-    "resendSuccess": "Invite email sent",
-    "typePortal": "Portal client",
-    "typeTeam": "Team member",
-    "userType": "User type"
+    "typePortal": "Портален клиент",
+    "typeTeam": "Член на екипа",
+    "userType": "Тип потребител"
   },
   "layout": {
     "accessRestricted": "Ограничен достъп",
@@ -62,22 +61,22 @@
   "table": {
     "authMethod": {
       "password": "Парола",
-      "sso": "SSO",
-      "pending": "Pending"
+      "pending": "Изчакващо",
+      "sso": "SSO"
     },
     "clientRecord": "Клиентски запис",
     "empty": "Няма намерени потребители",
     "emptyDescription": "Опитайте да промените търсенето или филтрите.",
     "error": "Неуспешно зареждане на потребители.",
     "headers": {
+      "invite": "Покани",
       "lastLogin": "Последен вход",
-      "mfa": "MFA",
+      "mfa": "МВнР",
       "registered": "Регистриран",
       "role": "Роля",
       "signIn": "Вход",
       "status": "Статус",
-      "user": "Потребител",
-      "invite": "Invite"
+      "user": "Потребител"
     },
     "mfa": {
       "enabled": "Включено",
@@ -86,7 +85,7 @@
     "status": {
       "active": "Активен",
       "inactive": "Неактивен",
-      "invited": "Invited"
+      "invited": "Поканен"
     },
     "viewAria": "Преглед на {{name}}"
   },

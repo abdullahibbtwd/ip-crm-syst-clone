@@ -55,15 +55,15 @@
     "openMenu": "Բացեք ընտրացանկը"
   },
   "pagination": {
+    "go": "Գնա",
+    "maxPerPage": "Առավելագույնը {{max}}",
     "noResults": "Ոչ մի արդյունք",
+    "ofPages": "{{count}}-ից",
     "page": "Էջ {{page}}",
-    "showing": "Ցուցադրվում է {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Էջ",
+    "perPage": "մեկ էջի համար",
+    "perPageLabel": "Մեկ էջի համար",
+    "showing": "Ցուցադրվում է {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Հաշվետվություններ"

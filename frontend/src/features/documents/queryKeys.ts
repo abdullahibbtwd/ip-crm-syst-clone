@@ -5,6 +5,8 @@ export const documentKeys = {
     [...documentKeys.all, 'portal', filters ?? {}] as const,
   matter: (matterId: string, filters?: Record<string, unknown>) =>
     [...documentKeys.all, 'matter', matterId, filters ?? {}] as const,
+  client: (clientId: string, filters?: Record<string, unknown>) =>
+    [...documentKeys.all, 'client', clientId, filters ?? {}] as const,
   versions: (documentId: string) =>
     [...documentKeys.all, 'versions', documentId] as const,
 }

@@ -125,11 +125,11 @@
     "emptyDescription": "Versuchen Sie, Filter anzupassen oder eine neue Anfrage zu erstellen.",
     "error": "Die Einlassleitungen konnten nicht geladen werden.",
     "new": "Neue Anfrage",
-    "searchPlaceholder": "Name oder E-Mail suchen…",
-    "title": "Einlasswarteschlange",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "von {{total}}"
+    },
+    "searchPlaceholder": "Name oder E-Mail suchen…",
+    "title": "Einlasswarteschlange"
   },
   "matterType": {
     "design": "Design",

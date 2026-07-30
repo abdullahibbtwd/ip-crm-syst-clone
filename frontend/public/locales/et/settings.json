@@ -45,6 +45,11 @@
       "description": "Konfigureerige automaatselt loodud tähtaegade jaoks jurisdiktsioon ja asja tüüpi nihked.",
       "action": "Hallake tähtaegade reegleid"
     },
+    "jurisdictions": {
+      "title": "Jurisdiktsioonid",
+      "description": "Üks koht, kus saate hallata iga riigi või piirkondliku kontori büroosid, tähtaegade reegleid ja pühadekalendreid.",
+      "action": "Halda jurisdiktsioone"
+    },
     "holidays": {
       "title": "Pühade kalender",
       "description": "Jurisdiktsiooni pühad, mida kasutatakse tähtaegade tööpäevade arvestamisel.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Nimi ja kuupäev on kohustuslikud",
       "saveFailed": "Puhkuse salvestamine ebaõnnestus"
+    }
+  },
+  "jurisdictions": {
+    "title": "Jurisdiktsioonid",
+    "subtitle": "Avage arhiivibüroo, et hallata tähtaegade ja pühade reegleid ühes kohas. Prioriteetsed kontorid ilmuvad korjajates esimesena.",
+    "newJurisdiction": "Lisage jurisdiktsioon",
+    "noPermission": "Teil pole jurisdiktsioonide haldamise luba.",
+    "loading": "Jurisdiktsioonide laadimine…",
+    "loadError": "Jurisdiktsioonide laadimine ebaõnnestus.",
+    "empty": "Nendele filtritele ei vasta ükski jurisdiktsioon.",
+    "searchPlaceholder": "Otsi koodi, kontorit või nime…",
+    "editAria": "Muuda jurisdiktsiooni",
+    "filters": {
+      "all": "Kõik olekud"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiktsioon",
+      "type": "Tüüp",
+      "automation": "Automatiseerimine",
+      "rules": "Reeglid",
+      "holidays": "Pühad",
+      "status": "Olek"
+    },
+    "type": {
+      "national": "Rahvuslik",
+      "regional": "Piirkondlik",
+      "international": "Rahvusvaheline"
+    },
+    "automation": {
+      "full": "Täis",
+      "partial": "Osaline",
+      "manual": "Käsiraamat"
+    },
+    "priority": {
+      "yes": "Prioriteet",
+      "no": "Standardne",
+      "badge": "Prioriteet"
+    },
+    "status": {
+      "active": "Aktiivne",
+      "inactive": "Mitteaktiivne"
+    },
+    "hub": {
+      "back": "Kõik jurisdiktsioonid",
+      "editOffice": "Redigeeri kontorit",
+      "manageRules": "Lisage või muutke tähtajareegleid",
+      "manageHolidays": "Lisage või muutke pühi",
+      "noRules": "Selle kontori jaoks pole veel tähtajareegleid. Lisage üks, et lubada automaatne dokumenteerimine.",
+      "noHolidays": "Veel pole puhkust. Lisage need nii, et tööpäevased tähtajad jätaksid kontori sulgemise vahele.",
+      "tabs": {
+        "overview": "Ülevaade",
+        "rules": "Tähtaja reeglid",
+        "holidays": "Pühad"
+      },
+      "automationHint": {
+        "full": "Automaatne dokumenteerimine on valmis – reeglid ja pühad on seadistatud.",
+        "partial": "Reeglid on olemas, aga puhkused puuduvad. Tööpäevade loendamisel kasutatakse ainult nädalavahetusi.",
+        "manual": "Tähtaja reeglid veel puuduvad. Õigusi saab endiselt esitada siin; tähtajad tuleb käsitsi luua kuni reeglite lisamiseni."
+      }
+    },
+    "drawer": {
+      "createTitle": "Lisage jurisdiktsioon",
+      "editTitle": "Muuda jurisdiktsiooni",
+      "code": "Kood",
+      "codeHint": "2–4-kohaline kontorikood (nt USA, EL, WO). Hiljem muuta ei saa.",
+      "officeName": "Kontori nimi",
+      "name": "Riigi/piirkonna nimi",
+      "type": "Tüüp",
+      "priority": "Prioriteetne nimekiri",
+      "status": "Olek",
+      "sortOrder": "Sorteerimisjärjekord",
+      "cancel": "Tühista",
+      "create": "Loo jurisdiktsioon",
+      "save": "Salvestage muudatused"
+    },
+    "errors": {
+      "required": "Nõutud on kontori nimi ja riigi/piirkonna nimi",
+      "codeRequired": "Kood on nõutav",
+      "sortOrder": "Sisestage kehtiv sortimisjärjekord",
+      "saveFailed": "Jurisdiktsiooni salvestamine ebaõnnestus"
     }
   },
   "emailIntegration": {

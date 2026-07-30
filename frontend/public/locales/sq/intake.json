@@ -125,11 +125,11 @@
     "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një kërkesë të re.",
     "error": "Dështoi në ngarkimin e prizave të marrjes.",
     "new": "Hetim i ri",
-    "searchPlaceholder": "Kërko emrin ose emailin…",
-    "title": "Radha e marrjes",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "nga {{total}}"
+    },
+    "searchPlaceholder": "Kërko emrin ose emailin…",
+    "title": "Radha e marrjes"
   },
   "matterType": {
     "design": "Dizajn",

@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { PortalAccessModule } from '../common/portal-access.module';
 import { DeadlinesModule } from '../deadlines/deadlines.module';
+import { ClientCorrespondenceController } from './client-correspondence.controller';
 import {
   CorrespondenceController,
   MatterCorrespondenceController,
@@ -14,6 +15,7 @@ import { PortalCorrespondenceController } from './portal-correspondence.controll
   imports: [DeadlinesModule, PortalAccessModule],
   controllers: [
     MatterCorrespondenceController,
+    ClientCorrespondenceController,
     MatterTimelineController,
     CorrespondenceController,
     PortalCorrespondenceController,

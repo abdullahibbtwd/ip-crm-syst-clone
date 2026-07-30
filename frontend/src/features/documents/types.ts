@@ -5,6 +5,7 @@ export type DocumentCategory =
   | 'certificate'
   | 'correspondence'
   | 'renewal'
+  | 'general'
 
 export type DocumentUser = {
   id: string
@@ -36,6 +37,41 @@ export type MatterDocument = {
   createdBy: DocumentUser | null
   versionCount: number
   latestVersion: DocumentVersion | null
+}
+
+export type ClientOwnedDocument = {
+  id: string
+  clientId: string
+  scope: 'client'
+  displayName: string
+  category: DocumentCategory
+  tags: string[]
+  createdAt: string
+  updatedAt: string
+  createdBy: DocumentUser | null
+  versionCount: number
+  latestVersion: DocumentVersion | null
+}
+
+export type ClientMatterDocument = {
+  id: string
+  matterId: string
+  matterTitle: string
+  scope: 'matter'
+  displayName: string
+  category: DocumentCategory
+  tags: string[]
+  createdAt: string
+  updatedAt: string
+  createdBy: DocumentUser | null
+  versionCount: number
+  latestVersion: DocumentVersion | null
+}
+
+export type ClientDocumentsResponse = {
+  matters: Array<{ id: string; title: string }>
+  clientDocuments: ClientOwnedDocument[]
+  matterDocuments: ClientMatterDocument[]
 }
 
 export type PortalDocument = MatterDocument & {

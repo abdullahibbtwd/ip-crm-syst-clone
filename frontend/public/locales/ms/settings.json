@@ -45,6 +45,11 @@
       "description": "Konfigurasikan bidang kuasa dan ofset jenis perkara untuk tarikh akhir yang dibuat secara automatik.",
       "action": "Urus peraturan tarikh akhir"
     },
+    "jurisdictions": {
+      "title": "Bidang kuasa",
+      "description": "Satu tempat untuk mengurus pejabat pemfailan, peraturan tarikh akhir dan kalendar cuti untuk setiap pejabat negara atau wilayah.",
+      "action": "Menguruskan bidang kuasa"
+    },
     "holidays": {
       "title": "Kalendar cuti",
       "description": "Cuti bidang kuasa digunakan apabila mengira hari perniagaan untuk tarikh akhir.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Nama dan tarikh diperlukan",
       "saveFailed": "Gagal menyelamatkan cuti"
+    }
+  },
+  "jurisdictions": {
+    "title": "Bidang kuasa",
+    "subtitle": "Buka pejabat pemfailan untuk mengurus peraturan tarikh akhir dan cuti di satu tempat. Pejabat keutamaan muncul dahulu dalam pemilih.",
+    "newJurisdiction": "Tambah bidang kuasa",
+    "noPermission": "Anda tidak mempunyai kebenaran untuk mengurus bidang kuasa.",
+    "loading": "Memuatkan bidang kuasa…",
+    "loadError": "Gagal memuatkan bidang kuasa.",
+    "empty": "Tiada bidang kuasa yang sepadan dengan penapis ini.",
+    "searchPlaceholder": "Cari kod, pejabat atau nama…",
+    "editAria": "Edit bidang kuasa",
+    "filters": {
+      "all": "Semua status"
+    },
+    "columns": {
+      "jurisdiction": "Bidang kuasa",
+      "type": "taip",
+      "automation": "Automasi",
+      "rules": "Peraturan",
+      "holidays": "hari cuti",
+      "status": "Status"
+    },
+    "type": {
+      "national": "Kebangsaan",
+      "regional": "Serantau",
+      "international": "antarabangsa"
+    },
+    "automation": {
+      "full": "penuh",
+      "partial": "separa",
+      "manual": "Manual"
+    },
+    "priority": {
+      "yes": "Keutamaan",
+      "no": "Standard",
+      "badge": "Keutamaan"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Tidak aktif"
+    },
+    "hub": {
+      "back": "Semua bidang kuasa",
+      "editOffice": "Edit pejabat",
+      "manageRules": "Tambah atau edit peraturan tarikh akhir",
+      "manageHolidays": "Tambah atau edit hari cuti",
+      "noRules": "Tiada peraturan tarikh akhir untuk pejabat ini lagi. Tambahkan satu untuk mendayakan auto-doket.",
+      "noHolidays": "Belum cuti lagi. Tambahkannya supaya tarikh akhir hari perniagaan melangkau penutupan pejabat.",
+      "tabs": {
+        "overview": "Gambaran keseluruhan",
+        "rules": "Peraturan tarikh akhir",
+        "holidays": "hari cuti"
+      },
+      "automationHint": {
+        "full": "Auto-doket sudah sedia — peraturan dan cuti dikonfigurasikan.",
+        "partial": "Peraturan wujud, tetapi cuti tiada. Pengiraan hari perniagaan menggunakan hujung minggu sahaja.",
+        "manual": "Tiada peraturan tarikh akhir lagi. Hak masih boleh difailkan di sini; tarikh akhir mesti dibuat secara manual sehingga peraturan ditambah."
+      }
+    },
+    "drawer": {
+      "createTitle": "Tambah bidang kuasa",
+      "editTitle": "Edit bidang kuasa",
+      "code": "Kod",
+      "codeHint": "Kod pejabat 2–4 aksara (cth. AS, EU, WO). Tidak boleh diubah kemudian.",
+      "officeName": "Nama pejabat",
+      "name": "Nama negara / wilayah",
+      "type": "taip",
+      "priority": "Penyenaraian keutamaan",
+      "status": "Status",
+      "sortOrder": "Susun urutan",
+      "cancel": "Batal",
+      "create": "Wujudkan bidang kuasa",
+      "save": "Simpan perubahan"
+    },
+    "errors": {
+      "required": "Nama pejabat dan nama negara/rantau diperlukan",
+      "codeRequired": "Kod diperlukan",
+      "sortOrder": "Masukkan susunan isihan yang sah",
+      "saveFailed": "Gagal menyelamatkan bidang kuasa"
     }
   },
   "emailIntegration": {

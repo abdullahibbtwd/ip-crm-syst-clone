@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Ticari Marka İzleme",
     "title": "Ticari Marka İzleme",
     "description": "Aktif izleme profillerinde tespit edilen olası çakışmaları inceleyin.",
     "empty": "Filtrelerinizle eşleşen izleme uyarısı yok.",
-    "loading": "Saat uyarıları yükleniyor…"
+    "loading": "Saat uyarıları yükleniyor…",
+    "worklist": "İş listesi",
+    "worklistDescription": "Duruma, yetki alanına veya kayıt kaynağına göre filtreleyin."
   },
   "detail": {
     "title": "Uyarıyı izle",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Yeni uyarılar",
     "accepted": "Kabul edildi",
-    "rejected": "Reddedilmiş"
+    "rejected": "Reddedilmiş",
+    "hintAwaitingTriage": "İnceleme bekliyor",
+    "hintMattersCreated": "Oluşturulan işler",
+    "hintFalsePositives": "Yanlış pozitifler"
   },
   "profileStatus": {
     "active": "Aktif",

@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Filloni",
+    "complete": "Kompletuar"
+  },
   "status": {
     "pending": "Në pritje",
     "in_progress": "Në vazhdim",

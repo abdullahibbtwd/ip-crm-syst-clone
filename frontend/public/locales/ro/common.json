@@ -55,15 +55,15 @@
     "openMenu": "Deschide meniul"
   },
   "pagination": {
+    "go": "Merge",
+    "maxPerPage": "Maxim {{max}}",
     "noResults": "Niciun rezultat",
+    "ofPages": "din {{count}}",
     "page": "Pagina {{page}}",
-    "showing": "Se afișează {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Pagină",
+    "perPage": "pe pagină",
+    "perPageLabel": "Pe pagină",
+    "showing": "Se afișează {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Rapoarte"

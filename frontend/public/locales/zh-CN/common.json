@@ -55,15 +55,15 @@
     "openMenu": "打开菜单"
   },
   "pagination": {
+    "go": "去",
+    "maxPerPage": "最大 {{max}}",
     "noResults": "没有结果",
+    "ofPages": "{{count}} 的",
     "page": "页{{page}}",
-    "showing": "显示 {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "页",
+    "perPage": "每页",
+    "perPageLabel": "每页",
+    "showing": "显示 {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "报告"

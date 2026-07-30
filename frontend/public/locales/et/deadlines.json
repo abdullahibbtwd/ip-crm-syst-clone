@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Alusta",
+    "complete": "Täielik"
+  },
   "status": {
     "pending": "Ootel",
     "in_progress": "Pooleli",

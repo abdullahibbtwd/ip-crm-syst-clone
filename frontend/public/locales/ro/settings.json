@@ -45,6 +45,11 @@
       "description": "Configurați jurisdicția și compensarea tipului de materie pentru termenele-limită create automat.",
       "action": "Gestionați regulile de termen limită"
     },
+    "jurisdictions": {
+      "title": "Jurisdicțiile",
+      "description": "Un singur loc pentru a gestiona birourile de înregistrare, regulile privind termenele limită și calendarele de sărbători pentru fiecare țară sau birou regional.",
+      "action": "Gestionați jurisdicțiile"
+    },
     "holidays": {
       "title": "Calendarul sărbătorilor",
       "description": "Sărbătorile de jurisdicție utilizate la contorizarea zilelor lucrătoare pentru termenele limită.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Numele și data sunt obligatorii",
       "saveFailed": "Nu s-a salvat vacanța"
+    }
+  },
+  "jurisdictions": {
+    "title": "Jurisdicțiile",
+    "subtitle": "Deschideți un birou de înregistrare pentru a-și gestiona regulile limită și sărbătorile într-un singur loc. Birourile prioritare apar pe primul loc la culegători.",
+    "newJurisdiction": "Adăugați jurisdicție",
+    "noPermission": "Nu aveți permisiunea de a gestiona jurisdicții.",
+    "loading": "Se încarcă jurisdicțiile…",
+    "loadError": "Nu s-au încărcat jurisdicțiile.",
+    "empty": "Nicio jurisdicție nu corespunde acestor filtre.",
+    "searchPlaceholder": "Căutați cod, birou sau nume...",
+    "editAria": "Editați jurisdicția",
+    "filters": {
+      "all": "Toate stările"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdicția",
+      "type": "Tip",
+      "automation": "Automatizare",
+      "rules": "Reguli",
+      "holidays": "Sărbători",
+      "status": "Stare"
+    },
+    "type": {
+      "national": "Naţional",
+      "regional": "Regional",
+      "international": "Internaţional"
+    },
+    "automation": {
+      "full": "Deplin",
+      "partial": "Parţial",
+      "manual": "Manual"
+    },
+    "priority": {
+      "yes": "Prioritate",
+      "no": "Standard",
+      "badge": "Prioritate"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv"
+    },
+    "hub": {
+      "back": "Toate jurisdicțiile",
+      "editOffice": "Editează biroul",
+      "manageRules": "Adăugați sau modificați regulile de termen limită",
+      "manageHolidays": "Adăugați sau editați sărbători",
+      "noRules": "Încă nu există reguli de termen limită pentru acest birou. Adăugați unul pentru a activa dochetarea automată.",
+      "noHolidays": "Nu există încă sărbători. Adăugați-le astfel încât termenele limită din zile lucrătoare să nu închidă birourile.",
+      "tabs": {
+        "overview": "Prezentare generală",
+        "rules": "Reguli de termen",
+        "holidays": "Sărbători"
+      },
+      "automationHint": {
+        "full": "Încheierea automată este gata — regulile și sărbătorile sunt configurate.",
+        "partial": "Reguli există, dar vacanțele lipsesc. Numărarea zilelor lucrătoare folosește numai weekendurile.",
+        "manual": "Încă nu există reguli de termen limită. Drepturile pot fi încă depuse aici; termenele limită trebuie create manual până când sunt adăugate reguli."
+      }
+    },
+    "drawer": {
+      "createTitle": "Adăugați jurisdicție",
+      "editTitle": "Editați jurisdicția",
+      "code": "Cod",
+      "codeHint": "Cod birou cu 2-4 caractere (de exemplu, SUA, UE, WO). Nu poate fi schimbat ulterior.",
+      "officeName": "Numele biroului",
+      "name": "Numele țării/regiunii",
+      "type": "Tip",
+      "priority": "Listare prioritară",
+      "status": "Stare",
+      "sortOrder": "Ordinea de sortare",
+      "cancel": "Anula",
+      "create": "Creați jurisdicție",
+      "save": "Salvați modificările"
+    },
+    "errors": {
+      "required": "Sunt necesare numele biroului și numele țării/regiunii",
+      "codeRequired": "Codul este necesar",
+      "sortOrder": "Introduceți o ordine de sortare validă",
+      "saveFailed": "Nu s-a salvat jurisdicția"
     }
   },
   "emailIntegration": {

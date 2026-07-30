@@ -125,11 +125,11 @@
     "emptyDescription": "Pokušajte prilagoditi filtere ili kreirajte novi upit.",
     "error": "Učitavanje vodova za unos nije uspjelo.",
     "new": "Novi upit",
-    "searchPlaceholder": "Pretražite ime ili email…",
-    "title": "Intake queue",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "od {{total}}"
+    },
+    "searchPlaceholder": "Pretražite ime ili email…",
+    "title": "Intake queue"
   },
   "matterType": {
     "design": "Dizajn",

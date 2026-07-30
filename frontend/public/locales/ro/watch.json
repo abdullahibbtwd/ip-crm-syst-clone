@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Ceas de marcă comercială",
     "title": "Ceas de marcă comercială",
     "description": "Examinați potențialele conflicte detectate împotriva profilurilor de ceasuri active.",
     "empty": "Nicio alertă de ceas nu se potrivește cu filtrele dvs.",
-    "loading": "Se încarcă alertele pentru ceas..."
+    "loading": "Se încarcă alertele pentru ceas...",
+    "worklist": "Lista de lucru",
+    "worklistDescription": "Filtrați după stare, jurisdicție sau sursă de registru."
   },
   "detail": {
     "title": "Vizionați alerta",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Alerte noi",
     "accepted": "Acceptat",
-    "rejected": "Respins"
+    "rejected": "Respins",
+    "hintAwaitingTriage": "În așteptare de triaj",
+    "hintMattersCreated": "Dosare create",
+    "hintFalsePositives": "False pozitive"
   },
   "profileStatus": {
     "active": "Activ",

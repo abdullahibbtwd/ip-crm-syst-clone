@@ -125,11 +125,11 @@
     "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir sorgu oluşturun.",
     "error": "Giriş kabloları yüklenemedi.",
     "new": "Yeni sorgulama",
-    "searchPlaceholder": "Adı veya e-postayı arayın…",
-    "title": "Giriş kuyruğu",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "{{total}}"
+    },
+    "searchPlaceholder": "Adı veya e-postayı arayın…",
+    "title": "Giriş kuyruğu"
   },
   "matterType": {
     "design": "Tasarım",

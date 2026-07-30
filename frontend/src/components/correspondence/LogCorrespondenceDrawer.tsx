@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FileText, Link2, Upload, X } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { Button } from '@/components/ui/button'
@@ -12,7 +13,10 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { InsertPrecedentPicker } from '@/features/precedents/components/InsertPrecedentPicker'
-import { useCreateCorrespondence } from '@/features/correspondence/hooks/useCorrespondence'
+import {
+  useCreateClientCorrespondence,
+  useCreateCorrespondence,
+} from '@/features/correspondence/hooks/useCorrespondence'
 import type {
   CorrespondenceCategory,
   CorrespondenceDirection,
@@ -20,12 +24,17 @@ import type {
 } from '@/features/correspondence/types'
 import {
   CORRESPONDENCE_CATEGORIES,
-  CORRESPONDENCE_CATEGORY_LABELS,
-  DIRECTION_LABELS,
-  STATUS_LABELS,
+  correspondenceCategoryLabel,
+  correspondenceDirectionLabel,
+  correspondenceStatusLabel,
   defaultStatusForDirection,
 } from '@/features/correspondence/utils'
-import { useMatterDocuments, useUploadDocument } from '@/features/documents/hooks/useDocuments'
+import {
+  useClientDocuments,
+  useMatterDocuments,
+  useUploadClientDocument,
+  useUploadDocument,
+} from '@/features/documents/hooks/useDocuments'
 import type { DocumentCategory } from '@/features/documents/types'
 import { DOCUMENT_CATEGORY_LABELS } from '@/features/documents/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
@@ -50,27 +59,65 @@ const DIRECTIONS: CorrespondenceDirection[] = ['incoming', 'outgoing']
 const STATUSES: CorrespondenceStatus[] = ['draft', 'sent', 'received', 'replied']
 
 type AttachmentMode = 'none' | 'existing' | 'upload'
+type MatterOption = { id: string; title: string }
 
 type LogCorrespondenceDrawerProps = {
   open: boolean
   onClose: () => void
-  matterId: string
+  matterId?: string
+  clientId?: string
+  matters?: MatterOption[]
+  initialScope?: 'client' | string
 }
 
 export function LogCorrespondenceDrawer({
   open,
   onClose,
   matterId,
+  clientId,
+  matters = [],
+  initialScope = 'client',
 }: LogCorrespondenceDrawerProps) {
-  const { data: documents } = useMatterDocuments(matterId)
-  const uploadDocument = useUploadDocument(matterId)
-  const createCorrespondence = useCreateCorrespondence(matterId)
+  const { t } = useTranslation(['matters', 'common'])
+  const allowScopePicker = Boolean(clientId) && !matterId
+  const [linkScope, setLinkScope] = useState<'client' | string>(
+    matterId ? matterId : initialScope,
+  )
+
+  const resolvedMatterId = matterId ?? (linkScope !== 'client' ? linkScope : undefined)
+  const isClientScope = Boolean(clientId) && !resolvedMatterId
+  const scopeWord = t(
+    isClientScope
+      ? 'correspondence.log.scopeWordClient'
+      : 'correspondence.log.scopeWordMatter',
+  )
+
+  const { data: matterDocuments } = useMatterDocuments(resolvedMatterId ?? '')
+  const { data: clientDocumentsBundle } = useClientDocuments(clientId ?? '')
+  const uploadMatterDocument = useUploadDocument(resolvedMatterId ?? '')
+  const uploadClientDocument = useUploadClientDocument(clientId ?? '')
+  const createForMatter = useCreateCorrespondence(resolvedMatterId ?? '')
+  const createForClient = useCreateClientCorrespondence(clientId ?? '')
+  const uploadDocument = isClientScope ? uploadClientDocument : uploadMatterDocument
+  const createCorrespondence = isClientScope ? createForClient : createForMatter
   const fileInputRef = useRef<HTMLInputElement>(null)
   const canUploadDocument = usePermission('document', 'create')
 
+  const documentsForLink = useMemo(() => {
+    if (isClientScope) {
+      return (clientDocumentsBundle?.clientDocuments ?? []).map((doc) => ({
+        id: doc.id,
+        displayName: doc.displayName,
+        category: doc.category,
+        latestVersion: doc.latestVersion,
+      }))
+    }
+    return matterDocuments ?? []
+  }, [isClientScope, clientDocumentsBundle?.clientDocuments, matterDocuments])
+
   const documentVersionOptions = useMemo(
     () =>
-      (documents ?? []).flatMap((doc) =>
+      documentsForLink.flatMap((doc) =>
         doc.latestVersion
           ? [
               {
@@ -83,7 +130,7 @@ export function LogCorrespondenceDrawer({
             ]
           : [],
       ),
-    [documents],
+    [documentsForLink],
   )
 
   const [direction, setDirection] = useState<CorrespondenceDirection>('incoming')
@@ -104,6 +151,13 @@ export function LogCorrespondenceDrawer({
   const [isClientVisible, setIsClientVisible] = useState(false)
   const [bodyText, setBodyText] = useState('')
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!open) return
+    setLinkScope(matterId ? matterId : initialScope)
+    setLinkedDocumentVersionId('')
+    setAttachmentMode('none')
+  }, [open, matterId, initialScope])
 
   const resetUploadFields = () => {
     setUploadFile(null)
@@ -153,15 +207,19 @@ export function LogCorrespondenceDrawer({
     e.preventDefault()
     setError(null)
     if (!sender.trim() || !recipient.trim() || !subject.trim()) {
-      setError('Sender, recipient, and subject are required')
+      setError(t('correspondence.log.errors.requiredFields'))
+      return
+    }
+    if (!isClientScope && !resolvedMatterId) {
+      setError(t('correspondence.log.errors.selectScope'))
       return
     }
     if (attachmentMode === 'upload' && !uploadFile) {
-      setError('Choose a file to upload, or change attachment to none / link existing')
+      setError(t('correspondence.log.errors.chooseFile'))
       return
     }
     if (attachmentMode === 'existing' && !linkedDocumentVersionId) {
-      setError('Select a document from the list, or change attachment mode')
+      setError(t('correspondence.log.errors.selectDocument'))
       return
     }
     try {
@@ -172,7 +230,7 @@ export function LogCorrespondenceDrawer({
         const docTitle =
           subject.trim() ||
           uploadFile.name.replace(/\.[^.]+$/, '') ||
-          'Correspondence attachment'
+          t('correspondence.log.attachmentFallbackName')
         const uploaded = await uploadDocument.mutateAsync({
           file: uploadFile,
           displayName: docTitle,
@@ -181,12 +239,12 @@ export function LogCorrespondenceDrawer({
         })
         linkedVersionId = uploaded.latestVersion?.id
         if (!linkedVersionId) {
-          setError('Upload succeeded but could not link the document')
+          setError(t('correspondence.log.errors.linkFailed'))
           return
         }
       }
 
-      await createCorrespondence.mutateAsync({
+      const payload = {
         direction,
         category,
         correspondenceDate,
@@ -197,26 +255,60 @@ export function LogCorrespondenceDrawer({
         isClientVisible,
         bodyText: bodyText.trim() || undefined,
         metadata: { logMethod: 'correspondence' },
-        documentVersionId: linkedVersionId,
-      })
+        ...(isClientScope
+          ? { clientDocumentVersionId: linkedVersionId }
+          : { documentVersionId: linkedVersionId }),
+      }
+
+      if (isClientScope) {
+        await createForClient.mutateAsync(payload)
+      } else {
+        await createForMatter.mutateAsync(payload)
+      }
       resetForm()
       onClose()
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Failed to log correspondence'))
+      setError(getApiErrorMessage(err, t('correspondence.log.errors.saveFailed')))
     }
   }
 
   if (!open) return null
 
   return (
-    <Drawer open={open} onClose={handleClose} title="Log correspondence" className="max-w-lg">
+    <Drawer
+      open={open}
+      onClose={handleClose}
+      title={t('correspondence.log.title')}
+      className="max-w-lg"
+    >
       <form onSubmit={handleSubmit} className="space-y-5">
+        {allowScopePicker ? (
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-muted-foreground">
+              {t('correspondence.log.saveTo')}
+            </label>
+            <Select value={linkScope} onValueChange={(v) => v && setLinkScope(v)}>
+              <SelectTrigger className="bg-background">
+                <SelectValue placeholder={t('correspondence.log.chooseScope')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="client">{t('correspondence.log.scopeClient')}</SelectItem>
+                {matters.map((m) => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {t('correspondence.log.scopeMatter', { title: m.title })}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        ) : null}
+
         <section className="space-y-3 rounded-lg border bg-muted/30 p-4">
           <div className="flex items-center justify-between gap-2">
             <div>
-              <h3 className="text-sm font-medium">Attachment</h3>
+              <h3 className="text-sm font-medium">{t('correspondence.log.attachment')}</h3>
               <p className="text-xs text-muted-foreground">
-                Optional — link a file from the matter or upload PDF, Word, images, or .eml
+                {t('correspondence.log.attachmentHint', { scope: scopeWord })}
               </p>
             </div>
             {attachmentMode !== 'none' ? (
@@ -228,7 +320,7 @@ export function LogCorrespondenceDrawer({
                 onClick={resetAttachment}
               >
                 <X className="size-3.5" />
-                Clear
+                {t('correspondence.log.clear')}
               </Button>
             ) : null}
           </div>
@@ -242,7 +334,12 @@ export function LogCorrespondenceDrawer({
             {(['none', 'existing', 'upload'] as const).map((mode) => {
               if (mode === 'upload' && !canUploadDocument) return null
               const Icon = mode === 'none' ? X : mode === 'existing' ? Link2 : Upload
-              const label = mode === 'none' ? 'None' : mode === 'existing' ? 'Link' : 'Upload'
+              const label =
+                mode === 'none'
+                  ? t('correspondence.log.modeNone')
+                  : mode === 'existing'
+                    ? t('correspondence.log.modeLink')
+                    : t('correspondence.log.modeUpload')
               return (
                 <button
                   key={mode}
@@ -266,7 +363,7 @@ export function LogCorrespondenceDrawer({
             <div className="space-y-2">
               {documentVersionOptions.length === 0 ? (
                 <p className="rounded-md border border-dashed bg-background px-3 py-4 text-center text-sm text-muted-foreground">
-                  No documents on this matter yet.
+                  {t('correspondence.log.noDocuments', { scope: scopeWord })}
                 </p>
               ) : (
                 <Select
@@ -274,7 +371,11 @@ export function LogCorrespondenceDrawer({
                   onValueChange={(v) => v && setLinkedDocumentVersionId(v)}
                 >
                   <SelectTrigger className="h-11 w-full bg-background">
-                    <SelectValue placeholder="Select a document from this matter…" />
+                    <SelectValue
+                      placeholder={t('correspondence.log.selectDocument', {
+                        scope: scopeWord,
+                      })}
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     {documentVersionOptions.map((opt) => (
@@ -309,13 +410,13 @@ export function LogCorrespondenceDrawer({
                 <p className="text-sm font-medium">{uploadFile.name}</p>
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  Drag a file here or{' '}
+                  {t('correspondence.log.dragFile')}{' '}
                   <button
                     type="button"
                     className="font-medium text-primary underline-offset-2 hover:underline"
                     onClick={() => fileInputRef.current?.click()}
                   >
-                    browse
+                    {t('correspondence.log.browse')}
                   </button>
                 </p>
               )}
@@ -333,12 +434,14 @@ export function LogCorrespondenceDrawer({
         <section className="space-y-4">
           <div className="flex items-center gap-2 text-sm font-medium">
             <FileText className="size-4 text-muted-foreground" />
-            Correspondence details
+            {t('correspondence.log.details')}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Direction</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.log.direction')}
+              </label>
               <Select
                 value={direction}
                 onValueChange={(v) => v && handleDirectionChange(v as CorrespondenceDirection)}
@@ -349,14 +452,16 @@ export function LogCorrespondenceDrawer({
                 <SelectContent>
                   {DIRECTIONS.map((d) => (
                     <SelectItem key={d} value={d}>
-                      {DIRECTION_LABELS[d]}
+                      {correspondenceDirectionLabel(d)}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Category</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.log.category')}
+              </label>
               <Select
                 value={category}
                 onValueChange={(v) => v && setCategory(v as CorrespondenceCategory)}
@@ -367,14 +472,16 @@ export function LogCorrespondenceDrawer({
                 <SelectContent>
                   {CORRESPONDENCE_CATEGORIES.map((c) => (
                     <SelectItem key={c} value={c}>
-                      {CORRESPONDENCE_CATEGORY_LABELS[c]}
+                      {correspondenceCategoryLabel(c)}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Date</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.log.date')}
+              </label>
               <Input
                 type="date"
                 className="bg-background"
@@ -383,7 +490,9 @@ export function LogCorrespondenceDrawer({
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-muted-foreground">Status</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.log.status')}
+              </label>
               <Select
                 value={status}
                 onValueChange={(v) => v && setStatus(v as CorrespondenceStatus)}
@@ -394,7 +503,7 @@ export function LogCorrespondenceDrawer({
                 <SelectContent>
                   {STATUSES.map((s) => (
                     <SelectItem key={s} value={s}>
-                      {STATUS_LABELS[s]}
+                      {correspondenceStatusLabel(s)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -403,36 +512,44 @@ export function LogCorrespondenceDrawer({
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-muted-foreground">Sender</label>
+            <label className="text-xs font-medium text-muted-foreground">
+              {t('correspondence.log.sender')}
+            </label>
             <Input
               className="bg-background"
               value={sender}
               onChange={(e) => setSender(e.target.value)}
-              placeholder="e.g. BPO, Client: Acme Corp"
+              placeholder={t('correspondence.log.senderPlaceholder')}
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-muted-foreground">Recipient</label>
+            <label className="text-xs font-medium text-muted-foreground">
+              {t('correspondence.log.recipient')}
+            </label>
             <Input
               className="bg-background"
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
-              placeholder="e.g. IP Consulting, Client"
+              placeholder={t('correspondence.log.recipientPlaceholder')}
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-muted-foreground">Subject</label>
+            <label className="text-xs font-medium text-muted-foreground">
+              {t('correspondence.log.subject')}
+            </label>
             <Input
               className="bg-background"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              placeholder="BPO Office Action - Response Required"
+              placeholder={t('correspondence.log.subjectPlaceholder')}
             />
           </div>
 
           <div className="space-y-1.5">
             <div className="flex items-center justify-between gap-2">
-              <label className="text-xs font-medium text-muted-foreground">Body</label>
+              <label className="text-xs font-medium text-muted-foreground">
+                {t('correspondence.log.body')}
+              </label>
               <PermissionGate resource="precedent" action="read">
                 <InsertPrecedentPicker
                   onInsert={(html) => {
@@ -447,7 +564,7 @@ export function LogCorrespondenceDrawer({
               rows={5}
               value={bodyText}
               onChange={(e) => setBodyText(e.target.value)}
-              placeholder="Optional body text — insert from the precedents library"
+              placeholder={t('correspondence.log.bodyPlaceholder')}
             />
           </div>
 
@@ -459,16 +576,18 @@ export function LogCorrespondenceDrawer({
               onChange={(e) => setIsClientVisible(e.target.checked)}
             />
             <span>
-              <span className="block text-sm font-medium">Send to client inbox</span>
+              <span className="block text-sm font-medium">
+                {t('correspondence.log.sendToInbox')}
+              </span>
               <span className="text-xs text-muted-foreground">
-                Show this entry in the client portal Messages inbox.
+                {t('correspondence.log.sendToInboxHint')}
               </span>
             </span>
           </label>
 
-          {direction === 'incoming' && category === 'office_action' ? (
+          {direction === 'incoming' && category === 'office_action' && !isClientScope ? (
             <p className="text-xs text-muted-foreground">
-              A response deadline will be added to the attorney worklist automatically.
+              {t('correspondence.log.officeActionHint')}
             </p>
           ) : null}
         </section>
@@ -477,10 +596,14 @@ export function LogCorrespondenceDrawer({
 
         <div className="flex justify-end gap-2 border-t pt-4">
           <Button type="button" variant="outline" onClick={handleClose}>
-            Cancel
+            {t('common:actions.cancel')}
           </Button>
           <Button type="submit" disabled={createCorrespondence.isPending || uploadDocument.isPending}>
-            {createCorrespondence.isPending || uploadDocument.isPending ? 'Saving…' : 'Save log'}
+            {createCorrespondence.isPending || uploadDocument.isPending
+              ? t('correspondence.log.saving')
+              : isClientScope
+                ? t('correspondence.log.saveToClient')
+                : t('correspondence.log.save')}
           </Button>
         </div>
       </form>

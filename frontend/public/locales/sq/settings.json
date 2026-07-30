@@ -45,6 +45,11 @@
       "description": "Konfiguro kompensimet e juridiksionit dhe të llojit të lëndës për afatet e krijuara automatikisht.",
       "action": "Menaxhoni rregullat e afatit"
     },
+    "jurisdictions": {
+      "title": "Juridiksionet",
+      "description": "Një vend për të menaxhuar zyrat e dosjeve, rregullat e afateve dhe kalendarët e festave për çdo vend ose zyrë rajonale.",
+      "action": "Menaxhoni juridiksionet"
+    },
     "holidays": {
       "title": "Kalendari i festave",
       "description": "Pushimet e juridiksionit përdoren kur numërohen ditët e punës për afatet.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Kërkohet emri dhe data",
       "saveFailed": "Pushimi nuk u ruajt"
+    }
+  },
+  "jurisdictions": {
+    "title": "Juridiksionet",
+    "subtitle": "Hapni një zyrë dosjesh për të menaxhuar rregullat e saj të afatit dhe pushimet në një vend. Zyrat prioritare shfaqen së pari në përzgjedhës.",
+    "newJurisdiction": "Shtoni juridiksionin",
+    "noPermission": "Ju nuk keni leje për të menaxhuar juridiksionet.",
+    "loading": "Juridiksionet po ngarkohen…",
+    "loadError": "Ngarkimi i juridiksioneve dështoi.",
+    "empty": "Asnjë juridiksion nuk përputhet me këto filtra.",
+    "searchPlaceholder": "Kërko kodin, zyrën ose emrin…",
+    "editAria": "Redaktoni juridiksionin",
+    "filters": {
+      "all": "Të gjitha statuset"
+    },
+    "columns": {
+      "jurisdiction": "Juridiksioni",
+      "type": "Lloji",
+      "automation": "Automatizimi",
+      "rules": "Rregullat",
+      "holidays": "Pushime",
+      "status": "Statusi"
+    },
+    "type": {
+      "national": "Kombëtare",
+      "regional": "Rajonale",
+      "international": "Ndërkombëtare"
+    },
+    "automation": {
+      "full": "Plot",
+      "partial": "I pjesshëm",
+      "manual": "Manual"
+    },
+    "priority": {
+      "yes": "Prioriteti",
+      "no": "Standard",
+      "badge": "Prioriteti"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Joaktiv"
+    },
+    "hub": {
+      "back": "Të gjitha juridiksionet",
+      "editOffice": "Zyra e redaktimit",
+      "manageRules": "Shtoni ose modifikoni rregullat e afatit",
+      "manageHolidays": "Shtoni ose modifikoni pushimet",
+      "noRules": "Ende nuk ka rregulla afati për këtë zyrë. Shto një për të mundësuar futjen automatike.",
+      "noHolidays": "Nuk ka ende pushime. Shtojini ato në mënyrë që afatet e ditëve të punës të anashkalojnë mbylljet e zyrave.",
+      "tabs": {
+        "overview": "Vështrim i përgjithshëm",
+        "rules": "Rregullat e afatit",
+        "holidays": "Pushime"
+      },
+      "automationHint": {
+        "full": "Auto-docketing është gati - rregullat dhe pushimet janë konfiguruar.",
+        "partial": "Rregullat ekzistojnë, por mungojnë pushimet. Numërimi i ditëve të punës përdor vetëm fundjavat.",
+        "manual": "Ende nuk ka rregulla afati. Të drejtat ende mund të depozitohen këtu; afatet duhet të krijohen manualisht derisa të shtohen rregullat."
+      }
+    },
+    "drawer": {
+      "createTitle": "Shtoni juridiksionin",
+      "editTitle": "Redaktoni juridiksionin",
+      "code": "Kodi",
+      "codeHint": "Kodi i zyrës me 2–4 karaktere (p.sh. SHBA, BE, WO). Nuk mund të ndryshohet më vonë.",
+      "officeName": "Emri i zyrës",
+      "name": "Emri i vendit / rajonit",
+      "type": "Lloji",
+      "priority": "Listimi me prioritet",
+      "status": "Statusi",
+      "sortOrder": "Renditja e renditjes",
+      "cancel": "Anulo",
+      "create": "Krijo juridiksion",
+      "save": "Ruaj ndryshimet"
+    },
+    "errors": {
+      "required": "Kërkohet emri i zyrës dhe emri i shtetit/rajonit",
+      "codeRequired": "Kërkohet kodi",
+      "sortOrder": "Fut një renditje të vlefshme të renditjes",
+      "saveFailed": "Juridiksioni dështoi të ruhej"
     }
   },
   "emailIntegration": {

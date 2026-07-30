@@ -138,7 +138,7 @@ export function MatterCorrespondenceTab() {
           <h2 className="font-medium">{t('matters:correspondence.title')}</h2>
           <p className="text-sm text-muted-foreground">
             {t('matters:correspondence.description', {
-              logEmail: t('matters:correspondence.logEmail'),
+              logEmail: t('matters:correspondence.logEmail.title'),
               logCorrespondence: t('matters:correspondence.add'),
             })}
           </p>
@@ -157,7 +157,7 @@ export function MatterCorrespondenceTab() {
             </Button>
             <Button size="sm" onClick={() => setEmailDrawerOpen(true)}>
               <Mail className="size-4" />
-              {t('matters:correspondence.logEmail')}
+              {t('matters:correspondence.logEmail.title')}
             </Button>
           </div>
         </PermissionGate>
@@ -200,7 +200,7 @@ export function MatterCorrespondenceTab() {
                       </Button>
                       <Button size="sm" onClick={() => setEmailDrawerOpen(true)}>
                         <Plus className="size-4" />
-                        {t('matters:correspondence.logEmail')}
+                        {t('matters:correspondence.logEmail.title')}
                       </Button>
                     </div>
                   </PermissionGate>

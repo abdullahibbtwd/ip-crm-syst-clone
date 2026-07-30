@@ -125,11 +125,11 @@
     "emptyDescription": "Prova a modificare i filtri o crea una nuova richiesta.",
     "error": "Impossibile caricare i lead di assunzione.",
     "new": "Nuova inchiesta",
-    "searchPlaceholder": "Cerca nome o email...",
-    "title": "Coda di assunzione",
     "pagination": {
-      "ofTotal": "of {{total}}"
-    }
+      "ofTotal": "di {{total}}"
+    },
+    "searchPlaceholder": "Cerca nome o email...",
+    "title": "Coda di assunzione"
   },
   "matterType": {
     "design": "Progetto",

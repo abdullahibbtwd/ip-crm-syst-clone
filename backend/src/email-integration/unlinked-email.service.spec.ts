@@ -72,10 +72,15 @@ describe('UnlinkedEmailService', () => {
       }),
     };
 
+    const documents = {
+      createClientFromBuffer: jest.fn(),
+    };
+
     service = new UnlinkedEmailService(
       prisma as unknown as PrismaService,
       storage as never,
       correspondence as never,
+      documents as never,
       emlParser as never,
     );
   });

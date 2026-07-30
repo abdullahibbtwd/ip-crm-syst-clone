@@ -4,6 +4,7 @@ import { AlertTriangle } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ClientSummary } from '@/features/crm/types'
+import { clientStatusLabel, clientTypeLabel } from '@/features/crm/utils'
 import { getCountryLabel } from '@/lib/countries'
 import { cn } from '@/lib/utils'
 
@@ -18,7 +19,9 @@ export function ClientSidebar({ summary, isLoading }: ClientSidebarProps) {
   if (isLoading) {
     return (
       <Card className="shadow-none">
-        <CardContent className="p-4 text-sm text-muted-foreground">Loading…</CardContent>
+        <CardContent className="p-4 text-sm text-muted-foreground">
+          {t('sidebar.loading')}
+        </CardContent>
       </Card>
     )
   }
@@ -35,24 +38,25 @@ export function ClientSidebar({ summary, isLoading }: ClientSidebarProps) {
       </CardHeader>
       <CardContent className="space-y-3 text-sm">
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="capitalize">
-            {summary.status}
+          <Badge variant="secondary" className="normal-case tracking-normal">
+            {clientStatusLabel(summary.status)}
           </Badge>
-          <Badge variant="outline" className="capitalize">
-            {summary.type}
+          <Badge variant="outline" className="normal-case tracking-normal">
+            {clientTypeLabel(summary.type)}
           </Badge>
         </div>
 
         {summary.country && (
           <p className="text-muted-foreground">
-            <span className="text-foreground">Country:</span> {getCountryLabel(summary.country)}
+            <span className="text-foreground">{t('sidebar.country')}</span>{' '}
+            {getCountryLabel(summary.country)}
           </p>
         )}
 
         {summary.primaryContact && (
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              Primary contact
+              {t('sidebar.primaryContact')}
             </p>
             <p className="mt-0.5">
               {summary.primaryContact.firstName} {summary.primaryContact.lastName}
@@ -92,7 +96,7 @@ export function ClientSidebar({ summary, isLoading }: ClientSidebarProps) {
         {summary.primaryOffice && !summary.registeredLegalOffice && (
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              Primary office
+              {t('sidebar.primaryOffice')}
             </p>
             <p className="mt-0.5">{summary.primaryOffice.label}</p>
             {summary.primaryOffice.city && (
@@ -101,19 +105,20 @@ export function ClientSidebar({ summary, isLoading }: ClientSidebarProps) {
           </div>
         )}
 
-        <Link
-          to={`/clients/${summary.id}/offices`}
-          className={cn('text-xs text-primary hover:underline')}
-        >
-          {t('addressInsights.manageAddresses')}
-        </Link>
-
-        <Link
-          to={`/clients/${summary.id}/overview`}
-          className={cn('text-xs text-primary hover:underline')}
-        >
-          View full profile
-        </Link>
+        <div className="flex flex-col gap-1.5 pt-1">
+          <Link
+            to={`/clients/${summary.id}/offices`}
+            className={cn('text-xs text-primary hover:underline')}
+          >
+            {t('addressInsights.manageAddresses')}
+          </Link>
+          <Link
+            to={`/clients/${summary.id}/overview`}
+            className={cn('text-xs text-primary hover:underline')}
+          >
+            {t('sidebar.viewProfile')}
+          </Link>
+        </div>
       </CardContent>
     </Card>
   )

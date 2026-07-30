@@ -55,15 +55,15 @@
     "openMenu": "Apri il menu"
   },
   "pagination": {
+    "go": "Andare",
+    "maxPerPage": "Massimo {{max}}",
     "noResults": "Nessun risultato",
+    "ofPages": "di {{count}}",
     "page": "Pagina {{page}}",
-    "showing": "Mostrando {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Pagina",
+    "perPage": "per pagina",
+    "perPageLabel": "Per pagina",
+    "showing": "Mostrando {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Rapporti"

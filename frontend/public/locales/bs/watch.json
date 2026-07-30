@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Trademark Watch",
     "title": "Trademark Watch",
     "description": "Pregledajte potencijalne konflikte otkrivene na aktivnim profilima gledanja.",
     "empty": "Nijedno upozorenje o gledanju ne odgovara vašim filterima.",
-    "loading": "Učitavanje upozorenja sata…"
+    "loading": "Učitavanje upozorenja sata…",
+    "worklist": "Radna lista",
+    "worklistDescription": "Filtrirajte prema statusu, jurisdikciji ili izvoru registra."
   },
   "detail": {
     "title": "Gledajte upozorenje",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Nova upozorenja",
     "accepted": "Prihvaćeno",
-    "rejected": "Odbijeno"
+    "rejected": "Odbijeno",
+    "hintAwaitingTriage": "Čeka se trijaža",
+    "hintMattersCreated": "Stvari stvorene",
+    "hintFalsePositives": "Lažni pozitivni rezultati"
   },
   "profileStatus": {
     "active": "Aktivan",

@@ -45,6 +45,11 @@
       "description": "Konfigurieren Sie Zuständigkeits- und Sachverhaltsversätze für automatisch erstellte Fristen.",
       "action": "Fristenregeln verwalten"
     },
+    "jurisdictions": {
+      "title": "Gerichtsbarkeiten",
+      "description": "Ein Ort zur Verwaltung von Anmeldeämtern, Fristenregeln und Feiertagskalendern für jedes Land oder Regionalbüro.",
+      "action": "Jurisdiktionen verwalten"
+    },
     "holidays": {
       "title": "Feiertagskalender",
       "description": "Bei der Zählung von Werktagen für Fristen werden die Gerichtsstandstage verwendet.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Name und Datum sind erforderlich",
       "saveFailed": "Feiertag konnte nicht gespeichert werden"
+    }
+  },
+  "jurisdictions": {
+    "title": "Gerichtsbarkeiten",
+    "subtitle": "Eröffnen Sie ein Anmeldebüro, um dessen Fristen und Feiertage an einem Ort zu verwalten. Vorrangige Büros erscheinen in der Auswahlliste zuerst.",
+    "newJurisdiction": "Gerichtsstand hinzufügen",
+    "noPermission": "Sie sind nicht berechtigt, Gerichtsbarkeiten zu verwalten.",
+    "loading": "Gerichtsbarkeiten werden geladen…",
+    "loadError": "Die Gerichtsbarkeiten konnten nicht geladen werden.",
+    "empty": "Keine Gerichtsbarkeit entspricht diesen Filtern.",
+    "searchPlaceholder": "Suchen Sie nach Code, Büro oder Name ...",
+    "editAria": "Zuständigkeitsbereich bearbeiten",
+    "filters": {
+      "all": "Alle Status"
+    },
+    "columns": {
+      "jurisdiction": "Zuständigkeit",
+      "type": "Typ",
+      "automation": "Automatisierung",
+      "rules": "Regeln",
+      "holidays": "Feiertage",
+      "status": "Status"
+    },
+    "type": {
+      "national": "National",
+      "regional": "Regional",
+      "international": "International"
+    },
+    "automation": {
+      "full": "Voll",
+      "partial": "Teilweise",
+      "manual": "Handbuch"
+    },
+    "priority": {
+      "yes": "Priorität",
+      "no": "Standard",
+      "badge": "Priorität"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "hub": {
+      "back": "Alle Gerichtsbarkeiten",
+      "editOffice": "Büro bearbeiten",
+      "manageRules": "Fristregeln hinzufügen oder bearbeiten",
+      "manageHolidays": "Feiertage hinzufügen oder bearbeiten",
+      "noRules": "Für dieses Amt gibt es noch keine Fristenregelung. Fügen Sie eine hinzu, um das automatische Docking zu aktivieren.",
+      "noHolidays": "Noch keine Feiertage. Fügen Sie sie hinzu, damit Geschäftstagsfristen Büroschließungen überspringen.",
+      "tabs": {
+        "overview": "Überblick",
+        "rules": "Fristregeln",
+        "holidays": "Feiertage"
+      },
+      "automationHint": {
+        "full": "Das automatische Docking ist bereit – Regeln und Feiertage sind konfiguriert.",
+        "partial": "Es gibt Regeln, aber Feiertage fehlen. Bei der Geschäftstagszählung werden nur Wochenenden berücksichtigt.",
+        "manual": "Noch keine Fristenregelung. Hier können weiterhin Rechte angemeldet werden; Fristen müssen manuell erstellt werden, bis Regeln hinzugefügt werden."
+      }
+    },
+    "drawer": {
+      "createTitle": "Gerichtsstand hinzufügen",
+      "editTitle": "Zuständigkeitsbereich bearbeiten",
+      "code": "Code",
+      "codeHint": "2–4-stelliger Bürocode (z. B. US, EU, WO). Kann nachträglich nicht geändert werden.",
+      "officeName": "Büroname",
+      "name": "Name des Landes/der Region",
+      "type": "Typ",
+      "priority": "Prioritätseintrag",
+      "status": "Status",
+      "sortOrder": "Sortierreihenfolge",
+      "cancel": "Stornieren",
+      "create": "Zuständigkeit schaffen",
+      "save": "Änderungen speichern"
+    },
+    "errors": {
+      "required": "Der Name des Büros und der Name des Landes/der Region sind erforderlich",
+      "codeRequired": "Code ist erforderlich",
+      "sortOrder": "Geben Sie eine gültige Sortierreihenfolge ein",
+      "saveFailed": "Die Zuständigkeit konnte nicht gespeichert werden"
     }
   },
   "emailIntegration": {

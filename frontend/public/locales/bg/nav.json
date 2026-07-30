@@ -23,7 +23,7 @@
     "gdpr": "GDPR",
     "audit": "Одит",
     "usersAndAccess": "Потребители и достъп",
-    "system": "Система",
+    "system": "Системна",
     "myPortfolio": "Моето портфолио",
     "myMatters": "Моите дела"
   },
@@ -42,7 +42,7 @@
     "billingOverview": "Преглед на фактуриране",
     "deadlineRisk": "Риск от срокове",
     "filingVolumes": "Обеми на подавания",
-    "renewalsSummary": "Обобщение на подновявания",
+    "renewalsSummary": "Обобщение за подновявания",
     "revenueReceivables": "Приходи и вземания",
     "team": "Екип",
     "settings": "Настройки",

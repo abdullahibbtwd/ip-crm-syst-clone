@@ -38,6 +38,12 @@ export const emailIntegrationApi = {
 
   getPreview: (id: string) => apiClient.get<QueuedEmailPreview>(`/email-queue/${id}/preview`),
 
+  link: (
+    id: string,
+    data: { matterId?: string; clientId?: string; category?: CorrespondenceCategory },
+  ) => apiClient.post<LinkEmailResult>(`/email-queue/${id}/link`, data),
+
+  /** @deprecated Prefer `link` with matterId or clientId */
   linkToMatter: (id: string, matterId: string, category?: CorrespondenceCategory) =>
     apiClient.post<LinkEmailResult>(`/email-queue/${id}/link`, { matterId, category }),
 

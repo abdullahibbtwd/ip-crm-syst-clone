@@ -5,6 +5,7 @@ import { extractClientRef } from './email-classification';
 
 export type MatterSuggestion = {
   suggestedMatterId: string | null;
+  suggestedClientId: string | null;
   suggestionReason: string | null;
 };
 
@@ -24,10 +25,16 @@ export class MatterSuggestionService {
     bodyText?: string | null,
   ): Promise<MatterSuggestion> {
     const fromRef = await this.suggestFromClientRef(subject, bodyText);
-    if (fromRef.suggestedMatterId) return fromRef;
+    if (fromRef.suggestedMatterId || fromRef.suggestedClientId) return fromRef;
 
     const senderEmail = this.extractEmail(sender);
-    if (!senderEmail) return { suggestedMatterId: null, suggestionReason: null };
+    if (!senderEmail) {
+      return {
+        suggestedMatterId: null,
+        suggestedClientId: null,
+        suggestionReason: null,
+      };
+    }
 
     const contact = await this.prisma.contact.findFirst({
       where: {
@@ -36,7 +43,13 @@ export class MatterSuggestionService {
       },
       select: { clientId: true },
     });
-    if (!contact) return { suggestedMatterId: null, suggestionReason: null };
+    if (!contact) {
+      return {
+        suggestedMatterId: null,
+        suggestedClientId: null,
+        suggestionReason: null,
+      };
+    }
 
     const matters = await this.prisma.matter.findMany({
       where: {
@@ -50,6 +63,7 @@ export class MatterSuggestionService {
     if (matters.length === 1) {
       return {
         suggestedMatterId: matters[0].id,
+        suggestedClientId: contact.clientId,
         suggestionReason: 'single_active_matter',
       };
     }
@@ -57,26 +71,36 @@ export class MatterSuggestionService {
     if (matters.length > 1) {
       return {
         suggestedMatterId: matters[0].id,
+        suggestedClientId: contact.clientId,
         suggestionReason: 'contact_match',
       };
     }
 
-    return { suggestedMatterId: null, suggestionReason: null };
+    return {
+      suggestedMatterId: null,
+      suggestedClientId: contact.clientId,
+      suggestionReason: 'contact_client_only',
+    };
   }
 
   private async suggestFromClientRef(
     subject: string,
     bodyText?: string | null,
   ): Promise<MatterSuggestion> {
+    const empty = {
+      suggestedMatterId: null,
+      suggestedClientId: null,
+      suggestionReason: null,
+    };
     const internalCode = extractClientRef(subject, bodyText);
-    if (!internalCode) return { suggestedMatterId: null, suggestionReason: null };
+    if (!internalCode) return empty;
 
     const inSubject = extractClientRef(subject, null) != null;
     const client = await this.prisma.client.findFirst({
       where: { internalCode },
       select: { id: true },
     });
-    if (!client) return { suggestedMatterId: null, suggestionReason: null };
+    if (!client) return empty;
 
     const matter = await this.prisma.matter.findFirst({
       where: {
@@ -87,10 +111,17 @@ export class MatterSuggestionService {
       select: { id: true },
     });
 
-    if (!matter) return { suggestedMatterId: null, suggestionReason: null };
+    if (!matter) {
+      return {
+        suggestedMatterId: null,
+        suggestedClientId: client.id,
+        suggestionReason: inSubject ? 'subject_ref_client' : 'body_ref_client',
+      };
+    }
 
     return {
       suggestedMatterId: matter.id,
+      suggestedClientId: client.id,
       suggestionReason: inSubject ? 'subject_ref' : 'body_ref',
     };
   }

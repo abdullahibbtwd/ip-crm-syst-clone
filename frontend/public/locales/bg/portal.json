@@ -14,8 +14,7 @@
       "overdueUrgent": "Спешно внимание",
       "renewals": "Подновявания",
       "renewalsCurrent": "Поддръжката е актуална",
-      "renewalsNeedAction_one": "{{count}} изисква действие",
-      "renewalsNeedAction_few": "{{count}} изискват действие",
+      "renewalsNeedAction_one": "{{count}} изискват действие",
       "renewalsNeedAction_other": "{{count}} изискват действие"
     },
     "title": "Добре дошли отново"
@@ -75,7 +74,7 @@
       "draft": "Чернова",
       "pending": "Изчакващо",
       "approved": "Одобрено",
-      "rejected": "Отхвърлено"
+      "rejected": "Отхвърлен"
     }
   },
   "documentCategories": {
@@ -99,14 +98,14 @@
       "document": "Документ",
       "matter": "Дело",
       "size": "Размер",
-      "updated": "Обновен"
+      "updated": "Обновено"
     },
     "title": "Моите документи"
   },
   "intake": {
     "description": "Подайте нова заявка за регистрация или прегледайте вече подадените запитвания.",
     "empty": {
-      "action": "Подай запитване",
+      "action": "Подаване на запитване",
       "description": "Подайте запитване за марка или патент, за да започнете.",
       "title": "Все още няма запитвания"
     },
@@ -116,7 +115,7 @@
     "loading": "Зареждане на вашите запитвания…",
     "myEnquiries": "Моите запитвания",
     "status": {
-      "accepted": "Прието",
+      "accepted": "Приет",
       "inReview": "В преглед",
       "matterOpened": "Дело отворено",
       "notAccepted": "Не е прието",
@@ -146,7 +145,7 @@
       "companyName": "Име на фирмата",
       "country": "Държава",
       "description": "Описание",
-      "email": "Имейл",
+      "email": "Служебен имейл",
       "fullName": "Пълно име",
       "matterType": "Тип дело",
       "otherParties": "Други страни",
@@ -166,7 +165,7 @@
     },
     "urgency": {
       "normal": "Нормална",
-      "urgent": "Спешна"
+      "urgent": "Спешни"
     },
     "viewMatter": "Виж делото"
   },
@@ -205,9 +204,9 @@
   "renewalStatus": {
     "completed": "Завършено",
     "filed": "Подадено",
-    "instructed": "Инструктирано",
+    "instructed": "Инструктирани",
     "lapsed": "Изтекло",
-    "upcoming": "Предстоящо"
+    "upcoming": "Предстоящи"
   },
   "help": {
     "title": "Помощ",

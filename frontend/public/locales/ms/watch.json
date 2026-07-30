@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Jam Tangan Tanda Dagangan",
     "title": "Jam Tangan Tanda Dagangan",
     "description": "Semak kemungkinan konflik yang dikesan terhadap profil jam tangan aktif.",
     "empty": "Tiada makluman jam tangan yang sepadan dengan penapis anda.",
-    "loading": "Memuatkan makluman jam tangan…"
+    "loading": "Memuatkan makluman jam tangan…",
+    "worklist": "Senarai kerja",
+    "worklistDescription": "Tapis mengikut status, bidang kuasa atau sumber pendaftaran."
   },
   "detail": {
     "title": "Amaran menonton",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Makluman baharu",
     "accepted": "Diterima",
-    "rejected": "ditolak"
+    "rejected": "ditolak",
+    "hintAwaitingTriage": "Menunggu triage",
+    "hintMattersCreated": "Perkara yang dibuat",
+    "hintFalsePositives": "Positif palsu"
   },
   "profileStatus": {
     "active": "Aktif",

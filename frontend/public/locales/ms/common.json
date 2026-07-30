@@ -55,15 +55,15 @@
     "openMenu": "Buka menu"
   },
   "pagination": {
+    "go": "Pergi",
+    "maxPerPage": "Maksimum {{max}}",
     "noResults": "Tiada hasil",
+    "ofPages": "daripada {{count}}",
     "page": "Halaman {{page}}",
-    "showing": "Menunjukkan {{start}}–{{end}}",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Halaman",
+    "perPage": "setiap muka surat",
+    "perPageLabel": "Setiap halaman",
+    "showing": "Menunjukkan {{start}}–{{end}}"
   },
   "reports": {
     "eyebrow": "Laporan"

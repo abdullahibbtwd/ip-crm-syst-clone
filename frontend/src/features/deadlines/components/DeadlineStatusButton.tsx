@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import type { DeadlineStatus } from '@/features/deadlines/types'
@@ -14,6 +15,7 @@ export function DeadlineStatusButton({
   status,
   matterId,
 }: DeadlineStatusButtonProps) {
+  const { t } = useTranslation('deadlines')
   const updateStatus = useUpdateDeadlineStatus(matterId)
 
   if (status === 'completed' || status === 'superseded') return null
@@ -33,7 +35,7 @@ export function DeadlineStatusButton({
           })
         }}
       >
-        {status === 'pending' ? 'Start' : 'Complete'}
+        {status === 'pending' ? t('actions.start') : t('actions.complete')}
       </Button>
     </PermissionGate>
   )

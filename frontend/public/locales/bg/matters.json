@@ -1,55 +1,110 @@
 {
   "attributes": {
     "border_measures": {
-      "customsOffice": { "label": "Митнически офис" },
-      "infringingGoods": { "label": "Описание на нарушаващи стоки" }
+      "customsOffice": {
+        "label": "Митнически офис"
+      },
+      "infringingGoods": {
+        "label": "Описание на нарушаващи стоки"
+      }
     },
     "copyright": {
-      "creationDate": { "label": "Дата на създаване" },
-      "workTitle": { "label": "Заглавие на произведението" },
-      "workType": { "label": "Вид произведение" }
+      "creationDate": {
+        "label": "Дата на създаване"
+      },
+      "workTitle": {
+        "label": "Заглавие на произведението"
+      },
+      "workType": {
+        "label": "Вид произведение"
+      }
     },
     "dispute_opposition": {
-      "basisSummary": { "label": "Обобщение на основанието" },
-      "disputeType": { "label": "Вид спор" },
-      "opponentName": { "label": "Опонент / противна страна" }
+      "basisSummary": {
+        "label": "Обобщение на основанието"
+      },
+      "disputeType": {
+        "label": "Вид спор"
+      },
+      "opponentName": {
+        "label": "Опонент / противна страна"
+      }
     },
     "fto_analysis": {
-      "scopeSummary": { "label": "Обобщение на обхвата" },
-      "technologyArea": { "label": "Технологична област" }
+      "scopeSummary": {
+        "label": "Обобщение на обхвата"
+      },
+      "technologyArea": {
+        "label": "Технологична област"
+      }
     },
     "geographical_indication": {
-      "productName": { "label": "Име на продукта" },
-      "region": { "label": "Географски регион" }
+      "productName": {
+        "label": "Име на продукта"
+      },
+      "region": {
+        "label": "Географски регион"
+      }
     },
     "industrial_design": {
       "designViews": {
         "helpText": "Избройте или опишете подадените изгледи на дизайна",
         "label": "Изгледи на дизайна"
       },
-      "locarnoClass": { "label": "Клас по Локарно" },
-      "productDescription": { "label": "Описание на продукта" }
+      "locarnoClass": {
+        "label": "Клас по Локарно"
+      },
+      "productDescription": {
+        "label": "Описание на продукта"
+      }
     },
     "patent": {
-      "claimsSummary": { "label": "Обобщение на претенциите" },
-      "pctNumber": { "label": "PCT номер" },
-      "priorityDate": { "label": "Приоритетна дата" },
-      "technicalField": { "label": "Техническа област" }
+      "claimsSummary": {
+        "label": "Обобщение на претенциите"
+      },
+      "pctNumber": {
+        "label": "PCT номер"
+      },
+      "priorityDate": {
+        "label": "Приоритетна дата"
+      },
+      "technicalField": {
+        "label": "Техническа област"
+      }
     },
     "trademark": {
-      "colors": { "label": "Претендирани цветове" },
-      "markDescription": { "label": "Описание на марката" },
-      "markType": { "label": "Вид марка" },
-      "niceClasses": { "label": "Класове по Ница", "placeholder": "напр. 12, 35" }
+      "colors": {
+        "label": "Претендирани цветове"
+      },
+      "markDescription": {
+        "label": "Описание на марката"
+      },
+      "markType": {
+        "label": "Вид марка"
+      },
+      "niceClasses": {
+        "label": "Ницки класове",
+        "placeholder": "напр. 12, 35"
+      }
     },
     "utility_model": {
-      "claimsSummary": { "label": "Обобщение на претенциите" },
-      "priorityDate": { "label": "Приоритетна дата" },
-      "technicalField": { "label": "Техническа област" }
+      "claimsSummary": {
+        "label": "Обобщение на претенциите"
+      },
+      "priorityDate": {
+        "label": "Приоритетна дата"
+      },
+      "technicalField": {
+        "label": "Техническа област"
+      }
     },
     "valuation": {
-      "assetDescription": { "label": "Описание на актива" },
-      "valuationPurpose": { "label": "Цел на оценката" }
+      "assetDescription": {
+        "label": "Описание на актива"
+      },
+      "valuationPurpose": {
+        "label": "Цел на оценката"
+      }
     }
   },
   "billing": {
@@ -57,7 +112,7 @@
     "addTime": "Запиши време",
     "billableAria": "Фактурируемо",
     "billableWithoutRate": "Фактурируемо без ставка",
-    "confirmDeleteFee": "Изтриване на тази фиксирана такса?",
+    "confirmDeleteFee": "Изтриване на фиксирана такса?",
     "confirmDeleteFeeMessage": "Тази такса ще бъде премахната от делото.",
     "confirmDeleteFeeTitle": "Изтриване на фиксирана такса?",
     "confirmDeleteTime": "Изтриване на този запис за време?",
@@ -82,7 +137,7 @@
     "fixedFees": "Фиксирани такси",
     "loading": "Зареждане на фактуриране…",
     "loadingInvoices": "Зареждане на фактури…",
-    "loadInvoicesFailed": "Неуспешно зареждане на фактури.",
+    "loadInvoicesFailed": "Неуспешно зареждане на фактурите.",
     "noPermission": "Нямате право да преглеждате фактурирането на това дело.",
     "noRateCard": "Няма ценова карта",
     "nonBillableAria": "Нефактурируемо",
@@ -106,7 +161,7 @@
       "resolvingRate": "Определяне на ставка…",
       "saveFailed": "Неуспешно запазване на записа за време"
     },
-    "timeEntries": "Записи за време",
+    "timeEntries": "Отчети на време",
     "table": {
       "amount": "Сума",
       "attorney": "Адвокат",
@@ -126,14 +181,15 @@
     "attachmentFallback": "Прикачен файл към кореспонденция",
     "badges": {
       "clientVisible": "Видимо за клиента",
-      "email": "Имейл",
+      "email": "Служебен имейл",
       "synced": "Синхронизирано"
     },
     "category": {
       "application": "Заявление",
-      "certificate": "Сертификат",
+      "certificate": "Удостоверение",
       "correspondence": "Обща кореспонденция",
       "evidence": "Доказателства",
+      "general": "Общ",
       "office_action": "Офис действие",
       "renewal": "Подновяване"
     },
@@ -156,7 +212,108 @@
     "hideFromClient": "Скрий от клиентската поща",
     "hideFromClientTitle": "Скрий от клиентския портал",
     "loading": "Зареждане на кореспонденция…",
-    "logEmail": "Запиши имейл",
+    "log": {
+      "title": "Запиши кореспонденция",
+      "saveTo": "Запазване в",
+      "chooseScope": "Изберете обхват",
+      "scopeClient": "Този клиент (без дело)",
+      "scopeMatter": "Дело: {{title}}",
+      "attachment": "Прикачен файл",
+      "attachmentHint": "По избор — свържете файл от този {{scope}} или качете PDF, Word, изображения или .eml",
+      "scopeWordClient": "клиент",
+      "scopeWordMatter": "дело",
+      "clear": "Изчисти",
+      "modeNone": "Няма",
+      "modeLink": "Връзка",
+      "modeUpload": "Качи",
+      "noDocuments": "Все още няма документи за този {{scope}}.",
+      "selectDocument": "Изберете документ от този {{scope}}…",
+      "dragFile": "Плъзнете файл тук или",
+      "browse": "изберете",
+      "details": "Подробности за кореспонденция",
+      "direction": "Посока",
+      "category": "Категория",
+      "date": "Дата",
+      "status": "Статус",
+      "sender": "Подател",
+      "recipient": "Получател",
+      "subject": "Относно",
+      "body": "Текст",
+      "senderPlaceholder": "напр. BPO, Клиент: Acme Corp",
+      "recipientPlaceholder": "напр. IP Consulting, Клиент",
+      "subjectPlaceholder": "Действие на BPO Office – Изисква се отговор",
+      "bodyPlaceholder": "Незадължителен основен текст — вмъкнете от библиотеката с прецеденти",
+      "sendToInbox": "Изпрати в клиентската поща",
+      "sendToInboxHint": "Показване на този запис във входящата кутия за съобщения на портала на клиента.",
+      "officeActionHint": "Краен срок за отговор ще бъде добавен автоматично към работния списък на адвоката.",
+      "cancel": "Отказ",
+      "save": "Запазване на дневника",
+      "saveToClient": "Запазване на клиента",
+      "saving": "Запазване…",
+      "errors": {
+        "requiredFields": "Изискват се подател, получател и тема",
+        "selectScope": "Изберете къде да запазите тази кореспонденция",
+        "chooseFile": "Изберете файл за качване или променете прикачения файл на такъв или връзката не съществува",
+        "selectDocument": "Изберете документ от списъка или променете режима на прикачен файл",
+        "linkFailed": "Качването бе успешно, но не можа да се свърже документът",
+        "saveFailed": "Неуспешно записване на кореспонденция"
+      },
+      "attachmentFallbackName": "Прикачен файл към кореспонденция"
+    },
+    "logEmail": {
+      "title": "Запиши имейл",
+      "saveTo": "Запазване в",
+      "chooseScope": "Изберете обхват",
+      "scopeClient": "Този клиент (без дело)",
+      "scopeMatter": "Дело: {{title}}",
+      "modeEml": "Качете .eml",
+      "modeEmlDesc": "Плъзнете файл, записан от Outlook или Gmail",
+      "modePaste": "Поставете имейл",
+      "modePasteDesc": "Копирайте пълния текст на имейла от входящата си кутия",
+      "readingFile": "Четене на имейл файл...",
+      "parsedReview": "Анализирано — прегледайте подробностите по-долу",
+      "dropEml": "Пуснете своя .eml файл тук",
+      "dropEmlHint": "Запазете съобщението от Outlook или Gmail, след което го плъзнете вътре",
+      "browseFiles": "Преглед на файлове",
+      "pastePlaceholder": "Поставете пълния имейл тук, включително заглавките, ако има такива: \n\nОт: client@example.com \nДо: you@firm.com \nТема: Office Action \nДата: понеделник, 9 юли 2026 г \n\nУважаеми съветник,…",
+      "extractDetails": "Извличане на имейл подробности",
+      "parsing": "Анализ...",
+      "extractedTitle": "Подробностите за имейл са извлечени",
+      "attachmentCount_one": "{{count}} прикачен файл във файла",
+      "attachmentCount_other": "{{count}} прикачени файлове във файла",
+      "from": "От",
+      "to": "до",
+      "subject": "Относно",
+      "originalSaved": "Оригиналът {{fileName}} ще бъде запазен в този {{scope}}.",
+      "confirmAdjust": "Потвърдете и коригирайте",
+      "category": "Категория",
+      "date": "Дата",
+      "sender": "Подател",
+      "recipient": "Получател",
+      "body": "Текст",
+      "senderPlaceholder": "sender@example.com",
+      "recipientPlaceholder": "recipient@firm.com",
+      "subjectPlaceholder": "Тема на имейла",
+      "bodyPlaceholder": "По избор — поставете текст или вмъкнете прецедент",
+      "sendToInbox": "Изпрати в клиентската поща",
+      "sendToInboxHint": "Показване на този запис във входящата кутия за съобщения на портала на клиента.",
+      "officeActionHint": "Краен срок за отговор ще бъде добавен автоматично към работния списък на адвоката.",
+      "cancel": "Отказ",
+      "saveToMatter": "Запазване на значението",
+      "saveToClient": "Запазване на клиента",
+      "saving": "Запазване…",
+      "scopeWordClient": "клиент",
+      "scopeWordMatter": "дело",
+      "errors": {
+        "emlFailed": "Не може да се прочете .eml файлът",
+        "pasteEmpty": "Първо поставете съдържанието на имейла",
+        "pasteFailed": "Неуспешен анализ на поставения имейл",
+        "requiredFields": "Изискват се подател, получател и тема",
+        "selectMatterOrClient": "Изберете въпрос или запазете в този клиент",
+        "selectScope": "Изберете къде да запазите този имейл",
+        "saveFailed": "Неуспешно регистриране на имейл"
+      }
+    },
     "markReplied": "Маркирай като отговорено",
     "markSent": "Маркирай като изпратено",
     "openEpoRegister": "Отвори в регистъра на EPO",
@@ -173,16 +330,16 @@
       "draft": "Чернова",
       "received": "Получено",
       "replied": "Отговорено",
-      "sent": "Изпратено"
+      "sent": "Изпратена"
     },
     "table": {
       "category": "Категория",
       "date": "Дата",
       "direction": "Посока",
-      "file": "Файл",
+      "file": "Подай",
       "fromTo": "От / До",
       "status": "Статус",
-      "subject": "Тема"
+      "subject": "Относно"
     },
     "title": "Кореспонденция",
     "to": "До:",
@@ -216,7 +373,7 @@
     "start": "Започни",
     "table": {
       "assigned": "Възложено",
-      "due": "Падеж",
+      "due": "Срок",
       "grace": "Гратисен период",
       "jurisdiction": "Юрисдикция",
       "status": "Статус",
@@ -236,7 +393,7 @@
     "displayNamePlaceholder": "напр. Пакет за подаване — финален",
     "dragDrop": "Плъзнете файл тук или",
     "empty": "Все още няма качени документи.",
-    "error": "Неуспешно зареждане на документи.",
+    "error": "Неуспешно зареждане на документите.",
     "errorGeneration": "Неуспешно генериране на документ",
     "errorNoDocx": "Този шаблон няма качен Word (.docx) файл",
     "errorUpload": "Неуспешно качване",
@@ -266,14 +423,14 @@
     "uploadAction": "Качи",
     "uploadNew": "Качи нов документ",
     "uploading": "Качване…",
-    "word": "Word"
+    "word": "Слово"
   },
   "ipRightStatus": {
     "cancelled": "Анулирано",
     "expired": "Изтекло",
     "filed": "Подадено",
     "pending": "Очаква подаване",
-    "registered": "Регистрирано"
+    "registered": "Регистриран"
   },
   "ipRights": {
     "abandon": "Откажи",
@@ -281,7 +438,7 @@
     "addRight": "Добави право",
     "addTitle": "Добави ИС право",
     "annuitySchedule": "График на годишни такси",
-    "applicationNumber": "Номер на заявление",
+    "applicationNumber": "Номер на заявка",
     "checkEpo": "Провери EPO",
     "checkEpoAddNumber": "Добавете номер на заявление преди проверка в EPO",
     "checkEpoTitle": "Провери правен статус в EPO (OPS)",
@@ -350,12 +507,12 @@
     "splitJurisdiction": "Юрисдикция",
     "table": {
       "actions": "Действия",
-      "applicationNo": "Номер на заявление",
+      "applicationNo": "Номер на заявка",
       "cycle": "Цикъл",
-      "dueDate": "Падеж",
+      "dueDate": "Срок",
       "jurisdiction": "Юрисдикция",
       "localRef": "Местен реф.",
-      "niceClasses": "Класове Nice",
+      "niceClasses": "Ницки класове",
       "status": "Статус",
       "title": "Заглавие",
       "type": "Тип",
@@ -376,7 +533,7 @@
       "linkedSeizure": "Свързано задържане (незадължително)",
       "loading": "Зареждане на заявления…",
       "none": "Няма",
-      "number": "Номер на заявление",
+      "number": "Номер на заявка",
       "sectionDescription": "Митнически заявления, защитаващи права на границата.",
       "sectionTitle": "Заявления за действие (AFA)",
       "validUntil": "Валидно до"
@@ -413,7 +570,7 @@
       "createSeizureFailed": "Неуспешно създаване на задържане",
       "officeAndGoodsRequired": "Митническият офис и описанието на стоките са задължителни"
     },
-    "open": "Отвори",
+    "open": "Отворено",
     "seizures": {
       "consignmentRef": "Реф. на пратка",
       "create": "Създай задържане",
@@ -437,8 +594,8 @@
   "jurisdictionStatus": {
     "approved": "Одобрено",
     "filed": "Подадено",
-    "pending": "В изчакване",
-    "rejected": "Отхвърлено"
+    "pending": "Изчакващо",
+    "rejected": "Отхвърлен"
   },
   "layout": {
     "backToMatters": "← Обратно към дела",
@@ -482,7 +639,7 @@
       "applicationNo": "Номер на заявка",
       "client": "Клиент",
       "expiry": "Изтичане",
-      "ipRight": "ИС право",
+      "ipRight": "Право на ИС",
       "jurisdiction": "Юрисдикция",
       "matter": "Дело",
       "status": "Статус",
@@ -498,7 +655,7 @@
     "wordmark": "Думна марка"
   },
   "overview": {
-    "assignedTo": "Отговорен адвокат",
+    "assignedTo": "Водещ адвокат",
     "description": "Описание",
     "jurisdictions": "Юрисдикции",
     "jurisdictionsEmpty": "Няма записани юрисдикции.",
@@ -515,7 +672,7 @@
   },
   "status": {
     "abandoned": "Изоставено",
-    "active": "Активно",
+    "active": "Активен",
     "closed": "Затворено",
     "draft": "Чернова",
     "on_hold": "На изчакване"
@@ -563,14 +720,14 @@
     "columns": {
       "title": "Заглавие",
       "status": "Статус",
-      "dueDate": "Срок",
+      "dueDate": "Падеж",
       "created": "Създадено"
     },
     "status": {
       "draft": "Чернова",
       "pending": "Изчакващо",
       "approved": "Одобрено",
-      "rejected": "Отхвърлено"
+      "rejected": "Отхвърлен"
     },
     "actions": {
       "submit": "Изпрати"
@@ -592,7 +749,7 @@
     "add": "Добави задача",
     "assignedTo": "Възложено на",
     "assignedToUser": "Възложено на {{name}}",
-    "completed": "Завършени",
+    "completed": "Завършено",
     "completedByUser": "Завършено от {{name}}",
     "confirmComplete": "Маркиране на задачата като завършена?",
     "confirmDelete": "Изтриване на тази задача?",
@@ -620,10 +777,10 @@
     "loading": "Зареждане на задачи…",
     "markComplete": "Маркирай като завършена",
     "noDueDate": "Без краен срок",
-    "open": "Отворени",
+    "open": "Отворено",
     "priority": {
       "high": "Висок",
-      "normal": "Нормален"
+      "normal": "Нормална"
     },
     "title": "Задачи"
   },
@@ -650,7 +807,7 @@
     "geographical_indication": "Географско указание",
     "industrial_design": "Промишлен дизайн",
     "patent": "Патент",
-    "trademark": "Търговска марка",
+    "trademark": "Марка",
     "utility_model": "Полезен модел",
     "valuation": "Оценка"
   },

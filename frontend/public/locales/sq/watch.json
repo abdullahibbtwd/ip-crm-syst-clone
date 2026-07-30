@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Watch Marka Tregtare",
     "title": "Watch Marka Tregtare",
     "description": "Rishiko konfliktet e mundshme të zbuluara ndaj profileve aktive të orës.",
     "empty": "Asnjë sinjalizim shikimi nuk përputhet me filtrat e tu.",
-    "loading": "Po ngarkon sinjalizimet e orës…"
+    "loading": "Po ngarkon sinjalizimet e orës…",
+    "worklist": "Lista e punës",
+    "worklistDescription": "Filtro sipas statusit, juridiksionit ose burimit të regjistrit."
   },
   "detail": {
     "title": "Vëzhgoni alarmin",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Sinjalizime të reja",
     "accepted": "Pranuar",
-    "rejected": "Refuzuar"
+    "rejected": "Refuzuar",
+    "hintAwaitingTriage": "Në pritje të triazhit",
+    "hintMattersCreated": "Çështjet e krijuara",
+    "hintFalsePositives": "Pozitive false"
   },
   "profileStatus": {
     "active": "Aktiv",

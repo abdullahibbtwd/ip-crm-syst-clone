@@ -45,6 +45,11 @@
       "description": "Konfigurirajte jurisdikciju i pomake tipa predmeta za automatski kreirane rokove.",
       "action": "Upravljajte pravilima o rokovima"
     },
+    "jurisdictions": {
+      "title": "Jurisdikcije",
+      "description": "Jedno mjesto za upravljanje uredima za arhiviranje, pravilima o rokovima i kalendarima praznika za svaku državu ili regionalnu kancelariju.",
+      "action": "Upravljajte jurisdikcijama"
+    },
     "holidays": {
       "title": "Kalendar praznika",
       "description": "Nadležni praznici koji se koriste pri računanju radnih dana za rokove.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Ime i datum su obavezni",
       "saveFailed": "Pohranjivanje odmora nije uspjelo"
+    }
+  },
+  "jurisdictions": {
+    "title": "Jurisdikcije",
+    "subtitle": "Otvorite kancelariju za arhiviranje kako biste upravljali pravilima o rokovima i praznicima na jednom mjestu. Prioritetni uredi se pojavljuju prvi u beračima.",
+    "newJurisdiction": "Dodajte nadležnost",
+    "noPermission": "Nemate dozvolu za upravljanje jurisdikcijama.",
+    "loading": "Učitavanje nadležnosti…",
+    "loadError": "Učitavanje nadležnosti nije uspjelo.",
+    "empty": "Nijedna jurisdikcija ne odgovara ovim filterima.",
+    "searchPlaceholder": "Pretražite kod, ured ili ime…",
+    "editAria": "Uredi nadležnost",
+    "filters": {
+      "all": "Svi statusi"
+    },
+    "columns": {
+      "jurisdiction": "Nadležnost",
+      "type": "Tip",
+      "automation": "Automatizacija",
+      "rules": "Pravila",
+      "holidays": "Praznici",
+      "status": "Status"
+    },
+    "type": {
+      "national": "National",
+      "regional": "Regionalni",
+      "international": "International"
+    },
+    "automation": {
+      "full": "Pun",
+      "partial": "Djelomično",
+      "manual": "Manual"
+    },
+    "priority": {
+      "yes": "Prioritet",
+      "no": "Standard",
+      "badge": "Prioritet"
+    },
+    "status": {
+      "active": "Aktivan",
+      "inactive": "Neaktivan"
+    },
+    "hub": {
+      "back": "Sve jurisdikcije",
+      "editOffice": "Uredništvo",
+      "manageRules": "Dodajte ili uredite pravila o rokovima",
+      "manageHolidays": "Dodajte ili uredite praznike",
+      "noRules": "Još nema pravila o rokovima za ovu kancelariju. Dodajte jedan da omogućite automatsko uključivanje.",
+      "noHolidays": "Još nema praznika. Dodajte ih tako da se radnim danima preskoči zatvaranje ureda.",
+      "tabs": {
+        "overview": "Pregled",
+        "rules": "Pravila o rokovima",
+        "holidays": "Praznici"
+      },
+      "automationHint": {
+        "full": "Auto-docketing je spreman — pravila i praznici su konfigurisani.",
+        "partial": "Pravila postoje, ali praznici nedostaju. Brojanje radnih dana koristi se samo vikendom.",
+        "manual": "Još nema pravila o rokovima. Prava se i dalje mogu prijaviti ovdje; rokovi se moraju kreirati ručno dok se ne dodaju pravila."
+      }
+    },
+    "drawer": {
+      "createTitle": "Dodajte nadležnost",
+      "editTitle": "Uredi nadležnost",
+      "code": "Kod",
+      "codeHint": "Kôd ureda od 2–4 znaka (npr. US, EU, WO). Ne može se kasnije promijeniti.",
+      "officeName": "Naziv ureda",
+      "name": "Ime zemlje/regiona",
+      "type": "Tip",
+      "priority": "Prioritetna lista",
+      "status": "Status",
+      "sortOrder": "Redoslijed sortiranja",
+      "cancel": "Otkaži",
+      "create": "Kreirajte nadležnost",
+      "save": "Sačuvaj promjene"
+    },
+    "errors": {
+      "required": "Naziv kancelarije i naziv zemlje/regiona su obavezni",
+      "codeRequired": "Šifra je obavezna",
+      "sortOrder": "Unesite važeći redoslijed sortiranja",
+      "saveFailed": "Pohranjivanje nadležnosti nije uspjelo"
     }
   },
   "emailIntegration": {

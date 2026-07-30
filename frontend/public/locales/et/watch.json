@@ -1,9 +1,12 @@
 {
   "page": {
+    "eyebrow": "Kaubamärgi kell",
     "title": "Kaubamärgi kell",
     "description": "Vaadake üle aktiivsete kellaprofiilide võimalikud konfliktid.",
     "empty": "Teie filtritele ei vasta ükski kellahoiatus.",
-    "loading": "Kella märguannete laadimine…"
+    "loading": "Kella märguannete laadimine…",
+    "worklist": "Tööloend",
+    "worklistDescription": "Filtreerige oleku, jurisdiktsiooni või registriallika järgi."
   },
   "detail": {
     "title": "Vaata märguannet",
@@ -68,7 +71,10 @@
   "stats": {
     "new": "Uued märguanded",
     "accepted": "Vastu võetud",
-    "rejected": "Tagasi lükatud"
+    "rejected": "Tagasi lükatud",
+    "hintAwaitingTriage": "Triaaži ootel",
+    "hintMattersCreated": "Asjad loodud",
+    "hintFalsePositives": "Valepositiivsed tulemused"
   },
   "profileStatus": {
     "active": "Aktiivne",

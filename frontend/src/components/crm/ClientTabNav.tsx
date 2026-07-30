@@ -11,6 +11,8 @@ const baseTabs = [
   { to: 'related', labelKey: 'tabs.related' },
   { to: 'history', labelKey: 'tabs.history' },
   { to: 'matters', labelKey: 'tabs.matters' },
+  { to: 'documents', labelKey: 'tabs.documents' },
+  { to: 'correspondence', labelKey: 'tabs.correspondence' },
   { to: 'watch', labelKey: 'tabs.watch' },
   { to: 'billing', labelKey: 'tabs.billing' },
 ] as const

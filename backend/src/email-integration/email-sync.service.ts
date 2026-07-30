@@ -196,6 +196,7 @@ export class EmailSyncService {
         hasAttachments: message.hasAttachments,
         status: UnlinkedEmailStatus.pending,
         suggestedMatterId: suggestion.suggestedMatterId,
+        suggestedClientId: suggestion.suggestedClientId,
         suggestionReason: suggestion.suggestionReason,
         suggestedCategory: classification.suggestedCategory,
         emlStorageKey: storageKey,

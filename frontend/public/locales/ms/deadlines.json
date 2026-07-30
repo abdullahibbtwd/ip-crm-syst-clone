@@ -1,4 +1,8 @@
 {
+  "actions": {
+    "start": "Mulakan",
+    "complete": "lengkap"
+  },
   "status": {
     "pending": "Belum selesai",
     "in_progress": "Sedang berlangsung",

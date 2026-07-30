@@ -55,15 +55,15 @@
     "openMenu": "Отворите мени"
   },
   "pagination": {
+    "go": "Иди",
+    "maxPerPage": "Максимално __И18Н_ПХ_0__",
     "noResults": "Нема резултата",
+    "ofPages": "од __И18Н_ПХ_0__",
     "page": "Страница __И18Н_ПХ_0__",
-    "showing": "Приказујем __И18Н_ПХ_0__–__И18Н_ПХ_1__",
-    "go": "Go",
-    "maxPerPage": "Maximum {{max}}",
-    "ofPages": "of {{count}}",
-    "pageLabel": "Page",
-    "perPage": "per page",
-    "perPageLabel": "Per page"
+    "pageLabel": "Страница",
+    "perPage": "по страници",
+    "perPageLabel": "По страници",
+    "showing": "Приказујем __И18Н_ПХ_0__–__И18Н_ПХ_1__"
   },
   "reports": {
     "eyebrow": "Извештаји"

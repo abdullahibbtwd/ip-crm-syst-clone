@@ -5,30 +5,30 @@
     "emptyTitle": "Није пронађен ниједан клијент",
     "error": "Учитавање клијената није успело.",
     "newViaIntake": "Нови клијент путем пријема",
-    "perPage": "__И18Н_ПХ_0__ по страници",
-    "searchPlaceholder": "Претражи име или код…",
-    "title": "Клијенти",
-    "viewAria": "Прикажи __И18Н_ПХ_0__",
     "pageSize": {
-      "inputLabel": "Per page",
-      "label": "Page size",
-      "maxHint": "Maximum {{max}}",
-      "option": "{{count}} per page",
-      "perPage": "per page"
+      "inputLabel": "По страници",
+      "label": "Величина странице",
+      "maxHint": "Максимално __И18Н_ПХ_0__",
+      "option": "__И18Н_ПХ_0__ по страници",
+      "perPage": "по страници"
     },
     "pagination": {
-      "ofTotal": "of {{total}}"
+      "ofTotal": "од __И18Н_ПХ_0__"
     },
+    "perPage": "__И18Н_ПХ_0__ по страници",
+    "searchPlaceholder": "Претражи име или код…",
     "sort": {
-      "label": "Sort by",
-      "newest": "Newest first",
-      "oldest": "Oldest first",
-      "recentlyUpdated": "Recently updated",
-      "nameAsc": "Name (A–Z)",
-      "nameDesc": "Name (Z–A)",
-      "codeAsc": "Code (A–Z)",
-      "codeDesc": "Code (Z–A)"
-    }
+      "label": "Сортирај по",
+      "newest": "Најновије прво",
+      "oldest": "Прво најстарији",
+      "recentlyUpdated": "Недавно ажурирано",
+      "nameAsc": "Име (А–З)",
+      "nameDesc": "Име (З–А)",
+      "codeAsc": "код (А–З)",
+      "codeDesc": "Шифра (З–А)"
+    },
+    "title": "Клијенти",
+    "viewAria": "Прикажи __И18Н_ПХ_0__"
   },
   "contacts": {
     "add": "Додајте контакт",
@@ -83,30 +83,62 @@
     "notesPlaceholder": "Опционе напомене о овој структури држања",
     "notFound": "Холдинг група није пронађена.",
     "allGroups": "Све групе за држање",
+    "alreadyInGroup": "Тренутно у __И18Н_ПХ_0__ — повезивање ће преместити овог клијента",
+    "clientCount": "__И18Н_ПХ_0__ клијената",
+    "emptyClientsHint": "Претражите и повежите постојеће клијенте овде. Такође можете доделити групу из профила клијента.",
+    "linkClient": "Линк клијент",
+    "linkClientDescription": "Потражите постојећег клијента и додајте га у ову групу за задржавање.",
+    "linkClientDrawerTitle": "Повежите клијента са групом",
+    "linkFailed": "Повезивање клијента није успело",
+    "linking": "Повезивање…",
+    "noClientsFound": "Није пронађен ниједан клијент",
     "perPage": "__И18Н_ПХ_0__ по страници",
+    "searchClients": "Претражите клијенте",
+    "searchClientsPlaceholder": "Тражи по имену или коду...",
+    "selectClient": "Изаберите клијента из резултата претраге",
+    "unlink": "Уклони из групе",
+    "unlinkFailed": "Уклањање клијента из групе није успело",
     "searchPlaceholder": "Претражи име или земљу…",
     "title": "Холдинг групе",
-    "viewAria": "Прикажи __И18Н_ПХ_0__",
-    "alreadyInGroup": "Currently in {{name}} — linking will move this client",
-    "clientCount": "{{count}} clients",
-    "emptyClientsHint": "Search and link existing clients here. You can also assign a group from the client profile.",
-    "linkClient": "Link client",
-    "linkClientDescription": "Search for an existing client and add them under this holding group.",
-    "linkClientDrawerTitle": "Link client to group",
-    "linkFailed": "Failed to link client",
-    "linking": "Linking…",
-    "noClientsFound": "No clients found",
-    "searchClients": "Search clients",
-    "searchClientsPlaceholder": "Search by name or code…",
-    "selectClient": "Select a client from the search results",
-    "unlink": "Remove from group",
-    "unlinkFailed": "Failed to remove client from group"
+    "viewAria": "Прикажи __И18Н_ПХ_0__"
+  },
+  "addressInsights": {
+    "crmRegistered": "ЦРМ регистрована / правна адреса",
+    "hint": "Адресе регистра се освежавају када се покрећу провере статуса ЕПО на ЕП патентима. Прегледајте неподударности пре подношења захтева и службене кореспонденције.",
+    "loading": "Учитавање поређења адреса…",
+    "manageAddresses": "Управљајте адресама",
+    "matchExact": "Тачно подударање",
+    "matchMissing": "Није забележено",
+    "matchMismatch": "Неподударање",
+    "matchPartial": "Делимично подударање",
+    "mismatchCount": "__И18Н_ПХ_0__ неподударања",
+    "noMismatch": "Адресе се поравнавају",
+    "registrySource": "Званични регистар (ЕПО)",
+    "registryVsCrm": "Званични регистар наспрам ЦРМ-а",
+    "registeredVsCorrespondence": "Регистровано / легално наспрам кореспонденције",
+    "sidebarWarning": "Регистроване и дописне адресе се разликују.",
+    "title": "Поређење адреса"
   },
   "layout": {
     "backToClients": "← Назад на клијенте"
   },
   "offices": {
     "add": "Додајте канцеларију",
+    "addresses": {
+      "additionalOffices": "Додатне канцеларије",
+      "addressLine1": "Адресни ред 1",
+      "addressLine2": "Адресни ред 2",
+      "correspondence": "Адреса за дописивање",
+      "errorSave": "Чување адресе није успело",
+      "fax": "факс",
+      "phone": "Телефон",
+      "postalCode": "Поштански број",
+      "region": "Регион / држава",
+      "registeredLegal": "Регистрован/правна адреса",
+      "save": "Сачувај адресу",
+      "saved": "Адреса је сачувана.",
+      "title": "Аддрессес"
+    },
     "city": "Цити",
     "drawerTitle": "Додајте канцеларију",
     "empty": "Још нема канцеларија.",
@@ -119,22 +151,7 @@
     "save": "Саве оффице",
     "setPrimary": "Поставите као примарну канцеларију",
     "setPrimaryAction": "Подесите примарни",
-    "title": "Канцеларије",
-    "addresses": {
-      "additionalOffices": "Additional offices",
-      "addressLine1": "Address line 1",
-      "addressLine2": "Address line 2",
-      "correspondence": "Correspondence address",
-      "errorSave": "Failed to save address",
-      "fax": "Fax",
-      "phone": "Phone",
-      "postalCode": "Postal code",
-      "region": "Region / state",
-      "registeredLegal": "Registered / legal address",
-      "save": "Save address",
-      "saved": "Address saved.",
-      "title": "Addresses"
-    }
+    "title": "Канцеларије"
   },
   "overview": {
     "assignedTo": "Додељено на",
@@ -237,6 +254,33 @@
     "title": "Наплата",
     "wipDescription": "Радови у току и нефактурисани износи за овог клијента.",
     "wipDescriptionLong": "Радови у току и наплативи износи за сва питања за овог клијента.",
+    "profile": {
+      "title": "Профил за обрачун",
+      "subtitle": "Користи се аутоматски приликом издавања фактура. Непотпуни профили блокирају проблем (нацрти су и даље дозвољени).",
+      "ready": "Фактура је спремна",
+      "incomplete": "Непотпуно",
+      "missing": "Недостаје: __И18Н_ПХ_0__",
+      "save": "Сачувајте профил за обрачун",
+      "saved": "Профил за обрачун је сачуван.",
+      "saveFailed": "Чување профила за обрачун није успело",
+      "billingName": "Назив за обрачун",
+      "billingEmail": "Е-пошта са фактуром",
+      "vatNo": "ПДВ / ПИБ",
+      "currency": "Жељена валута",
+      "paymentTerms": "Услови плаћања (дани)",
+      "addressLine1": "Адресни ред 1",
+      "addressLine2": "Адресни ред 2",
+      "city": "Цити",
+      "postalCode": "Поштански број",
+      "region": "Регион / држава",
+      "country": "Држава",
+      "fields": {
+        "billingEmail": "фактура емаил",
+        "billingAddress": "адреса за наплату",
+        "vatNo": "ПДВ број",
+        "preferredCurrency": "валута"
+      }
+    },
     "matterTable": {
       "matter": "Материја",
       "type": "Тип",
@@ -248,17 +292,17 @@
     }
   },
   "sidebar": {
-    "country": "земља:",
+    "country": "Земља:",
     "loading": "Учитавање…",
     "primaryContact": "Примарни контакт",
     "primaryOffice": "Примарна канцеларија",
     "viewProfile": "Прикажи цео профил"
   },
   "status": {
-    "active": "Ацтиве",
-    "archived": "Архивирано",
+    "active": "Активан",
+    "archived": "Архивиран",
     "inactive": "Неактиван",
-    "prospect": "Проспецт"
+    "prospect": "Потенцијални"
   },
   "table": {
     "action": "Акција",
@@ -273,6 +317,8 @@
     "accessHistory": "Историја приступа",
     "billing": "Наплата",
     "contacts": "Контакти",
+    "correspondence": "Преписка",
+    "documents": "Документи",
     "history": "Историја",
     "matters": "Ствари",
     "watch": "Гледај",
@@ -280,26 +326,70 @@
     "overview": "Преглед",
     "related": "Релатед"
   },
+  "clientFiles": {
+    "title": "Документи",
+    "description": "Клијентске датотеке и документи повезани са питањима овог клијента.",
+    "upload": "Уплоад",
+    "uploadAction": "Уплоад филе",
+    "uploading": "Отпремање…",
+    "empty": "Још нема докумената.",
+    "error": "Учитавање докумената није успело.",
+    "errorUpload": "Отпремање документа није успело",
+    "loading": "Учитавање докумената…",
+    "search": "Претражи документе…",
+    "allCategories": "Све категорије",
+    "viewGrid": "Преглед фасцикле",
+    "viewList": "Приказ листе",
+    "folderClient": "Клијентске датотеке",
+    "folderMatter": "__И18Н_ПХ_0__",
+    "fileCount": "__И18Н_ПХ_0__ фајл(е)",
+    "itemCount": "__И18Н_ПХ_0__ ставки",
+    "backToFolders": "Назад у фасцикле",
+    "scope": "Обим",
+    "scopeClient": "Клијент",
+    "scopeMatter": "Материја",
+    "matter": "Материја",
+    "chooseMatter": "Изаберите предмет",
+    "chooseFile": "Изаберите датотеку за отпремање",
+    "dragDrop": "Превуците и отпустите датотеку овде, или",
+    "browse": "прегледати",
+    "displayName": "Име за приказ",
+    "displayNamePlaceholder": "Опционо име за приказ",
+    "categoryLabel": "Категорија",
+    "tags": "Ознаке",
+    "tagsPlaceholder": "Ознаке раздвојене зарезима",
+    "openMatter": "Отвори",
+    "correspondenceTitle": "Преписка",
+    "correspondenceDescription": "Кореспонденција на нивоу клијента и материја за овог клијента.",
+    "correspondenceEmpty": "Још нема преписке.",
+    "correspondenceError": "Учитавање кореспонденције није успело.",
+    "correspondenceLoading": "Учитавање преписке…",
+    "table": {
+      "displayName": "Име",
+      "scope": "Обим",
+      "category": "Категорија",
+      "version": "Верзија",
+      "uploaded": "Отпремљено"
+    },
+    "correspondenceTable": {
+      "subject": "Предмет",
+      "sender": "Сендер",
+      "date": "Датум",
+      "status": "Статус"
+    },
+    "category": {
+      "general": "генерал",
+      "application": "Апликација",
+      "office_action": "Канцеларијска акција",
+      "evidence": "Доказ",
+      "certificate": "Цертификат",
+      "correspondence": "Преписка",
+      "renewal": "Реневал"
+    }
+  },
   "type": {
     "company": "Компанија",
     "individual": "Појединац"
   },
-  "unnamedClient": "Неименовани клијент",
-  "addressInsights": {
-    "crmRegistered": "CRM registered / legal address",
-    "hint": "Registry addresses are refreshed when EPO status checks run on EP patents. Review mismatches before filings and official correspondence.",
-    "loading": "Loading address comparison…",
-    "manageAddresses": "Manage addresses",
-    "matchExact": "Exact match",
-    "matchMissing": "Not recorded",
-    "matchMismatch": "Mismatch",
-    "matchPartial": "Partial match",
-    "mismatchCount": "{{count}} mismatch(es)",
-    "noMismatch": "Addresses align",
-    "registrySource": "Official registry (EPO)",
-    "registryVsCrm": "Official registry vs CRM",
-    "registeredVsCorrespondence": "Registered / legal vs correspondence",
-    "sidebarWarning": "Registered and correspondence addresses differ.",
-    "title": "Address comparison"
-  }
+  "unnamedClient": "Неименовани клијент"
 }

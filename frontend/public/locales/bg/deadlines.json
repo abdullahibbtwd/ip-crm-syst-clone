@@ -1,15 +1,19 @@
 {
+  "actions": {
+    "start": "Започни",
+    "complete": "Завърши"
+  },
   "status": {
-    "pending": "Чакащ",
+    "pending": "Изчакващо",
     "in_progress": "В процес",
-    "completed": "Завършен",
+    "completed": "Завършено",
     "missed": "Пропуснат",
     "escalated": "Ескалиран",
     "superseded": "Заменен"
   },
   "urgency": {
     "dueToday": "С падеж днес",
-    "overdue": "Просрочен"
+    "overdue": "Просрочени"
   },
   "allDeadlines": {
     "title": "Всички срокове",
@@ -37,7 +41,7 @@
       "attorney": "Адвокат",
       "type": "Тип",
       "jurisdiction": "Юрисдикция",
-      "dueDate": "Падеж",
+      "dueDate": "Срок",
       "grace": "Гратисен период",
       "status": "Статус"
     },
@@ -51,10 +55,10 @@
     "descriptionPortal": "Предстоящи и просрочени срокове по вашите дела.",
     "tabs": {
       "all": "Всички",
-      "pending": "Чакащи",
+      "pending": "Изчакващо",
       "in_progress": "В процес",
       "overdue": "Просрочени",
-      "completed": "Завършени"
+      "completed": "Завършено"
     },
     "loading": "Зареждане на срокове…",
     "error": "Неуспешно зареждане на срокове.",
@@ -62,7 +66,7 @@
       "matter": "Дело",
       "type": "Тип",
       "jurisdiction": "Юрисдикция",
-      "dueDate": "Падеж",
+      "dueDate": "Срок",
       "grace": "Гратисен период",
       "status": "Статус"
     },

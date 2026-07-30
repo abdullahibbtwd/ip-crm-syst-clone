@@ -340,6 +340,7 @@ export function EmailQueuePage() {
         emailId={linkEmailId}
         emailSubject={linkRow ? displaySubject(linkRow, noSubjectLabel) : undefined}
         suggestedMatter={linkRow?.suggestedMatter}
+        suggestedClient={linkRow?.suggestedClient}
         suggestedCategory={linkRow?.suggestedCategory}
         suggestionReason={linkRow?.suggestionReason}
         open={Boolean(linkEmailId)}
