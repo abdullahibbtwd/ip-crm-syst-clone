@@ -7,7 +7,6 @@ import {
   Bell,
   BookMarked,
   Calendar,
-  CalendarDays,
   CalendarPlus,
   Building2,
   Handshake,
@@ -19,6 +18,7 @@ import {
   FileSpreadsheet,
   FileText,
   FolderOpen,
+  Globe2,
   HelpCircle,
   History,
   Inbox,
@@ -147,8 +147,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'system',
         items: [
-          { icon: CalendarPlus, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
-          { icon: CalendarDays, labelKey: 'holidays', path: '/settings/holidays' },
+          { icon: Globe2, labelKey: 'jurisdictions', path: '/settings/jurisdictions' },
           { icon: FileText, labelKey: 'documentTemplates', path: '/settings/document-templates' },
           { icon: Plug, labelKey: 'integrations', path: '/settings/integrations' },
         ],
@@ -309,8 +308,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Clock, labelKey: 'gracePeriods', path: '/deadlines?hasGrace=1' },
           { icon: CalendarPlus, labelKey: 'addDeadline', path: '/deadlines' },
-          { icon: List, labelKey: 'deadlineRules', path: '/settings/deadline-rules' },
-          { icon: CalendarDays, labelKey: 'holidays', path: '/settings/holidays' },
+          { icon: Globe2, labelKey: 'jurisdictions', path: '/settings/jurisdictions' },
         ],
       },
       {

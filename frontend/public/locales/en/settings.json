@@ -45,6 +45,11 @@
       "description": "Configure jurisdiction and matter-type offsets for auto-created deadlines.",
       "action": "Manage deadline rules"
     },
+    "jurisdictions": {
+      "title": "Jurisdictions",
+      "description": "One place to manage filing offices, deadline rules, and holiday calendars for each country or regional office.",
+      "action": "Manage jurisdictions"
+    },
     "holidays": {
       "title": "Holiday calendar",
       "description": "Jurisdiction holidays used when counting business days for deadlines.",
@@ -390,6 +395,86 @@
     "errors": {
       "required": "Name and date are required",
       "saveFailed": "Failed to save holiday"
+    }
+  },
+  "jurisdictions": {
+    "title": "Jurisdictions",
+    "subtitle": "Open a filing office to manage its deadline rules and holidays in one place. Priority offices appear first in pickers.",
+    "newJurisdiction": "Add jurisdiction",
+    "noPermission": "You do not have permission to manage jurisdictions.",
+    "loading": "Loading jurisdictions…",
+    "loadError": "Failed to load jurisdictions.",
+    "empty": "No jurisdictions match these filters.",
+    "searchPlaceholder": "Search code, office, or name…",
+    "editAria": "Edit jurisdiction",
+    "filters": {
+      "all": "All statuses"
+    },
+    "columns": {
+      "jurisdiction": "Jurisdiction",
+      "type": "Type",
+      "automation": "Automation",
+      "rules": "Rules",
+      "holidays": "Holidays",
+      "status": "Status"
+    },
+    "type": {
+      "national": "National",
+      "regional": "Regional",
+      "international": "International"
+    },
+    "automation": {
+      "full": "Full",
+      "partial": "Partial",
+      "manual": "Manual"
+    },
+    "priority": {
+      "yes": "Priority",
+      "no": "Standard",
+      "badge": "Priority"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "hub": {
+      "back": "All jurisdictions",
+      "editOffice": "Edit office",
+      "manageRules": "Add or edit deadline rules",
+      "manageHolidays": "Add or edit holidays",
+      "noRules": "No deadline rules for this office yet. Add one to enable auto-docketing.",
+      "noHolidays": "No holidays yet. Add them so business-day deadlines skip office closures.",
+      "tabs": {
+        "overview": "Overview",
+        "rules": "Deadline rules",
+        "holidays": "Holidays"
+      },
+      "automationHint": {
+        "full": "Auto-docketing is ready — rules and holidays are configured.",
+        "partial": "Rules exist, but holidays are missing. Business-day counting uses weekends only.",
+        "manual": "No deadline rules yet. Rights can still be filed here; deadlines must be created manually until rules are added."
+      }
+    },
+    "drawer": {
+      "createTitle": "Add jurisdiction",
+      "editTitle": "Edit jurisdiction",
+      "code": "Code",
+      "codeHint": "2–4 character office code (e.g. US, EU, WO). Cannot be changed later.",
+      "officeName": "Office name",
+      "name": "Country / region name",
+      "type": "Type",
+      "priority": "Priority listing",
+      "status": "Status",
+      "sortOrder": "Sort order",
+      "cancel": "Cancel",
+      "create": "Create jurisdiction",
+      "save": "Save changes"
+    },
+    "errors": {
+      "required": "Office name and country/region name are required",
+      "codeRequired": "Code is required",
+      "sortOrder": "Enter a valid sort order",
+      "saveFailed": "Failed to save jurisdiction"
     }
   },
   "emailIntegration": {

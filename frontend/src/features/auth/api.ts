@@ -29,7 +29,7 @@ export async function loginRequest(data: LoginFormData) {
 }
 
 export async function registerRequest(data: RegisterFormData) {
-  const response = await api.post<{ user: AuthUser }>('/auth/register', {
+  const payload: Record<string, unknown> = {
     email: data.email,
     fullName: data.fullName,
     password: data.password,
@@ -37,7 +37,23 @@ export async function registerRequest(data: RegisterFormData) {
     gdprConsent: data.gdprConsent,
     registeredLegalAddress: data.registeredLegalAddress,
     correspondenceAddress: data.correspondenceAddress,
-  })
+  }
+
+  if (data.includeBilling) {
+    payload.billingName = data.billingName?.trim() || undefined
+    payload.billingEmail = data.billingEmail?.trim() || data.email
+    payload.vatNo = data.vatNo?.trim() || undefined
+    payload.preferredCurrency = data.preferredCurrency || 'EUR'
+    payload.paymentTermsDays = data.paymentTermsDays || 30
+    payload.billingAddressLine1 = data.billingAddressLine1?.trim() || undefined
+    payload.billingAddressLine2 = data.billingAddressLine2?.trim() || undefined
+    payload.billingCity = data.billingCity?.trim() || undefined
+    payload.billingRegion = data.billingRegion?.trim() || undefined
+    payload.billingPostalCode = data.billingPostalCode?.trim() || undefined
+    payload.billingCountry = data.billingCountry?.trim() || undefined
+  }
+
+  const response = await api.post<{ user: AuthUser }>('/auth/register', payload)
   return response.data
 }
 

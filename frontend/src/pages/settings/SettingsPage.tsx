@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { CalendarDays, CalendarPlus, FileText, KeyRound, Mail, Plug, Server, Shield, ShieldCheck } from 'lucide-react'
+import { FileText, Globe2, KeyRound, Mail, Plug, Server, Shield, ShieldCheck } from 'lucide-react'
 import { MfaEnrollmentCard } from '@/features/auth/MfaEnrollmentCard'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { buttonVariants } from '@/components/ui/button'
@@ -135,37 +135,17 @@ export function SettingsPage() {
         <Card className="shadow-none">
           <CardHeader>
             <div className="flex items-center gap-2">
-              <CalendarPlus className="size-4 text-primary" />
-              <CardTitle className="text-base">{t('links.deadlineRules.title')}</CardTitle>
+              <Globe2 className="size-4 text-primary" />
+              <CardTitle className="text-base">{t('links.jurisdictions.title')}</CardTitle>
             </div>
-            <CardDescription>{t('links.deadlineRules.description')}</CardDescription>
+            <CardDescription>{t('links.jurisdictions.description')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Link
-              to="/settings/deadline-rules"
+              to="/settings/jurisdictions"
               className={buttonVariants({ variant: 'outline', size: 'sm' })}
             >
-              {t('links.deadlineRules.action')}
-            </Link>
-          </CardContent>
-        </Card>
-      </RoleGate>
-
-      <RoleGate roles={[...FIRM_ADMIN_ROLES]}>
-        <Card className="shadow-none">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <CalendarDays className="size-4 text-primary" />
-              <CardTitle className="text-base">{t('links.holidays.title')}</CardTitle>
-            </div>
-            <CardDescription>{t('links.holidays.description')}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Link
-              to="/settings/holidays"
-              className={buttonVariants({ variant: 'outline', size: 'sm' })}
-            >
-              {t('links.holidays.action')}
+              {t('links.jurisdictions.action')}
             </Link>
           </CardContent>
         </Card>

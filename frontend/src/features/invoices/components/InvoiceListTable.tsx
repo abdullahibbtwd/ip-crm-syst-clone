@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Banknote, Download, FileText } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { useAppAlert } from '@/components/feedback/AppAlertProvider'
 import { Badge } from '@/components/ui/badge'
@@ -26,6 +26,10 @@ import {
   formatInvoiceMoney,
   PAYMENT_STATUS_LABELS,
 } from '@/features/invoices/utils'
+import {
+  billingIncompleteMessage,
+  getBillingIncompleteClientId,
+} from '@/features/crm/components/ClientBillingProfileCard'
 
 type InvoiceListTableProps = {
   invoices: Invoice[]
@@ -43,6 +47,7 @@ export function InvoiceListTable({
   enableFinanceActions = false,
 }: InvoiceListTableProps) {
   const { t } = useTranslation('finance')
+  const navigate = useNavigate()
   const { confirm, showError } = useAppAlert()
   const downloadPdf = useInvoicePdf(portal)
   const issueInvoice = useIssueInvoice(matterId)
@@ -222,7 +227,29 @@ export function InvoiceListTable({
                                 })
                                 if (!ok) return
                                 issueInvoice.mutate(invoice.id, {
-                                  onError: (err) => showError(err, 'Failed to issue invoice'),
+                                  onError: (err) => {
+                                    const clientId = getBillingIncompleteClientId(err)
+                                    if (clientId) {
+                                      void confirm({
+                                        title: 'Billing details required',
+                                        message:
+                                          billingIncompleteMessage(
+                                            err,
+                                            'Client billing profile is incomplete. Add invoice email, billing address, currency, and VAT (for companies) before issuing.',
+                                          ) +
+                                          `\n\nOpen the client billing profile to complete it, then try issuing again.`,
+                                        variant: 'warning',
+                                        confirmLabel: 'Open billing profile',
+                                        cancelLabel: 'Cancel',
+                                      }).then((go) => {
+                                        if (go) {
+                                          navigate(`/clients/${clientId}/billing`)
+                                        }
+                                      })
+                                      return
+                                    }
+                                    showError(err, 'Failed to issue invoice')
+                                  },
                                 })
                               }}
                             >

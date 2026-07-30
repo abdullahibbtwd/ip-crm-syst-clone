@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { SUPPORTED_INVOICE_CURRENCIES } from '@/features/crm/billingProfile'
 
 export const loginSchema = z.object({
   email: z.email('validation.emailInvalid'),
@@ -34,18 +35,42 @@ const clientAddressSchema = z.object({
   fax: z.string().optional(),
 })
 
+const registerAccountFields = {
+  fullName: z.string().min(2, 'validation.fullNameMin'),
+  email: z.email('validation.emailInvalid'),
+  password: z.string().min(8, 'validation.passwordMin'),
+  confirmPassword: z.string().min(8, 'validation.confirmPassword'),
+  companyName: z.string().optional(),
+  gdprConsent: z.boolean().refine((value) => value === true, {
+    message: 'validation.gdprRequired',
+  }),
+}
+
+/** Step 1 only — Zod `.pick()` throws on schemas with refinements. */
+export const registerStepOneSchema = z
+  .object(registerAccountFields)
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'validation.passwordsMismatch',
+    path: ['confirmPassword'],
+  })
+
 export const registerSchema = z
   .object({
-    fullName: z.string().min(2, 'validation.fullNameMin'),
-    email: z.email('validation.emailInvalid'),
-    password: z.string().min(8, 'validation.passwordMin'),
-    confirmPassword: z.string().min(8, 'validation.confirmPassword'),
-    companyName: z.string().optional(),
-    gdprConsent: z.boolean().refine((value) => value === true, {
-      message: 'validation.gdprRequired',
-    }),
+    ...registerAccountFields,
     registeredLegalAddress: clientAddressSchema.optional(),
     correspondenceAddress: clientAddressSchema.optional(),
+    includeBilling: z.boolean().optional(),
+    billingName: z.string().optional(),
+    billingEmail: z.string().optional(),
+    vatNo: z.string().optional(),
+    preferredCurrency: z.enum(SUPPORTED_INVOICE_CURRENCIES).optional(),
+    paymentTermsDays: z.coerce.number().int().min(1).max(365).optional(),
+    billingAddressLine1: z.string().optional(),
+    billingAddressLine2: z.string().optional(),
+    billingCity: z.string().optional(),
+    billingRegion: z.string().optional(),
+    billingPostalCode: z.string().optional(),
+    billingCountry: z.string().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'validation.passwordsMismatch',

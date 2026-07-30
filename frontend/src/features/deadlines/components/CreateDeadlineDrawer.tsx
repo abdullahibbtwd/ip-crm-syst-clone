@@ -6,16 +6,9 @@ import { DeadlineAssigneeSelect } from '@/features/deadlines/components/Deadline
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useCreateDeadline } from '@/features/deadlines/hooks/useDeadlines'
-import { JURISDICTION_OPTIONS } from '@/features/deadlines/utils'
+import { JurisdictionSelect } from '@/features/jurisdictions/components/JurisdictionSelect'
 import { mattersApi } from '@/features/matters/api'
 import { matterKeys } from '@/features/matters/queryKeys'
 import { cn } from '@/lib/utils'
@@ -163,18 +156,12 @@ export function CreateDeadlineDrawer({ open, onClose }: CreateDeadlineDrawerProp
 
         <div className="space-y-1.5">
           <Label htmlFor="deadline-jurisdiction">Jurisdiction</Label>
-          <Select value={jurisdiction} onValueChange={(v) => setJurisdiction(v ?? '')}>
-            <SelectTrigger id="deadline-jurisdiction">
-              <SelectValue placeholder="Select jurisdiction" />
-            </SelectTrigger>
-            <SelectContent>
-              {JURISDICTION_OPTIONS.map((j) => (
-                <SelectItem key={j.value} value={j.value}>
-                  {j.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <JurisdictionSelect
+            id="deadline-jurisdiction"
+            value={jurisdiction}
+            onValueChange={setJurisdiction}
+            placeholder="Select jurisdiction"
+          />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">

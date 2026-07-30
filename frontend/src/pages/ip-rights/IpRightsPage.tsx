@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 
 import { useClients } from '@/features/crm/hooks/useClients'
 import { clientDisplayName } from '@/features/crm/utils'
-import { JURISDICTION_OPTIONS } from '@/features/deadlines/utils'
+import { JurisdictionSelect } from '@/features/jurisdictions/components/JurisdictionSelect'
 import { formatMatterDate, ipRightStatusLabel, matterTypeLabel } from '@/features/matters/utils'
 import type { MatterType, IpRightStatus } from '@/features/matters/types'
 
@@ -115,25 +115,17 @@ export function IpRightsPage() {
           <label className="text-xs font-medium text-muted-foreground">
             {t('ipRightsRegister.filters.jurisdiction')}
           </label>
-          <Select
+          <JurisdictionSelect
+            className="bg-background"
             value={jurisdiction ?? ALL}
             onValueChange={(v) => {
               if (!v || v === ALL) setJurisdiction(undefined)
               else setJurisdiction(v)
             }}
-          >
-            <SelectTrigger className="bg-background">
-              <SelectValue placeholder={t('ipRightsRegister.filters.allJurisdictions')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value={ALL}>{t('filters.all', { ns: 'common' })}</SelectItem>
-              {JURISDICTION_OPTIONS.map((j) => (
-                <SelectItem key={j.value} value={j.value}>
-                  {j.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            allowAll
+            allLabel={t('filters.all', { ns: 'common' })}
+            placeholder={t('ipRightsRegister.filters.allJurisdictions')}
+          />
         </div>
 
         <div className="space-y-1.5">

@@ -254,6 +254,33 @@
     "title": "Billing",
     "wipDescription": "Work in progress and unbilled amounts for this client.",
     "wipDescriptionLong": "Work in progress and billable totals across all matters for this client.",
+    "profile": {
+      "title": "Billing profile",
+      "subtitle": "Used automatically when issuing invoices. Incomplete profiles block issue (drafts are still allowed).",
+      "ready": "Invoice-ready",
+      "incomplete": "Incomplete",
+      "missing": "Missing: {{fields}}",
+      "save": "Save billing profile",
+      "saved": "Billing profile saved.",
+      "saveFailed": "Failed to save billing profile",
+      "billingName": "Billing name",
+      "billingEmail": "Invoice email",
+      "vatNo": "VAT / tax ID",
+      "currency": "Preferred currency",
+      "paymentTerms": "Payment terms (days)",
+      "addressLine1": "Address line 1",
+      "addressLine2": "Address line 2",
+      "city": "City",
+      "postalCode": "Postal code",
+      "region": "Region / state",
+      "country": "Country",
+      "fields": {
+        "billingEmail": "invoice email",
+        "billingAddress": "billing address",
+        "vatNo": "VAT number",
+        "preferredCurrency": "currency"
+      }
+    },
     "matterTable": {
       "matter": "Matter",
       "type": "Type",

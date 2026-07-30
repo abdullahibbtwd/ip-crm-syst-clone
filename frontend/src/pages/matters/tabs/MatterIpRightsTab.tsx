@@ -58,7 +58,8 @@ import {
   renewalUrgency,
 } from '@/features/renewals/utils'
 import type { IpRight, IpRightStatus, MatterType } from '@/features/matters/types'
-import { formatDeadlineDate, JURISDICTION_OPTIONS, jurisdictionLabel } from '@/features/deadlines/utils'
+import { formatDeadlineDate, jurisdictionLabel } from '@/features/deadlines/utils'
+import { JurisdictionSelect } from '@/features/jurisdictions/components/JurisdictionSelect'
 import { cn } from '@/lib/utils'
 import {
   ipRightStatusLabel,
@@ -492,20 +493,10 @@ export function MatterIpRightsTab() {
           </div>
           <div className="space-y-1.5">
             <label className="text-sm text-muted-foreground">{t('matters:ipRights.filingOffice')}</label>
-            <Select value={jurisdiction} onValueChange={(v) => v && setJurisdiction(v)}>
-              <SelectTrigger>
-                <SelectValue>
-                  {(value) => jurisdictionLabel(String(value ?? ''))}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                {JURISDICTION_OPTIONS.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <JurisdictionSelect
+              value={jurisdiction}
+              onValueChange={setJurisdiction}
+            />
             <p className="text-xs text-muted-foreground">{t('matters:ipRights.jurisdictionHint')}</p>
           </div>
           <div className="space-y-1.5">
@@ -634,20 +625,10 @@ export function MatterIpRightsTab() {
 
             <div className="space-y-1.5">
               <label className="text-sm font-medium">{t('matters:ipRights.filingOffice')}</label>
-              <Select value={fileJurisdiction} onValueChange={(v) => v && setFileJurisdiction(v)}>
-                <SelectTrigger>
-                  <SelectValue>
-                    {(value) => jurisdictionLabel(String(value ?? ''))}
-                  </SelectValue>
-                </SelectTrigger>
-                <SelectContent>
-                  {JURISDICTION_OPTIONS.map((opt) => (
-                    <SelectItem key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <JurisdictionSelect
+                value={fileJurisdiction}
+                onValueChange={setFileJurisdiction}
+              />
               <p className="text-xs text-muted-foreground">
                 {t('matters:ipRights.fileDrawer.jurisdictionHint')}
               </p>

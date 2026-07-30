@@ -15,6 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { ClientRetainerCard } from '@/features/retainers/components/ClientRetainerCard'
+import { ClientBillingProfileCard } from '@/features/crm/components/ClientBillingProfileCard'
 import type { ClientTabContext } from '../ClientLayout'
 
 export function ClientBillingTab() {
@@ -28,12 +29,15 @@ export function ClientBillingTab() {
       action="read"
       fallback={<p className="text-sm text-muted-foreground">{t('billing.noPermission')}</p>}
     >
-      {isLoading && <p className="text-sm text-muted-foreground">{t('billing.loading')}</p>}
-      {isError && <p className="text-sm text-destructive">{t('billing.error')}</p>}
+      <div className="space-y-6">
+        <ClientBillingProfileCard clientId={clientId} />
 
-      <ClientRetainerCard clientId={clientId} />
+        {isLoading && <p className="text-sm text-muted-foreground">{t('billing.loading')}</p>}
+        {isError && <p className="text-sm text-destructive">{t('billing.error')}</p>}
 
-      {data && (
+        <ClientRetainerCard clientId={clientId} />
+
+        {data && (
         <div className="space-y-6">
           <div>
             <h2 className="font-medium">{t('billing.title')}</h2>
@@ -101,6 +105,7 @@ export function ClientBillingTab() {
           </section>
         </div>
       )}
+      </div>
     </PermissionGate>
   )
 }

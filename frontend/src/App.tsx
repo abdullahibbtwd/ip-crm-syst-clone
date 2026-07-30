@@ -29,6 +29,8 @@ import { DeadlineRulesPage } from './pages/settings/DeadlineRulesPage'
 import { DocumentTemplatesPage } from './pages/settings/DocumentTemplatesPage'
 import { PrecedentsPage } from './pages/PrecedentsPage'
 import { HolidaysPage } from './pages/settings/HolidaysPage'
+import { JurisdictionsPage } from './pages/settings/JurisdictionsPage'
+import { JurisdictionDetailPage } from './pages/settings/JurisdictionDetailPage'
 import { TimeEntriesPage } from './pages/billing/TimeEntriesPage'
 import { DisbursementsPage } from './pages/billing/DisbursementsPage'
 import { ConsentRegisterPage } from './pages/compliance/ConsentRegisterPage'
@@ -134,6 +136,11 @@ export default function App() {
           <Route path="/settings/sso-mfa" element={<SsoMfaSettingsPage />} />
           <Route path="/settings/roles" element={<RolesPermissionsPage />} />
           <Route path="/settings/system-health" element={<SystemHealthPage />} />
+          <Route path="/settings/jurisdictions" element={<JurisdictionsPage />} />
+          <Route
+            path="/settings/jurisdictions/:code"
+            element={<JurisdictionDetailPage />}
+          />
           <Route path="/settings/deadline-rules" element={<DeadlineRulesPage />} />
           <Route path="/settings/holidays" element={<HolidaysPage />} />
           <Route path="/settings/document-templates" element={<DocumentTemplatesPage />} />

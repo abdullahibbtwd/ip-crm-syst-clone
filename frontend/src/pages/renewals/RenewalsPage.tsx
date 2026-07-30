@@ -18,7 +18,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { useDeadlineAssignees } from '@/features/deadlines/hooks/useDeadlines'
-import { JURISDICTION_OPTIONS, formatDeadlineDate } from '@/features/deadlines/utils'
+import { formatDeadlineDate } from '@/features/deadlines/utils'
+import { JurisdictionSelect } from '@/features/jurisdictions/components/JurisdictionSelect'
 import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
 import { useRenewals } from '@/features/renewals/hooks/useRenewals'
 import type { RenewalStatus } from '@/features/renewals/types'
@@ -95,25 +96,17 @@ export function RenewalsPage() {
           </SelectContent>
         </Select>
 
-        <Select
+        <JurisdictionSelect
+          className="w-[200px]"
           value={jurisdiction ?? ALL}
           onValueChange={(v) => {
             if (!v || v === ALL) setJurisdiction(undefined)
             else setJurisdiction(v)
           }}
-        >
-          <SelectTrigger className="w-[160px]">
-            <SelectValue placeholder={t('page.filters.jurisdiction')} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value={ALL}>{t('page.filters.allJurisdictions')}</SelectItem>
-            {JURISDICTION_OPTIONS.map((j) => (
-              <SelectItem key={j.value} value={j.value}>
-                {j.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          allowAll
+          allLabel={t('page.filters.allJurisdictions')}
+          placeholder={t('page.filters.jurisdiction')}
+        />
 
         {scope === 'firm' ? (
           <Select

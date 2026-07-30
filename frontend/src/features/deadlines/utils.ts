@@ -86,6 +86,7 @@ export const JURISDICTION_OPTIONS = [
   { value: 'WO', label: 'WIPO / PCT (WO)' },
 ] as const
 
+/** @deprecated Prefer resolveJurisdictionLabel from @/features/jurisdictions/utils */
 export function jurisdictionLabel(code: string | null | undefined) {
   if (!code) return '-'
   const match = JURISDICTION_OPTIONS.find((o) => o.value === code)

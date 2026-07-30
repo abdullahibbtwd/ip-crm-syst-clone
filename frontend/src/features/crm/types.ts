@@ -181,6 +181,17 @@ export type ClientDetail = ClientListItem & {
   gdprConsent: boolean
   gdprConsentDate: string | null
   updatedAt: string
+  billingName: string | null
+  billingEmail: string | null
+  preferredCurrency: string
+  paymentTermsDays: number
+  billingAddressLine1: string | null
+  billingAddressLine2: string | null
+  billingCity: string | null
+  billingRegion: string | null
+  billingPostalCode: string | null
+  billingCountry: string | null
+  billingReadiness?: import('./billingProfile').BillingReadiness
   assignedUser: { id: string; fullName: string; email: string } | null
   holdingGroup: { id: string; name: string } | null
   offices: ClientOffice[]
