@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
 import { CounterpartiesEditor } from '@/components/intake/CounterpartiesEditor'
+import { IntakePartyFields } from '@/components/intake/IntakePartyFields'
 import { AttorneyAssigneeSelect } from '@/components/users/AttorneyAssigneeSelect'
 import { Button } from '@/components/ui/button'
 import { CountrySelect } from '@/components/crm/CountrySelect'
@@ -20,12 +21,17 @@ import {
   zodFieldErrors,
   type CounterpartyFormValues,
   type CreateIntakeFormValues,
+  type IntakePartyFormValues,
 } from '@/features/intake/schemas'
 import { getApiErrorMessage } from '@/lib/api-client'
 import {
   emptyClientAddressInput,
   toClientAddressPayload,
 } from '@/features/crm/addressInput'
+import {
+  ALL_INTAKE_MATTER_TYPES,
+  intakeMatterTypeLabel,
+} from '@/features/intake/utils'
 import { cn } from '@/lib/utils'
 
 export type IntakeFormInitialValues = {
@@ -43,6 +49,8 @@ export type IntakeFormInitialValues = {
   assignedUserId?: string
   notes?: string
   counterparties?: CounterpartyFormValues[]
+  applicant?: IntakePartyFormValues
+  intermediary?: IntakePartyFormValues
 }
 
 type CreateIntakeFormProps = {
@@ -66,7 +74,7 @@ export function CreateIntakeForm({
   initialValues,
   submitLabel,
 }: CreateIntakeFormProps) {
-  const { t } = useTranslation(['crm', 'common'])
+  const { t } = useTranslation(['intake', 'crm', 'common'])
   const isPortal = variant === 'portal'
   const [enquirerType, setEnquirerType] = useState<'company' | 'individual'>(
     initialValues?.enquirerType ?? 'company',
@@ -91,6 +99,12 @@ export function CreateIntakeForm({
   const [notes, setNotes] = useState(initialValues?.notes ?? '')
   const [counterparties, setCounterparties] = useState<CounterpartyFormValues[]>(
     initialValues?.counterparties ?? [],
+  )
+  const [applicant, setApplicant] = useState<IntakePartyFormValues | undefined>(
+    initialValues?.applicant,
+  )
+  const [intermediary, setIntermediary] = useState<IntakePartyFormValues | undefined>(
+    initialValues?.intermediary,
   )
   const [registeredLegalAddress, setRegisteredLegalAddress] = useState(
     emptyClientAddressInput(),
@@ -122,6 +136,8 @@ export function CreateIntakeForm({
             assignedUserId,
             notes: notes || undefined,
             counterparties: counterparties.length ? counterparties : undefined,
+            applicant,
+            intermediary,
             registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
             correspondenceAddress: toClientAddressPayload(correspondenceAddress),
           }
@@ -139,6 +155,8 @@ export function CreateIntakeForm({
             assignedUserId,
             notes: notes || undefined,
             counterparties: counterparties.length ? counterparties : undefined,
+            applicant,
+            intermediary,
             registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
             correspondenceAddress: toClientAddressPayload(correspondenceAddress),
           }
@@ -159,7 +177,8 @@ export function CreateIntakeForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <Label>Enquirer type</Label>
+        <Label>{t('intake:form.enquirerType')}</Label>
+        <p className="text-xs text-muted-foreground">{t('intake:form.clientSectionHint')}</p>
         <div className="flex gap-2">
           {(['company', 'individual'] as const).map((type) => (
             <Button
@@ -170,7 +189,7 @@ export function CreateIntakeForm({
               className="capitalize"
               onClick={() => setEnquirerType(type)}
             >
-              {type}
+              {t(`intake:form.type.${type}`)}
             </Button>
           ))}
         </div>
@@ -243,7 +262,7 @@ export function CreateIntakeForm({
           </div>
         </div>
 
-        <Field label="Matter type *" error={fieldErrors.matterType}>
+        <Field label={t('form.matterType')} error={fieldErrors.matterType}>
           <Select
             value={matterType}
             onValueChange={(v) => setMatterType(v as CreateIntakeFormValues['matterType'])}
@@ -252,11 +271,11 @@ export function CreateIntakeForm({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="trademark">Trademark</SelectItem>
-              <SelectItem value="patent">Patent</SelectItem>
-              <SelectItem value="utility_model">Utility model</SelectItem>
-              <SelectItem value="design">Design</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              {ALL_INTAKE_MATTER_TYPES.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {intakeMatterTypeLabel(type)}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </Field>
@@ -333,6 +352,25 @@ export function CreateIntakeForm({
           <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
         </Field>
       )}
+
+      <div className="space-y-3 border-t pt-6">
+        <div>
+          <p className="text-sm font-medium">{t('intake:parties.title')}</p>
+          <p className="text-sm text-muted-foreground">{t('intake:parties.hint')}</p>
+        </div>
+        <IntakePartyFields
+          label={t('intake:parties.applicant')}
+          hint={t('intake:parties.applicantHint')}
+          value={applicant}
+          onChange={setApplicant}
+        />
+        <IntakePartyFields
+          label={t('intake:parties.intermediary')}
+          hint={t('intake:parties.intermediaryHint')}
+          value={intermediary}
+          onChange={setIntermediary}
+        />
+      </div>
 
       <div className="space-y-2 border-t pt-6">
         <p className="text-sm font-medium">

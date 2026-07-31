@@ -11,8 +11,23 @@ const INTAKE_MATTER_TYPE_LABELS: Record<IntakeMatterType, string> = {
   [IntakeMatterType.patent]: 'Patent',
   [IntakeMatterType.utility_model]: 'Utility model',
   [IntakeMatterType.design]: 'Design',
+  [IntakeMatterType.cases]: 'Cases',
+  [IntakeMatterType.domain]: 'Domains',
+  [IntakeMatterType.litigation_expert_report]: 'Litigation / Court Expert Reports',
+  [IntakeMatterType.consultation]: 'Consultations',
+  [IntakeMatterType.official_fee_payment]: 'Official Fee Payments',
   [IntakeMatterType.other]: 'Other',
 };
+
+/** Matter types that get a draft IP-right row on intake convert when a country is set. */
+export const INTAKE_TYPES_WITH_DRAFT_IP_RIGHT: ReadonlySet<IntakeMatterType> =
+  new Set([
+    IntakeMatterType.trademark,
+    IntakeMatterType.patent,
+    IntakeMatterType.utility_model,
+    IntakeMatterType.design,
+    IntakeMatterType.domain,
+  ]);
 
 export function mapIntakeMatterType(type: IntakeMatterType): MatterType {
   switch (type) {
@@ -24,9 +39,19 @@ export function mapIntakeMatterType(type: IntakeMatterType): MatterType {
       return MatterType.utility_model;
     case IntakeMatterType.design:
       return MatterType.industrial_design;
+    case IntakeMatterType.cases:
+      return MatterType.cases;
+    case IntakeMatterType.domain:
+      return MatterType.domain;
+    case IntakeMatterType.litigation_expert_report:
+      return MatterType.litigation_expert_report;
+    case IntakeMatterType.consultation:
+      return MatterType.consultation;
+    case IntakeMatterType.official_fee_payment:
+      return MatterType.official_fee_payment;
     case IntakeMatterType.other:
     default:
-      return MatterType.dispute_opposition;
+      return MatterType.other;
   }
 }
 

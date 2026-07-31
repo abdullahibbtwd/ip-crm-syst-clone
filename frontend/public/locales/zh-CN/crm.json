@@ -220,17 +220,17 @@
     "title": "关系史"
   },
   "matters": {
-    "empty": "还没有什么关系。 立案以开始对该客户的起诉工作。",
-    "loading": "加载事宜...",
-    "openNew": "开启新事",
+    "empty": "还没有工作文件。 打开工作文件以开始对该客户的起诉工作。",
+    "loading": "正在加载工作文件...",
+    "openNew": "打开新的工作文件",
     "table": {
       "assigned": "已分配",
       "jurisdictions": "司法管辖区",
       "status": "地位",
       "title": "标题",
-      "type": "类型"
+      "type": "工作类型"
     },
-    "title": "事项"
+    "title": "工作文件"
   },
   "accessHistory": {
     "title": "数据访问历史记录",
@@ -320,7 +320,7 @@
     "correspondence": "一致",
     "documents": "文件",
     "history": "历史",
-    "matters": "事项",
+    "matters": "工作文件",
     "watch": "手表",
     "offices": "办事处",
     "overview": "概述",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "文件",
-    "description": "与该客户事务相关的客户文件和文档。",
+    "description": "客户文件和链接到该客户工作文件的文档。",
     "upload": "上传",
     "uploadAction": "上传文件",
     "uploading": "正在上传...",

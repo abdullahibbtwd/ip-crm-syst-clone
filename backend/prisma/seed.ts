@@ -1504,6 +1504,7 @@ async function main() {
       id: demoIpRightId,
       matterId: demoMatterId,
       clientId: companyClient.id,
+      ownerClientId: companyClient.id,
       rightType: 'trademark',
       title: 'ACME® word mark',
       applicationNumber: 'BG2020160001',

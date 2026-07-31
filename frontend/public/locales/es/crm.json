@@ -220,17 +220,17 @@
     "title": "Historial de relaciones"
   },
   "matters": {
-    "empty": "No importa todavía. Abrir un asunto para iniciar el trabajo de procesamiento para este cliente.",
-    "loading": "La carga importa...",
-    "openNew": "Abrir nuevo asunto",
+    "empty": "Aún no hay archivos que funcionen. Abra un archivo de trabajo para iniciar el trabajo de procesamiento para este cliente.",
+    "loading": "Cargando archivos de trabajo…",
+    "openNew": "Abrir nuevo archivo de trabajo",
     "table": {
       "assigned": "Asignado",
       "jurisdictions": "Jurisdicciones",
       "status": "Estado",
       "title": "Título",
-      "type": "Tipo"
+      "type": "Tipo de trabajo"
     },
-    "title": "Asuntos"
+    "title": "Archivos de trabajo"
   },
   "accessHistory": {
     "title": "Historial de acceso a datos",
@@ -320,7 +320,7 @@
     "correspondence": "Correspondencia",
     "documents": "Documentos",
     "history": "Historia",
-    "matters": "Asuntos",
+    "matters": "Archivos de trabajo",
     "watch": "Mirar",
     "offices": "Oficinas",
     "overview": "Descripción general",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Documentos",
-    "description": "Ficheros de clientes y documentos vinculados a los asuntos de este cliente.",
+    "description": "Archivos de clientes y documentos vinculados a los archivos de trabajo de este cliente.",
     "upload": "Subir",
     "uploadAction": "Subir archivo",
     "uploading": "Subiendo…",

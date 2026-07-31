@@ -11,6 +11,12 @@ export type MatterType =
   | 'fto_analysis'
   | 'valuation'
   | 'dispute_opposition'
+  | 'cases'
+  | 'domain'
+  | 'litigation_expert_report'
+  | 'consultation'
+  | 'official_fee_payment'
+  | 'other'
 
 export type MatterStatus = 'draft' | 'active' | 'on_hold' | 'closed' | 'abandoned'
 
@@ -31,25 +37,33 @@ export type MatterJurisdiction = {
   status: MatterJurisdictionStatus
 }
 
+export type MatterClientSummary = {
+  id: string
+  internalCode: string | null
+  companyName: string | null
+  firstName: string | null
+  lastName: string | null
+  type: string
+}
+
 export type MatterListItem = {
   id: string
   clientId: string
+  applicantClientId?: string | null
+  intermediaryClientId?: string | null
   matterType: MatterType
   title: string
   status: MatterStatus
+  isArchived?: boolean
+  archivedAt?: string | null
   description: string | null
   createdAt: string
   updatedAt: string
   assignedTo: MatterUser | null
   jurisdictions: MatterJurisdiction[]
-  client: {
-    id: string
-    internalCode: string | null
-    companyName: string | null
-    firstName: string | null
-    lastName: string | null
-    type: string
-  }
+  client: MatterClientSummary
+  applicantClient?: MatterClientSummary | null
+  intermediaryClient?: MatterClientSummary | null
   upcomingDeadlineCount?: number
 }
 
@@ -70,6 +84,7 @@ export type IpRight = {
   id: string
   matterId: string
   clientId: string
+  ownerClientId?: string
   rightType: MatterType
   title: string
   applicationNumber: string | null
@@ -92,6 +107,7 @@ export type MatterFilters = {
   matterType?: MatterType
   assignedToId?: string
   search?: string
+  archivedOnly?: boolean
   page?: number
   limit?: number
   cursor?: string
@@ -101,6 +117,8 @@ export type MatterListResponse = Paginated<MatterListItem>
 
 export type CreateMatterInput = {
   clientId: string
+  applicantClientId?: string
+  intermediaryClientId?: string
   matterType: MatterType
   title: string
   status?: MatterStatus
@@ -118,6 +136,8 @@ export type UpdateMatterInput = Partial<
   Omit<CreateMatterInput, 'clientId'>
 > & {
   assignedToId?: string | null
+  applicantClientId?: string | null
+  intermediaryClientId?: string | null
   description?: string | null
 }
 

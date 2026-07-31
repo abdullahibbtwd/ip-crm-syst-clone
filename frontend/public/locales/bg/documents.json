@@ -10,6 +10,26 @@
     "matter": "Дело",
     "category": "Категория",
     "updated": "Обновено",
-    "by": "От"
+    "by": "От",
+    "actions": "Actions"
+  },
+  "subtitleWorking": "Documents attached to working files across the firm.",
+  "subtitleShared": "Firm-wide shared documents — templates, forms, and internal materials.",
+  "tabs": {
+    "working": "Working file documents",
+    "shared": "Shared documents"
+  },
+  "shared": {
+    "upload": "Upload shared document",
+    "uploading": "Uploading…",
+    "uploadFailed": "Failed to upload shared document",
+    "uploadRequired": "Choose a file to upload",
+    "empty": "No shared documents yet. Upload templates, forms, or firm guidelines here.",
+    "download": "Download",
+    "dropHint": "Drop a file here or choose one",
+    "chooseFile": "Choose file",
+    "displayName": "Display name",
+    "displayNamePlaceholder": "e.g. Power of Attorney template",
+    "category": "Category"
   }
 }

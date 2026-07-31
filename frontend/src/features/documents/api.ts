@@ -5,12 +5,20 @@ import type {
   DocumentFilters,
   DocumentTemplate,
   DocumentVersion,
+  FirmDocument,
   MatterDocument,
   PortalDocument,
+  SharedDocument,
   UploadDocumentInput,
 } from './types'
 
 export const documentsApi = {
+  listFirmWide: (filters?: DocumentFilters) =>
+    api.get<FirmDocument[]>('/documents', { params: filters }).then((r) => r.data),
+
+  listShared: (filters?: DocumentFilters) =>
+    api.get<SharedDocument[]>('/shared-documents', { params: filters }).then((r) => r.data),
+
   listForMatter: (matterId: string, filters?: DocumentFilters) =>
     api
       .get<MatterDocument[]>(`/matters/${matterId}/documents`, { params: filters })
@@ -52,6 +60,19 @@ export const documentsApi = {
       .then((r) => r.data)
   },
 
+  uploadShared: (input: UploadDocumentInput) => {
+    const form = new FormData()
+    form.append('file', input.file)
+    if (input.displayName?.trim()) form.append('displayName', input.displayName.trim())
+    form.append('category', input.category)
+    if (input.tags?.trim()) form.append('tags', input.tags.trim())
+    return api
+      .post<SharedDocument>('/shared-documents', form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((r) => r.data)
+  },
+
   getDownloadUrl: (documentId: string, versionId?: string) =>
     api
       .get<DocumentDownloadResponse>(`/documents/${documentId}/download`, {
@@ -65,6 +86,13 @@ export const documentsApi = {
         `/clients/${clientId}/documents/${documentId}/download`,
         { params: versionId ? { versionId } : undefined },
       )
+      .then((r) => r.data),
+
+  getSharedDownloadUrl: (documentId: string, versionId?: string) =>
+    api
+      .get<DocumentDownloadResponse>(`/shared-documents/${documentId}/download`, {
+        params: versionId ? { versionId } : undefined,
+      })
       .then((r) => r.data),
 
   listVersions: (documentId: string) =>

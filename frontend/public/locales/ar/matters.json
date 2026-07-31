@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "غرض التقييم"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "اسم المجال",
+        "placeholder": "على سبيل المثال example.com"
+      },
+      "registrar": {
+        "label": "المسجل"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "مرجع الحالة"
+      },
+      "courtOrAuthority": {
+        "label": "المحكمة / السلطة"
+      },
+      "reportScope": {
+        "label": "نطاق التقرير"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "ملخص النطاق"
+      },
+      "topic": {
+        "label": "عنوان"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "الهيئة / المكتب"
+      },
+      "feeReference": {
+        "label": "مرجع الرسوم/الدفع"
+      },
+      "relatedApplication": {
+        "label": "التطبيق/الملف ذو الصلة"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "ملخص العمل"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "عميل *",
     "creating": "جارٍ الإنشاء…",
-    "error": "فشل في إنشاء المادة",
+    "error": "فشل في إنشاء ملف العمل",
     "jurisdictionHelp": "اختر واحدة أو أكثر من ولايات تقديم الطلبات.",
     "jurisdictions": "الولايات القضائية",
-    "matterType": "نوع المادة *",
-    "open": "مسألة مفتوحة",
+    "matterType": "نوع العمل *",
+    "open": "فتح ملف العمل",
     "responsibleAttorney": "المحامي المسؤول",
-    "title": "فتح مسألة جديدة",
+    "title": "فتح ملف عمل جديد",
     "titleField": "عنوان *",
     "titlePlaceholder": "على سبيل المثال علامة كلمة ACME - الاتحاد الأوروبي"
   },
@@ -598,16 +642,27 @@
     "rejected": "مرفوض"
   },
   "layout": {
-    "backToMatters": "← العودة إلى الأمور",
-    "loading": "جارٍ تحميل المادة…",
-    "notFound": "لم يتم العثور على المسألة."
+    "backToMatters": "← العودة إلى ملفات العمل",
+    "loading": "جارٍ تحميل ملف العمل…",
+    "notFound": "لم يتم العثور على ملف العمل.",
+    "archivedBadge": "مؤرشف",
+    "archive": "أرشيف",
+    "archiving": "الأرشفة…",
+    "restore": "يعيد",
+    "restoring": "جارٍ الاستعادة…",
+    "archiveFailed": "فشل في أرشفة ملف العمل",
+    "restoreFailed": "فشل في استعادة ملف العمل",
+    "archiveConfirm": "أرشفة ملف العمل هذا؟ ستترك القائمة النشطة ولكنها تظل قابلة للبحث ضمن المؤرشفة."
   },
   "list": {
-    "description": "عرض المحفظة لجميع المسائل القانونية - البحث حسب العنوان أو العميل أو رقم الطلب.",
-    "descriptionPortal": "تم فتح الأمور لمؤسستك بعد تحويل المدخول.",
+    "description": "عرض المحفظة لجميع ملفات العمل - البحث حسب العنوان أو العميل أو رقم التطبيق.",
+    "descriptionPortal": "تم فتح ملفات العمل لمؤسستك بعد تحويل المدخول.",
+    "descriptionArchived": "يتم الاحتفاظ بملفات العمل المكتملة أو غير النشطة للرجوع إليها.",
     "filters": {
       "allStatuses": "جميع الحالات",
-      "allTypes": "جميع الأنواع"
+      "allTypes": "جميع أنواع العمل",
+      "active": "نشيط",
+      "archived": "مؤرشف"
     },
     "intakeQueue": "قائمة انتظار المدخول",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} لكل صفحة",
     "searchPlaceholder": "عنوان البحث، العميل، رقم الطلب...",
-    "title": "يهم",
-    "titlePortal": "أموري"
+    "title": "ملفات العمل",
+    "titleArchived": "ملفات العمل المؤرشفة",
+    "titlePortal": "ملفات العمل الخاصة بي"
   },
   "ipRightsRegister": {
     "description": "تسجيل حقوق الملكية الفكرية على مستوى الشركة مع عوامل تصفية حسب العميل والولاية القضائية والنوع والحالة وانتهاء الصلاحية.",
@@ -631,7 +687,7 @@
       "expiryFrom": "انتهاء الصلاحية من",
       "expiryTo": "انتهاء الصلاحية إلى",
       "jurisdiction": "الولاية القضائية",
-      "matterType": "نوع المسألة",
+      "matterType": "نوع العمل",
       "status": "حالة"
     },
     "loading": "تحميل…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "المحامي الرئيسي",
+    "applicant": "مقدم الطلب / صاحب الحقوق (المالك)",
+    "client": "عميل",
+    "clientHint": "الطرف الموجه - يتلقى الفواتير",
+    "intermediary": "وسيط",
     "description": "وصف",
     "jurisdictions": "الولايات القضائية",
     "jurisdictionsEmpty": "لم يتم تسجيل أي ولايات قضائية.",
@@ -666,9 +726,19 @@
       "localRef": "المرجع المحلي.",
       "status": "حالة"
     },
-    "title": "تفاصيل المسألة",
-    "type": "يكتب",
+    "title": "تفاصيل ملف العمل",
+    "type": "نوع العمل",
     "typeSpecific": "سمات خاصة بالنوع"
+  },
+  "parties": {
+    "title": "الأطراف",
+    "hint": "العميل هو الذي يرشدك ويتم إصدار الفاتورة له. قم بتعيين مقدم الطلب / صاحب الحقوق (المالك) والوسيط فقط عندما يختلفان عن العميل.",
+    "applicant": "مقدم الطلب / صاحب الحقوق (المالك)",
+    "applicantHint": "المالك القانوني للعلامة التجارية أو براءة الاختراع أو أصول الملكية الفكرية الأخرى. الإعدادات الافتراضية للعميل عند تركها فارغة.",
+    "intermediary": "وسيط (اختياري)",
+    "intermediaryHint": "الطرف الذي يرسل العمل نيابة عن شخص آخر، عندما يكون مختلفًا عن العميل.",
+    "searchPlaceholder": "بحث عن العملاء...",
+    "clear": "واضح"
   },
   "status": {
     "abandoned": "متروك",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "التدابير الحدودية",
+    "cases": "حالات",
+    "consultation": "المشاورات",
     "copyright": "حقوق الطبع والنشر",
     "dispute_opposition": "النزاع / المعارضة",
+    "domain": "المجالات",
     "fto_analysis": "تحليل منظمة إرهابية أجنبية",
     "geographical_indication": "الإشارة الجغرافية",
     "industrial_design": "التصميم الصناعي",
+    "litigation_expert_report": "تقارير خبراء التقاضي/المحكمة",
+    "official_fee_payment": "مدفوعات الرسوم الرسمية",
+    "other": "آخر",
     "patent": "براءة اختراع",
     "trademark": "علامة تجارية",
     "utility_model": "نموذج المنفعة",

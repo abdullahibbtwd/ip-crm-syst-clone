@@ -1,15 +1,35 @@
 {
   "title": "Belgeler",
   "subtitle": "Firma genelindeki konu belgeleri kitaplığı.",
+  "subtitleWorking": "Firma genelinde çalışma dosyalarına eklenen belgeler.",
+  "subtitleShared": "Firma çapında paylaşılan belgeler — şablonlar, formlar ve dahili materyaller.",
   "searchPlaceholder": "Belgeleri arayın…",
   "loading": "Yükleniyor…",
   "loadFailed": "Dokümanlar yüklenemedi.",
   "empty": "Hiçbir belge bulunamadı.",
+  "tabs": {
+    "working": "Çalışma dosyası belgeleri",
+    "shared": "Paylaşılan belgeler"
+  },
   "columns": {
     "name": "İsim",
-    "matter": "Konu",
+    "matter": "Çalışma dosyası",
     "category": "Kategori",
     "updated": "Güncellendi",
-    "by": "İle"
+    "by": "İle",
+    "actions": "Eylemler"
+  },
+  "shared": {
+    "upload": "Paylaşılan belgeyi yükle",
+    "uploading": "Yükleniyor…",
+    "uploadFailed": "Paylaşılan belge yüklenemedi",
+    "uploadRequired": "Yüklenecek dosyayı seçin",
+    "empty": "Henüz paylaşılan belge yok. Şablonları, formları veya firma yönergelerini buraya yükleyin.",
+    "download": "İndirmek",
+    "dropHint": "Buraya bir dosya bırakın veya birini seçin",
+    "chooseFile": "Dosya seç",
+    "displayName": "Ekran adı",
+    "displayNamePlaceholder": "örneğin Vekaletname şablonu",
+    "category": "Kategori"
   }
 }

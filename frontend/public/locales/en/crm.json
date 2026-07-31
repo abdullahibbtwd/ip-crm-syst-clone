@@ -220,17 +220,17 @@
     "title": "Relationship history"
   },
   "matters": {
-    "empty": "No matters yet. Open a matter to start prosecution work for this client.",
-    "loading": "Loading matters…",
-    "openNew": "Open new matter",
+    "empty": "No working files yet. Open a working file to start prosecution work for this client.",
+    "loading": "Loading working files…",
+    "openNew": "Open new working file",
     "table": {
       "assigned": "Assigned",
       "jurisdictions": "Jurisdictions",
       "status": "Status",
       "title": "Title",
-      "type": "Type"
+      "type": "Work type"
     },
-    "title": "Matters"
+    "title": "Working files"
   },
   "accessHistory": {
     "title": "Data access history",
@@ -320,7 +320,7 @@
     "correspondence": "Correspondence",
     "documents": "Documents",
     "history": "History",
-    "matters": "Matters",
+    "matters": "Working files",
     "watch": "Watch",
     "offices": "Offices",
     "overview": "Overview",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Documents",
-    "description": "Client files and documents linked to this client's matters.",
+    "description": "Client files and documents linked to this client's working files.",
     "upload": "Upload",
     "uploadAction": "Upload file",
     "uploading": "Uploading…",

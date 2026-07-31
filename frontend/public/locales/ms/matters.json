@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Tujuan penilaian"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Nama domain",
+        "placeholder": "cth. example.com"
+      },
+      "registrar": {
+        "label": "Pendaftar"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Rujukan kes"
+      },
+      "courtOrAuthority": {
+        "label": "Mahkamah / pihak berkuasa"
+      },
+      "reportScope": {
+        "label": "Skop laporan"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Ringkasan skop"
+      },
+      "topic": {
+        "label": "Topik"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Pihak berkuasa / pejabat"
+      },
+      "feeReference": {
+        "label": "Rujukan yuran / bayaran"
+      },
+      "relatedApplication": {
+        "label": "Aplikasi / fail berkaitan"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Ringkasan kerja"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Pelanggan *",
     "creating": "Mencipta…",
-    "error": "Gagal mencipta jirim",
+    "error": "Gagal membuat fail berfungsi",
     "jurisdictionHelp": "Pilih satu atau lebih bidang kuasa pemfailan.",
     "jurisdictions": "Bidang kuasa",
-    "matterType": "Jenis jirim *",
-    "open": "Perkara terbuka",
+    "matterType": "Jenis kerja *",
+    "open": "Buka fail kerja",
     "responsibleAttorney": "Peguam yang bertanggungjawab",
-    "title": "Buka perkara baru",
+    "title": "Buka fail kerja baharu",
     "titleField": "Tajuk *",
     "titlePlaceholder": "cth. Tanda perkataan ACME – EU"
   },
@@ -598,16 +642,27 @@
     "rejected": "ditolak"
   },
   "layout": {
-    "backToMatters": "← Kembali kepada perkara",
-    "loading": "Memuatkan perkara…",
-    "notFound": "Perkara tidak dijumpai."
+    "backToMatters": "← Kembali ke fail yang berfungsi",
+    "loading": "Memuatkan fail berfungsi…",
+    "notFound": "Fail berfungsi tidak ditemui.",
+    "archivedBadge": "Diarkibkan",
+    "archive": "Arkib",
+    "archiving": "Mengarkibkan…",
+    "restore": "Pulihkan",
+    "restoring": "Memulihkan…",
+    "archiveFailed": "Gagal mengarkibkan fail kerja",
+    "restoreFailed": "Gagal memulihkan fail yang berfungsi",
+    "archiveConfirm": "Arkibkan fail berfungsi ini? Ia akan meninggalkan senarai aktif tetapi kekal boleh dicari di bawah Arkib."
   },
   "list": {
-    "description": "Pandangan portfolio semua perkara undang-undang — cari mengikut tajuk, pelanggan atau nombor permohonan.",
-    "descriptionPortal": "Perkara dibuka untuk organisasi anda selepas penukaran pengambilan.",
+    "description": "Paparan portfolio semua fail yang berfungsi — cari mengikut tajuk, pelanggan atau nombor aplikasi.",
+    "descriptionPortal": "Fail kerja dibuka untuk organisasi anda selepas penukaran pengambilan.",
+    "descriptionArchived": "Fail kerja yang lengkap atau tidak aktif disimpan untuk rujukan.",
     "filters": {
       "allStatuses": "Semua status",
-      "allTypes": "Semua jenis"
+      "allTypes": "Semua jenis kerja",
+      "active": "Aktif",
+      "archived": "Diarkibkan"
     },
     "intakeQueue": "Barisan pengambilan",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} setiap halaman",
     "searchPlaceholder": "Tajuk carian, pelanggan, no aplikasi…",
-    "title": "Perkara",
-    "titlePortal": "urusan saya"
+    "title": "Fail kerja",
+    "titleArchived": "Fail kerja yang diarkibkan",
+    "titlePortal": "Fail kerja saya"
   },
   "ipRightsRegister": {
     "description": "Daftar seluruh firma hak IP dengan penapis mengikut pelanggan, bidang kuasa, jenis, status dan tamat tempoh.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Tamat tempoh dari",
       "expiryTo": "Tamat tempoh ke",
       "jurisdiction": "Bidang kuasa",
-      "matterType": "Jenis jirim",
+      "matterType": "Jenis kerja",
       "status": "Status"
     },
     "loading": "Memuatkan…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Peguam utama",
+    "applicant": "Pemohon / Pemegang Hak (Pemilik)",
+    "client": "Pelanggan",
+    "clientHint": "Pihak yang mengarahkan — menerima invois",
+    "intermediary": "pengantara",
     "description": "Penerangan",
     "jurisdictions": "Bidang kuasa",
     "jurisdictionsEmpty": "Tiada bidang kuasa direkodkan.",
@@ -666,9 +726,19 @@
       "localRef": "Ruj tempatan",
       "status": "Status"
     },
-    "title": "Perincian perkara",
-    "type": "taip",
+    "title": "Butiran fail kerja",
+    "type": "Jenis kerja",
     "typeSpecific": "Atribut khusus jenis"
+  },
+  "parties": {
+    "title": "parti",
+    "hint": "Pelanggan ialah yang mengarahkan anda dan diinvois. Tetapkan Pemohon / Pemegang Hak (Pemilik) dan Perantara hanya apabila mereka berbeza daripada Pelanggan.",
+    "applicant": "Pemohon / Pemegang Hak (Pemilik)",
+    "applicantHint": "Pemilik sah tanda dagangan, paten atau aset IP lain. Lalai kepada Klien apabila dibiarkan kosong.",
+    "intermediary": "Perantara (pilihan)",
+    "intermediaryHint": "Pihak menghantar kerja bagi pihak yang lain, apabila berbeza daripada Pelanggan.",
+    "searchPlaceholder": "Cari pelanggan…",
+    "clear": "Jelas"
   },
   "status": {
     "abandoned": "terbengkalai",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Langkah-langkah sempadan",
+    "cases": "Kes",
+    "consultation": "Perundingan",
     "copyright": "Hak Cipta",
     "dispute_opposition": "Pertikaian / pembangkang",
+    "domain": "Domain",
     "fto_analysis": "analisis FTO",
     "geographical_indication": "Petunjuk geografi",
     "industrial_design": "Reka bentuk perindustrian",
+    "litigation_expert_report": "Litigasi / Laporan Pakar Mahkamah",
+    "official_fee_payment": "Bayaran Yuran Rasmi",
+    "other": "Lain-lain",
     "patent": "Paten",
     "trademark": "Tanda dagangan",
     "utility_model": "Model utiliti",

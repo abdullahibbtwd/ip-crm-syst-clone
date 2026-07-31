@@ -1,15 +1,35 @@
 {
   "title": "Documentos",
   "subtitle": "Biblioteca de documentos temáticos de toda la empresa.",
+  "subtitleWorking": "Documentos adjuntos a archivos de trabajo de toda la empresa.",
+  "subtitleShared": "Documentos compartidos en toda la empresa: plantillas, formularios y materiales internos.",
   "searchPlaceholder": "Buscar documentos…",
   "loading": "Cargando…",
   "loadFailed": "No se pudieron cargar los documentos.",
   "empty": "No se encontraron documentos.",
+  "tabs": {
+    "working": "Documentos del archivo de trabajo",
+    "shared": "Documentos compartidos"
+  },
   "columns": {
     "name": "Nombre",
-    "matter": "Asunto",
+    "matter": "archivo de trabajo",
     "category": "Categoría",
     "updated": "Actualizada",
-    "by": "Por"
+    "by": "Por",
+    "actions": "Comportamiento"
+  },
+  "shared": {
+    "upload": "Subir documento compartido",
+    "uploading": "Subiendo…",
+    "uploadFailed": "No se pudo cargar el documento compartido",
+    "uploadRequired": "Elija un archivo para cargar",
+    "empty": "Aún no hay documentos compartidos. Cargue plantillas, formularios o pautas firmes aquí.",
+    "download": "Descargar",
+    "dropHint": "Suelta un archivo aquí o elige uno",
+    "chooseFile": "Elige el archivo",
+    "displayName": "Nombre para mostrar",
+    "displayNamePlaceholder": "p.ej. Plantilla de poder notarial",
+    "category": "Categoría"
   }
 }

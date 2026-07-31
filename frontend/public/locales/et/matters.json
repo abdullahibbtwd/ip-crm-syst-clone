@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Hindamise eesmärk"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Domeeni nimi",
+        "placeholder": "nt. example.com"
+      },
+      "registrar": {
+        "label": "Registripidaja"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Juhtumi viide"
+      },
+      "courtOrAuthority": {
+        "label": "Kohus / asutus"
+      },
+      "reportScope": {
+        "label": "Aruande ulatus"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Ulatuse kokkuvõte"
+      },
+      "topic": {
+        "label": "Teema"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Asutus / kontor"
+      },
+      "feeReference": {
+        "label": "Tasu/makse viide"
+      },
+      "relatedApplication": {
+        "label": "Seotud rakendus/fail"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Töö kokkuvõte"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Klient*",
     "creating": "Loomine…",
-    "error": "Mateeria loomine ebaõnnestus",
+    "error": "Tööfaili loomine ebaõnnestus",
     "jurisdictionHelp": "Valige üks või mitu esitamisjurisdiktsiooni.",
     "jurisdictions": "Jurisdiktsioonid",
-    "matterType": "Aine tüüp *",
-    "open": "Avatud asi",
+    "matterType": "Töö tüüp *",
+    "open": "Ava tööfail",
     "responsibleAttorney": "Vastutav advokaat",
-    "title": "Ava uus asi",
+    "title": "Avage uus tööfail",
     "titleField": "Pealkiri *",
     "titlePlaceholder": "nt. ACME sõnamärk – EU"
   },
@@ -598,16 +642,27 @@
     "rejected": "Tagasi lükatud"
   },
   "layout": {
-    "backToMatters": "← Tagasi asjade juurde",
-    "loading": "Asja laadimine…",
-    "notFound": "Asi ei leitud."
+    "backToMatters": "← Tagasi tööfailide juurde",
+    "loading": "Tööfaili laadimine…",
+    "notFound": "Töötavat faili ei leitud.",
+    "archivedBadge": "Arhiveeritud",
+    "archive": "Arhiiv",
+    "archiving": "Arhiveerimine…",
+    "restore": "Taasta",
+    "restoring": "Taastamine…",
+    "archiveFailed": "Tööfaili arhiivimine ebaõnnestus",
+    "restoreFailed": "Tööfaili taastamine ebaõnnestus",
+    "archiveConfirm": "Kas arhiveerida see tööfail? See lahkub aktiivsest loendist, kuid jääb otsitavaks jaotises Arhiveeritud."
   },
   "list": {
-    "description": "Kõigi juriidiliste küsimuste portfellivaade – otsige pealkirja, kliendi või rakenduse numbri järgi.",
-    "descriptionPortal": "Asjad avanesid teie organisatsiooni jaoks pärast vastuvõtu muutmist.",
+    "description": "Kõigi tööfailide portfellivaade – otsige pealkirja, kliendi või rakenduse numbri järgi.",
+    "descriptionPortal": "Tööfailid avati teie organisatsiooni jaoks pärast sisselaske teisendamist.",
+    "descriptionArchived": "Lõpetatud või passiivsed tööfailid säilitatakse viitamiseks.",
     "filters": {
       "allStatuses": "Kõik olekud",
-      "allTypes": "Kõik tüübid"
+      "allTypes": "Kõik töötüübid",
+      "active": "Aktiivne",
+      "archived": "Arhiveeritud"
     },
     "intakeQueue": "Vastuvõtu järjekord",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} lehekülje kohta",
     "searchPlaceholder": "Otsingu pealkiri, klient, rakenduse nr…",
-    "title": "Küsimused",
-    "titlePortal": "Minu asjad"
+    "title": "Töötavad failid",
+    "titleArchived": "Arhiveeritud tööfailid",
+    "titlePortal": "Minu tööfailid"
   },
   "ipRightsRegister": {
     "description": "Ettevõtteülene IP-õiguste register koos filtritega kliendi, jurisdiktsiooni, tüübi, oleku ja aegumise järgi.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Kehtivusaeg alates",
       "expiryTo": "Kehtivusaeg kuni",
       "jurisdiction": "Jurisdiktsioon",
-      "matterType": "Aine tüüp",
+      "matterType": "Töö tüüp",
       "status": "Olek"
     },
     "loading": "Laadimine…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Juhtivadvokaat",
+    "applicant": "Taotleja / õiguste omanik (omanik)",
+    "client": "Klient",
+    "clientHint": "Instrueeriv pool — võtab vastu arveid",
+    "intermediary": "Vahendaja",
     "description": "Kirjeldus",
     "jurisdictions": "Jurisdiktsioonid",
     "jurisdictionsEmpty": "Jurisdiktsioone pole salvestatud.",
@@ -666,9 +726,19 @@
       "localRef": "Kohalik ref.",
       "status": "Olek"
     },
-    "title": "Asja detailid",
-    "type": "Tüüp",
+    "title": "Töötava faili üksikasjad",
+    "type": "Töö tüüp",
     "typeSpecific": "Tüübispetsiifilised atribuudid"
+  },
+  "parties": {
+    "title": "Peod",
+    "hint": "Klient on see, kes teid juhendab ja kellele esitatakse arve. Määra taotleja / õiguste valdaja (omanik) ja vahendaja ainult siis, kui nad erinevad Kliendist.",
+    "applicant": "Taotleja / õiguste omanik (omanik)",
+    "applicantHint": "Kaubamärgi, patendi või muu intellektuaalomandi vara seaduslik omanik. Vaikimisi kliendile, kui see on tühi.",
+    "intermediary": "Vahendaja (valikuline)",
+    "intermediaryHint": "Osapool saadab töö teise nimel, kui see erineb Kliendist.",
+    "searchPlaceholder": "Otsige kliente…",
+    "clear": "Selge"
   },
   "status": {
     "abandoned": "Mahajäetud",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Piirimeetmed",
+    "cases": "Juhtumid",
+    "consultation": "Konsultatsioonid",
     "copyright": "Autoriõigus",
     "dispute_opposition": "Vaidlus / vastuseis",
+    "domain": "Domeenid",
     "fto_analysis": "FTO analüüs",
     "geographical_indication": "Geograafiline tähis",
     "industrial_design": "Tööstusdisain",
+    "litigation_expert_report": "Kohtuvaidlused / kohtuekspertide aruanded",
+    "official_fee_payment": "Ametlikud lõivud",
+    "other": "muud",
     "patent": "Patent",
     "trademark": "Kaubamärk",
     "utility_model": "Kasulik mudel",

@@ -16,24 +16,13 @@ import {
 import { useAuth } from '@/features/auth/AuthProvider'
 import { useMatters } from '@/features/matters/hooks/useMatters'
 import type { MatterFilters, MatterStatus, MatterType } from '@/features/matters/types'
-import { matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
+import { ALL_MATTER_TYPES, matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
 import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 
 const ALL_STATUSES = 'all'
 const ALL_TYPES = 'all'
 
-const MATTER_TYPES: MatterType[] = [
-  'trademark',
-  'patent',
-  'utility_model',
-  'industrial_design',
-  'copyright',
-  'geographical_indication',
-  'border_measures',
-  'fto_analysis',
-  'valuation',
-  'dispute_opposition',
-]
+const MATTER_TYPES = ALL_MATTER_TYPES
 
 const MATTER_STATUSES: MatterStatus[] = ['draft', 'active', 'on_hold', 'closed', 'abandoned']
 
@@ -58,6 +47,7 @@ export function MatterListPage() {
 
   const typeFilter = parseMatterType(searchParams.get('matterType'))
   const statusFilter = parseMatterStatus(searchParams.get('status'))
+  const archivedOnly = searchParams.get('archived') === '1'
 
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
@@ -71,7 +61,7 @@ export function MatterListPage() {
 
   useEffect(() => {
     setPage(1)
-  }, [debouncedSearch, statusFilter, typeFilter, pageSize])
+  }, [debouncedSearch, statusFilter, typeFilter, pageSize, archivedOnly])
 
   const setTypeFilter = (value: MatterType | undefined) => {
     setSearchParams(
@@ -97,10 +87,23 @@ export function MatterListPage() {
     )
   }
 
+  const setArchivedOnly = (value: boolean) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set('archived', '1')
+        else next.delete('archived')
+        return next
+      },
+      { replace: true },
+    )
+  }
+
   const filters: MatterFilters = {
     search: debouncedSearch || undefined,
     status: statusFilter,
     matterType: typeFilter,
+    archivedOnly: archivedOnly || undefined,
     page,
     limit: pageSize,
   }
@@ -112,10 +115,18 @@ export function MatterListPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-            {isPortalClient ? t('list.titlePortal') : t('list.title')}
+            {isPortalClient
+              ? t('list.titlePortal')
+              : archivedOnly
+                ? t('list.titleArchived')
+                : t('list.title')}
           </h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            {isPortalClient ? t('list.descriptionPortal') : t('list.description')}
+            {isPortalClient
+              ? t('list.descriptionPortal')
+              : archivedOnly
+                ? t('list.descriptionArchived')
+                : t('list.description')}
           </p>
         </div>
         <PermissionGate resource="intake" action="read">
@@ -127,6 +138,30 @@ export function MatterListPage() {
       </div>
 
       <div className="flex flex-col gap-3 rounded-xl border border-border/80 bg-muted/15 p-4 sm:flex-row sm:flex-wrap sm:items-center">
+        {!isPortalClient ? (
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className={buttonVariants({
+                variant: archivedOnly ? 'outline' : 'default',
+                size: 'sm',
+              })}
+              onClick={() => setArchivedOnly(false)}
+            >
+              {t('list.filters.active')}
+            </button>
+            <button
+              type="button"
+              className={buttonVariants({
+                variant: archivedOnly ? 'default' : 'outline',
+                size: 'sm',
+              })}
+              onClick={() => setArchivedOnly(true)}
+            >
+              {t('list.filters.archived')}
+            </button>
+          </div>
+        ) : null}
         <div className="relative w-full flex-1 sm:min-w-[220px] sm:max-w-md">
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input

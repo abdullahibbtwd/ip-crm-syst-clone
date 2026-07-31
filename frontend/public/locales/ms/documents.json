@@ -1,15 +1,35 @@
 {
   "title": "Dokumen",
   "subtitle": "Perpustakaan dokumen perkara seluruh firma.",
+  "subtitleWorking": "Dokumen yang dilampirkan pada fail kerja di seluruh firma.",
+  "subtitleShared": "Dokumen kongsi seluruh firma — templat, borang dan bahan dalaman.",
   "searchPlaceholder": "Cari dokumen…",
   "loading": "Memuatkan…",
   "loadFailed": "Gagal memuatkan dokumen.",
   "empty": "Tiada dokumen ditemui.",
+  "tabs": {
+    "working": "Dokumen fail kerja",
+    "shared": "Dokumen kongsi"
+  },
   "columns": {
     "name": "Nama",
-    "matter": "Perkara",
+    "matter": "Fail kerja",
     "category": "kategori",
     "updated": "dikemas kini",
-    "by": "Oleh"
+    "by": "Oleh",
+    "actions": "Tindakan"
+  },
+  "shared": {
+    "upload": "Muat naik dokumen kongsi",
+    "uploading": "Memuat naik…",
+    "uploadFailed": "Gagal memuat naik dokumen kongsi",
+    "uploadRequired": "Pilih fail untuk dimuat naik",
+    "empty": "Tiada dokumen kongsi lagi. Muat naik templat, borang atau garis panduan firma di sini.",
+    "download": "Muat turun",
+    "dropHint": "Lepaskan fail di sini atau pilih satu",
+    "chooseFile": "Pilih fail",
+    "displayName": "Nama paparan",
+    "displayNamePlaceholder": "cth. Templat Surat Kuasa",
+    "category": "kategori"
   }
 }

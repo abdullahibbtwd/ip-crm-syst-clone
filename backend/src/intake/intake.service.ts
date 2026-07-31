@@ -37,6 +37,11 @@ import {
   ResolveConflictDto,
   UpdateIntakeLeadDto,
 } from './dto/intake.dto';
+import {
+  packIntakeParty,
+  readIntakeParty,
+  resolveMatterParties,
+} from './intake-party.util';
 
 const intakeInclude = {
   assignedUser: { select: { id: true, fullName: true, email: true } },
@@ -166,6 +171,8 @@ export class IntakeService {
         assignedUserId,
         notes: dto.notes,
         clientAddresses: packClientAddresses(dto) ?? undefined,
+        applicantParty: packIntakeParty(dto.applicant),
+        intermediaryParty: packIntakeParty(dto.intermediary),
         createdById: user.userId,
         status: IntakeStatus.new,
         ...portalFields,
@@ -222,6 +229,8 @@ export class IntakeService {
           description: dto.description,
           urgency: dto.urgency,
           clientAddresses: packClientAddresses(dto) ?? undefined,
+          applicantParty: packIntakeParty(dto.applicant) ?? Prisma.JsonNull,
+          intermediaryParty: packIntakeParty(dto.intermediary) ?? Prisma.JsonNull,
           ...(counterparties.length
             ? { counterparties: { create: counterparties } }
             : {}),
@@ -365,6 +374,8 @@ export class IntakeService {
     const {
       registeredLegalAddress,
       correspondenceAddress,
+      applicant,
+      intermediary,
       ...rest
     } = dto;
     const clientAddresses =
@@ -382,6 +393,15 @@ export class IntakeService {
         ...rest,
         ...(clientAddresses !== undefined
           ? { clientAddresses: clientAddresses ?? Prisma.JsonNull }
+          : {}),
+        ...(applicant !== undefined
+          ? { applicantParty: packIntakeParty(applicant) ?? Prisma.JsonNull }
+          : {}),
+        ...(intermediary !== undefined
+          ? {
+              intermediaryParty:
+                packIntakeParty(intermediary) ?? Prisma.JsonNull,
+            }
           : {}),
       } as Prisma.IntakeLeadUpdateInput,
       include: intakeInclude,
@@ -554,11 +574,24 @@ export class IntakeService {
               storedAddresses.correspondenceAddress,
           }));
 
+        const applicantParty =
+          dto.applicant ?? readIntakeParty(lead.applicantParty);
+        const intermediaryParty =
+          dto.intermediary ?? readIntakeParty(lead.intermediaryParty);
+        const parties = await resolveMatterParties(
+          tx,
+          this.clientsService,
+          targetClient.id,
+          applicantParty,
+          intermediaryParty,
+        );
+
         const createdMatter = await this.mattersService.createFromIntake(
           tx,
           lead,
           targetClient.id,
           user.userId,
+          parties,
         );
 
         // Only synthesize a primary contact for brand-new clients; existing

@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Propósito de valoración"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Nombre de dominio",
+        "placeholder": "p.ej. ejemplo.com"
+      },
+      "registrar": {
+        "label": "Registradora"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Referencia del caso"
+      },
+      "courtOrAuthority": {
+        "label": "Tribunal / autoridad"
+      },
+      "reportScope": {
+        "label": "Alcance del informe"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Resumen del alcance"
+      },
+      "topic": {
+        "label": "Tema"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Autoridad/oficina"
+      },
+      "feeReference": {
+        "label": "Referencia de tarifa/pago"
+      },
+      "relatedApplication": {
+        "label": "Aplicación/archivo relacionado"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Resumen del trabajo"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Cliente *",
     "creating": "Creando…",
-    "error": "No se pudo crear materia",
+    "error": "No se pudo crear el archivo de trabajo",
     "jurisdictionHelp": "Seleccione una o más jurisdicciones de presentación.",
     "jurisdictions": "Jurisdicciones",
-    "matterType": "Tipo de asunto *",
-    "open": "Materia abierta",
+    "matterType": "Tipo de trabajo *",
+    "open": "Abrir archivo de trabajo",
     "responsibleAttorney": "abogado responsable",
-    "title": "Abrir nuevo asunto",
+    "title": "Abrir nuevo archivo de trabajo",
     "titleField": "Título *",
     "titlePlaceholder": "p.ej. Marca denominativa ACME – UE"
   },
@@ -598,16 +642,27 @@
     "rejected": "Rechazada"
   },
   "layout": {
-    "backToMatters": "← Volver a asuntos",
-    "loading": "Cargando materia…",
-    "notFound": "Materia no encontrada."
+    "backToMatters": "← Volver a archivos de trabajo",
+    "loading": "Cargando archivo de trabajo…",
+    "notFound": "Archivo de trabajo no encontrado.",
+    "archivedBadge": "Archivada",
+    "archive": "Archivo",
+    "archiving": "Archivando…",
+    "restore": "Restaurar",
+    "restoring": "Restaurando…",
+    "archiveFailed": "No se pudo archivar el archivo de trabajo",
+    "restoreFailed": "No se pudo restaurar el archivo de trabajo",
+    "archiveConfirm": "¿Archivar este archivo de trabajo? Saldrá de la lista activa pero seguirá siendo posible buscarlo en Archivado."
   },
   "list": {
-    "description": "Vista de cartera de todos los asuntos legales: búsqueda por título, cliente o número de solicitud.",
-    "descriptionPortal": "Asuntos abiertos para su organización después de la conversión de admisión.",
+    "description": "Vista de cartera de todos los archivos de trabajo: busque por título, cliente o número de solicitud.",
+    "descriptionPortal": "Archivos de trabajo abiertos para su organización después de la conversión de admisión.",
+    "descriptionArchived": "Archivos de trabajo completos o inactivos que se conservan como referencia.",
     "filters": {
       "allStatuses": "Todos los estados",
-      "allTypes": "Todos los tipos"
+      "allTypes": "Todo tipo de trabajo",
+      "active": "Activa",
+      "archived": "Archivada"
     },
     "intakeQueue": "cola de admisión",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} por página",
     "searchPlaceholder": "Título de búsqueda, cliente, número de aplicación…",
-    "title": "Asuntos",
-    "titlePortal": "mis asuntos"
+    "title": "Archivos de trabajo",
+    "titleArchived": "Archivos de trabajo archivados",
+    "titlePortal": "Mis archivos de trabajo"
   },
   "ipRightsRegister": {
     "description": "Registro de derechos de propiedad intelectual de toda la empresa con filtros por cliente, jurisdicción, tipo, estado y vencimiento.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Caducidad de",
       "expiryTo": "Caducidad a",
       "jurisdiction": "Jurisdicción",
-      "matterType": "tipo de asunto",
+      "matterType": "Tipo de trabajo",
       "status": "Estado"
     },
     "loading": "Cargando…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Abogado principal",
+    "applicant": "Solicitante / titular de los derechos (propietaria)",
+    "client": "Cliente",
+    "clientHint": "Parte instructora - recibe facturas",
+    "intermediary": "Intermediaria",
     "description": "Descripción",
     "jurisdictions": "Jurisdicciones",
     "jurisdictionsEmpty": "No se registraron jurisdicciones.",
@@ -666,9 +726,19 @@
       "localRef": "Árbitro local.",
       "status": "Estado"
     },
-    "title": "Detalles de la materia",
-    "type": "Tipo",
+    "title": "Detalles del archivo de trabajo",
+    "type": "Tipo de trabajo",
     "typeSpecific": "Atributos específicos de tipo"
+  },
+  "parties": {
+    "title": "Partes",
+    "hint": "El cliente es quien te instruye y se factura. Establecer Solicitante/Titular de los derechos (Propietario) e Intermediario sólo cuando difieran del Cliente.",
+    "applicant": "Solicitante / titular de los derechos (propietaria)",
+    "applicantHint": "Propietario legal de la marca, patente u otro activo de propiedad intelectual. El valor predeterminado es el Cliente cuando se deja vacío.",
+    "intermediary": "Intermediaria (opcional)",
+    "intermediaryHint": "Parte que envía el trabajo por cuenta de otra, cuando sea distinta del Cliente.",
+    "searchPlaceholder": "Buscar clientes…",
+    "clear": "Clara"
   },
   "status": {
     "abandoned": "Abandonada",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Medidas fronterizas",
+    "cases": "Casos",
+    "consultation": "Consultas",
     "copyright": "Derechos de autor",
     "dispute_opposition": "Disputa/oposición",
+    "domain": "Dominios",
     "fto_analysis": "Análisis de libertad de acción",
     "geographical_indication": "indicación geográfica",
     "industrial_design": "diseño industrial",
+    "litigation_expert_report": "Litigios / Peritajes judiciales",
+    "official_fee_payment": "Pagos de tasas oficiales",
+    "other": "Otra",
     "patent": "Patentar",
     "trademark": "Marca",
     "utility_model": "Modelo de utilidad",

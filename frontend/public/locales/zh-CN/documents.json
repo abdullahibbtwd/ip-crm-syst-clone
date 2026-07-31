@@ -1,15 +1,35 @@
 {
   "title": "文件",
   "subtitle": "公司范围内的事项文档库。",
+  "subtitleWorking": "附在整个公司工作文件中的文档。",
+  "subtitleShared": "全公司共享文档——模板、表格和内部材料。",
   "searchPlaceholder": "搜索文档...",
   "loading": "加载中…",
   "loadFailed": "无法加载文档。",
   "empty": "没有找到文件。",
+  "tabs": {
+    "working": "工作档案文件",
+    "shared": "共享文档"
+  },
   "columns": {
     "name": "姓名",
-    "matter": "事情",
+    "matter": "工作文件",
     "category": "类别",
     "updated": "已更新",
-    "by": "经过"
+    "by": "经过",
+    "actions": "行动"
+  },
+  "shared": {
+    "upload": "上传共享文档",
+    "uploading": "正在上传...",
+    "uploadFailed": "共享文档上传失败",
+    "uploadRequired": "选择要上传的文件",
+    "empty": "还没有共享文档。 在此处上传模板、表格或公司指南。",
+    "download": "下载",
+    "dropHint": "将文件拖放到此处或选择一个",
+    "chooseFile": "选择文件",
+    "displayName": "显示名称",
+    "displayNamePlaceholder": "例如 授权委托书模板",
+    "category": "类别"
   }
 }

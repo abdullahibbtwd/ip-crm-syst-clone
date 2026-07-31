@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Değerleme amacı"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Alan adı",
+        "placeholder": "örneğin example.com"
+      },
+      "registrar": {
+        "label": "Kayıt memuru"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Vaka referansı"
+      },
+      "courtOrAuthority": {
+        "label": "Mahkeme / yetkili"
+      },
+      "reportScope": {
+        "label": "Rapor kapsamı"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Kapsam özeti"
+      },
+      "topic": {
+        "label": "Başlık"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Yetki / ofis"
+      },
+      "feeReference": {
+        "label": "Ücret / ödeme referansı"
+      },
+      "relatedApplication": {
+        "label": "İlgili uygulama / dosya"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Çalışma özeti"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Müşteri *",
     "creating": "Oluşturuluyor…",
-    "error": "Konu oluşturulamadı",
+    "error": "Çalışma dosyası oluşturulamadı",
     "jurisdictionHelp": "Bir veya daha fazla dosyalama yargı bölgesini seçin.",
     "jurisdictions": "Yargı bölgeleri",
-    "matterType": "Madde türü *",
-    "open": "Açık konu",
+    "matterType": "İş türü *",
+    "open": "Çalışma dosyasını aç",
     "responsibleAttorney": "Sorumlu avukat",
-    "title": "Yeni konu aç",
+    "title": "Yeni çalışma dosyasını aç",
     "titleField": "Başlık *",
     "titlePlaceholder": "örneğin ACME kelime markası – AB"
   },
@@ -598,16 +642,27 @@
     "rejected": "Reddedilmiş"
   },
   "layout": {
-    "backToMatters": "← Konulara geri dön",
-    "loading": "Konu yükleniyor…",
-    "notFound": "Konu bulunamadı."
+    "backToMatters": "← Çalışma dosyalarına geri dön",
+    "loading": "Çalışma dosyası yükleniyor…",
+    "notFound": "Çalışma dosyası bulunamadı.",
+    "archivedBadge": "Arşivlendi",
+    "archive": "Arşiv",
+    "archiving": "Arşivleniyor…",
+    "restore": "Eski haline getirmek",
+    "restoring": "Geri yükleniyor…",
+    "archiveFailed": "Çalışma dosyası arşivlenemedi",
+    "restoreFailed": "Çalışma dosyası geri yüklenemedi",
+    "archiveConfirm": "Bu çalışma dosyası arşivlensin mi? Etkin listeden ayrılacak ancak Arşivlendi altında aranabilir durumda kalacaktır."
   },
   "list": {
-    "description": "Tüm hukuki konuların portföy görünümü - başlığa, müşteriye veya başvuru numarasına göre arama yapın.",
-    "descriptionPortal": "Alım dönüşümünden sonra kuruluşunuz için açılan konular.",
+    "description": "Tüm çalışan dosyaların portföy görünümü; başlığa, müşteriye veya uygulama numarasına göre arama yapın.",
+    "descriptionPortal": "Alım dönüşümünden sonra kuruluşunuz için açılan çalışma dosyaları.",
+    "descriptionArchived": "Referans amacıyla saklanan tamamlanmış veya etkin olmayan çalışma dosyaları.",
     "filters": {
       "allStatuses": "Tüm durumlar",
-      "allTypes": "Tüm türler"
+      "allTypes": "Tüm iş türleri",
+      "active": "Aktif",
+      "archived": "Arşivlendi"
     },
     "intakeQueue": "Giriş kuyruğu",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} sayfa başına",
     "searchPlaceholder": "Arama başlığı, müşteri, başvuru numarası…",
-    "title": "Önemlidir",
-    "titlePortal": "benim konularım"
+    "title": "Çalışma dosyaları",
+    "titleArchived": "Arşivlenen çalışma dosyaları",
+    "titlePortal": "Çalışma dosyalarım"
   },
   "ipRightsRegister": {
     "description": "Müşteriye, yetki alanına, türe, duruma ve sona erme tarihine göre filtrelerle firma çapında fikri mülkiyet hakları kaydı.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Sona erme tarihi",
       "expiryTo": "Sona erme tarihi",
       "jurisdiction": "Yargı yetkisi",
-      "matterType": "Madde türü",
+      "matterType": "İş türü",
       "status": "Durum"
     },
     "loading": "Yükleniyor…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Baş avukat",
+    "applicant": "Başvuru Sahibi / Hak Sahibi (Sahip)",
+    "client": "Müşteri",
+    "clientHint": "Talimat veren taraf — faturaları alır",
+    "intermediary": "Aracı",
     "description": "Tanım",
     "jurisdictions": "Yargı bölgeleri",
     "jurisdictionsEmpty": "Hiçbir yetki alanı kaydedilmedi.",
@@ -666,9 +726,19 @@
       "localRef": "Yerel referans.",
       "status": "Durum"
     },
-    "title": "Konu ayrıntıları",
-    "type": "Tip",
+    "title": "Çalışma dosyası ayrıntıları",
+    "type": "İş türü",
     "typeSpecific": "Türe özgü özellikler"
+  },
+  "parties": {
+    "title": "Partiler",
+    "hint": "Müşteri size talimat veren ve faturalandırılan kişidir. Başvuru Sahibi / Hak Sahibi (Sahip) ve Aracıyı yalnızca Müşteriden farklı olduklarında belirleyin.",
+    "applicant": "Başvuru Sahibi / Hak Sahibi (Sahip)",
+    "applicantHint": "Ticari markanın, patentin veya diğer fikri mülkiyet varlığının yasal sahibi. Boş bırakıldığında varsayılan olarak İstemciye geçer.",
+    "intermediary": "Aracı (isteğe bağlı)",
+    "intermediaryHint": "Müşteriden farklı olması durumunda başkası adına iş gönderen taraf.",
+    "searchPlaceholder": "Müşterileri arayın…",
+    "clear": "Temizlemek"
   },
   "status": {
     "abandoned": "Terk edilmiş",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Sınır önlemleri",
+    "cases": "Vakalar",
+    "consultation": "Danışmalar",
     "copyright": "Telif hakkı",
     "dispute_opposition": "Anlaşmazlık / muhalefet",
+    "domain": "Alanlar",
     "fto_analysis": "FTO analizi",
     "geographical_indication": "Coğrafi işaret",
     "industrial_design": "Endüstriyel tasarım",
+    "litigation_expert_report": "Dava/Mahkeme Bilirkişi Raporları",
+    "official_fee_payment": "Resmi Ücret Ödemeleri",
+    "other": "Diğer",
     "patent": "Patent",
     "trademark": "Ticari marka",
     "utility_model": "Faydalı model",

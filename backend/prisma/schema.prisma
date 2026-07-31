@@ -54,6 +54,9 @@ model User {
   documentVersions     MatterDocumentVersion[] @relation("DocumentVersionUploadedBy")
   clientDocumentsCreated ClientDocument[]     @relation("ClientDocumentCreatedBy")
   clientDocumentVersions ClientDocumentVersion[] @relation("ClientDocumentVersionUploadedBy")
+  sharedDocumentsCreated SharedDocument[]     @relation("SharedDocumentCreatedBy")
+  sharedDocumentVersions SharedDocumentVersion[] @relation("SharedDocumentVersionUploadedBy")
+  mattersArchived        Matter[]               @relation("MatterArchivedBy")
   correspondenceCreated Correspondence[]      @relation("CorrespondenceCreatedBy")
   timelineEvents       MatterTimelineEvent[]  @relation("TimelineEventCreatedBy")
   timeEntriesLogged      TimeEntry[]            @relation("TimeEntryLoggedBy")
@@ -325,8 +328,11 @@ model Client {
   relationshipHistory RelationshipHistory[]
   convertedFromIntake IntakeLead[]          @relation("IntakeConversion")
   intakeSubmissions   IntakeLead[]          @relation("IntakeSubmittedBy")
-  matters             Matter[]
-  ipRights            IpRight[]
+  matters             Matter[]              @relation("MatterInstructingClient")
+  mattersAsApplicant  Matter[]              @relation("MatterApplicantClient")
+  mattersAsIntermediary Matter[]            @relation("MatterIntermediaryClient")
+  ipRights            IpRight[]             @relation("IpRightInstructingClient")
+  ipRightsAsOwner     IpRight[]             @relation("IpRightOwnerClient")
   rateCards           RateCard[]
   invoices            Invoice[]
   renewalWindows      RenewalWindow[]
@@ -480,6 +486,11 @@ enum IntakeMatterType {
   patent
   utility_model
   design
+  cases
+  domain
+  litigation_expert_report
+  consultation
+  official_fee_payment
   other
 
   @@map("intake_matter_type")
@@ -525,6 +536,10 @@ model IntakeLead {
   portalUserId      String?              @map("portal_user_id") @db.Uuid
   convertedClientId String?              @map("converted_client_id") @db.Uuid
   convertedMatterId String?              @unique @map("converted_matter_id") @db.Uuid
+  /// Optional applicant / rights holder: { existingClientId } or create-lite { type, companyName?, fullName?, country? }.
+  applicantParty    Json?                @map("applicant_party")
+  /// Optional intermediary party (same JSON shape as applicantParty).
+  intermediaryParty Json?                @map("intermediary_party")
   createdAt         DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
 
@@ -603,6 +618,12 @@ enum MatterType {
   fto_analysis
   valuation
   dispute_opposition
+  cases
+  domain
+  litigation_expert_report
+  consultation
+  official_fee_payment
+  other
 
   @@map("matter_type")
 }
@@ -637,21 +658,32 @@ enum IpRightStatus {
 }
 
 model Matter {
-  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  clientId       String       @map("client_id") @db.Uuid
-  matterType     MatterType   @map("matter_type")
-  title          String
-  status         MatterStatus @default(draft)
-  assignedToId   String?      @map("assigned_to") @db.Uuid
-  filedById      String?      @map("filed_by") @db.Uuid
-  description    String?
-  sourceIntakeId String?      @unique @map("source_intake_id") @db.Uuid
-  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                  String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  /// Instructing / billing client.
+  clientId            String       @map("client_id") @db.Uuid
+  /// Applicant / rights holder when different from instructing client.
+  applicantClientId   String?      @map("applicant_client_id") @db.Uuid
+  /// Optional intermediary (e.g. referring firm) when different from client.
+  intermediaryClientId String?     @map("intermediary_client_id") @db.Uuid
+  matterType          MatterType   @map("matter_type")
+  title               String
+  status              MatterStatus @default(draft)
+  assignedToId        String?      @map("assigned_to") @db.Uuid
+  filedById           String?      @map("filed_by") @db.Uuid
+  description         String?
+  sourceIntakeId      String?      @unique @map("source_intake_id") @db.Uuid
+  isArchived          Boolean      @default(false) @map("is_archived")
+  archivedAt          DateTime?    @map("archived_at") @db.Timestamptz(6)
+  archivedById        String?      @map("archived_by_id") @db.Uuid
+  createdAt           DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  client         Client               @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  client         Client               @relation("MatterInstructingClient", fields: [clientId], references: [id], onDelete: Cascade)
+  applicantClient Client?             @relation("MatterApplicantClient", fields: [applicantClientId], references: [id], onDelete: SetNull)
+  intermediaryClient Client?          @relation("MatterIntermediaryClient", fields: [intermediaryClientId], references: [id], onDelete: SetNull)
   assignedTo     User?                @relation("MatterAssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
   filedBy        User?                @relation("MatterFiledBy", fields: [filedById], references: [id], onDelete: SetNull)
+  archivedBy     User?                @relation("MatterArchivedBy", fields: [archivedById], references: [id], onDelete: SetNull)
   sourceIntake   IntakeLead?          @relation("MatterSourceIntake", fields: [sourceIntakeId], references: [id], onDelete: SetNull)
   intakeConversion IntakeLead?        @relation("IntakeConvertedMatter")
   jurisdictions MatterJurisdiction[]
@@ -676,9 +708,12 @@ model Matter {
   customsApplications CustomsApplication[]
 
   @@index([clientId])
+  @@index([applicantClientId])
+  @@index([intermediaryClientId])
   @@index([status])
   @@index([matterType])
   @@index([assignedToId])
+  @@index([isArchived])
   @@map("matters")
 }
 
@@ -711,7 +746,10 @@ model MatterAttributes {
 model IpRight {
   id                      String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   matterId                String        @map("matter_id") @db.Uuid
+  /// Instructing / billing client (denormalized from matter).
   clientId                String        @map("client_id") @db.Uuid
+  /// Applicant / rights holder (defaults to matter.applicantClientId ?? matter.clientId).
+  ownerClientId           String        @map("owner_client_id") @db.Uuid
   rightType               MatterType    @map("right_type")
   title                   String
   applicationNumber       String?       @map("application_number")
@@ -727,13 +765,15 @@ model IpRight {
   updatedAt               DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   matter                Matter                 @relation(fields: [matterId], references: [id], onDelete: Cascade)
-  client                Client                 @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  client                Client                 @relation("IpRightInstructingClient", fields: [clientId], references: [id], onDelete: Cascade)
+  ownerClient           Client                 @relation("IpRightOwnerClient", fields: [ownerClientId], references: [id], onDelete: Restrict)
   filingDocumentVersion MatterDocumentVersion? @relation("IpRightFilingDocument", fields: [filingDocumentVersionId], references: [id], onDelete: SetNull)
   timelineEvent         MatterTimelineEvent?
   renewalWindows        RenewalWindow[]
 
   @@index([matterId])
   @@index([clientId])
+  @@index([ownerClientId])
   @@index([status])
   @@index([filingDocumentVersionId])
   @@map("ip_rights")
@@ -1083,6 +1123,41 @@ model ClientDocumentVersion {
   @@unique([documentId, version])
   @@index([documentId])
   @@map("client_document_versions")
+}
+
+model SharedDocument {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  displayName String           @map("display_name")
+  category    DocumentCategory
+  tags        String[]         @default([])
+  createdById String?          @map("created_by_id") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  createdBy User?                   @relation("SharedDocumentCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  versions  SharedDocumentVersion[]
+
+  @@index([category])
+  @@map("shared_documents")
+}
+
+model SharedDocumentVersion {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  documentId   String   @map("document_id") @db.Uuid
+  version      Int
+  fileName     String   @map("file_name")
+  mimeType     String?  @map("mime_type")
+  sizeBytes    Int      @map("size_bytes")
+  storageKey   String   @map("storage_key")
+  uploadedById String   @map("uploaded_by_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  document   SharedDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  uploadedBy User           @relation("SharedDocumentVersionUploadedBy", fields: [uploadedById], references: [id], onDelete: Restrict)
+
+  @@unique([documentId, version])
+  @@index([documentId])
+  @@map("shared_document_versions")
 }
 
 model DocumentTemplate {

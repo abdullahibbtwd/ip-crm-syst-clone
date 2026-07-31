@@ -80,6 +80,21 @@ export class MattersController {
     return this.mattersService.update(id, dto, user);
   }
 
+  @Post(':id/archive')
+  @RequirePermissions('matter:update')
+  @Audit({ action: 'matter.archive', resource: 'matter', module: MATTERS_MODULE })
+  archive(@Param('id') id: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.archive(id, user.userId);
+  }
+
+  @Post(':id/restore')
+  @RequirePermissions('matter:update')
+  @Audit({ action: 'matter.restore', resource: 'matter', module: MATTERS_MODULE })
+  restore(@Param('id') id: string) {
+    return this.mattersService.restore(id);
+  }
+
   @Delete(':id')
   @Roles(SYSTEM_ROLES.MANAGING_PARTNER)
   @RequirePermissions('matter:delete')

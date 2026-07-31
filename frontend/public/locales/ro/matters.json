@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Scopul evaluării"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Nume de domeniu",
+        "placeholder": "de ex. exemplu.com"
+      },
+      "registrar": {
+        "label": "Grefier"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Referință de caz"
+      },
+      "courtOrAuthority": {
+        "label": "Curtea / autoritatea"
+      },
+      "reportScope": {
+        "label": "Domeniul raportului"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Rezumatul domeniului de aplicare"
+      },
+      "topic": {
+        "label": "Subiect"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Autoritate / birou"
+      },
+      "feeReference": {
+        "label": "Referință pentru taxă/plată"
+      },
+      "relatedApplication": {
+        "label": "Aplicație/fișier înrudit"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Rezumatul lucrării"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Client *",
     "creating": "Se creează…",
-    "error": "Nu s-a putut crea materie",
+    "error": "Nu s-a putut crea fișierul de lucru",
     "jurisdictionHelp": "Selectați una sau mai multe jurisdicții de depunere.",
     "jurisdictions": "Jurisdicțiile",
-    "matterType": "tipul materiei *",
-    "open": "Materia deschisă",
+    "matterType": "Tipul muncii *",
+    "open": "Deschideți fișierul de lucru",
     "responsibleAttorney": "Avocat responsabil",
-    "title": "Deschide o nouă materie",
+    "title": "Deschideți un nou fișier de lucru",
     "titleField": "Titlu *",
     "titlePlaceholder": "de ex. Marca verbală ACME – UE"
   },
@@ -598,16 +642,27 @@
     "rejected": "Respins"
   },
   "layout": {
-    "backToMatters": "← Înapoi la chestiuni",
-    "loading": "Se încarcă problema...",
-    "notFound": "Materia nu a fost găsită."
+    "backToMatters": "← Înapoi la fișierele de lucru",
+    "loading": "Se încarcă fișierul de lucru...",
+    "notFound": "Fișierul de lucru nu a fost găsit.",
+    "archivedBadge": "Arhivat",
+    "archive": "Arhivă",
+    "archiving": "Se arhivează…",
+    "restore": "Restabili",
+    "restoring": "Se restabilește…",
+    "archiveFailed": "Fișierul de lucru nu a putut fi arhivat",
+    "restoreFailed": "Nu s-a restabilit fișierul de lucru",
+    "archiveConfirm": "Arhivați acest fișier de lucru? Acesta va părăsi lista activă, dar va rămâne căutat în Arhivat."
   },
   "list": {
-    "description": "Vizualizare portofoliu a tuturor chestiunilor legale — căutare după titlu, client sau număr de cerere.",
-    "descriptionPortal": "Probleme deschise pentru organizația dvs. după conversia aportului.",
+    "description": "Vizualizare portofoliu a tuturor fișierelor de lucru — căutați după titlu, client sau numărul aplicației.",
+    "descriptionPortal": "Fișierele de lucru deschise pentru organizația dvs. după conversia aportului.",
+    "descriptionArchived": "Fișierele de lucru finalizate sau inactive păstrate pentru referință.",
     "filters": {
       "allStatuses": "Toate stările",
-      "allTypes": "Toate tipurile"
+      "allTypes": "Toate tipurile de muncă",
+      "active": "Activ",
+      "archived": "Arhivat"
     },
     "intakeQueue": "Coada de admisie",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} pe pagină",
     "searchPlaceholder": "Căutați titlu, client, aplicație nr...",
-    "title": "Contează",
-    "titlePortal": "Treburile mele"
+    "title": "Fișiere de lucru",
+    "titleArchived": "Fișiere de lucru arhivate",
+    "titlePortal": "Fișierele mele de lucru"
   },
   "ipRightsRegister": {
     "description": "Registrul de drepturi IP la nivelul întregii firme cu filtre în funcție de client, jurisdicție, tip, stare și expirare.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Expiră de la",
       "expiryTo": "Expiră până la",
       "jurisdiction": "Jurisdicția",
-      "matterType": "Tipul materiei",
+      "matterType": "Tipul muncii",
       "status": "Stare"
     },
     "loading": "Încărcare…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Avocat principal",
+    "applicant": "Solicitant/Deținătorul drepturilor (proprietar)",
+    "client": "Client",
+    "clientHint": "Partea instructoră — primește facturi",
+    "intermediary": "Intermediar",
     "description": "Descriere",
     "jurisdictions": "Jurisdicțiile",
     "jurisdictionsEmpty": "Nu au fost înregistrate jurisdicții.",
@@ -666,9 +726,19 @@
       "localRef": "Ref. locală",
       "status": "Stare"
     },
-    "title": "Detalii ale materiei",
-    "type": "Tip",
+    "title": "Detalii fișier de lucru",
+    "type": "Tipul muncii",
     "typeSpecific": "Atribute specifice tipului"
+  },
+  "parties": {
+    "title": "petreceri",
+    "hint": "Clientul este cel care vă instruiește și este facturat. Setați Solicitantul/Deținătorul de drepturi (Proprietar) și Intermediarul numai atunci când acestea diferă de Client.",
+    "applicant": "Solicitant/Deținătorul drepturilor (proprietar)",
+    "applicantHint": "Proprietarul legal al mărcii comerciale, al brevetului sau al altui bun IP. Implicit pentru Client atunci când este lăsat gol.",
+    "intermediary": "Intermediar (opțional)",
+    "intermediaryHint": "Partea care trimite lucrări în numele altuia, atunci când este diferită de Client.",
+    "searchPlaceholder": "Căutați clienți...",
+    "clear": "Clar"
   },
   "status": {
     "abandoned": "Abandonat",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Măsuri la frontieră",
+    "cases": "Cazuri",
+    "consultation": "Consultatii",
     "copyright": "Drepturi de autor",
     "dispute_opposition": "Litigiu/opoziție",
+    "domain": "Domenii",
     "fto_analysis": "Analiza FTO",
     "geographical_indication": "Indicație geografică",
     "industrial_design": "Design industrial",
+    "litigation_expert_report": "Litigii / Rapoarte de expertiză judecătorească",
+    "official_fee_payment": "Plățile taxelor oficiale",
+    "other": "Alte",
     "patent": "Brevet",
     "trademark": "Marcă comercială",
     "utility_model": "Model de utilitate",

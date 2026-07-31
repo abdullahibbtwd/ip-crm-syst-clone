@@ -49,6 +49,30 @@ export function useUpdateMatter(id: string) {
   })
 }
 
+export function useArchiveMatter(id: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: () => mattersApi.archive(id),
+    onSuccess: (matter: MatterDetail) => {
+      qc.invalidateQueries({ queryKey: matterKeys.detail(id) })
+      qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
+    },
+  })
+}
+
+export function useRestoreMatter(id: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: () => mattersApi.restore(id),
+    onSuccess: (matter: MatterDetail) => {
+      qc.invalidateQueries({ queryKey: matterKeys.detail(id) })
+      qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
+    },
+  })
+}
+
 export function useMatterIpRights(matterId: string) {
   return useQuery({
     queryKey: matterKeys.ipRights(matterId),

@@ -1,11 +1,31 @@
 import i18n from '@/i18n'
-import type { ConflictHit, CounterpartyRelationship, IntakeLead } from './types'
+import type {
+  ConflictHit,
+  CounterpartyRelationship,
+  IntakeLead,
+  IntakePartyPayload,
+} from './types'
 
 export function intakeDisplayName(lead: Pick<IntakeLead, 'enquirerType' | 'companyName' | 'fullName'>) {
   if (lead.enquirerType === 'company') {
     return lead.companyName ?? i18n.t('unknownCompany', { ns: 'intake' })
   }
   return lead.fullName ?? i18n.t('unknownIndividual', { ns: 'intake' })
+}
+
+export function formatIntakePartyLabel(
+  party: IntakePartyPayload | null | undefined,
+): string | null {
+  if (!party) return null
+  if (party.existingClientId) {
+    return i18n.t('parties.linkedClient', {
+      ns: 'intake',
+      id: party.existingClientId.slice(0, 8),
+    })
+  }
+  if (party.companyName?.trim()) return party.companyName.trim()
+  if (party.fullName?.trim()) return party.fullName.trim()
+  return null
 }
 
 export function intakeStatusLabel(status: IntakeLead['status']): string {
@@ -78,8 +98,17 @@ export const MATTER_TYPE_LABELS: Record<IntakeLead['matterType'], string> = {
   patent: 'Patent',
   utility_model: 'Utility model',
   design: 'Design',
+  cases: 'Cases',
+  domain: 'Domains',
+  litigation_expert_report: 'Litigation / Court Expert Reports',
+  consultation: 'Consultations',
+  official_fee_payment: 'Official Fee Payments',
   other: 'Other',
 }
+
+export const ALL_INTAKE_MATTER_TYPES = Object.keys(
+  MATTER_TYPE_LABELS,
+) as IntakeLead['matterType'][]
 
 /** @deprecated Use referralSourceLabel() for translated labels */
 export const REFERRAL_SOURCE_LABELS: Record<IntakeLead['referralSource'], string> = {

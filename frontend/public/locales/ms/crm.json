@@ -220,17 +220,17 @@
     "title": "Sejarah perhubungan"
   },
   "matters": {
-    "empty": "Belum apa-apa lagi. Buka satu perkara untuk memulakan kerja pendakwaan untuk pelanggan ini.",
-    "loading": "Memuatkan perkara…",
-    "openNew": "Buka perkara baru",
+    "empty": "Tiada fail yang berfungsi lagi. Buka fail berfungsi untuk memulakan kerja pendakwaan untuk pelanggan ini.",
+    "loading": "Memuatkan fail yang berfungsi…",
+    "openNew": "Buka fail kerja baharu",
     "table": {
       "assigned": "Ditugaskan",
       "jurisdictions": "Bidang kuasa",
       "status": "Status",
       "title": "Tajuk",
-      "type": "taip"
+      "type": "Jenis kerja"
     },
-    "title": "Perkara"
+    "title": "Fail kerja"
   },
   "accessHistory": {
     "title": "Sejarah capaian data",
@@ -320,7 +320,7 @@
     "correspondence": "Surat-menyurat",
     "documents": "Dokumen",
     "history": "Sejarah",
-    "matters": "Perkara",
+    "matters": "Fail kerja",
     "watch": "Tonton",
     "offices": "Pejabat",
     "overview": "Gambaran keseluruhan",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Dokumen",
-    "description": "Fail dan dokumen pelanggan yang dipautkan kepada hal pelanggan ini.",
+    "description": "Fail dan dokumen pelanggan yang dipautkan ke fail kerja klien ini.",
     "upload": "Muat naik",
     "uploadAction": "Muat naik fail",
     "uploading": "Memuat naik…",

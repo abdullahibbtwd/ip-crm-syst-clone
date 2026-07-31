@@ -220,17 +220,17 @@
     "title": "Suhte ajalugu"
   },
   "matters": {
-    "empty": "Pole veel oluline. Avage asi, et alustada selle kliendi suhtes süüdistuse esitamist.",
-    "loading": "Asjade laadimine…",
-    "openNew": "Ava uus asi",
+    "empty": "Töötavaid faile veel pole. Avage tööfail, et alustada selle kliendi vastutuselevõtmist.",
+    "loading": "Tööfailide laadimine…",
+    "openNew": "Avage uus tööfail",
     "table": {
       "assigned": "Määratud",
       "jurisdictions": "Jurisdiktsioonid",
       "status": "Olek",
       "title": "Pealkiri",
-      "type": "Tüüp"
+      "type": "Töö tüüp"
     },
-    "title": "Küsimused"
+    "title": "Töötavad failid"
   },
   "accessHistory": {
     "title": "Andmetele juurdepääsu ajalugu",
@@ -320,7 +320,7 @@
     "correspondence": "Kirjavahetus",
     "documents": "Dokumendid",
     "history": "Ajalugu",
-    "matters": "Küsimused",
+    "matters": "Töötavad failid",
     "watch": "Vaata",
     "offices": "Kontorid",
     "overview": "Ülevaade",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Dokumendid",
-    "description": "Selle kliendi asjadega seotud kliendi failid ja dokumendid.",
+    "description": "Kliendi failid ja selle kliendi tööfailidega lingitud dokumendid.",
     "upload": "Laadi üles",
     "uploadAction": "Laadi fail üles",
     "uploading": "Üleslaadimine…",

@@ -1,15 +1,35 @@
 {
   "title": "Documenti",
   "subtitle": "Libreria di documenti relativi agli argomenti a livello aziendale.",
+  "subtitleWorking": "Documenti allegati ai file di lavoro in tutta l'azienda.",
+  "subtitleShared": "Documenti condivisi a livello aziendale: modelli, moduli e materiali interni.",
   "searchPlaceholder": "Cerca documenti...",
   "loading": "Caricamento…",
   "loadFailed": "Impossibile caricare i documenti.",
   "empty": "Nessun documento trovato.",
+  "tabs": {
+    "working": "Documenti di archivio di lavoro",
+    "shared": "Documenti condivisi"
+  },
   "columns": {
     "name": "Nome",
-    "matter": "Questione",
+    "matter": "Fascicolo di lavoro",
     "category": "Categoria",
     "updated": "Aggiornata",
-    "by": "Di"
+    "by": "Di",
+    "actions": "Azioni"
+  },
+  "shared": {
+    "upload": "Carica documento condiviso",
+    "uploading": "Caricamento…",
+    "uploadFailed": "Impossibile caricare il documento condiviso",
+    "uploadRequired": "Scegli un file da caricare",
+    "empty": "Nessun documento condiviso ancora. Carica modelli, moduli o linee guida aziendali qui.",
+    "download": "Scaricamento",
+    "dropHint": "Trascina un file qui o scegline uno",
+    "chooseFile": "Scegli file",
+    "displayName": "Nome da visualizzare",
+    "displayNamePlaceholder": "per esempio. Modello di procura",
+    "category": "Categoria"
   }
 }

@@ -220,17 +220,17 @@
     "title": "Storia delle relazioni"
   },
   "matters": {
-    "empty": "Non importa ancora. Apri una pratica per avviare il lavoro dell'accusa per questo cliente.",
-    "loading": "Caricamento argomenti...",
-    "openNew": "Apri una nuova questione",
+    "empty": "Nessun file funzionante ancora. Apri un file funzionante per avviare il lavoro dell'accusa per questo cliente.",
+    "loading": "Caricamento file di lavoro…",
+    "openNew": "Apri un nuovo file di lavoro",
     "table": {
       "assigned": "Assegnato",
       "jurisdictions": "Giurisdizioni",
       "status": "Stato",
       "title": "Titolo",
-      "type": "Tipa"
+      "type": "Tipo di lavoro"
     },
-    "title": "Importa"
+    "title": "File di lavoro"
   },
   "accessHistory": {
     "title": "Cronologia degli accessi ai dati",
@@ -320,7 +320,7 @@
     "correspondence": "Corrispondenza",
     "documents": "Documenti",
     "history": "Storia",
-    "matters": "Importa",
+    "matters": "File di lavoro",
     "watch": "Orologio",
     "offices": "Uffici",
     "overview": "Panoramica",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Documenti",
-    "description": "File e documenti del cliente collegati alle questioni di questo cliente.",
+    "description": "File e documenti del cliente collegati ai file di lavoro di questo cliente.",
     "upload": "Caricamento",
     "uploadAction": "Carica file",
     "uploading": "Caricamento…",

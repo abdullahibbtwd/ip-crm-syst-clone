@@ -1,15 +1,35 @@
 {
   "title": "Documente",
   "subtitle": "Biblioteca de documente la nivel de firmă.",
+  "subtitleWorking": "Documente atașate la fișierele de lucru din cadrul companiei.",
+  "subtitleShared": "Documente partajate la nivelul întregii firme — șabloane, formulare și materiale interne.",
   "searchPlaceholder": "Căutați documente...",
   "loading": "Încărcare…",
   "loadFailed": "Nu s-au încărcat documentele.",
   "empty": "Nu s-au găsit documente.",
+  "tabs": {
+    "working": "Documente dosar de lucru",
+    "shared": "Documente partajate"
+  },
   "columns": {
     "name": "Nume",
-    "matter": "materie",
+    "matter": "Dosar de lucru",
     "category": "Categorie",
     "updated": "Actualizat",
-    "by": "De"
+    "by": "De",
+    "actions": "Acțiuni"
+  },
+  "shared": {
+    "upload": "Încărcați documentul partajat",
+    "uploading": "Se încarcă...",
+    "uploadFailed": "Nu s-a putut încărca documentul partajat",
+    "uploadRequired": "Alegeți un fișier de încărcat",
+    "empty": "Nu există încă documente partajate. Încărcați șabloane, formulare sau linii directoare ale firmelor aici.",
+    "download": "Descărcați",
+    "dropHint": "Aruncă un fișier aici sau alege unul",
+    "chooseFile": "Alegeți fișierul",
+    "displayName": "Numele de afișare",
+    "displayNamePlaceholder": "de ex. Șablon de împuternicire",
+    "category": "Categorie"
   }
 }

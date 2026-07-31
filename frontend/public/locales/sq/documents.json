@@ -1,15 +1,35 @@
 {
   "title": "Dokumentet",
   "subtitle": "Biblioteka e dokumenteve për çështje të gjerë firme.",
+  "subtitleWorking": "Dokumentet e bashkangjitura në dosjet e punës në të gjithë firmën.",
+  "subtitleShared": "Dokumentet e përbashkëta në të gjithë firmën — shabllone, formularë dhe materiale të brendshme.",
   "searchPlaceholder": "Kërko dokumente…",
   "loading": "Po ngarkohet…",
   "loadFailed": "Ngarkimi i dokumenteve dështoi.",
   "empty": "Nuk u gjetën dokumente.",
+  "tabs": {
+    "working": "Dokumentet e dosjes së punës",
+    "shared": "Dokumentet e përbashkëta"
+  },
   "columns": {
     "name": "Emri",
-    "matter": "Materie",
+    "matter": "Dosja e punës",
     "category": "Kategoria",
     "updated": "Përditësuar",
-    "by": "Nga"
+    "by": "Nga",
+    "actions": "Veprimet"
+  },
+  "shared": {
+    "upload": "Ngarko dokumentin e përbashkët",
+    "uploading": "Po ngarkohet…",
+    "uploadFailed": "Ngarkimi i dokumentit të përbashkët dështoi",
+    "uploadRequired": "Zgjidhni një skedar për të ngarkuar",
+    "empty": "Nuk ka ende dokumente të përbashkëta. Ngarkoni shabllone, formularë ose udhëzime të forta këtu.",
+    "download": "Shkarkoni",
+    "dropHint": "Hidhni një skedar këtu ose zgjidhni një",
+    "chooseFile": "Zgjidhni skedarin",
+    "displayName": "Emri i shfaqur",
+    "displayNamePlaceholder": "p.sh. Modeli i autorizimit",
+    "category": "Kategoria"
   }
 }

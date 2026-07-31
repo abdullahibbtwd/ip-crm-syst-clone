@@ -74,6 +74,29 @@ export type ClientDocumentsResponse = {
   matterDocuments: ClientMatterDocument[]
 }
 
+export type SharedDocument = {
+  id: string
+  scope: 'shared'
+  displayName: string
+  category: DocumentCategory
+  tags: string[]
+  createdAt: string
+  updatedAt: string
+  createdBy: DocumentUser | null
+  versionCount: number
+  latestVersion: DocumentVersion | null
+}
+
+export type FirmDocument = {
+  id: string
+  displayName: string
+  category: DocumentCategory
+  matterId: string
+  matterTitle: string
+  updatedAt: string
+  createdBy: DocumentUser | null
+}
+
 export type PortalDocument = MatterDocument & {
   matterTitle: string
 }

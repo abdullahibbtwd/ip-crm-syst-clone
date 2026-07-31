@@ -220,17 +220,17 @@
     "title": "Histoire de la relation"
   },
   "matters": {
-    "empty": "Rien n’a encore d’importance. Ouvrez un dossier pour lancer les poursuites pour ce client.",
-    "loading": "Le chargement compte…",
-    "openNew": "Ouvrir un nouveau sujet",
+    "empty": "Aucun fichier fonctionnel pour l'instant. Ouvrez un dossier de travail pour commencer le travail de poursuite pour ce client.",
+    "loading": "Chargement des fichiers de travail…",
+    "openNew": "Ouvrir un nouveau fichier de travail",
     "table": {
       "assigned": "Attribué",
       "jurisdictions": "Juridictions",
       "status": "Statut",
       "title": "Titre",
-      "type": "Taper"
+      "type": "Type de travail"
     },
-    "title": "Importe"
+    "title": "Fichiers de travail"
   },
   "accessHistory": {
     "title": "Historique d'accès aux données",
@@ -320,7 +320,7 @@
     "correspondence": "Correspondance",
     "documents": "Documents",
     "history": "Histoire",
-    "matters": "Importe",
+    "matters": "Fichiers de travail",
     "watch": "Montre",
     "offices": "Bureaux",
     "overview": "Aperçu",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Documents",
-    "description": "Dossiers clients et documents liés aux affaires de ce client.",
+    "description": "Dossiers clients et documents liés aux dossiers de travail de ce client.",
     "upload": "Télécharger",
     "uploadAction": "Télécharger le fichier",
     "uploading": "Téléchargement…",

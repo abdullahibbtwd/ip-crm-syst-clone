@@ -245,6 +245,7 @@ describe('MattersService', () => {
       prisma.matter.findUnique.mockResolvedValue({
         id: 'm1',
         clientId: 'c1',
+        applicantClientId: null,
       });
       prisma.ipRight.create.mockResolvedValue({ id: 'ipr1' });
 
@@ -261,7 +262,33 @@ describe('MattersService', () => {
           data: expect.objectContaining({
             matterId: 'm1',
             clientId: 'c1',
+            ownerClientId: 'c1',
             jurisdiction: 'EP',
+          }),
+        }),
+      );
+    });
+
+    it('uses matter applicant as IP right owner when set', async () => {
+      prisma.matter.findUnique.mockResolvedValue({
+        id: 'm1',
+        clientId: 'c1',
+        applicantClientId: 'c-apple',
+      });
+      prisma.client.findUnique.mockResolvedValue({ id: 'c-apple' });
+      prisma.ipRight.create.mockResolvedValue({ id: 'ipr2' });
+
+      await service.createIpRight('m1', {
+        rightType: MatterType.trademark,
+        title: 'Mark',
+        jurisdiction: 'bg',
+      } as never);
+
+      expect(prisma.ipRight.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            clientId: 'c1',
+            ownerClientId: 'c-apple',
           }),
         }),
       );

@@ -79,14 +79,82 @@ export const counterpartySchema = z
 
 export type CounterpartyFormValues = z.infer<typeof counterpartySchema>;
 
+export const intakePartySchema = z
+  .object({
+    existingClientId: z.preprocess(
+      emptyToUndefined,
+      z.union([z.undefined(), z.uuid()]),
+    ),
+    type: z.enum(["company", "individual"]).optional(),
+    companyName: optionalTrimmed(200, "Company name"),
+    fullName: optionalTrimmed(200, "Full name"),
+    country: z.preprocess(
+      emptyToUndefined,
+      z.union([
+        z.undefined(),
+        z
+          .string()
+          .length(2)
+          .refine((v) => validCountryCodes.has(v), {
+            message: "Select a valid country",
+          }),
+      ]),
+    ),
+  })
+  .superRefine((v, ctx) => {
+    if (v.existingClientId) return;
+    if (!v.companyName && !v.fullName) return;
+    if (!v.type) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Select company or individual",
+        path: ["type"],
+      });
+    }
+    if (v.type === "company" && !v.companyName) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Company name is required",
+        path: ["companyName"],
+      });
+    }
+    if (v.type === "individual" && !v.fullName) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Full name is required",
+        path: ["fullName"],
+      });
+    }
+  })
+  .optional();
+
+export type IntakePartyFormValues = {
+  existingClientId?: string
+  type?: 'company' | 'individual'
+  companyName?: string
+  fullName?: string
+  country?: string
+}
+
 const enquirerBase = {
   country: countryCode,
   email: optionalEmail,
   phone: optionalPhone,
   matterType: z.enum(
-    ["trademark", "patent", "utility_model", "design", "other"],
+    [
+      "trademark",
+      "patent",
+      "utility_model",
+      "design",
+      "cases",
+      "domain",
+      "litigation_expert_report",
+      "consultation",
+      "official_fee_payment",
+      "other",
+    ],
     {
-      message: "Select a matter type",
+      message: "Select a work type",
     },
   ),
   description: z
@@ -132,6 +200,8 @@ const enquirerBase = {
     })
     .optional(),
   counterparties: z.array(counterpartySchema).optional(),
+  applicant: intakePartySchema,
+  intermediary: intakePartySchema,
 };
 
 const contactRequired = {

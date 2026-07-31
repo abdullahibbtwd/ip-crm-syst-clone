@@ -50,6 +50,27 @@
     "valuation": {
       "assetDescription": { "label": "Asset description" },
       "valuationPurpose": { "label": "Valuation purpose" }
+    },
+    "domain": {
+      "domainName": { "label": "Domain name", "placeholder": "e.g. example.com" },
+      "registrar": { "label": "Registrar" }
+    },
+    "litigation_expert_report": {
+      "caseReference": { "label": "Case reference" },
+      "courtOrAuthority": { "label": "Court / authority" },
+      "reportScope": { "label": "Report scope" }
+    },
+    "consultation": {
+      "scopeSummary": { "label": "Scope summary" },
+      "topic": { "label": "Topic" }
+    },
+    "official_fee_payment": {
+      "authority": { "label": "Authority / office" },
+      "feeReference": { "label": "Fee / payment reference" },
+      "relatedApplication": { "label": "Related application / file" }
+    },
+    "other": {
+      "workSummary": { "label": "Work summary" }
     }
   },
   "billing": {
@@ -297,13 +318,13 @@
   "createDrawer": {
     "client": "Client *",
     "creating": "Creating…",
-    "error": "Failed to create matter",
+    "error": "Failed to create working file",
     "jurisdictionHelp": "Select one or more filing jurisdictions.",
     "jurisdictions": "Jurisdictions",
-    "matterType": "Matter type *",
-    "open": "Open matter",
+    "matterType": "Work type *",
+    "open": "Open working file",
     "responsibleAttorney": "Responsible attorney",
-    "title": "Open new matter",
+    "title": "Open new working file",
     "titleField": "Title *",
     "titlePlaceholder": "e.g. ACME word mark – EU"
   },
@@ -543,16 +564,27 @@
     "rejected": "Rejected"
   },
   "layout": {
-    "backToMatters": "← Back to matters",
-    "loading": "Loading matter…",
-    "notFound": "Matter not found."
+    "backToMatters": "← Back to working files",
+    "loading": "Loading working file…",
+    "notFound": "Working file not found.",
+    "archivedBadge": "Archived",
+    "archive": "Archive",
+    "archiving": "Archiving…",
+    "restore": "Restore",
+    "restoring": "Restoring…",
+    "archiveFailed": "Failed to archive working file",
+    "restoreFailed": "Failed to restore working file",
+    "archiveConfirm": "Archive this working file? It will leave the active list but remain searchable under Archived."
   },
   "list": {
-    "description": "Portfolio view of all legal matters — search by title, client, or application number.",
-    "descriptionPortal": "Matters opened for your organisation after intake conversion.",
+    "description": "Portfolio view of all working files — search by title, client, or application number.",
+    "descriptionPortal": "Working files opened for your organisation after intake conversion.",
+    "descriptionArchived": "Completed or inactive working files kept for reference.",
     "filters": {
       "allStatuses": "All statuses",
-      "allTypes": "All types"
+      "allTypes": "All work types",
+      "active": "Active",
+      "archived": "Archived"
     },
     "intakeQueue": "Intake queue",
     "pagination": {
@@ -560,8 +592,9 @@
     },
     "perPage": "{{count}} per page",
     "searchPlaceholder": "Search title, client, application no…",
-    "title": "Matters",
-    "titlePortal": "My matters"
+    "title": "Working files",
+    "titleArchived": "Archived working files",
+    "titlePortal": "My working files"
   },
   "ipRightsRegister": {
     "description": "Firm-wide register of IP rights with filters by client, jurisdiction, type, status, and expiry.",
@@ -576,7 +609,7 @@
       "expiryFrom": "Expiry from",
       "expiryTo": "Expiry to",
       "jurisdiction": "Jurisdiction",
-      "matterType": "Matter type",
+      "matterType": "Work type",
       "status": "Status"
     },
     "loading": "Loading…",
@@ -601,6 +634,10 @@
   },
   "overview": {
     "assignedTo": "Lead attorney",
+    "applicant": "Applicant / Rights Holder (Owner)",
+    "client": "Client",
+    "clientHint": "Instructing party — receives invoices",
+    "intermediary": "Intermediary",
     "description": "Description",
     "jurisdictions": "Jurisdictions",
     "jurisdictionsEmpty": "No jurisdictions recorded.",
@@ -611,9 +648,19 @@
       "localRef": "Local ref.",
       "status": "Status"
     },
-    "title": "Matter details",
-    "type": "Type",
+    "title": "Working file details",
+    "type": "Work type",
     "typeSpecific": "Type-specific attributes"
+  },
+  "parties": {
+    "title": "Parties",
+    "hint": "Client is who instructs you and is invoiced. Set Applicant / Rights Holder (Owner) and Intermediary only when they differ from the Client.",
+    "applicant": "Applicant / Rights Holder (Owner)",
+    "applicantHint": "Legal owner of the trademark, patent, or other IP asset. Defaults to the Client when left empty.",
+    "intermediary": "Intermediary (optional)",
+    "intermediaryHint": "Party sending work on behalf of another, when different from the Client.",
+    "searchPlaceholder": "Search clients…",
+    "clear": "Clear"
   },
   "status": {
     "abandoned": "Abandoned",
@@ -746,11 +793,17 @@
   },
   "type": {
     "border_measures": "Border measures",
+    "cases": "Cases",
+    "consultation": "Consultations",
     "copyright": "Copyright",
     "dispute_opposition": "Dispute / opposition",
+    "domain": "Domains",
     "fto_analysis": "FTO analysis",
     "geographical_indication": "Geographical indication",
     "industrial_design": "Industrial design",
+    "litigation_expert_report": "Litigation / Court Expert Reports",
+    "official_fee_payment": "Official Fee Payments",
+    "other": "Other",
     "patent": "Patent",
     "trademark": "Trademark",
     "utility_model": "Utility model",

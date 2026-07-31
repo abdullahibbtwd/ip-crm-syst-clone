@@ -140,6 +140,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'communication',
         items: [
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
           { icon: Megaphone, labelKey: 'broadcasts', path: '/broadcasts' },
         ],
@@ -271,6 +272,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'communication',
         items: [
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
           { icon: Megaphone, labelKey: 'broadcasts', path: '/broadcasts' },
         ],
@@ -314,6 +316,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'correspondence',
         items: [
+          { icon: FileText, labelKey: 'documents', path: '/documents' },
           { icon: Mail, labelKey: 'incomingMail', path: '/email-queue' },
           { icon: Send, labelKey: 'outgoingMail', path: '/email-queue' },
         ],

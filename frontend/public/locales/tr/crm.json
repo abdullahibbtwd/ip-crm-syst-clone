@@ -220,17 +220,17 @@
     "title": "İlişki geçmişi"
   },
   "matters": {
-    "empty": "Henüz önemli değil. Bu müşteri için soruşturma çalışmasını başlatmak üzere bir konu açın.",
-    "loading": "Önemli olan yükleniyor…",
-    "openNew": "Yeni konu aç",
+    "empty": "Henüz çalışan dosya yok. Bu müşteri için kovuşturma çalışmasını başlatmak üzere bir çalışma dosyası açın.",
+    "loading": "Çalışma dosyaları yükleniyor…",
+    "openNew": "Yeni çalışma dosyasını aç",
     "table": {
       "assigned": "Atandı",
       "jurisdictions": "Yargı bölgeleri",
       "status": "Durum",
       "title": "Başlık",
-      "type": "Tip"
+      "type": "İş türü"
     },
-    "title": "Önemlidir"
+    "title": "Çalışma dosyaları"
   },
   "accessHistory": {
     "title": "Veri erişim geçmişi",
@@ -320,7 +320,7 @@
     "correspondence": "Yazışma",
     "documents": "Belgeler",
     "history": "Tarih",
-    "matters": "Önemlidir",
+    "matters": "Çalışma dosyaları",
     "watch": "Kol saati",
     "offices": "Ofisler",
     "overview": "Genel Bakış",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Belgeler",
-    "description": "Bu müşterinin konularıyla bağlantılı müşteri dosyaları ve belgeleri.",
+    "description": "Bu müşterinin çalışma dosyalarına bağlı istemci dosyaları ve belgeleri.",
     "upload": "Yüklemek",
     "uploadAction": "Dosya yükle",
     "uploading": "Yükleniyor…",

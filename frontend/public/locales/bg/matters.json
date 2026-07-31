@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Цел на оценката"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Домейн",
+        "placeholder": "напр. example.com"
+      },
+      "registrar": {
+        "label": "Регистратор"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Референция по дело"
+      },
+      "courtOrAuthority": {
+        "label": "Съд / орган"
+      },
+      "reportScope": {
+        "label": "Обхват на становището"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Обобщение на обхвата"
+      },
+      "topic": {
+        "label": "Тема"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Орган / служба"
+      },
+      "feeReference": {
+        "label": "Референция на такса / плащане"
+      },
+      "relatedApplication": {
+        "label": "Свързана заявка / файл"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Описание на работата"
+      }
     }
   },
   "billing": {
@@ -216,12 +260,12 @@
       "title": "Запиши кореспонденция",
       "saveTo": "Запазване в",
       "chooseScope": "Изберете обхват",
-      "scopeClient": "Този клиент (без дело)",
-      "scopeMatter": "Дело: {{title}}",
+      "scopeClient": "Този клиент (без значение)",
+      "scopeMatter": "Материя: {{title}}",
       "attachment": "Прикачен файл",
       "attachmentHint": "По избор — свържете файл от този {{scope}} или качете PDF, Word, изображения или .eml",
       "scopeWordClient": "клиент",
-      "scopeWordMatter": "дело",
+      "scopeWordMatter": "материя",
       "clear": "Изчисти",
       "modeNone": "Няма",
       "modeLink": "Връзка",
@@ -264,8 +308,8 @@
       "title": "Запиши имейл",
       "saveTo": "Запазване в",
       "chooseScope": "Изберете обхват",
-      "scopeClient": "Този клиент (без дело)",
-      "scopeMatter": "Дело: {{title}}",
+      "scopeClient": "Този клиент (без значение)",
+      "scopeMatter": "Материя: {{title}}",
       "modeEml": "Качете .eml",
       "modeEmlDesc": "Плъзнете файл, записан от Outlook или Gmail",
       "modePaste": "Поставете имейл",
@@ -303,7 +347,7 @@
       "saveToClient": "Запазване на клиента",
       "saving": "Запазване…",
       "scopeWordClient": "клиент",
-      "scopeWordMatter": "дело",
+      "scopeWordMatter": "материя",
       "errors": {
         "emlFailed": "Не може да се прочете .eml файлът",
         "pasteEmpty": "Първо поставете съдържанието на имейла",
@@ -355,7 +399,7 @@
     "error": "Неуспешно създаване на дело",
     "jurisdictionHelp": "Изберете една или повече юрисдикции за подаване.",
     "jurisdictions": "Юрисдикции",
-    "matterType": "Тип дело *",
+    "matterType": "Вид работа *",
     "open": "Отвори дело",
     "responsibleAttorney": "Отговорен адвокат",
     "title": "Отвори ново дело",
@@ -600,14 +644,24 @@
   "layout": {
     "backToMatters": "← Обратно към дела",
     "loading": "Зареждане на дело…",
-    "notFound": "Делото не е намерено."
+    "notFound": "Делото не е намерено.",
+    "archivedBadge": "Archived",
+    "archive": "Archive",
+    "archiving": "Archiving…",
+    "restore": "Restore",
+    "restoring": "Restoring…",
+    "archiveFailed": "Failed to archive working file",
+    "restoreFailed": "Failed to restore working file",
+    "archiveConfirm": "Archive this working file? It will leave the active list but remain searchable under Archived."
   },
   "list": {
     "description": "Портфолио преглед на всички дела — търсене по заглавие, клиент или номер на заявка.",
     "descriptionPortal": "Дела, отворени за вашата организация след конвертиране на запитване.",
     "filters": {
       "allStatuses": "Всички статуси",
-      "allTypes": "Всички типове"
+      "allTypes": "Всички видове работа",
+      "active": "Active",
+      "archived": "Archived"
     },
     "intakeQueue": "Опашка за приемане",
     "pagination": {
@@ -616,7 +670,9 @@
     "perPage": "{{count}} на страница",
     "searchPlaceholder": "Търсене по заглавие, клиент, номер на заявка…",
     "title": "Дела",
-    "titlePortal": "Моите дела"
+    "titlePortal": "Моите дела",
+    "descriptionArchived": "Completed or inactive working files kept for reference.",
+    "titleArchived": "Archived working files"
   },
   "ipRightsRegister": {
     "description": "Фирмен регистър на ИС права с филтри по клиент, юрисдикция, тип, статус и изтичане.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Изтичане от",
       "expiryTo": "Изтичане до",
       "jurisdiction": "Юрисдикция",
-      "matterType": "Тип дело",
+      "matterType": "Вид работа",
       "status": "Статус"
     },
     "loading": "Зареждане…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Водещ адвокат",
+    "applicant": "Кандидат / Притежател на правата (Собственик)",
+    "client": "Клиент",
+    "clientHint": "Възложител — получава фактури",
+    "intermediary": "Посредник",
     "description": "Описание",
     "jurisdictions": "Юрисдикции",
     "jurisdictionsEmpty": "Няма записани юрисдикции.",
@@ -667,8 +727,18 @@
       "status": "Статус"
     },
     "title": "Детайли за делото",
-    "type": "Тип",
+    "type": "Вид работа",
     "typeSpecific": "Атрибути специфични за типа"
+  },
+  "parties": {
+    "title": "Партита",
+    "hint": "Клиентът е този, който ви инструктира и получава фактура. Задайте Кандидат/Правоносител (Собственик) и Посредник само когато се различават от Клиента.",
+    "applicant": "Кандидат / Притежател на правата (Собственик)",
+    "applicantHint": "Законен собственик на търговската марка, патента или друг актив на ИС. По подразбиране е клиентът, когато е оставен празен.",
+    "intermediary": "Посредник (по избор)",
+    "intermediaryHint": "Страна, изпращаща работа от чуждо име, когато е различно от Клиента.",
+    "searchPlaceholder": "Търсене на клиенти...",
+    "clear": "Изчисти"
   },
   "status": {
     "abandoned": "Изоставено",
@@ -809,7 +879,13 @@
     "patent": "Патент",
     "trademark": "Марка",
     "utility_model": "Полезен модел",
-    "valuation": "Оценка"
+    "valuation": "Оценка",
+    "cases": "Дела",
+    "consultation": "Консултации",
+    "domain": "Домейни",
+    "litigation_expert_report": "Съдебни / експертни становища",
+    "official_fee_payment": "Плащания на официални такси",
+    "other": "Друго"
   },
   "attributeFields": {
     "selectPlaceholder": "Изберете…",

@@ -4,6 +4,7 @@ import {
   IsObject,
   IsOptional,
   IsString,
+  IsUUID,
   Length,
   MaxLength,
   MinLength,
@@ -52,4 +53,9 @@ export class CreateIpRightDto {
   @IsOptional()
   @IsObject()
   attributes?: Record<string, unknown>;
+
+  /** Override owner; defaults to matter.applicantClientId ?? matter.clientId. */
+  @IsOptional()
+  @IsUUID()
+  ownerClientId?: string;
 }

@@ -1,15 +1,35 @@
 {
   "title": "Documents",
   "subtitle": "Firm-wide matter documents library.",
+  "subtitleWorking": "Documents attached to working files across the firm.",
+  "subtitleShared": "Firm-wide shared documents — templates, forms, and internal materials.",
   "searchPlaceholder": "Search documents…",
   "loading": "Loading…",
   "loadFailed": "Failed to load documents.",
   "empty": "No documents found.",
+  "tabs": {
+    "working": "Working file documents",
+    "shared": "Shared documents"
+  },
   "columns": {
     "name": "Name",
-    "matter": "Matter",
+    "matter": "Working file",
     "category": "Category",
     "updated": "Updated",
-    "by": "By"
+    "by": "By",
+    "actions": "Actions"
+  },
+  "shared": {
+    "upload": "Upload shared document",
+    "uploading": "Uploading…",
+    "uploadFailed": "Failed to upload shared document",
+    "uploadRequired": "Choose a file to upload",
+    "empty": "No shared documents yet. Upload templates, forms, or firm guidelines here.",
+    "download": "Download",
+    "dropHint": "Drop a file here or choose one",
+    "chooseFile": "Choose file",
+    "displayName": "Display name",
+    "displayNamePlaceholder": "e.g. Power of Attorney template",
+    "category": "Category"
   }
 }

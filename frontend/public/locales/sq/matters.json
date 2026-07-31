@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Qëllimi i vlerësimit"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Emri i domenit",
+        "placeholder": "p.sh. shembull.com"
+      },
+      "registrar": {
+        "label": "Regjistrues"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Referenca e rastit"
+      },
+      "courtOrAuthority": {
+        "label": "Gjykata / autoriteti"
+      },
+      "reportScope": {
+        "label": "Shtrirja e raportit"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Përmbledhja e fushëveprimit"
+      },
+      "topic": {
+        "label": "Tema"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Autoriteti/zyra"
+      },
+      "feeReference": {
+        "label": "Referenca e tarifës / pagesës"
+      },
+      "relatedApplication": {
+        "label": "Aplikacioni/skedari përkatës"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Përmbledhja e punës"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Klient *",
     "creating": "Po krijohet…",
-    "error": "Dështoi në krijimin e lëndës",
+    "error": "Krijimi i skedarit të punës dështoi",
     "jurisdictionHelp": "Zgjidhni një ose më shumë juridiksione të paraqitjes.",
     "jurisdictions": "Juridiksionet",
-    "matterType": "Lloji i çështjes *",
-    "open": "Çështje e hapur",
+    "matterType": "Lloji i punës *",
+    "open": "Hap skedarin e punës",
     "responsibleAttorney": "Avokati përgjegjës",
-    "title": "Hap një çështje të re",
+    "title": "Hapni skedarin e ri të punës",
     "titleField": "Titulli *",
     "titlePlaceholder": "p.sh. Shenja e fjalës ACME – BE"
   },
@@ -598,16 +642,27 @@
     "rejected": "Refuzuar"
   },
   "layout": {
-    "backToMatters": "← Kthehu te çështjet",
-    "loading": "Po ngarkon çështjen…",
-    "notFound": "Materia nuk u gjet."
+    "backToMatters": "← Kthehu te skedarët e punës",
+    "loading": "Po ngarkon skedarin e punës…",
+    "notFound": "Skedari i punës nuk u gjet.",
+    "archivedBadge": "Arkivuar",
+    "archive": "Arkivi",
+    "archiving": "Po arkivohet…",
+    "restore": "Rivendos",
+    "restoring": "Po restaurohet…",
+    "archiveFailed": "Arkivimi i skedarit të punës dështoi",
+    "restoreFailed": "Rivendosja e skedarit të punës dështoi",
+    "archiveConfirm": "Të arkivohet ky skedar pune? Do të largohet nga lista aktive, por do të mbetet e kërkueshme nën Arkivuar."
   },
   "list": {
-    "description": "Pamja e portofolit të të gjitha çështjeve ligjore - kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
-    "descriptionPortal": "Çështjet u hapën për organizatën tuaj pas konvertimit të marrjes.",
+    "description": "Pamja e portofolit të të gjithë skedarëve të punës — kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
+    "descriptionPortal": "Skedarët e punës u hapën për organizatën tuaj pas konvertimit të marrjes.",
+    "descriptionArchived": "Skedarët e punës të plotësuar ose joaktive të mbajtura për referencë.",
     "filters": {
       "allStatuses": "Të gjitha statuset",
-      "allTypes": "Të gjitha llojet"
+      "allTypes": "Të gjitha llojet e punës",
+      "active": "Aktiv",
+      "archived": "Arkivuar"
     },
     "intakeQueue": "Radha e marrjes",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} për faqe",
     "searchPlaceholder": "Kërkoni titullin, klientin, aplikacionin nr…",
-    "title": "Çështjet",
-    "titlePortal": "Çështjet e mia"
+    "title": "Skedarët e punës",
+    "titleArchived": "Skedarët e punës të arkivuara",
+    "titlePortal": "Dosjet e mia të punës"
   },
   "ipRightsRegister": {
     "description": "Regjistri gjithëpërfshirës i të drejtave IP me filtra sipas klientit, juridiksionit, llojit, statusit dhe skadimit.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Skadimi nga",
       "expiryTo": "Skadimi në",
       "jurisdiction": "Juridiksioni",
-      "matterType": "Lloji i materies",
+      "matterType": "Lloji i punës",
       "status": "Statusi"
     },
     "loading": "Po ngarkohet…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Avokati kryesor",
+    "applicant": "Aplikanti / Mbajtësi i të Drejtave (Pronar)",
+    "client": "Klienti",
+    "clientHint": "Pala udhëzuese — merr fatura",
+    "intermediary": "Ndërmjetësues",
     "description": "Përshkrimi",
     "jurisdictions": "Juridiksionet",
     "jurisdictionsEmpty": "Nuk janë regjistruar juridiksione.",
@@ -666,9 +726,19 @@
       "localRef": "Ref lokal.",
       "status": "Statusi"
     },
-    "title": "Detajet e çështjes",
-    "type": "Lloji",
+    "title": "Detajet e skedarit të punës",
+    "type": "Lloji i punës",
     "typeSpecific": "Atributet specifike të tipit"
+  },
+  "parties": {
+    "title": "Partitë",
+    "hint": "Klienti është ai që ju udhëzon dhe faturohet. Vendosni Aplikantin / Mbajtësin e të Drejtave (Pronarin) dhe Ndërmjetësin vetëm kur ato ndryshojnë nga Klienti.",
+    "applicant": "Aplikanti / Mbajtësi i të Drejtave (Pronar)",
+    "applicantHint": "Pronari ligjor i markës tregtare, patentës ose aktivit tjetër IP. Parazgjedhjet për Klientin kur lihet bosh.",
+    "intermediary": "Ndërmjetësues (opsionale)",
+    "intermediaryHint": "Pala dërgon punë në emër të një tjetri, kur është ndryshe nga Klienti.",
+    "searchPlaceholder": "Kërko klientët…",
+    "clear": "E qartë"
   },
   "status": {
     "abandoned": "I braktisur",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Masat kufitare",
+    "cases": "Rastet",
+    "consultation": "Konsultimet",
     "copyright": "E drejta e autorit",
     "dispute_opposition": "Mosmarrëveshje / kundërshtim",
+    "domain": "Domenet",
     "fto_analysis": "Analiza FTO",
     "geographical_indication": "Treguesi gjeografik",
     "industrial_design": "Dizajni industrial",
+    "litigation_expert_report": "Raportet e ekspertëve të çështjeve gjyqësore",
+    "official_fee_payment": "Pagesat zyrtare të tarifave",
+    "other": "Të tjera",
     "patent": "Patenta",
     "trademark": "Markë tregtare",
     "utility_model": "Modeli i shërbimeve",

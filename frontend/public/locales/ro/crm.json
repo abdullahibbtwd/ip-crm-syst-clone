@@ -220,17 +220,17 @@
     "title": "Istoria relațiilor"
   },
   "matters": {
-    "empty": "Nu contează încă. Deschideți o chestiune pentru a începe munca de urmărire penală pentru acest client.",
-    "loading": "Se încarcă problemele...",
-    "openNew": "Deschide o nouă materie",
+    "empty": "Încă nu există fișiere de lucru. Deschideți un fișier de lucru pentru a începe activitatea de urmărire penală pentru acest client.",
+    "loading": "Se încarcă fișierele de lucru...",
+    "openNew": "Deschideți un nou fișier de lucru",
     "table": {
       "assigned": "Alocat",
       "jurisdictions": "Jurisdicțiile",
       "status": "Stare",
       "title": "Titlu",
-      "type": "Tip"
+      "type": "Tipul muncii"
     },
-    "title": "Contează"
+    "title": "Fișiere de lucru"
   },
   "accessHistory": {
     "title": "Istoricul accesului la date",
@@ -320,7 +320,7 @@
     "correspondence": "Corespondenţă",
     "documents": "Documente",
     "history": "Istorie",
-    "matters": "Contează",
+    "matters": "Fișiere de lucru",
     "watch": "Ceas",
     "offices": "Birouri",
     "overview": "Prezentare generală",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Documente",
-    "description": "Fișierele clientului și documentele legate de problemele acestui client.",
+    "description": "Fișierele clientului și documentele legate de fișierele de lucru ale acestui client.",
     "upload": "Încărcați",
     "uploadAction": "Încărcați fișierul",
     "uploading": "Se încarcă...",

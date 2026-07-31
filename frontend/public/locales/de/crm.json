@@ -220,17 +220,17 @@
     "title": "Beziehungsgeschichte"
   },
   "matters": {
-    "empty": "Noch keine Angelegenheit. Eröffnen Sie eine Angelegenheit, um mit der Strafverfolgung für diesen Mandanten zu beginnen.",
-    "loading": "Angelegenheiten werden geladen…",
-    "openNew": "Neue Angelegenheit eröffnen",
+    "empty": "Noch keine Arbeitsdateien. Öffnen Sie eine Arbeitsdatei, um mit der Strafverfolgung für diesen Mandanten zu beginnen.",
+    "loading": "Arbeitsdateien werden geladen…",
+    "openNew": "Neue Arbeitsdatei öffnen",
     "table": {
       "assigned": "Zugewiesen",
       "jurisdictions": "Gerichtsbarkeiten",
       "status": "Status",
       "title": "Titel",
-      "type": "Typ"
+      "type": "Arbeitstyp"
     },
-    "title": "Angelegenheiten"
+    "title": "Arbeitsdateien"
   },
   "accessHistory": {
     "title": "Datenzugriffsverlauf",
@@ -320,7 +320,7 @@
     "correspondence": "Korrespondenz",
     "documents": "Unterlagen",
     "history": "Geschichte",
-    "matters": "Angelegenheiten",
+    "matters": "Arbeitsdateien",
     "watch": "Betrachten",
     "offices": "Büros",
     "overview": "Überblick",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Unterlagen",
-    "description": "Kundendateien und Dokumente, die mit den Angelegenheiten dieses Kunden verknüpft sind.",
+    "description": "Kundendateien und Dokumente, die mit den Arbeitsdateien dieses Kunden verknüpft sind.",
     "upload": "Hochladen",
     "uploadAction": "Datei hochladen",
     "uploading": "Hochladen…",

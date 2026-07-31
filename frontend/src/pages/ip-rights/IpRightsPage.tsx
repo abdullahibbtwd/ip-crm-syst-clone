@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { useClients } from '@/features/crm/hooks/useClients'
 import { clientDisplayName } from '@/features/crm/utils'
 import { JurisdictionSelect } from '@/features/jurisdictions/components/JurisdictionSelect'
-import { formatMatterDate, ipRightStatusLabel, matterTypeLabel } from '@/features/matters/utils'
+import { ALL_MATTER_TYPES, formatMatterDate, ipRightStatusLabel, matterTypeLabel } from '@/features/matters/utils'
 import type { MatterType, IpRightStatus } from '@/features/matters/types'
 
 import { ipRightsApi } from '@/features/ip-rights/api'
@@ -21,18 +21,7 @@ import type { IpRightsFilters, IpRightsListItem } from '@/features/ip-rights/typ
 const PAGE_SIZE = 50
 const ALL = 'all'
 
-const MATTER_TYPES: MatterType[] = [
-  'trademark',
-  'patent',
-  'utility_model',
-  'industrial_design',
-  'copyright',
-  'geographical_indication',
-  'border_measures',
-  'fto_analysis',
-  'valuation',
-  'dispute_opposition',
-]
+const MATTER_TYPES = ALL_MATTER_TYPES
 
 const STATUS_OPTIONS: IpRightStatus[] = ['pending', 'filed', 'registered', 'expired', 'cancelled']
 

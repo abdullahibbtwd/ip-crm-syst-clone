@@ -24,6 +24,7 @@ import {
 } from '../../../generated/prisma/client';
 import { PaginationQueryDto } from '../../crm/dto/pagination.dto';
 import { ClientAddressInputDto } from '../../crm/dto/client-address.dto';
+import { IntakePartyDto } from './intake-party.dto';
 
 export class CreateCounterpartyDto {
   @IsOptional()
@@ -122,6 +123,16 @@ export class CreateIntakeLeadDto {
   correspondenceAddress?: ClientAddressInputDto;
 
   @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  applicant?: IntakePartyDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  intermediary?: IntakePartyDto;
+
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreateCounterpartyDto)
@@ -198,6 +209,16 @@ export class UpdateIntakeLeadDto {
   @ValidateNested()
   @Type(() => ClientAddressInputDto)
   correspondenceAddress?: ClientAddressInputDto;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  applicant?: IntakePartyDto | null;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  intermediary?: IntakePartyDto | null;
 }
 
 export class ResolveConflictDto {
@@ -232,6 +253,18 @@ export class ConvertIntakeDto {
   @ValidateNested()
   @Type(() => ClientAddressInputDto)
   correspondenceAddress?: ClientAddressInputDto;
+
+  /** Override stored applicant at convert time (omit to use intake draft). */
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  applicant?: IntakePartyDto;
+
+  /** Override stored intermediary at convert time. */
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => IntakePartyDto)
+  intermediary?: IntakePartyDto;
 }
 
 export class IntakeQueryDto extends PaginationQueryDto {

@@ -1,15 +1,35 @@
 {
   "title": "Documents",
   "subtitle": "Bibliothèque de documents à l'échelle de l'entreprise.",
+  "subtitleWorking": "Documents joints aux dossiers de travail dans l'ensemble du cabinet.",
+  "subtitleShared": "Documents partagés à l'échelle de l'entreprise : modèles, formulaires et documents internes.",
   "searchPlaceholder": "Rechercher des documents…",
   "loading": "Chargement…",
   "loadFailed": "Échec du chargement des documents.",
   "empty": "Aucun document trouvé.",
+  "tabs": {
+    "working": "Documents du dossier de travail",
+    "shared": "Documents partagés"
+  },
   "columns": {
     "name": "Nom",
-    "matter": "Matière",
+    "matter": "Fichier de travail",
     "category": "Catégorie",
     "updated": "Mis à jour",
-    "by": "Par"
+    "by": "Par",
+    "actions": "Actes"
+  },
+  "shared": {
+    "upload": "Télécharger le document partagé",
+    "uploading": "Téléchargement…",
+    "uploadFailed": "Échec du téléchargement du document partagé",
+    "uploadRequired": "Choisissez un fichier à télécharger",
+    "empty": "Aucun document partagé pour l'instant. Téléchargez des modèles, des formulaires ou des directives d'entreprise ici.",
+    "download": "Télécharger",
+    "dropHint": "Déposez un fichier ici ou choisissez-en un",
+    "chooseFile": "Choisir un fichier",
+    "displayName": "Nom d'affichage",
+    "displayNamePlaceholder": "par ex. Modèle de procuration",
+    "category": "Catégorie"
   }
 }

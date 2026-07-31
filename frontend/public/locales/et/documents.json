@@ -1,15 +1,35 @@
 {
   "title": "Dokumendid",
   "subtitle": "Kogu ettevõtet hõlmav dokumentide raamatukogu.",
+  "subtitleWorking": "Tööfailidele kogu ettevõttes lisatud dokumendid.",
+  "subtitleShared": "Kogu ettevõtte ühisdokumendid – mallid, vormid ja sisemised materjalid.",
   "searchPlaceholder": "Otsi dokumente…",
   "loading": "Laadimine…",
   "loadFailed": "Dokumentide laadimine ebaõnnestus.",
   "empty": "Dokumente ei leitud.",
+  "tabs": {
+    "working": "Tööfailide dokumendid",
+    "shared": "Jagatud dokumendid"
+  },
   "columns": {
     "name": "Nimi",
-    "matter": "Asi",
+    "matter": "Töötav fail",
     "category": "Kategooria",
     "updated": "Uuendatud",
-    "by": "Autor"
+    "by": "Autor",
+    "actions": "Tegevused"
+  },
+  "shared": {
+    "upload": "Laadige üles jagatud dokument",
+    "uploading": "Üleslaadimine…",
+    "uploadFailed": "Jagatud dokumendi üleslaadimine ebaõnnestus",
+    "uploadRequired": "Valige üleslaaditav fail",
+    "empty": "Ühtegi jagatud dokumenti pole veel. Laadige siia üles mallid, vormid või kindlad juhised.",
+    "download": "Laadi alla",
+    "dropHint": "Pukseerige fail siia või valige üks",
+    "chooseFile": "Valige fail",
+    "displayName": "Kuvatav nimi",
+    "displayNamePlaceholder": "nt. Volikirja mall",
+    "category": "Kategooria"
   }
 }

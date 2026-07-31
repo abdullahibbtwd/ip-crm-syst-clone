@@ -21,6 +21,10 @@ export const mattersApi = {
   update: (id: string, data: UpdateMatterInput) =>
     apiClient.patch<MatterDetail>(`/matters/${id}`, data),
 
+  archive: (id: string) => apiClient.post<MatterDetail>(`/matters/${id}/archive`),
+
+  restore: (id: string) => apiClient.post<MatterDetail>(`/matters/${id}/restore`),
+
   remove: (id: string) => apiClient.delete<{ deleted: boolean }>(`/matters/${id}`),
 
   listIpRights: (matterId: string) =>

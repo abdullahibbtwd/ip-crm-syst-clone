@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "估值目的"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "域名",
+        "placeholder": "例如 example.com"
+      },
+      "registrar": {
+        "label": "登记员"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "案例参考"
+      },
+      "courtOrAuthority": {
+        "label": "法院/当局"
+      },
+      "reportScope": {
+        "label": "报告范围"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "范围摘要"
+      },
+      "topic": {
+        "label": "话题"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "机关/办公室"
+      },
+      "feeReference": {
+        "label": "费用/付款参考"
+      },
+      "relatedApplication": {
+        "label": "相关申请/文件"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "工作总结"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "客户 *",
     "creating": "创造……",
-    "error": "创建物质失败",
+    "error": "无法创建工作文件",
     "jurisdictionHelp": "选择一个或多个提交管辖区。",
     "jurisdictions": "司法管辖区",
-    "matterType": "事项类型 *",
-    "open": "开放问题",
+    "matterType": "工作类型 *",
+    "open": "打开工作文件",
     "responsibleAttorney": "责任律师",
-    "title": "开启新事",
+    "title": "打开新的工作文件",
     "titleField": "标题 *",
     "titlePlaceholder": "例如 ACME 文字商标 – 欧盟"
   },
@@ -598,16 +642,27 @@
     "rejected": "被拒绝"
   },
   "layout": {
-    "backToMatters": "← 返回问题",
-    "loading": "正在加载问题...",
-    "notFound": "未发现此事。"
+    "backToMatters": "← 返回工作文件",
+    "loading": "正在加载工作文件...",
+    "notFound": "未找到工作文件。",
+    "archivedBadge": "已存档",
+    "archive": "档案",
+    "archiving": "归档...",
+    "restore": "恢复",
+    "restoring": "正在恢复…",
+    "archiveFailed": "无法归档工作文件",
+    "restoreFailed": "无法恢复工作文件",
+    "archiveConfirm": "存档此工作文件吗？ 它将离开活动列表，但在“已存档”下仍可搜索。"
   },
   "list": {
-    "description": "所有法律事务的组合视图 - 按标题、客户或申请号搜索。",
-    "descriptionPortal": "吸收转换后，您的组织将开始处理问题。",
+    "description": "所有工作文件的组合视图 - 按标题、客户或申请号搜索。",
+    "descriptionPortal": "接收转换后为您的组织打开的工作文件。",
+    "descriptionArchived": "保存已完成或闲置的工作文件以供参考。",
     "filters": {
       "allStatuses": "所有状态",
-      "allTypes": "所有类型"
+      "allTypes": "所有工作类型",
+      "active": "积极的",
+      "archived": "已存档"
     },
     "intakeQueue": "摄入队列",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "每页 {{count}}",
     "searchPlaceholder": "搜索标题、客户、申请号...",
-    "title": "事项",
-    "titlePortal": "我的事"
+    "title": "工作文件",
+    "titleArchived": "存档的工作文件",
+    "titlePortal": "我的工作文件"
   },
   "ipRightsRegister": {
     "description": "公司范围内的知识产权登记，并按客户、司法管辖区、类型、状态和有效期进行过滤。",
@@ -631,7 +687,7 @@
       "expiryFrom": "到期日",
       "expiryTo": "到期至",
       "jurisdiction": "管辖权",
-      "matterType": "物质类型",
+      "matterType": "工作类型",
       "status": "地位"
     },
     "loading": "加载中…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "首席律师",
+    "applicant": "申请人/权利持有人（所有者）",
+    "client": "客户",
+    "clientHint": "指示方——收到发票",
+    "intermediary": "中介",
     "description": "描述",
     "jurisdictions": "司法管辖区",
     "jurisdictionsEmpty": "没有管辖区记录。",
@@ -666,9 +726,19 @@
       "localRef": "本地参考。",
       "status": "地位"
     },
-    "title": "事项详情",
-    "type": "类型",
+    "title": "工作文件详细信息",
+    "type": "工作类型",
     "typeSpecific": "特定于类型的属性"
+  },
+  "parties": {
+    "title": "派对",
+    "hint": "客户是向您发出指示并开具发票的人。 仅当申请人/权利持有者（所有者）和中介人与客户不同时才设置。",
+    "applicant": "申请人/权利持有人（所有者）",
+    "applicantHint": "商标、专利或其他知识产权资产的合法所有者。 留空时默认为客户端。",
+    "intermediary": "中介（可选）",
+    "intermediaryHint": "当一方与客户不同时，代表另一方发送工作。",
+    "searchPlaceholder": "搜索客户...",
+    "clear": "清除"
   },
   "status": {
     "abandoned": "弃",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "边境措施",
+    "cases": "案例",
+    "consultation": "咨询",
     "copyright": "版权",
     "dispute_opposition": "争议/反对",
+    "domain": "域名",
     "fto_analysis": "FTO分析",
     "geographical_indication": "地理标志",
     "industrial_design": "工业设计",
+    "litigation_expert_report": "诉讼/法庭专家报告",
+    "official_fee_payment": "官方费用支付",
+    "other": "其他",
     "patent": "专利",
     "trademark": "商标",
     "utility_model": "实用新型",

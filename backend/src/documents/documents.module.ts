@@ -7,11 +7,13 @@ import { DocumentsService } from './documents.service';
 import { DocxTemplateService } from './docx-template.service';
 import { MatterDocumentsController } from './matter-documents.controller';
 import { PortalDocumentsController } from './portal-documents.controller';
+import { SharedDocumentsController } from './shared-documents.controller';
 
 @Module({
   controllers: [
     MatterDocumentsController,
     ClientDocumentsController,
+    SharedDocumentsController,
     DocumentsController,
     PortalDocumentsController,
     DocumentTemplatesController,

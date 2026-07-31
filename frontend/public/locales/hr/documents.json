@@ -1,15 +1,35 @@
 {
   "title": "Dokumenti",
   "subtitle": "Biblioteka dokumenata za cijelu tvrtku.",
+  "subtitleWorking": "Dokumenti priloženi radnim datotekama u cijeloj tvrtki.",
+  "subtitleShared": "Dokumenti koji se dijele u cijeloj tvrtki — predlošci, obrasci i interni materijali.",
   "searchPlaceholder": "Pretraživanje dokumenata…",
   "loading": "učitavanje...",
   "loadFailed": "Učitavanje dokumenata nije uspjelo.",
   "empty": "Nema pronađenih dokumenata.",
+  "tabs": {
+    "working": "Dokumenti radne datoteke",
+    "shared": "Zajednički dokumenti"
+  },
   "columns": {
     "name": "Ime",
-    "matter": "Materija",
+    "matter": "Radna datoteka",
     "category": "Kategorija",
     "updated": "Ažurirano",
-    "by": "Po"
+    "by": "Po",
+    "actions": "Radnje"
+  },
+  "shared": {
+    "upload": "Prenesi zajednički dokument",
+    "uploading": "Prijenos…",
+    "uploadFailed": "Prijenos dijeljenog dokumenta nije uspio",
+    "uploadRequired": "Odaberite datoteku za prijenos",
+    "empty": "Još nema dijeljenih dokumenata. Ovdje prenesite predloške, obrasce ili smjernice tvrtke.",
+    "download": "preuzimanje",
+    "dropHint": "Ispustite datoteku ovdje ili odaberite jednu",
+    "chooseFile": "Odaberite datoteku",
+    "displayName": "Ime za prikaz",
+    "displayNamePlaceholder": "npr. Predložak punomoći",
+    "category": "Kategorija"
   }
 }

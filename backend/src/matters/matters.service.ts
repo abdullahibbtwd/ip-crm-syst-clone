@@ -20,6 +20,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import {
   buildMatterAttributesFromIntake,
   buildMatterTitle,
+  INTAKE_TYPES_WITH_DRAFT_IP_RIGHT,
   mapIntakeMatterType,
 } from '../intake/intake-matter.mapper';
 import { DeadlinesService } from '../deadlines/deadlines.service';
@@ -38,6 +39,15 @@ import {
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
+const clientPartySelect = {
+  id: true,
+  internalCode: true,
+  companyName: true,
+  firstName: true,
+  lastName: true,
+  type: true,
+} as const;
+
 const matterListInclude = {
   assignedTo: { select: userSelect },
   jurisdictions: {
@@ -50,14 +60,13 @@ const matterListInclude = {
     },
   },
   client: {
-    select: {
-      id: true,
-      internalCode: true,
-      companyName: true,
-      firstName: true,
-      lastName: true,
-      type: true,
-    },
+    select: clientPartySelect,
+  },
+  applicantClient: {
+    select: clientPartySelect,
+  },
+  intermediaryClient: {
+    select: clientPartySelect,
   },
 } satisfies Prisma.MatterInclude;
 
@@ -93,15 +102,32 @@ export class MattersService {
 
   async create(dto: CreateMatterDto, userId: string) {
     await this.assertClientExists(dto.clientId);
+    if (dto.applicantClientId) {
+      await this.assertClientExists(dto.applicantClientId);
+    }
+    if (dto.intermediaryClientId) {
+      await this.assertClientExists(dto.intermediaryClientId);
+    }
 
     if (dto.assignedToId) {
       await this.assertUserExists(dto.assignedToId);
     }
 
+    const applicantClientId =
+      dto.applicantClientId && dto.applicantClientId !== dto.clientId
+        ? dto.applicantClientId
+        : null;
+    const intermediaryClientId =
+      dto.intermediaryClientId && dto.intermediaryClientId !== dto.clientId
+        ? dto.intermediaryClientId
+        : null;
+
     const matter = await this.prisma.$transaction(async (tx) => {
       const created = await tx.matter.create({
         data: {
           clientId: dto.clientId,
+          applicantClientId,
+          intermediaryClientId,
           matterType: dto.matterType,
           title: dto.title,
           status: dto.status ?? MatterStatus.draft,
@@ -118,7 +144,9 @@ export class MattersService {
               }
             : undefined,
           attributes: dto.attributes
-            ? { create: { attributes: dto.attributes as Prisma.InputJsonValue } }
+            ? {
+                create: { attributes: dto.attributes as Prisma.InputJsonValue },
+              }
             : { create: { attributes: {} } },
         },
         include: matterDetailInclude,
@@ -137,15 +165,32 @@ export class MattersService {
     lead: IntakeLeadForMatter,
     clientId: string,
     userId: string,
+    parties?: {
+      applicantClientId?: string | null;
+      intermediaryClientId?: string | null;
+      ownerClientId?: string;
+    },
   ) {
     const matterType = mapIntakeMatterType(lead.matterType);
     const title = buildMatterTitle(lead);
     const attributes = buildMatterAttributesFromIntake(lead);
     const jurisdiction = lead.country?.trim().toUpperCase();
+    const applicantClientId =
+      parties?.applicantClientId && parties.applicantClientId !== clientId
+        ? parties.applicantClientId
+        : null;
+    const intermediaryClientId =
+      parties?.intermediaryClientId && parties.intermediaryClientId !== clientId
+        ? parties.intermediaryClientId
+        : null;
+    const ownerClientId =
+      parties?.ownerClientId ?? applicantClientId ?? clientId;
 
     return tx.matter.create({
       data: {
         clientId,
+        applicantClientId,
+        intermediaryClientId,
         matterType,
         title,
         status: MatterStatus.active,
@@ -161,19 +206,21 @@ export class MattersService {
         attributes: {
           create: { attributes: attributes as Prisma.InputJsonValue },
         },
-        ipRights: jurisdiction
-          ? {
-              create: [
-                {
-                  clientId,
-                  rightType: matterType,
-                  title,
-                  jurisdiction,
-                  status: IpRightStatus.pending,
-                },
-              ],
-            }
-          : undefined,
+        ipRights:
+          jurisdiction && INTAKE_TYPES_WITH_DRAFT_IP_RIGHT.has(lead.matterType)
+            ? {
+                create: [
+                  {
+                    clientId,
+                    ownerClientId,
+                    rightType: matterType,
+                    title,
+                    jurisdiction,
+                    status: IpRightStatus.pending,
+                  },
+                ],
+              }
+            : undefined,
       },
       include: matterDetailInclude,
     });
@@ -192,6 +239,7 @@ export class MattersService {
       status: query.status,
       matterType: query.matterType,
       assignedToId: query.assignedToId,
+      isArchived: query.archivedOnly === true,
       ...(search
         ? {
             OR: [
@@ -267,11 +315,12 @@ export class MattersService {
   }
 
   async update(id: string, dto: UpdateMatterDto, user: AuthenticatedUser) {
-    await this.findOne(id);
+    const matter = await this.findOne(id);
 
     if (
       dto.status &&
-      (dto.status === MatterStatus.closed || dto.status === MatterStatus.abandoned)
+      (dto.status === MatterStatus.closed ||
+        dto.status === MatterStatus.abandoned)
     ) {
       const canClose = user.roles.some((r) =>
         (MATTER_CLOSE_ROLES as readonly string[]).includes(r),
@@ -285,6 +334,12 @@ export class MattersService {
 
     if (dto.assignedToId) {
       await this.assertUserExists(dto.assignedToId);
+    }
+    if (dto.applicantClientId) {
+      await this.assertClientExists(dto.applicantClientId);
+    }
+    if (dto.intermediaryClientId) {
+      await this.assertClientExists(dto.intermediaryClientId);
     }
 
     return this.prisma.$transaction(async (tx) => {
@@ -321,9 +376,57 @@ export class MattersService {
           status: dto.status,
           assignedToId: dto.assignedToId,
           description: dto.description,
+          ...(dto.applicantClientId !== undefined
+            ? {
+                applicantClientId:
+                  dto.applicantClientId &&
+                  dto.applicantClientId !== matter.clientId
+                    ? dto.applicantClientId
+                    : null,
+              }
+            : {}),
+          ...(dto.intermediaryClientId !== undefined
+            ? {
+                intermediaryClientId:
+                  dto.intermediaryClientId &&
+                  dto.intermediaryClientId !== matter.clientId
+                    ? dto.intermediaryClientId
+                    : null,
+              }
+            : {}),
         },
         include: matterDetailInclude,
       });
+    });
+  }
+
+  async archive(id: string, userId: string) {
+    const matter = await this.findOne(id);
+    if (matter.isArchived) return matter;
+
+    return this.prisma.matter.update({
+      where: { id },
+      data: {
+        isArchived: true,
+        archivedAt: new Date(),
+        archivedById: userId,
+      },
+      include: matterDetailInclude,
+    });
+  }
+
+  async restore(id: string) {
+    const matter = await this.findOne(id);
+    if (!matter.isArchived) return matter;
+
+    return this.prisma.matter.update({
+      where: { id },
+      data: {
+        isArchived: false,
+        archivedAt: null,
+        archivedById: null,
+      },
+      include: matterDetailInclude,
     });
   }
 
@@ -344,11 +447,17 @@ export class MattersService {
 
   async createIpRight(matterId: string, dto: CreateIpRightDto) {
     const matter = await this.findOne(matterId);
+    const ownerClientId =
+      dto.ownerClientId ?? matter.applicantClientId ?? matter.clientId;
+    if (dto.ownerClientId) {
+      await this.assertClientExists(dto.ownerClientId);
+    }
 
     return this.prisma.ipRight.create({
       data: {
         matterId,
         clientId: matter.clientId,
+        ownerClientId,
         rightType: dto.rightType,
         title: dto.title,
         applicationNumber: dto.applicationNumber,
@@ -445,7 +554,7 @@ export class MattersService {
             authority,
             documentVersionId: dto.documentVersionId,
             filingDate: dto.filingDate,
-          } as Prisma.InputJsonValue,
+          },
         },
       });
 

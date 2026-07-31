@@ -1,6 +1,7 @@
-import { Type } from 'class-transformer';
+import { Type, Transform } from 'class-transformer';
 import {
   IsArray,
+  IsBoolean,
   IsEnum,
   IsObject,
   IsOptional,
@@ -36,6 +37,14 @@ export class MatterJurisdictionDto {
 export class CreateMatterDto {
   @IsUUID()
   clientId!: string;
+
+  @IsOptional()
+  @IsUUID()
+  applicantClientId?: string;
+
+  @IsOptional()
+  @IsUUID()
+  intermediaryClientId?: string;
 
   @IsEnum(MatterType)
   matterType!: MatterType;
@@ -89,6 +98,14 @@ export class UpdateMatterDto {
   assignedToId?: string | null;
 
   @IsOptional()
+  @IsUUID()
+  applicantClientId?: string | null;
+
+  @IsOptional()
+  @IsUUID()
+  intermediaryClientId?: string | null;
+
+  @IsOptional()
   @IsString()
   @MaxLength(5000)
   description?: string | null;
@@ -125,4 +142,10 @@ export class MatterQueryDto extends PaginationQueryDto {
   @IsString()
   @MaxLength(200)
   search?: string;
+
+  /** When true, list only archived working files. Default lists non-archived. */
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true)
+  @IsBoolean()
+  archivedOnly?: boolean;
 }

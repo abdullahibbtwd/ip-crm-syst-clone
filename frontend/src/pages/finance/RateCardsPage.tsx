@@ -35,23 +35,12 @@ import {
   formatMoney,
 } from '@/features/billing/utils'
 import { useClients } from '@/features/crm/hooks/useClients'
-import { matterTypeLabel } from '@/features/matters/utils'
+import { ALL_MATTER_TYPES, matterTypeLabel } from '@/features/matters/utils'
 import type { MatterType } from '@/features/matters/types'
 import { getApiErrorMessage } from '@/lib/api-client'
 import i18n from '@/i18n'
 
-const MATTER_TYPES = [
-  'trademark',
-  'patent',
-  'utility_model',
-  'industrial_design',
-  'copyright',
-  'geographical_indication',
-  'border_measures',
-  'dispute_opposition',
-  'fto_analysis',
-  'valuation',
-] as MatterType[]
+const MATTER_TYPES = ALL_MATTER_TYPES
 
 function clientLabel(card: RateCard) {
   if (!card.client) return i18n.t('rateCards.firmWide', { ns: 'finance' })

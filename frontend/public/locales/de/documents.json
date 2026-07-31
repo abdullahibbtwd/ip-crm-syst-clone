@@ -1,15 +1,35 @@
 {
   "title": "Unterlagen",
   "subtitle": "Unternehmensweite Dokumentenbibliothek.",
+  "subtitleWorking": "An Arbeitsdateien im gesamten Unternehmen angehängte Dokumente.",
+  "subtitleShared": "Unternehmensweit geteilte Dokumente – Vorlagen, Formulare und interne Materialien.",
   "searchPlaceholder": "Dokumente durchsuchen…",
   "loading": "Laden…",
   "loadFailed": "Dokumente konnten nicht geladen werden.",
   "empty": "Keine Dokumente gefunden.",
+  "tabs": {
+    "working": "Arbeitsaktendokumente",
+    "shared": "Geteilte Dokumente"
+  },
   "columns": {
     "name": "Name",
-    "matter": "Gegenstand",
+    "matter": "Arbeitsdatei",
     "category": "Kategorie",
     "updated": "Aktualisiert",
-    "by": "Von"
+    "by": "Von",
+    "actions": "Aktionen"
+  },
+  "shared": {
+    "upload": "Geteiltes Dokument hochladen",
+    "uploading": "Hochladen…",
+    "uploadFailed": "Das Hochladen des freigegebenen Dokuments ist fehlgeschlagen",
+    "uploadRequired": "Wählen Sie eine Datei zum Hochladen aus",
+    "empty": "Noch keine freigegebenen Dokumente. Laden Sie hier Vorlagen, Formulare oder feste Richtlinien hoch.",
+    "download": "Herunterladen",
+    "dropHint": "Legen Sie hier eine Datei ab oder wählen Sie eine aus",
+    "chooseFile": "Datei auswählen",
+    "displayName": "Anzeigename",
+    "displayNamePlaceholder": "z.B. Vorlage für eine Vollmacht",
+    "category": "Kategorie"
   }
 }

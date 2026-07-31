@@ -220,17 +220,17 @@
     "title": "Historia e marrëdhënies"
   },
   "matters": {
-    "empty": "Nuk ka ende rëndësi. Hap një çështje për të nisur punën e ndjekjes penale për këtë klient.",
-    "loading": "Po ngarkon çështjet…",
-    "openNew": "Hap një çështje të re",
+    "empty": "Nuk ka ende skedarë pune. Hapni një dosje pune për të nisur punën e ndjekjes penale për këtë klient.",
+    "loading": "Po ngarkon skedarët e punës…",
+    "openNew": "Hapni skedarin e ri të punës",
     "table": {
       "assigned": "Caktuar",
       "jurisdictions": "Juridiksionet",
       "status": "Statusi",
       "title": "Titulli",
-      "type": "Lloji"
+      "type": "Lloji i punës"
     },
-    "title": "Çështjet"
+    "title": "Skedarët e punës"
   },
   "accessHistory": {
     "title": "Historia e aksesit të të dhënave",
@@ -320,7 +320,7 @@
     "correspondence": "Korrespondencë",
     "documents": "Dokumentet",
     "history": "Historia",
-    "matters": "Çështjet",
+    "matters": "Skedarët e punës",
     "watch": "Shikoni",
     "offices": "Zyrat",
     "overview": "Vështrim i përgjithshëm",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Dokumentet",
-    "description": "Dosjet dhe dokumentet e klientit që lidhen me çështjet e këtij klienti.",
+    "description": "Skedarët dhe dokumentet e klientit të lidhur me skedarët e punës të këtij klienti.",
     "upload": "Ngarko",
     "uploadAction": "Ngarko skedarin",
     "uploading": "Po ngarkohet…",

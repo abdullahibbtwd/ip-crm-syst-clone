@@ -220,17 +220,17 @@
     "title": "Povijest veze"
   },
   "matters": {
-    "empty": "Još nije bitno. Otvorite predmet kako biste pokrenuli postupak protiv ovog klijenta.",
-    "loading": "Učitavanje pitanja...",
-    "openNew": "Otvorite novu temu",
+    "empty": "Još nema radnih datoteka. Otvorite radni dosje kako biste započeli rad na procesuiranju ovog klijenta.",
+    "loading": "Učitavanje radnih datoteka…",
+    "openNew": "Otvorite novu radnu datoteku",
     "table": {
       "assigned": "Dodijeljeno",
       "jurisdictions": "Nadležnosti",
       "status": "Status",
       "title": "Titula",
-      "type": "Tip"
+      "type": "Vrsta rada"
     },
-    "title": "Pitanja"
+    "title": "Radne datoteke"
   },
   "accessHistory": {
     "title": "Povijest pristupa podacima",
@@ -320,7 +320,7 @@
     "correspondence": "dopisivanje",
     "documents": "Dokumenti",
     "history": "Povijest",
-    "matters": "Pitanja",
+    "matters": "Radne datoteke",
     "watch": "Gledati",
     "offices": "Uredi",
     "overview": "Pregled",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Dokumenti",
-    "description": "Datoteke i dokumenti klijenta povezani s predmetima ovog klijenta.",
+    "description": "Datoteke klijenta i dokumenti povezani s radnim datotekama ovog klijenta.",
     "upload": "Upload",
     "uploadAction": "Učitaj datoteku",
     "uploading": "Prijenos…",

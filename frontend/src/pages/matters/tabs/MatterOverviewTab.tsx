@@ -14,6 +14,7 @@ import {
   jurisdictionStatusLabel,
   matterTypeLabel,
 } from '@/features/matters/utils'
+import { clientDisplayName } from '@/features/crm/utils'
 import { getCountryLabel } from '@/lib/countries'
 import type { MatterTabContext } from '../MatterLayout'
 
@@ -46,6 +47,29 @@ export function MatterOverviewTab() {
             <span className="text-muted-foreground">{t('overview.openedBy')}</span>
             <span>{matter.filedBy?.fullName ?? '-'}</span>
           </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-muted-foreground">
+              {t('overview.client')}
+              <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal">
+                {t('overview.clientHint')}
+              </span>
+            </span>
+            <span className="text-right">{clientDisplayName(matter.client)}</span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-muted-foreground">{t('overview.applicant')}</span>
+            <span className="text-right">
+              {matter.applicantClient
+                ? clientDisplayName(matter.applicantClient)
+                : clientDisplayName(matter.client)}
+            </span>
+          </div>
+          {matter.intermediaryClient ? (
+            <div className="flex justify-between gap-4">
+              <span className="text-muted-foreground">{t('overview.intermediary')}</span>
+              <span className="text-right">{clientDisplayName(matter.intermediaryClient)}</span>
+            </div>
+          ) : null}
           {matter.description ? (
             <div className="space-y-1 border-t pt-3">
               <span className="text-muted-foreground">{t('overview.description')}</span>

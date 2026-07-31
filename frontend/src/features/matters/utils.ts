@@ -54,7 +54,15 @@ export const MATTER_TYPE_LABELS: Record<MatterType, string> = {
   fto_analysis: 'FTO analysis',
   valuation: 'Valuation',
   dispute_opposition: 'Dispute / opposition',
+  cases: 'Cases',
+  domain: 'Domains',
+  litigation_expert_report: 'Litigation / Court Expert Reports',
+  consultation: 'Consultations',
+  official_fee_payment: 'Official Fee Payments',
+  other: 'Other',
 }
+
+export const ALL_MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
 
 /** @deprecated Use matterStatusLabel() for translated labels */
 export const MATTER_STATUS_LABELS: Record<
@@ -173,6 +181,28 @@ const MATTER_ATTRIBUTE_FIELD_DEFS: Record<MatterType, AttributeFieldDef[]> = {
     { key: 'disputeType', type: 'text' },
     { key: 'basisSummary', type: 'textarea' },
   ],
+  cases: [],
+  domain: [
+    { key: 'domainName', type: 'text', hasPlaceholder: true },
+    { key: 'registrar', type: 'text' },
+  ],
+  litigation_expert_report: [
+    { key: 'courtOrAuthority', type: 'text' },
+    { key: 'caseReference', type: 'text' },
+    { key: 'reportScope', type: 'textarea' },
+  ],
+  consultation: [
+    { key: 'topic', type: 'text' },
+    { key: 'scopeSummary', type: 'textarea' },
+  ],
+  official_fee_payment: [
+    { key: 'authority', type: 'text' },
+    { key: 'feeReference', type: 'text' },
+    { key: 'relatedApplication', type: 'text' },
+  ],
+  other: [
+    { key: 'workSummary', type: 'textarea' },
+  ],
 }
 
 function translateAttributeField(
@@ -237,6 +267,24 @@ export const MATTER_ATTRIBUTE_FIELDS: Record<MatterType, AttributeFieldConfig[]>
   },
   get dispute_opposition() {
     return getMatterAttributeFields('dispute_opposition')
+  },
+  get cases() {
+    return getMatterAttributeFields('cases')
+  },
+  get domain() {
+    return getMatterAttributeFields('domain')
+  },
+  get litigation_expert_report() {
+    return getMatterAttributeFields('litigation_expert_report')
+  },
+  get consultation() {
+    return getMatterAttributeFields('consultation')
+  },
+  get official_fee_payment() {
+    return getMatterAttributeFields('official_fee_payment')
+  },
+  get other() {
+    return getMatterAttributeFields('other')
   },
 }
 

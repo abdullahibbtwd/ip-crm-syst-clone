@@ -5,6 +5,7 @@ import { Drawer } from '@/components/crm/Drawer'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { AttorneyAssigneeSelect } from '@/components/users/AttorneyAssigneeSelect'
 import { MatterAttributeFields } from '@/components/matters/MatterAttributeFields'
+import { MatterPartyLink } from '@/components/matters/MatterPartyLink'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -18,11 +19,12 @@ import {
 } from '@/components/ui/select'
 import { useCreateMatter } from '@/features/matters/hooks/useMatters'
 import type { MatterType } from '@/features/matters/types'
-import { MATTER_TYPE_LABELS } from '@/features/matters/utils'
+import { ALL_MATTER_TYPES, matterTypeLabel } from '@/features/matters/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { getCountryLabel } from '@/lib/countries'
+import { useTranslation } from 'react-i18next'
 
-const MATTER_TYPES = Object.keys(MATTER_TYPE_LABELS) as MatterType[]
+const MATTER_TYPES = ALL_MATTER_TYPES
 
 type CreateMatterDrawerProps = {
   clientId: string
@@ -31,6 +33,7 @@ type CreateMatterDrawerProps = {
 }
 
 export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDrawerProps) {
+  const { t } = useTranslation('matters')
   const navigate = useNavigate()
   const createMatter = useCreateMatter()
 
@@ -40,6 +43,8 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
   const [jurisdictionCodes, setJurisdictionCodes] = useState<string[]>(['BG'])
   const [jurisdictionPicker, setJurisdictionPicker] = useState('')
   const [assignedToId, setAssignedToId] = useState<string | undefined>()
+  const [applicantClientId, setApplicantClientId] = useState<string | undefined>()
+  const [intermediaryClientId, setIntermediaryClientId] = useState<string | undefined>()
   const [attributes, setAttributes] = useState<Record<string, unknown>>({})
   const [error, setError] = useState<string | null>(null)
 
@@ -51,6 +56,8 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
       setJurisdictionCodes(['BG'])
       setJurisdictionPicker('')
       setAssignedToId(undefined)
+      setApplicantClientId(undefined)
+      setIntermediaryClientId(undefined)
       setAttributes({})
       setError(null)
     }
@@ -90,6 +97,8 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
     try {
       const matter = await createMatter.mutateAsync({
         clientId,
+        applicantClientId,
+        intermediaryClientId,
         matterType,
         title: title.trim(),
         description: description.trim() || undefined,
@@ -106,10 +115,10 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
   }
 
   return (
-    <Drawer open={open} onClose={onClose} title="Open new matter" className="max-w-lg">
+    <Drawer open={open} onClose={onClose} title={t('createDrawer.title')} className="max-w-lg">
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-1.5">
-          <label className="text-sm text-muted-foreground">Matter type</label>
+          <label className="text-sm text-muted-foreground">{t('createDrawer.matterType')}</label>
           <Select value={matterType} onValueChange={(v) => setMatterType(v as MatterType)}>
             <SelectTrigger>
               <SelectValue />
@@ -117,7 +126,7 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
             <SelectContent>
               {MATTER_TYPES.map((type) => (
                 <SelectItem key={type} value={type}>
-                  {MATTER_TYPE_LABELS[type]}
+                  {matterTypeLabel(type)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -146,6 +155,25 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
         <div className="space-y-1.5">
           <label className="text-sm text-muted-foreground">Responsible attorney</label>
           <AttorneyAssigneeSelect value={assignedToId} onValueChange={setAssignedToId} />
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-sm font-medium">{t('parties.title')}</p>
+          <p className="text-xs text-muted-foreground">{t('parties.hint')}</p>
+          <MatterPartyLink
+            label={t('parties.applicant')}
+            hint={t('parties.applicantHint')}
+            excludeClientId={clientId}
+            value={applicantClientId}
+            onChange={setApplicantClientId}
+          />
+          <MatterPartyLink
+            label={t('parties.intermediary')}
+            hint={t('parties.intermediaryHint')}
+            excludeClientId={clientId}
+            value={intermediaryClientId}
+            onChange={setIntermediaryClientId}
+          />
         </div>
 
         <div className="space-y-2">

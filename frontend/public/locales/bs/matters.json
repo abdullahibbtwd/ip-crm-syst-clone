@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Svrha vrednovanja"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Ime domene",
+        "placeholder": "npr. example.com"
+      },
+      "registrar": {
+        "label": "Registrar"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Referenca slučaja"
+      },
+      "courtOrAuthority": {
+        "label": "Sud/vlast"
+      },
+      "reportScope": {
+        "label": "Obim izvještaja"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Sažetak djelokruga"
+      },
+      "topic": {
+        "label": "Tema"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Vlast/kancelarija"
+      },
+      "feeReference": {
+        "label": "Referenca naknade / uplate"
+      },
+      "relatedApplication": {
+        "label": "Povezana aplikacija/fajl"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Sažetak rada"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "klijent *",
     "creating": "Kreiranje…",
-    "error": "Stvaranje materije nije uspjelo",
+    "error": "Kreiranje radnog fajla nije uspjelo",
     "jurisdictionHelp": "Odaberite jednu ili više jurisdikcija za podnošenje.",
     "jurisdictions": "Jurisdikcije",
-    "matterType": "Vrsta materije *",
-    "open": "Otvorena stvar",
+    "matterType": "Vrsta posla *",
+    "open": "Otvorite radni fajl",
     "responsibleAttorney": "Odgovorni advokat",
-    "title": "Otvorite novu stvar",
+    "title": "Otvorite novi radni fajl",
     "titleField": "Naslov *",
     "titlePlaceholder": "npr. ACME slovni znak – EU"
   },
@@ -598,16 +642,27 @@
     "rejected": "Odbijeno"
   },
   "layout": {
-    "backToMatters": "← Povratak na stvari",
-    "loading": "Učitavanje predmeta…",
-    "notFound": "Materija nije pronađena."
+    "backToMatters": "← Povratak na radne fajlove",
+    "loading": "Učitavanje radnog fajla…",
+    "notFound": "Radni fajl nije pronađen.",
+    "archivedBadge": "Arhivirano",
+    "archive": "Arhiva",
+    "archiving": "Arhiviranje…",
+    "restore": "Vrati",
+    "restoring": "Vraćanje…",
+    "archiveFailed": "Arhiviranje radne datoteke nije uspjelo",
+    "restoreFailed": "Vraćanje radne datoteke nije uspjelo",
+    "archiveConfirm": "Arhivirati ovaj radni fajl? Napustit će aktivnu listu, ali će ostati pretraživ pod Arhivirano."
   },
   "list": {
-    "description": "Pregled portfelja svih pravnih stvari — pretraga po naslovu, klijentu ili broju prijave.",
-    "descriptionPortal": "Pitanja otvorena za vašu organizaciju nakon konverzije prijema.",
+    "description": "Pregled portfelja svih radnih datoteka — pretražujte po naslovu, klijentu ili broju aplikacije.",
+    "descriptionPortal": "Radni fajlovi otvoreni za vašu organizaciju nakon konverzije unosa.",
+    "descriptionArchived": "Završeni ili neaktivni radni fajlovi čuvaju se za referencu.",
     "filters": {
       "allStatuses": "Svi statusi",
-      "allTypes": "Sve vrste"
+      "allTypes": "Sve vrste poslova",
+      "active": "Aktivan",
+      "archived": "Arhivirano"
     },
     "intakeQueue": "Intake queue",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} po stranici",
     "searchPlaceholder": "Pretražite naslov, klijent, br.",
-    "title": "Stvari",
-    "titlePortal": "Moje stvari"
+    "title": "Radni fajlovi",
+    "titleArchived": "Arhivirani radni fajlovi",
+    "titlePortal": "Moji radni fajlovi"
   },
   "ipRightsRegister": {
     "description": "Registar prava intelektualne svojine u cijeloj firmi sa filterima prema klijentu, nadležnosti, vrsti, statusu i isteku.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Istek od",
       "expiryTo": "Istek do",
       "jurisdiction": "Nadležnost",
-      "matterType": "Vrsta materije",
+      "matterType": "Vrsta rada",
       "status": "Status"
     },
     "loading": "Učitavanje…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Glavni advokat",
+    "applicant": "Podnosilac zahtjeva / nosilac prava (vlasnik)",
+    "client": "Klijent",
+    "clientHint": "Instruktor — prima račune",
+    "intermediary": "Posrednik",
     "description": "Opis",
     "jurisdictions": "Jurisdikcije",
     "jurisdictionsEmpty": "Nema zabilježenih jurisdikcija.",
@@ -666,9 +726,19 @@
       "localRef": "Lokalna ref.",
       "status": "Status"
     },
-    "title": "Detalji stvari",
-    "type": "Tip",
+    "title": "Detalji radnog fajla",
+    "type": "Vrsta rada",
     "typeSpecific": "Atributi specifični za tip"
+  },
+  "parties": {
+    "title": "Zabave",
+    "hint": "Klijent je taj koji vas instrukcije i fakturiše. Podesite Podnosioca/Nosioca prava (Vlasnika) i Posrednika samo kada se razlikuju od Klijenta.",
+    "applicant": "Podnosilac zahtjeva / nosilac prava (vlasnik)",
+    "applicantHint": "Pravni vlasnik žiga, patenta ili drugog IP imovine. Podrazumevano za klijenta kada je ostavljeno prazno.",
+    "intermediary": "posrednik (opciono)",
+    "intermediaryHint": "Strana koja šalje posao u ime drugog, kada se razlikuje od Klijenta.",
+    "searchPlaceholder": "Traži klijente…",
+    "clear": "Jasno"
   },
   "status": {
     "abandoned": "Napušteno",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Granične mjere",
+    "cases": "Slučajevi",
+    "consultation": "Konsultacije",
     "copyright": "Copyright",
     "dispute_opposition": "Spor / opozicija",
+    "domain": "Domains",
     "fto_analysis": "FTO analiza",
     "geographical_indication": "Geografska oznaka",
     "industrial_design": "Industrijski dizajn",
+    "litigation_expert_report": "Parnice / Izvještaji sudskih vještaka",
+    "official_fee_payment": "Zvanično plaćanje naknada",
+    "other": "Ostalo",
     "patent": "Patent",
     "trademark": "Trademark",
     "utility_model": "Korisni model",

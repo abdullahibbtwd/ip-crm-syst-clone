@@ -336,9 +336,72 @@ describe('IntakeService (core paths)', () => {
     await service.convert('i1', { gdprConsent: true } as never, staff);
 
     expect(clientsService.createInTransaction).toHaveBeenCalled();
-    expect(mattersService.createFromIntake).toHaveBeenCalled();
+    expect(mattersService.createFromIntake).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ id: 'i1' }),
+      'c1',
+      'u1',
+      expect.objectContaining({
+        applicantClientId: null,
+        intermediaryClientId: null,
+        ownerClientId: 'c1',
+      }),
+    );
     expect(deadlinesService.generateInitialDeadlines).toHaveBeenCalledWith('m1');
     expect(history.log).toHaveBeenCalled();
+  });
+
+  it('convert passes distinct applicant party to createFromIntake', async () => {
+    const lead = {
+      id: 'i1',
+      status: IntakeStatus.approved,
+      enquirerType: IntakeEnquirerType.company,
+      fullName: null,
+      email: 'counsel@firm.com',
+      phone: null,
+      companyName: 'ABC Law Firm',
+      country: 'BG',
+      matterType: IntakeMatterType.trademark,
+      assignedUserId: 'u1',
+      submittedClientId: null,
+      notes: null,
+      source: 'internal',
+      applicantParty: {
+        type: 'company',
+        companyName: 'Apple Inc.',
+        country: 'US',
+      },
+      intermediaryParty: null,
+    };
+    prisma.intakeLead.findUnique.mockResolvedValue(lead);
+    clientsService.createInTransaction
+      .mockResolvedValueOnce({
+        id: 'law-firm',
+        internalCode: 'CL-1',
+      })
+      .mockResolvedValueOnce({
+        id: 'apple',
+        internalCode: 'CL-2',
+      });
+
+    // resolveMatterParties uses clientsService.createInTransaction via util;
+    // convert already mocks createInTransaction for instructing client.
+    // For applicant create-lite we need the util to run inside the transaction —
+    // but createFromIntake is mocked, so we only assert the parties arg after
+    // making resolveMatterParties work. The util is called with real clientsService mock.
+    // Second createInTransaction is for applicant.
+    await service.convert('i1', { gdprConsent: true } as never, staff);
+
+    expect(mattersService.createFromIntake).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ id: 'i1' }),
+      'law-firm',
+      'u1',
+      expect.objectContaining({
+        applicantClientId: 'apple',
+        ownerClientId: 'apple',
+      }),
+    );
   });
 
   it('updateOwn rejects cross-client portal access', async () => {

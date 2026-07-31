@@ -220,17 +220,17 @@
     "title": "Istorija odnosa"
   },
   "matters": {
-    "empty": "Još uvek nije važno. Otvorite predmet za pokretanje krivičnog gonjenja za ovog klijenta.",
-    "loading": "Učitavanje stvari…",
-    "openNew": "Otvorite novu stvar",
+    "empty": "Još nema radnih fajlova. Otvorite radni fajl da započnete rad na tužilaštvu za ovog klijenta.",
+    "loading": "Učitavanje radnih fajlova…",
+    "openNew": "Otvorite novi radni fajl",
     "table": {
       "assigned": "Dodijeljeno",
       "jurisdictions": "Jurisdikcije",
       "status": "Status",
       "title": "Naslov",
-      "type": "Tip"
+      "type": "Vrsta rada"
     },
-    "title": "Stvari"
+    "title": "Radni fajlovi"
   },
   "accessHistory": {
     "title": "Istorija pristupa podacima",
@@ -320,7 +320,7 @@
     "correspondence": "Prepiska",
     "documents": "Dokumenti",
     "history": "Istorija",
-    "matters": "Stvari",
+    "matters": "Radni fajlovi",
     "watch": "Gledaj",
     "offices": "Uredi",
     "overview": "Pregled",
@@ -328,7 +328,7 @@
   },
   "clientFiles": {
     "title": "Dokumenti",
-    "description": "Klijentski fajlovi i dokumenti povezani sa stvarima ovog klijenta.",
+    "description": "Klijentski fajlovi i dokumenti povezani sa radnim fajlovima ovog klijenta.",
     "upload": "Upload",
     "uploadAction": "Upload file",
     "uploading": "Otpremanje…",

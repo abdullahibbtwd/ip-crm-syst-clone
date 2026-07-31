@@ -18,6 +18,7 @@ import {
 import { convertIntakeSchema } from '@/features/intake/schemas'
 import {
   conflictEntityLabel,
+  formatIntakePartyLabel,
   formatSimilarity,
   groupConflictHits,
   intakeDisplayName,
@@ -350,6 +351,19 @@ export function IntakeDetailPage() {
                   {lead.country ? ` · ${lead.country}` : ''}
                   {lead.assignedUser ? ` · ${lead.assignedUser.fullName}` : ''}
                 </li>
+                <li>
+                  <span className="text-foreground">{t('intake:convert.applicantLabel')}</span>{' '}
+                  {formatIntakePartyLabel(lead.applicantParty) ??
+                    t('intake:convert.sameAsClient')}
+                </li>
+                {lead.intermediaryParty ? (
+                  <li>
+                    <span className="text-foreground">
+                      {t('intake:convert.intermediaryLabel')}
+                    </span>{' '}
+                    {formatIntakePartyLabel(lead.intermediaryParty) ?? '—'}
+                  </li>
+                ) : null}
               </ul>
             </div>
 

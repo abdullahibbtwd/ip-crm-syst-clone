@@ -24,6 +24,11 @@ export type IntakeMatterType =
   | 'patent'
   | 'utility_model'
   | 'design'
+  | 'cases'
+  | 'domain'
+  | 'litigation_expert_report'
+  | 'consultation'
+  | 'official_fee_payment'
   | 'other'
 
 export type IntakeSource = 'internal' | 'portal'
@@ -113,8 +118,18 @@ export type IntakeLead = {
     matterType: string
     status: string
   } | null
+  applicantParty?: IntakePartyPayload | null
+  intermediaryParty?: IntakePartyPayload | null
   counterparties: Counterparty[]
   conflictChecks: IntakeConflictCheck[]
+}
+
+export type IntakePartyPayload = {
+  existingClientId?: string
+  type?: 'company' | 'individual'
+  companyName?: string
+  fullName?: string
+  country?: string
 }
 
 export type IntakeListResponse = Paginated<IntakeLead>

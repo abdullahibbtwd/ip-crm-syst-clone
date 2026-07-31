@@ -25,9 +25,18 @@ describe('intake-matter.mapper', () => {
       expect(mapIntakeMatterType(IntakeMatterType.design)).toBe(
         MatterType.industrial_design,
       );
-      expect(mapIntakeMatterType(IntakeMatterType.other)).toBe(
-        MatterType.dispute_opposition,
+      expect(mapIntakeMatterType(IntakeMatterType.cases)).toBe(MatterType.cases);
+      expect(mapIntakeMatterType(IntakeMatterType.domain)).toBe(MatterType.domain);
+      expect(
+        mapIntakeMatterType(IntakeMatterType.litigation_expert_report),
+      ).toBe(MatterType.litigation_expert_report);
+      expect(mapIntakeMatterType(IntakeMatterType.consultation)).toBe(
+        MatterType.consultation,
       );
+      expect(mapIntakeMatterType(IntakeMatterType.official_fee_payment)).toBe(
+        MatterType.official_fee_payment,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.other)).toBe(MatterType.other);
     });
   });
 

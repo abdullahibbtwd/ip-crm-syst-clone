@@ -105,6 +105,50 @@
       "valuationPurpose": {
         "label": "Bewertungszweck"
       }
+    },
+    "domain": {
+      "domainName": {
+        "label": "Domainname",
+        "placeholder": "z.B. example.com"
+      },
+      "registrar": {
+        "label": "Registrator"
+      }
+    },
+    "litigation_expert_report": {
+      "caseReference": {
+        "label": "Fallreferenz"
+      },
+      "courtOrAuthority": {
+        "label": "Gericht / Behörde"
+      },
+      "reportScope": {
+        "label": "Berichtsumfang"
+      }
+    },
+    "consultation": {
+      "scopeSummary": {
+        "label": "Zusammenfassung des Umfangs"
+      },
+      "topic": {
+        "label": "Thema"
+      }
+    },
+    "official_fee_payment": {
+      "authority": {
+        "label": "Behörde / Amt"
+      },
+      "feeReference": {
+        "label": "Gebühren-/Zahlungsreferenz"
+      },
+      "relatedApplication": {
+        "label": "Zugehörige Anwendung/Datei"
+      }
+    },
+    "other": {
+      "workSummary": {
+        "label": "Zusammenfassung der Arbeit"
+      }
     }
   },
   "billing": {
@@ -352,13 +396,13 @@
   "createDrawer": {
     "client": "Kunde *",
     "creating": "Erstellen…",
-    "error": "Materie konnte nicht erstellt werden",
+    "error": "Arbeitsdatei konnte nicht erstellt werden",
     "jurisdictionHelp": "Wählen Sie einen oder mehrere Gerichtsstände für die Einreichung aus.",
     "jurisdictions": "Gerichtsbarkeiten",
-    "matterType": "Materietyp *",
-    "open": "Offene Angelegenheit",
+    "matterType": "Arbeitsart *",
+    "open": "Arbeitsdatei öffnen",
     "responsibleAttorney": "Verantwortlicher Anwalt",
-    "title": "Neue Angelegenheit eröffnen",
+    "title": "Neue Arbeitsdatei öffnen",
     "titleField": "Titel *",
     "titlePlaceholder": "z.B. Wortmarke ACME – EU"
   },
@@ -598,16 +642,27 @@
     "rejected": "Abgelehnt"
   },
   "layout": {
-    "backToMatters": "← Zurück zur Sache",
-    "loading": "Inhalt wird geladen…",
-    "notFound": "Materie nicht gefunden."
+    "backToMatters": "← Zurück zu den Arbeitsdateien",
+    "loading": "Arbeitsdatei wird geladen…",
+    "notFound": "Arbeitsdatei nicht gefunden.",
+    "archivedBadge": "Archiviert",
+    "archive": "Archiv",
+    "archiving": "Archivierung…",
+    "restore": "Wiederherstellen",
+    "restoring": "Wiederherstellung…",
+    "archiveFailed": "Die Arbeitsdatei konnte nicht archiviert werden",
+    "restoreFailed": "Die Arbeitsdatei konnte nicht wiederhergestellt werden",
+    "archiveConfirm": "Diese Arbeitsdatei archivieren? Es wird aus der aktiven Liste entfernt, kann aber weiterhin unter „Archiviert“ durchsucht werden."
   },
   "list": {
-    "description": "Portfolioansicht aller Rechtsangelegenheiten – Suche nach Titel, Mandant oder Antragsnummer.",
-    "descriptionPortal": "Nach der Aufnahmekonvertierung wurden für Ihre Organisation Angelegenheiten eröffnet.",
+    "description": "Portfolioansicht aller Arbeitsdateien – Suche nach Titel, Kunde oder Antragsnummer.",
+    "descriptionPortal": "Nach der Aufnahmekonvertierung für Ihre Organisation geöffnete Arbeitsdateien.",
+    "descriptionArchived": "Abgeschlossene oder inaktive Arbeitsdateien werden als Referenz aufbewahrt.",
     "filters": {
       "allStatuses": "Alle Status",
-      "allTypes": "Alle Arten"
+      "allTypes": "Alle Arbeitstypen",
+      "active": "Aktiv",
+      "archived": "Archiviert"
     },
     "intakeQueue": "Einlasswarteschlange",
     "pagination": {
@@ -615,8 +670,9 @@
     },
     "perPage": "{{count}} pro Seite",
     "searchPlaceholder": "Suchen Sie nach Titel, Kunde, Antragsnummer ...",
-    "title": "Angelegenheiten",
-    "titlePortal": "Meine Angelegenheiten"
+    "title": "Arbeitsdateien",
+    "titleArchived": "Archivierte Arbeitsdateien",
+    "titlePortal": "Meine Arbeitsdateien"
   },
   "ipRightsRegister": {
     "description": "Firmenweites Register von IP-Rechten mit Filtern nach Kunde, Gerichtsbarkeit, Art, Status und Ablauf.",
@@ -631,7 +687,7 @@
       "expiryFrom": "Ablauf ab",
       "expiryTo": "Ablauf bis",
       "jurisdiction": "Zuständigkeit",
-      "matterType": "Materietyp",
+      "matterType": "Arbeitstyp",
       "status": "Status"
     },
     "loading": "Laden…",
@@ -656,6 +712,10 @@
   },
   "overview": {
     "assignedTo": "Hauptanwalt",
+    "applicant": "Antragsteller / Rechteinhaber (Inhaber)",
+    "client": "Kunde",
+    "clientHint": "Auftraggeber – erhält Rechnungen",
+    "intermediary": "Vermittlerin",
     "description": "Beschreibung",
     "jurisdictions": "Gerichtsbarkeiten",
     "jurisdictionsEmpty": "Keine Gerichtsbarkeiten erfasst.",
@@ -666,9 +726,19 @@
       "localRef": "Lokaler Ref.",
       "status": "Status"
     },
-    "title": "Materielle Details",
-    "type": "Typ",
+    "title": "Details zur Arbeitsdatei",
+    "type": "Arbeitstyp",
     "typeSpecific": "Typspezifische Attribute"
+  },
+  "parties": {
+    "title": "Partys",
+    "hint": "Der Auftraggeber ist derjenige, der Ihnen die Anweisungen erteilt und Ihnen die Rechnung ausstellt. Legen Sie Antragsteller/Rechteinhaber (Eigentümer) und Vermittler nur fest, wenn diese vom Kunden abweichen.",
+    "applicant": "Antragsteller / Rechteinhaber (Inhaber)",
+    "applicantHint": "Rechtlicher Eigentümer der Marke, des Patents oder eines anderen geistigen Eigentums. Wird standardmäßig der Client verwendet, wenn es leer bleibt.",
+    "intermediary": "Vermittler (optional)",
+    "intermediaryHint": "Partei, die Arbeit im Namen einer anderen Partei sendet, sofern diese nicht der Kunde ist.",
+    "searchPlaceholder": "Kunden suchen…",
+    "clear": "Klar"
   },
   "status": {
     "abandoned": "Verlassen",
@@ -801,11 +871,17 @@
   },
   "type": {
     "border_measures": "Grenzmaßnahmen",
+    "cases": "Fälle",
+    "consultation": "Beratungen",
     "copyright": "Copyright",
     "dispute_opposition": "Streit / Widerspruch",
+    "domain": "Domänen",
     "fto_analysis": "FTO-Analyse",
     "geographical_indication": "Geografische Angabe",
     "industrial_design": "Industriedesign",
+    "litigation_expert_report": "Rechtsstreitigkeiten / Gerichtsgutachten",
+    "official_fee_payment": "Offizielle Gebührenzahlungen",
+    "other": "Andere",
     "patent": "Patent",
     "trademark": "Warenzeichen",
     "utility_model": "Gebrauchsmuster",
