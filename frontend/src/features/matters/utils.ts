@@ -122,6 +122,7 @@ const MARK_TYPE_VALUES = [
   'combined',
   'three_dimensional',
   'sound',
+  'combination_of_colors',
 ] as const
 
 type AttributeFieldDef = {
@@ -134,8 +135,12 @@ type AttributeFieldDef = {
 
 const MATTER_ATTRIBUTE_FIELD_DEFS: Record<MatterType, AttributeFieldDef[]> = {
   trademark: [
+    { key: 'trademarkProcedure', type: 'text' },
+    { key: 'markWords', type: 'text' },
+    { key: 'markKind', type: 'text' },
     { key: 'niceClasses', type: 'tags', hasPlaceholder: true },
     { key: 'markType', type: 'select', selectOptions: MARK_TYPE_VALUES },
+    { key: 'territory', type: 'text' },
     { key: 'markDescription', type: 'textarea' },
     { key: 'colors', type: 'text' },
   ],

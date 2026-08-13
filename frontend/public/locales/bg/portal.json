@@ -176,11 +176,22 @@
     "title": "Моите фактури"
   },
   "matterTypes": {
-    "design": "Дизайн",
-    "other": "Друго",
+    "border_measures": "Гранични мерки",
+    "copyright": "Авторско право",
+    "dispute_opposition": "Спор / опозиция",
+    "fto_analysis": "FTO анализ",
+    "geographical_indication": "Географско указание",
+    "industrial_design": "Промишлен дизайн",
     "patent": "Патент",
     "trademark": "Марка",
-    "utility_model": "Полезен модел"
+    "utility_model": "Полезен модел",
+    "valuation": "Оценка",
+    "cases": "Дела",
+    "consultation": "Консултации",
+    "domain": "Домейни",
+    "litigation_expert_report": "Съдебни / експертни становища",
+    "official_fee_payment": "Плащания на официални такси",
+    "other": "Друго"
   },
   "renewals": {
     "couldNotLoad": "Неуспешно зареждане на подновявания",

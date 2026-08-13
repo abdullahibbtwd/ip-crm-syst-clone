@@ -10,7 +10,13 @@ const INTAKE_MATTER_TYPE_LABELS: Record<IntakeMatterType, string> = {
   [IntakeMatterType.trademark]: 'Trademark',
   [IntakeMatterType.patent]: 'Patent',
   [IntakeMatterType.utility_model]: 'Utility model',
-  [IntakeMatterType.design]: 'Design',
+  [IntakeMatterType.industrial_design]: 'Industrial design',
+  [IntakeMatterType.copyright]: 'Copyright',
+  [IntakeMatterType.geographical_indication]: 'Geographical indication',
+  [IntakeMatterType.border_measures]: 'Border measures',
+  [IntakeMatterType.fto_analysis]: 'FTO analysis',
+  [IntakeMatterType.valuation]: 'Valuation',
+  [IntakeMatterType.dispute_opposition]: 'Dispute / opposition',
   [IntakeMatterType.cases]: 'Cases',
   [IntakeMatterType.domain]: 'Domains',
   [IntakeMatterType.litigation_expert_report]: 'Litigation / Court Expert Reports',
@@ -25,34 +31,13 @@ export const INTAKE_TYPES_WITH_DRAFT_IP_RIGHT: ReadonlySet<IntakeMatterType> =
     IntakeMatterType.trademark,
     IntakeMatterType.patent,
     IntakeMatterType.utility_model,
-    IntakeMatterType.design,
+    IntakeMatterType.industrial_design,
     IntakeMatterType.domain,
   ]);
 
+/** Intake and matter work types are now the same set — map 1:1. */
 export function mapIntakeMatterType(type: IntakeMatterType): MatterType {
-  switch (type) {
-    case IntakeMatterType.trademark:
-      return MatterType.trademark;
-    case IntakeMatterType.patent:
-      return MatterType.patent;
-    case IntakeMatterType.utility_model:
-      return MatterType.utility_model;
-    case IntakeMatterType.design:
-      return MatterType.industrial_design;
-    case IntakeMatterType.cases:
-      return MatterType.cases;
-    case IntakeMatterType.domain:
-      return MatterType.domain;
-    case IntakeMatterType.litigation_expert_report:
-      return MatterType.litigation_expert_report;
-    case IntakeMatterType.consultation:
-      return MatterType.consultation;
-    case IntakeMatterType.official_fee_payment:
-      return MatterType.official_fee_payment;
-    case IntakeMatterType.other:
-    default:
-      return MatterType.other;
-  }
+  return type as unknown as MatterType;
 }
 
 export function intakeEnquirerDisplayName(

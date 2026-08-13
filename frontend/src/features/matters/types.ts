@@ -105,9 +105,13 @@ export type MatterFilters = {
   clientId?: string
   status?: MatterStatus
   matterType?: MatterType
+  /** Comma-separated types for multi-type shelves (e.g. Others). */
+  matterTypes?: string
   assignedToId?: string
   search?: string
   archivedOnly?: boolean
+  draftsOnly?: boolean
+  excludeDrafts?: boolean
   page?: number
   limit?: number
   cursor?: string

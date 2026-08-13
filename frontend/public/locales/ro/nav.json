@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Prezentare generală",
     "clients": "Clienții",
-    "matters": "Fișiere de lucru",
+    "matters": "Fișiere",
     "ipRights": "Drepturi de proprietate intelectuală",
     "finance": "Finanţa",
     "reports": "Rapoarte",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Utilizatori și acces",
     "system": "Sistem",
     "myPortfolio": "Portofoliul meu",
-    "myMatters": "Fișierele mele de lucru"
+    "myMatters": "Fișierele mele"
   },
   "items": {
     "dashboard": "Bord",
@@ -33,8 +33,8 @@
     "alerts": "Alerte",
     "clients": "Clienții",
     "holdingGroups": "Grupuri de deținere",
-    "allMatters": "Toate fișierele de lucru",
-    "matters": "Fișiere de lucru",
+    "allMatters": "Toate fișierele",
+    "matters": "Fișiere",
     "intakeQueue": "Coada de admisie",
     "rightsRegister": "Registrul drepturilor",
     "renewals": "Reînnoiri",
@@ -48,12 +48,12 @@
     "settings": "Setări",
     "myDashboard": "Tabloul meu de bord",
     "myDeadlines": "Termenele mele",
-    "myMatters": "Fișierele mele de lucru",
+    "myMatters": "Fișierele mele",
     "patentFilings": "Depuneri de brevete",
     "officeActions": "Acțiuni de birou",
     "documents": "Documente",
     "correspondence": "Corespondenţă",
-    "myTmMatters": "Fișierele mele de lucru TM",
+    "myTmMatters": "Fișierele mele de mărci",
     "oppositions": "Opozițiile",
     "watchAlerts": "Urmăriți alertele",
     "conflictCheck": "Verificarea conflictului",
@@ -66,7 +66,7 @@
     "broadcasts": "Emisiuni",
     "outgoingMail": "E-mail de trimis",
     "myTasks": "Sarcinile mele",
-    "assignedMatters": "Fișiere de lucru atribuite",
+    "assignedMatters": "Fișiere atribuite",
     "financeDashboard": "Tabloul de bord financiar",
     "invoices": "Facturi",
     "timeEntries": "Intrări de timp",
@@ -100,7 +100,14 @@
     "messages": "Mesaje",
     "approvals": "Aprobari",
     "help": "Ajutor",
-    "myPortfolio": "Portofoliul meu"
+    "myPortfolio": "Portofoliul meu",
+    "workingFiles": "Fișiere",
+    "mattersAll": "Toate",
+    "mattersOthers": "Altele",
+    "mattersArchived": "Arhivate",
+    "mattersDrafts": "Ciorne",
+    "createFile": "Creează fișier",
+    "createFileTrademark": "Marcă"
   },
   "roles": {
     "managing_partner": "Managing Partner",

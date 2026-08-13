@@ -11,6 +11,20 @@ export function navId(item: NavItem): string {
   return item.id ?? slugifyNav(item.labelKey)
 }
 
+/** Flatten top-level and nested nav items (Working files children, etc.). */
+export function flattenNavItems(items: NavItem[]): NavItem[] {
+  const out: NavItem[] = []
+  for (const item of items) {
+    out.push(item)
+    if (item.children?.length) out.push(...item.children)
+  }
+  return out
+}
+
+export function allNavItems(view: RoleView): NavItem[] {
+  return [...view.nav.flatMap((s) => flattenNavItems(s.items)), ...view.footer]
+}
+
 /** Split a nav `path` that may include a query string (e.g. `/matters?matterType=patent`). */
 export function splitNavPath(path: string): { pathname: string; search: string } {
   const q = path.indexOf('?')
@@ -22,6 +36,9 @@ export function splitNavPath(path: string): { pathname: string; search: string }
  * True when the current location matches a nav path.
  * Query params on the nav item must all be present on the current search
  * (extra current params are allowed).
+ *
+ * Bare `/matters` (no query on the nav item) stays active for status/search
+ * filters, but yields to shelf links that set matterType / group / archived.
  */
 export function isNavPathActive(
   itemPath: string,
@@ -35,8 +52,23 @@ export function isNavPathActive(
   const pathMatch =
     pathname === itemPathname || pathname.startsWith(`${itemPathname}/`)
   if (!pathMatch) return false
-  if (!itemSearch) return true
+
   const current = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search)
+
+  if (!itemSearch) {
+    // List root: don't steal highlight from typed / grouped / archived shelves.
+    if (pathname === itemPathname) {
+      if (
+        current.has('matterType') ||
+        current.has('group') ||
+        current.get('archived') === '1'
+      ) {
+        return false
+      }
+    }
+    return true
+  }
+
   const required = new URLSearchParams(itemSearch)
   for (const [key, value] of required.entries()) {
     if (current.get(key) !== value) return false
@@ -53,8 +85,9 @@ export function navPathSpecificity(path: string): number {
 
 export function findNavItem(view: RoleView, id: string): NavItem | null {
   for (const section of view.nav) {
-    const match = section.items.find((item) => navId(item) === id)
-    if (match) return match
+    for (const item of flattenNavItems(section.items)) {
+      if (navId(item) === id) return item
+    }
   }
   for (const item of view.footer) {
     if (navId(item) === id) return item
@@ -64,7 +97,7 @@ export function findNavItem(view: RoleView, id: string): NavItem | null {
 
 export function getHomeNavId(view: RoleView): string {
   for (const section of view.nav) {
-    for (const item of section.items) {
+    for (const item of flattenNavItems(section.items)) {
       if (item.isHome) return navId(item)
     }
   }
@@ -79,18 +112,17 @@ export function isHomeNav(view: RoleView, id: string): boolean {
 }
 
 export function withActiveNav(view: RoleView, activeNavId: string): RoleView {
+  const mark = (item: NavItem): NavItem => ({
+    ...item,
+    active: navId(item) === activeNavId,
+    children: item.children?.map(mark),
+  })
   return {
     ...view,
     nav: view.nav.map((section) => ({
       ...section,
-      items: section.items.map((item) => ({
-        ...item,
-        active: navId(item) === activeNavId,
-      })),
+      items: section.items.map(mark),
     })),
-    footer: view.footer.map((item) => ({
-      ...item,
-      active: navId(item) === activeNavId,
-    })),
+    footer: view.footer.map(mark),
   }
 }

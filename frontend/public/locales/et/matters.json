@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Toredad klassid",
         "placeholder": "nt. 12, 35"
+      },
+      "markKind": {
+        "label": "Märgi kategooria"
+      },
+      "markWords": {
+        "label": "Märgi sõnad"
+      },
+      "territory": {
+        "label": "Territoorium"
+      },
+      "trademarkProcedure": {
+        "label": "Kaubamärgi protseduur"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Klient*",
     "creating": "Loomine…",
-    "error": "Tööfaili loomine ebaõnnestus",
+    "error": "Faili loomine ebaõnnestus",
     "jurisdictionHelp": "Valige üks või mitu esitamisjurisdiktsiooni.",
     "jurisdictions": "Jurisdiktsioonid",
     "matterType": "Töö tüüp *",
-    "open": "Ava tööfail",
+    "open": "Ava fail",
     "responsibleAttorney": "Vastutav advokaat",
-    "title": "Avage uus tööfail",
+    "title": "Ava uus fail",
     "titleField": "Pealkiri *",
     "titlePlaceholder": "nt. ACME sõnamärk – EU"
   },
@@ -642,37 +654,43 @@
     "rejected": "Tagasi lükatud"
   },
   "layout": {
-    "backToMatters": "← Tagasi tööfailide juurde",
-    "loading": "Tööfaili laadimine…",
-    "notFound": "Töötavat faili ei leitud.",
+    "backToMatters": "← Tagasi failide juurde",
+    "loading": "Faili laadimine…",
+    "notFound": "Faili ei leitud.",
     "archivedBadge": "Arhiveeritud",
     "archive": "Arhiiv",
     "archiving": "Arhiveerimine…",
     "restore": "Taasta",
     "restoring": "Taastamine…",
-    "archiveFailed": "Tööfaili arhiivimine ebaõnnestus",
-    "restoreFailed": "Tööfaili taastamine ebaõnnestus",
-    "archiveConfirm": "Kas arhiveerida see tööfail? See lahkub aktiivsest loendist, kuid jääb otsitavaks jaotises Arhiveeritud."
+    "archiveFailed": "Faili arhiveerimine ebaõnnestus",
+    "restoreFailed": "Faili taastamine ebaõnnestus",
+    "archiveConfirm": "Arhiveerida see fail? See lahkub aktiivsest nimekirjast, kuid jääb Arhiivis otsitavaks."
   },
   "list": {
-    "description": "Kõigi tööfailide portfellivaade – otsige pealkirja, kliendi või rakenduse numbri järgi.",
-    "descriptionPortal": "Tööfailid avati teie organisatsiooni jaoks pärast sisselaske teisendamist.",
-    "descriptionArchived": "Lõpetatud või passiivsed tööfailid säilitatakse viitamiseks.",
+    "description": "Kõigi failide ülevaade — otsi pealkirja, kliendi või taotlusnr järgi.",
+    "descriptionPortal": "Teie organisatsiooni jaoks avatud failid pärast päringu teisendamist.",
+    "descriptionArchived": "Lõpetatud või mitteaktiivsed failid viiteks.",
     "filters": {
       "allStatuses": "Kõik olekud",
       "allTypes": "Kõik töötüübid",
       "active": "Aktiivne",
-      "archived": "Arhiveeritud"
+      "archived": "Arhiveeritud",
+      "allOtherTypes": "Kõik muud tüübid"
     },
     "intakeQueue": "Vastuvõtu järjekord",
     "pagination": {
       "ofTotal": "{{total}}"
     },
     "perPage": "{{count}} lehekülje kohta",
-    "searchPlaceholder": "Otsingu pealkiri, klient, rakenduse nr…",
-    "title": "Töötavad failid",
-    "titleArchived": "Arhiveeritud tööfailid",
-    "titlePortal": "Minu tööfailid"
+    "searchPlaceholder": "Otsi pealkiri, klient, taotlusnr…",
+    "title": "Failid",
+    "titleArchived": "Arhiveeritud failid",
+    "titlePortal": "Minu failid",
+    "descriptionOthers": "Failid väljaspool kuut põhikategooriat — filtreeri tüübi järgi allpool.",
+    "descriptionType": "{{type}} failid — otsi pealkirja, kliendi või taotlusnr järgi.",
+    "titleOthers": "Muud failid",
+    "titleDrafts": "Mustandid",
+    "descriptionDrafts": "Mustandid enne kinnitust või esitamist — eraldi aktiivsetest kaubamärkidest ja teistest riiulitest."
   },
   "ipRightsRegister": {
     "description": "Ettevõtteülene IP-õiguste register koos filtritega kliendi, jurisdiktsiooni, tüübi, oleku ja aegumise järgi.",
@@ -708,7 +726,8 @@
     "figurative": "Kujundlik",
     "sound": "Heli",
     "three_dimensional": "3D",
-    "wordmark": "Sõnamärk"
+    "wordmark": "Sõnamärk",
+    "combination_of_colors": "Värvide kombinatsioon"
   },
   "overview": {
     "assignedTo": "Juhtivadvokaat",
@@ -726,9 +745,26 @@
       "localRef": "Kohalik ref.",
       "status": "Olek"
     },
-    "title": "Töötava faili üksikasjad",
+    "title": "Faili üksikasjad",
     "type": "Töö tüüp",
-    "typeSpecific": "Tüübispetsiifilised atribuudid"
+    "typeSpecific": "Tüübispetsiifilised atribuudid",
+    "edit": {
+      "cancel": "Tühista",
+      "edit": "Muuda",
+      "errors": {
+        "saveFailed": "Faili üksikasju ei saanud salvestada.",
+        "title": "Pealkiri on kohustuslik."
+      },
+      "fields": {
+        "territory": "Territoorium (alates loomise failist)",
+        "title": "Pealkiri"
+      },
+      "hint": "Faili üksikasjade muutmiseks klõpsake nuppu Redigeeri ja seejärel Salvesta muudatused. Territoorium jääb faili loomise ajal määratud.",
+      "save": "Salvestage muudatused",
+      "saved": "Salvestatud.",
+      "saving": "Salvestamine…",
+      "title": "Faili üksikasjad"
+    }
   },
   "parties": {
     "title": "Peod",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Vali…",
     "title": "Tüübispetsiifilised üksikasjad"
+  },
+  "createFile": {
+    "addClass": "Lisa klass",
+    "backToFiles": "Tagasi failide juurde",
+    "cancel": "Tühista",
+    "changeSubtype": "Muuda alamkategooriat",
+    "checkRegister": "Tutvu äriregistris",
+    "clearClient": "Vahetage klienti",
+    "clientOptionalHint": "Kas CRM-i vastet pole? Täitke allolevad kliendi andmed – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
+    "applicantOptionalHint": "Kas CRM-i vastet pole? Täitke allpool taotleja üksikasjad – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
+    "draftDescription": "Loodud faili loomise kaudu ({{procedure}}) – mustand",
+    "errors": {
+      "client": "Jätkamiseks valige klient.",
+      "clientOrDetails": "Valige CRM-i klient või sisestage nende loomiseks kliendi nimi ja andmed.",
+      "applicantOrDetails": "Valige CRM-is taotleja või sisestage taotleja nimi ja andmed nende loomiseks.",
+      "jurisdiction": "Valige vähemalt üks territoorium/riik.",
+      "markWords": "Sisestage kaubamärgi nimi/sõnad.",
+      "saveFailed": "Mustandifaili ei saanud salvestada.",
+      "subtype": "Valige kaubamärgi alamkategooria."
+    },
+    "euHint": "Euroopa Liidu kaubamärk (EUIPO) – jurisdiktsioon on määratud EL-ile.",
+    "fields": {
+      "address": "Aadress",
+      "applicantClient": "Taotleja klient",
+      "applicantClientOptional": "CRM-i taotleja (valikuline)",
+      "city": "Linn",
+      "classNumber": "Klassi number",
+      "country": "Riik",
+      "eik": "UIC / EIK",
+      "email": "E-post",
+      "fax": "Faks",
+      "goodsText": "Kaubad ja teenused",
+      "legalName": "Nimi ja juriidilise isiku liik",
+      "linkClient": "Valige CRM-is klient",
+      "linkClientOptional": "CRM-i klient (valikuline)",
+      "markKind": "Märgi kategooria",
+      "markType": "Märgi tüüp",
+      "markWords": "Märgi sõnad",
+      "mol": "MOL (allakirjutanu)",
+      "name": "Nimi",
+      "phone": "Telefon",
+      "postalCode": "Postiindeks",
+      "territory": "Territoorium",
+      "vat": "KMKR ID"
+    },
+    "formTitle": "Loo fail: kaubamärk",
+    "fullFormReady": "Täielik vorm saadaval",
+    "goodsPlaceholder": "nt. pudelid; jaemüügiteenused…",
+    "markKinds": {
+      "certification": "Sertifitseerimine",
+      "collective": "Kollektiivne",
+      "individual": "Individuaalne"
+    },
+    "markTypes": {
+      "combination_of_colors": "Värvide kombinatsioon",
+      "combined": "Kombineeritud",
+      "figurative": "Kujundlik",
+      "sound": "Heli",
+      "three_dimensional": "Kolmemõõtmeline",
+      "wordmark": "Sõnamärk"
+    },
+    "noClients": "Sobivaid kliente pole. Esmalt looge klient CRM-is ja seejärel naaske siia.",
+    "optionalMark": "Märgi / teema (valikuline)",
+    "partialSubtypeNote": "Selle alamkategooria täielikke eriväljasid laiendatakse hiljem. Saate ikkagi salvestada kliendiga lingitud mustandi; dokumendid ja kirjavahetus jäävad toimikusse.",
+    "preliminary": "Eelinfo",
+    "procedureHints": {
+      "cancellation": "Tühistamismenetlused – rollid võivad olla meie või nemad",
+      "new": "Uus kaubamärgitaotlus — täielik loomisvorm",
+      "objection": "Oleme esitanud vastuväite",
+      "opposition_against_us": "Vastulause esitas meie vastu",
+      "opposition_by_us": "Esitame vastulause",
+      "revocation": "Tühistamismenetlus"
+    },
+    "procedures": {
+      "cancellation": "Tühistamine",
+      "new": "Uus kaubamärk",
+      "objection": "Vastulause",
+      "opposition_against_us": "Opositsioon meie vastu",
+      "opposition_by_us": "Vastuseis meie poolt",
+      "revocation": "Tühistamine"
+    },
+    "removeClass": "Eemalda klass",
+    "sameApplicant": "Taotleja teave on sama, mis kliendil",
+    "sameCorrespondence": "Kirjavahetuse aadress on sama mis registreeritud aadress",
+    "saveDraft": "Salvesta mustandina",
+    "saving": "Salvestamine…",
+    "searchClient": "Otsige kliente nime või koodi järgi…",
+    "sections": {
+      "applicant": "Taotleja",
+      "client": "Kliendi andmed",
+      "contact": "Kontaktisik",
+      "correspondence": "Kirjavahetuse aadress",
+      "goods": "Kaupade ja teenuste loetelu",
+      "markName": "Kaubamärgi nimi",
+      "registeredAddress": "Registreeritud aadress",
+      "searchDocs": "Lisage otsingudokumendid",
+      "trademark": "Kaubamärgi teave"
+    },
+    "selectCountries": "Valige riigid",
+    "subtypeHint": "Esmalt valige kaubamärgi alamkategooria. Uus kaubamärk avab kliendi demost täieliku vormi.",
+    "territories": {
+      "eu": "Euroopa Liit",
+      "international": "Rahvusvaheline (WO)",
+      "national": "Rahvuslik"
+    },
+    "trademarkTitle": "Loo fail — kaubamärk"
+  },
+  "trademarkInfo": {
+    "addCountry": "Lisa riik…",
+    "cancel": "Tühista",
+    "country": "Riik",
+    "edit": "Muuda",
+    "errors": {
+      "country": "Valige selle territooriumi jaoks vähemalt üks riik.",
+      "saveFailed": "Kaubamärgiteavet ei saanud salvestada."
+    },
+    "euFixed": "Euroopa Liit (EUIPO)",
+    "markKind": "Märgi kategooria",
+    "markType": "Märgi tüüp",
+    "noCountries": "Ühtegi riiki pole veel valitud.",
+    "save": "Salvestage muudatused",
+    "saved": "Salvestatud.",
+    "saving": "Salvestamine…",
+    "selectCountries": "Valige riigid",
+    "territory": "Territoorium",
+    "title": "Kaubamärgi teave"
+  },
+  "fileApproval": {
+    "clientStep": "1. Klient on heaks kiitnud",
+    "clientStepHint": "Töötajad kinnitavad kliendiga kokkulepitud võrguühenduseta (kõne/e-kiri/kohtumine). Portaali klient ei pea ennast kinnitama.",
+    "errors": {
+      "updateFailed": "Kinnitusolekut ei saanud värskendada."
+    },
+    "hint": "Ainult sisemine kinnitus: märkige, et klient nõustus, seejärel aktsepteerib juhtivpartner faili. Kliendile saatmise heakskiitu pole vaja.",
+    "markClientApproved": "Märkige klient heaks",
+    "partnerApprove": "Partneri heakskiidu fail",
+    "partnerOnly": "Selle sammu saab teha ainult juhtivpartner",
+    "partnerStep": "2. Juhtpartneri nõustumine",
+    "partnerStepHint": "Kui klient on heaks kiidetud, aktsepteerib juhtivpartner faili ja see jätab mustandi.",
+    "recordedBy": "Salvestas {{name}} · {{date}}",
+    "title": "Faili kinnitamine",
+    "waitForClient": "Märkige esmalt klient heakskiidetuks, seejärel saate faili vastu võtta."
+  },
+  "prosecution": {
+    "cancelEdit": "Tühista",
+    "completeStage": "Täielik etapp",
+    "edit": "Muuda",
+    "editingNote": "Kasutage käsku Salvesta, et säilitada selles etapis sisestatud teave, või etappi Lõpeta, et liikuda edasi, kui nõutud väljad on täidetud.",
+    "gateHint": "Te ei saa edasi liikuda enne, kui selle etapi kohustuslikud väljad on täidetud (sama, mis nende süsteemiväravad).",
+    "goBack": "Mine lava tagasi",
+    "errors": {
+      "needAttachments": "Enne jätkamist lisage vajalikud failid: {{list}}",
+      "needInvoice": "Enne selle etapi läbimist koostage riigilõivust arve.",
+      "alreadyFinal": "See fail on juba viimases etapis.",
+      "needApproval": "Lõpetage faili kinnitamine (klient + juhtivpartner) enne ettevalmistustöö lõpetamist.",
+      "needBulletin": "Enne avaldamisest lahkumist sisestage bülletääni number ja kuupäev.",
+      "needFeePaid": "Enne ametliku eksami sooritamist sisestage riigilõivu tasumise kuupäev.",
+      "needFilingFields": "Esitamise lõpetamiseks sisestage taotluse number ja esitamise kuupäev.",
+      "needFormalFields": "Jätkamiseks sisestage riigilõiv ja tasumise tähtaeg.",
+      "needMol": "Enne esitamise lõpetamist sisestage faili üksikasjadesse MOL (loo-fail / redigeeri).",
+      "needOfficeActionDeadline": "Kontoritoimingul on teema – määrake enne jätkamist selle tähtaeg.",
+      "needPoaFiled": "Enne ametliku läbivaatuse lahkumist sisestage PoA sissetuleva number ja kuupäev.",
+      "needRegFeePaid": "Enne jätkamist sisestage registreerimistasu tasumise kuupäev.",
+      "needRepresentative": "Sisestage vähemalt üks esindaja või määrake Lisa esindajad väärtuseks Ei.",
+      "saveBeforeNavigate": "Enne etapile naasmist salvestage või tühistage oma muudatused.",
+      "saveFailed": "Süüdistusandmeid ei saanud salvestada."
+    },
+    "fields": {
+      "addRepresentatives": "Kas soovite esindajaid lisada?",
+      "applicationDate": "Taotlemise kuupäev",
+      "applicationNumber": "Taotluse number",
+      "bulletinDate": "Bülletääni kuupäev",
+      "bulletinNumber": "Bülletääni number",
+      "feePaidDate": "Riigilõivu tasumise kuupäev",
+      "generatePoa": "Koostage volikiri",
+      "officeAction": "Kontori tegevus/taotlus",
+      "officeActionDeadline": "Kontori tegevuse tähtaeg",
+      "paymentDeadline": "Maksetähtaeg",
+      "poaDate": "PoA kuupäev",
+      "poaDeadline": "PoA esitamise tähtaeg",
+      "poaIncoming": "PoA sissetulev number",
+      "regFeePaidDate": "Registreerimistasu tasumise kuupäev",
+      "remindDays": "Tuletage meelde päevi enne tähtaega",
+      "representatives": "esindaja(d)",
+      "sendPoaEmail": "Saada automaatne e-kiri",
+      "stateFee": "Riigilõiv (BGN)"
+    },
+    "molHint": "MOL tuleb määrata faili üksikasjadele (faili loomisest). Selle etapi lõpuleviimiseks puuduvad MOL-plokid.",
+    "no": "Ei",
+    "prepHint": "Ettevalmistav etapp: esmalt lõpetage faili kinnitamine, seejärel suunab juhtivpartneri nõustumine teid esitamisse.",
+    "registeredDone": "Registreerimise etapp on saavutatud.",
+    "saveChanges": "Salvestage muudatused",
+    "saveEntered": "Salvesta",
+    "saved": "Salvestatud.",
+    "saveFields": "Salvestage väljad",
+    "saving": "Salvestamine…",
+    "stages": {
+      "filing": "Esitamine",
+      "formal_exam": "Formaalne ekspertiis",
+      "prep": "Ettevalmistav",
+      "publication": "Avaldamine",
+      "reg_fee": "Registreerimistasud",
+      "registration": "Registreerimine",
+      "substantive_exam": "Sisuline ekspertiis"
+    },
+    "territoryLabel": {
+      "eu": "Torujuhe: EL",
+      "international": "Torujuhe: rahvusvaheline (WO)",
+      "national": "Torujuhe: riiklik"
+    },
+    "territoryLocked": "Loomisfailist fikseeritud territoorium",
+    "territoryFromInfo": "Territoorium kaubamärgi teabest",
+    "title": "Menetlusetapid",
+    "yes": "Jah",
+    "hub": {
+      "generateInvoice": "Loo arve",
+      "invoiceIssuedShort": "Arve väljastatud",
+      "invoiceIssued": "Arve {{number}} väljastatud. Klient näeb seda oma portaalis; see on ka vahekaardil Arveldamine.",
+      "invoiceAlreadyIssued": "Arve {{number}} juba väljastatud — nähtav portaalis ja Arvelduses.",
+      "invoiceFailed": "Arvet ei saanud luua. Kontrollige kliendi arvelduse üksikasju.",
+      "invoiceNotes": "Ametlik/riigilõiv",
+      "uploadFailed": "Faili ei saanud üles laadida.",
+      "needStateFee": "Esmalt sisestage riigilõivu summa.",
+      "feeDescription": "Riigi/ametilõiv",
+      "deadlineFailed": "Tähtaega/tähtaegu ei saanud luua.",
+      "deadlineTitles": {
+        "payment": "Riigilõivu tasumine",
+        "poa": "Volikirja esitamine",
+        "oa": "Büroo toimingu / ekspertiisitaotlus",
+        "oaWithSubject": "Kontoritoiming: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Tuletage meelde {{days}} päeva enne tähtaega."
+      },
+      "attach": {
+        "search": "Manustage otsingufail",
+        "application": "Manustage rakendus",
+        "feeSlip": "Lisage tasutõend",
+        "poa": "Kinnitage PoA",
+        "officeAction": "Manustage kontoritoiming",
+        "decision": "Lisa otsus",
+        "bulletin": "Lisa bülletään",
+        "regFee": "Lisa maksetõend",
+        "certificate": "Lisage sertifikaat"
+      }
+    }
   }
 }

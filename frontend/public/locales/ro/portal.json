@@ -176,11 +176,22 @@
     "title": "Facturile mele"
   },
   "matterTypes": {
-    "design": "Proiecta",
+    "border_measures": "Măsuri la frontieră",
+    "cases": "Cazuri",
+    "consultation": "Consultatii",
+    "copyright": "Drepturi de autor",
+    "dispute_opposition": "Litigiu/opoziție",
+    "domain": "Domenii",
+    "fto_analysis": "Analiza FTO",
+    "geographical_indication": "Indicație geografică",
+    "industrial_design": "Design industrial",
+    "litigation_expert_report": "Litigii / Rapoarte de expertiză judecătorească",
+    "official_fee_payment": "Plățile taxelor oficiale",
     "other": "Alte",
     "patent": "Brevet",
     "trademark": "Marcă comercială",
-    "utility_model": "Model de utilitate"
+    "utility_model": "Model de utilitate",
+    "valuation": "Evaluare"
   },
   "renewals": {
     "couldNotLoad": "Nu s-au putut încărca reînnoiri",

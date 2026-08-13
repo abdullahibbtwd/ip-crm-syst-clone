@@ -688,7 +688,7 @@ export class IntakeService {
   private matterTypeSpecialistRoles(matterType: IntakeMatterType): string[] {
     switch (matterType) {
       case IntakeMatterType.trademark:
-      case IntakeMatterType.design:
+      case IntakeMatterType.industrial_design:
         // Trademarks and designs are handled by the trademark/design practice.
         return [SYSTEM_ROLES.TRADEMARK_ATTORNEY];
       case IntakeMatterType.patent:

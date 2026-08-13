@@ -33,7 +33,8 @@ export function intakeStatusLabel(status: IntakeLead['status']): string {
 }
 
 export function intakeMatterTypeLabel(type: IntakeLead['matterType']): string {
-  return i18n.t(`matterType.${type}`, { ns: 'intake' })
+  // Same labels as the matters list filter (single source of truth).
+  return i18n.t(`type.${type}`, { ns: 'matters' })
 }
 
 export function referralSourceLabel(source: IntakeLead['referralSource']): string {
@@ -97,7 +98,13 @@ export const MATTER_TYPE_LABELS: Record<IntakeLead['matterType'], string> = {
   trademark: 'Trademark',
   patent: 'Patent',
   utility_model: 'Utility model',
-  design: 'Design',
+  industrial_design: 'Industrial design',
+  copyright: 'Copyright',
+  geographical_indication: 'Geographical indication',
+  border_measures: 'Border measures',
+  fto_analysis: 'FTO analysis',
+  valuation: 'Valuation',
+  dispute_opposition: 'Dispute / opposition',
   cases: 'Cases',
   domain: 'Domains',
   litigation_expert_report: 'Litigation / Court Expert Reports',

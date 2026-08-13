@@ -176,11 +176,22 @@
     "title": "Mes factures"
   },
   "matterTypes": {
-    "design": "Conception",
+    "border_measures": "Mesures aux frontières",
+    "cases": "Cas",
+    "consultation": "Consultations",
+    "copyright": "Droit d'auteur",
+    "dispute_opposition": "Litige / opposition",
+    "domain": "Domaines",
+    "fto_analysis": "Analyse FTO",
+    "geographical_indication": "Indication géographique",
+    "industrial_design": "Dessin industriel",
+    "litigation_expert_report": "Contentieux / Expertises judiciaires",
+    "official_fee_payment": "Paiements des frais officiels",
     "other": "Autre",
     "patent": "Brevet",
     "trademark": "Marque déposée",
-    "utility_model": "Modèle d'utilité"
+    "utility_model": "Modèle d'utilité",
+    "valuation": "Évaluation"
   },
   "renewals": {
     "couldNotLoad": "Impossible de charger les renouvellements",

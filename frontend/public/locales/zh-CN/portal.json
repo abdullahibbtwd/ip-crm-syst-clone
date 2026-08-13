@@ -176,11 +176,22 @@
     "title": "我的发票"
   },
   "matterTypes": {
-    "design": "设计",
+    "border_measures": "边境措施",
+    "cases": "案例",
+    "consultation": "咨询",
+    "copyright": "版权",
+    "dispute_opposition": "争议/反对",
+    "domain": "域名",
+    "fto_analysis": "FTO分析",
+    "geographical_indication": "地理标志",
+    "industrial_design": "工业设计",
+    "litigation_expert_report": "诉讼/法庭专家报告",
+    "official_fee_payment": "官方费用支付",
     "other": "其他",
     "patent": "专利",
     "trademark": "商标",
-    "utility_model": "实用新型"
+    "utility_model": "实用新型",
+    "valuation": "估值"
   },
   "renewals": {
     "couldNotLoad": "无法加载续订",

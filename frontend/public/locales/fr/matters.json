@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Des cours sympas",
         "placeholder": "par ex. 12, 35"
+      },
+      "markKind": {
+        "label": "Catégorie de marque"
+      },
+      "markWords": {
+        "label": "Mots de la marque"
+      },
+      "territory": {
+        "label": "Territoire"
+      },
+      "trademarkProcedure": {
+        "label": "Procédure de marque"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Client *",
     "creating": "Création…",
-    "error": "Échec de la création du fichier de travail",
+    "error": "Échec de la création du fichier",
     "jurisdictionHelp": "Sélectionnez une ou plusieurs juridictions de dépôt.",
     "jurisdictions": "Juridictions",
     "matterType": "Type de travail *",
-    "open": "Ouvrir le fichier de travail",
+    "open": "Ouvrir le fichier",
     "responsibleAttorney": "Avocat responsable",
-    "title": "Ouvrir un nouveau fichier de travail",
+    "title": "Ouvrir un nouveau fichier",
     "titleField": "Titre *",
     "titlePlaceholder": "par ex. Marque verbale ACME – UE"
   },
@@ -642,37 +654,43 @@
     "rejected": "Rejetée"
   },
   "layout": {
-    "backToMatters": "← Retour aux fichiers de travail",
-    "loading": "Chargement du fichier de travail…",
-    "notFound": "Fichier de travail introuvable.",
+    "backToMatters": "← Retour aux fichiers",
+    "loading": "Chargement du fichier…",
+    "notFound": "Fichier introuvable.",
     "archivedBadge": "Archivé",
     "archive": "Archive",
     "archiving": "Archivage…",
     "restore": "Restaurer",
     "restoring": "Restauration…",
-    "archiveFailed": "Échec de l'archivage du fichier de travail",
-    "restoreFailed": "Échec de la restauration du fichier de travail",
-    "archiveConfirm": "Archiver ce fichier de travail ? Il quittera la liste active mais restera consultable sous Archivé."
+    "archiveFailed": "Échec de l’archivage du fichier",
+    "restoreFailed": "Échec de la restauration du fichier",
+    "archiveConfirm": "Archiver ce fichier ? Il quittera la liste active mais restera consultable sous Archivés."
   },
   "list": {
-    "description": "Vue du portefeuille de tous les dossiers de travail : recherche par titre, client ou numéro de demande.",
-    "descriptionPortal": "Fichiers de travail ouverts pour votre organisation après la conversion initiale.",
-    "descriptionArchived": "Dossiers de travail terminés ou inactifs conservés pour référence.",
+    "description": "Vue portfolio de tous les fichiers — recherche par titre, client ou n° de demande.",
+    "descriptionPortal": "Fichiers ouverts pour votre organisation après conversion de la demande.",
+    "descriptionArchived": "Fichiers terminés ou inactifs conservés pour référence.",
     "filters": {
       "allStatuses": "Tous les statuts",
       "allTypes": "Tous types de travaux",
       "active": "Active",
-      "archived": "Archivé"
+      "archived": "Archivés",
+      "allOtherTypes": "Tous les autres types"
     },
     "intakeQueue": "File d'attente d'admission",
     "pagination": {
       "ofTotal": "du {{total}}"
     },
     "perPage": "{{count}} par page",
-    "searchPlaceholder": "Rechercher titre, client, numéro de candidature…",
-    "title": "Fichiers de travail",
-    "titleArchived": "Fichiers de travail archivés",
-    "titlePortal": "Mes fichiers de travail"
+    "searchPlaceholder": "Rechercher titre, client, n° de demande…",
+    "title": "Fichiers",
+    "titleArchived": "Fichiers archivés",
+    "titlePortal": "Mes fichiers",
+    "descriptionOthers": "Fichiers hors des six catégories principales — filtrer par type ci-dessous.",
+    "descriptionType": "Fichiers {{type}} — recherche par titre, client ou n° de demande.",
+    "titleOthers": "Autres fichiers",
+    "titleDrafts": "Brouillons",
+    "descriptionDrafts": "Brouillons en attente d’approbation ou de dépôt — séparés des marques actives et des autres rayons."
   },
   "ipRightsRegister": {
     "description": "Registre des droits de propriété intellectuelle à l'échelle de l'entreprise avec filtres par client, juridiction, type, statut et expiration.",
@@ -708,7 +726,8 @@
     "figurative": "Figurative",
     "sound": "Son",
     "three_dimensional": "3D",
-    "wordmark": "Marque verbale"
+    "wordmark": "Marque verbale",
+    "combination_of_colors": "Combinaison de couleurs"
   },
   "overview": {
     "assignedTo": "Avocat principal",
@@ -726,9 +745,26 @@
       "localRef": "Réf. locale.",
       "status": "Statut"
     },
-    "title": "Détails du fichier de travail",
+    "title": "Détails du fichier",
     "type": "Type de travail",
-    "typeSpecific": "Attributs spécifiques au type"
+    "typeSpecific": "Attributs spécifiques au type",
+    "edit": {
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "errors": {
+        "saveFailed": "Impossible d'enregistrer les détails du fichier.",
+        "title": "Le titre est requis."
+      },
+      "fields": {
+        "territory": "Territoire (à partir du fichier de création)",
+        "title": "Titre"
+      },
+      "hint": "Cliquez sur Modifier pour modifier les détails du fichier, puis sur Enregistrer les modifications. Le territoire reste tel que défini lors de la création du fichier.",
+      "save": "Enregistrer les modifications",
+      "saved": "Enregistrée.",
+      "saving": "Économie…",
+      "title": "Détails du fichier"
+    }
   },
   "parties": {
     "title": "Fêtes",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Sélectionner…",
     "title": "Détails spécifiques au type"
+  },
+  "createFile": {
+    "addClass": "Ajouter une classe",
+    "backToFiles": "Retour aux fichiers",
+    "cancel": "Annuler",
+    "changeSubtype": "Changer de sous-catégorie",
+    "checkRegister": "Inscription au registre du commerce",
+    "clearClient": "Changer de client",
+    "clientOptionalHint": "Aucune correspondance CRM ? Remplissez les détails du client ci-dessous – l’enregistrement du brouillon les créera automatiquement dans Clients.",
+    "applicantOptionalHint": "Aucune correspondance CRM ? Remplissez les détails du candidat ci-dessous – l’enregistrement du brouillon les créera automatiquement dans Clients.",
+    "draftDescription": "Créé via Créer un fichier ({{procedure}}) — brouillon",
+    "errors": {
+      "client": "Sélectionnez un client pour continuer.",
+      "clientOrDetails": "Sélectionnez un client CRM ou saisissez le nom et les détails du client pour les créer.",
+      "applicantOrDetails": "Sélectionnez un candidat dans CRM ou saisissez le nom et les détails du candidat pour le créer.",
+      "jurisdiction": "Sélectionnez au moins un territoire/pays.",
+      "markWords": "Entrez le nom de la marque/les mots.",
+      "saveFailed": "Impossible d'enregistrer le brouillon du fichier.",
+      "subtype": "Sélectionnez une sous-catégorie de marque."
+    },
+    "euHint": "Marque de l’Union européenne (EUIPO) — juridiction définie sur UE.",
+    "fields": {
+      "address": "Adresse",
+      "applicantClient": "Client demandeur",
+      "applicantClientOptional": "Candidat dans CRM (facultatif)",
+      "city": "Ville",
+      "classNumber": "Numéro de classe",
+      "country": "Pays",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Biens et services",
+      "legalName": "Nom et type d'entité juridique",
+      "linkClient": "Sélectionnez le client dans CRM",
+      "linkClientOptional": "Client CRM (facultatif)",
+      "markKind": "Catégorie de marque",
+      "markType": "Type de marque",
+      "markWords": "Mots de la marque",
+      "mol": "MOL (signataire)",
+      "name": "Nom",
+      "phone": "Téléphone",
+      "postalCode": "Code Postal",
+      "territory": "Territoire",
+      "vat": "Numéro de TVA"
+    },
+    "formTitle": "Créer un fichier : Marque déposée",
+    "fullFormReady": "Formulaire complet disponible",
+    "goodsPlaceholder": "par ex. bouteilles; services de vente au détail…",
+    "markKinds": {
+      "certification": "Attestation",
+      "collective": "Collective",
+      "individual": "Individuelle"
+    },
+    "markTypes": {
+      "combination_of_colors": "Combinaison de couleurs",
+      "combined": "Combinée",
+      "figurative": "Figurative",
+      "sound": "Son",
+      "three_dimensional": "Tridimensionnelle",
+      "wordmark": "Marque verbale"
+    },
+    "noClients": "Aucun client correspondant. Créez d'abord le client dans CRM, puis revenez ici.",
+    "optionalMark": "Marque / sujet (facultatif)",
+    "partialSubtypeNote": "Les champs spécialisés complets pour cette sous-catégorie seront développés ultérieurement. Vous pouvez toujours enregistrer un brouillon lié au client ; les documents et la correspondance restent au dossier.",
+    "preliminary": "Informations préliminaires",
+    "procedureHints": {
+      "cancellation": "Procédure d'annulation - les rôles peuvent être nous ou eux",
+      "new": "Demande de nouvelle marque – formulaire de création complet",
+      "objection": "Objection que nous avons déposée",
+      "opposition_against_us": "Opposition déposée contre nous",
+      "opposition_by_us": "Opposition que nous déposons",
+      "revocation": "Procédure de révocation"
+    },
+    "procedures": {
+      "cancellation": "Annulation",
+      "new": "Nouvelle marque",
+      "objection": "Objection",
+      "opposition_against_us": "Opposition contre nous",
+      "opposition_by_us": "Opposition de notre part",
+      "revocation": "Révocation"
+    },
+    "removeClass": "Supprimer la classe",
+    "sameApplicant": "Les informations sur le candidat sont les mêmes que celles du client",
+    "sameCorrespondence": "L'adresse de correspondance est la même que l'adresse enregistrée",
+    "saveDraft": "Enregistrer comme brouillon",
+    "saving": "Économie…",
+    "searchClient": "Rechercher des clients par nom ou code…",
+    "sections": {
+      "applicant": "Demandeur",
+      "client": "Données clients",
+      "contact": "Personne de contact",
+      "correspondence": "Adresse de correspondance",
+      "goods": "Liste des biens et services",
+      "markName": "Nom de la marque",
+      "registeredAddress": "Adresse enregistrée",
+      "searchDocs": "Joindre des documents de recherche",
+      "trademark": "Informations sur la marque"
+    },
+    "selectCountries": "Sélectionnez des pays",
+    "subtypeHint": "Choisissez d’abord la sous-catégorie de marque. La nouvelle marque ouvre le formulaire complet à partir de la démo client.",
+    "territories": {
+      "eu": "Union européenne",
+      "international": "International (WO)",
+      "national": "National"
+    },
+    "trademarkTitle": "Créer un fichier — Marque déposée"
+  },
+  "trademarkInfo": {
+    "addCountry": "Ajouter un pays…",
+    "cancel": "Annuler",
+    "country": "Pays",
+    "edit": "Modifier",
+    "errors": {
+      "country": "Sélectionnez au moins un pays pour ce territoire.",
+      "saveFailed": "Impossible d'enregistrer les informations sur la marque."
+    },
+    "euFixed": "Union européenne (EUIPO)",
+    "markKind": "Catégorie de marque",
+    "markType": "Type de marque",
+    "noCountries": "Aucun pays sélectionné pour l'instant.",
+    "save": "Enregistrer les modifications",
+    "saved": "Enregistrée.",
+    "saving": "Économie…",
+    "selectCountries": "Sélectionnez des pays",
+    "territory": "Territoire",
+    "title": "Informations sur la marque"
+  },
+  "fileApproval": {
+    "clientStep": "1. Approuvé par le client",
+    "clientStepHint": "Le personnel confirme l'accord du client hors ligne (appel/e-mail/réunion). Le client du portail n'a pas besoin de s'auto-approuver.",
+    "errors": {
+      "updateFailed": "Impossible de mettre à jour le statut d'approbation."
+    },
+    "hint": "Approbation interne uniquement : marquez l'accord du client, puis un Gérant accepte le dossier. Aucune approbation d’envoi au client n’est requise.",
+    "markClientApproved": "Marquer le client comme approuvé",
+    "partnerApprove": "Fichier d'approbation du partenaire",
+    "partnerOnly": "Seul l'associé gérant peut effectuer cette étape",
+    "partnerStep": "2. Gérant accepter",
+    "partnerStepHint": "Une fois que le client est marqué comme approuvé, l'associé directeur accepte le fichier et laisse le brouillon.",
+    "recordedBy": "Enregistré par {{name}} · {{date}}",
+    "title": "Approbation du dossier",
+    "waitForClient": "Marquez d’abord le client comme approuvé, puis vous pourrez accepter le fichier."
+  },
+  "prosecution": {
+    "cancelEdit": "Annuler",
+    "completeStage": "Étape complète",
+    "edit": "Modifier",
+    "editingNote": "Utilisez Enregistrer pour conserver ce que vous avez saisi à cette étape, ou Terminer l'étape pour avancer lorsque les champs obligatoires sont remplis.",
+    "gateHint": "Vous ne pouvez pas avancer tant que les champs obligatoires pour cette étape ne sont pas remplis (les mêmes que leurs portes système).",
+    "goBack": "Revenir en arrière",
+    "errors": {
+      "needAttachments": "Joignez les fichiers requis avant de continuer : {{list}}",
+      "needInvoice": "Générez la facture de la taxe d'État avant de terminer cette étape.",
+      "alreadyFinal": "Ce dossier est déjà au stade final.",
+      "needApproval": "Terminer l'approbation du dossier (client + Gérant) avant de quitter la préparation.",
+      "needBulletin": "Entrez le numéro et la date du bulletin avant de quitter la publication.",
+      "needFeePaid": "Entrez la date de paiement des frais d'État avant de quitter l'examen formel.",
+      "needFilingFields": "Entrez le numéro de demande et la date de dépôt pour terminer le dépôt.",
+      "needFormalFields": "Entrez les frais d'État et la date limite de paiement pour continuer.",
+      "needMol": "Veuillez saisir MOL dans les détails du fichier (créer un fichier/modifier) ​​avant de terminer le dépôt.",
+      "needOfficeActionDeadline": "L'action du bureau a un sujet : fixez sa date limite avant de continuer.",
+      "needPoaFiled": "Entrez le numéro et la date d’arrivée du PoA avant de quitter l’examen formel.",
+      "needRegFeePaid": "Entrez la date de paiement des frais d’inscription avant de continuer.",
+      "needRepresentative": "Entrez au moins un représentant ou définissez Ajouter des représentants sur Non.",
+      "saveBeforeNavigate": "Enregistrez ou annulez vos modifications avant de revenir en arrière.",
+      "saveFailed": "Impossible d'enregistrer les données de poursuite."
+    },
+    "fields": {
+      "addRepresentatives": "Souhaitez-vous ajouter des représentants?",
+      "applicationDate": "Date de candidature",
+      "applicationNumber": "Numéro de demande",
+      "bulletinDate": "Date du bulletin",
+      "bulletinNumber": "Numéro du bulletin",
+      "feePaidDate": "Date de paiement des taxes d'État",
+      "generatePoa": "Générer une procuration",
+      "officeAction": "Action/demande du bureau",
+      "officeActionDeadline": "Date limite d'intervention du bureau",
+      "paymentDeadline": "Délai de paiement",
+      "poaDate": "Date du PoA",
+      "poaDeadline": "Date limite de soumission du PoA",
+      "poaIncoming": "Numéro entrant PoA",
+      "regFeePaidDate": "Date de paiement des frais d'inscription",
+      "remindDays": "Rappeler quelques jours avant la date limite",
+      "representatives": "Représentantes)",
+      "sendPoaEmail": "Envoyer un e-mail automatique",
+      "stateFee": "Taxe d'État (BGN)"
+    },
+    "molHint": "MOL doit être défini sur les détails du fichier (à partir de la création du fichier). Blocs MOL manquants pour terminer cette étape.",
+    "no": "Non",
+    "prepHint": "Étape préparatoire : terminez d'abord l'approbation du dossier, puis l'associé gérant accepte vous fait passer au dépôt.",
+    "registeredDone": "Étape d'inscription atteinte.",
+    "saveChanges": "Enregistrer les modifications",
+    "saveEntered": "Sauvegarder",
+    "saved": "Enregistrée.",
+    "saveFields": "Enregistrer les champs",
+    "saving": "Économie…",
+    "stages": {
+      "filing": "Dépôt",
+      "formal_exam": "Examen formel",
+      "prep": "Préparatoire",
+      "publication": "Publication",
+      "reg_fee": "Taxes d’enregistrement",
+      "registration": "Enregistrement",
+      "substantive_exam": "Examen au fond"
+    },
+    "territoryLabel": {
+      "eu": "Pipeline : UE",
+      "international": "Pipeline : International (WO)",
+      "national": "Pipeline : National"
+    },
+    "territoryLocked": "Territoire corrigé à partir de la création du fichier",
+    "territoryFromInfo": "Territoire à partir des informations sur la marque",
+    "title": "Étapes de la procédure",
+    "yes": "Oui",
+    "hub": {
+      "generateInvoice": "Générer une facture",
+      "invoiceIssuedShort": "Facture émise",
+      "invoiceIssued": "Facture {{number}} émise. Le client peut le voir sur son portail ; c'est également dans l'onglet Facturation.",
+      "invoiceAlreadyIssued": "Facture {{number}} déjà émise — visible dans le portail et Facturation.",
+      "invoiceFailed": "Impossible de générer la facture. Vérifiez les détails de facturation du client.",
+      "invoiceNotes": "Frais officiels / d'État",
+      "uploadFailed": "Impossible de télécharger le fichier.",
+      "needStateFee": "Entrez d'abord le montant des frais d'État.",
+      "feeDescription": "Frais d'État / officiels",
+      "deadlineFailed": "Impossible de créer des délais.",
+      "deadlineTitles": {
+        "payment": "Paiement des taxes de l'État",
+        "poa": "Présentation de la procuration",
+        "oa": "Action administrative / demande d'examen",
+        "oaWithSubject": "Action du bureau : {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Rappelez-le {{days}} jour(s) avant la date limite."
+      },
+      "attach": {
+        "search": "Joindre le fichier de recherche",
+        "application": "Joindre la candidature",
+        "feeSlip": "Joindre le bordereau de frais",
+        "poa": "Joindre le PoA",
+        "officeAction": "Joindre une action du bureau",
+        "decision": "Joindre la décision",
+        "bulletin": "Joindre le bulletin",
+        "regFee": "Joindre une preuve de paiement",
+        "certificate": "Joindre le certificat"
+      }
+    }
   }
 }

@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Überblick",
     "clients": "Kunden",
-    "matters": "Arbeitsdateien",
+    "matters": "Dateien",
     "ipRights": "IP-Rechte",
     "finance": "Finanzen",
     "reports": "Berichte",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Benutzer und Zugriff",
     "system": "System",
     "myPortfolio": "Mein Portfolio",
-    "myMatters": "Meine Arbeitsdateien"
+    "myMatters": "Meine Dateien"
   },
   "items": {
     "dashboard": "Armaturenbrett",
@@ -33,8 +33,8 @@
     "alerts": "Warnungen",
     "clients": "Kunden",
     "holdingGroups": "Gruppen halten",
-    "allMatters": "Alle Arbeitsdateien",
-    "matters": "Arbeitsdateien",
+    "allMatters": "Alle Dateien",
+    "matters": "Dateien",
     "intakeQueue": "Einlasswarteschlange",
     "rightsRegister": "Rechteregister",
     "renewals": "Erneuerungen",
@@ -48,12 +48,12 @@
     "settings": "Einstellungen",
     "myDashboard": "Mein Dashboard",
     "myDeadlines": "Meine Fristen",
-    "myMatters": "Meine Arbeitsdateien",
+    "myMatters": "Meine Dateien",
     "patentFilings": "Patentanmeldungen",
     "officeActions": "Büroaktionen",
     "documents": "Unterlagen",
     "correspondence": "Korrespondenz",
-    "myTmMatters": "Meine TM-Arbeitsdateien",
+    "myTmMatters": "Meine Marken-Dateien",
     "oppositions": "Oppositionen",
     "watchAlerts": "Sehen Sie sich Benachrichtigungen an",
     "conflictCheck": "Konfliktprüfung",
@@ -66,7 +66,7 @@
     "broadcasts": "Sendungen",
     "outgoingMail": "Ausgehende Mail",
     "myTasks": "Meine Aufgaben",
-    "assignedMatters": "Zugewiesene Arbeitsdateien",
+    "assignedMatters": "Zugewiesene Dateien",
     "financeDashboard": "Finanz-Dashboard",
     "invoices": "Rechnungen",
     "timeEntries": "Zeiteinträge",
@@ -100,7 +100,14 @@
     "messages": "Nachrichten",
     "approvals": "Zulassungen",
     "help": "Helfen",
-    "myPortfolio": "Mein Portfolio"
+    "myPortfolio": "Mein Portfolio",
+    "workingFiles": "Dateien",
+    "mattersAll": "Alle",
+    "mattersOthers": "Sonstige",
+    "mattersArchived": "Archiviert",
+    "mattersDrafts": "Entwürfe",
+    "createFile": "Datei erstellen",
+    "createFileTrademark": "Marke"
   },
   "roles": {
     "managing_partner": "Geschäftsführender Gesellschafter",

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, useSearchParams } from 'react-router-dom'
 import { Download, FileText, Plus, Upload } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Badge } from '@/components/ui/badge'
@@ -45,14 +45,32 @@ const CATEGORIES: DocumentCategory[] = [
   'certificate',
   'correspondence',
   'renewal',
+  'general',
 ]
 
 export function MatterDocumentsTab() {
   const { t } = useTranslation(['matters', 'common'])
   const { matterId } = useOutletContext<MatterTabContext>()
-  const [categoryFilter, setCategoryFilter] = useState<DocumentCategory | 'all'>('all')
+  const [searchParams] = useSearchParams()
+  const categoryFromUrl = searchParams.get('category')
+  const initialCategory: DocumentCategory | 'all' =
+    categoryFromUrl && CATEGORIES.includes(categoryFromUrl as DocumentCategory)
+      ? (categoryFromUrl as DocumentCategory)
+      : 'all'
+  const [categoryFilter, setCategoryFilter] = useState<DocumentCategory | 'all'>(
+    initialCategory,
+  )
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
+
+  useEffect(() => {
+    if (
+      categoryFromUrl &&
+      CATEGORIES.includes(categoryFromUrl as DocumentCategory)
+    ) {
+      setCategoryFilter(categoryFromUrl as DocumentCategory)
+    }
+  }, [categoryFromUrl])
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)

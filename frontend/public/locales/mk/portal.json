@@ -176,11 +176,22 @@
     "title": "Моите фактури"
   },
   "matterTypes": {
-    "design": "Дизајн",
+    "border_measures": "Гранични мерки",
+    "cases": "Случаи",
+    "consultation": "Консултации",
+    "copyright": "Авторски права",
+    "dispute_opposition": "Спор / противење",
+    "domain": "Домени",
+    "fto_analysis": "FTO анализа",
+    "geographical_indication": "Географска ознака",
+    "industrial_design": "Индустриски дизајн",
+    "litigation_expert_report": "Судски спорови / Судски вештачења",
+    "official_fee_payment": "Официјални плаќања за такси",
     "other": "Друго",
     "patent": "Патент",
     "trademark": "Заштитен знак",
-    "utility_model": "Корисен модел"
+    "utility_model": "Корисен модел",
+    "valuation": "Вреднување"
   },
   "renewals": {
     "couldNotLoad": "Не може да се вчитаат обновувањата",

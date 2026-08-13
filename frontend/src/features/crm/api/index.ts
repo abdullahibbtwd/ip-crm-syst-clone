@@ -42,6 +42,9 @@ export const clientsApi = {
   update: (id: string, data: Record<string, unknown>) =>
     apiClient.patch<ClientDetail>(`/clients/${id}`, data),
 
+  create: (data: Record<string, unknown>) =>
+    apiClient.post<ClientDetail>('/clients', data),
+
   archive: (id: string) => apiClient.delete<ClientDetail>(`/clients/${id}`),
 }
 

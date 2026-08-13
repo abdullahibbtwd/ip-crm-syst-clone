@@ -176,11 +176,22 @@
     "title": "Мои счета"
   },
   "matterTypes": {
-    "design": "Дизайн",
+    "border_measures": "Пограничные меры",
+    "cases": "Случаи",
+    "consultation": "Консультации",
+    "copyright": "Авторское право",
+    "dispute_opposition": "Спор/оппозиция",
+    "domain": "Домены",
+    "fto_analysis": "FTO-анализ",
+    "geographical_indication": "Географическое указание",
+    "industrial_design": "Промышленный дизайн",
+    "litigation_expert_report": "Судебные разбирательства/Отчеты судебных экспертов",
+    "official_fee_payment": "Официальные платежи",
     "other": "Другой",
     "patent": "Патент",
     "trademark": "Торговая марка",
-    "utility_model": "Полезная модель"
+    "utility_model": "Полезная модель",
+    "valuation": "Оценка"
   },
   "renewals": {
     "couldNotLoad": "Не удалось загрузить продления.",

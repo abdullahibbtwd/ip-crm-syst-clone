@@ -151,16 +151,22 @@
     "title": "Интаке куеуе"
   },
   "matterType": {
+    "border_measures": "Граничне мере",
     "cases": "Случајеви",
     "consultation": "Консултације",
-    "design": "Дизајн",
+    "copyright": "Цопиригхт",
+    "dispute_opposition": "Спор / опозиција",
     "domain": "Домаинс",
+    "fto_analysis": "ФТО анализа",
+    "geographical_indication": "Географска ознака",
+    "industrial_design": "Индустријски дизајн",
     "litigation_expert_report": "Парнице / Извештаји судских вештака",
     "official_fee_payment": "Званичне уплате такси",
     "other": "Остало",
     "patent": "Патент",
     "trademark": "Традемарк",
-    "utility_model": "Корисни модел"
+    "utility_model": "Корисни модел",
+    "valuation": "Вредновање"
   },
   "referralSource": {
     "email": "Емаил",

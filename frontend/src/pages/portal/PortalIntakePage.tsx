@@ -30,7 +30,18 @@ const VALID_MATTER_TYPES = new Set<CreateIntakeFormValues['matterType']>([
   'trademark',
   'patent',
   'utility_model',
-  'design',
+  'industrial_design',
+  'copyright',
+  'geographical_indication',
+  'border_measures',
+  'fto_analysis',
+  'valuation',
+  'dispute_opposition',
+  'cases',
+  'domain',
+  'litigation_expert_report',
+  'consultation',
+  'official_fee_payment',
   'other',
 ])
 
@@ -52,7 +63,7 @@ function portalStatusKey(status: IntakeLead['status']) {
 }
 
 export function PortalIntakePage() {
-  const { t } = useTranslation('portal')
+  const { t } = useTranslation(['portal', 'matters'])
   const { user } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const createIntake = useCreateIntake()
@@ -195,7 +206,7 @@ export function PortalIntakePage() {
                         </Badge>
                       </div>
                       <p className="mt-0.5 text-xs text-muted-foreground">
-                        {t(`matterTypes.${lead.matterType}`)} ·{' '}
+                        {t(`type.${lead.matterType}`, { ns: 'matters' })} ·{' '}
                         {t('intake.filed', { date: formatIntakeDate(lead.createdAt) })}
                       </p>
                     </div>

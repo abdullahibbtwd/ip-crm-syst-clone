@@ -151,16 +151,22 @@
     "title": "قائمة انتظار المدخول"
   },
   "matterType": {
+    "border_measures": "التدابير الحدودية",
     "cases": "حالات",
     "consultation": "المشاورات",
-    "design": "تصميم",
+    "copyright": "حقوق الطبع والنشر",
+    "dispute_opposition": "النزاع / المعارضة",
     "domain": "المجالات",
+    "fto_analysis": "تحليل منظمة إرهابية أجنبية",
+    "geographical_indication": "الإشارة الجغرافية",
+    "industrial_design": "التصميم الصناعي",
     "litigation_expert_report": "تقارير خبراء التقاضي/المحكمة",
     "official_fee_payment": "مدفوعات الرسوم الرسمية",
     "other": "آخر",
     "patent": "براءة اختراع",
     "trademark": "علامة تجارية",
-    "utility_model": "نموذج المنفعة"
+    "utility_model": "نموذج المنفعة",
+    "valuation": "تقييم"
   },
   "referralSource": {
     "email": "بريد إلكتروني",

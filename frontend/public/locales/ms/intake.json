@@ -151,16 +151,22 @@
     "title": "Barisan pengambilan"
   },
   "matterType": {
+    "border_measures": "Langkah-langkah sempadan",
     "cases": "Kes",
     "consultation": "Perundingan",
-    "design": "Reka bentuk",
+    "copyright": "Hak Cipta",
+    "dispute_opposition": "Pertikaian / pembangkang",
     "domain": "Domain",
+    "fto_analysis": "analisis FTO",
+    "geographical_indication": "Petunjuk geografi",
+    "industrial_design": "Reka bentuk perindustrian",
     "litigation_expert_report": "Litigasi / Laporan Pakar Mahkamah",
     "official_fee_payment": "Bayaran Yuran Rasmi",
     "other": "Lain-lain",
     "patent": "Paten",
     "trademark": "Tanda dagangan",
-    "utility_model": "Model utiliti"
+    "utility_model": "Model utiliti",
+    "valuation": "Penilaian"
   },
   "referralSource": {
     "email": "E-mel",

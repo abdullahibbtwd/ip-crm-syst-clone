@@ -1,76 +1,166 @@
 {
   "attributes": {
     "border_measures": {
-      "customsOffice": { "label": "Customs office" },
-      "infringingGoods": { "label": "Infringing goods description" }
+      "customsOffice": {
+        "label": "Customs office"
+      },
+      "infringingGoods": {
+        "label": "Infringing goods description"
+      }
     },
     "copyright": {
-      "creationDate": { "label": "Creation date" },
-      "workTitle": { "label": "Work title" },
-      "workType": { "label": "Type of work" }
+      "creationDate": {
+        "label": "Creation date"
+      },
+      "workTitle": {
+        "label": "Work title"
+      },
+      "workType": {
+        "label": "Type of work"
+      }
     },
     "dispute_opposition": {
-      "basisSummary": { "label": "Basis summary" },
-      "disputeType": { "label": "Dispute type" },
-      "opponentName": { "label": "Opponent / adverse party" }
+      "basisSummary": {
+        "label": "Basis summary"
+      },
+      "disputeType": {
+        "label": "Dispute type"
+      },
+      "opponentName": {
+        "label": "Opponent / adverse party"
+      }
     },
     "fto_analysis": {
-      "scopeSummary": { "label": "Scope summary" },
-      "technologyArea": { "label": "Technology area" }
+      "scopeSummary": {
+        "label": "Scope summary"
+      },
+      "technologyArea": {
+        "label": "Technology area"
+      }
     },
     "geographical_indication": {
-      "productName": { "label": "Product name" },
-      "region": { "label": "Geographical region" }
+      "productName": {
+        "label": "Product name"
+      },
+      "region": {
+        "label": "Geographical region"
+      }
     },
     "industrial_design": {
       "designViews": {
         "helpText": "List or describe design views filed",
         "label": "Design views"
       },
-      "locarnoClass": { "label": "Locarno class" },
-      "productDescription": { "label": "Product description" }
+      "locarnoClass": {
+        "label": "Locarno class"
+      },
+      "productDescription": {
+        "label": "Product description"
+      }
     },
     "patent": {
-      "claimsSummary": { "label": "Claims summary" },
-      "pctNumber": { "label": "PCT number" },
-      "priorityDate": { "label": "Priority date" },
-      "technicalField": { "label": "Technical field" }
+      "claimsSummary": {
+        "label": "Claims summary"
+      },
+      "pctNumber": {
+        "label": "PCT number"
+      },
+      "priorityDate": {
+        "label": "Priority date"
+      },
+      "technicalField": {
+        "label": "Technical field"
+      }
     },
     "trademark": {
-      "colors": { "label": "Colours claimed" },
-      "markDescription": { "label": "Mark description" },
-      "markType": { "label": "Mark type" },
-      "niceClasses": { "label": "Nice classes", "placeholder": "e.g. 12, 35" }
+      "colors": {
+        "label": "Colours claimed"
+      },
+      "markDescription": {
+        "label": "Goods / services description"
+      },
+      "markKind": {
+        "label": "Mark category"
+      },
+      "markType": {
+        "label": "Mark type"
+      },
+      "markWords": {
+        "label": "Words of the mark"
+      },
+      "niceClasses": {
+        "label": "Nice classes",
+        "placeholder": "e.g. 12, 35"
+      },
+      "territory": {
+        "label": "Territory"
+      },
+      "trademarkProcedure": {
+        "label": "Trademark procedure"
+      }
     },
     "utility_model": {
-      "claimsSummary": { "label": "Claims summary" },
-      "priorityDate": { "label": "Priority date" },
-      "technicalField": { "label": "Technical field" }
+      "claimsSummary": {
+        "label": "Claims summary"
+      },
+      "priorityDate": {
+        "label": "Priority date"
+      },
+      "technicalField": {
+        "label": "Technical field"
+      }
     },
     "valuation": {
-      "assetDescription": { "label": "Asset description" },
-      "valuationPurpose": { "label": "Valuation purpose" }
+      "assetDescription": {
+        "label": "Asset description"
+      },
+      "valuationPurpose": {
+        "label": "Valuation purpose"
+      }
     },
     "domain": {
-      "domainName": { "label": "Domain name", "placeholder": "e.g. example.com" },
-      "registrar": { "label": "Registrar" }
+      "domainName": {
+        "label": "Domain name",
+        "placeholder": "e.g. example.com"
+      },
+      "registrar": {
+        "label": "Registrar"
+      }
     },
     "litigation_expert_report": {
-      "caseReference": { "label": "Case reference" },
-      "courtOrAuthority": { "label": "Court / authority" },
-      "reportScope": { "label": "Report scope" }
+      "caseReference": {
+        "label": "Case reference"
+      },
+      "courtOrAuthority": {
+        "label": "Court / authority"
+      },
+      "reportScope": {
+        "label": "Report scope"
+      }
     },
     "consultation": {
-      "scopeSummary": { "label": "Scope summary" },
-      "topic": { "label": "Topic" }
+      "scopeSummary": {
+        "label": "Scope summary"
+      },
+      "topic": {
+        "label": "Topic"
+      }
     },
     "official_fee_payment": {
-      "authority": { "label": "Authority / office" },
-      "feeReference": { "label": "Fee / payment reference" },
-      "relatedApplication": { "label": "Related application / file" }
+      "authority": {
+        "label": "Authority / office"
+      },
+      "feeReference": {
+        "label": "Fee / payment reference"
+      },
+      "relatedApplication": {
+        "label": "Related application / file"
+      }
     },
     "other": {
-      "workSummary": { "label": "Work summary" }
+      "workSummary": {
+        "label": "Work summary"
+      }
     }
   },
   "billing": {
@@ -315,18 +405,264 @@
     "viewOnEpo": "View on EPO",
     "viewOnEpoTitle": "Open official record on EPO Register"
   },
+  "trademarkInfo": {
+    "addCountry": "Add country…",
+    "cancel": "Cancel",
+    "country": "Country",
+    "edit": "Edit",
+    "errors": {
+      "country": "Select at least one country for this territory.",
+      "saveFailed": "Could not save trademark information."
+    },
+    "euFixed": "European Union (EUIPO)",
+    "markKind": "Mark category",
+    "markType": "Mark type",
+    "noCountries": "No countries selected yet.",
+    "save": "Save changes",
+    "saved": "Saved.",
+    "saving": "Saving…",
+    "selectCountries": "Select countries",
+    "territory": "Territory",
+    "title": "Trademark information"
+  },
+  "fileApproval": {
+    "clientStep": "1. Client approved",
+    "clientStepHint": "Staff confirms the client agreed offline (call/email/meeting). The portal client does not need to approve themselves.",
+    "errors": {
+      "updateFailed": "Could not update approval status."
+    },
+    "hint": "Internal approval only: mark that the client agreed, then a Managing Partner accepts the file. No send-to-client approval is required.",
+    "markClientApproved": "Mark client approved",
+    "partnerApprove": "Partner approve file",
+    "partnerOnly": "Only Managing Partner can complete this step",
+    "partnerStep": "2. Managing Partner accept",
+    "partnerStepHint": "After client is marked approved, Managing Partner accepts the file and it leaves draft.",
+    "recordedBy": "Recorded by {{name}} · {{date}}",
+    "title": "File approval",
+    "waitForClient": "Mark client approved first, then you can accept the file."
+  },
+  "prosecution": {
+    "cancelEdit": "Cancel",
+    "completeStage": "Complete stage",
+    "edit": "Edit",
+    "editingNote": "Use Save to keep what you entered on this stage, or Complete stage to move forward when required fields are filled.",
+    "gateHint": "You cannot move forward until required fields for this stage are filled (same as their system gates).",
+    "goBack": "Go back a stage",
+    "errors": {
+      "needAttachments": "Attach required files before continuing: {{list}}",
+      "needInvoice": "Generate the invoice from the state fee before completing this stage.",
+      "alreadyFinal": "This file is already at the final stage.",
+      "needApproval": "Finish file approval (client + Managing Partner) before leaving preparatory.",
+      "needBulletin": "Enter bulletin number and date before leaving publication.",
+      "needFeePaid": "Enter the state fee payment date before leaving formal examination.",
+      "needFilingFields": "Enter application number and filing date to complete filing.",
+      "needFormalFields": "Enter state fee and payment deadline to continue.",
+      "needMol": "Please enter MOL on the file details (create-file / edit) before completing filing.",
+      "needOfficeActionDeadline": "Office action has a subject — set its deadline before continuing.",
+      "needPoaFiled": "Enter PoA incoming number and date before leaving formal examination.",
+      "needRegFeePaid": "Enter registration fee payment date before continuing.",
+      "needRepresentative": "Enter at least one representative, or set Add representatives to No.",
+      "saveBeforeNavigate": "Save or cancel your edits before going back a stage.",
+      "saveFailed": "Could not save prosecution data."
+    },
+    "fields": {
+      "addRepresentatives": "Do you wish to add representatives?",
+      "applicationDate": "Application date",
+      "applicationNumber": "Application number",
+      "bulletinDate": "Bulletin date",
+      "bulletinNumber": "Bulletin number",
+      "feePaidDate": "State fee payment date",
+      "generatePoa": "Generate power of attorney",
+      "officeAction": "Office action / request",
+      "officeActionDeadline": "Office action deadline",
+      "paymentDeadline": "Payment deadline",
+      "poaDate": "PoA date",
+      "poaDeadline": "PoA submission deadline",
+      "poaIncoming": "PoA incoming number",
+      "regFeePaidDate": "Registration fee payment date",
+      "remindDays": "Remind days before deadline",
+      "representatives": "Representative(s)",
+      "sendPoaEmail": "Send automatic e-mail",
+      "stateFee": "State fee (BGN)"
+    },
+    "molHint": "MOL must be set on file details (from create file). Missing MOL blocks completing this stage.",
+    "no": "No",
+    "prepHint": "Preparatory stage: finish file approval first, then Managing Partner accept moves you into Filing.",
+    "registeredDone": "Registration stage reached.",
+    "saveChanges": "Save changes",
+    "saveEntered": "Save",
+    "saved": "Saved.",
+    "saveFields": "Save fields",
+    "saving": "Saving…",
+    "stages": {
+      "filing": "Filing",
+      "formal_exam": "Formal examination",
+      "prep": "Preparatory",
+      "publication": "Publication",
+      "reg_fee": "Registration fees",
+      "registration": "Registration",
+      "substantive_exam": "Substantive examination"
+    },
+    "territoryLabel": {
+      "eu": "Pipeline: EU",
+      "international": "Pipeline: International (WO)",
+      "national": "Pipeline: National"
+    },
+    "territoryLocked": "Territory fixed from create file",
+    "territoryFromInfo": "Territory from Trademark information",
+    "title": "Prosecution stages",
+    "yes": "Yes",
+    "hub": {
+      "generateInvoice": "Generate invoice",
+      "invoiceIssuedShort": "Invoice issued",
+      "invoiceIssued": "Invoice {{number}} issued. Client can see it in their portal; it is also on the Billing tab.",
+      "invoiceAlreadyIssued": "Invoice {{number}} already issued — visible in portal and Billing.",
+      "invoiceFailed": "Could not generate invoice. Check client billing details.",
+      "invoiceNotes": "Official / state fee",
+      "uploadFailed": "Could not upload file.",
+      "needStateFee": "Enter the state fee amount first.",
+      "feeDescription": "State / official fee",
+      "deadlineFailed": "Could not create deadline(s).",
+      "deadlineTitles": {
+        "payment": "State fee payment",
+        "poa": "Power of attorney submission",
+        "oa": "Office action / examination request",
+        "oaWithSubject": "Office action: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Remind {{days}} day(s) before deadline."
+      },
+      "attach": {
+        "search": "Attach search file",
+        "application": "Attach application",
+        "feeSlip": "Attach fee slip",
+        "poa": "Attach PoA",
+        "officeAction": "Attach office action",
+        "decision": "Attach decision",
+        "bulletin": "Attach bulletin",
+        "regFee": "Attach payment proof",
+        "certificate": "Attach certificate"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Client *",
     "creating": "Creating…",
-    "error": "Failed to create working file",
+    "error": "Failed to create file",
     "jurisdictionHelp": "Select one or more filing jurisdictions.",
     "jurisdictions": "Jurisdictions",
     "matterType": "Work type *",
-    "open": "Open working file",
+    "open": "Open file",
     "responsibleAttorney": "Responsible attorney",
-    "title": "Open new working file",
+    "title": "Open new file",
     "titleField": "Title *",
     "titlePlaceholder": "e.g. ACME word mark – EU"
+  },
+  "createFile": {
+    "addClass": "Add class",
+    "backToFiles": "Back to files",
+    "cancel": "Cancel",
+    "changeSubtype": "Change subcategory",
+    "checkRegister": "Check in commercial register",
+    "clearClient": "Change client",
+    "clientOptionalHint": "No CRM match? Fill the client details below — saving the draft will create them in Clients automatically.",
+    "applicantOptionalHint": "No CRM match? Fill the applicant details below — saving the draft will create them in Clients automatically.",
+    "draftDescription": "Created via Create file ({{procedure}}) — draft",
+    "errors": {
+      "client": "Select a client to continue.",
+      "clientOrDetails": "Select a CRM client, or enter the client name and details to create them.",
+      "applicantOrDetails": "Select an applicant in CRM, or enter the applicant name and details to create them.",
+      "jurisdiction": "Select at least one territory / country.",
+      "markWords": "Enter the trademark name / words.",
+      "saveFailed": "Could not save the draft file.",
+      "subtype": "Select a trademark subcategory."
+    },
+    "euHint": "European Union trademark (EUIPO) — jurisdiction set to EU.",
+    "fields": {
+      "address": "Address",
+      "applicantClient": "Applicant client",
+      "applicantClientOptional": "Applicant in CRM (optional)",
+      "city": "City",
+      "classNumber": "Class number",
+      "country": "Country",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Goods and services",
+      "legalName": "Name and legal entity type",
+      "linkClient": "Select client in CRM",
+      "linkClientOptional": "CRM client (optional)",
+      "markKind": "Mark category",
+      "markType": "Mark type",
+      "markWords": "Words of the mark",
+      "mol": "MOL (signatory)",
+      "name": "Name",
+      "phone": "Phone",
+      "postalCode": "Postal code",
+      "territory": "Territory",
+      "vat": "VAT ID"
+    },
+    "formTitle": "Create file: Trademark",
+    "fullFormReady": "Full form available",
+    "goodsPlaceholder": "e.g. bottles; retail services…",
+    "markKinds": {
+      "certification": "Certification",
+      "collective": "Collective",
+      "individual": "Individual"
+    },
+    "markTypes": {
+      "combination_of_colors": "Combination of colors",
+      "combined": "Combined",
+      "figurative": "Figurative",
+      "sound": "Sound",
+      "three_dimensional": "Three-dimensional",
+      "wordmark": "Word mark"
+    },
+    "noClients": "No matching clients. Create the client in CRM first, then return here.",
+    "optionalMark": "Mark / subject (optional)",
+    "partialSubtypeNote": "Full specialized fields for this subcategory will be expanded later. You can still save a draft linked to the client; documents and correspondence stay on the file.",
+    "preliminary": "Preliminary information",
+    "procedureHints": {
+      "cancellation": "Cancellation proceedings — roles may be us or them",
+      "new": "New trademark application — full create form",
+      "objection": "Objection we have filed",
+      "opposition_against_us": "Opposition filed against us",
+      "opposition_by_us": "Opposition we are filing",
+      "revocation": "Revocation proceedings"
+    },
+    "procedures": {
+      "cancellation": "Cancellation",
+      "new": "New trademark",
+      "objection": "Objection",
+      "opposition_against_us": "Opposition against us",
+      "opposition_by_us": "Opposition by us",
+      "revocation": "Revocation"
+    },
+    "removeClass": "Remove class",
+    "sameApplicant": "Applicant information is the same as the client",
+    "sameCorrespondence": "Correspondence address is the same as the registered address",
+    "saveDraft": "Save as draft",
+    "saving": "Saving…",
+    "searchClient": "Search clients by name or code…",
+    "sections": {
+      "applicant": "Applicant",
+      "client": "Client data",
+      "contact": "Contact person",
+      "correspondence": "Correspondence address",
+      "goods": "List of goods and services",
+      "markName": "Trademark name",
+      "registeredAddress": "Registered address",
+      "searchDocs": "Attach search documents",
+      "trademark": "Trademark information"
+    },
+    "selectCountries": "Select countries",
+    "subtypeHint": "First choose the trademark subcategory. New trademark opens the full form from the client demo.",
+    "territories": {
+      "eu": "European Union",
+      "international": "International (WO)",
+      "national": "National"
+    },
+    "trademarkTitle": "Create file — Trademark"
   },
   "deadlines": {
     "complete": "Complete",
@@ -564,25 +900,28 @@
     "rejected": "Rejected"
   },
   "layout": {
-    "backToMatters": "← Back to working files",
-    "loading": "Loading working file…",
-    "notFound": "Working file not found.",
+    "backToMatters": "← Back to files",
+    "loading": "Loading file…",
+    "notFound": "File not found.",
     "archivedBadge": "Archived",
     "archive": "Archive",
     "archiving": "Archiving…",
     "restore": "Restore",
     "restoring": "Restoring…",
-    "archiveFailed": "Failed to archive working file",
-    "restoreFailed": "Failed to restore working file",
-    "archiveConfirm": "Archive this working file? It will leave the active list but remain searchable under Archived."
+    "archiveFailed": "Failed to archive file",
+    "restoreFailed": "Failed to restore file",
+    "archiveConfirm": "Archive this file? It will leave the active list but remain searchable under Archived."
   },
   "list": {
-    "description": "Portfolio view of all working files — search by title, client, or application number.",
-    "descriptionPortal": "Working files opened for your organisation after intake conversion.",
-    "descriptionArchived": "Completed or inactive working files kept for reference.",
+    "description": "Portfolio view of all files — search by title, client, or application number.",
+    "descriptionPortal": "Files opened for your organisation after intake conversion.",
+    "descriptionArchived": "Completed or inactive files kept for reference.",
+    "descriptionOthers": "Files outside the main six shelves — filter by work type below.",
+    "descriptionType": "{{type}} files — search by title, client, or application number.",
     "filters": {
       "allStatuses": "All statuses",
       "allTypes": "All work types",
+      "allOtherTypes": "All other types",
       "active": "Active",
       "archived": "Archived"
     },
@@ -592,9 +931,12 @@
     },
     "perPage": "{{count}} per page",
     "searchPlaceholder": "Search title, client, application no…",
-    "title": "Working files",
-    "titleArchived": "Archived working files",
-    "titlePortal": "My working files"
+    "title": "Files",
+    "titleArchived": "Archived files",
+    "titleDrafts": "Drafts",
+    "titleOthers": "Other files",
+    "titlePortal": "My files",
+    "descriptionDrafts": "Draft files waiting for approval or filing — separate from active Trademarks and other shelves."
   },
   "ipRightsRegister": {
     "description": "Firm-wide register of IP rights with filters by client, jurisdiction, type, status, and expiry.",
@@ -627,6 +969,7 @@
   },
   "markType": {
     "combined": "Combined",
+    "combination_of_colors": "Combination of colors",
     "figurative": "Figurative",
     "sound": "Sound",
     "three_dimensional": "3D",
@@ -639,6 +982,23 @@
     "clientHint": "Instructing party — receives invoices",
     "intermediary": "Intermediary",
     "description": "Description",
+    "edit": {
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "errors": {
+        "saveFailed": "Could not save file details.",
+        "title": "Title is required."
+      },
+      "fields": {
+        "territory": "Territory (from create file)",
+        "title": "Title"
+      },
+      "hint": "Click Edit to change file details, then Save changes. Territory stays as set when the file was created.",
+      "save": "Save changes",
+      "saved": "Saved.",
+      "saving": "Saving…",
+      "title": "File details"
+    },
     "jurisdictions": "Jurisdictions",
     "jurisdictionsEmpty": "No jurisdictions recorded.",
     "openedBy": "Opened by",
@@ -648,7 +1008,7 @@
       "localRef": "Local ref.",
       "status": "Status"
     },
-    "title": "Working file details",
+    "title": "File details",
     "type": "Work type",
     "typeSpecific": "Type-specific attributes"
   },

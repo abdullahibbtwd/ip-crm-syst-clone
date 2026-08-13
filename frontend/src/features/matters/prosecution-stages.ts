@@ -1,0 +1,178 @@
+export const PROSECUTION_STAGES = [
+  'prep',
+  'filing',
+  'formal_exam',
+  'substantive_exam',
+  'publication',
+  'reg_fee',
+  'registration',
+] as const
+
+export type ProsecutionStage = (typeof PROSECUTION_STAGES)[number]
+
+/** Pipelines from client screenshots — territory is fixed at create-file time. */
+export const PIPELINES: Record<'national' | 'eu' | 'international', ProsecutionStage[]> = {
+  national: [
+    'prep',
+    'filing',
+    'formal_exam',
+    'substantive_exam',
+    'publication',
+    'reg_fee',
+    'registration',
+  ],
+  eu: [
+    'prep',
+    'filing',
+    'formal_exam',
+    'substantive_exam',
+    'publication',
+    'registration',
+  ],
+  international: ['prep', 'filing', 'formal_exam', 'registration'],
+}
+
+export type ProsecutionHubSync = {
+  paymentDeadline?: boolean
+  poaDeadline?: boolean
+  oaDeadline?: boolean
+  stateFee?: boolean
+  issuedInvoiceId?: string
+  issuedInvoiceNumber?: string
+}
+
+export type ProsecutionState = {
+  stage: ProsecutionStage
+  applicationNumber?: string
+  applicationDate?: string
+  addRepresentatives?: boolean
+  representatives?: string
+  stateFeeBgn?: string
+  paymentDeadline?: string
+  paymentRemindDays?: string
+  feePaidDate?: string
+  generatePoa?: boolean
+  sendPoaEmail?: boolean
+  poaDeadline?: string
+  poaIncomingNumber?: string
+  poaDate?: string
+  bulletinNumber?: string
+  bulletinDate?: string
+  officeActionSubject?: string
+  officeActionDeadline?: string
+  regFeePaidDate?: string
+  /** Tracks one-time pushes from stage hub → Deadlines / Billing. */
+  hubSync?: ProsecutionHubSync
+}
+
+export type FileApprovalLike = {
+  clientConfirmed?: boolean
+  partnerApproved?: boolean
+}
+
+export function territoryFromAttrs(
+  attrs: Record<string, unknown>,
+): 'national' | 'eu' | 'international' {
+  const t = attrs.territory
+  if (t === 'eu' || t === 'international' || t === 'national') return t
+  return 'national'
+}
+
+export function readProsecution(
+  attrs: Record<string, unknown>,
+): ProsecutionState | null {
+  const raw = attrs.prosecution
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null
+  const stage = (raw as ProsecutionState).stage
+  if (!stage || !PROSECUTION_STAGES.includes(stage)) return null
+  return raw as ProsecutionState
+}
+
+export function pipelineForTerritory(
+  territory: 'national' | 'eu' | 'international',
+): ProsecutionStage[] {
+  return PIPELINES[territory]
+}
+
+export function nextStage(
+  territory: 'national' | 'eu' | 'international',
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const pipe = PIPELINES[territory]
+  const idx = pipe.indexOf(current)
+  if (idx < 0 || idx >= pipe.length - 1) return null
+  return pipe[idx + 1]
+}
+
+export function previousStage(
+  territory: 'national' | 'eu' | 'international',
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const pipe = PIPELINES[territory]
+  const idx = pipe.indexOf(current)
+  if (idx <= 0) return null
+  return pipe[idx - 1]
+}
+
+/**
+ * Returns an i18n error key under prosecution.errors.* if the stage cannot advance.
+ * Matches client demo: missing required data blocks "Complete stage".
+ */
+export function stageAdvanceBlockReason(
+  stage: ProsecutionStage,
+  data: ProsecutionState,
+  attrs: Record<string, unknown>,
+  approval: FileApprovalLike,
+): string | null {
+  switch (stage) {
+    case 'prep':
+      if (!approval.clientConfirmed || !approval.partnerApproved) {
+        return 'needApproval'
+      }
+      return null
+    case 'filing': {
+      const mol = typeof attrs.mol === 'string' ? attrs.mol.trim() : ''
+      if (!mol) return 'needMol'
+      if (!data.applicationNumber?.trim() || !data.applicationDate) {
+        return 'needFilingFields'
+      }
+      if (data.addRepresentatives !== false && !data.representatives?.trim()) {
+        return 'needRepresentative'
+      }
+      return null
+    }
+    case 'formal_exam':
+      if (!data.stateFeeBgn?.trim() || !data.paymentDeadline) {
+        return 'needFormalFields'
+      }
+      if (!data.feePaidDate) return 'needFeePaid'
+      if (!data.poaIncomingNumber?.trim() || !data.poaDate) {
+        return 'needPoaFiled'
+      }
+      return null
+    case 'substantive_exam':
+      // Office action is optional; if started, deadline is required before leaving.
+      if (data.officeActionSubject?.trim() && !data.officeActionDeadline) {
+        return 'needOfficeActionDeadline'
+      }
+      return null
+    case 'publication':
+      if (!data.bulletinNumber?.trim() || !data.bulletinDate) {
+        return 'needBulletin'
+      }
+      return null
+    case 'reg_fee':
+      if (!data.regFeePaidDate && !data.feePaidDate) {
+        return 'needRegFeePaid'
+      }
+      return null
+    case 'registration':
+      return 'alreadyFinal'
+    default:
+      return null
+  }
+}
+
+export function isCreateFileTrademark(attrs: Record<string, unknown>): boolean {
+  return typeof attrs.trademarkProcedure === 'string'
+}

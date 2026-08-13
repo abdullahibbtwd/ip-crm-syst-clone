@@ -1,33 +1,41 @@
 import type { LucideIcon } from 'lucide-react'
 import {
+  Archive,
   Atom,
   Award,
   Banknote,
   BarChart3,
   Bell,
   BookMarked,
+  Briefcase,
   Calendar,
   CalendarPlus,
   Building2,
-  Handshake,
   CircleDollarSign,
   Clock,
   CreditCard,
   Eye,
   FileOutput,
+  FilePlus,
   FileSpreadsheet,
   FileText,
+  FilePenLine,
   FolderOpen,
+  Gavel,
   Globe2,
+  Handshake,
   HelpCircle,
   History,
   Inbox,
   KeyRound,
   LayoutDashboard,
+  Layers,
   List,
   Lock,
   Mail,
+  MapPinned,
   Megaphone,
+  Palette,
   PieChart,
   Plug,
   Receipt,
@@ -38,21 +46,27 @@ import {
   Settings,
   Shield,
   ShieldCheck,
+  Stamp,
   Trash2,
   Upload,
   Users,
   UsersRound,
 } from 'lucide-react'
 import type { SystemRole } from '../lib/rbac'
+import { PRIMARY_MATTER_TYPES } from '../features/matters/work-file-groups'
 
 export type NavItem = {
   icon: LucideIcon
   labelKey: string
+  /** i18n namespace for labelKey (default: nav). Use e.g. matters for type.* labels. */
+  labelNs?: string
   id?: string
   path?: string
   isHome?: boolean
   isFooter?: boolean
   active?: boolean
+  /** Nested items for expandable sidebar groups (e.g. Working files). */
+  children?: NavItem[]
 }
 
 export type NavSection = {
@@ -73,6 +87,80 @@ export type RoleView = {
   home: {
     homeKey: string
     comingSoon?: boolean
+  }
+}
+
+const PRIMARY_TYPE_NAV: Array<{
+  type: (typeof PRIMARY_MATTER_TYPES)[number]
+  icon: LucideIcon
+}> = [
+  { type: 'trademark', icon: Stamp },
+  { type: 'patent', icon: Atom },
+  { type: 'utility_model', icon: Layers },
+  { type: 'industrial_design', icon: Palette },
+  { type: 'geographical_indication', icon: MapPinned },
+  { type: 'cases', icon: Gavel },
+]
+
+/** Expandable Working files group shared across internal roles. */
+export function workingFilesNavItem(opts?: {
+  id?: string
+  labelKey?: string
+}): NavItem {
+  return {
+    id: opts?.id ?? 'working-files',
+    icon: FolderOpen,
+    labelKey: opts?.labelKey ?? 'workingFiles',
+    children: [
+      {
+        icon: Briefcase,
+        labelKey: 'mattersAll',
+        path: '/matters',
+        id: 'matters-all',
+      },
+      ...PRIMARY_TYPE_NAV.map(({ type, icon }) => ({
+        icon,
+        labelKey: `type.${type}`,
+        labelNs: 'matters',
+        path: `/matters?matterType=${type}`,
+        id: `matters-${type}`,
+      })),
+      {
+        icon: Layers,
+        labelKey: 'mattersOthers',
+        path: '/matters?group=others',
+        id: 'matters-others',
+      },
+      {
+        icon: FilePenLine,
+        labelKey: 'mattersDrafts',
+        path: '/matters?drafts=1',
+        id: 'matters-drafts',
+      },
+      {
+        icon: Archive,
+        labelKey: 'mattersArchived',
+        path: '/matters?archived=1',
+        id: 'matters-archived',
+      },
+    ],
+  }
+}
+
+/** Create File dropdown — starts with Trademark (more types later). */
+export function createFileNavItem(): NavItem {
+  return {
+    id: 'create-file',
+    icon: FilePlus,
+    labelKey: 'createFile',
+    children: [
+      {
+        icon: Stamp,
+        labelKey: 'createFileTrademark',
+        path: '/files/new/trademark',
+        id: 'create-file-trademark',
+      },
+    ],
   }
 }
 
@@ -99,7 +187,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, labelKey: 'allMatters', path: '/matters' },
+          createFileNavItem(),
+          workingFilesNavItem({ labelKey: 'workingFiles' }),
           { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
@@ -176,8 +265,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, labelKey: 'myMatters', path: '/matters' },
-          { icon: Atom, labelKey: 'patentFilings', path: '/matters?matterType=patent' },
+          createFileNavItem(),
+          workingFilesNavItem({ labelKey: 'myMatters' }),
           { icon: Upload, labelKey: 'officeActions', path: '/deadlines' },
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],
@@ -217,12 +306,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'trademarks',
         items: [
-          { icon: ShieldCheck, labelKey: 'myTmMatters', path: '/matters' },
-          {
-            icon: Upload,
-            labelKey: 'oppositions',
-            path: '/matters?matterType=dispute_opposition',
-          },
+          createFileNavItem(),
+          workingFilesNavItem({ labelKey: 'myTmMatters' }),
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Eye, labelKey: 'watchAlerts', path: '/watch-alerts' },
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
@@ -263,7 +348,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: Users, labelKey: 'clients', path: '/clients' },
           { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
-          { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          createFileNavItem(),
+          workingFilesNavItem(),
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Search, labelKey: 'conflictCheck', path: '/intake?status=conflict_check' },
@@ -305,7 +391,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'deadlines',
         items: [
-          { icon: FolderOpen, labelKey: 'matters', path: '/matters' },
+          createFileNavItem(),
+          workingFilesNavItem(),
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: RefreshCw, labelKey: 'renewals', path: '/renewals' },
           { icon: Clock, labelKey: 'gracePeriods', path: '/deadlines?hasGrace=1' },
@@ -347,7 +434,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
       {
         sectionKey: 'matters',
         items: [
-          { icon: FolderOpen, labelKey: 'assignedMatters', path: '/matters' },
+          createFileNavItem(),
+          workingFilesNavItem({ labelKey: 'assignedMatters' }),
           { icon: Users, labelKey: 'clients', path: '/clients' },
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
         ],

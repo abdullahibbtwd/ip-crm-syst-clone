@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Belle lezioni",
         "placeholder": "per esempio. 12, 35"
+      },
+      "markKind": {
+        "label": "Segna categoria"
+      },
+      "markWords": {
+        "label": "Parole del segno"
+      },
+      "territory": {
+        "label": "Territorio"
+      },
+      "trademarkProcedure": {
+        "label": "Procedura relativa al marchio"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Cliente *",
     "creating": "Creazione…",
-    "error": "Impossibile creare il file di lavoro",
+    "error": "Creazione file non riuscita",
     "jurisdictionHelp": "Seleziona una o più giurisdizioni di deposito.",
     "jurisdictions": "Giurisdizioni",
     "matterType": "Tipologia lavoro *",
-    "open": "Apri il file di lavoro",
+    "open": "Apri file",
     "responsibleAttorney": "Avvocato responsabile",
-    "title": "Apri un nuovo file di lavoro",
+    "title": "Apri nuovo file",
     "titleField": "Titolo *",
     "titlePlaceholder": "per esempio. Marchio denominativo ACME – UE"
   },
@@ -642,37 +654,43 @@
     "rejected": "Respinto"
   },
   "layout": {
-    "backToMatters": "← Torniamo ai file di lavoro",
-    "loading": "Caricamento file di lavoro...",
-    "notFound": "File di lavoro non trovato.",
+    "backToMatters": "← Torna ai file",
+    "loading": "Caricamento file…",
+    "notFound": "File non trovato.",
     "archivedBadge": "Archiviata",
     "archive": "Archivio",
     "archiving": "Archiviazione…",
     "restore": "Ripristinare",
     "restoring": "Ripristino…",
-    "archiveFailed": "Impossibile archiviare il file di lavoro",
-    "restoreFailed": "Impossibile ripristinare il file di lavoro",
-    "archiveConfirm": "Archiviare questo file di lavoro? Lascerà l'elenco attivo ma rimarrà ricercabile in Archiviati."
+    "archiveFailed": "Impossibile archiviare il file",
+    "restoreFailed": "Impossibile ripristinare il file",
+    "archiveConfirm": "Archiviare questo file? Uscirà dall’elenco attivo ma resterà cercabile in Archiviati."
   },
   "list": {
-    "description": "Visualizzazione del portfolio di tutti i file di lavoro: ricerca per titolo, cliente o numero di domanda.",
-    "descriptionPortal": "File di lavoro aperti per la tua organizzazione dopo la conversione dell'assunzione.",
-    "descriptionArchived": "File di lavoro completati o inattivi conservati per riferimento.",
+    "description": "Vista di tutti i file — cerca per titolo, cliente o n. domanda.",
+    "descriptionPortal": "File aperti per la vostra organizzazione dopo la conversione dell’intake.",
+    "descriptionArchived": "File conclusi o inattivi conservati per riferimento.",
     "filters": {
       "allStatuses": "Tutti gli stati",
       "allTypes": "Tutti i tipi di lavoro",
       "active": "Attiva",
-      "archived": "Archiviata"
+      "archived": "Archiviati",
+      "allOtherTypes": "Tutti gli altri tipi"
     },
     "intakeQueue": "Coda di assunzione",
     "pagination": {
       "ofTotal": "di {{total}}"
     },
     "perPage": "{{count}} per pagina",
-    "searchPlaceholder": "Cerca titolo, cliente, numero di domanda...",
-    "title": "File di lavoro",
-    "titleArchived": "File di lavoro archiviati",
-    "titlePortal": "I miei file di lavoro"
+    "searchPlaceholder": "Cerca titolo, cliente, n. domanda…",
+    "title": "File",
+    "titleArchived": "File archiviati",
+    "titlePortal": "I miei file",
+    "descriptionOthers": "File fuori dalle sei categorie principali — filtra per tipo sotto.",
+    "descriptionType": "File {{type}} — cerca per titolo, cliente o n. domanda.",
+    "titleOthers": "Altri file",
+    "titleDrafts": "Bozze",
+    "descriptionDrafts": "Bozze in attesa di approvazione o deposito — separate dai marchi attivi e dagli altri scaffali."
   },
   "ipRightsRegister": {
     "description": "Registro dei diritti di proprietà intellettuale a livello aziendale con filtri per cliente, giurisdizione, tipologia, stato e scadenza.",
@@ -708,7 +726,8 @@
     "figurative": "Figurativa",
     "sound": "Suono",
     "three_dimensional": "3D",
-    "wordmark": "Marchio denominativo"
+    "wordmark": "Marchio denominativo",
+    "combination_of_colors": "Combinazione di colori"
   },
   "overview": {
     "assignedTo": "Avvocato principale",
@@ -726,9 +745,26 @@
       "localRef": "Rif. locale",
       "status": "Stato"
     },
-    "title": "Dettagli del file di lavoro",
+    "title": "Dettagli file",
     "type": "Tipo di lavoro",
-    "typeSpecific": "Attributi specifici del tipo"
+    "typeSpecific": "Attributi specifici del tipo",
+    "edit": {
+      "cancel": "Cancellare",
+      "edit": "Modificare",
+      "errors": {
+        "saveFailed": "Impossibile salvare i dettagli del file.",
+        "title": "Il titolo è obbligatorio."
+      },
+      "fields": {
+        "territory": "Territorio (dalla creazione del file)",
+        "title": "Titolo"
+      },
+      "hint": "Fare clic su Modifica per modificare i dettagli del file, quindi su Salva modifiche. Il territorio rimane quello impostato al momento della creazione del file.",
+      "save": "Salva modifiche",
+      "saved": "Salvato.",
+      "saving": "Risparmio…",
+      "title": "Dettagli del file"
+    }
   },
   "parties": {
     "title": "Parti",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Selezionare…",
     "title": "Dettagli specifici del tipo"
+  },
+  "createFile": {
+    "addClass": "Aggiungi classe",
+    "backToFiles": "Torniamo ai file",
+    "cancel": "Cancellare",
+    "changeSubtype": "Cambia sottocategoria",
+    "checkRegister": "Verifica nel registro delle imprese",
+    "clearClient": "Cambia cliente",
+    "clientOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del cliente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
+    "applicantOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del richiedente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
+    "draftDescription": "Creato tramite Crea file ({{procedure}}) — bozza",
+    "errors": {
+      "client": "Seleziona un cliente per continuare.",
+      "clientOrDetails": "Seleziona un cliente CRM o inserisci il nome e i dettagli del cliente per crearlo.",
+      "applicantOrDetails": "Seleziona un candidato in CRM o inserisci il nome e i dettagli del candidato per crearlo.",
+      "jurisdiction": "Seleziona almeno un territorio/paese.",
+      "markWords": "Inserisci il nome/le parole del marchio.",
+      "saveFailed": "Impossibile salvare la bozza del file.",
+      "subtype": "Seleziona una sottocategoria del marchio."
+    },
+    "euHint": "Marchio dell'Unione Europea (EUIPO): giurisdizione impostata su UE.",
+    "fields": {
+      "address": "Indirizzo",
+      "applicantClient": "Cliente richiedente",
+      "applicantClientOptional": "Candidato in CRM (facoltativo)",
+      "city": "Città",
+      "classNumber": "Numero di classe",
+      "country": "Paese",
+      "eik": "UIC/EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Beni e servizi",
+      "legalName": "Nome e tipo di persona giuridica",
+      "linkClient": "Seleziona il cliente nel CRM",
+      "linkClientOptional": "Client CRM (facoltativo)",
+      "markKind": "Segna categoria",
+      "markType": "Tipo di segno",
+      "markWords": "Parole del segno",
+      "mol": "MOL (firmatario)",
+      "name": "Nome",
+      "phone": "Telefono",
+      "postalCode": "Codice Postale",
+      "territory": "Territorio",
+      "vat": "Partita IVA"
+    },
+    "formTitle": "Crea file: Marchio",
+    "fullFormReady": "Disponibile il modulo completo",
+    "goodsPlaceholder": "per esempio. bottiglie; servizi al dettaglio…",
+    "markKinds": {
+      "certification": "Certificazione",
+      "collective": "Collettiva",
+      "individual": "Individuale"
+    },
+    "markTypes": {
+      "combination_of_colors": "Combinazione di colori",
+      "combined": "Combinato",
+      "figurative": "Figurativa",
+      "sound": "Suono",
+      "three_dimensional": "Tridimensionale",
+      "wordmark": "Marchio denominativo"
+    },
+    "noClients": "Nessun cliente corrispondente. Crea prima il cliente in CRM, quindi torna qui.",
+    "optionalMark": "Segna/oggetto (facoltativo)",
+    "partialSubtypeNote": "I campi specializzati completi per questa sottocategoria verranno ampliati in seguito. Puoi comunque salvare una bozza collegata al cliente; i documenti e la corrispondenza restano in archivio.",
+    "preliminary": "Informazioni preliminari",
+    "procedureHints": {
+      "cancellation": "Procedure di cancellazione: i ruoli possono essere noi o loro",
+      "new": "Nuova domanda di marchio: modulo di creazione completo",
+      "objection": "Obiezione che abbiamo presentato",
+      "opposition_against_us": "L'opposizione si è presentata contro di noi",
+      "opposition_by_us": "Opposizione che stiamo presentando",
+      "revocation": "Procedimenti di revoca"
+    },
+    "procedures": {
+      "cancellation": "Cancellazione",
+      "new": "Nuovo marchio",
+      "objection": "Obiezione",
+      "opposition_against_us": "Opposizione contro di noi",
+      "opposition_by_us": "Opposizione da parte nostra",
+      "revocation": "Revoca"
+    },
+    "removeClass": "Rimuovi classe",
+    "sameApplicant": "Le informazioni del richiedente sono le stesse del cliente",
+    "sameCorrespondence": "L'indirizzo di corrispondenza è lo stesso dell'indirizzo registrato",
+    "saveDraft": "Salva come bozza",
+    "saving": "Risparmio…",
+    "searchClient": "Cerca clienti per nome o codice...",
+    "sections": {
+      "applicant": "Richiedente",
+      "client": "Dati del cliente",
+      "contact": "Referente",
+      "correspondence": "Indirizzo per la corrispondenza",
+      "goods": "Elenco di beni e servizi",
+      "markName": "Nome del marchio",
+      "registeredAddress": "Indirizzo registrato",
+      "searchDocs": "Allega i documenti di ricerca",
+      "trademark": "Informazioni sui marchi"
+    },
+    "selectCountries": "Seleziona i paesi",
+    "subtypeHint": "Scegli innanzitutto la sottocategoria del marchio. Il nuovo marchio apre il modulo completo dalla demo del cliente.",
+    "territories": {
+      "eu": "Unione Europea",
+      "international": "Internazionale (WO)",
+      "national": "Nazionale"
+    },
+    "trademarkTitle": "Crea file: marchio"
+  },
+  "trademarkInfo": {
+    "addCountry": "Aggiungi paese...",
+    "cancel": "Cancellare",
+    "country": "Paese",
+    "edit": "Modificare",
+    "errors": {
+      "country": "Seleziona almeno un paese per questo territorio.",
+      "saveFailed": "Impossibile salvare le informazioni sul marchio."
+    },
+    "euFixed": "Unione Europea (EUIPO)",
+    "markKind": "Segna categoria",
+    "markType": "Tipo di segno",
+    "noCountries": "Nessun paese ancora selezionato.",
+    "save": "Salva modifiche",
+    "saved": "Salvato.",
+    "saving": "Risparmio…",
+    "selectCountries": "Seleziona i paesi",
+    "territory": "Territorio",
+    "title": "Informazioni sui marchi"
+  },
+  "fileApproval": {
+    "clientStep": "1. Approvato dal cliente",
+    "clientStepHint": "Il personale conferma il cliente concordato offline (chiamata/e-mail/riunione). Non è necessario che il client del portale approvi autonomamente.",
+    "errors": {
+      "updateFailed": "Impossibile aggiornare lo stato di approvazione."
+    },
+    "hint": "Solo approvazione interna: contrassegnare che il cliente è d'accordo, quindi un socio amministratore accetta il file. Non è richiesta l'approvazione dell'invio al cliente.",
+    "markClientApproved": "Contrassegna il cliente come approvato",
+    "partnerApprove": "File di approvazione del partner",
+    "partnerOnly": "Solo il socio amministratore può completare questo passaggio",
+    "partnerStep": "2. Il socio amministratore accetta",
+    "partnerStepHint": "Dopo che il cliente è stato contrassegnato come approvato, il socio amministratore accetta il file e lascia la bozza.",
+    "recordedBy": "Registrato da {{name}} · {{date}}",
+    "title": "Approvazione del fascicolo",
+    "waitForClient": "Contrassegnare prima il cliente come approvato, quindi sarà possibile accettare il file."
+  },
+  "prosecution": {
+    "cancelEdit": "Cancellare",
+    "completeStage": "Fase completa",
+    "edit": "Modificare",
+    "editingNote": "Utilizza Salva per conservare ciò che hai inserito in questa fase oppure Completa fase per andare avanti una volta compilati i campi obbligatori.",
+    "gateHint": "Non puoi andare avanti finché i campi richiesti per questa fase non vengono riempiti (come i cancelli del sistema).",
+    "goBack": "Torna indietro di una tappa",
+    "errors": {
+      "needAttachments": "Allega i file richiesti prima di continuare: {{list}}",
+      "needInvoice": "Genera la fattura dalla tassa statale prima di completare questa fase.",
+      "alreadyFinal": "Questo file è già nella fase finale.",
+      "needApproval": "Terminare l'approvazione del file (cliente + socio amministratore) prima di lasciare la fase preparatoria.",
+      "needBulletin": "Inserire il numero e la data del bollettino prima di lasciare la pubblicazione.",
+      "needFeePaid": "Inserisci la data di pagamento della tassa statale prima di lasciare l'esame formale.",
+      "needFilingFields": "Inserisci il numero della domanda e la data di deposito per completare il deposito.",
+      "needFormalFields": "Inserisci la tassa statale e la scadenza del pagamento per continuare.",
+      "needMol": "Inserisci MOL nei dettagli del file (crea-file/modifica) prima di completare l'archiviazione.",
+      "needOfficeActionDeadline": "L'azione dell'Ufficio ha un oggetto: stabilisci la scadenza prima di continuare.",
+      "needPoaFiled": "Inserisci il numero e la data in entrata del PoA prima di lasciare l'esame formale.",
+      "needRegFeePaid": "Inserisci la data di pagamento della quota di iscrizione prima di continuare.",
+      "needRepresentative": "Inserisci almeno un rappresentante o imposta Aggiungi rappresentanti su No.",
+      "saveBeforeNavigate": "Salva o annulla le modifiche prima di tornare indietro di una fase.",
+      "saveFailed": "Impossibile salvare i dati dell'accusa."
+    },
+    "fields": {
+      "addRepresentatives": "Desideri aggiungere rappresentanti?",
+      "applicationDate": "Data della domanda",
+      "applicationNumber": "Numero della domanda",
+      "bulletinDate": "Data del bollettino",
+      "bulletinNumber": "Numero del bollettino",
+      "feePaidDate": "Data di pagamento della tassa statale",
+      "generatePoa": "Genera procura",
+      "officeAction": "Azione/richiesta dell'ufficio",
+      "officeActionDeadline": "Termine per l'azione dell'ufficio",
+      "paymentDeadline": "Termine di pagamento",
+      "poaDate": "Data del PoA",
+      "poaDeadline": "Scadenza per la presentazione della PoA",
+      "poaIncoming": "Numero in entrata PoA",
+      "regFeePaidDate": "Data di pagamento della quota di iscrizione",
+      "remindDays": "Ricordalo giorni prima della scadenza",
+      "representatives": "Rappresentante(i)",
+      "sendPoaEmail": "Invia e-mail automatica",
+      "stateFee": "Tassa statale (BGN)"
+    },
+    "molHint": "MOL deve essere impostato sui dettagli del file (dalla creazione del file). Blocchi MOL mancanti che completano questa fase.",
+    "no": "NO",
+    "prepHint": "Fase preparatoria: termina prima l'approvazione del file, poi l'accettazione del socio amministratore ti porta alla fase di archiviazione.",
+    "registeredDone": "Fase di registrazione raggiunta.",
+    "saveChanges": "Salva modifiche",
+    "saveEntered": "Salva",
+    "saved": "Salvato.",
+    "saveFields": "Salva campi",
+    "saving": "Risparmio…",
+    "stages": {
+      "filing": "Deposito",
+      "formal_exam": "Esame formale",
+      "prep": "Preparatorio",
+      "publication": "Pubblicazione",
+      "reg_fee": "Tasse di registrazione",
+      "registration": "Registrazione",
+      "substantive_exam": "Esame di merito"
+    },
+    "territoryLabel": {
+      "eu": "Gasdotto: UE",
+      "international": "Gasdotto: internazionale (WO)",
+      "national": "Oleodotto: nazionale"
+    },
+    "territoryLocked": "Territorio corretto dal file di creazione",
+    "territoryFromInfo": "Territorio dalle informazioni sui marchi",
+    "title": "Fasi della procedura",
+    "yes": "SÌ",
+    "hub": {
+      "generateInvoice": "Genera fattura",
+      "invoiceIssuedShort": "Fattura emessa",
+      "invoiceIssued": "Fattura {{number}} emessa. Il cliente può vederlo nel proprio portale; si trova anche nella scheda Fatturazione.",
+      "invoiceAlreadyIssued": "Fattura {{number}} già emessa: visibile nel portale e nella fatturazione.",
+      "invoiceFailed": "Impossibile generare la fattura. Controlla i dettagli di fatturazione del cliente.",
+      "invoiceNotes": "Tassa ufficiale/statale",
+      "uploadFailed": "Impossibile caricare il file.",
+      "needStateFee": "Inserisci prima l'importo della tassa statale.",
+      "feeDescription": "Tassa statale/ufficiale",
+      "deadlineFailed": "Impossibile creare scadenze.",
+      "deadlineTitles": {
+        "payment": "Pagamento della tassa statale",
+        "poa": "Presentazione della procura",
+        "oa": "Azione d'ufficio/richiesta di esame",
+        "oaWithSubject": "Azione dell'ufficio: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Ricordalo a {{days}} giorno/i prima della scadenza."
+      },
+      "attach": {
+        "search": "Allega file di ricerca",
+        "application": "Allega domanda",
+        "feeSlip": "Allegare bollettino tariffario",
+        "poa": "Allega PoA",
+        "officeAction": "Allega atto d'ufficio",
+        "decision": "Allega decisione",
+        "bulletin": "Allega bollettino",
+        "regFee": "Allega prova di pagamento",
+        "certificate": "Allega certificato"
+      }
+    }
   }
 }

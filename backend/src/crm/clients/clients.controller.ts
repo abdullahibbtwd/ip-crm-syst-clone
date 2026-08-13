@@ -19,7 +19,7 @@ import { SYSTEM_ROLES } from '../../rbac/rbac.constants';
 import { GdprExportService } from '../../compliance/gdpr-export.service';
 import { CRM_MODULE } from '../crm.constants';
 import { HistoryService } from '../history/history.service';
-import { ClientQueryDto, UpdateClientDto } from './dto/client.dto';
+import { ClientQueryDto, CreateClientDto, UpdateClientDto } from './dto/client.dto';
 import { ClientsService } from './clients.service';
 
 @Controller('clients')
@@ -36,6 +36,14 @@ export class ClientsController {
   @SkipAudit()
   findAll(@Query() query: ClientQueryDto) {
     return this.clientsService.findAll(query);
+  }
+
+  @Post()
+  @RequirePermissions('client:create')
+  @Audit({ action: 'client.create', resource: 'client', module: CRM_MODULE })
+  create(@Body() dto: CreateClientDto, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.clientsService.create(dto, user.userId);
   }
 
   @Get(':id')

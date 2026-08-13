@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Преглед",
     "clients": "Клиенти",
-    "matters": "Работни датотеки",
+    "matters": "Датотеки",
     "ipRights": "Права на ИС",
     "finance": "Финансии",
     "reports": "Извештаи",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Корисници и пристап",
     "system": "Систем",
     "myPortfolio": "Моето портфолио",
-    "myMatters": "Моите работни датотеки"
+    "myMatters": "Мои датотеки"
   },
   "items": {
     "dashboard": "Контролна табла",
@@ -33,8 +33,8 @@
     "alerts": "Известувања",
     "clients": "Клиенти",
     "holdingGroups": "Холдинг групи",
-    "allMatters": "Сите работни датотеки",
-    "matters": "Работни датотеки",
+    "allMatters": "Сите датотеки",
+    "matters": "Датотеки",
     "intakeQueue": "Ред за внесување",
     "rightsRegister": "Регистар на права",
     "renewals": "Обновувања",
@@ -48,12 +48,12 @@
     "settings": "Поставки",
     "myDashboard": "Мојата контролна табла",
     "myDeadlines": "Моите рокови",
-    "myMatters": "Моите работни датотеки",
+    "myMatters": "Мои датотеки",
     "patentFilings": "Поднесоци за патенти",
     "officeActions": "Канцелариски активности",
     "documents": "Документи",
     "correspondence": "Кореспонденција",
-    "myTmMatters": "Моите работни датотеки на ТМ",
+    "myTmMatters": "Мои ТМ датотеки",
     "oppositions": "Опозициите",
     "watchAlerts": "Гледајте предупредувања",
     "conflictCheck": "Проверка на конфликти",
@@ -66,7 +66,7 @@
     "broadcasts": "Емитувања",
     "outgoingMail": "Појдовна пошта",
     "myTasks": "Моите задачи",
-    "assignedMatters": "Доделени работни датотеки",
+    "assignedMatters": "Доделени датотеки",
     "financeDashboard": "Финансиска табла",
     "invoices": "Фактури",
     "timeEntries": "Временски записи",
@@ -100,7 +100,14 @@
     "messages": "Пораки",
     "approvals": "Одобрувања",
     "help": "Помош",
-    "myPortfolio": "Моето портфолио"
+    "myPortfolio": "Моето портфолио",
+    "workingFiles": "Датотеки",
+    "mattersAll": "Сите",
+    "mattersOthers": "Други",
+    "mattersArchived": "Архива",
+    "mattersDrafts": "Нацрти",
+    "createFile": "Создај датотека",
+    "createFileTrademark": "Трговска марка"
   },
   "roles": {
     "managing_partner": "Управен партнер",

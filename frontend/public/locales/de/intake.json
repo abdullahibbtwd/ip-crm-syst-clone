@@ -151,16 +151,22 @@
     "title": "Einlasswarteschlange"
   },
   "matterType": {
+    "border_measures": "Grenzmaßnahmen",
     "cases": "Fälle",
     "consultation": "Beratungen",
-    "design": "Design",
+    "copyright": "Copyright",
+    "dispute_opposition": "Streit / Widerspruch",
     "domain": "Domänen",
+    "fto_analysis": "FTO-Analyse",
+    "geographical_indication": "Geografische Angabe",
+    "industrial_design": "Industriedesign",
     "litigation_expert_report": "Rechtsstreitigkeiten / Gerichtsgutachten",
     "official_fee_payment": "Offizielle Gebührenzahlungen",
     "other": "Andere",
     "patent": "Patent",
     "trademark": "Warenzeichen",
-    "utility_model": "Gebrauchsmuster"
+    "utility_model": "Gebrauchsmuster",
+    "valuation": "Bewertung"
   },
   "referralSource": {
     "email": "E-Mail",

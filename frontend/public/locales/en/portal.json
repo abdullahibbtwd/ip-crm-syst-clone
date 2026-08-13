@@ -176,11 +176,22 @@
     "title": "My invoices"
   },
   "matterTypes": {
-    "design": "Design",
+    "border_measures": "Border measures",
+    "cases": "Cases",
+    "consultation": "Consultations",
+    "copyright": "Copyright",
+    "dispute_opposition": "Dispute / opposition",
+    "domain": "Domains",
+    "fto_analysis": "FTO analysis",
+    "geographical_indication": "Geographical indication",
+    "industrial_design": "Industrial design",
+    "litigation_expert_report": "Litigation / Court Expert Reports",
+    "official_fee_payment": "Official Fee Payments",
     "other": "Other",
     "patent": "Patent",
     "trademark": "Trademark",
-    "utility_model": "Utility model"
+    "utility_model": "Utility model",
+    "valuation": "Valuation"
   },
   "renewals": {
     "couldNotLoad": "Could not load renewals",

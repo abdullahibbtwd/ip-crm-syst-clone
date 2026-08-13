@@ -10,9 +10,19 @@ import type {
   UpdateMatterInput,
 } from './types'
 
+export type MatterShelfCounts = {
+  all: number
+  archived: number
+  others: number
+  drafts: number
+  byType: Record<string, number>
+}
+
 export const mattersApi = {
   list: (filters?: MatterFilters) =>
     apiClient.get<MatterListResponse>('/matters', filters as Record<string, unknown>),
+
+  shelfCounts: () => apiClient.get<MatterShelfCounts>('/matters/shelf-counts'),
 
   get: (id: string) => apiClient.get<MatterDetail>(`/matters/${id}`),
 

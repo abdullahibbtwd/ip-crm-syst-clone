@@ -151,16 +151,22 @@
     "title": "Ընդունման հերթ"
   },
   "matterType": {
+    "border_measures": "Սահմանային միջոցառումներ",
     "cases": "Գործեր",
     "consultation": "Խորհրդակցություններ",
-    "design": "Դիզայն",
+    "copyright": "Հեղինակային իրավունք",
+    "dispute_opposition": "Վեճ / ընդդիմություն",
     "domain": "Դոմեններ",
+    "fto_analysis": "FTO վերլուծություն",
+    "geographical_indication": "Աշխարհագրական նշում",
+    "industrial_design": "Արդյունաբերական դիզայն",
     "litigation_expert_report": "Դատական ​​դատավարություն / Դատարանի փորձագետների զեկույցներ",
     "official_fee_payment": "Պաշտոնական վճարներ",
     "other": "Այլ",
     "patent": "Արտոնագիր",
     "trademark": "Ապրանքային նշան",
-    "utility_model": "Օգտակար մոդել"
+    "utility_model": "Օգտակար մոդել",
+    "valuation": "Գնահատում"
   },
   "referralSource": {
     "email": "Էլ",

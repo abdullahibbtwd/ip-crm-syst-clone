@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Descripción general",
     "clients": "Clientas",
-    "matters": "Archivos de trabajo",
+    "matters": "Archivos",
     "ipRights": "Derechos de propiedad intelectual",
     "finance": "Finanzas",
     "reports": "Informes",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Usuarios y acceso",
     "system": "Sistema",
     "myPortfolio": "mi portafolio",
-    "myMatters": "Mis archivos de trabajo"
+    "myMatters": "Mis archivos"
   },
   "items": {
     "dashboard": "Panel",
@@ -33,8 +33,8 @@
     "alerts": "Alertas",
     "clients": "Clientas",
     "holdingGroups": "Grupos de tenencia",
-    "allMatters": "Todos los archivos de trabajo",
-    "matters": "Archivos de trabajo",
+    "allMatters": "Todos los archivos",
+    "matters": "Archivos",
     "intakeQueue": "cola de admisión",
     "rightsRegister": "Registro de derechos",
     "renewals": "Renovaciones",
@@ -48,12 +48,12 @@
     "settings": "Ajustes",
     "myDashboard": "mi tablero",
     "myDeadlines": "Mis plazos",
-    "myMatters": "Mis archivos de trabajo",
+    "myMatters": "Mis archivos",
     "patentFilings": "Presentaciones de patentes",
     "officeActions": "Acciones de oficina",
     "documents": "Documentos",
     "correspondence": "Correspondencia",
-    "myTmMatters": "Mis archivos de trabajo TM",
+    "myTmMatters": "Mis archivos de marcas",
     "oppositions": "Oposiciones",
     "watchAlerts": "Ver alertas",
     "conflictCheck": "Verificación de conflictos",
@@ -66,7 +66,7 @@
     "broadcasts": "Transmisiones",
     "outgoingMail": "Correspondencia saliente",
     "myTasks": "mis tareas",
-    "assignedMatters": "Archivos de trabajo asignados",
+    "assignedMatters": "Archivos asignados",
     "financeDashboard": "Panel de finanzas",
     "invoices": "Facturas",
     "timeEntries": "Entradas de tiempo",
@@ -100,7 +100,14 @@
     "messages": "Mensajes",
     "approvals": "Aprobaciones",
     "help": "Ayuda",
-    "myPortfolio": "mi portafolio"
+    "myPortfolio": "mi portafolio",
+    "workingFiles": "Archivos",
+    "mattersAll": "Todos",
+    "mattersOthers": "Otros",
+    "mattersArchived": "Archivados",
+    "mattersDrafts": "Borradores",
+    "createFile": "Crear archivo",
+    "createFileTrademark": "Marca"
   },
   "roles": {
     "managing_partner": "Socia gerente",

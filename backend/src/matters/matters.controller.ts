@@ -50,6 +50,12 @@ export class MattersController {
     return this.mattersService.findAll(query, user);
   }
 
+  @Get('shelf-counts')
+  shelfCounts(@Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.shelfCounts(user);
+  }
+
   @Get(':matterId/deadlines')
   @RequirePermissions('deadline:read')
   listDeadlines(@Param('matterId') matterId: string, @Req() req: Request) {

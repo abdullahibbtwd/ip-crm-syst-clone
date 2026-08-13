@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Преглед",
     "clients": "Клијенти",
-    "matters": "Радни фајлови",
+    "matters": "Фајлови",
     "ipRights": "ИП права",
     "finance": "финансије",
     "reports": "Извештаји",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Корисници и приступ",
     "system": "Систем",
     "myPortfolio": "Мој портфолио",
-    "myMatters": "Моји радни фајлови"
+    "myMatters": "Моји фајлови"
   },
   "items": {
     "dashboard": "Дасхбоард",
@@ -33,8 +33,8 @@
     "alerts": "Алертс",
     "clients": "Клијенти",
     "holdingGroups": "Холдинг групе",
-    "allMatters": "Све радне датотеке",
-    "matters": "Радни фајлови",
+    "allMatters": "Сви фајлови",
+    "matters": "Фајлови",
     "intakeQueue": "Интаке куеуе",
     "rightsRegister": "Регистар права",
     "renewals": "Обнављања",
@@ -48,12 +48,12 @@
     "settings": "Подешавања",
     "myDashboard": "Моја контролна табла",
     "myDeadlines": "Моји рокови",
-    "myMatters": "Моји радни фајлови",
+    "myMatters": "Моји фајлови",
     "patentFilings": "Патентни поднесци",
     "officeActions": "Канцеларијске радње",
     "documents": "Документи",
     "correspondence": "Преписка",
-    "myTmMatters": "Моје ТМ радне датотеке",
+    "myTmMatters": "Моји ТМ фајлови",
     "oppositions": "Опозиције",
     "watchAlerts": "Гледајте упозорења",
     "conflictCheck": "Провера конфликта",
@@ -66,7 +66,7 @@
     "broadcasts": "Броадцастс",
     "outgoingMail": "Одлазна пошта",
     "myTasks": "Моји задаци",
-    "assignedMatters": "Додељене радне датотеке",
+    "assignedMatters": "Додељени фајлови",
     "financeDashboard": "Финансијска контролна табла",
     "invoices": "фактуре",
     "timeEntries": "Уноси времена",
@@ -100,7 +100,14 @@
     "messages": "Поруке",
     "approvals": "Одобрења",
     "help": "Помоћ",
-    "myPortfolio": "Мој портфолио"
+    "myPortfolio": "Мој портфолио",
+    "workingFiles": "Фајлови",
+    "mattersAll": "Сви",
+    "mattersOthers": "Остало",
+    "mattersArchived": "Архива",
+    "mattersDrafts": "Нацрти",
+    "createFile": "Креирај фајл",
+    "createFileTrademark": "Жиг"
   },
   "roles": {
     "managing_partner": "Манагинг Партнер",

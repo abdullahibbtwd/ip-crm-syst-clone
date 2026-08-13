@@ -18,6 +18,16 @@ export function useMatters(filters?: MatterFilters) {
   })
 }
 
+export function useMatterShelfCounts(enabled = true) {
+  return useQuery({
+    queryKey: matterKeys.shelfCounts(),
+    queryFn: () => mattersApi.shelfCounts(),
+    enabled,
+    staleTime: 30_000,
+    refetchOnWindowFocus: true,
+  })
+}
+
 export function useMatter(id: string) {
   return useQuery({
     queryKey: matterKeys.detail(id),
@@ -32,6 +42,7 @@ export function useCreateMatter() {
     mutationFn: (data: CreateMatterInput) => mattersApi.create(data),
     onSuccess: (matter: MatterDetail) => {
       qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.shelfCounts() })
       qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
     },
   })
@@ -44,6 +55,7 @@ export function useUpdateMatter(id: string) {
     onSuccess: (matter: MatterDetail) => {
       qc.invalidateQueries({ queryKey: matterKeys.detail(id) })
       qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.shelfCounts() })
       qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
     },
   })
@@ -56,6 +68,7 @@ export function useArchiveMatter(id: string) {
     onSuccess: (matter: MatterDetail) => {
       qc.invalidateQueries({ queryKey: matterKeys.detail(id) })
       qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.shelfCounts() })
       qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
     },
   })
@@ -68,6 +81,7 @@ export function useRestoreMatter(id: string) {
     onSuccess: (matter: MatterDetail) => {
       qc.invalidateQueries({ queryKey: matterKeys.detail(id) })
       qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: matterKeys.shelfCounts() })
       qc.invalidateQueries({ queryKey: matterKeys.list({ clientId: matter.clientId }) })
     },
   })

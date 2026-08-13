@@ -7,7 +7,7 @@
   "sections": {
     "overview": "ملخص",
     "clients": "العملاء",
-    "matters": "ملفات العمل",
+    "matters": "الملفات",
     "ipRights": "حقوق الملكية الفكرية",
     "finance": "تمويل",
     "reports": "التقارير",
@@ -25,7 +25,7 @@
     "usersAndAccess": "المستخدمون والوصول",
     "system": "نظام",
     "myPortfolio": "محفظتي",
-    "myMatters": "ملفات العمل الخاصة بي"
+    "myMatters": "ملفاتي"
   },
   "items": {
     "dashboard": "لوحة القيادة",
@@ -33,8 +33,8 @@
     "alerts": "التنبيهات",
     "clients": "العملاء",
     "holdingGroups": "عقد المجموعات",
-    "allMatters": "جميع ملفات العمل",
-    "matters": "ملفات العمل",
+    "allMatters": "كل الملفات",
+    "matters": "الملفات",
     "intakeQueue": "قائمة انتظار المدخول",
     "rightsRegister": "سجل الحقوق",
     "renewals": "التجديدات",
@@ -48,12 +48,12 @@
     "settings": "إعدادات",
     "myDashboard": "لوحة القيادة الخاصة بي",
     "myDeadlines": "المواعيد النهائية الخاصة بي",
-    "myMatters": "ملفات العمل الخاصة بي",
+    "myMatters": "ملفاتي",
     "patentFilings": "إيداعات براءات الاختراع",
     "officeActions": "إجراءات المكتب",
     "documents": "وثائق",
     "correspondence": "مراسلة",
-    "myTmMatters": "ملفات عمل TM الخاصة بي",
+    "myTmMatters": "ملفات العلامات",
     "oppositions": "المعارضة",
     "watchAlerts": "مشاهدة التنبيهات",
     "conflictCheck": "فحص الصراع",
@@ -66,7 +66,7 @@
     "broadcasts": "البث",
     "outgoingMail": "البريد الصادر",
     "myTasks": "مهامي",
-    "assignedMatters": "ملفات العمل المخصصة",
+    "assignedMatters": "الملفات المعيّنة",
     "financeDashboard": "لوحة القيادة المالية",
     "invoices": "الفواتير",
     "timeEntries": "إدخالات الوقت",
@@ -100,7 +100,14 @@
     "messages": "رسائل",
     "approvals": "الموافقات",
     "help": "يساعد",
-    "myPortfolio": "محفظتي"
+    "myPortfolio": "محفظتي",
+    "workingFiles": "الملفات",
+    "mattersAll": "الكل",
+    "mattersOthers": "أخرى",
+    "mattersArchived": "مؤرشف",
+    "mattersDrafts": "المسودات",
+    "createFile": "إنشاء ملف",
+    "createFileTrademark": "علامة تجارية"
   },
   "roles": {
     "managing_partner": "الشريك الإداري",

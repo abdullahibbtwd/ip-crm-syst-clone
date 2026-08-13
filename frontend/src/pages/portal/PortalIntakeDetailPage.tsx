@@ -104,7 +104,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
 }
 
 export function PortalIntakeDetailPage() {
-  const { t } = useTranslation('portal')
+  const { t } = useTranslation(['portal', 'matters'])
   const { id = '' } = useParams()
   const { user } = useAuth()
   const { data: lead, isLoading, isError } = useIntakeLead(id)
@@ -150,7 +150,7 @@ export function PortalIntakeDetailPage() {
             {lead.companyName || lead.fullName || t('intakeDetail.defaultTitle')}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            {t(`matterTypes.${lead.matterType}`)} ·{' '}
+            {t(`type.${lead.matterType}`, { ns: 'matters' })} ·{' '}
             {t('intakeDetail.filed', { date: formatIntakeDateTime(lead.createdAt) })}
           </p>
         </div>
@@ -231,7 +231,7 @@ export function PortalIntakeDetailPage() {
             <DetailRow label={t('intakeDetail.fields.phone')} value={lead.phone ?? ''} />
             <DetailRow
               label={t('intakeDetail.fields.matterType')}
-              value={t(`matterTypes.${lead.matterType}`)}
+              value={t(`type.${lead.matterType}`, { ns: 'matters' })}
             />
             <DetailRow
               label={t('intakeDetail.fields.urgency')}

@@ -43,6 +43,7 @@ import { BroadcastsPage } from './pages/broadcasts/BroadcastsPage'
 import { CreateIntakePage } from './pages/intake/CreateIntakePage'
 import { IntakeDetailPage } from './pages/intake/IntakeDetailPage'
 import { IntakeListPage } from './pages/intake/IntakeListPage'
+import { CreateTrademarkFilePage } from './pages/create-file/CreateTrademarkFilePage'
 import { MatterListPage } from './pages/matters/MatterListPage'
 import { MatterLayout } from './pages/matters/MatterLayout'
 import { MatterIpRightsTab } from './pages/matters/tabs/MatterIpRightsTab'
@@ -166,6 +167,7 @@ export default function App() {
           <Route path="/intake/new" element={<CreateIntakePage />} />
           <Route path="/intake/:id" element={<IntakeDetailPage />} />
 
+          <Route path="/files/new/trademark" element={<CreateTrademarkFilePage />} />
           <Route path="/matters" element={<MatterListPage />} />
           <Route path="/invoices" element={<InvoicesListPage />} />
           <Route path="/rate-cards" element={<RateCardsPage />} />

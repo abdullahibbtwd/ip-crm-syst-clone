@@ -28,10 +28,7 @@ import {
   emptyClientAddressInput,
   toClientAddressPayload,
 } from '@/features/crm/addressInput'
-import {
-  ALL_INTAKE_MATTER_TYPES,
-  intakeMatterTypeLabel,
-} from '@/features/intake/utils'
+import { ALL_MATTER_TYPES, matterTypeLabel } from '@/features/matters/utils'
 import { cn } from '@/lib/utils'
 
 export type IntakeFormInitialValues = {
@@ -271,9 +268,9 @@ export function CreateIntakeForm({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {ALL_INTAKE_MATTER_TYPES.map((type) => (
+              {ALL_MATTER_TYPES.map((type) => (
                 <SelectItem key={type} value={type}>
-                  {intakeMatterTypeLabel(type)}
+                  {matterTypeLabel(type)}
                 </SelectItem>
               ))}
             </SelectContent>

@@ -22,8 +22,26 @@ describe('intake-matter.mapper', () => {
       expect(mapIntakeMatterType(IntakeMatterType.utility_model)).toBe(
         MatterType.utility_model,
       );
-      expect(mapIntakeMatterType(IntakeMatterType.design)).toBe(
+      expect(mapIntakeMatterType(IntakeMatterType.industrial_design)).toBe(
         MatterType.industrial_design,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.copyright)).toBe(
+        MatterType.copyright,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.geographical_indication)).toBe(
+        MatterType.geographical_indication,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.border_measures)).toBe(
+        MatterType.border_measures,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.fto_analysis)).toBe(
+        MatterType.fto_analysis,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.valuation)).toBe(
+        MatterType.valuation,
+      );
+      expect(mapIntakeMatterType(IntakeMatterType.dispute_opposition)).toBe(
+        MatterType.dispute_opposition,
       );
       expect(mapIntakeMatterType(IntakeMatterType.cases)).toBe(MatterType.cases);
       expect(mapIntakeMatterType(IntakeMatterType.domain)).toBe(MatterType.domain);

@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Ընդհանուր ակնարկ",
     "clients": "Հաճախորդներ",
-    "matters": "Աշխատանքային ֆայլեր",
+    "matters": "Ֆայլեր",
     "ipRights": "ՄՍ իրավունքներ",
     "finance": "Ֆինանսներ",
     "reports": "Հաշվետվություններ",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Օգտագործողներ և մուտք",
     "system": "Համակարգ",
     "myPortfolio": "Իմ պորտֆոլիոն",
-    "myMatters": "Իմ աշխատանքային ֆայլերը"
+    "myMatters": "Իմ ֆայլերը"
   },
   "items": {
     "dashboard": "Վահանակ",
@@ -33,8 +33,8 @@
     "alerts": "Ահազանգեր",
     "clients": "Հաճախորդներ",
     "holdingGroups": "Անցկացման խմբեր",
-    "allMatters": "Բոլոր աշխատանքային ֆայլերը",
-    "matters": "Աշխատանքային ֆայլեր",
+    "allMatters": "Բոլոր ֆայլերը",
+    "matters": "Ֆայլեր",
     "intakeQueue": "Ընդունման հերթ",
     "rightsRegister": "Իրավունքների գրանցամատյան",
     "renewals": "Թարմացումներ",
@@ -48,12 +48,12 @@
     "settings": "Կարգավորումներ",
     "myDashboard": "Իմ վահանակը",
     "myDeadlines": "Իմ վերջնաժամկետները",
-    "myMatters": "Իմ աշխատանքային ֆայլերը",
+    "myMatters": "Իմ ֆայլերը",
     "patentFilings": "Արտոնագրային փաստաթղթեր",
     "officeActions": "Գրասենյակային գործողություններ",
     "documents": "Փաստաթղթեր",
     "correspondence": "Նամակագրություն",
-    "myTmMatters": "Իմ TM աշխատանքային ֆայլերը",
+    "myTmMatters": "Իմ ապրանքանիշային ֆայլերը",
     "oppositions": "Ընդդիմություններ",
     "watchAlerts": "Դիտեք ահազանգերը",
     "conflictCheck": "Կոնֆլիկտի ստուգում",
@@ -66,7 +66,7 @@
     "broadcasts": "Հեռարձակումներ",
     "outgoingMail": "Ելքային փոստ",
     "myTasks": "Իմ առաջադրանքները",
-    "assignedMatters": "Նշանակված աշխատանքային ֆայլեր",
+    "assignedMatters": "Նշանակված ֆայլեր",
     "financeDashboard": "Ֆինանսական վահանակ",
     "invoices": "Հաշիվ-ապրանքագրեր",
     "timeEntries": "Ժամանակի գրառումներ",
@@ -100,7 +100,14 @@
     "messages": "Հաղորդագրություններ",
     "approvals": "Հաստատումներ",
     "help": "Օգնություն",
-    "myPortfolio": "Իմ պորտֆոլիոն"
+    "myPortfolio": "Իմ պորտֆոլիոն",
+    "workingFiles": "Ֆայլեր",
+    "mattersAll": "Բոլորը",
+    "mattersOthers": "Այլ",
+    "mattersArchived": "Արխիվ",
+    "mattersDrafts": "Սևագրեր",
+    "createFile": "Ստեղծել ֆայլ",
+    "createFileTrademark": "Ապրանքանիշ"
   },
   "roles": {
     "managing_partner": "Կառավարող գործընկեր",

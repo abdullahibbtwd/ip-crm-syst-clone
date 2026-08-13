@@ -176,11 +176,22 @@
     "title": "Le mie fatture"
   },
   "matterTypes": {
-    "design": "Progetto",
+    "border_measures": "Misure alle frontiere",
+    "cases": "Casi",
+    "consultation": "Consultazioni",
+    "copyright": "Copyright",
+    "dispute_opposition": "Controversia/opposizione",
+    "domain": "Domini",
+    "fto_analysis": "Analisi FTO",
+    "geographical_indication": "Indicazione geografica",
+    "industrial_design": "Progettazione industriale",
+    "litigation_expert_report": "Contenzioso/Perizie del tribunale",
+    "official_fee_payment": "Pagamenti delle tariffe ufficiali",
     "other": "Altra",
     "patent": "Brevetto",
     "trademark": "Marchio",
-    "utility_model": "Modello di utilità"
+    "utility_model": "Modello di utilità",
+    "valuation": "Valutazione"
   },
   "renewals": {
     "couldNotLoad": "Impossibile caricare i rinnovi",

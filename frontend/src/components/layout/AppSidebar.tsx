@@ -1,18 +1,20 @@
 import type { NavItem, NavSection } from '@/config/role-views'
-import { navId } from '@/features/shell/nav-utils'
+import { navId, splitNavPath } from '@/features/shell/nav-utils'
 import { useShell } from '@/features/shell/ShellProvider'
 import {
   useFirmTodayDeadlineCount,
   useMyTodayDeadlineCount,
 } from '@/features/deadlines/hooks/useDeadlines'
 import { useIntakePendingCount } from '@/features/intake/hooks/useIntake'
+import { useMatterShelfCounts } from '@/features/matters/hooks/useMatters'
+import type { MatterShelfCounts } from '@/features/matters/api'
 import { useWatchNewCount } from '@/features/watch/hooks/useWatch'
 import { DueTodayCountBadge } from '@/components/deadlines/DueTodayBadge'
 import { usePermission } from '@/hooks/usePermission'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
@@ -94,6 +96,65 @@ function badgeForPath(
   return 0
 }
 
+/** Soft total pill — not the deadline warning orange. */
+function NavTotalBadge({
+  count,
+  collapsed,
+  label = 'total',
+}: {
+  count: number
+  collapsed?: boolean
+  label?: string
+}) {
+  const countLabel = count > 999 ? '999+' : String(count)
+
+  if (collapsed) {
+    return (
+      <span
+        className="absolute -top-0.5 -right-0.5 flex min-h-4 min-w-4 items-center justify-center rounded-full bg-white/20 px-1 text-[9px] font-semibold tabular-nums text-white/90"
+        aria-label={`${count} ${label}`}
+      >
+        {countLabel}
+      </span>
+    )
+  }
+
+  return (
+    <span
+      className="ml-auto flex min-h-5 min-w-5 items-center justify-center rounded-full bg-white/12 px-1.5 text-[10px] font-medium tabular-nums text-white/65"
+      aria-label={`${count} ${label}`}
+    >
+      {countLabel}
+    </span>
+  )
+}
+
+function matterShelfCountForPath(
+  path: string | undefined,
+  counts: MatterShelfCounts | undefined,
+): number | null {
+  if (!path || !counts) return null
+  const { pathname, search } = splitNavPath(path)
+  if (pathname !== '/matters') return null
+
+  const params = new URLSearchParams(search)
+  if (params.get('archived') === '1') return counts.archived
+  if (params.get('drafts') === '1') return counts.drafts
+  if (params.get('group') === 'others') return counts.others
+  const matterType = params.get('matterType')
+  if (matterType) return counts.byType[matterType] ?? 0
+  if (!search) return counts.all
+  return null
+}
+
+function useNavLabel(item: Pick<NavItem, 'labelKey' | 'labelNs'>) {
+  const { t } = useTranslation(item.labelNs ?? 'nav')
+  const key = item.labelNs && item.labelNs !== 'nav' ? item.labelKey : `items.${item.labelKey}`
+  return t(key, {
+    defaultValue: humanizeNavKey(item.labelKey.split('.').pop() ?? item.labelKey),
+  })
+}
+
 function SidebarLink({
   item,
   external,
@@ -101,6 +162,8 @@ function SidebarLink({
   collapsed,
   onNavigate,
   badge,
+  totalCount,
+  nested,
 }: {
   item: NavItem
   external?: boolean
@@ -108,42 +171,43 @@ function SidebarLink({
   collapsed: boolean
   onNavigate: (id: string, path?: string) => void
   badge?: number
+  /** Neutral inventory total (Working files shelves). */
+  totalCount?: number | null
+  nested?: boolean
 }) {
-  const { t } = useTranslation('nav')
   const theme = THEMES[external ? 'external' : 'internal']
   const Icon = item.icon
   const id = navId(item)
-  const label = t(`items.${item.labelKey}`, {
-    defaultValue: humanizeNavKey(item.labelKey),
-  })
-  // Prefer shell activeNavId so query-specific siblings (e.g. escalations vs all deadlines)
-  // do not all highlight when sharing a pathname.
+  const label = useNavLabel(item)
   const routeActive = isActive
   const isAlerts = item.path === '/alerts'
   const badgeLabel = isAlerts ? 'alerts' : undefined
   const badgeTone = isAlerts ? ('warning' as const) : undefined
+  const showTotal =
+    totalCount != null && !(badge && badge > 0)
 
   const className = cn(
     buttonVariants({ variant: 'ghost' }),
-    'group relative h-10 w-full overflow-hidden rounded-xl text-[13px] font-normal',
+    'group relative h-9 w-full overflow-hidden rounded-xl text-[13px] font-normal',
     'text-white/70 transition-all duration-500 ease-out active:scale-[0.98]',
     'after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-r',
     'after:from-white/0 after:via-white/10 after:to-white/0',
     'after:-translate-x-full after:transition-transform after:duration-700 group-hover:after:translate-x-full',
-    collapsed ? 'justify-center px-0' : 'justify-start gap-2.5 px-3',
+    collapsed ? 'justify-center px-0' : 'justify-start gap-2.5',
+    nested && !collapsed ? 'h-8 px-2.5 text-[12.5px]' : !collapsed && 'px-3',
     routeActive
       ? cn(
           external
             ? 'border border-white/15 bg-white/12 font-semibold text-white'
             : 'border border-white/10 bg-white/10 font-semibold text-white backdrop-blur-md',
           theme.accentGlow,
-          'before:absolute before:left-0 before:top-2.5 before:h-5 before:w-1 before:rounded-r-full before:transition-all',
+          'before:absolute before:left-0 before:top-1.5 before:h-5 before:w-1 before:rounded-r-full before:transition-all',
           theme.accentBar,
         )
       : external
         ? 'border border-transparent hover:bg-white/10 hover:text-white'
         : 'border border-transparent hover:border-white/5 hover:bg-white/5 hover:text-white',
-    !collapsed && !routeActive && 'hover:translate-x-0.5',
+    !collapsed && !routeActive && !nested && 'hover:translate-x-0.5',
   )
 
   const content = (
@@ -151,7 +215,8 @@ function SidebarLink({
       <span className="relative z-10 shrink-0">
         <Icon
           className={cn(
-            'size-4 transition-all duration-500 group-hover:scale-110',
+            'transition-all duration-500 group-hover:scale-110',
+            nested ? 'size-3.5' : 'size-4',
             routeActive ? cn('opacity-100', theme.iconActive) : 'opacity-70 group-hover:opacity-100',
           )}
           aria-hidden
@@ -165,6 +230,9 @@ function SidebarLink({
             tone={badgeTone}
           />
         ) : null}
+        {collapsed && showTotal ? (
+          <NavTotalBadge count={totalCount!} collapsed label={label} />
+        ) : null}
       </span>
       {!collapsed && (
         <>
@@ -177,6 +245,10 @@ function SidebarLink({
                 label={badgeLabel}
                 tone={badgeTone}
               />
+            </span>
+          ) : showTotal ? (
+            <span className="relative z-10">
+              <NavTotalBadge count={totalCount!} label={label} />
             </span>
           ) : (
             <span
@@ -223,6 +295,209 @@ function SidebarLink({
   )
 }
 
+function NavGroup({
+  item,
+  external,
+  collapsed,
+  activeNavId,
+  onNavigate,
+  badgeForItem,
+  shelfCounts,
+}: {
+  item: NavItem
+  external?: boolean
+  collapsed: boolean
+  activeNavId: string
+  onNavigate: (id: string, path?: string) => void
+  badgeForItem: (item: NavItem) => number
+  shelfCounts?: MatterShelfCounts
+}) {
+  const theme = THEMES[external ? 'external' : 'internal']
+  const label = useNavLabel(item)
+  const children = item.children ?? []
+  const childActive = children.some((child) => navId(child) === activeNavId)
+  const [open, setOpen] = useState(childActive)
+  const [flyoutOpen, setFlyoutOpen] = useState(false)
+  const panelId = useId()
+  const flyoutRef = useRef<HTMLDivElement>(null)
+  const Icon = item.icon
+  // Only the Files shelf group shows the portfolio total — not Create file etc.
+  const parentTotal = children.some((child) => {
+    const pathname = child.path?.split('?')[0]
+    return pathname === '/matters'
+  })
+    ? (shelfCounts?.all ?? null)
+    : null
+
+  useEffect(() => {
+    if (childActive) setOpen(true)
+  }, [childActive])
+
+  useEffect(() => {
+    if (!flyoutOpen) return
+    const onPointerDown = (event: MouseEvent) => {
+      if (!flyoutRef.current?.contains(event.target as Node)) {
+        setFlyoutOpen(false)
+      }
+    }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFlyoutOpen(false)
+    }
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [flyoutOpen])
+
+  if (collapsed) {
+    return (
+      <div className="relative" ref={flyoutRef}>
+        <Button
+          type="button"
+          variant="ghost"
+          title={label}
+          aria-label={label}
+          aria-expanded={flyoutOpen}
+          aria-haspopup="menu"
+          onClick={() => setFlyoutOpen((v) => !v)}
+          className={cn(
+            buttonVariants({ variant: 'ghost' }),
+            'group relative h-10 w-full justify-center overflow-hidden rounded-xl px-0',
+            'text-white/70 transition-all duration-500',
+            childActive || flyoutOpen
+              ? cn(
+                  'border border-white/10 bg-white/10 text-white',
+                  theme.accentGlow,
+                  'before:absolute before:left-0 before:top-2.5 before:h-5 before:w-1 before:rounded-r-full',
+                  theme.accentBar,
+                )
+              : 'border border-transparent hover:bg-white/5 hover:text-white',
+          )}
+        >
+          <span className="relative">
+            <Icon
+              className={cn(
+                'size-4 transition-all duration-500',
+                childActive || flyoutOpen
+                  ? cn('opacity-100', theme.iconActive)
+                  : 'opacity-70 group-hover:opacity-100',
+              )}
+              aria-hidden
+            />
+            {parentTotal != null ? (
+              <NavTotalBadge count={parentTotal} collapsed label={label} />
+            ) : null}
+          </span>
+        </Button>
+
+        {flyoutOpen ? (
+          <div
+            role="menu"
+            className={cn(
+              'absolute top-0 left-[calc(100%+0.5rem)] z-50 w-56 overflow-hidden rounded-2xl border',
+              'border-white/10 bg-brand-green/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl',
+              'animate-in fade-in-0 zoom-in-95 slide-in-from-left-2 duration-200',
+            )}
+          >
+            <p className="px-2.5 pb-1.5 pt-1 text-[10px] font-bold tracking-widest text-white/40 uppercase">
+              {label}
+            </p>
+            <div className="space-y-0.5">
+              {children.map((child) => (
+                <SidebarLink
+                  key={navId(child)}
+                  item={child}
+                  external={external}
+                  collapsed={false}
+                  nested
+                  isActive={navId(child) === activeNavId}
+                  onNavigate={(id, path) => {
+                    setFlyoutOpen(false)
+                    onNavigate(id, path)
+                  }}
+                  badge={badgeForItem(child)}
+                  totalCount={matterShelfCountForPath(child.path, shelfCounts)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen((v) => !v)}
+        className={cn(
+          'group relative flex h-10 w-full items-center gap-2.5 overflow-hidden rounded-xl px-3 text-[13px]',
+          'text-white/75 transition-all duration-400 ease-out',
+          childActive
+            ? 'bg-white/[0.07] font-semibold text-white'
+            : 'hover:bg-white/5 hover:text-white',
+        )}
+      >
+        <Icon
+          className={cn(
+            'size-4 shrink-0 transition-all duration-400',
+            childActive ? cn('opacity-100', theme.iconActive) : 'opacity-70 group-hover:opacity-100',
+          )}
+          aria-hidden
+        />
+        <span className="flex-1 truncate text-left tracking-wide">{label}</span>
+        {parentTotal != null ? <NavTotalBadge count={parentTotal} label={label} /> : null}
+        <ChevronDown
+          className={cn(
+            'size-3.5 shrink-0 text-white/40 transition-transform duration-300',
+            open && 'rotate-180 text-white/70',
+          )}
+          aria-hidden
+        />
+      </button>
+
+      <div
+        id={panelId}
+        className={cn(
+          'grid transition-[grid-template-rows,opacity] duration-300 ease-out',
+          open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0',
+        )}
+      >
+        <div className="overflow-hidden">
+          <div
+            className={cn(
+              'relative ml-3 space-y-0.5 border-l border-white/10 py-1 pl-2.5',
+              'before:absolute before:inset-y-1 before:left-0 before:w-px',
+              external
+                ? 'before:bg-gradient-to-b before:from-emerald-400/40 before:via-white/10 before:to-transparent'
+                : 'before:bg-gradient-to-b before:from-primary/50 before:via-white/10 before:to-transparent',
+            )}
+          >
+            {children.map((child) => (
+              <SidebarLink
+                key={navId(child)}
+                item={child}
+                external={external}
+                collapsed={false}
+                nested
+                isActive={navId(child) === activeNavId}
+                onNavigate={onNavigate}
+                badge={badgeForItem(child)}
+                totalCount={matterShelfCountForPath(child.path, shelfCounts)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function AppSidebar({
   nav,
   footer,
@@ -241,6 +516,7 @@ export function AppSidebar({
   const { data: myToday } = useMyTodayDeadlineCount(canReadDeadlines)
   const { data: firmToday } = useFirmTodayDeadlineCount(canReadDeadlines)
   const { data: intakePending } = useIntakePendingCount(canReadIntake && !external)
+  const { data: shelfCounts } = useMatterShelfCounts(canReadMatters)
   const myTodayCount = myToday?.count ?? 0
   const firmTodayCount = firmToday?.count ?? 0
   const intakePendingCount = intakePending?.count ?? 0
@@ -278,9 +554,9 @@ export function AppSidebar({
     (alertsSummary?.urgent?.length ?? 0) +
     (alertsSummary?.notifications?.length ?? 0)
 
-  const badgeForItem = (item: NavItem) =>
+  const badgeForItem = (navItem: NavItem) =>
     badgeForPath(
-      item.path,
+      navItem.path,
       myTodayCount,
       firmTodayCount,
       intakePendingCount,
@@ -300,7 +576,6 @@ export function AppSidebar({
           : 'border-brand-green/30 bg-gradient-to-b from-brand-green via-[#152e28] to-slate-950 shadow-[4px_0_32px_rgba(0,0,0,0.25)]',
       )}
     >
-      {/* Ambient depth — soft light pool at the top */}
       <div
         className={cn(
           'pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b to-transparent',
@@ -362,7 +637,7 @@ export function AppSidebar({
 
       <div
         className={cn(
-          'relative z-10 flex-1 overflow-y-auto py-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
+          'relative z-10 flex-1 overflow-y-auto overflow-x-visible py-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
           collapsed ? 'space-y-2 px-2' : 'space-y-4 px-3',
         )}
       >
@@ -381,17 +656,31 @@ export function AppSidebar({
               </p>
             )}
             <div className="space-y-1">
-              {group.items.map((item) => (
-                <SidebarLink
-                  key={navId(item)}
-                  item={item}
-                  external={external}
-                  collapsed={collapsed}
-                  isActive={navId(item) === activeNavId}
-                  onNavigate={onNavigate}
-                  badge={badgeForItem(item)}
-                />
-              ))}
+              {group.items.map((item) =>
+                item.children?.length ? (
+                  <NavGroup
+                    key={navId(item)}
+                    item={item}
+                    external={external}
+                    collapsed={collapsed}
+                    activeNavId={activeNavId}
+                    onNavigate={onNavigate}
+                    badgeForItem={badgeForItem}
+                    shelfCounts={shelfCounts}
+                  />
+                ) : (
+                  <SidebarLink
+                    key={navId(item)}
+                    item={item}
+                    external={external}
+                    collapsed={collapsed}
+                    isActive={navId(item) === activeNavId}
+                    onNavigate={onNavigate}
+                    badge={badgeForItem(item)}
+                    totalCount={matterShelfCountForPath(item.path, shelfCounts)}
+                  />
+                ),
+              )}
             </div>
           </div>
         ))}

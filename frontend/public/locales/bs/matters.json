@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Lijepi časovi",
         "placeholder": "npr. 12, 35"
+      },
+      "markKind": {
+        "label": "Označite kategoriju"
+      },
+      "markWords": {
+        "label": "Riječi marke"
+      },
+      "territory": {
+        "label": "Teritorija"
+      },
+      "trademarkProcedure": {
+        "label": "Procedura žiga"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "klijent *",
     "creating": "Kreiranje…",
-    "error": "Kreiranje radnog fajla nije uspjelo",
+    "error": "Kreiranje fajla nije uspjelo",
     "jurisdictionHelp": "Odaberite jednu ili više jurisdikcija za podnošenje.",
     "jurisdictions": "Jurisdikcije",
     "matterType": "Vrsta posla *",
-    "open": "Otvorite radni fajl",
+    "open": "Otvori fajl",
     "responsibleAttorney": "Odgovorni advokat",
-    "title": "Otvorite novi radni fajl",
+    "title": "Otvori novi fajl",
     "titleField": "Naslov *",
     "titlePlaceholder": "npr. ACME slovni znak – EU"
   },
@@ -642,37 +654,43 @@
     "rejected": "Odbijeno"
   },
   "layout": {
-    "backToMatters": "← Povratak na radne fajlove",
-    "loading": "Učitavanje radnog fajla…",
-    "notFound": "Radni fajl nije pronađen.",
+    "backToMatters": "← Nazad na fajlove",
+    "loading": "Učitavanje fajla…",
+    "notFound": "Fajl nije pronađen.",
     "archivedBadge": "Arhivirano",
     "archive": "Arhiva",
     "archiving": "Arhiviranje…",
     "restore": "Vrati",
     "restoring": "Vraćanje…",
-    "archiveFailed": "Arhiviranje radne datoteke nije uspjelo",
-    "restoreFailed": "Vraćanje radne datoteke nije uspjelo",
-    "archiveConfirm": "Arhivirati ovaj radni fajl? Napustit će aktivnu listu, ali će ostati pretraživ pod Arhivirano."
+    "archiveFailed": "Arhiviranje fajla nije uspjelo",
+    "restoreFailed": "Vraćanje fajla nije uspjelo",
+    "archiveConfirm": "Arhivirati ovaj fajl? Napustit će aktivnu listu, ali ostaje pretraživ u Arhivi."
   },
   "list": {
-    "description": "Pregled portfelja svih radnih datoteka — pretražujte po naslovu, klijentu ili broju aplikacije.",
-    "descriptionPortal": "Radni fajlovi otvoreni za vašu organizaciju nakon konverzije unosa.",
-    "descriptionArchived": "Završeni ili neaktivni radni fajlovi čuvaju se za referencu.",
+    "description": "Pregled svih fajlova — pretražite po naslovu, klijentu ili br. prijave.",
+    "descriptionPortal": "Fajlovi otvoreni za vašu organizaciju nakon pretvorbe upita.",
+    "descriptionArchived": "Završeni ili neaktivni fajlovi sačuvani za referencu.",
     "filters": {
       "allStatuses": "Svi statusi",
       "allTypes": "Sve vrste poslova",
       "active": "Aktivan",
-      "archived": "Arhivirano"
+      "archived": "Arhiva",
+      "allOtherTypes": "Sve ostale vrste"
     },
     "intakeQueue": "Intake queue",
     "pagination": {
       "ofTotal": "od {{total}}"
     },
     "perPage": "{{count}} po stranici",
-    "searchPlaceholder": "Pretražite naslov, klijent, br.",
-    "title": "Radni fajlovi",
-    "titleArchived": "Arhivirani radni fajlovi",
-    "titlePortal": "Moji radni fajlovi"
+    "searchPlaceholder": "Pretraži naslov, klijent, br. prijave…",
+    "title": "Fajlovi",
+    "titleArchived": "Arhivirani fajlovi",
+    "titlePortal": "Moji fajlovi",
+    "descriptionOthers": "Fajlovi van šest glavnih kategorija — filtrirajte po vrsti ispod.",
+    "descriptionType": "Fajlovi tipa {{type}} — pretražite po naslovu, klijentu ili br. prijave.",
+    "titleOthers": "Ostali fajlovi",
+    "titleDrafts": "Nacrti",
+    "descriptionDrafts": "Nacrti koji čekaju odobrenje ili podnošenje — odvojeno od aktivnih žigova i drugih polica."
   },
   "ipRightsRegister": {
     "description": "Registar prava intelektualne svojine u cijeloj firmi sa filterima prema klijentu, nadležnosti, vrsti, statusu i isteku.",
@@ -708,7 +726,8 @@
     "figurative": "Figurativno",
     "sound": "Zvuk",
     "three_dimensional": "3D",
-    "wordmark": "Oznaka riječi"
+    "wordmark": "Oznaka riječi",
+    "combination_of_colors": "Kombinacija boja"
   },
   "overview": {
     "assignedTo": "Glavni advokat",
@@ -726,9 +745,26 @@
       "localRef": "Lokalna ref.",
       "status": "Status"
     },
-    "title": "Detalji radnog fajla",
+    "title": "Detalji fajla",
     "type": "Vrsta rada",
-    "typeSpecific": "Atributi specifični za tip"
+    "typeSpecific": "Atributi specifični za tip",
+    "edit": {
+      "cancel": "Otkaži",
+      "edit": "Uredi",
+      "errors": {
+        "saveFailed": "Nije moguće sačuvati detalje o fajlu.",
+        "title": "Naslov je obavezan."
+      },
+      "fields": {
+        "territory": "Teritorija (iz kreiranog fajla)",
+        "title": "Naslov"
+      },
+      "hint": "Kliknite Uredi da promijenite detalje datoteke, a zatim Sačuvaj promjene. Teritorija ostaje postavljena kada je fajl kreiran.",
+      "save": "Sačuvaj promjene",
+      "saved": "Sačuvano.",
+      "saving": "Spremanje…",
+      "title": "Detalji o fajlu"
+    }
   },
   "parties": {
     "title": "Zabave",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Odaberite…",
     "title": "Detalji specifični za tip"
+  },
+  "createFile": {
+    "addClass": "Dodaj klasu",
+    "backToFiles": "Nazad na fajlove",
+    "cancel": "Otkaži",
+    "changeSubtype": "Promijenite podkategoriju",
+    "checkRegister": "Provjerite u trgovačkom registru",
+    "clearClient": "Promijenite klijenta",
+    "clientOptionalHint": "Nema podudaranja sa CRM-om? Unesite detalje o klijentu u nastavku — spremanje nacrta će ih automatski kreirati u Klijentima.",
+    "applicantOptionalHint": "Nema podudaranja sa CRM-om? Popunite detalje o podnosiocu zahtjeva u nastavku — spremanje nacrta će ih automatski kreirati u Klijentima.",
+    "draftDescription": "Kreirano putem Kreiraj fajl ({{procedure}}) — nacrt",
+    "errors": {
+      "client": "Odaberite klijenta da nastavite.",
+      "clientOrDetails": "Odaberite CRM klijenta ili unesite ime klijenta i detalje da ih kreirate.",
+      "applicantOrDetails": "Odaberite kandidata u CRM-u ili unesite ime i detalje kandidata da biste ih kreirali.",
+      "jurisdiction": "Odaberite barem jednu teritoriju/državu.",
+      "markWords": "Unesite naziv/reči zaštitnog znaka.",
+      "saveFailed": "Nije moguće sačuvati nacrt fajla.",
+      "subtype": "Odaberite podkategoriju žiga."
+    },
+    "euHint": "Žig Evropske unije (EUIPO) — jurisdikcija postavljena na EU.",
+    "fields": {
+      "address": "Adresa",
+      "applicantClient": "Klijent podnosioca zahteva",
+      "applicantClientOptional": "Kandidat u CRM-u (opciono)",
+      "city": "Grad",
+      "classNumber": "Broj razreda",
+      "country": "Država",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Robe i usluge",
+      "legalName": "Naziv i vrsta pravnog lica",
+      "linkClient": "Odaberite klijenta u CRM-u",
+      "linkClientOptional": "CRM klijent (opciono)",
+      "markKind": "Označite kategoriju",
+      "markType": "Vrsta oznake",
+      "markWords": "Riječi marke",
+      "mol": "MOL (potpisnik)",
+      "name": "Ime",
+      "phone": "Telefon",
+      "postalCode": "Poštanski broj",
+      "territory": "Teritorija",
+      "vat": "PDV ID"
+    },
+    "formTitle": "Kreirajte datoteku: Trademark",
+    "fullFormReady": "Dostupan pun obrazac",
+    "goodsPlaceholder": "npr. boce; maloprodajne usluge…",
+    "markKinds": {
+      "certification": "Certifikacija",
+      "collective": "Kolektivno",
+      "individual": "Pojedinac"
+    },
+    "markTypes": {
+      "combination_of_colors": "Kombinacija boja",
+      "combined": "Kombinovano",
+      "figurative": "Figurativno",
+      "sound": "Zvuk",
+      "three_dimensional": "Trodimenzionalno",
+      "wordmark": "Oznaka riječi"
+    },
+    "noClients": "Nema odgovarajućih klijenata. Prvo kreirajte klijenta u CRM-u, a zatim se vratite ovdje.",
+    "optionalMark": "Oznaka / predmet (opcionalno)",
+    "partialSubtypeNote": "Potpuna specijalizirana polja za ovu potkategoriju će biti proširena kasnije. I dalje možete sačuvati nacrt povezanu sa klijentom; dokumenti i prepiska ostaju u spisu.",
+    "preliminary": "Preliminarne informacije",
+    "procedureHints": {
+      "cancellation": "Postupak otkazivanja — uloge možemo biti mi ili oni",
+      "new": "Nova prijava zaštitnog znaka — potpuni obrazac za kreiranje",
+      "objection": "Prigovor smo uložili",
+      "opposition_against_us": "Protiv nas je podnela prigovor",
+      "opposition_by_us": "Prigovor koji podnosimo",
+      "revocation": "Postupak opoziva"
+    },
+    "procedures": {
+      "cancellation": "Otkazivanje",
+      "new": "Novi zaštitni znak",
+      "objection": "Prigovor",
+      "opposition_against_us": "Opozicija protiv nas",
+      "opposition_by_us": "Naša opozicija",
+      "revocation": "Opoziv"
+    },
+    "removeClass": "Ukloni klasu",
+    "sameApplicant": "Podaci o podnosiocu zahtjeva su isti kao i o klijentu",
+    "sameCorrespondence": "Adresa za dopisivanje je ista kao i registrovana adresa",
+    "saveDraft": "Sačuvaj kao nacrt",
+    "saving": "Spremanje…",
+    "searchClient": "Pretražite klijente po imenu ili kodu…",
+    "sections": {
+      "applicant": "Podnosilac zahtjeva",
+      "client": "Podaci o klijentima",
+      "contact": "Kontakt osoba",
+      "correspondence": "Adresa za dopisivanje",
+      "goods": "Spisak roba i usluga",
+      "markName": "Naziv zaštitnog znaka",
+      "registeredAddress": "Registrovana adresa",
+      "searchDocs": "Priložite dokumente za pretragu",
+      "trademark": "Informacije o žigovima"
+    },
+    "selectCountries": "Odaberite zemlje",
+    "subtypeHint": "Prvo odaberite podkategoriju žiga. Novi zaštitni znak otvara pun obrazac iz demo klijenta.",
+    "territories": {
+      "eu": "Evropska unija",
+      "international": "međunarodni (WO)",
+      "national": "National"
+    },
+    "trademarkTitle": "Kreiraj fajl — Zaštitni znak"
+  },
+  "trademarkInfo": {
+    "addCountry": "Dodajte zemlju…",
+    "cancel": "Otkaži",
+    "country": "Država",
+    "edit": "Uredi",
+    "errors": {
+      "country": "Odaberite barem jednu zemlju za ovu teritoriju.",
+      "saveFailed": "Nije moguće sačuvati informacije o zaštitnim znakovima."
+    },
+    "euFixed": "Evropska unija (EUIPO)",
+    "markKind": "Označite kategoriju",
+    "markType": "Vrsta oznake",
+    "noCountries": "Još nije odabrana nijedna zemlja.",
+    "save": "Sačuvaj promjene",
+    "saved": "Sačuvano.",
+    "saving": "Spremanje…",
+    "selectCountries": "Odaberite zemlje",
+    "territory": "Teritorija",
+    "title": "Informacije o žigovima"
+  },
+  "fileApproval": {
+    "clientStep": "1. Odobreno od strane klijenta",
+    "clientStepHint": "Osoblje potvrđuje da se klijent dogovorio van mreže (poziv/e-mail/sastanak). Klijent portala ne mora sam sebe odobravati.",
+    "errors": {
+      "updateFailed": "Nije moguće ažurirati status odobrenja."
+    },
+    "hint": "Samo interno odobrenje: označite da se klijent slaže, a zatim Upravni partner prihvata fajl. Nije potrebno odobrenje za slanje klijentu.",
+    "markClientApproved": "Označite da je klijent odobren",
+    "partnerApprove": "Datoteka odobrenja partnera",
+    "partnerOnly": "Samo izvršni partner može izvršiti ovaj korak",
+    "partnerStep": "2. Upravni partner prihvata",
+    "partnerStepHint": "Nakon što klijent bude označen kao odobren, Upravni partner prihvata fajl i ostavlja nacrt.",
+    "recordedBy": "Snimio {{name}} · {{date}}",
+    "title": "Odobrenje fajla",
+    "waitForClient": "Prvo označite da je klijent odobren, a zatim možete prihvatiti datoteku."
+  },
+  "prosecution": {
+    "cancelEdit": "Otkaži",
+    "completeStage": "Kompletna faza",
+    "edit": "Uredi",
+    "editingNote": "Koristite Sačuvaj da zadržite ono što ste uneli u ovoj fazi ili Završi fazu da biste krenuli napred kada su obavezna polja popunjena.",
+    "gateHint": "Ne možete napredovati dok se ne popune obavezna polja za ovu fazu (isto kao i njihova sistemska vrata).",
+    "goBack": "Vratite se na pozornicu",
+    "errors": {
+      "needAttachments": "Priložite potrebne fajlove prije nego nastavite: {{list}}",
+      "needInvoice": "Generirajte fakturu od državne naknade prije završetka ove faze.",
+      "alreadyFinal": "Ovaj fajl je već u završnoj fazi.",
+      "needApproval": "Završite odobrenje fajla (klijent + Upravni partner) prije nego što napustite pripreme.",
+      "needBulletin": "Unesite broj i datum biltena prije napuštanja publikacije.",
+      "needFeePaid": "Unesite datum plaćanja državne takse prije polaska na formalni ispit.",
+      "needFilingFields": "Unesite broj prijave i datum podnošenja za dovršetak prijave.",
+      "needFormalFields": "Unesite državnu pristojbu i rok plaćanja za nastavak.",
+      "needMol": "Molimo unesite MOL u detalje o fajlu (kreiraj-fajl/uredi) prije nego što završiš podnošenje.",
+      "needOfficeActionDeadline": "Kancelarijska radnja ima predmet — postavite njen rok prije nego što nastavite.",
+      "needPoaFiled": "Unesite dolazni broj i datum PoA prije napuštanja formalnog ispita.",
+      "needRegFeePaid": "Unesite datum uplate kotizacije prije nego nastavite.",
+      "needRepresentative": "Unesite najmanje jednog predstavnika ili postavite Dodaj predstavnike na Ne.",
+      "saveBeforeNavigate": "Sačuvajte ili otkažite svoje izmjene prije nego što se vratite na fazu.",
+      "saveFailed": "Nije moguće sačuvati podatke tužilaštva."
+    },
+    "fields": {
+      "addRepresentatives": "Želite li dodati predstavnike?",
+      "applicationDate": "Datum prijave",
+      "applicationNumber": "Broj prijave",
+      "bulletinDate": "Datum biltena",
+      "bulletinNumber": "Broj biltena",
+      "feePaidDate": "Datum plaćanja državne takse",
+      "generatePoa": "Generirajte punomoćje",
+      "officeAction": "Uredska radnja / zahtjev",
+      "officeActionDeadline": "Uredski rok za akciju",
+      "paymentDeadline": "Rok plaćanja",
+      "poaDate": "PoA datum",
+      "poaDeadline": "Rok za podnošenje PoA",
+      "poaIncoming": "PoA dolazni broj",
+      "regFeePaidDate": "Datum uplate kotizacije",
+      "remindDays": "Podsjetite danima prije roka",
+      "representatives": "Predstavnik(i)",
+      "sendPoaEmail": "Šalji automatski e-mail",
+      "stateFee": "državna taksa (BGN)"
+    },
+    "molHint": "MOL mora biti postavljen na detalje o fajlu (iz kreiranog fajla). Nedostaju MOL blokovi koji završavaju ovu fazu.",
+    "no": "br",
+    "prepHint": "Pripremna faza: prvo završite odobrenje fajla, a zatim vas Upravni partner prihvata prebacuje u Podnošenje.",
+    "registeredDone": "Faza registracije je dostignuta.",
+    "saveChanges": "Sačuvaj promjene",
+    "saveEntered": "Sačuvaj",
+    "saved": "Sačuvano.",
+    "saveFields": "Sačuvaj polja",
+    "saving": "Spremanje…",
+    "stages": {
+      "filing": "Podnošenje",
+      "formal_exam": "Formalni ispit",
+      "prep": "Pripremni",
+      "publication": "Objava",
+      "reg_fee": "Naknade za registraciju",
+      "registration": "Registracija",
+      "substantive_exam": "Ispit po suštini"
+    },
+    "territoryLabel": {
+      "eu": "Naftovod: EU",
+      "international": "Naftovod: Međunarodni (WO)",
+      "national": "Naftovod: Nacionalni"
+    },
+    "territoryLocked": "Teritorija popravljena iz kreiranog fajla",
+    "territoryFromInfo": "Teritorija iz informacija o zaštitnim znakovima",
+    "title": "Faze postupka",
+    "yes": "Da",
+    "hub": {
+      "generateInvoice": "Generiraj fakturu",
+      "invoiceIssuedShort": "Račun izdat",
+      "invoiceIssued": "Račun {{number}} izdat. Klijent to može vidjeti na svom portalu; nalazi se i na kartici Naplata.",
+      "invoiceAlreadyIssued": "Faktura {{number}} već izdata — vidljiva u portalu i naplati.",
+      "invoiceFailed": "Nije moguće generirati fakturu. Provjerite detalje naplate klijenta.",
+      "invoiceNotes": "Službena/državna taksa",
+      "uploadFailed": "Nije moguće otpremiti fajl.",
+      "needStateFee": "Prvo unesite iznos državne takse.",
+      "feeDescription": "Državna/službena taksa",
+      "deadlineFailed": "Nije moguće kreirati rok(ove).",
+      "deadlineTitles": {
+        "payment": "Plaćanje državne takse",
+        "poa": "Podnošenje punomoćja",
+        "oa": "Kancelarijska radnja / zahtjev za ispitivanje",
+        "oaWithSubject": "Radnja ureda: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Podsjeti {{days}} dan(a) prije roka."
+      },
+      "attach": {
+        "search": "Priložite fajl za pretragu",
+        "application": "Priložite aplikaciju",
+        "feeSlip": "Priložite listić naknade",
+        "poa": "Priložite PoA",
+        "officeAction": "Priložite radnju ureda",
+        "decision": "Priložite odluku",
+        "bulletin": "Priložite bilten",
+        "regFee": "Priložite dokaz o uplati",
+        "certificate": "Priložite sertifikat"
+      }
+    }
   }
 }

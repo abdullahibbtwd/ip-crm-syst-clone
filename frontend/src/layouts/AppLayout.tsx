@@ -9,6 +9,8 @@ import {
   isNavPathActive,
   navPathSpecificity,
   findNavItem,
+  allNavItems,
+  flattenNavItems,
 } from '../features/shell/nav-utils'
 import { ShellProvider, useShell } from '../features/shell/ShellProvider'
 import { AppSidebar } from '../components/layout/AppSidebar'
@@ -89,10 +91,7 @@ function LayoutBody({
   const activeView = withActiveNav(view, activeNavId)
 
   useEffect(() => {
-    const navItems = [
-      ...view.nav.flatMap((s) => s.items),
-      ...view.footer,
-    ]
+    const navItems = allNavItems(view)
       .filter((item): item is NavItem & { path: string } => Boolean(item.path))
       .sort((a, b) => navPathSpecificity(b.path) - navPathSpecificity(a.path))
 
@@ -103,19 +102,14 @@ function LayoutBody({
       }
     }
     if (location.pathname.startsWith('/intake')) {
-      const intakeItem = view.nav
-        .flatMap((s) => s.items)
-        .find((i) => i.path === '/intake')
+      const intakeItem = allNavItems(view).find((i) => i.path === '/intake')
       if (intakeItem) {
         setActiveNavId(navId(intakeItem))
         return
       }
     }
     if (location.pathname.startsWith('/users')) {
-      const usersItem = [
-        ...view.nav.flatMap((s) => s.items),
-        ...view.footer,
-      ].find((i) => i.path?.startsWith('/users'))
+      const usersItem = allNavItems(view).find((i) => i.path?.startsWith('/users'))
       if (usersItem) {
         setActiveNavId(navId(usersItem))
         return
@@ -131,7 +125,9 @@ function LayoutBody({
       const current = findNavItem(view, activeNavId)
       // Keep pathless "Coming Soon" section panels selected
       if (current && !current.path && !current.isHome) return
-      const home = view.nav.flatMap((s) => s.items).find((i) => i.isHome)
+      const home = view.nav
+        .flatMap((s) => flattenNavItems(s.items))
+        .find((i) => i.isHome)
       if (home) setActiveNavId(navId(home))
     }
   }, [location.pathname, location.search, view, setActiveNavId, activeNavId])

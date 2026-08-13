@@ -45,12 +45,21 @@ export function AppTopbar({
   onRoleChange,
   onLogout,
 }: AppTopbarProps) {
-  const { breadcrumb, sidebarOpen, setSidebarOpen } = useShell()
+  const { breadcrumb, activeNavItem, sidebarOpen, setSidebarOpen } = useShell()
   const { t: tCommon } = useTranslation('common')
   const { t: tNav } = useTranslation('nav')
+  const { t: tMatters } = useTranslation('matters')
 
   const showRoleSwitcher = availableRoles.length > 1 && activeRole && onRoleChange
-  const breadcrumbLabel = tNav(`items.${breadcrumb}`)
+  const breadcrumbLabel = (() => {
+    if (activeNavItem?.labelNs === 'matters') {
+      return tMatters(activeNavItem.labelKey, {
+        defaultValue: activeNavItem.labelKey,
+      })
+    }
+    const key = activeNavItem?.labelKey ?? breadcrumb
+    return tNav(`items.${key}`, { defaultValue: key })
+  })()
 
   return (
     <header

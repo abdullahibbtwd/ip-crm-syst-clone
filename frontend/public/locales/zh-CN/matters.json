@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "不错的课程",
         "placeholder": "例如 12、35"
+      },
+      "markKind": {
+        "label": "标记类别"
+      },
+      "markWords": {
+        "label": "标记的话"
+      },
+      "territory": {
+        "label": "领土"
+      },
+      "trademarkProcedure": {
+        "label": "商标程序"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "客户 *",
     "creating": "创造……",
-    "error": "无法创建工作文件",
+    "error": "创建档案失败",
     "jurisdictionHelp": "选择一个或多个提交管辖区。",
     "jurisdictions": "司法管辖区",
     "matterType": "工作类型 *",
-    "open": "打开工作文件",
+    "open": "打开档案",
     "responsibleAttorney": "责任律师",
-    "title": "打开新的工作文件",
+    "title": "打开新档案",
     "titleField": "标题 *",
     "titlePlaceholder": "例如 ACME 文字商标 – 欧盟"
   },
@@ -642,37 +654,43 @@
     "rejected": "被拒绝"
   },
   "layout": {
-    "backToMatters": "← 返回工作文件",
-    "loading": "正在加载工作文件...",
-    "notFound": "未找到工作文件。",
+    "backToMatters": "← 返回档案",
+    "loading": "正在加载档案…",
+    "notFound": "未找到档案。",
     "archivedBadge": "已存档",
     "archive": "档案",
     "archiving": "归档...",
     "restore": "恢复",
     "restoring": "正在恢复…",
-    "archiveFailed": "无法归档工作文件",
-    "restoreFailed": "无法恢复工作文件",
-    "archiveConfirm": "存档此工作文件吗？ 它将离开活动列表，但在“已存档”下仍可搜索。"
+    "archiveFailed": "归档档案失败",
+    "restoreFailed": "恢复档案失败",
+    "archiveConfirm": "归档此档案？它将离开活动列表，但仍可在“已归档”中搜索。"
   },
   "list": {
-    "description": "所有工作文件的组合视图 - 按标题、客户或申请号搜索。",
-    "descriptionPortal": "接收转换后为您的组织打开的工作文件。",
-    "descriptionArchived": "保存已完成或闲置的工作文件以供参考。",
+    "description": "全部档案总览 — 可按标题、客户或申请号搜索。",
+    "descriptionPortal": "问询转化后为贵组织打开的档案。",
+    "descriptionArchived": "已完成或停用的档案，供查阅保留。",
     "filters": {
       "allStatuses": "所有状态",
       "allTypes": "所有工作类型",
       "active": "积极的",
-      "archived": "已存档"
+      "archived": "已归档",
+      "allOtherTypes": "所有其他类型"
     },
     "intakeQueue": "摄入队列",
     "pagination": {
       "ofTotal": "{{total}} 的"
     },
     "perPage": "每页 {{count}}",
-    "searchPlaceholder": "搜索标题、客户、申请号...",
-    "title": "工作文件",
-    "titleArchived": "存档的工作文件",
-    "titlePortal": "我的工作文件"
+    "searchPlaceholder": "搜索标题、客户、申请号…",
+    "title": "档案",
+    "titleArchived": "已归档档案",
+    "titlePortal": "我的档案",
+    "descriptionOthers": "不在六大主类中的档案 — 请在下方按类型筛选。",
+    "descriptionType": "{{type}} 档案 — 可按标题、客户或申请号搜索。",
+    "titleOthers": "其他档案",
+    "titleDrafts": "草稿",
+    "descriptionDrafts": "待批准或提交的草稿 — 与有效商标及其他分类分开存放。"
   },
   "ipRightsRegister": {
     "description": "公司范围内的知识产权登记，并按客户、司法管辖区、类型、状态和有效期进行过滤。",
@@ -708,7 +726,8 @@
     "figurative": "具象的",
     "sound": "声音",
     "three_dimensional": "3D",
-    "wordmark": "文字标记"
+    "wordmark": "文字标记",
+    "combination_of_colors": "颜色组合"
   },
   "overview": {
     "assignedTo": "首席律师",
@@ -726,9 +745,26 @@
       "localRef": "本地参考。",
       "status": "地位"
     },
-    "title": "工作文件详细信息",
+    "title": "档案详情",
     "type": "工作类型",
-    "typeSpecific": "特定于类型的属性"
+    "typeSpecific": "特定于类型的属性",
+    "edit": {
+      "cancel": "取消",
+      "edit": "编辑",
+      "errors": {
+        "saveFailed": "无法保存文件详细信息。",
+        "title": "标题为必填项。"
+      },
+      "fields": {
+        "territory": "领土（来自创建文件）",
+        "title": "标题"
+      },
+      "hint": "单击“编辑”以更改文件详细信息，然后单击“保存更改”。 区域保持创建文件时设置的状态。",
+      "save": "保存更改",
+      "saved": "已保存。",
+      "saving": "保存…",
+      "title": "文件详情"
+    }
   },
   "parties": {
     "title": "派对",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "选择…",
     "title": "特定于类型的详细信息"
+  },
+  "createFile": {
+    "addClass": "添加班级",
+    "backToFiles": "返回文件",
+    "cancel": "取消",
+    "changeSubtype": "更改子类别",
+    "checkRegister": "检查商业登记簿",
+    "clearClient": "更换客户",
+    "clientOptionalHint": "没有 CRM 匹配吗？ 填写下面的客户详细信息 - 保存草稿将自动在客户中创建它们。",
+    "applicantOptionalHint": "没有 CRM 匹配吗？ 在下面填写申请人详细信息 - 保存草稿将自动在客户端中创建它们。",
+    "draftDescription": "通过创建文件 ({{procedure}}) 创建 — 草稿",
+    "errors": {
+      "client": "选择一个客户端以继续。",
+      "clientOrDetails": "选择 CRM 客户端，或输入客户端名称和详细信息以创建它们。",
+      "applicantOrDetails": "在 CRM 中选择申请人，或输入申请人姓名和详细信息来创建申请人。",
+      "jurisdiction": "至少选择一个地区/国家。",
+      "markWords": "输入商标名称/文字。",
+      "saveFailed": "无法保存草稿文件。",
+      "subtype": "选择商标子类别。"
+    },
+    "euHint": "欧盟商标 (EUIPO) — 管辖权设定为欧盟。",
+    "fields": {
+      "address": "地址",
+      "applicantClient": "申请客户",
+      "applicantClientOptional": "CRM 中的申请人（可选）",
+      "city": "城市",
+      "classNumber": "班级编号",
+      "country": "国家",
+      "eik": "伊利诺伊大学/伊利诺伊大学",
+      "email": "电子邮件",
+      "fax": "传真",
+      "goodsText": "商品和服务",
+      "legalName": "名称和法律实体类型",
+      "linkClient": "在 CRM 中选择客户",
+      "linkClientOptional": "CRM 客户端（可选）",
+      "markKind": "标记类别",
+      "markType": "标记类型",
+      "markWords": "标记的话",
+      "mol": "商船三井（签字）",
+      "name": "姓名",
+      "phone": "电话",
+      "postalCode": "邮政编码",
+      "territory": "领土",
+      "vat": "增值税号"
+    },
+    "formTitle": "创建文件：商标",
+    "fullFormReady": "提供完整表格",
+    "goodsPlaceholder": "例如 瓶子； 零售服务…",
+    "markKinds": {
+      "certification": "认证",
+      "collective": "集体",
+      "individual": "个人"
+    },
+    "markTypes": {
+      "combination_of_colors": "颜色组合",
+      "combined": "组合",
+      "figurative": "具象的",
+      "sound": "声音",
+      "three_dimensional": "三维",
+      "wordmark": "文字标记"
+    },
+    "noClients": "没有匹配的客户。 首先在 CRM 中创建客户，然后返回此处。",
+    "optionalMark": "标记/主题（可选）",
+    "partialSubtypeNote": "该子类别的完整专业领域将在稍后扩展。 您仍然可以保存链接到客户端的草稿； 文件和信件保留在档案中。",
+    "preliminary": "初步信息",
+    "procedureHints": {
+      "cancellation": "取消程序——角色可能是我们，也可能是他们",
+      "new": "新商标申请——完整创建表格",
+      "objection": "我们已提出异议",
+      "opposition_against_us": "针对我们提出的反对",
+      "opposition_by_us": "我们正在提出反对",
+      "revocation": "撤销程序"
+    },
+    "procedures": {
+      "cancellation": "消除",
+      "new": "新商标",
+      "objection": "异议",
+      "opposition_against_us": "反对我们的人",
+      "opposition_by_us": "我们的反对",
+      "revocation": "撤销"
+    },
+    "removeClass": "删除班级",
+    "sameApplicant": "申请人信息与客户信息一致",
+    "sameCorrespondence": "通讯地址与注册地址相同",
+    "saveDraft": "另存为草稿",
+    "saving": "保存…",
+    "searchClient": "按名称或代码搜索客户...",
+    "sections": {
+      "applicant": "申请人",
+      "client": "客户资料",
+      "contact": "联络人",
+      "correspondence": "通讯地址",
+      "goods": "商品和服务清单",
+      "markName": "商标名称",
+      "registeredAddress": "注册地址",
+      "searchDocs": "附上搜索文件",
+      "trademark": "商标信息"
+    },
+    "selectCountries": "选择国家",
+    "subtypeHint": "首先选择商标子类别。 新商标从客户演示中打开完整表格。",
+    "territories": {
+      "eu": "欧洲联盟",
+      "international": "国际（WO）",
+      "national": "国家的"
+    },
+    "trademarkTitle": "创建文件 — 商标"
+  },
+  "trademarkInfo": {
+    "addCountry": "添加国家/地区...",
+    "cancel": "取消",
+    "country": "国家",
+    "edit": "编辑",
+    "errors": {
+      "country": "为此地区至少选择一个国家/地区。",
+      "saveFailed": "无法保存商标信息。"
+    },
+    "euFixed": "欧盟 (EUIPO)",
+    "markKind": "标记类别",
+    "markType": "标记类型",
+    "noCountries": "尚未选择国家/地区。",
+    "save": "保存更改",
+    "saved": "已保存。",
+    "saving": "保存…",
+    "selectCountries": "选择国家",
+    "territory": "领土",
+    "title": "商标信息"
+  },
+  "fileApproval": {
+    "clientStep": "1. 客户认可",
+    "clientStepHint": "工作人员离线确认客户同意（电话/电子邮件/会议）。 门户客户端不需要自行批准。",
+    "errors": {
+      "updateFailed": "无法更新批准状态。"
+    },
+    "hint": "仅内部批准：标记客户同意，然后执行合伙人接受该文件。 无需发送给客户批准。",
+    "markClientApproved": "标记客户已批准",
+    "partnerApprove": "合作伙伴批准文件",
+    "partnerOnly": "只有管​​理合伙人可以完成此步骤",
+    "partnerStep": "2. 管理合伙人接受",
+    "partnerStepHint": "客户标记为已批准后，执行合伙人接受该文件并留下草稿。",
+    "recordedBy": "记录者 {{name}} · {{date}}",
+    "title": "文件审批",
+    "waitForClient": "首先标记客户已批准，然后您可以接受该文件。"
+  },
+  "prosecution": {
+    "cancelEdit": "取消",
+    "completeStage": "完成阶段",
+    "edit": "编辑",
+    "editingNote": "使用“保存”保留您在此阶段输入的内容，或使用“完成”阶段在填写必填字段后继续前进。",
+    "gateHint": "在填写此阶段的必填字段（与系统门相同）之前，您无法继续前进。",
+    "goBack": "回到一个舞台",
+    "errors": {
+      "needAttachments": "在继续之前附加所需的文件：{{list}}",
+      "needInvoice": "在完成此阶段之前，根据国家费用生成发票。",
+      "alreadyFinal": "该文件已经进入最后阶段。",
+      "needApproval": "在离开准备之前完成文件审批（客户+管理合伙人）。",
+      "needBulletin": "在发布之前输入公告编号和日期。",
+      "needFeePaid": "在离开正式考试之前输入州费支付日期。",
+      "needFilingFields": "输入申请号和申请日期以完成申请。",
+      "needFormalFields": "输入州费和付款截止日期以继续。",
+      "needMol": "在完成归档之前，请在文件详细信息（创建文件/编辑）中输入 MOL。",
+      "needOfficeActionDeadline": "审查意见通知书有一个主题——在继续之前设定截止日期。",
+      "needPoaFiled": "在离开正式考试之前输入 PoA 传入号码和日期。",
+      "needRegFeePaid": "在继续之前输入注册费支付日期。",
+      "needRepresentative": "输入至少一名代表，或将“添加代表”设置为“否”。",
+      "saveBeforeNavigate": "返回阶段之前保存或取消您的编辑。",
+      "saveFailed": "无法保存起诉数据。"
+    },
+    "fields": {
+      "addRepresentatives": "您想添加代表吗？",
+      "applicationDate": "申请日期",
+      "applicationNumber": "申请号",
+      "bulletinDate": "公告日期",
+      "bulletinNumber": "公告号",
+      "feePaidDate": "国家费用缴纳日期",
+      "generatePoa": "生成授权书",
+      "officeAction": "审查意见通知书/请求",
+      "officeActionDeadline": "办公室行动截止日期",
+      "paymentDeadline": "付款期限",
+      "poaDate": "授权书日期",
+      "poaDeadline": "PoA 提交截止日期",
+      "poaIncoming": "PoA 来电号码",
+      "regFeePaidDate": "报名费缴纳日期",
+      "remindDays": "在截止日期前几天提醒",
+      "representatives": "代表",
+      "sendPoaEmail": "发送自动电子邮件",
+      "stateFee": "国家费用（保加利亚列弗）"
+    },
+    "molHint": "必须在文件详细信息（来自创建文件）上设置 MOL。 缺少完成此阶段的 MOL 块。",
+    "no": "不",
+    "prepHint": "准备阶段：先完成文件审批，然后管理合伙人接受后进入归档。",
+    "registeredDone": "到达注册阶段。",
+    "saveChanges": "保存更改",
+    "saveEntered": "节省",
+    "saved": "已保存。",
+    "saveFields": "保存字段",
+    "saving": "保存…",
+    "stages": {
+      "filing": "提交申请",
+      "formal_exam": "形式审查",
+      "prep": "准备",
+      "publication": "公告",
+      "reg_fee": "注册费",
+      "registration": "注册",
+      "substantive_exam": "实质审查"
+    },
+    "territoryLabel": {
+      "eu": "管道：欧盟",
+      "international": "管道：国际（WO）",
+      "national": "管道：国家"
+    },
+    "territoryLocked": "从创建文件中固定的区域",
+    "territoryFromInfo": "商标信息中的领土",
+    "title": "程序阶段",
+    "yes": "是的",
+    "hub": {
+      "generateInvoice": "生成发票",
+      "invoiceIssuedShort": "发票已开具",
+      "invoiceIssued": "发票 {{number}} 已开具。 客户可以在他们的门户中看到它； 它也位于“账单”选项卡上。",
+      "invoiceAlreadyIssued": "发票 {{number}} 已开具 — 在门户和账单中可见。",
+      "invoiceFailed": "无法生成发票。 检查客户账单详细信息。",
+      "invoiceNotes": "官方/国家费用",
+      "uploadFailed": "无法上传文件。",
+      "needStateFee": "首先输入国家费用金额。",
+      "feeDescription": "国家/官方费用",
+      "deadlineFailed": "无法创建截止日期。",
+      "deadlineTitles": {
+        "payment": "国家费用缴纳",
+        "poa": "提交授权书",
+        "oa": "审查请求/审查请求",
+        "oaWithSubject": "审查意见通知书：{{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "在截止日期前 {{days}} 天提醒。"
+      },
+      "attach": {
+        "search": "附加搜索文件",
+        "application": "附上申请表",
+        "feeSlip": "附上费用单",
+        "poa": "附加 PoA",
+        "officeAction": "附上审查意见通知书",
+        "decision": "附上决定",
+        "bulletin": "附上公告",
+        "regFee": "附上付款证明",
+        "certificate": "附上证书"
+      }
+    }
   }
 }

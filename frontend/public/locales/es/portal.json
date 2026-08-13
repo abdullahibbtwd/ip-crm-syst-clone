@@ -176,11 +176,22 @@
     "title": "Mis facturas"
   },
   "matterTypes": {
-    "design": "Diseño",
+    "border_measures": "Medidas fronterizas",
+    "cases": "Casos",
+    "consultation": "Consultas",
+    "copyright": "Derechos de autor",
+    "dispute_opposition": "Disputa/oposición",
+    "domain": "Dominios",
+    "fto_analysis": "Análisis de libertad de acción",
+    "geographical_indication": "indicación geográfica",
+    "industrial_design": "diseño industrial",
+    "litigation_expert_report": "Litigios / Peritajes judiciales",
+    "official_fee_payment": "Pagos de tasas oficiales",
     "other": "Otra",
     "patent": "Patentar",
     "trademark": "Marca",
-    "utility_model": "Modelo de utilidad"
+    "utility_model": "Modelo de utilidad",
+    "valuation": "Valuación"
   },
   "renewals": {
     "couldNotLoad": "No se pudieron cargar las renovaciones",

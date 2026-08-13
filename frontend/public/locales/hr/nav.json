@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Pregled",
     "clients": "Klijenti",
-    "matters": "Radne datoteke",
+    "matters": "Datoteke",
     "ipRights": "Prava intelektualnog vlasništva",
     "finance": "Financije",
     "reports": "izvješća",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Korisnici i pristup",
     "system": "sustav",
     "myPortfolio": "Moj portfelj",
-    "myMatters": "Moje radne datoteke"
+    "myMatters": "Moje datoteke"
   },
   "items": {
     "dashboard": "Nadzorna ploča",
@@ -33,8 +33,8 @@
     "alerts": "upozorenja",
     "clients": "Klijenti",
     "holdingGroups": "Držanje grupa",
-    "allMatters": "Sve radne datoteke",
-    "matters": "Radne datoteke",
+    "allMatters": "Sve datoteke",
+    "matters": "Datoteke",
     "intakeQueue": "Red čekanja za unos",
     "rightsRegister": "Registar prava",
     "renewals": "Obnove",
@@ -48,12 +48,12 @@
     "settings": "postavke",
     "myDashboard": "Moja nadzorna ploča",
     "myDeadlines": "Moji rokovi",
-    "myMatters": "Moje radne datoteke",
+    "myMatters": "Moje datoteke",
     "patentFilings": "Patentne prijave",
     "officeActions": "Uredske radnje",
     "documents": "Dokumenti",
     "correspondence": "dopisivanje",
-    "myTmMatters": "Moje TM radne datoteke",
+    "myTmMatters": "Moje TM datoteke",
     "oppositions": "Opozicije",
     "watchAlerts": "Gledajte upozorenja",
     "conflictCheck": "Provjera sukoba",
@@ -66,7 +66,7 @@
     "broadcasts": "Emisije",
     "outgoingMail": "Odlazna pošta",
     "myTasks": "Moji zadaci",
-    "assignedMatters": "Dodijeljene radne datoteke",
+    "assignedMatters": "Dodijeljene datoteke",
     "financeDashboard": "Nadzorna ploča za financije",
     "invoices": "Fakture",
     "timeEntries": "Unosi vremena",
@@ -100,7 +100,14 @@
     "messages": "Poruke",
     "approvals": "Odobrenja",
     "help": "Pomoć",
-    "myPortfolio": "Moj portfelj"
+    "myPortfolio": "Moj portfelj",
+    "workingFiles": "Datoteke",
+    "mattersAll": "Svi",
+    "mattersOthers": "Ostalo",
+    "mattersArchived": "Arhiva",
+    "mattersDrafts": "Nacrti",
+    "createFile": "Stvori datoteku",
+    "createFileTrademark": "Žig"
   },
   "roles": {
     "managing_partner": "Managing Partner",

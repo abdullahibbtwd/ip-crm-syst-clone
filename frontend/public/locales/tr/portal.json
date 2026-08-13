@@ -176,11 +176,22 @@
     "title": "Faturalarım"
   },
   "matterTypes": {
-    "design": "Tasarım",
+    "border_measures": "Sınır önlemleri",
+    "cases": "Vakalar",
+    "consultation": "Danışmalar",
+    "copyright": "Telif hakkı",
+    "dispute_opposition": "Anlaşmazlık / muhalefet",
+    "domain": "Alanlar",
+    "fto_analysis": "FTO analizi",
+    "geographical_indication": "Coğrafi işaret",
+    "industrial_design": "Endüstriyel tasarım",
+    "litigation_expert_report": "Dava/Mahkeme Bilirkişi Raporları",
+    "official_fee_payment": "Resmi Ücret Ödemeleri",
     "other": "Diğer",
     "patent": "Patent",
     "trademark": "Ticari marka",
-    "utility_model": "Faydalı model"
+    "utility_model": "Faydalı model",
+    "valuation": "Değerleme"
   },
   "renewals": {
     "couldNotLoad": "Yenilemeler yüklenemedi",

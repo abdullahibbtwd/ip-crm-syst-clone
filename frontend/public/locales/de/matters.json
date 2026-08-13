@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Schöne Kurse",
         "placeholder": "z.B. 12, 35"
+      },
+      "markKind": {
+        "label": "Kategorie markieren"
+      },
+      "markWords": {
+        "label": "Worte der Marke"
+      },
+      "territory": {
+        "label": "Gebiet"
+      },
+      "trademarkProcedure": {
+        "label": "Markenverfahren"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Kunde *",
     "creating": "Erstellen…",
-    "error": "Arbeitsdatei konnte nicht erstellt werden",
+    "error": "Datei konnte nicht erstellt werden",
     "jurisdictionHelp": "Wählen Sie einen oder mehrere Gerichtsstände für die Einreichung aus.",
     "jurisdictions": "Gerichtsbarkeiten",
     "matterType": "Arbeitsart *",
-    "open": "Arbeitsdatei öffnen",
+    "open": "Datei öffnen",
     "responsibleAttorney": "Verantwortlicher Anwalt",
-    "title": "Neue Arbeitsdatei öffnen",
+    "title": "Neue Datei öffnen",
     "titleField": "Titel *",
     "titlePlaceholder": "z.B. Wortmarke ACME – EU"
   },
@@ -642,37 +654,43 @@
     "rejected": "Abgelehnt"
   },
   "layout": {
-    "backToMatters": "← Zurück zu den Arbeitsdateien",
-    "loading": "Arbeitsdatei wird geladen…",
-    "notFound": "Arbeitsdatei nicht gefunden.",
+    "backToMatters": "← Zurück zu den Dateien",
+    "loading": "Datei wird geladen…",
+    "notFound": "Datei nicht gefunden.",
     "archivedBadge": "Archiviert",
     "archive": "Archiv",
     "archiving": "Archivierung…",
     "restore": "Wiederherstellen",
     "restoring": "Wiederherstellung…",
-    "archiveFailed": "Die Arbeitsdatei konnte nicht archiviert werden",
-    "restoreFailed": "Die Arbeitsdatei konnte nicht wiederhergestellt werden",
-    "archiveConfirm": "Diese Arbeitsdatei archivieren? Es wird aus der aktiven Liste entfernt, kann aber weiterhin unter „Archiviert“ durchsucht werden."
+    "archiveFailed": "Datei konnte nicht archiviert werden",
+    "restoreFailed": "Datei konnte nicht wiederhergestellt werden",
+    "archiveConfirm": "Diese Datei archivieren? Sie verlässt die aktive Liste, bleibt aber unter Archiv durchsuchbar."
   },
   "list": {
-    "description": "Portfolioansicht aller Arbeitsdateien – Suche nach Titel, Kunde oder Antragsnummer.",
-    "descriptionPortal": "Nach der Aufnahmekonvertierung für Ihre Organisation geöffnete Arbeitsdateien.",
-    "descriptionArchived": "Abgeschlossene oder inaktive Arbeitsdateien werden als Referenz aufbewahrt.",
+    "description": "Portfolioansicht aller Dateien – Suche nach Titel, Kunde oder Antragsnummer.",
+    "descriptionPortal": "Für Ihre Organisation geöffnete Dateien nach der Aufnahmekonvertierung.",
+    "descriptionArchived": "Abgeschlossene oder inaktive Dateien zur Referenz.",
     "filters": {
       "allStatuses": "Alle Status",
       "allTypes": "Alle Arbeitstypen",
       "active": "Aktiv",
-      "archived": "Archiviert"
+      "archived": "Archiviert",
+      "allOtherTypes": "Alle sonstigen Arten"
     },
     "intakeQueue": "Einlasswarteschlange",
     "pagination": {
       "ofTotal": "von {{total}}"
     },
     "perPage": "{{count}} pro Seite",
-    "searchPlaceholder": "Suchen Sie nach Titel, Kunde, Antragsnummer ...",
-    "title": "Arbeitsdateien",
-    "titleArchived": "Archivierte Arbeitsdateien",
-    "titlePortal": "Meine Arbeitsdateien"
+    "searchPlaceholder": "Suche nach Titel, Kunde, Antragsnr.…",
+    "title": "Dateien",
+    "titleArchived": "Archivierte Dateien",
+    "titlePortal": "Meine Dateien",
+    "descriptionOthers": "Dateien außerhalb der sechs Hauptkategorien — unten nach Art filtern.",
+    "descriptionType": "{{type}}-Dateien — Suche nach Titel, Mandant oder Anmeldenummer.",
+    "titleOthers": "Sonstige Dateien",
+    "titleDrafts": "Entwürfe",
+    "descriptionDrafts": "Entwürfe vor Freigabe oder Anmeldung — getrennt von aktiven Marken und anderen Regalen."
   },
   "ipRightsRegister": {
     "description": "Firmenweites Register von IP-Rechten mit Filtern nach Kunde, Gerichtsbarkeit, Art, Status und Ablauf.",
@@ -708,7 +726,8 @@
     "figurative": "Bildlich",
     "sound": "Klang",
     "three_dimensional": "3D",
-    "wordmark": "Wortmarke"
+    "wordmark": "Wortmarke",
+    "combination_of_colors": "Kombination von Farben"
   },
   "overview": {
     "assignedTo": "Hauptanwalt",
@@ -726,9 +745,26 @@
       "localRef": "Lokaler Ref.",
       "status": "Status"
     },
-    "title": "Details zur Arbeitsdatei",
+    "title": "Dateidetails",
     "type": "Arbeitstyp",
-    "typeSpecific": "Typspezifische Attribute"
+    "typeSpecific": "Typspezifische Attribute",
+    "edit": {
+      "cancel": "Stornieren",
+      "edit": "Bearbeiten",
+      "errors": {
+        "saveFailed": "Dateidetails konnten nicht gespeichert werden.",
+        "title": "Titel ist erforderlich."
+      },
+      "fields": {
+        "territory": "Gebiet (aus der Erstellungsdatei)",
+        "title": "Titel"
+      },
+      "hint": "Klicken Sie auf „Bearbeiten“, um die Dateidetails zu ändern, und dann auf „Änderungen speichern“. Das Gebiet bleibt so, wie es beim Erstellen der Datei festgelegt wurde.",
+      "save": "Änderungen speichern",
+      "saved": "Gespeichert.",
+      "saving": "Sparen…",
+      "title": "Dateidetails"
+    }
   },
   "parties": {
     "title": "Partys",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Wählen…",
     "title": "Typspezifische Details"
+  },
+  "createFile": {
+    "addClass": "Klasse hinzufügen",
+    "backToFiles": "Zurück zu den Dateien",
+    "cancel": "Stornieren",
+    "changeSubtype": "Unterkategorie ändern",
+    "checkRegister": "Schauen Sie im Handelsregister nach",
+    "clearClient": "Kunden wechseln",
+    "clientOptionalHint": "Kein CRM-Match? Füllen Sie unten die Kundendaten aus – wenn Sie den Entwurf speichern, werden sie automatisch in „Kunden“ erstellt.",
+    "applicantOptionalHint": "Kein CRM-Match? Geben Sie unten die Bewerberdaten ein. Wenn Sie den Entwurf speichern, werden sie automatisch in Clients erstellt.",
+    "draftDescription": "Erstellt über Datei erstellen ({{procedure}}) – Entwurf",
+    "errors": {
+      "client": "Wählen Sie einen Kunden aus, um fortzufahren.",
+      "clientOrDetails": "Wählen Sie einen CRM-Kunden aus oder geben Sie den Namen und die Details des Kunden ein, um ihn zu erstellen.",
+      "applicantOrDetails": "Wählen Sie einen Bewerber im CRM aus oder geben Sie den Namen und die Details des Bewerbers ein, um ihn zu erstellen.",
+      "jurisdiction": "Wählen Sie mindestens ein Gebiet/Land aus.",
+      "markWords": "Geben Sie den Namen/die Wörter der Marke ein.",
+      "saveFailed": "Die Entwurfsdatei konnte nicht gespeichert werden.",
+      "subtype": "Wählen Sie eine Markenunterkategorie aus."
+    },
+    "euHint": "Marke der Europäischen Union (EUIPO) – Zuständigkeit auf EU festgelegt.",
+    "fields": {
+      "address": "Adresse",
+      "applicantClient": "Bewerberkunde",
+      "applicantClientOptional": "Bewerber im CRM (optional)",
+      "city": "Stadt",
+      "classNumber": "Klassennummer",
+      "country": "Land",
+      "eik": "UIC / EIK",
+      "email": "E-Mail",
+      "fax": "Fax",
+      "goodsText": "Waren und Dienstleistungen",
+      "legalName": "Name und Art der juristischen Person",
+      "linkClient": "Wählen Sie den Kunden im CRM aus",
+      "linkClientOptional": "CRM-Client (optional)",
+      "markKind": "Kategorie markieren",
+      "markType": "Markieren Sie den Typ",
+      "markWords": "Worte der Marke",
+      "mol": "MOL (Unterzeichner)",
+      "name": "Name",
+      "phone": "Telefon",
+      "postalCode": "Postleitzahl",
+      "territory": "Gebiet",
+      "vat": "Umsatzsteuer-ID"
+    },
+    "formTitle": "Datei erstellen: Marke",
+    "fullFormReady": "Vollständiges Formular verfügbar",
+    "goodsPlaceholder": "z.B. Flaschen; Einzelhandelsdienstleistungen…",
+    "markKinds": {
+      "certification": "Zertifizierung",
+      "collective": "Kollektiv",
+      "individual": "Person"
+    },
+    "markTypes": {
+      "combination_of_colors": "Kombination von Farben",
+      "combined": "Kombiniert",
+      "figurative": "Bildlich",
+      "sound": "Klang",
+      "three_dimensional": "Dreidimensional",
+      "wordmark": "Wortmarke"
+    },
+    "noClients": "Keine passenden Kunden. Erstellen Sie zuerst den Kunden im CRM und kehren Sie dann hierher zurück.",
+    "optionalMark": "Markieren/Betreff (optional)",
+    "partialSubtypeNote": "Vollständige Fachgebiete für diese Unterkategorie werden später erweitert. Sie können einen mit dem Kunden verknüpften Entwurf weiterhin speichern; Dokumente und Korrespondenz bleiben in der Akte.",
+    "preliminary": "Vorläufige Informationen",
+    "procedureHints": {
+      "cancellation": "Löschungsverfahren – Rollen können wir oder sie sein",
+      "new": "Neue Markenanmeldung – vollständiges Erstellungsformular",
+      "objection": "Wir haben Einspruch eingelegt",
+      "opposition_against_us": "Gegen uns wurde Widerspruch eingelegt",
+      "opposition_by_us": "Wir legen Einspruch ein",
+      "revocation": "Widerrufsverfahren"
+    },
+    "procedures": {
+      "cancellation": "Stornierung",
+      "new": "Neues Markenzeichen",
+      "objection": "Einspruch",
+      "opposition_against_us": "Widerstand gegen uns",
+      "opposition_by_us": "Widerstand unsererseits",
+      "revocation": "Widerruf"
+    },
+    "removeClass": "Klasse entfernen",
+    "sameApplicant": "Die Daten des Bewerbers sind mit denen des Kunden identisch",
+    "sameCorrespondence": "Die Korrespondenzadresse ist dieselbe wie die registrierte Adresse",
+    "saveDraft": "Als Entwurf speichern",
+    "saving": "Sparen…",
+    "searchClient": "Kunden nach Namen oder Code suchen …",
+    "sections": {
+      "applicant": "Antragstellerin",
+      "client": "Kundendaten",
+      "contact": "Ansprechpartner",
+      "correspondence": "Korrespondenzadresse",
+      "goods": "Liste der Waren und Dienstleistungen",
+      "markName": "Markenname",
+      "registeredAddress": "Registrierte Adresse",
+      "searchDocs": "Recherchedokumente beifügen",
+      "trademark": "Markeninformationen"
+    },
+    "selectCountries": "Wählen Sie Länder aus",
+    "subtypeHint": "Wählen Sie zunächst die Unterkategorie „Marke“. Neue Marke öffnet das vollständige Formular aus der Kundendemo.",
+    "territories": {
+      "eu": "europäische Union",
+      "international": "International (WO)",
+      "national": "National"
+    },
+    "trademarkTitle": "Datei erstellen – Marke"
+  },
+  "trademarkInfo": {
+    "addCountry": "Land hinzufügen…",
+    "cancel": "Stornieren",
+    "country": "Land",
+    "edit": "Bearbeiten",
+    "errors": {
+      "country": "Wählen Sie für dieses Gebiet mindestens ein Land aus.",
+      "saveFailed": "Markeninformationen konnten nicht gespeichert werden."
+    },
+    "euFixed": "Europäische Union (EUIPO)",
+    "markKind": "Kategorie markieren",
+    "markType": "Markieren Sie den Typ",
+    "noCountries": "Noch keine Länder ausgewählt.",
+    "save": "Änderungen speichern",
+    "saved": "Gespeichert.",
+    "saving": "Sparen…",
+    "selectCountries": "Wählen Sie Länder aus",
+    "territory": "Gebiet",
+    "title": "Markeninformationen"
+  },
+  "fileApproval": {
+    "clientStep": "1. Vom Kunden genehmigt",
+    "clientStepHint": "Das Personal bestätigt die Zustimmung des Kunden offline (Anruf/E-Mail/Besprechung). Der Portalkunde muss sich nicht selbst genehmigen.",
+    "errors": {
+      "updateFailed": "Der Genehmigungsstatus konnte nicht aktualisiert werden."
+    },
+    "hint": "Nur interne Genehmigung: Markieren Sie, dass der Kunde zugestimmt hat, dann akzeptiert ein geschäftsführender Gesellschafter die Datei. Es ist keine Genehmigung zum Senden an den Client erforderlich.",
+    "markClientApproved": "Als vom Kunden genehmigt markieren",
+    "partnerApprove": "Partner genehmigt Datei",
+    "partnerOnly": "Nur der geschäftsführende Partner kann diesen Schritt abschließen",
+    "partnerStep": "2. Der geschäftsführende Gesellschafter akzeptiert",
+    "partnerStepHint": "Nachdem der Kunde als genehmigt markiert wurde, akzeptiert der geschäftsführende Gesellschafter die Datei und verlässt den Entwurf.",
+    "recordedBy": "Aufgenommen von {{name}} · {{date}}",
+    "title": "Dateigenehmigung",
+    "waitForClient": "Markieren Sie zuerst die Genehmigung durch den Kunden, dann können Sie die Datei akzeptieren."
+  },
+  "prosecution": {
+    "cancelEdit": "Stornieren",
+    "completeStage": "Komplette Etappe",
+    "edit": "Bearbeiten",
+    "editingNote": "Verwenden Sie „Speichern“, um Ihre Eingaben in dieser Phase beizubehalten, oder „Abschließen“, um fortzufahren, wenn die erforderlichen Felder ausgefüllt sind.",
+    "gateHint": "Sie können nicht fortfahren, bis die erforderlichen Felder für diese Phase ausgefüllt sind (genauso wie die Systemtore).",
+    "goBack": "Gehen Sie eine Stufe zurück",
+    "errors": {
+      "needAttachments": "Hängen Sie die erforderlichen Dateien an, bevor Sie fortfahren: {{list}}",
+      "needInvoice": "Erstellen Sie die Rechnung über die staatliche Gebühr, bevor Sie diesen Schritt abschließen.",
+      "alreadyFinal": "Diese Datei befindet sich bereits im Endstadium.",
+      "needApproval": "Schließen Sie die Dateigenehmigung ab (Kunde + geschäftsführender Gesellschafter), bevor Sie die Vorbereitung verlassen.",
+      "needBulletin": "Geben Sie die Nummer und das Datum des Bulletins ein, bevor Sie die Veröffentlichung verlassen.",
+      "needFeePaid": "Geben Sie das Zahlungsdatum der staatlichen Gebühr ein, bevor Sie die formelle Prüfung verlassen.",
+      "needFilingFields": "Geben Sie die Anmeldenummer und das Anmeldedatum ein, um die Einreichung abzuschließen.",
+      "needFormalFields": "Geben Sie die staatliche Gebühr und die Zahlungsfrist ein, um fortzufahren.",
+      "needMol": "Bitte geben Sie MOL in den Dateidetails ein (Datei erstellen/bearbeiten), bevor Sie die Einreichung abschließen.",
+      "needOfficeActionDeadline": "Die Amtshandlung hat einen Gegenstand – legen Sie ihre Frist fest, bevor Sie fortfahren.",
+      "needPoaFiled": "Geben Sie die PoA-Eingangsnummer und das Datum ein, bevor Sie die formelle Prüfung verlassen.",
+      "needRegFeePaid": "Geben Sie das Zahlungsdatum der Anmeldegebühr ein, bevor Sie fortfahren.",
+      "needRepresentative": "Geben Sie mindestens einen Vertreter ein oder setzen Sie Vertreter hinzufügen auf Nein.",
+      "saveBeforeNavigate": "Speichern oder brechen Sie Ihre Änderungen ab, bevor Sie zu einer Stufe zurückkehren.",
+      "saveFailed": "Strafverfolgungsdaten konnten nicht gespeichert werden."
+    },
+    "fields": {
+      "addRepresentatives": "Möchten Sie Vertreter hinzufügen?",
+      "applicationDate": "Bewerbungsdatum",
+      "applicationNumber": "Bewerbungsnummer",
+      "bulletinDate": "Bulletin-Datum",
+      "bulletinNumber": "Bulletin-Nummer",
+      "feePaidDate": "Zahlungsdatum der staatlichen Gebühr",
+      "generatePoa": "Vollmacht erstellen",
+      "officeAction": "Amtliche Maßnahme/Anfrage",
+      "officeActionDeadline": "Frist für Amtshandlungen",
+      "paymentDeadline": "Zahlungsfrist",
+      "poaDate": "PoA-Datum",
+      "poaDeadline": "PoA-Einreichungsfrist",
+      "poaIncoming": "PoA-Eingangsnummer",
+      "regFeePaidDate": "Zahlungsdatum der Anmeldegebühr",
+      "remindDays": "Tage vor Ablauf der Frist erinnern",
+      "representatives": "Vertreter(n)",
+      "sendPoaEmail": "Automatische E-Mail senden",
+      "stateFee": "Staatliche Gebühr (BGN)"
+    },
+    "molHint": "MOL muss auf Dateidetails (aus der Erstellungsdatei) festgelegt werden. Fehlende MOL-Blöcke schließen diese Phase ab.",
+    "no": "NEIN",
+    "prepHint": "Vorbereitungsphase: Schließen Sie zunächst die Dateigenehmigung ab, dann gelangen Sie mit der Annahme durch den geschäftsführenden Gesellschafter zur Einreichung.",
+    "registeredDone": "Anmeldephase erreicht.",
+    "saveChanges": "Änderungen speichern",
+    "saveEntered": "Speichern",
+    "saved": "Gespeichert.",
+    "saveFields": "Felder speichern",
+    "saving": "Sparen…",
+    "stages": {
+      "filing": "Anmeldung",
+      "formal_exam": "Formalprüfung",
+      "prep": "Vorbereitung",
+      "publication": "Veröffentlichung",
+      "reg_fee": "Registrierungsgebühren",
+      "registration": "Registrierung",
+      "substantive_exam": "Materielle Prüfung"
+    },
+    "territoryLabel": {
+      "eu": "Pipeline: EU",
+      "international": "Pipeline: International (WO)",
+      "national": "Pipeline: National"
+    },
+    "territoryLocked": "Gebiet aus der Erstellungsdatei behoben",
+    "territoryFromInfo": "Gebiet aus Markeninformationen",
+    "title": "Verfahrensstufen",
+    "yes": "Ja",
+    "hub": {
+      "generateInvoice": "Rechnung erstellen",
+      "invoiceIssuedShort": "Rechnung ausgestellt",
+      "invoiceIssued": "Rechnung {{number}} ausgestellt. Der Kunde kann es in seinem Portal sehen; Es befindet sich auch auf der Registerkarte „Abrechnung“.",
+      "invoiceAlreadyIssued": "Rechnung {{number}} bereits ausgestellt – sichtbar im Portal und in der Abrechnung.",
+      "invoiceFailed": "Rechnung konnte nicht erstellt werden. Überprüfen Sie die Rechnungsdetails des Kunden.",
+      "invoiceNotes": "Offizielle / staatliche Gebühr",
+      "uploadFailed": "Datei konnte nicht hochgeladen werden.",
+      "needStateFee": "Geben Sie zunächst den Betrag der staatlichen Gebühr ein.",
+      "feeDescription": "Staatliche/amtliche Gebühr",
+      "deadlineFailed": "Termin(e) konnten nicht erstellt werden.",
+      "deadlineTitles": {
+        "payment": "Zahlung staatlicher Gebühren",
+        "poa": "Vorlage einer Vollmacht",
+        "oa": "Amtshandlung/Prüfungsantrag",
+        "oaWithSubject": "Amtshandlung: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "{{days}} Tag(e) vor Ablauf der Frist erinnern."
+      },
+      "attach": {
+        "search": "Suchdatei anhängen",
+        "application": "Bewerbung beifügen",
+        "feeSlip": "Honorarbeleg beifügen",
+        "poa": "PoA anhängen",
+        "officeAction": "Büroklage beifügen",
+        "decision": "Entscheidung beifügen",
+        "bulletin": "Bulletin beifügen",
+        "regFee": "Zahlungsbeleg beifügen",
+        "certificate": "Zertifikat beifügen"
+      }
+    }
   }
 }

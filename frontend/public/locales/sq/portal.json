@@ -176,11 +176,22 @@
     "title": "Faturat e mia"
   },
   "matterTypes": {
-    "design": "Dizajn",
+    "border_measures": "Masat kufitare",
+    "cases": "Rastet",
+    "consultation": "Konsultimet",
+    "copyright": "E drejta e autorit",
+    "dispute_opposition": "Mosmarrëveshje / kundërshtim",
+    "domain": "Domenet",
+    "fto_analysis": "Analiza FTO",
+    "geographical_indication": "Treguesi gjeografik",
+    "industrial_design": "Dizajni industrial",
+    "litigation_expert_report": "Raportet e ekspertëve të çështjeve gjyqësore",
+    "official_fee_payment": "Pagesat zyrtare të tarifave",
     "other": "Të tjera",
     "patent": "Patenta",
     "trademark": "Markë tregtare",
-    "utility_model": "Modeli i shërbimeve"
+    "utility_model": "Modeli i shërbimeve",
+    "valuation": "Vlerësimi"
   },
   "renewals": {
     "couldNotLoad": "Rinovimet nuk mund të ngarkoheshin",

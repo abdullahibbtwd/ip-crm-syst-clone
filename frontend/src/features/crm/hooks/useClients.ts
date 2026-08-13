@@ -54,6 +54,16 @@ export function useUpdateClient(id: string) {
   })
 }
 
+export function useCreateClient() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (data: Record<string, unknown>) => clientsApi.create(data),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: clientKeys.lists() })
+    },
+  })
+}
+
 export function useArchiveClient() {
   const queryClient = useQueryClient()
   return useMutation({

@@ -176,11 +176,22 @@
     "title": "Minu arved"
   },
   "matterTypes": {
-    "design": "Disain",
+    "border_measures": "Piirimeetmed",
+    "cases": "Juhtumid",
+    "consultation": "Konsultatsioonid",
+    "copyright": "Autoriõigus",
+    "dispute_opposition": "Vaidlus / vastuseis",
+    "domain": "Domeenid",
+    "fto_analysis": "FTO analüüs",
+    "geographical_indication": "Geograafiline tähis",
+    "industrial_design": "Tööstusdisain",
+    "litigation_expert_report": "Kohtuvaidlused / kohtuekspertide aruanded",
+    "official_fee_payment": "Ametlikud lõivud",
     "other": "muud",
     "patent": "Patent",
     "trademark": "Kaubamärk",
-    "utility_model": "Kasulik mudel"
+    "utility_model": "Kasulik mudel",
+    "valuation": "Hindamine"
   },
   "renewals": {
     "couldNotLoad": "Uuendusi ei saanud laadida",

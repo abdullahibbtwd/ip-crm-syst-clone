@@ -22,9 +22,9 @@ import {
 } from '@/components/ui/table'
 import type { IntakeLead } from '@/features/intake/types'
 import {
-  MATTER_TYPE_LABELS,
   formatIntakeDateTime,
   intakeDisplayName,
+  intakeMatterTypeLabel,
 } from '@/features/intake/utils'
 import { getCountryLabel } from '@/lib/countries'
 import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
@@ -190,7 +190,7 @@ export function IntakeLeadsTable({
                 </TableCell>
                 <TableCell>
                   <Badge variant="outline" className="normal-case font-medium tracking-normal">
-                    {MATTER_TYPE_LABELS[lead.matterType]}
+                    {intakeMatterTypeLabel(lead.matterType)}
                   </Badge>
                 </TableCell>
                 <TableCell>

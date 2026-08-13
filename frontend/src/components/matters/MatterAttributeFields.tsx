@@ -19,6 +19,8 @@ type MatterAttributeFieldsProps = {
   matterType: MatterType
   values: Record<string, unknown>
   onChange: (key: string, value: unknown) => void
+  disabled?: boolean
+  excludeKeys?: string[]
 }
 
 function FieldControl({
@@ -26,11 +28,13 @@ function FieldControl({
   value,
   onChange,
   selectPlaceholder,
+  disabled,
 }: {
   field: AttributeFieldConfig
   value: unknown
   onChange: (value: unknown) => void
   selectPlaceholder: string
+  disabled?: boolean
 }) {
   switch (field.type) {
     case 'textarea':
@@ -40,6 +44,7 @@ function FieldControl({
           onChange={(e) => onChange(e.target.value)}
           placeholder={field.placeholder}
           rows={3}
+          disabled={disabled}
         />
       )
     case 'number':
@@ -49,6 +54,7 @@ function FieldControl({
           value={typeof value === 'number' ? value : typeof value === 'string' ? value : ''}
           onChange={(e) => onChange(e.target.value ? Number(e.target.value) : '')}
           placeholder={field.placeholder}
+          disabled={disabled}
         />
       )
     case 'date':
@@ -57,6 +63,7 @@ function FieldControl({
           type="date"
           value={typeof value === 'string' ? value : ''}
           onChange={(e) => onChange(e.target.value)}
+          disabled={disabled}
         />
       )
     case 'select':
@@ -64,6 +71,7 @@ function FieldControl({
         <Select
           value={typeof value === 'string' ? value : ''}
           onValueChange={(v) => onChange(v)}
+          disabled={disabled}
         >
           <SelectTrigger>
             <SelectValue placeholder={selectPlaceholder} />
@@ -83,6 +91,7 @@ function FieldControl({
           value={tagsToInput(value)}
           onChange={(e) => onChange(parseTagsInput(e.target.value))}
           placeholder={field.placeholder}
+          disabled={disabled}
         />
       )
     default:
@@ -91,6 +100,7 @@ function FieldControl({
           value={typeof value === 'string' ? value : ''}
           onChange={(e) => onChange(e.target.value)}
           placeholder={field.placeholder}
+          disabled={disabled}
         />
       )
   }
@@ -100,9 +110,13 @@ export function MatterAttributeFields({
   matterType,
   values,
   onChange,
+  disabled,
+  excludeKeys,
 }: MatterAttributeFieldsProps) {
   const { t } = useTranslation('matters')
-  const fields = getMatterAttributeFields(matterType)
+  const fields = getMatterAttributeFields(matterType).filter(
+    (f) => !excludeKeys?.includes(f.key),
+  )
 
   if (fields.length === 0) return null
 
@@ -117,6 +131,7 @@ export function MatterAttributeFields({
             value={values[field.key]}
             onChange={(v) => onChange(field.key, v)}
             selectPlaceholder={t('attributeFields.selectPlaceholder')}
+            disabled={disabled}
           />
           {field.helpText ? (
             <p className="text-xs text-muted-foreground">{field.helpText}</p>

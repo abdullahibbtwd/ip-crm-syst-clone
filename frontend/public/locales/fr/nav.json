@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Aperçu",
     "clients": "Clientèle",
-    "matters": "Fichiers de travail",
+    "matters": "Fichiers",
     "ipRights": "Droits de propriété intellectuelle",
     "finance": "Finance",
     "reports": "Rapports",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Utilisateurs et accès",
     "system": "Système",
     "myPortfolio": "Mon portefeuille",
-    "myMatters": "Mes fichiers de travail"
+    "myMatters": "Mes fichiers"
   },
   "items": {
     "dashboard": "Tableau de bord",
@@ -33,8 +33,8 @@
     "alerts": "Alertes",
     "clients": "Clientèle",
     "holdingGroups": "Groupes de maintien",
-    "allMatters": "Tous les fichiers de travail",
-    "matters": "Fichiers de travail",
+    "allMatters": "Tous les fichiers",
+    "matters": "Fichiers",
     "intakeQueue": "File d'attente d'admission",
     "rightsRegister": "Registre des droits",
     "renewals": "Renouvellements",
@@ -48,12 +48,12 @@
     "settings": "Paramètres",
     "myDashboard": "Mon tableau de bord",
     "myDeadlines": "Mes délais",
-    "myMatters": "Mes fichiers de travail",
+    "myMatters": "Mes fichiers",
     "patentFilings": "Dépôts de brevet",
     "officeActions": "Actions de bureau",
     "documents": "Documents",
     "correspondence": "Correspondance",
-    "myTmMatters": "Mes fichiers de travail TM",
+    "myTmMatters": "Mes fichiers marques",
     "oppositions": "Oppositions",
     "watchAlerts": "Regarder les alertes",
     "conflictCheck": "Vérification des conflits",
@@ -66,7 +66,7 @@
     "broadcasts": "Diffusions",
     "outgoingMail": "Courrier sortant",
     "myTasks": "Mes tâches",
-    "assignedMatters": "Fichiers de travail attribués",
+    "assignedMatters": "Fichiers assignés",
     "financeDashboard": "Tableau de bord financier",
     "invoices": "Factures",
     "timeEntries": "Entrées de temps",
@@ -100,7 +100,14 @@
     "messages": "Messages",
     "approvals": "Approbations",
     "help": "Aide",
-    "myPortfolio": "Mon portefeuille"
+    "myPortfolio": "Mon portefeuille",
+    "workingFiles": "Fichiers",
+    "mattersAll": "Tous",
+    "mattersOthers": "Autres",
+    "mattersArchived": "Archivés",
+    "mattersDrafts": "Brouillons",
+    "createFile": "Créer un fichier",
+    "createFileTrademark": "Marque"
   },
   "roles": {
     "managing_partner": "Associé gérant",

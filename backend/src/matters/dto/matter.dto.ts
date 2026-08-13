@@ -134,6 +134,22 @@ export class MatterQueryDto extends PaginationQueryDto {
   @IsEnum(MatterType)
   matterType?: MatterType;
 
+  /** Comma-separated or repeated query values; used for “Others” shelf. Ignored when matterType is set. */
+  @IsOptional()
+  @Transform(({ value }) => {
+    if (value == null || value === '') return undefined
+    if (Array.isArray(value)) {
+      return value.flatMap((v) => String(v).split(',')).map((s) => s.trim()).filter(Boolean)
+    }
+    return String(value)
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+  })
+  @IsArray()
+  @IsEnum(MatterType, { each: true })
+  matterTypes?: MatterType[];
+
   @IsOptional()
   @IsUUID()
   assignedToId?: string;
@@ -148,4 +164,19 @@ export class MatterQueryDto extends PaginationQueryDto {
   @Transform(({ value }) => value === 'true' || value === true)
   @IsBoolean()
   archivedOnly?: boolean;
+
+  /** When true, list only draft (non-archived) files. */
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true)
+  @IsBoolean()
+  draftsOnly?: boolean;
+
+  /**
+   * When true (and status / draftsOnly not set), hide drafts from active shelves.
+   * Default active lists should pass this so drafts live only under Drafts.
+   */
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true)
+  @IsBoolean()
+  excludeDrafts?: boolean;
 }

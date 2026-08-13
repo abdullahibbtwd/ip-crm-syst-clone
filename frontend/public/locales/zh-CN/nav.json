@@ -7,7 +7,7 @@
   "sections": {
     "overview": "概述",
     "clients": "客户",
-    "matters": "工作文件",
+    "matters": "档案",
     "ipRights": "知识产权",
     "finance": "金融",
     "reports": "报告",
@@ -25,7 +25,7 @@
     "usersAndAccess": "用户和访问",
     "system": "系统",
     "myPortfolio": "我的投资组合",
-    "myMatters": "我的工作文件"
+    "myMatters": "我的档案"
   },
   "items": {
     "dashboard": "仪表板",
@@ -33,8 +33,8 @@
     "alerts": "警报",
     "clients": "客户",
     "holdingGroups": "控股集团",
-    "allMatters": "所有工作文件",
-    "matters": "工作文件",
+    "allMatters": "全部档案",
+    "matters": "档案",
     "intakeQueue": "摄入队列",
     "rightsRegister": "权利登记册",
     "renewals": "续订",
@@ -48,12 +48,12 @@
     "settings": "设置",
     "myDashboard": "我的仪表板",
     "myDeadlines": "我的截止日期",
-    "myMatters": "我的工作文件",
+    "myMatters": "我的档案",
     "patentFilings": "专利申请",
     "officeActions": "办公室行动",
     "documents": "文件",
     "correspondence": "一致",
-    "myTmMatters": "我的TM工作文件",
+    "myTmMatters": "我的商标档案",
     "oppositions": "反对派",
     "watchAlerts": "观看提醒",
     "conflictCheck": "冲突检查",
@@ -66,7 +66,7 @@
     "broadcasts": "广播",
     "outgoingMail": "外发邮件",
     "myTasks": "我的任务",
-    "assignedMatters": "分配的工作文件",
+    "assignedMatters": "分配的档案",
     "financeDashboard": "财务仪表板",
     "invoices": "发票",
     "timeEntries": "时间条目",
@@ -100,7 +100,14 @@
     "messages": "留言",
     "approvals": "批准",
     "help": "帮助",
-    "myPortfolio": "我的投资组合"
+    "myPortfolio": "我的投资组合",
+    "workingFiles": "档案",
+    "mattersAll": "全部",
+    "mattersOthers": "其他",
+    "mattersArchived": "已归档",
+    "mattersDrafts": "草稿",
+    "createFile": "创建档案",
+    "createFileTrademark": "商标"
   },
   "roles": {
     "managing_partner": "管理合伙人",

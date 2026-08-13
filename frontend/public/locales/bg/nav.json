@@ -7,7 +7,7 @@
   "sections": {
     "overview": "Преглед",
     "clients": "Клиенти",
-    "matters": "Дела",
+    "matters": "Файлове",
     "ipRights": "Права на ИС",
     "finance": "Финанси",
     "reports": "Справки",
@@ -25,7 +25,7 @@
     "usersAndAccess": "Потребители и достъп",
     "system": "Системна",
     "myPortfolio": "Моето портфолио",
-    "myMatters": "Моите дела"
+    "myMatters": "Моите файлове"
   },
   "items": {
     "dashboard": "Табло",
@@ -33,8 +33,9 @@
     "alerts": "Известия",
     "clients": "Клиенти",
     "holdingGroups": "Холдингови групи",
-    "allMatters": "Всички дела",
-    "matters": "Дела",
+    "allMatters": "Всички файлове",
+    "matters": "Файлове",
+    "workingFiles": "Файлове",
     "intakeQueue": "Опашка за приемане",
     "rightsRegister": "Регистър на права",
     "renewals": "Подновявания",
@@ -48,12 +49,12 @@
     "settings": "Настройки",
     "myDashboard": "Моето табло",
     "myDeadlines": "Моите срокове",
-    "myMatters": "Моите дела",
+    "myMatters": "Моите файлове",
     "patentFilings": "Патентни подавания",
     "officeActions": "Действия от патентно ведомство",
     "documents": "Документи",
     "correspondence": "Кореспонденция",
-    "myTmMatters": "Моите ТМ дела",
+    "myTmMatters": "Моите ТМ файлове",
     "oppositions": "Опозиции",
     "watchAlerts": "Известия от наблюдение",
     "conflictCheck": "Проверка за конфликт",
@@ -66,7 +67,7 @@
     "broadcasts": "Известия",
     "outgoingMail": "Изходяща поща",
     "myTasks": "Моите задачи",
-    "assignedMatters": "Възложени дела",
+    "assignedMatters": "Възложени файлове",
     "financeDashboard": "Финансово табло",
     "invoices": "Фактури",
     "timeEntries": "Отчети на време",
@@ -100,7 +101,13 @@
     "messages": "Съобщения",
     "approvals": "Одобрения",
     "help": "Помощ",
-    "myPortfolio": "Моето портфолио"
+    "myPortfolio": "Моето портфолио",
+    "createFile": "Създай файл",
+    "createFileTrademark": "Марка",
+    "mattersAll": "Всички",
+    "mattersDrafts": "Чернови",
+    "mattersOthers": "Други",
+    "mattersArchived": "Архив"
   },
   "roles": {
     "managing_partner": "Управляващ партньор",

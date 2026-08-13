@@ -176,11 +176,22 @@
     "title": "Moje fakture"
   },
   "matterTypes": {
-    "design": "Dizajn",
+    "border_measures": "Granične mjere",
+    "cases": "Slučajevi",
+    "consultation": "Konsultacije",
+    "copyright": "Copyright",
+    "dispute_opposition": "Spor / opozicija",
+    "domain": "Domains",
+    "fto_analysis": "FTO analiza",
+    "geographical_indication": "Geografska oznaka",
+    "industrial_design": "Industrijski dizajn",
+    "litigation_expert_report": "Parnice / Izvještaji sudskih vještaka",
+    "official_fee_payment": "Zvanično plaćanje naknada",
     "other": "Ostalo",
     "patent": "Patent",
     "trademark": "Trademark",
-    "utility_model": "Korisni model"
+    "utility_model": "Korisni model",
+    "valuation": "Vrednovanje"
   },
   "renewals": {
     "couldNotLoad": "Nije moguće učitati obnove",

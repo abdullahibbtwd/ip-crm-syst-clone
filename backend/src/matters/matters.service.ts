@@ -234,10 +234,21 @@ export class MattersService {
 
     const scopeClientId = this.portalAccess.requireScopeClientId(user);
 
+    let statusFilter: Prisma.MatterWhereInput['status'] = query.status;
+    if (query.draftsOnly) {
+      statusFilter = MatterStatus.draft;
+    } else if (!query.status && query.excludeDrafts) {
+      statusFilter = { not: MatterStatus.draft };
+    }
+
     const where: Prisma.MatterWhereInput = {
       clientId: scopeClientId ?? query.clientId,
-      status: query.status,
-      matterType: query.matterType,
+      status: statusFilter,
+      matterType: query.matterType
+        ? query.matterType
+        : query.matterTypes?.length
+          ? { in: query.matterTypes }
+          : undefined,
       assignedToId: query.assignedToId,
       isArchived: query.archivedOnly === true,
       ...(search
@@ -295,6 +306,63 @@ export class MattersService {
       pageCount,
       nextCursor: null,
     };
+  }
+
+  /**
+   * Sidebar shelf totals: non-archived non-draft by type, plus Drafts, Others, Archived.
+   */
+  async shelfCounts(user: AuthenticatedUser) {
+    const scopeClientId = this.portalAccess.requireScopeClientId(user);
+    const scope: Prisma.MatterWhereInput = {
+      clientId: scopeClientId ?? undefined,
+    };
+
+    const primaryTypes = new Set([
+      'trademark',
+      'patent',
+      'utility_model',
+      'industrial_design',
+      'geographical_indication',
+      'cases',
+    ]);
+
+    const activeScope: Prisma.MatterWhereInput = {
+      ...scope,
+      isArchived: false,
+      status: { not: MatterStatus.draft },
+    };
+
+    const [byTypeRows, all, archived, drafts] = await Promise.all([
+      this.prisma.matter.groupBy({
+        by: ['matterType'],
+        where: activeScope,
+        _count: { _all: true },
+      }),
+      this.prisma.matter.count({
+        where: activeScope,
+      }),
+      this.prisma.matter.count({
+        where: { ...scope, isArchived: true },
+      }),
+      this.prisma.matter.count({
+        where: {
+          ...scope,
+          isArchived: false,
+          status: MatterStatus.draft,
+        },
+      }),
+    ]);
+
+    const byType: Record<string, number> = {};
+    let others = 0;
+    for (const row of byTypeRows) {
+      byType[row.matterType] = row._count._all;
+      if (!primaryTypes.has(row.matterType)) {
+        others += row._count._all;
+      }
+    }
+
+    return { all, archived, others, drafts, byType };
   }
 
   async listDeadlines(matterId: string, user: AuthenticatedUser) {

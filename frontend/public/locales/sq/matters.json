@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Klasa të këndshme",
         "placeholder": "p.sh. 12, 35"
+      },
+      "markKind": {
+        "label": "Shënoni kategorinë"
+      },
+      "markWords": {
+        "label": "Fjalët e shenjës"
+      },
+      "territory": {
+        "label": "Territori"
+      },
+      "trademarkProcedure": {
+        "label": "Procedura e markës tregtare"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Klient *",
     "creating": "Po krijohet…",
-    "error": "Krijimi i skedarit të punës dështoi",
+    "error": "Krijimi i skedarit dështoi",
     "jurisdictionHelp": "Zgjidhni një ose më shumë juridiksione të paraqitjes.",
     "jurisdictions": "Juridiksionet",
     "matterType": "Lloji i punës *",
-    "open": "Hap skedarin e punës",
+    "open": "Hap skedarin",
     "responsibleAttorney": "Avokati përgjegjës",
-    "title": "Hapni skedarin e ri të punës",
+    "title": "Hap skedar të ri",
     "titleField": "Titulli *",
     "titlePlaceholder": "p.sh. Shenja e fjalës ACME – BE"
   },
@@ -642,37 +654,43 @@
     "rejected": "Refuzuar"
   },
   "layout": {
-    "backToMatters": "← Kthehu te skedarët e punës",
-    "loading": "Po ngarkon skedarin e punës…",
-    "notFound": "Skedari i punës nuk u gjet.",
+    "backToMatters": "← Kthehu te skedarët",
+    "loading": "Duke ngarkuar skedarin…",
+    "notFound": "Skedari nuk u gjet.",
     "archivedBadge": "Arkivuar",
     "archive": "Arkivi",
     "archiving": "Po arkivohet…",
     "restore": "Rivendos",
     "restoring": "Po restaurohet…",
-    "archiveFailed": "Arkivimi i skedarit të punës dështoi",
-    "restoreFailed": "Rivendosja e skedarit të punës dështoi",
-    "archiveConfirm": "Të arkivohet ky skedar pune? Do të largohet nga lista aktive, por do të mbetet e kërkueshme nën Arkivuar."
+    "archiveFailed": "Arkivimi i skedarit dështoi",
+    "restoreFailed": "Rikthimi i skedarit dështoi",
+    "archiveConfirm": "Ta arkivoni këtë skedar? Do të dalë nga lista aktive, por mbetet i kërkueshëm te Arkivuar."
   },
   "list": {
-    "description": "Pamja e portofolit të të gjithë skedarëve të punës — kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
-    "descriptionPortal": "Skedarët e punës u hapën për organizatën tuaj pas konvertimit të marrjes.",
-    "descriptionArchived": "Skedarët e punës të plotësuar ose joaktive të mbajtura për referencë.",
+    "description": "Pamje e të gjithë skedarëve — kërkoni sipas titullit, klientit ose nr. aplikimit.",
+    "descriptionPortal": "Skedarë të hapur për organizatën tuaj pas konvertimit të kërkesës.",
+    "descriptionArchived": "Skedarë të përfunduar ose joaktivë të ruajtur për referencë.",
     "filters": {
       "allStatuses": "Të gjitha statuset",
       "allTypes": "Të gjitha llojet e punës",
       "active": "Aktiv",
-      "archived": "Arkivuar"
+      "archived": "Arkivuar",
+      "allOtherTypes": "Të gjitha llojet e tjera"
     },
     "intakeQueue": "Radha e marrjes",
     "pagination": {
       "ofTotal": "nga {{total}}"
     },
     "perPage": "{{count}} për faqe",
-    "searchPlaceholder": "Kërkoni titullin, klientin, aplikacionin nr…",
-    "title": "Skedarët e punës",
-    "titleArchived": "Skedarët e punës të arkivuara",
-    "titlePortal": "Dosjet e mia të punës"
+    "searchPlaceholder": "Kërko titull, klient, nr. aplikimi…",
+    "title": "Skedarët",
+    "titleArchived": "Skedarë të arkivuar",
+    "titlePortal": "Skedarët e mi",
+    "descriptionOthers": "Skedarë jashtë gjashtë kategorive kryesore — filtroni sipas llojit më poshtë.",
+    "descriptionType": "Skedarë {{type}} — kërkoni sipas titullit, klientit ose nr. aplikimit.",
+    "titleOthers": "Skedarë të tjerë",
+    "titleDrafts": "Draftet",
+    "descriptionDrafts": "Draftet që presin miratim ose depozitim — të ndara nga markat aktive dhe raftet e tjera."
   },
   "ipRightsRegister": {
     "description": "Regjistri gjithëpërfshirës i të drejtave IP me filtra sipas klientit, juridiksionit, llojit, statusit dhe skadimit.",
@@ -708,7 +726,8 @@
     "figurative": "Figurative",
     "sound": "Tingull",
     "three_dimensional": "3D",
-    "wordmark": "Shenjë fjalësh"
+    "wordmark": "Shenjë fjalësh",
+    "combination_of_colors": "Kombinimi i ngjyrave"
   },
   "overview": {
     "assignedTo": "Avokati kryesor",
@@ -726,9 +745,26 @@
       "localRef": "Ref lokal.",
       "status": "Statusi"
     },
-    "title": "Detajet e skedarit të punës",
+    "title": "Detajet e skedarit",
     "type": "Lloji i punës",
-    "typeSpecific": "Atributet specifike të tipit"
+    "typeSpecific": "Atributet specifike të tipit",
+    "edit": {
+      "cancel": "Anulo",
+      "edit": "Redakto",
+      "errors": {
+        "saveFailed": "Detajet e skedarit nuk mund të ruheshin.",
+        "title": "Kërkohet titulli."
+      },
+      "fields": {
+        "territory": "Territori (nga krijimi i skedarit)",
+        "title": "Titulli"
+      },
+      "hint": "Klikoni Edit për të ndryshuar detajet e skedarit, më pas Ruaj ndryshimet. Territori qëndron siç është caktuar kur është krijuar skedari.",
+      "save": "Ruaj ndryshimet",
+      "saved": "U ruajt.",
+      "saving": "Po ruan…",
+      "title": "Detajet e skedarit"
+    }
   },
   "parties": {
     "title": "Partitë",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Zgjidh…",
     "title": "Detaje specifike për llojin"
+  },
+  "createFile": {
+    "addClass": "Shto klasë",
+    "backToFiles": "Kthehu te skedarët",
+    "cancel": "Anulo",
+    "changeSubtype": "Ndrysho nënkategorinë",
+    "checkRegister": "Kontrolloni në regjistrin tregtar",
+    "clearClient": "Ndrysho klientin",
+    "clientOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e klientit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
+    "applicantOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e aplikantit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
+    "draftDescription": "Krijuar nëpërmjet Krijo skedarin ({{procedure}}) — draft",
+    "errors": {
+      "client": "Zgjidhni një klient për të vazhduar.",
+      "clientOrDetails": "Zgjidhni një klient CRM ose vendosni emrin e klientit dhe detajet për t'i krijuar ato.",
+      "applicantOrDetails": "Zgjidhni një aplikant në CRM, ose shkruani emrin e aplikantit dhe detajet për t'i krijuar ato.",
+      "jurisdiction": "Zgjidhni të paktën një territor / shtet.",
+      "markWords": "Futni emrin / fjalët e markës tregtare.",
+      "saveFailed": "Skedari draft nuk mund të ruhej.",
+      "subtype": "Zgjidhni një nënkategori të markës tregtare."
+    },
+    "euHint": "Marka tregtare e Bashkimit Evropian (EUIPO) - juridiksion i caktuar në BE.",
+    "fields": {
+      "address": "Adresa",
+      "applicantClient": "Klienti aplikant",
+      "applicantClientOptional": "Aplikanti në CRM (opsionale)",
+      "city": "Qyteti",
+      "classNumber": "Numri i klasës",
+      "country": "Vendi",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Faks",
+      "goodsText": "Mallrat dhe shërbimet",
+      "legalName": "Emri dhe lloji i personit juridik",
+      "linkClient": "Zgjidhni klientin në CRM",
+      "linkClientOptional": "Klient CRM (opsionale)",
+      "markKind": "Shënoni kategorinë",
+      "markType": "Shënoni llojin",
+      "markWords": "Fjalët e shenjës",
+      "mol": "MOL (nënshkrues)",
+      "name": "Emri",
+      "phone": "Telefoni",
+      "postalCode": "Kodi postar",
+      "territory": "Territori",
+      "vat": "ID e TVSH-së"
+    },
+    "formTitle": "Krijo skedar: Markë tregtare",
+    "fullFormReady": "Formulari i plotë në dispozicion",
+    "goodsPlaceholder": "p.sh. shishe; shërbime me pakicë…",
+    "markKinds": {
+      "certification": "Certifikimi",
+      "collective": "Kolektive",
+      "individual": "Individuale"
+    },
+    "markTypes": {
+      "combination_of_colors": "Kombinimi i ngjyrave",
+      "combined": "Të kombinuara",
+      "figurative": "Figurative",
+      "sound": "Tingull",
+      "three_dimensional": "Tredimensionale",
+      "wordmark": "Shenjë fjalësh"
+    },
+    "noClients": "Nuk ka klientë që përputhen. Krijo klientin në CRM fillimisht, pastaj kthehu këtu.",
+    "optionalMark": "Shënoni / subjektin (opsionale)",
+    "partialSubtypeNote": "Fushat e plota të specializuara për këtë nënkategori do të zgjerohen më vonë. Ju ende mund të ruani një draft të lidhur me klientin; dokumentet dhe korrespondenca qëndrojnë në dosje.",
+    "preliminary": "Informacion paraprak",
+    "procedureHints": {
+      "cancellation": "Procedurat e anulimit - rolet mund të jemi ne ose ata",
+      "new": "Aplikim i ri për markën tregtare - formulari i plotë i krijimit",
+      "objection": "Kundërshtim kemi paraqitur",
+      "opposition_against_us": "Kundër nesh u ngrit opozita",
+      "opposition_by_us": "Opozita që po bëjmë",
+      "revocation": "Procedurat e revokimit"
+    },
+    "procedures": {
+      "cancellation": "Anulimi",
+      "new": "Markë e re tregtare",
+      "objection": "Kundërshtim",
+      "opposition_against_us": "Opozita kundër nesh",
+      "opposition_by_us": "Opozita nga ne",
+      "revocation": "Revokimi"
+    },
+    "removeClass": "Hiq klasën",
+    "sameApplicant": "Informacioni i aplikantit është i njëjtë me klientin",
+    "sameCorrespondence": "Adresa e korrespondencës është e njëjtë me adresën e regjistruar",
+    "saveDraft": "Ruaje si draft",
+    "saving": "Po ruan…",
+    "searchClient": "Kërko klientët me emër ose kod…",
+    "sections": {
+      "applicant": "Aplikanti",
+      "client": "Të dhënat e klientit",
+      "contact": "Personi kontaktues",
+      "correspondence": "Adresa e korrespondencës",
+      "goods": "Lista e mallrave dhe shërbimeve",
+      "markName": "Emri i markës tregtare",
+      "registeredAddress": "Adresa e regjistruar",
+      "searchDocs": "Bashkangjit dokumentet e kërkimit",
+      "trademark": "Informacioni i markës tregtare"
+    },
+    "selectCountries": "Zgjidh shtetet",
+    "subtypeHint": "Së pari zgjidhni nënkategorinë e markës tregtare. Marka e re tregtare hap formën e plotë nga demonstrimi i klientit.",
+    "territories": {
+      "eu": "Bashkimi Evropian",
+      "international": "Ndërkombëtare (WO)",
+      "national": "Kombëtare"
+    },
+    "trademarkTitle": "Krijo skedar - Markë tregtare"
+  },
+  "trademarkInfo": {
+    "addCountry": "Shto shtetin…",
+    "cancel": "Anulo",
+    "country": "Vendi",
+    "edit": "Redakto",
+    "errors": {
+      "country": "Zgjidh të paktën një shtet për këtë territor.",
+      "saveFailed": "Informacioni i markës tregtare nuk mund të ruhej."
+    },
+    "euFixed": "Bashkimi Evropian (EUIPO)",
+    "markKind": "Shënoni kategorinë",
+    "markType": "Shënoni llojin",
+    "noCountries": "Nuk është zgjedhur ende asnjë shtet.",
+    "save": "Ruaj ndryshimet",
+    "saved": "U ruajt.",
+    "saving": "Po ruan…",
+    "selectCountries": "Zgjidh shtetet",
+    "territory": "Territori",
+    "title": "Informacioni i markës tregtare"
+  },
+  "fileApproval": {
+    "clientStep": "1. Klienti i miratuar",
+    "clientStepHint": "Stafi konfirmon se klienti është pajtuar jashtë linje (telefonatë/email/takim). Klienti i portalit nuk ka nevojë të miratojë veten.",
+    "errors": {
+      "updateFailed": "Statusi i miratimit nuk mund të përditësohej."
+    },
+    "hint": "Vetëm miratimi i brendshëm: shënoni se klienti është dakord, më pas një Partner Menaxhues e pranon skedarin. Nuk kërkohet miratim dërgimi te klienti.",
+    "markClientApproved": "Shëno klientin të miratuar",
+    "partnerApprove": "Dosja e miratimit të partnerit",
+    "partnerOnly": "Vetëm Partneri Menaxhues mund ta përfundojë këtë hap",
+    "partnerStep": "2. Partneri Menaxhues pranon",
+    "partnerStepHint": "Pasi klienti shënohet i miratuar, Partneri Menaxhues e pranon dosjen dhe e lë draftin.",
+    "recordedBy": "Regjistruar nga {{name}} · {{date}}",
+    "title": "Miratimi i dosjes",
+    "waitForClient": "Shënoni klientin të miratuar fillimisht, më pas mund ta pranoni skedarin."
+  },
+  "prosecution": {
+    "cancelEdit": "Anulo",
+    "completeStage": "Faza e plotë",
+    "edit": "Redakto",
+    "editingNote": "Përdorni \"Ruaj\" për të mbajtur atë që keni futur në këtë fazë, ose \"Faza e plotë\" për të ecur përpara kur të plotësohen fushat e kërkuara.",
+    "gateHint": "Nuk mund të ecësh përpara derisa të plotësohen fushat e kërkuara për këtë fazë (njëlloj si portat e sistemit të tyre).",
+    "goBack": "Kthehu pas një skene",
+    "errors": {
+      "needAttachments": "Bashkangjit skedarët e kërkuar përpara se të vazhdosh: {{list}}",
+      "needInvoice": "Gjeneroni faturën nga tarifa shtetërore përpara se të përfundoni këtë fazë.",
+      "alreadyFinal": "Ky skedar është tashmë në fazën përfundimtare.",
+      "needApproval": "Përfundoni miratimin e skedarit (klient + Partner Menaxhues) përpara se të largoheni nga përgatitja.",
+      "needBulletin": "Shkruani numrin dhe datën e buletinit përpara se të dilni nga publikimi.",
+      "needFeePaid": "Shkruani datën e pagesës së tarifës shtetërore përpara se të largoheni nga provimi zyrtar.",
+      "needFilingFields": "Futni numrin e aplikimit dhe datën e paraqitjes për të përfunduar depozitimin.",
+      "needFormalFields": "Fut tarifën shtetërore dhe afatin e pagesës për të vazhduar.",
+      "needMol": "Ju lutemi shkruani MOL në detajet e skedarit (krijo-skedar / modifiko) përpara se të përfundoni depozitimin.",
+      "needOfficeActionDeadline": "Veprimi i zyrës ka një temë - caktoni afatin e tij përpara se të vazhdoni.",
+      "needPoaFiled": "Vendosni numrin dhe datën hyrëse të PoA përpara se të largoheni nga provimi zyrtar.",
+      "needRegFeePaid": "Vendosni datën e pagesës së tarifës së regjistrimit përpara se të vazhdoni.",
+      "needRepresentative": "Fut të paktën një përfaqësues ose vendos Shto përfaqësues në Nr.",
+      "saveBeforeNavigate": "Ruani ose anuloni modifikimet tuaja përpara se të ktheheni në një fazë.",
+      "saveFailed": "Të dhënat e prokurorisë nuk mund të ruheshin."
+    },
+    "fields": {
+      "addRepresentatives": "Dëshironi të shtoni përfaqësues?",
+      "applicationDate": "Data e aplikimit",
+      "applicationNumber": "Numri i aplikimit",
+      "bulletinDate": "Data e buletinit",
+      "bulletinNumber": "Numri i buletinit",
+      "feePaidDate": "Data e pagesës së tarifës shtetërore",
+      "generatePoa": "Krijo autorizim",
+      "officeAction": "Veprimi/kërkesa e zyrës",
+      "officeActionDeadline": "Afati i veprimit të zyrës",
+      "paymentDeadline": "Afati i pagesës",
+      "poaDate": "Data e PoA",
+      "poaDeadline": "Afati i dorëzimit të PoA",
+      "poaIncoming": "Numri i hyrjes PoA",
+      "regFeePaidDate": "Data e pagesës së tarifës së regjistrimit",
+      "remindDays": "Kujtoni ditë para afatit",
+      "representatives": "Përfaqësues(t)",
+      "sendPoaEmail": "Dërgo email automatik",
+      "stateFee": "Tarifa shtetërore (BGN)"
+    },
+    "molHint": "MOL duhet të vendoset në detajet e skedarit (nga krijimi i skedarit). Mungojnë blloqet MOL që përfundojnë këtë fazë.",
+    "no": "Nr",
+    "prepHint": "Faza përgatitore: së pari përfundoni miratimin e skedarit, më pas Pranimi i Partnerit Menaxhues ju zhvendos në Regjistrim.",
+    "registeredDone": "Arriti faza e regjistrimit.",
+    "saveChanges": "Ruaj ndryshimet",
+    "saveEntered": "Ruaj",
+    "saved": "U ruajt.",
+    "saveFields": "Ruaj fushat",
+    "saving": "Po ruan…",
+    "stages": {
+      "filing": "Depozitim",
+      "formal_exam": "Ekzaminim formal",
+      "prep": "Përgatitor",
+      "publication": "Publikim",
+      "reg_fee": "Tarifat e regjistrimit",
+      "registration": "Regjistrim",
+      "substantive_exam": "Ekzaminim thelbësor"
+    },
+    "territoryLabel": {
+      "eu": "Tubacioni: BE",
+      "international": "Tubacioni: Ndërkombëtar (WO)",
+      "national": "Tubacioni: Kombëtar"
+    },
+    "territoryLocked": "Territori u fiksua nga skedari i krijimit",
+    "territoryFromInfo": "Territori nga informacioni i markës tregtare",
+    "title": "Fazat e procedurës",
+    "yes": "po",
+    "hub": {
+      "generateInvoice": "Gjeneroni faturë",
+      "invoiceIssuedShort": "Faturë e lëshuar",
+      "invoiceIssued": "Fatura {{number}} e lëshuar. Klienti mund ta shohë atë në portalin e tyre; është gjithashtu në skedën Faturimi.",
+      "invoiceAlreadyIssued": "Fatura {{number}} e lëshuar tashmë — e dukshme në portal dhe Faturim.",
+      "invoiceFailed": "Fatura nuk mund të krijohej. Kontrolloni detajet e faturimit të klientit.",
+      "invoiceNotes": "Tarifa zyrtare/shtetërore",
+      "uploadFailed": "Skedari nuk mund të ngarkohej.",
+      "needStateFee": "Futni së pari shumën e tarifës shtetërore.",
+      "feeDescription": "Tarifa shtetërore/zyrtare",
+      "deadlineFailed": "Nuk mund të krijohej afati(et).",
+      "deadlineTitles": {
+        "payment": "Pagesa e tarifës shtetërore",
+        "poa": "Dorëzimi i prokurës",
+        "oa": "Kërkesë për veprim/ekzaminim në zyrë",
+        "oaWithSubject": "Veprimi i zyrës: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Kujto {{days}} ditë(të) përpara afatit."
+      },
+      "attach": {
+        "search": "Bashkangjit skedarin e kërkimit",
+        "application": "Bashkangjit aplikacionin",
+        "feeSlip": "Bashkangjit fletën e tarifës",
+        "poa": "Bashkangjit PoA",
+        "officeAction": "Bashkangjit veprimin e zyrës",
+        "decision": "Bashkangjit vendimin",
+        "bulletin": "Bashkangjit buletinin",
+        "regFee": "Bashkangjit vërtetimin e pagesës",
+        "certificate": "Bashkangjit certifikatën"
+      }
+    }
   }
 }

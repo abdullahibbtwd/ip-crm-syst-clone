@@ -17,6 +17,7 @@ type CountrySelectProps = {
   className?: string
   'aria-invalid'?: boolean
   allowEmpty?: boolean
+  disabled?: boolean
 }
 
 export function CountrySelect({
@@ -26,6 +27,7 @@ export function CountrySelect({
   className,
   'aria-invalid': ariaInvalid,
   allowEmpty = true,
+  disabled = false,
 }: CountrySelectProps) {
   const items = useMemo(() => {
     const countries = getCountryOptions().map((country) => ({
@@ -52,6 +54,7 @@ export function CountrySelect({
       onValueChange={(item) => onValueChange(item?.value ?? '')}
       isItemEqualToValue={(a, b) => a.value === b.value}
       autoHighlight
+      disabled={disabled}
     >
       <Combobox.Trigger
         className={cn(

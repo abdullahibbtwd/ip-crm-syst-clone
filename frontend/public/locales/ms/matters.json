@@ -85,6 +85,18 @@
       "niceClasses": {
         "label": "Kelas yang bagus",
         "placeholder": "cth. 12, 35"
+      },
+      "markKind": {
+        "label": "Tandakan kategori"
+      },
+      "markWords": {
+        "label": "Kata-kata tanda"
+      },
+      "territory": {
+        "label": "wilayah"
+      },
+      "trademarkProcedure": {
+        "label": "Prosedur tanda dagangan"
       }
     },
     "utility_model": {
@@ -396,13 +408,13 @@
   "createDrawer": {
     "client": "Pelanggan *",
     "creating": "Mencipta…",
-    "error": "Gagal membuat fail berfungsi",
+    "error": "Gagal mencipta fail",
     "jurisdictionHelp": "Pilih satu atau lebih bidang kuasa pemfailan.",
     "jurisdictions": "Bidang kuasa",
     "matterType": "Jenis kerja *",
-    "open": "Buka fail kerja",
+    "open": "Buka fail",
     "responsibleAttorney": "Peguam yang bertanggungjawab",
-    "title": "Buka fail kerja baharu",
+    "title": "Buka fail baharu",
     "titleField": "Tajuk *",
     "titlePlaceholder": "cth. Tanda perkataan ACME – EU"
   },
@@ -642,37 +654,43 @@
     "rejected": "ditolak"
   },
   "layout": {
-    "backToMatters": "← Kembali ke fail yang berfungsi",
-    "loading": "Memuatkan fail berfungsi…",
-    "notFound": "Fail berfungsi tidak ditemui.",
+    "backToMatters": "← Kembali ke fail",
+    "loading": "Memuatkan fail…",
+    "notFound": "Fail tidak dijumpai.",
     "archivedBadge": "Diarkibkan",
     "archive": "Arkib",
     "archiving": "Mengarkibkan…",
     "restore": "Pulihkan",
     "restoring": "Memulihkan…",
-    "archiveFailed": "Gagal mengarkibkan fail kerja",
-    "restoreFailed": "Gagal memulihkan fail yang berfungsi",
-    "archiveConfirm": "Arkibkan fail berfungsi ini? Ia akan meninggalkan senarai aktif tetapi kekal boleh dicari di bawah Arkib."
+    "archiveFailed": "Gagal mengarkibkan fail",
+    "restoreFailed": "Gagal memulihkan fail",
+    "archiveConfirm": "Arkibkan fail ini? Ia akan keluar dari senarai aktif tetapi kekal boleh dicari di Arkib."
   },
   "list": {
-    "description": "Paparan portfolio semua fail yang berfungsi — cari mengikut tajuk, pelanggan atau nombor aplikasi.",
-    "descriptionPortal": "Fail kerja dibuka untuk organisasi anda selepas penukaran pengambilan.",
-    "descriptionArchived": "Fail kerja yang lengkap atau tidak aktif disimpan untuk rujukan.",
+    "description": "Paparan semua fail — cari mengikut tajuk, klien atau no. permohonan.",
+    "descriptionPortal": "Fail dibuka untuk organisasi anda selepas penukaran pertanyaan.",
+    "descriptionArchived": "Fail selesai atau tidak aktif disimpan untuk rujukan.",
     "filters": {
       "allStatuses": "Semua status",
       "allTypes": "Semua jenis kerja",
       "active": "Aktif",
-      "archived": "Diarkibkan"
+      "archived": "Diarkibkan",
+      "allOtherTypes": "Semua jenis lain"
     },
     "intakeQueue": "Barisan pengambilan",
     "pagination": {
       "ofTotal": "daripada {{total}}"
     },
     "perPage": "{{count}} setiap halaman",
-    "searchPlaceholder": "Tajuk carian, pelanggan, no aplikasi…",
-    "title": "Fail kerja",
-    "titleArchived": "Fail kerja yang diarkibkan",
-    "titlePortal": "Fail kerja saya"
+    "searchPlaceholder": "Cari tajuk, klien, no. permohonan…",
+    "title": "Fail",
+    "titleArchived": "Fail diarkibkan",
+    "titlePortal": "Fail saya",
+    "descriptionOthers": "Fail di luar enam kategori utama — tapis mengikut jenis di bawah.",
+    "descriptionType": "Fail {{type}} — cari mengikut tajuk, klien atau no. permohonan.",
+    "titleOthers": "Fail lain",
+    "titleDrafts": "Draf",
+    "descriptionDrafts": "Draf menunggu kelulusan atau pemfailan — berasingan daripada jenama aktif dan rak lain."
   },
   "ipRightsRegister": {
     "description": "Daftar seluruh firma hak IP dengan penapis mengikut pelanggan, bidang kuasa, jenis, status dan tamat tempoh.",
@@ -708,7 +726,8 @@
     "figurative": "kiasan",
     "sound": "Bunyi",
     "three_dimensional": "3D",
-    "wordmark": "Tanda perkataan"
+    "wordmark": "Tanda perkataan",
+    "combination_of_colors": "Gabungan warna"
   },
   "overview": {
     "assignedTo": "Peguam utama",
@@ -726,9 +745,26 @@
       "localRef": "Ruj tempatan",
       "status": "Status"
     },
-    "title": "Butiran fail kerja",
+    "title": "Butiran fail",
     "type": "Jenis kerja",
-    "typeSpecific": "Atribut khusus jenis"
+    "typeSpecific": "Atribut khusus jenis",
+    "edit": {
+      "cancel": "Batal",
+      "edit": "Sunting",
+      "errors": {
+        "saveFailed": "Tidak dapat menyimpan butiran fail.",
+        "title": "Tajuk diperlukan."
+      },
+      "fields": {
+        "territory": "Wilayah (daripada fail cipta)",
+        "title": "Tajuk"
+      },
+      "hint": "Klik Edit untuk menukar butiran fail, kemudian Simpan perubahan. Wilayah kekal seperti yang ditetapkan apabila fail dibuat.",
+      "save": "Simpan perubahan",
+      "saved": "Disimpan.",
+      "saving": "Menyimpan…",
+      "title": "Butiran fail"
+    }
   },
   "parties": {
     "title": "parti",
@@ -890,5 +926,251 @@
   "attributeFields": {
     "selectPlaceholder": "Pilih…",
     "title": "Butiran khusus jenis"
+  },
+  "createFile": {
+    "addClass": "Tambah kelas",
+    "backToFiles": "Kembali ke fail",
+    "cancel": "Batal",
+    "changeSubtype": "Tukar subkategori",
+    "checkRegister": "Daftar masuk komersial",
+    "clearClient": "Tukar pelanggan",
+    "clientOptionalHint": "Tiada padanan CRM? Isikan butiran pelanggan di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
+    "applicantOptionalHint": "Tiada padanan CRM? Isikan butiran pemohon di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
+    "draftDescription": "Dicipta melalui Buat fail ({{procedure}}) — draf",
+    "errors": {
+      "client": "Pilih pelanggan untuk meneruskan.",
+      "clientOrDetails": "Pilih klien CRM, atau masukkan nama klien dan butiran untuk menciptanya.",
+      "applicantOrDetails": "Pilih pemohon dalam CRM, atau masukkan nama dan butiran pemohon untuk menciptanya.",
+      "jurisdiction": "Pilih sekurang-kurangnya satu wilayah / negara.",
+      "markWords": "Masukkan nama / perkataan tanda dagangan.",
+      "saveFailed": "Tidak dapat menyimpan fail draf.",
+      "subtype": "Pilih subkategori tanda dagangan."
+    },
+    "euHint": "Tanda dagangan Kesatuan Eropah (EUIPO) — bidang kuasa ditetapkan kepada EU.",
+    "fields": {
+      "address": "Alamat",
+      "applicantClient": "Pelanggan pemohon",
+      "applicantClientOptional": "Pemohon dalam CRM (pilihan)",
+      "city": "Bandar",
+      "classNumber": "Nombor kelas",
+      "country": "Negara",
+      "eik": "UIC / EIK",
+      "email": "E-mel",
+      "fax": "Faks",
+      "goodsText": "Barangan dan perkhidmatan",
+      "legalName": "Nama dan jenis entiti undang-undang",
+      "linkClient": "Pilih pelanggan dalam CRM",
+      "linkClientOptional": "Pelanggan CRM (pilihan)",
+      "markKind": "Tandakan kategori",
+      "markType": "Tandakan jenis",
+      "markWords": "Kata-kata tanda",
+      "mol": "MOL (penandatangan)",
+      "name": "Nama",
+      "phone": "telefon",
+      "postalCode": "Poskod",
+      "territory": "wilayah",
+      "vat": "ID VAT"
+    },
+    "formTitle": "Cipta fail: Tanda dagangan",
+    "fullFormReady": "Borang penuh tersedia",
+    "goodsPlaceholder": "cth. botol; perkhidmatan runcit…",
+    "markKinds": {
+      "certification": "Pensijilan",
+      "collective": "Kolektif",
+      "individual": "individu"
+    },
+    "markTypes": {
+      "combination_of_colors": "Gabungan warna",
+      "combined": "digabungkan",
+      "figurative": "kiasan",
+      "sound": "Bunyi",
+      "three_dimensional": "tiga dimensi",
+      "wordmark": "Tanda perkataan"
+    },
+    "noClients": "Tiada pelanggan yang sepadan. Buat pelanggan dalam CRM dahulu, kemudian kembali ke sini.",
+    "optionalMark": "Tanda / subjek (pilihan)",
+    "partialSubtypeNote": "Medan khusus penuh untuk subkategori ini akan dikembangkan kemudian. Anda masih boleh menyimpan draf yang dipautkan kepada pelanggan; dokumen dan surat-menyurat kekal dalam fail.",
+    "preliminary": "Maklumat awal",
+    "procedureHints": {
+      "cancellation": "Prosiding pembatalan — peranan mungkin kita atau mereka",
+      "new": "Permohonan tanda dagangan baharu — borang cipta penuh",
+      "objection": "Bantahan telah kami ajukan",
+      "opposition_against_us": "Pembangkang memfailkan terhadap kami",
+      "opposition_by_us": "Pembangkang yang kita ajukan",
+      "revocation": "Prosiding pembatalan"
+    },
+    "procedures": {
+      "cancellation": "Pembatalan",
+      "new": "Tanda dagangan baharu",
+      "objection": "Bantahan",
+      "opposition_against_us": "Pembangkang terhadap kita",
+      "opposition_by_us": "Pembangkang oleh kami",
+      "revocation": "Pembatalan"
+    },
+    "removeClass": "Alih keluar kelas",
+    "sameApplicant": "Maklumat pemohon adalah sama dengan pelanggan",
+    "sameCorrespondence": "Alamat surat menyurat adalah sama dengan alamat berdaftar",
+    "saveDraft": "Simpan sebagai draf",
+    "saving": "Menyimpan…",
+    "searchClient": "Cari pelanggan mengikut nama atau kod…",
+    "sections": {
+      "applicant": "Pemohon",
+      "client": "Data pelanggan",
+      "contact": "Orang hubungan",
+      "correspondence": "Alamat surat menyurat",
+      "goods": "Senarai barangan dan perkhidmatan",
+      "markName": "Nama tanda dagangan",
+      "registeredAddress": "Alamat berdaftar",
+      "searchDocs": "Lampirkan dokumen carian",
+      "trademark": "Maklumat tanda dagangan"
+    },
+    "selectCountries": "Pilih negara",
+    "subtypeHint": "Mula-mula pilih subkategori tanda dagangan. Tanda dagangan baharu membuka borang penuh daripada demo pelanggan.",
+    "territories": {
+      "eu": "Kesatuan Eropah",
+      "international": "Antarabangsa (WO)",
+      "national": "Kebangsaan"
+    },
+    "trademarkTitle": "Cipta fail — Tanda Dagangan"
+  },
+  "trademarkInfo": {
+    "addCountry": "Tambahkan negara…",
+    "cancel": "Batal",
+    "country": "Negara",
+    "edit": "Sunting",
+    "errors": {
+      "country": "Pilih sekurang-kurangnya satu negara untuk wilayah ini.",
+      "saveFailed": "Tidak dapat menyimpan maklumat tanda dagangan."
+    },
+    "euFixed": "Kesatuan Eropah (EUIPO)",
+    "markKind": "Tandakan kategori",
+    "markType": "Tandakan jenis",
+    "noCountries": "Belum ada negara yang dipilih.",
+    "save": "Simpan perubahan",
+    "saved": "Disimpan.",
+    "saving": "Menyimpan…",
+    "selectCountries": "Pilih negara",
+    "territory": "wilayah",
+    "title": "Maklumat tanda dagangan"
+  },
+  "fileApproval": {
+    "clientStep": "1. Pelanggan diluluskan",
+    "clientStepHint": "Kakitangan mengesahkan pelanggan bersetuju di luar talian (panggilan/e-mel/mesyuarat). Pelanggan portal tidak perlu meluluskan diri mereka sendiri.",
+    "errors": {
+      "updateFailed": "Tidak dapat mengemas kini status kelulusan."
+    },
+    "hint": "Kelulusan dalaman sahaja: tandakan bahawa pelanggan bersetuju, kemudian Rakan Kongsi Urusan menerima fail tersebut. Tiada kelulusan hantar kepada pelanggan diperlukan.",
+    "markClientApproved": "Tandakan pelanggan diluluskan",
+    "partnerApprove": "Rakan kongsi meluluskan fail",
+    "partnerOnly": "Hanya Rakan Kongsi Urusan boleh melengkapkan langkah ini",
+    "partnerStep": "2. Rakan Pengurusan menerima",
+    "partnerStepHint": "Selepas pelanggan ditandakan sebagai diluluskan, Rakan Kongsi Urusan menerima fail dan ia meninggalkan draf.",
+    "recordedBy": "Dirakam oleh {{name}} · {{date}}",
+    "title": "Kelulusan fail",
+    "waitForClient": "Tandai pelanggan diluluskan dahulu, kemudian anda boleh menerima fail tersebut."
+  },
+  "prosecution": {
+    "cancelEdit": "Batal",
+    "completeStage": "Tahap lengkap",
+    "edit": "Sunting",
+    "editingNote": "Gunakan Simpan untuk menyimpan perkara yang anda masukkan pada peringkat ini atau Selesaikan peringkat untuk bergerak ke hadapan apabila medan yang diperlukan diisi.",
+    "gateHint": "Anda tidak boleh bergerak ke hadapan sehingga medan yang diperlukan untuk peringkat ini diisi (sama seperti gerbang sistemnya).",
+    "goBack": "Balik satu pentas",
+    "errors": {
+      "needAttachments": "Lampirkan fail yang diperlukan sebelum meneruskan: {{list}}",
+      "needInvoice": "Jana invois daripada yuran negeri sebelum melengkapkan peringkat ini.",
+      "alreadyFinal": "Fail ini sudah berada di peringkat akhir.",
+      "needApproval": "Selesaikan kelulusan fail (pelanggan + Rakan Kongsi Urusan) sebelum meninggalkan persediaan.",
+      "needBulletin": "Masukkan nombor dan tarikh buletin sebelum meninggalkan penerbitan.",
+      "needFeePaid": "Masukkan tarikh pembayaran yuran negeri sebelum meninggalkan peperiksaan rasmi.",
+      "needFilingFields": "Masukkan nombor permohonan dan tarikh pemfailan untuk melengkapkan pemfailan.",
+      "needFormalFields": "Masukkan yuran negeri dan tarikh akhir pembayaran untuk meneruskan.",
+      "needMol": "Sila masukkan MOL pada butiran fail (create-file / edit) sebelum melengkapkan pemfailan.",
+      "needOfficeActionDeadline": "Tindakan pejabat mempunyai subjek — tetapkan tarikh akhir sebelum meneruskan.",
+      "needPoaFiled": "Masukkan nombor dan tarikh masuk PoA sebelum meninggalkan peperiksaan rasmi.",
+      "needRegFeePaid": "Masukkan tarikh pembayaran yuran pendaftaran sebelum meneruskan.",
+      "needRepresentative": "Masukkan sekurang-kurangnya satu wakil, atau tetapkan Tambah wakil kepada No.",
+      "saveBeforeNavigate": "Simpan atau batalkan pengeditan anda sebelum kembali ke peringkat.",
+      "saveFailed": "Tidak dapat menyimpan data pendakwaan."
+    },
+    "fields": {
+      "addRepresentatives": "Adakah anda ingin menambah wakil?",
+      "applicationDate": "Tarikh permohonan",
+      "applicationNumber": "Nombor permohonan",
+      "bulletinDate": "tarikh buletin",
+      "bulletinNumber": "Nombor buletin",
+      "feePaidDate": "Tarikh pembayaran yuran negeri",
+      "generatePoa": "Menjana surat kuasa",
+      "officeAction": "Tindakan / permintaan pejabat",
+      "officeActionDeadline": "Tarikh akhir tindakan pejabat",
+      "paymentDeadline": "Tarikh akhir pembayaran",
+      "poaDate": "tarikh PoA",
+      "poaDeadline": "Tarikh akhir penyerahan PoA",
+      "poaIncoming": "Nombor masuk PoA",
+      "regFeePaidDate": "Tarikh pembayaran yuran pendaftaran",
+      "remindDays": "Ingatkan hari sebelum tarikh akhir",
+      "representatives": "Wakil",
+      "sendPoaEmail": "Hantar e-mel automatik",
+      "stateFee": "Yuran negeri (BGN)"
+    },
+    "molHint": "MOL mesti ditetapkan pada butiran fail (daripada mencipta fail). Tiada blok MOL yang melengkapkan peringkat ini.",
+    "no": "Tidak",
+    "prepHint": "Peringkat persediaan: selesaikan kelulusan fail dahulu, kemudian Rakan Urusan terima akan memindahkan anda ke Pemfailan.",
+    "registeredDone": "Tahap pendaftaran telah dicapai.",
+    "saveChanges": "Simpan perubahan",
+    "saveEntered": "Jimat",
+    "saved": "Disimpan.",
+    "saveFields": "Simpan medan",
+    "saving": "Menyimpan…",
+    "stages": {
+      "filing": "Pemfailan",
+      "formal_exam": "Pemeriksaan formal",
+      "prep": "Persediaan",
+      "publication": "Penerbitan",
+      "reg_fee": "Yuran pendaftaran",
+      "registration": "Pendaftaran",
+      "substantive_exam": "Pemeriksaan substantif"
+    },
+    "territoryLabel": {
+      "eu": "Saluran paip: EU",
+      "international": "Saluran Paip: Antarabangsa (WO)",
+      "national": "Saluran paip: Kebangsaan"
+    },
+    "territoryLocked": "Wilayah ditetapkan daripada mencipta fail",
+    "territoryFromInfo": "Wilayah daripada maklumat Cap Dagangan",
+    "title": "Peringkat prosedur",
+    "yes": "ya",
+    "hub": {
+      "generateInvoice": "Hasilkan invois",
+      "invoiceIssuedShort": "Invois dikeluarkan",
+      "invoiceIssued": "Invois {{number}} dikeluarkan. Pelanggan boleh melihatnya dalam portal mereka; ia juga terdapat pada tab Pengebilan.",
+      "invoiceAlreadyIssued": "Invois {{number}} sudah dikeluarkan — kelihatan dalam portal dan Pengebilan.",
+      "invoiceFailed": "Tidak dapat menjana invois. Semak butiran bil pelanggan.",
+      "invoiceNotes": "Bayaran rasmi / negeri",
+      "uploadFailed": "Tidak dapat memuat naik fail.",
+      "needStateFee": "Masukkan amaun yuran negeri dahulu.",
+      "feeDescription": "Bayaran negeri / rasmi",
+      "deadlineFailed": "Tidak dapat membuat tarikh akhir.",
+      "deadlineTitles": {
+        "payment": "Bayaran yuran negeri",
+        "poa": "Penyerahan surat kuasa",
+        "oa": "Permintaan tindakan / peperiksaan pejabat",
+        "oaWithSubject": "Tindakan pejabat: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Ingatkan {{days}} hari sebelum tarikh akhir."
+      },
+      "attach": {
+        "search": "Lampirkan fail carian",
+        "application": "Lampirkan permohonan",
+        "feeSlip": "Lampirkan slip yuran",
+        "poa": "Lampirkan PoA",
+        "officeAction": "Lampirkan tindakan pejabat",
+        "decision": "Lampirkan keputusan",
+        "bulletin": "Lampirkan buletin",
+        "regFee": "Lampirkan bukti pembayaran",
+        "certificate": "Lampirkan sijil"
+      }
+    }
   }
 }
