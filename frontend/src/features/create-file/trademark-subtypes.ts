@@ -1,13 +1,35 @@
 export const TRADEMARK_PROCEDURES = [
   'new',
+  'registered',
   'objection',
-  'opposition_against_us',
-  'opposition_by_us',
-  'revocation',
+  'opposition',
   'cancellation',
+  'deletion',
 ] as const
 
 export type TrademarkProcedure = (typeof TRADEMARK_PROCEDURES)[number]
+
+export function isFullTrademarkForm(
+  procedure: TrademarkProcedure | null,
+): boolean {
+  return (
+    procedure === 'new' ||
+    procedure === 'registered' ||
+    procedure === 'objection' ||
+    procedure === 'opposition' ||
+    procedure === 'cancellation' ||
+    procedure === 'deletion'
+  )
+}
+
+/** Older drafts stored these keys — still resolve for display. */
+export const LEGACY_TRADEMARK_PROCEDURES = [
+  'opposition_against_us',
+  'opposition_by_us',
+  'revocation',
+] as const
+
+export type LegacyTrademarkProcedure = (typeof LEGACY_TRADEMARK_PROCEDURES)[number]
 
 export const MARK_KINDS = ['individual', 'collective', 'certification'] as const
 export type MarkKind = (typeof MARK_KINDS)[number]
@@ -53,13 +75,31 @@ export type GoodsServicesRow = {
   description: string
 }
 
-export function trademarkSideForProcedure(
-  procedure: TrademarkProcedure,
-): 'us' | 'them' | null {
-  if (procedure === 'opposition_against_us' || procedure === 'revocation') {
-    return 'them'
+export function normalizeTrademarkProcedure(
+  value: string | null | undefined,
+): TrademarkProcedure | null {
+  if (!value) return null
+  if (value === 'opposition_against_us' || value === 'opposition_by_us') {
+    return 'opposition'
   }
-  if (procedure === 'opposition_by_us' || procedure === 'objection' || procedure === 'cancellation') {
+  if (value === 'revocation') return 'deletion'
+  if ((TRADEMARK_PROCEDURES as readonly string[]).includes(value)) {
+    return value as TrademarkProcedure
+  }
+  return null
+}
+
+export function trademarkSideForProcedure(
+  procedure: TrademarkProcedure | LegacyTrademarkProcedure,
+): 'us' | 'them' | null {
+  if (procedure === 'opposition_against_us') return 'them'
+  if (
+    procedure === 'opposition_by_us' ||
+    procedure === 'opposition' ||
+    procedure === 'objection' ||
+    procedure === 'cancellation' ||
+    procedure === 'deletion'
+  ) {
     return 'us'
   }
   return null

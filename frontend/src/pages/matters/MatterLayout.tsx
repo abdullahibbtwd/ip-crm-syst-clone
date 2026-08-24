@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { Archive, ArchiveRestore } from 'lucide-react'
 import { MatterTabNav } from '@/components/matters/MatterTabNav'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
+import { EditScopeDrawer } from '@/components/matters/EditScopeDrawer'
+import { SecondaryActionsMenu } from '@/components/matters/SecondaryActionsMenu'
+import { TrademarkActionDrawer } from '@/components/matters/TrademarkActionDrawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { useAppAlert } from '@/components/feedback/AppAlertProvider'
 import { Badge } from '@/components/ui/badge'
@@ -13,6 +16,7 @@ import {
   useMatter,
   useRestoreMatter,
 } from '@/features/matters/hooks/useMatters'
+import type { TrademarkSecondaryAction } from '@/features/matters/trademark-actions'
 import { matterTypeLabel } from '@/features/matters/utils'
 import { clientDisplayName } from '@/features/crm/utils'
 import { useAuth } from '@/features/auth/AuthProvider'
@@ -31,6 +35,9 @@ export function MatterLayout() {
   const archiveMatter = useArchiveMatter(id)
   const restoreMatter = useRestoreMatter(id)
   const [actionError, setActionError] = useState<string | null>(null)
+  const [scopeOpen, setScopeOpen] = useState(false)
+  const [secondaryAction, setSecondaryAction] =
+    useState<TrademarkSecondaryAction | null>(null)
 
   if (!id) return <Navigate to="/matters" replace />
 
@@ -39,6 +46,9 @@ export function MatterLayout() {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
   if (matter && activeTab === 'customs' && matter.matterType !== 'border_measures') {
+    return <Navigate to={`/matters/${id}/overview`} replace />
+  }
+  if (matter && activeTab === 'secondary-actions' && matter.matterType !== 'trademark') {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
 
@@ -111,31 +121,41 @@ export function MatterLayout() {
             </div>
 
             {!isPortalClient ? (
-              <PermissionGate resource="matter" action="update">
-                {matter.isArchived ? (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    disabled={restoreMatter.isPending}
-                    onClick={handleRestore}
-                  >
-                    <ArchiveRestore className="size-4" />
-                    {restoreMatter.isPending ? t('layout.restoring') : t('layout.restore')}
-                  </Button>
-                ) : (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    disabled={archiveMatter.isPending}
-                    onClick={handleArchive}
-                  >
-                    <Archive className="size-4" />
-                    {archiveMatter.isPending ? t('layout.archiving') : t('layout.archive')}
-                  </Button>
-                )}
-              </PermissionGate>
+              <div className="flex flex-wrap items-center gap-2">
+                {matter.matterType === 'trademark' && !matter.isArchived ? (
+                  <PermissionGate resource="matter" action="update">
+                    <SecondaryActionsMenu
+                      onEditScope={() => setScopeOpen(true)}
+                      onSelectAction={setSecondaryAction}
+                    />
+                  </PermissionGate>
+                ) : null}
+                <PermissionGate resource="matter" action="update">
+                  {matter.isArchived ? (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      disabled={restoreMatter.isPending}
+                      onClick={handleRestore}
+                    >
+                      <ArchiveRestore className="size-4" />
+                      {restoreMatter.isPending ? t('layout.restoring') : t('layout.restore')}
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      disabled={archiveMatter.isPending}
+                      onClick={handleArchive}
+                    >
+                      <Archive className="size-4" />
+                      {archiveMatter.isPending ? t('layout.archiving') : t('layout.archive')}
+                    </Button>
+                  )}
+                </PermissionGate>
+              </div>
             ) : null}
           </div>
 
@@ -144,7 +164,28 @@ export function MatterLayout() {
             isPortalClient={isPortalClient}
             matterType={matter.matterType}
           />
-          <Outlet context={{ matterId: id, matter }} />
+          <Outlet
+            context={{
+              matterId: id,
+              matter,
+              openEditScope: () => setScopeOpen(true),
+            }}
+          />
+          {matter.matterType === 'trademark' ? (
+            <>
+              <EditScopeDrawer
+                open={scopeOpen}
+                onClose={() => setScopeOpen(false)}
+                matter={matter}
+              />
+              <TrademarkActionDrawer
+                open={Boolean(secondaryAction)}
+                onClose={() => setSecondaryAction(null)}
+                matter={matter}
+                action={secondaryAction}
+              />
+            </>
+          ) : null}
         </>
       )}
     </div>
@@ -154,4 +195,5 @@ export function MatterLayout() {
 export type MatterTabContext = {
   matterId: string
   matter: NonNullable<ReturnType<typeof useMatter>['data']>
+  openEditScope?: () => void
 }

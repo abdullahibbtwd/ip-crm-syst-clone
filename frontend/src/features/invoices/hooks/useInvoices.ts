@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { billingKeys } from '@/features/billing/queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import { invoicesApi } from '../api'
 import { invoiceKeys } from '../queryKeys'
 import type { CreateInvoiceInput, InvoiceListFilters, RecordPaymentInput } from '../types'
@@ -11,6 +12,7 @@ function invalidateMatterInvoiceQueries(
   if (matterId) {
     qc.invalidateQueries({ queryKey: invoiceKeys.matter(matterId) })
     qc.invalidateQueries({ queryKey: billingKeys.matter(matterId) })
+    qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
   }
   qc.invalidateQueries({ queryKey: invoiceKeys.all })
   qc.invalidateQueries({ queryKey: invoiceKeys.portal() })

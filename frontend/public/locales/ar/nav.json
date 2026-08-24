@@ -107,7 +107,8 @@
     "mattersArchived": "مؤرشف",
     "mattersDrafts": "المسودات",
     "createFile": "إنشاء ملف",
-    "createFileTrademark": "علامة تجارية"
+    "createFileTrademark": "علامة تجارية",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "الشريك الإداري",

@@ -7,5 +7,6 @@ export const matterKeys = {
   shelfCounts: () => [...matterKeys.all, 'shelf-counts'] as const,
   details: () => [...matterKeys.all, 'detail'] as const,
   detail: (id: string) => [...matterKeys.details(), id] as const,
+  tabCounts: (id: string) => [...matterKeys.detail(id), 'tab-counts'] as const,
   ipRights: (matterId: string) => [...matterKeys.detail(matterId), 'ip-rights'] as const,
 }

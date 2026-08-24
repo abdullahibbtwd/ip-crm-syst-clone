@@ -1,7 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { billingKeys } from '@/features/billing/queryKeys'
 import { correspondenceKeys } from '@/features/correspondence/queryKeys'
+import { deadlineKeys } from '@/features/deadlines/queryKeys'
+import { invoiceKeys } from '@/features/invoices/queryKeys'
+import { notificationKeys } from '@/features/notifications/queryKeys'
 import { mattersApi } from '../api'
 import { matterKeys } from '../queryKeys'
+import type { TrademarkActionInput } from '../trademark-actions'
 import type {
   CreateIpRightInput,
   CreateMatterInput,
@@ -33,6 +38,16 @@ export function useMatter(id: string) {
     queryKey: matterKeys.detail(id),
     queryFn: () => mattersApi.get(id),
     enabled: Boolean(id),
+  })
+}
+
+export function useMatterTabCounts(id: string) {
+  return useQuery({
+    queryKey: matterKeys.tabCounts(id),
+    queryFn: () => mattersApi.tabCounts(id),
+    enabled: Boolean(id),
+    staleTime: 15_000,
+    refetchOnWindowFocus: true,
   })
 }
 
@@ -120,6 +135,29 @@ export function useFileIpRight(matterId: string) {
       qc.invalidateQueries({ queryKey: matterKeys.ipRights(matterId) })
       qc.invalidateQueries({ queryKey: matterKeys.detail(matterId) })
       qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(matterId) })
+    },
+  })
+}
+
+export function useRecordTrademarkAction(matterId: string) {
+  const qc = useQueryClient()
+  return useMutation({
+    mutationFn: (data: TrademarkActionInput) =>
+      mattersApi.recordTrademarkAction(matterId, data),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: matterKeys.detail(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.lists() })
+      qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(matterId) })
+      qc.invalidateQueries({ queryKey: deadlineKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: deadlineKeys.my() })
+      qc.invalidateQueries({ queryKey: deadlineKeys.firm() })
+      qc.invalidateQueries({ queryKey: deadlineKeys.myTodayCount() })
+      qc.invalidateQueries({ queryKey: deadlineKeys.firmTodayCount() })
+      qc.invalidateQueries({ queryKey: invoiceKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: billingKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: ['alerts'] })
+      qc.invalidateQueries({ queryKey: notificationKeys.all })
     },
   })
 }

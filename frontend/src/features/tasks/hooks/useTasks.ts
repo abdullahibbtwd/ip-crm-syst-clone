@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { correspondenceKeys } from '@/features/correspondence/queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import { tasksApi } from '../api'
 import { taskKeys } from '../queryKeys'
 import type { CreateTaskInput, UpdateTaskInput } from '../types'
@@ -10,6 +11,7 @@ function invalidateTaskQueries(
 ) {
   if (matterId) {
     qc.invalidateQueries({ queryKey: taskKeys.matter(matterId) })
+    qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
   }
   qc.invalidateQueries({ queryKey: taskKeys.my() })
   if (matterId) {

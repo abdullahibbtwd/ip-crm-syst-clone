@@ -19,6 +19,23 @@
         "label": "Type of work"
       }
     },
+    "cases": {
+      "court": {
+        "label": "Court"
+      },
+      "incomingNumber": {
+        "label": "Incoming number"
+      },
+      "claimGrounds": {
+        "label": "Grounds (type of claim)"
+      },
+      "claimValue": {
+        "label": "Claim value"
+      },
+      "expertiseType": {
+        "label": "Type of expertise"
+      }
+    },
     "dispute_opposition": {
       "basisSummary": {
         "label": "Basis summary"
@@ -39,11 +56,26 @@
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Type"
+      },
+      "giName": {
+        "label": "Name of the geographical indication"
+      },
       "productName": {
         "label": "Product name"
       },
       "region": {
         "label": "Geographical region"
+      },
+      "giTerritory": {
+        "label": "Territory"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
       }
     },
     "industrial_design": {
@@ -54,6 +86,9 @@
       "locarnoClass": {
         "label": "Locarno class"
       },
+      "locarnoSubclass": {
+        "label": "Locarno subclass"
+      },
       "productDescription": {
         "label": "Product description"
       }
@@ -61,6 +96,18 @@
     "patent": {
       "claimsSummary": {
         "label": "Claims summary"
+      },
+      "epApplicationNumber": {
+        "label": "EP application number"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Patent name"
+      },
+      "patentProcedure": {
+        "label": "Procedure"
       },
       "pctNumber": {
         "label": "PCT number"
@@ -100,6 +147,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Name"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Number of claims"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "applicationDate": {
+        "label": "Application date"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
+      },
       "claimsSummary": {
         "label": "Claims summary"
       },
@@ -560,6 +625,17 @@
   },
   "createFile": {
     "addClass": "Add class",
+    "addClaim": "Add claim",
+    "addIpc": "Add IPC class",
+    "addBasisMark": "Add basis mark",
+    "basisMark": "Basis mark {{number}}",
+    "addAdditionalApplicant": "Add additional applicant",
+    "addAdditionalOwner": "Add additional owner",
+    "additionalApplicant": "Applicant {{number}}",
+    "additionalOwner": "Owner {{number}}",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
     "backToFiles": "Back to files",
     "cancel": "Cancel",
     "changeSubtype": "Change subcategory",
@@ -574,6 +650,19 @@
       "applicantOrDetails": "Select an applicant in CRM, or enter the applicant name and details to create them.",
       "jurisdiction": "Select at least one territory / country.",
       "markWords": "Enter the trademark name / words.",
+      "filingRoute": "Select a procedure.",
+      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
+      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
+      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
+      "patentName": "Enter the patent name.",
+      "designName": "Enter the design name.",
+      "utilityModelName": "Enter the utility model name.",
+      "giKind": "Select designation of origin or geographical indication.",
+      "territory": "Select a territory.",
+      "giName": "Enter the name of the geographical indication.",
+      "spcName": "Enter the SPC name.",
+      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
+      "patentSubtype": "Select a patent subcategory.",
       "saveFailed": "Could not save the draft file.",
       "subtype": "Select a trademark subcategory."
     },
@@ -584,6 +673,7 @@
       "applicantClientOptional": "Applicant in CRM (optional)",
       "city": "City",
       "classNumber": "Class number",
+      "classes": "Classes",
       "country": "Country",
       "eik": "UIC / EIK",
       "email": "E-mail",
@@ -594,13 +684,103 @@
       "linkClientOptional": "CRM client (optional)",
       "markKind": "Mark category",
       "markType": "Mark type",
-      "markWords": "Words of the mark",
+      "markWords": "Trademark name",
       "mol": "MOL (signatory)",
       "name": "Name",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "againstClasses": "Against classes",
+      "owner": "Owner",
       "phone": "Phone",
       "postalCode": "Postal code",
       "territory": "Territory",
-      "vat": "VAT ID"
+      "transliteration": "Transliteration",
+      "viennaNumber": "Number",
+      "applicationNumber": "Application number",
+      "applicationDate": "Date",
+      "conventionPriority": "Convention priority",
+      "exhibitionPriority": "Exhibition priority",
+      "transformationInternational": "Transformation of international registration",
+      "communityConversion": "Conversion of Community trademark",
+      "applicationBulletin": "Bulletin / publication of the application",
+      "grounds": "Grounds",
+      "specimen": "Specimen",
+      "registrationNumber": "Registration No.",
+      "registrationDate": "Date",
+      "registrationBulletin": "Bulletin / publication of the registration",
+      "certificate": "Attach certificate",
+      "attachDocument": "Attach document",
+      "representative": "Select",
+      "selectRepresentative": "Select representative",
+      "addMoreRepresentatives": "Add more representatives",
+      "claimNumber": "Number",
+      "claimText": "Claim",
+      "epApplicationNumber": "EP application number",
+      "epBulletinNumber": "EP bulletin number",
+      "applicationPublication": "Publication of the application",
+      "applicationPublicationDate": "Date",
+      "epRegistrationNumber": "EP registration number",
+      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
+      "epRegistrationBulletinDate": "Date",
+      "ipc": "IPC",
+      "patentName": "Name",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validation of European patent",
+      "powerOfAttorney": "Power of attorney",
+      "selectProcedure": "Select procedure",
+      "validationCountry": "Select country",
+      "priorityCountry": "Country of previous application",
+      "priorityFromDate": "From Date",
+      "priorityApplicationNumber": "Application number",
+      "exhibitionFirstAppearance": "Date of first appearance",
+      "exhibitionName": "Exhibition name",
+      "bulletinNumber": "Bulletin number",
+      "patentRegistrationNumber": "Registration number",
+      "validationNumber": "Number",
+      "validationFilingDate": "Filing date",
+      "validationPriorityDate": "Priority date",
+      "addImage": "Add image",
+      "addCountry": "Add country",
+      "removeImage": "Remove image",
+      "image": "Image",
+      "designName": "Name",
+      "locarnoClass": "Class",
+      "locarnoSubclass": "Subclass",
+      "classificationText": "Classification",
+      "vat": "VAT ID",
+      "utilityModelName": "Name",
+      "conversionFromPatent": "Conversion from patent to application",
+      "conversionInvention": "Invention",
+      "conversionRequestNumber": "Request No.",
+      "conversionApplicationDate": "Application date",
+      "conversionPriorityDate": "Priority date",
+      "giKind": "Type",
+      "giName": "Name of the geographical indication",
+      "spcName": "Name",
+      "medicinalProduct": "Medicinal product",
+      "basicPatentNumber": "Patent No.",
+      "effectStartDate": "Start of effect",
+      "effectEndDate": "End date",
+      "firstAuthorization": "First authorization",
+      "theClientIs": "The client is",
+      "court": "Court",
+      "authority": "Authority",
+      "panel": "Panel",
+      "division": "Division",
+      "incomingNumber": "Incoming number",
+      "claimGrounds": "Grounds (type of claim)",
+      "claimValue": "Claim value",
+      "other": "Other",
+      "rightObject": "Object",
+      "selectObject": "Select object…",
+      "rightName": "Name",
+      "rightApplicationDate": "Application date",
+      "rightScope": "Scope",
+      "expertiseType": "Type of expertise",
+      "experts": "Experts",
+      "expertiseQuestions": "Questions on which expertise was admitted"
     },
     "formTitle": "Create file: Trademark",
     "fullFormReady": "Full form available",
@@ -623,40 +803,157 @@
     "partialSubtypeNote": "Full specialized fields for this subcategory will be expanded later. You can still save a draft linked to the client; documents and correspondence stay on the file.",
     "preliminary": "Preliminary information",
     "procedureHints": {
-      "cancellation": "Cancellation proceedings — roles may be us or them",
+      "cancellation": "Cancellation of a registered trademark — full create form",
+      "deletion": "Deletion of a registered trademark — full create form",
       "new": "New trademark application — full create form",
-      "objection": "Objection we have filed",
-      "opposition_against_us": "Opposition filed against us",
-      "opposition_by_us": "Opposition we are filing",
-      "revocation": "Revocation proceedings"
+      "objection": "Objection against a trademark application — full create form",
+      "opposition": "Opposition against a trademark application — full create form",
+      "opposition_against_us": "Opposition proceedings",
+      "opposition_by_us": "Opposition proceedings",
+      "registered": "Existing registered trademark",
+      "revocation": "Deletion proceedings"
     },
     "procedures": {
       "cancellation": "Cancellation",
-      "new": "New trademark",
+      "deletion": "Deletion",
+      "new": "New brand",
       "objection": "Objection",
-      "opposition_against_us": "Opposition against us",
-      "opposition_by_us": "Opposition by us",
-      "revocation": "Revocation"
+      "opposition": "Opposition",
+      "opposition_against_us": "Opposition",
+      "opposition_by_us": "Opposition",
+      "registered": "Registered trademark",
+      "revocation": "Deletion"
+    },
+    "kinds": {
+      "newPatent": "New patent",
+      "registeredPatent": "Registered patent",
+      "registeredDesign": "Registered design",
+      "utilityModel": "Utility models",
+      "registeredGi": "Registered GI",
+      "spc": "SPC",
+      "case": "Case"
+    },
+    "comingSoonTitle": "Create file: {{kind}}",
+    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
+    "patentTitle": "Create file — Patent",
+    "patentSubtypeHint": "First choose the patent subcategory.",
+    "patentFormTitle": "Create file: Patent",
+    "designFormTitle": "Create file: Design",
+    "utilityModelFormTitle": "Create file: Utility model",
+    "giFormTitle": "Create file: Geographical indication",
+    "spcFormTitle": "Create file: SPC",
+    "caseFormTitle": "Create file: Case",
+    "addParty": "Add party",
+    "caseClientRoles": {
+      "plaintiff": "Plaintiff / Appellant",
+      "defendant": "Defendant",
+      "interested": "Interested party"
+    },
+    "giKinds": {
+      "designation_of_origin": "Designation of origin",
+      "geographical_indication": "Geographical indication"
+    },
+    "giTerritories": {
+      "national": "National",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "National",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Choose a procedure",
+    "chooseCountry": "Select country",
+    "patentFilingRoutes": {
+      "national": "National",
+      "european": "EP",
+      "ep_validation": "EP-Validation",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia and Herzegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "North Macedonia",
+      "MD": "Moldavia",
+      "ME": "Montenegro",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Turkey"
+    },
+    "patentHints": {
+      "new": "New patent application — full create form",
+      "registered": "Existing registered patent — full create form"
     },
     "removeClass": "Remove class",
+    "removeClaim": "Remove claim",
+    "removeIpc": "Remove IPC class",
+    "removeApplicant": "Remove applicant",
+    "removeBasisMark": "Remove basis mark",
     "sameApplicant": "Applicant information is the same as the client",
+    "sameDesigner": "Designer information is the same as the client",
+    "sameInventor": "Inventor information is the same as the client",
     "sameCorrespondence": "Correspondence address is the same as the registered address",
     "saveDraft": "Save as draft",
     "saving": "Saving…",
     "searchClient": "Search clients by name or code…",
+    "sideUs": "Our side — opposition",
+    "sideThem": "Other party — opposed application",
+    "sideUsCancellation": "Our side — cancellation",
+    "sideThemCancellation": "Other party — owner",
+    "sideUsDeletion": "Our side — deletion",
     "sections": {
+      "againstApplication": "Against a trademark application",
+      "againstBrand": "Against a trademark",
       "applicant": "Applicant",
+      "applicantUser": "Applicant / User",
+      "application": "Application",
+      "attachments": "Attachments",
+      "additionalInfo": "Additional information",
+      "basicInfo": "Basic information",
+      "basisMarks": "Marks on which the opposition is based",
+      "claims": "Claims",
+      "classification": "Classification",
+      "designer": "Designer",
+      "inventor": "Inventor",
       "client": "Client data",
+      "instructingClient": "Instructing client",
+      "ipc": "IPC",
       "contact": "Contact person",
       "correspondence": "Correspondence address",
+      "filing": "Filing and registration",
       "goods": "List of goods and services",
+      "geographicalIndication": "Geographical indication information",
+      "spcBasic": "Basic information SPC",
+      "caseData": "Case data",
+      "caseRights": "Rights on which the case is based",
+      "expertise": "Expertise",
+      "lawyers": "Lawyers / Legal advisers",
+      "caseParties": {
+        "plaintiff": "Plaintiffs / Appellants",
+        "defendant": "Defendants",
+        "interested": "Interested parties"
+      },
+      "grounds": "Grounds",
+      "foundation": "Foundation",
       "markName": "Trademark name",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "owner": "Owner",
       "registeredAddress": "Registered address",
+      "representative": "Representative",
+      "representatives": "Representatives",
       "searchDocs": "Attach search documents",
-      "trademark": "Trademark information"
+      "specimen": "Specimen",
+      "trademark": "Trademark information",
+      "vienna": "Vienna classification classes"
     },
     "selectCountries": "Select countries",
-    "subtypeHint": "First choose the trademark subcategory. New trademark opens the full form from the client demo.",
+    "subtypeHint": "First choose the trademark subcategory. New brand opens the full form.",
     "territories": {
       "eu": "European Union",
       "international": "International (WO)",
@@ -912,6 +1209,104 @@
     "restoreFailed": "Failed to restore file",
     "archiveConfirm": "Archive this file? It will leave the active list but remain searchable under Archived."
   },
+  "trademarkActions": {
+    "menu": {
+      "label": "Secondary Actions",
+      "editScope": "Edit Scope / Classes"
+    },
+    "kinds": {
+      "name_address_change": "Name & Address Change",
+      "transfer": "Trademark Transfer / Assignment",
+      "license": "License Agreement",
+      "pledge": "Special Pledge",
+      "injunction": "Interim Measure / Injunction",
+      "surrender": "Full Surrender / Disclaimer",
+      "limitation": "Application Limitation",
+      "insolvency": "Insolvency / Bankruptcy"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Opposition Settlement",
+      "office_action_response": "Office Action Response",
+      "voluntary_limitation": "Voluntary Limitation",
+      "correction_of_error": "Correction of Error",
+      "other": "Other"
+    },
+    "scope": {
+      "title": "Edit Classes & Scope",
+      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
+      "cardTitle": "Classes & goods/services",
+      "cardHint": "Active Nice classes on this trademark file.",
+      "empty": "No classes recorded yet.",
+      "classLabel": "Class {{n}}",
+      "noDescription": "No description",
+      "classes": "Class & goods editor",
+      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Office tracking ID",
+      "filingDate": "Filing date (ДАТА)",
+      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Select a reason…",
+      "legalBasisOther": "Other legal basis",
+      "attachment": "Supporting document",
+      "errors": {
+        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
+        "incomingRequired": "Enter the incoming reference number.",
+        "dateRequired": "Enter the filing date.",
+        "basisRequired": "Select a legal basis.",
+        "saveFailed": "Could not save the scope correction."
+      }
+    },
+    "secondary": {
+      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
+      "generateProforma": "Generate proforma invoice",
+      "governmentFee": "Government fee (€)",
+      "paymentDueDate": "Payment deadline",
+      "paymentReminder": "Remind before payment",
+      "filingDeadline": "Filing / action deadline",
+      "filingReminder": "Remind before filing",
+      "reminderUnit": "Unit",
+      "months": "Months before",
+      "days": "Days before",
+      "titles": {
+        "name_address_change": "Log Name & Address Change",
+        "transfer": "Log Trademark Transfer",
+        "license": "Log License Agreement",
+        "pledge": "Log Special Pledge",
+        "injunction": "Log Interim Measure / Injunction",
+        "surrender": "Log Full Surrender / Disclaimer",
+        "limitation": "Log Application Limitation",
+        "insolvency": "Log Insolvency / Bankruptcy"
+      },
+      "errors": {
+        "feeRequired": "Enter a government fee to generate a proforma invoice.",
+        "saveFailed": "Could not save this action."
+      }
+    },
+    "table": {
+      "title": "Secondary actions",
+      "description": "Logged procedures for this trademark. Open the folder to view or upload related files.",
+      "empty": "No secondary actions yet. Use Secondary Actions in the header to log one.",
+      "procedure": "Procedure",
+      "action": "Action",
+      "loggedAt": "Logged on",
+      "viewAria": "View action details",
+      "filesAria": "Open file archive ({{count}} files)"
+    },
+    "archive": {
+      "title": "File archive",
+      "empty": "No files attached to this action yet.",
+      "date": "Date",
+      "regarding": "Regarding",
+      "regardingPlaceholder": "e.g. Decision, proforma, supporting letter",
+      "document": "Document",
+      "user": "User",
+      "attach": "Attach document",
+      "upload": "Upload file",
+      "download": "Download",
+      "regardingRequired": "Enter what the file is regarding.",
+      "fileRequired": "Choose a file to upload.",
+      "uploadFailed": "Could not upload the file."
+    }
+  },
   "list": {
     "description": "Portfolio view of all files — search by title, client, or application number.",
     "descriptionPortal": "Files opened for your organisation after intake conversion.",
@@ -1055,10 +1450,12 @@
     "instructions": "Instructions",
     "approvals": "Approvals",
     "ipRights": "IP rights",
+    "secondaryActions": "Secondary actions",
     "customs": "Customs",
     "overview": "Overview",
-    "tasks": "Tasks",
-    "timeline": "Timeline"
+    "tasks": "Notes",
+    "timeline": "Timeline",
+    "countAria": "{{count}} on {{tab}}"
   },
   "approvals": {
     "title": "Client approvals",
@@ -1098,26 +1495,26 @@
     }
   },
   "tasks": {
-    "add": "Add task",
+    "add": "Add note",
     "assignedTo": "Assigned to",
     "assignedToUser": "Assigned to {{name}}",
     "completed": "Completed",
     "completedByUser": "Completed by {{name}}",
-    "confirmComplete": "Mark this task as completed?",
-    "confirmDelete": "Delete this task?",
+    "confirmComplete": "Mark this note as completed?",
+    "confirmDelete": "Delete this note?",
     "delete": "Delete",
-    "deleteMessage": "This task will be permanently removed.",
-    "deleteTitle": "Delete task?",
-    "description": "Work to be done on this matter — separate from system-generated deadlines.",
-    "drawerTitle": "Add task",
+    "deleteMessage": "This note will be permanently removed.",
+    "deleteTitle": "Delete note?",
+    "description": "Internal notes on this matter — separate from system-generated deadlines.",
+    "drawerTitle": "Add note",
     "dueOn": "Due {{date}}",
-    "empty": "No tasks on this matter.",
-    "emptyOpen": "No open tasks. Add one when there is work to track on this matter.",
-    "error": "Failed to load tasks.",
-    "errorCreate": "Failed to create task",
+    "empty": "No notes on this matter.",
+    "emptyOpen": "No open notes. Add one when there is something to track on this matter.",
+    "error": "Failed to load notes.",
+    "errorCreate": "Failed to create note",
     "form": {
       "assigneeLabel": "Assigned to",
-      "assigneeRequired": "Select who should do this task",
+      "assigneeRequired": "Select who this note is for",
       "dueDateOptional": "Due date (optional)",
       "notesOptional": "Notes (optional)",
       "notesPlaceholder": "Any extra context for the assignee",
@@ -1126,7 +1523,7 @@
       "titlePlaceholder": "e.g. Call client re: BPO response",
       "titleRequired": "Title is required"
     },
-    "loading": "Loading tasks…",
+    "loading": "Loading notes…",
     "markComplete": "Mark complete",
     "noDueDate": "No due date",
     "open": "Open",
@@ -1134,7 +1531,7 @@
       "high": "High",
       "normal": "Normal"
     },
-    "title": "Tasks"
+    "title": "Notes"
   },
   "timeline": {
     "description": "Chronological history of prosecution and correspondence on this matter.",

@@ -54,7 +54,7 @@ void i18n
     ns: [...I18N_NAMESPACES],
     defaultNS: 'common',
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json?v=20260813q',
+      loadPath: '/locales/{{lng}}/{{ns}}.json?v=20260824b',
     },
     detection: {
       order: ['localStorage', 'navigator'],

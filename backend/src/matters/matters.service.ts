@@ -5,11 +5,19 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import {
+  ClientApprovalStatus,
+  CorrespondenceDirection,
+  CorrespondenceStatus,
+  DeadlineStatus,
+  InvoiceStatus,
   IpRightStatus,
   MatterJurisdictionStatus,
   MatterStatus,
   MatterTimelineEventType,
+  PartnerInstructionStatus,
+  PaymentStatus,
   Prisma,
+  TaskStatus,
   type IntakeLead,
   type Counterparty,
 } from '../../generated/prisma/client';
@@ -36,6 +44,7 @@ import {
   filingAuthorityForJurisdiction,
   filingTimelineTitle,
 } from './ip-right-filing.utils';
+import { countSecondaryTrademarkActions } from './trademark-action.utils';
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
@@ -368,6 +377,101 @@ export class MattersService {
   async listDeadlines(matterId: string, user: AuthenticatedUser) {
     await this.portalAccess.assertMatterAccess(matterId, user);
     return this.deadlinesService.listForMatter(matterId);
+  }
+
+  async tabCounts(matterId: string, user: AuthenticatedUser) {
+    await this.portalAccess.assertMatterAccess(matterId, user);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const openDeadlineStatuses: DeadlineStatus[] = [
+      DeadlineStatus.pending,
+      DeadlineStatus.in_progress,
+      DeadlineStatus.escalated,
+    ];
+
+    const [
+      documents,
+      correspondence,
+      correspondenceNew,
+      deadlines,
+      deadlinesOverdue,
+      tasks,
+      billing,
+      ipRights,
+      timeline,
+      instructions,
+      approvals,
+      customsSeizures,
+      customsApplications,
+      matterAttributes,
+    ] = await Promise.all([
+      this.prisma.matterDocument.count({ where: { matterId } }),
+      this.prisma.correspondence.count({ where: { matterId } }),
+      this.prisma.correspondence.count({
+        where: {
+          matterId,
+          direction: CorrespondenceDirection.incoming,
+          status: CorrespondenceStatus.received,
+        },
+      }),
+      this.prisma.deadline.count({
+        where: { matterId, status: { in: openDeadlineStatuses } },
+      }),
+      this.prisma.deadline.count({
+        where: {
+          matterId,
+          status: { in: openDeadlineStatuses },
+          dueDate: { lt: today },
+        },
+      }),
+      this.prisma.task.count({
+        where: { matterId, status: TaskStatus.pending },
+      }),
+      this.prisma.invoice.count({
+        where: {
+          matterId,
+          status: InvoiceStatus.issued,
+          paymentStatus: { in: [PaymentStatus.unpaid, PaymentStatus.partial] },
+        },
+      }),
+      this.prisma.ipRight.count({ where: { matterId } }),
+      this.prisma.matterTimelineEvent.count({ where: { matterId } }),
+      this.prisma.partnerInstruction.count({
+        where: {
+          matterId,
+          status: { not: PartnerInstructionStatus.complete },
+        },
+      }),
+      this.prisma.clientApprovalRequest.count({
+        where: { matterId, status: ClientApprovalStatus.pending },
+      }),
+      this.prisma.customsSeizure.count({ where: { matterId } }),
+      this.prisma.customsApplication.count({ where: { matterId } }),
+      this.prisma.matterAttributes.findUnique({
+        where: { matterId },
+        select: { attributes: true },
+      }),
+    ]);
+
+    return {
+      documents,
+      correspondence,
+      correspondenceNew,
+      deadlines,
+      deadlinesOverdue,
+      tasks,
+      billing,
+      ipRights,
+      timeline,
+      instructions,
+      approvals,
+      customs: customsSeizures + customsApplications,
+      secondaryActions: countSecondaryTrademarkActions(
+        matterAttributes?.attributes,
+      ),
+    };
   }
 
   async findOne(id: string, user?: AuthenticatedUser) {

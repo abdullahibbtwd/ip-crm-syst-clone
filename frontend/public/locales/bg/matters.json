@@ -19,6 +19,23 @@
         "label": "Вид произведение"
       }
     },
+    "cases": {
+      "court": {
+        "label": "Съдилище"
+      },
+      "incomingNumber": {
+        "label": "Входящ номер"
+      },
+      "claimGrounds": {
+        "label": "Основание (вид на иска)"
+      },
+      "claimValue": {
+        "label": "Цена на иска"
+      },
+      "expertiseType": {
+        "label": "Вид на експертизата"
+      }
+    },
     "dispute_opposition": {
       "basisSummary": {
         "label": "Обобщение на основанието"
@@ -39,11 +56,26 @@
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Вид"
+      },
+      "giName": {
+        "label": "Име на географското означение"
+      },
       "productName": {
         "label": "Име на продукта"
       },
       "region": {
         "label": "Географски регион"
+      },
+      "giTerritory": {
+        "label": "Територия"
+      },
+      "applicationNumber": {
+        "label": "Номер на заявка"
+      },
+      "registrationNumber": {
+        "label": "Регистрационен номер"
       }
     },
     "industrial_design": {
@@ -54,6 +86,9 @@
       "locarnoClass": {
         "label": "Клас по Локарно"
       },
+      "locarnoSubclass": {
+        "label": "Подклас по Локарно"
+      },
       "productDescription": {
         "label": "Описание на продукта"
       }
@@ -61,6 +96,18 @@
     "patent": {
       "claimsSummary": {
         "label": "Обобщение на претенциите"
+      },
+      "epApplicationNumber": {
+        "label": "Номер на EP заявка"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Име"
+      },
+      "patentProcedure": {
+        "label": "Процедура"
       },
       "pctNumber": {
         "label": "PCT номер"
@@ -100,6 +147,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Име"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Брой претенции"
+      },
+      "applicationNumber": {
+        "label": "Номер на заявка"
+      },
+      "applicationDate": {
+        "label": "Дата на заявка"
+      },
+      "registrationNumber": {
+        "label": "Регистрационен номер"
+      },
       "claimsSummary": {
         "label": "Обобщение на претенциите"
       },
@@ -547,6 +612,17 @@
   },
   "createFile": {
     "addClass": "Добави клас",
+    "addClaim": "Добави претенция",
+    "addIpc": "Добави IPC клас",
+    "addBasisMark": "Добави марка",
+    "basisMark": "Марка {{number}}",
+    "addAdditionalApplicant": "Добави допълнителен заявител",
+    "addAdditionalOwner": "Добави допълнителен притежател",
+    "additionalApplicant": "Заявител {{number}}",
+    "additionalOwner": "Притежател {{number}}",
+    "yes": "Да",
+    "no": "Не",
+    "none": "Няма",
     "backToFiles": "Назад към файловете",
     "cancel": "Отказ",
     "changeSubtype": "Смени подкатегория",
@@ -561,6 +637,19 @@
       "applicantOrDetails": "Изберете заявител от CRM или попълнете името и данните на заявителя, за да бъде създаден.",
       "jurisdiction": "Изберете поне една територия / държава.",
       "markWords": "Въведете името / думите на марката.",
+      "filingRoute": "Изберете процедура.",
+      "ownerOrDetails": "Въведете името и адреса на притежателя или отбележете, че е същият като възложителя.",
+      "designerOrDetails": "Въведете името и адреса на дизайнера или отбележете, че е същият като клиента.",
+      "inventorOrDetails": "Въведете името и адреса на изобретателя или отбележете, че е същият като клиента.",
+      "patentName": "Въведете името на патента.",
+      "designName": "Въведете името на дизайна.",
+      "utilityModelName": "Въведете името на полезния модел.",
+      "giKind": "Изберете наименование за произход или географско указание.",
+      "territory": "Изберете територия.",
+      "giName": "Въведете името на географското означение.",
+      "spcName": "Въведете името на SPC.",
+      "caseClientRole": "Изберете дали клиентът е ищец, ответник или заинтересована страна.",
+      "patentSubtype": "Изберете подкатегория на патента.",
       "saveFailed": "Неуспешно запазване на черновата.",
       "subtype": "Изберете подкатегория на марката."
     },
@@ -571,6 +660,7 @@
       "applicantClientOptional": "Заявител в CRM (по избор)",
       "city": "Град",
       "classNumber": "Номер на клас",
+      "classes": "Класове",
       "country": "Държава",
       "eik": "ЕИК",
       "email": "E-mail",
@@ -581,13 +671,103 @@
       "linkClientOptional": "Клиент в CRM (по избор)",
       "markKind": "Категория на марката",
       "markType": "Вид на марката",
-      "markWords": "Думи на марката",
+      "markWords": "Име на марката",
       "mol": "МОЛ",
       "name": "Име",
+      "oppositionFiler": "Подател на опозицията",
+      "requester": "Подател",
+      "requestFiler": "Подател на искането",
+      "againstClasses": "Срещу класове",
+      "owner": "Притежател",
       "phone": "Телефон",
       "postalCode": "П.К.",
       "territory": "Територия",
-      "vat": "ЕИК по ДДС"
+      "transliteration": "Транслитерация",
+      "viennaNumber": "Номер",
+      "applicationNumber": "Номер на заявка",
+      "applicationDate": "Дата",
+      "conventionPriority": "Конвенционален приоритет",
+      "exhibitionPriority": "Изложбен приоритет",
+      "transformationInternational": "Трансформация на международна регистрация",
+      "communityConversion": "Преобразуване марка на общността",
+      "applicationBulletin": "Бюлетин / Публикация на заявката",
+      "grounds": "Основание",
+      "specimen": "Образ",
+      "registrationNumber": "Рег. No.",
+      "registrationDate": "Дата",
+      "registrationBulletin": "Бюлетин / Публикация на регистрацията",
+      "certificate": "Прикрепете сертификат",
+      "attachDocument": "Прикрепи документ",
+      "representative": "Избери",
+      "selectRepresentative": "Избери представител",
+      "addMoreRepresentatives": "Добави още представители",
+      "claimNumber": "Номер",
+      "claimText": "Претенция",
+      "epApplicationNumber": "Номер на EP заявка",
+      "epBulletinNumber": "Номер на EP бюлетина",
+      "applicationPublication": "Публикация на заявката",
+      "applicationPublicationDate": "Дата",
+      "epRegistrationNumber": "Номер на EP регистрация",
+      "epRegistrationBulletin": "Бюлетин / Публикация на EP регистрацията",
+      "epRegistrationBulletinDate": "Дата",
+      "ipc": "IPC",
+      "patentName": "Име",
+      "pct": "РСТ",
+      "pctNumber": "PCT",
+      "epValidation": "Валидация на европейски патент",
+      "powerOfAttorney": "Пълномощно",
+      "selectProcedure": "Изберете процедура",
+      "validationCountry": "Изберете държава",
+      "priorityCountry": "Държава на предишната заявка",
+      "priorityFromDate": "От дата",
+      "priorityApplicationNumber": "Номер на заявка",
+      "exhibitionFirstAppearance": "Дата на първо показване",
+      "exhibitionName": "Име на изложбата",
+      "bulletinNumber": "Номер на бюлетина",
+      "patentRegistrationNumber": "Номер на регистрация",
+      "validationNumber": "Номер",
+      "validationFilingDate": "Дата на заявяване",
+      "validationPriorityDate": "Дата на приоритет",
+      "addImage": "Добави образ",
+      "addCountry": "Добави държава",
+      "removeImage": "Премахни образ",
+      "image": "Образ",
+      "designName": "Име",
+      "locarnoClass": "Клас",
+      "locarnoSubclass": "Подклас",
+      "classificationText": "Класификация",
+      "vat": "ЕИК по ДДС",
+      "utilityModelName": "Име",
+      "conversionFromPatent": "Преобразуване от патент в заявка",
+      "conversionInvention": "Изобретение",
+      "conversionRequestNumber": "Номер на искането",
+      "conversionApplicationDate": "Дата на заявката",
+      "conversionPriorityDate": "Приоритетна дата",
+      "giKind": "Вид",
+      "giName": "Име на географското означение",
+      "spcName": "Име",
+      "medicinalProduct": "Лекарствен продукт",
+      "basicPatentNumber": "Патент No.",
+      "effectStartDate": "Начало на действие",
+      "effectEndDate": "Краен срок",
+      "firstAuthorization": "Първо разрешително",
+      "theClientIs": "Клиентът е",
+      "court": "Съдилище",
+      "authority": "Орган",
+      "panel": "Състав",
+      "division": "Отделение",
+      "incomingNumber": "Входящ номер",
+      "claimGrounds": "Основание (вид на иска)",
+      "claimValue": "Цена на иска",
+      "other": "Други",
+      "rightObject": "Обект",
+      "selectObject": "Избери обект…",
+      "rightName": "Име",
+      "rightApplicationDate": "Дата /заявка/",
+      "rightScope": "Обхват",
+      "expertiseType": "Вид на експертизата",
+      "experts": "Вещи лица",
+      "expertiseQuestions": "Въпроси, по които е допусната експертиза"
     },
     "formTitle": "Създай файл: Марка",
     "fullFormReady": "Пълната форма е налична",
@@ -610,37 +790,154 @@
     "partialSubtypeNote": "Пълните специализирани полета за тази подкатегория ще бъдат разширени по-късно. Можете да запазите чернова, свързана с клиента; документите и кореспонденцията остават към файла.",
     "preliminary": "Предварителна информация",
     "procedureHints": {
-      "cancellation": "Производство по заличаване — роли можем да сме ние или те",
+      "cancellation": "Отмяна на регистрирана марка — пълна форма за създаване",
+      "deletion": "Заличаване на регистрирана марка — пълна форма за създаване",
       "new": "Нова заявка за марка — пълна форма за създаване",
-      "objection": "Възражение, което сме подали",
-      "opposition_against_us": "Опозиция, подадена срещу нас",
-      "opposition_by_us": "Опозиция, която подаваме",
-      "revocation": "Производство по отмяна"
+      "objection": "Възражение срещу заявка за марка — пълна форма за създаване",
+      "opposition": "Опозиция срещу заявка за марка — пълна форма за създаване",
+      "opposition_against_us": "Производство по опозиция",
+      "opposition_by_us": "Производство по опозиция",
+      "registered": "Съществуваща регистрирана марка",
+      "revocation": "Производство по заличаване"
     },
     "procedures": {
-      "cancellation": "Заличаване",
+      "cancellation": "Отмяна",
+      "deletion": "Заличаване",
       "new": "Нова марка",
       "objection": "Възражение",
-      "opposition_against_us": "Опозиция срещу нас",
-      "opposition_by_us": "Опозиция от нас",
-      "revocation": "Отмяна"
+      "opposition": "Опозиция",
+      "opposition_against_us": "Опозиция",
+      "opposition_by_us": "Опозиция",
+      "registered": "Регистрирана марка",
+      "revocation": "Заличаване"
+    },
+    "kinds": {
+      "newPatent": "Нов патент",
+      "registeredPatent": "Регистриран патент",
+      "registeredDesign": "Регистриран дизайн",
+      "utilityModel": "Полезни модели",
+      "registeredGi": "Регистрирано ГО",
+      "spc": "SPC",
+      "case": "Дело"
+    },
+    "comingSoonTitle": "Създай файл: {{kind}}",
+    "comingSoonBody": "Специализираната форма за този вид файл ще бъде добавена следваща. Формите за марка вече са налични от същото меню.",
+    "patentTitle": "Създай файл — Патент",
+    "patentSubtypeHint": "Първо изберете подкатегорията на патента.",
+    "patentFormTitle": "Създай файл: Патент",
+    "designFormTitle": "Създай файл: Дизайн",
+    "utilityModelFormTitle": "Създай файл: Полезен модел",
+    "giFormTitle": "Създай файл: Географско означение",
+    "spcFormTitle": "Създай файл: SPC",
+    "caseFormTitle": "Създай файл: Дело",
+    "addParty": "Добави страна",
+    "caseClientRoles": {
+      "plaintiff": "Ищец / Жалбоподател",
+      "defendant": "Ответник",
+      "interested": "Заинтересована страна"
+    },
+    "giKinds": {
+      "designation_of_origin": "Наименование за произход",
+      "geographical_indication": "Географско указание"
+    },
+    "giTerritories": {
+      "national": "Национална",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Национална",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Изберете процедура",
+    "chooseCountry": "Изберете държава",
+    "patentFilingRoutes": {
+      "national": "Национална",
+      "european": "ЕР",
+      "ep_validation": "ЕР-Валидизация",
+      "pct": "РСТ"
+    },
+    "epValidationCountries": {
+      "AL": "Албания",
+      "BA": "Босна и Херцеговина",
+      "BG": "България",
+      "EE": "Естония",
+      "MK": "Северна Македония",
+      "MD": "Молдова",
+      "ME": "Черна гора",
+      "RO": "Румъния",
+      "RS": "Сърбия",
+      "SI": "Словения",
+      "TR": "Турция"
+    },
+    "patentHints": {
+      "new": "Нова заявка за патент — пълна форма за създаване",
+      "registered": "Съществуващ регистриран патент — пълна форма за създаване"
     },
     "removeClass": "Премахни клас",
+    "removeClaim": "Премахни претенция",
+    "removeIpc": "Премахни IPC клас",
+    "removeApplicant": "Премахни заявител",
+    "removeBasisMark": "Премахни марка",
     "sameApplicant": "Информацията за заявителя е същата, като тази за възложителя",
+    "sameDesigner": "Информацията за дизайнера е същата, като тази за клиента",
+    "sameInventor": "Информацията за изобретателя е същата, като тази за клиента",
     "sameCorrespondence": "Адресът за кореспонденция е същият, като адресът по регистрация",
     "saveDraft": "Запиши като чернова",
     "saving": "Запазване…",
     "searchClient": "Търсене на клиенти по име или код…",
+    "sideUs": "Наша страна — опозиция",
+    "sideThem": "Отсрещна страна — оспорена заявка",
+    "sideUsCancellation": "Наша страна — отмяна",
+    "sideThemCancellation": "Отсрещна страна — притежател",
+    "sideUsDeletion": "Наша страна — заличаване",
     "sections": {
+      "againstApplication": "Срещу заявка за марка",
+      "againstBrand": "Срещу марка",
       "applicant": "Заявител",
+      "applicantUser": "Заявител/Ползвател",
+      "application": "Заявка",
+      "attachments": "Прикачени файлове",
+      "additionalInfo": "Допълнителна информация",
+      "basicInfo": "Основна информация",
+      "basisMarks": "Марки, на които се основава опозицията",
+      "claims": "Претенции",
+      "classification": "Класификация",
+      "designer": "Дизайнер",
+      "inventor": "Изобретател",
       "client": "Данни за клиента",
+      "instructingClient": "Данни за възложителя",
+      "ipc": "IPC",
       "contact": "Лице за контакт",
       "correspondence": "Адрес за кореспонденция",
+      "filing": "Подаване и регистрация",
       "goods": "Списък на стоките и услугите",
+      "geographicalIndication": "Информация за географско означение",
+      "spcBasic": "Основна информация SPC",
+      "caseData": "Данни за делото",
+      "caseRights": "Права, на които се основава делото",
+      "expertise": "Експертиза",
+      "lawyers": "Адвокати / Юрисконсулти",
+      "caseParties": {
+        "plaintiff": "Ищци / Жалбоподатели",
+        "defendant": "Ответници",
+        "interested": "Заинтересовани страни по делото"
+      },
+      "grounds": "Основание",
+      "foundation": "Основание",
       "markName": "Име на марката",
+      "oppositionFiler": "Подател на опозицията",
+      "requester": "Подател",
+      "requestFiler": "Подател на искането",
+      "owner": "Притежател",
       "registeredAddress": "Адрес по регистрация",
+      "representative": "Представител",
+      "representatives": "Представители",
       "searchDocs": "Прикрепи документи от проучване",
-      "trademark": "Информация за марка"
+      "specimen": "Образ",
+      "trademark": "Информация за марка",
+      "vienna": "Класове по виенска класификация"
     },
     "selectCountries": "Изберете държави",
     "subtypeHint": "Първо изберете подкатегорията на марката. Нова марка отваря пълната форма.",
@@ -912,6 +1209,104 @@
     "restoreFailed": "Неуспешно възстановяване на файла",
     "archiveConfirm": "Архивиране на този файл? Ще излезе от активния списък, но ще остане достъпен в Архив."
   },
+  "trademarkActions": {
+    "menu": {
+      "label": "Вторични действия",
+      "editScope": "Редактирай обхват / класове"
+    },
+    "kinds": {
+      "name_address_change": "Промяна на име и адрес",
+      "transfer": "Прехвърляне на марка",
+      "license": "Лицензионен договор",
+      "pledge": "Особен залог",
+      "injunction": "Обезпечителна мярка",
+      "surrender": "Отказ от права - Цял обхват",
+      "limitation": "Ограничаване на марка",
+      "insolvency": "Вписване на несъстоятелност"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Споразумение по възражение",
+      "office_action_response": "Отговор на служебна бележка",
+      "voluntary_limitation": "Доброволно ограничаване",
+      "correction_of_error": "Поправка на грешка",
+      "other": "Друго"
+    },
+    "scope": {
+      "title": "Редакция на класове и обхват",
+      "description": "Променете класовете по Ница и описанията на стоките/услугите, след което въведете данните от ведомството.",
+      "cardTitle": "Класове и стоки/услуги",
+      "cardHint": "Активни класове по Ница за тази марка.",
+      "empty": "Все още няма записани класове.",
+      "classLabel": "Клас {{n}}",
+      "noDescription": "Няма описание",
+      "classes": "Редактор на класове и стоки",
+      "incomingNumber": "Входящ номер (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Служебен входящ номер",
+      "filingDate": "Дата (ДАТА)",
+      "legalBasis": "Основание (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Изберете основание…",
+      "legalBasisOther": "Друго основание",
+      "attachment": "Придружаващ документ",
+      "errors": {
+        "classRequired": "Оставете поне един клас, или използвайте пълен отказ от права.",
+        "incomingRequired": "Въведете входящия номер.",
+        "dateRequired": "Въведете датата.",
+        "basisRequired": "Изберете основание.",
+        "saveFailed": "Неуспешно записване на корекцията на обхвата."
+      }
+    },
+    "secondary": {
+      "description": "Впишете административното действие, таксата и сроковете за напомняне.",
+      "generateProforma": "Генерирай проформа фактура",
+      "governmentFee": "Държавна такса (€)",
+      "paymentDueDate": "Срок за плащане",
+      "paymentReminder": "Напомни преди плащане",
+      "filingDeadline": "Срок за подаване / действие",
+      "filingReminder": "Напомни преди подаване",
+      "reminderUnit": "Единица",
+      "months": "Месеци преди",
+      "days": "Дни преди",
+      "titles": {
+        "name_address_change": "Вписване на промяна на име и адрес",
+        "transfer": "Вписване на прехвърляне на марка",
+        "license": "Вписване на лицензионен договор",
+        "pledge": "Вписване на особен залог",
+        "injunction": "Вписване на обезпечителна мярка",
+        "surrender": "Вписване на отказ от права",
+        "limitation": "Вписване на ограничаване на марка",
+        "insolvency": "Вписване на несъстоятелност"
+      },
+      "errors": {
+        "feeRequired": "Въведете държавна такса, за да генерирате проформа фактура.",
+        "saveFailed": "Неуспешно записване на действието."
+      }
+    },
+    "table": {
+      "title": "Вторични действия",
+      "description": "Вписани процедури за тази марка. Отворете папката, за да видите или качите свързаните файлове.",
+      "empty": "Все още няма вторични действия. Използвайте „Вторични действия“ в заглавката, за да впишете ново.",
+      "procedure": "Процедура",
+      "action": "Действие",
+      "loggedAt": "Вписано на",
+      "viewAria": "Преглед на действието",
+      "filesAria": "Отвори файлов архив ({{count}} файла)"
+    },
+    "archive": {
+      "title": "Файлов архив",
+      "empty": "Все още няма файлове към това действие.",
+      "date": "Дата",
+      "regarding": "Относно",
+      "regardingPlaceholder": "напр. Решение, проформа, придружаващо писмо",
+      "document": "Документ",
+      "user": "Потребител",
+      "attach": "Прикрепи документ",
+      "upload": "Качи файл",
+      "download": "Изтегли",
+      "regardingRequired": "Въведете относно за файла.",
+      "fileRequired": "Изберете файл за качване.",
+      "uploadFailed": "Неуспешно качване на файла."
+    }
+  },
   "list": {
     "description": "Преглед на всички файлове — търсене по заглавие, клиент или номер на заявка.",
     "descriptionPortal": "Файлове, отворени за вашата организация след конвертиране на запитване.",
@@ -1055,10 +1450,12 @@
     "instructions": "Инструкции",
     "approvals": "Одобрения",
     "ipRights": "ИС права",
+    "secondaryActions": "Вторични действия",
     "customs": "Митници",
     "overview": "Преглед",
-    "tasks": "Задачи",
-    "timeline": "Хронология"
+    "tasks": "Бележки",
+    "timeline": "Хронология",
+    "countAria": "{{count}} on {{tab}}"
   },
   "approvals": {
     "title": "Клиентски одобрения",
@@ -1134,7 +1531,7 @@
       "high": "Висок",
       "normal": "Нормална"
     },
-    "title": "Задачи"
+    "title": "Бележки"
   },
   "timeline": {
     "description": "Хронологична история на производството и кореспонденцията по това дело.",

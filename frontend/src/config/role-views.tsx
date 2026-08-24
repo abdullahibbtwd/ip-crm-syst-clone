@@ -147,7 +147,7 @@ export function workingFilesNavItem(opts?: {
   }
 }
 
-/** Create File dropdown — starts with Trademark (more types later). */
+/** Create File dropdown — type first, then subcategories on the page. */
 export function createFileNavItem(): NavItem {
   return {
     id: 'create-file',
@@ -159,6 +159,47 @@ export function createFileNavItem(): NavItem {
         labelKey: 'createFileTrademark',
         path: '/files/new/trademark',
         id: 'create-file-trademark',
+      },
+      {
+        icon: Atom,
+        labelKey: 'createFilePatent',
+        path: '/files/new/patent',
+        id: 'create-file-patent',
+      },
+      {
+        icon: Palette,
+        labelKey: 'createFile.kinds.registeredDesign',
+        labelNs: 'matters',
+        path: '/files/new/design?procedure=registered',
+        id: 'create-file-design',
+      },
+      {
+        icon: Layers,
+        labelKey: 'createFile.kinds.utilityModel',
+        labelNs: 'matters',
+        path: '/files/new/utility-model',
+        id: 'create-file-utility-model',
+      },
+      {
+        icon: MapPinned,
+        labelKey: 'createFile.kinds.registeredGi',
+        labelNs: 'matters',
+        path: '/files/new/gi?procedure=registered',
+        id: 'create-file-gi',
+      },
+      {
+        icon: ShieldCheck,
+        labelKey: 'createFile.kinds.spc',
+        labelNs: 'matters',
+        path: '/files/new/spc',
+        id: 'create-file-spc',
+      },
+      {
+        icon: Gavel,
+        labelKey: 'createFile.kinds.case',
+        labelNs: 'matters',
+        path: '/files/new/case',
+        id: 'create-file-case',
       },
     ],
   }

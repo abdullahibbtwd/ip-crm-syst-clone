@@ -67,6 +67,8 @@ import {
   formatMatterDate,
 } from '@/features/matters/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
+import { usePermission } from '@/hooks/usePermission'
+import { TrademarkScopeCard } from '@/components/matters/TrademarkScopeCard'
 import type { MatterTabContext } from '../MatterLayout'
 
 function todayIsoDate() {
@@ -100,7 +102,8 @@ function canCheckEpoStatus(right: {
 
 export function MatterIpRightsTab() {
   const { t } = useTranslation(['matters', 'common'])
-  const { matterId, matter } = useOutletContext<MatterTabContext>()
+  const { matterId, matter, openEditScope } = useOutletContext<MatterTabContext>()
+  const canUpdate = usePermission('matter', 'update')
   const { data: ipRights, isLoading } = useMatterIpRights(matterId)
   const { data: documents } = useMatterDocuments(matterId)
   const createIpRight = useCreateIpRight(matterId)
@@ -331,6 +334,14 @@ export function MatterIpRightsTab() {
           </Button>
         </PermissionGate>
       </div>
+
+      {matter.matterType === 'trademark' ? (
+        <TrademarkScopeCard
+          matter={matter}
+          canEdit={canUpdate && !matter.isArchived}
+          onEdit={() => openEditScope?.()}
+        />
+      ) : null}
 
       {epoBanner && (
         <div

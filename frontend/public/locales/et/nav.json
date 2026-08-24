@@ -107,7 +107,8 @@
     "mattersArchived": "Arhiveeritud",
     "mattersDrafts": "Mustandid",
     "createFile": "Loo fail",
-    "createFileTrademark": "Kaubamärk"
+    "createFileTrademark": "Kaubamärk",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "Juhtiv partner",

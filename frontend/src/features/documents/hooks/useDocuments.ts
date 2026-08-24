@@ -1,4 +1,5 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { matterKeys } from '@/features/matters/queryKeys'
 import { documentsApi } from '../api'
 import { documentKeys } from '../queryKeys'
 import type { DocumentFilters, UploadDocumentInput } from '../types'
@@ -58,6 +59,7 @@ export function useUploadDocument(matterId: string, filters?: DocumentFilters) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId, filters) })
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -79,6 +81,7 @@ export function useUploadDocumentVersion(matterId: string, documentId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: documentKeys.versions(documentId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -103,6 +106,7 @@ export function useGenerateDocument(matterId: string, filters?: DocumentFilters)
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId, filters) })
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }

@@ -107,7 +107,8 @@
     "mattersArchived": "Archiviert",
     "mattersDrafts": "Entwürfe",
     "createFile": "Datei erstellen",
-    "createFileTrademark": "Marke"
+    "createFileTrademark": "Marke",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "Geschäftsführender Gesellschafter",

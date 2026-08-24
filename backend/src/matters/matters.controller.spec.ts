@@ -3,6 +3,7 @@ import type { AuthenticatedUser } from '../auth/auth.types';
 import type { RenewalsService } from '../renewals/renewals.service';
 import { MattersController } from './matters.controller';
 import type { MattersService } from './matters.service';
+import type { TrademarkActionsService } from './trademark-actions.service';
 
 describe('MattersController', () => {
   const mattersService = {
@@ -12,6 +13,7 @@ describe('MattersController', () => {
     update: jest.fn(),
     remove: jest.fn(),
     listDeadlines: jest.fn(),
+    tabCounts: jest.fn(),
     listIpRights: jest.fn(),
     createIpRight: jest.fn(),
     fileIpRight: jest.fn(),
@@ -21,10 +23,14 @@ describe('MattersController', () => {
     listForIpRight: jest.fn(),
     createWindowFromDto: jest.fn(),
   };
+  const trademarkActionsService = {
+    record: jest.fn(),
+  };
 
   const controller = new MattersController(
     mattersService as unknown as MattersService,
     renewalsService as unknown as RenewalsService,
+    trademarkActionsService as unknown as TrademarkActionsService,
   );
 
   const user = {
@@ -53,15 +59,17 @@ describe('MattersController', () => {
     expect(mattersService.remove).toHaveBeenCalledWith('m1');
   });
 
-  it('listDeadlines / listIpRights / createIpRight / fileIpRight', async () => {
+  it('tabCounts / listDeadlines / listIpRights / createIpRight / fileIpRight', async () => {
     const ipDto = { title: 'Mark' };
     const fileDto = { filingDate: '2026-01-01' };
 
+    await controller.tabCounts('m1', req);
     await controller.listDeadlines('m1', req);
     await controller.listIpRights('m1', req);
     await controller.createIpRight('m1', ipDto as never);
     await controller.fileIpRight('m1', 'ip1', fileDto as never, req);
 
+    expect(mattersService.tabCounts).toHaveBeenCalledWith('m1', user);
     expect(mattersService.listDeadlines).toHaveBeenCalledWith('m1', user);
     expect(mattersService.listIpRights).toHaveBeenCalledWith('m1', user);
     expect(mattersService.createIpRight).toHaveBeenCalledWith('m1', ipDto);
@@ -94,5 +102,11 @@ describe('MattersController', () => {
       winDto,
       'u1',
     );
+  });
+
+  it('recordTrademarkAction forwards to TrademarkActionsService', async () => {
+    const dto = { kind: 'transfer' };
+    await controller.recordTrademarkAction('m1', dto as never, req);
+    expect(trademarkActionsService.record).toHaveBeenCalledWith('m1', dto, user);
   });
 });

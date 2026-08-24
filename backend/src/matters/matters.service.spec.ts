@@ -32,15 +32,25 @@ describe('MattersService', () => {
       createMany: jest.Mock;
       upsert: jest.Mock;
     };
-    matterAttributes: { upsert: jest.Mock };
+    matterAttributes: { upsert: jest.Mock; findUnique: jest.Mock };
     ipRight: {
       findFirst: jest.Mock;
       findMany: jest.Mock;
       create: jest.Mock;
       update: jest.Mock;
+      count: jest.Mock;
     };
     matterDocumentVersion: { findFirst: jest.Mock };
-    matterTimelineEvent: { create: jest.Mock };
+    matterTimelineEvent: { create: jest.Mock; count: jest.Mock };
+    matterDocument: { count: jest.Mock };
+    correspondence: { count: jest.Mock };
+    deadline: { count: jest.Mock };
+    task: { count: jest.Mock };
+    invoice: { count: jest.Mock };
+    partnerInstruction: { count: jest.Mock };
+    clientApprovalRequest: { count: jest.Mock };
+    customsSeizure: { count: jest.Mock };
+    customsApplication: { count: jest.Mock };
     $transaction: jest.Mock;
   };
   let deadlinesService: {
@@ -71,15 +81,25 @@ describe('MattersService', () => {
         createMany: jest.fn(),
         upsert: jest.fn(),
       },
-      matterAttributes: { upsert: jest.fn() },
+      matterAttributes: { upsert: jest.fn(), findUnique: jest.fn() },
       ipRight: {
         findFirst: jest.fn(),
         findMany: jest.fn(),
         create: jest.fn(),
         update: jest.fn(),
+        count: jest.fn(),
       },
       matterDocumentVersion: { findFirst: jest.fn() },
-      matterTimelineEvent: { create: jest.fn() },
+      matterTimelineEvent: { create: jest.fn(), count: jest.fn() },
+      matterDocument: { count: jest.fn() },
+      correspondence: { count: jest.fn() },
+      deadline: { count: jest.fn() },
+      task: { count: jest.fn() },
+      invoice: { count: jest.fn() },
+      partnerInstruction: { count: jest.fn() },
+      clientApprovalRequest: { count: jest.fn() },
+      customsSeizure: { count: jest.fn() },
+      customsApplication: { count: jest.fn() },
       $transaction: jest.fn(async (ops) => {
         if (Array.isArray(ops)) {
           return Promise.all(ops.map((op) => op));
@@ -212,6 +232,53 @@ describe('MattersService', () => {
       await expect(service.listDeadlines('m1', user)).resolves.toEqual([
         { id: 'd1' },
       ]);
+      expect(portalAccess.assertMatterAccess).toHaveBeenCalledWith('m1', user);
+    });
+  });
+
+  describe('tabCounts', () => {
+    it('returns open and new counts after access check', async () => {
+      const user = { userId: 'u1', roles: [] } as AuthenticatedUser;
+      prisma.matterDocument.count.mockResolvedValue(4);
+      prisma.correspondence.count.mockImplementation(async (args: { where?: { status?: unknown } }) =>
+        args?.where?.status ? 2 : 8,
+      );
+      prisma.deadline.count.mockImplementation(async (args: { where?: { dueDate?: unknown } }) =>
+        args?.where?.dueDate ? 1 : 5,
+      );
+      prisma.task.count.mockResolvedValue(3);
+      prisma.invoice.count.mockResolvedValue(2);
+      prisma.ipRight.count.mockResolvedValue(1);
+      prisma.matterTimelineEvent.count.mockResolvedValue(9);
+      prisma.partnerInstruction.count.mockResolvedValue(1);
+      prisma.clientApprovalRequest.count.mockResolvedValue(2);
+      prisma.customsSeizure.count.mockResolvedValue(1);
+      prisma.customsApplication.count.mockResolvedValue(2);
+      prisma.matterAttributes.findUnique.mockResolvedValue({
+        attributes: {
+          trademarkActions: [
+            { kind: 'scope_correction' },
+            { kind: 'transfer' },
+            { kind: 'license' },
+          ],
+        },
+      });
+
+      await expect(service.tabCounts('m1', user)).resolves.toEqual({
+        documents: 4,
+        correspondence: 8,
+        correspondenceNew: 2,
+        deadlines: 5,
+        deadlinesOverdue: 1,
+        tasks: 3,
+        billing: 2,
+        ipRights: 1,
+        timeline: 9,
+        instructions: 1,
+        approvals: 2,
+        customs: 3,
+        secondaryActions: 2,
+      });
       expect(portalAccess.assertMatterAccess).toHaveBeenCalledWith('m1', user);
     });
   });

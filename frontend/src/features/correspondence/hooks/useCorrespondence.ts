@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { deadlineKeys } from '@/features/deadlines/queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import { correspondenceApi } from '../api'
 import { correspondenceKeys } from '../queryKeys'
 import type {
@@ -65,6 +66,7 @@ export function useCreateCorrespondence(matterId: string) {
       qc.invalidateQueries({ queryKey: correspondenceKeys.portal() })
       qc.invalidateQueries({ queryKey: deadlineKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: deadlineKeys.my() })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -113,6 +115,7 @@ export function useUpdateCorrespondence(matterId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: correspondenceKeys.portal() })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -124,6 +127,7 @@ export function useUpdateCorrespondenceStatus(matterId: string) {
       correspondenceApi.updateStatus(id, status),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -141,6 +145,7 @@ export function useAttachCorrespondenceDocument(matterId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: correspondenceKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: correspondenceKeys.timeline(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }

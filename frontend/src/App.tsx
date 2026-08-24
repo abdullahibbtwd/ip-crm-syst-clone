@@ -44,6 +44,13 @@ import { CreateIntakePage } from './pages/intake/CreateIntakePage'
 import { IntakeDetailPage } from './pages/intake/IntakeDetailPage'
 import { IntakeListPage } from './pages/intake/IntakeListPage'
 import { CreateTrademarkFilePage } from './pages/create-file/CreateTrademarkFilePage'
+import { CreatePatentFilePage } from './pages/create-file/CreatePatentFilePage'
+import { CreateDesignFilePage } from './pages/create-file/CreateDesignFilePage'
+import { CreateUtilityModelFilePage } from './pages/create-file/CreateUtilityModelFilePage'
+import { CreateGiFilePage } from './pages/create-file/CreateGiFilePage'
+import { CreateSpcFilePage } from './pages/create-file/CreateSpcFilePage'
+import { CreateCaseFilePage } from './pages/create-file/CreateCaseFilePage'
+import { CreateFileComingSoonPage } from './pages/create-file/CreateFileComingSoonPage'
 import { MatterListPage } from './pages/matters/MatterListPage'
 import { MatterLayout } from './pages/matters/MatterLayout'
 import { MatterIpRightsTab } from './pages/matters/tabs/MatterIpRightsTab'
@@ -57,6 +64,7 @@ import { MatterTasksTab } from './pages/matters/tabs/MatterTasksTab'
 import { MatterInstructionsTab } from './pages/matters/tabs/MatterInstructionsTab'
 import { MatterApprovalsTab } from './pages/matters/tabs/MatterApprovalsTab'
 import { MatterCustomsTab } from './pages/matters/tabs/MatterCustomsTab'
+import { MatterSecondaryActionsTab } from './pages/matters/tabs/MatterSecondaryActionsTab'
 import { PartnersListPage } from './pages/partners/PartnersListPage'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
@@ -168,6 +176,13 @@ export default function App() {
           <Route path="/intake/:id" element={<IntakeDetailPage />} />
 
           <Route path="/files/new/trademark" element={<CreateTrademarkFilePage />} />
+          <Route path="/files/new/patent" element={<CreatePatentFilePage />} />
+          <Route path="/files/new/design" element={<CreateDesignFilePage />} />
+          <Route path="/files/new/utility-model" element={<CreateUtilityModelFilePage />} />
+          <Route path="/files/new/gi" element={<CreateGiFilePage />} />
+          <Route path="/files/new/spc" element={<CreateSpcFilePage />} />
+          <Route path="/files/new/case" element={<CreateCaseFilePage />} />
+          <Route path="/files/new/:kind" element={<CreateFileComingSoonPage />} />
           <Route path="/matters" element={<MatterListPage />} />
           <Route path="/invoices" element={<InvoicesListPage />} />
           <Route path="/rate-cards" element={<RateCardsPage />} />
@@ -197,6 +212,7 @@ export default function App() {
             <Route path="tasks" element={<MatterTasksTab />} />
             <Route path="billing" element={<MatterBillingTab />} />
             <Route path="ip-rights" element={<MatterIpRightsTab />} />
+            <Route path="secondary-actions" element={<MatterSecondaryActionsTab />} />
             <Route path="customs" element={<MatterCustomsTab />} />
             <Route path="instructions" element={<MatterInstructionsTab />} />
             <Route path="approvals" element={<MatterApprovalsTab />} />

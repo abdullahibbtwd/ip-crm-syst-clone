@@ -222,7 +222,9 @@ export class InvoicesService {
         matterId,
         isBillable: true,
         invoiceId: null,
-        ...(dto.timeEntryIds?.length ? { id: { in: dto.timeEntryIds } } : {}),
+        ...(dto.timeEntryIds !== undefined
+          ? { id: { in: dto.timeEntryIds } }
+          : {}),
       },
     });
 
@@ -231,7 +233,9 @@ export class InvoicesService {
         matterId,
         isBillable: true,
         invoiceId: null,
-        ...(dto.fixedFeeIds?.length ? { id: { in: dto.fixedFeeIds } } : {}),
+        ...(dto.fixedFeeIds !== undefined
+          ? { id: { in: dto.fixedFeeIds } }
+          : {}),
       },
     });
 

@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { approvalsApi } from '../api'
 import { approvalKeys } from '../queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import type {
   CreateApprovalInput,
   DecideApprovalInput,
@@ -19,8 +20,10 @@ export function useCreateApproval(matterId: string) {
   const qc = useQueryClient()
   return useMutation({
     mutationFn: (data: CreateApprovalInput) => approvalsApi.create(matterId, data),
-    onSuccess: () =>
-      qc.invalidateQueries({ queryKey: approvalKeys.matter(matterId) }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: approvalKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
+    },
   })
 }
 
@@ -29,8 +32,10 @@ export function useUpdateApproval(matterId: string) {
   return useMutation({
     mutationFn: ({ id, data }: { id: string; data: UpdateApprovalInput }) =>
       approvalsApi.update(matterId, id, data),
-    onSuccess: () =>
-      qc.invalidateQueries({ queryKey: approvalKeys.matter(matterId) }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: approvalKeys.matter(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
+    },
   })
 }
 
@@ -41,6 +46,7 @@ export function useSubmitApproval(matterId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: approvalKeys.matter(matterId) })
       qc.invalidateQueries({ queryKey: approvalKeys.portal() })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }

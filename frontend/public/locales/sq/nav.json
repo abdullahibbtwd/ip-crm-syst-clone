@@ -107,7 +107,8 @@
     "mattersArchived": "Arkivuar",
     "mattersDrafts": "Draftet",
     "createFile": "Krijo skedar",
-    "createFileTrademark": "Markë tregtare"
+    "createFileTrademark": "Markë tregtare",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "Partner Menaxhues",

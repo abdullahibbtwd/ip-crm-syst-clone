@@ -44,6 +44,21 @@
       },
       "region": {
         "label": "地理区域"
+      },
+      "giKind": {
+        "label": "Type"
+      },
+      "giName": {
+        "label": "Name of the geographical indication"
+      },
+      "giTerritory": {
+        "label": "Territory"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
       }
     },
     "industrial_design": {
@@ -56,6 +71,9 @@
       },
       "productDescription": {
         "label": "产品描述"
+      },
+      "locarnoSubclass": {
+        "label": "Locarno subclass"
       }
     },
     "patent": {
@@ -70,6 +88,18 @@
       },
       "technicalField": {
         "label": "技术领域"
+      },
+      "epApplicationNumber": {
+        "label": "EP application number"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Patent name"
+      },
+      "patentProcedure": {
+        "label": "Procedure"
       }
     },
     "trademark": {
@@ -108,6 +138,24 @@
       },
       "technicalField": {
         "label": "技术领域"
+      },
+      "utilityModelName": {
+        "label": "Name"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Number of claims"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "applicationDate": {
+        "label": "Application date"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
       }
     },
     "valuation": {
@@ -160,6 +208,23 @@
     "other": {
       "workSummary": {
         "label": "工作总结"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Court"
+      },
+      "incomingNumber": {
+        "label": "Incoming number"
+      },
+      "claimGrounds": {
+        "label": "Grounds (type of claim)"
+      },
+      "claimValue": {
+        "label": "Claim value"
+      },
+      "expertiseType": {
+        "label": "Type of expertise"
       }
     }
   },
@@ -811,8 +876,9 @@
     "ipRights": "知识产权",
     "customs": "海关",
     "overview": "概述",
-    "tasks": "任务",
-    "timeline": "时间轴"
+    "tasks": "备注",
+    "timeline": "时间轴",
+    "countAria": "{{count}} on {{tab}}"
   },
   "approvals": {
     "title": "客户认可",
@@ -944,7 +1010,20 @@
       "jurisdiction": "至少选择一个地区/国家。",
       "markWords": "输入商标名称/文字。",
       "saveFailed": "无法保存草稿文件。",
-      "subtype": "选择商标子类别。"
+      "subtype": "选择商标子类别。",
+      "filingRoute": "Select a procedure.",
+      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
+      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
+      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
+      "patentName": "Enter the patent name.",
+      "designName": "Enter the design name.",
+      "utilityModelName": "Enter the utility model name.",
+      "giKind": "Select designation of origin or geographical indication.",
+      "territory": "Select a territory.",
+      "giName": "Enter the name of the geographical indication.",
+      "spcName": "Enter the SPC name.",
+      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
+      "patentSubtype": "Select a patent subcategory."
     },
     "euHint": "欧盟商标 (EUIPO) — 管辖权设定为欧盟。",
     "fields": {
@@ -969,7 +1048,98 @@
       "phone": "电话",
       "postalCode": "邮政编码",
       "territory": "领土",
-      "vat": "增值税号"
+      "vat": "增值税号",
+      "classes": "Classes",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "againstClasses": "Against classes",
+      "owner": "Owner",
+      "transliteration": "Transliteration",
+      "viennaNumber": "Number",
+      "applicationNumber": "Application number",
+      "applicationDate": "Date",
+      "conventionPriority": "Convention priority",
+      "exhibitionPriority": "Exhibition priority",
+      "transformationInternational": "Transformation of international registration",
+      "communityConversion": "Conversion of Community trademark",
+      "applicationBulletin": "Bulletin / publication of the application",
+      "grounds": "Grounds",
+      "specimen": "Specimen",
+      "registrationNumber": "Registration No.",
+      "registrationDate": "Date",
+      "registrationBulletin": "Bulletin / publication of the registration",
+      "certificate": "Attach certificate",
+      "attachDocument": "Attach document",
+      "representative": "Select",
+      "selectRepresentative": "Select representative",
+      "addMoreRepresentatives": "Add more representatives",
+      "claimNumber": "Number",
+      "claimText": "Claim",
+      "epApplicationNumber": "EP application number",
+      "epBulletinNumber": "EP bulletin number",
+      "applicationPublication": "Publication of the application",
+      "applicationPublicationDate": "Date",
+      "epRegistrationNumber": "EP registration number",
+      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
+      "epRegistrationBulletinDate": "Date",
+      "ipc": "IPC",
+      "patentName": "Name",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validation of European patent",
+      "powerOfAttorney": "Power of attorney",
+      "selectProcedure": "Select procedure",
+      "validationCountry": "Select country",
+      "priorityCountry": "Country of previous application",
+      "priorityFromDate": "From Date",
+      "priorityApplicationNumber": "Application number",
+      "exhibitionFirstAppearance": "Date of first appearance",
+      "exhibitionName": "Exhibition name",
+      "bulletinNumber": "Bulletin number",
+      "patentRegistrationNumber": "Registration number",
+      "validationNumber": "Number",
+      "validationFilingDate": "Filing date",
+      "validationPriorityDate": "Priority date",
+      "addImage": "Add image",
+      "addCountry": "Add country",
+      "removeImage": "Remove image",
+      "image": "Image",
+      "designName": "Name",
+      "locarnoClass": "Class",
+      "locarnoSubclass": "Subclass",
+      "classificationText": "Classification",
+      "utilityModelName": "Name",
+      "conversionFromPatent": "Conversion from patent to application",
+      "conversionInvention": "Invention",
+      "conversionRequestNumber": "Request No.",
+      "conversionApplicationDate": "Application date",
+      "conversionPriorityDate": "Priority date",
+      "giKind": "Type",
+      "giName": "Name of the geographical indication",
+      "spcName": "Name",
+      "medicinalProduct": "Medicinal product",
+      "basicPatentNumber": "Patent No.",
+      "effectStartDate": "Start of effect",
+      "effectEndDate": "End date",
+      "firstAuthorization": "First authorization",
+      "theClientIs": "The client is",
+      "court": "Court",
+      "authority": "Authority",
+      "panel": "Panel",
+      "division": "Division",
+      "incomingNumber": "Incoming number",
+      "claimGrounds": "Grounds (type of claim)",
+      "claimValue": "Claim value",
+      "other": "Other",
+      "rightObject": "Object",
+      "selectObject": "Select object…",
+      "rightName": "Name",
+      "rightApplicationDate": "Application date",
+      "rightScope": "Scope",
+      "expertiseType": "Type of expertise",
+      "experts": "Experts",
+      "expertiseQuestions": "Questions on which expertise was admitted"
     },
     "formTitle": "创建文件：商标",
     "fullFormReady": "提供完整表格",
@@ -992,20 +1162,26 @@
     "partialSubtypeNote": "该子类别的完整专业领域将在稍后扩展。 您仍然可以保存链接到客户端的草稿； 文件和信件保留在档案中。",
     "preliminary": "初步信息",
     "procedureHints": {
-      "cancellation": "取消程序——角色可能是我们，也可能是他们",
-      "new": "新商标申请——完整创建表格",
-      "objection": "我们已提出异议",
-      "opposition_against_us": "针对我们提出的反对",
-      "opposition_by_us": "我们正在提出反对",
-      "revocation": "撤销程序"
+      "new": "新商标申请 — 完整表单",
+      "registered": "已注册商标",
+      "objection": "异议程序",
+      "opposition": "反对程序",
+      "cancellation": "无效宣告程序",
+      "deletion": "注销程序",
+      "opposition_against_us": "反对程序",
+      "opposition_by_us": "反对程序",
+      "revocation": "注销程序"
     },
     "procedures": {
-      "cancellation": "消除",
-      "new": "新商标",
+      "new": "新品牌",
+      "registered": "注册商标",
       "objection": "异议",
-      "opposition_against_us": "反对我们的人",
-      "opposition_by_us": "我们的反对",
-      "revocation": "撤销"
+      "opposition": "反对",
+      "cancellation": "宣告无效",
+      "deletion": "注销",
+      "opposition_against_us": "反对",
+      "opposition_by_us": "反对",
+      "revocation": "注销"
     },
     "removeClass": "删除班级",
     "sameApplicant": "申请人信息与客户信息一致",
@@ -1022,16 +1198,138 @@
       "markName": "商标名称",
       "registeredAddress": "注册地址",
       "searchDocs": "附上搜索文件",
-      "trademark": "商标信息"
+      "trademark": "商标信息",
+      "againstApplication": "Against a trademark application",
+      "againstBrand": "Against a trademark",
+      "applicantUser": "Applicant / User",
+      "application": "Application",
+      "attachments": "Attachments",
+      "additionalInfo": "Additional information",
+      "basicInfo": "Basic information",
+      "basisMarks": "Marks on which the opposition is based",
+      "claims": "Claims",
+      "classification": "Classification",
+      "designer": "Designer",
+      "inventor": "Inventor",
+      "instructingClient": "Instructing client",
+      "ipc": "IPC",
+      "filing": "Filing and registration",
+      "geographicalIndication": "Geographical indication information",
+      "spcBasic": "Basic information SPC",
+      "caseData": "Case data",
+      "caseRights": "Rights on which the case is based",
+      "expertise": "Expertise",
+      "lawyers": "Lawyers / Legal advisers",
+      "caseParties": {
+        "plaintiff": "Plaintiffs / Appellants",
+        "defendant": "Defendants",
+        "interested": "Interested parties"
+      },
+      "grounds": "Grounds",
+      "foundation": "Foundation",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "owner": "Owner",
+      "representative": "Representative",
+      "representatives": "Representatives",
+      "specimen": "Specimen",
+      "vienna": "Vienna classification classes"
     },
     "selectCountries": "选择国家",
-    "subtypeHint": "首先选择商标子类别。 新商标从客户演示中打开完整表格。",
+    "subtypeHint": "请先选择子类别。新品牌将打开完整表单。",
     "territories": {
       "eu": "欧洲联盟",
       "international": "国际（WO）",
       "national": "国家的"
     },
-    "trademarkTitle": "创建文件 — 商标"
+    "trademarkTitle": "创建文件 — 商标",
+    "addClaim": "Add claim",
+    "addIpc": "Add IPC class",
+    "addBasisMark": "Add basis mark",
+    "basisMark": "Basis mark {{number}}",
+    "addAdditionalApplicant": "Add additional applicant",
+    "addAdditionalOwner": "Add additional owner",
+    "additionalApplicant": "Applicant {{number}}",
+    "additionalOwner": "Owner {{number}}",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "kinds": {
+      "newPatent": "New patent",
+      "registeredPatent": "Registered patent",
+      "registeredDesign": "Registered design",
+      "utilityModel": "Utility models",
+      "registeredGi": "Registered GI",
+      "spc": "SPC",
+      "case": "Case"
+    },
+    "comingSoonTitle": "Create file: {{kind}}",
+    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
+    "patentTitle": "Create file — Patent",
+    "patentSubtypeHint": "First choose the patent subcategory.",
+    "patentFormTitle": "Create file: Patent",
+    "designFormTitle": "Create file: Design",
+    "utilityModelFormTitle": "Create file: Utility model",
+    "giFormTitle": "Create file: Geographical indication",
+    "spcFormTitle": "Create file: SPC",
+    "caseFormTitle": "Create file: Case",
+    "addParty": "Add party",
+    "caseClientRoles": {
+      "plaintiff": "Plaintiff / Appellant",
+      "defendant": "Defendant",
+      "interested": "Interested party"
+    },
+    "giKinds": {
+      "designation_of_origin": "Designation of origin",
+      "geographical_indication": "Geographical indication"
+    },
+    "giTerritories": {
+      "national": "National",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "National",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Choose a procedure",
+    "chooseCountry": "Select country",
+    "patentFilingRoutes": {
+      "national": "National",
+      "european": "EP",
+      "ep_validation": "EP-Validation",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia and Herzegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "North Macedonia",
+      "MD": "Moldavia",
+      "ME": "Montenegro",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Turkey"
+    },
+    "patentHints": {
+      "new": "New patent application — full create form",
+      "registered": "Existing registered patent — full create form"
+    },
+    "removeClaim": "Remove claim",
+    "removeIpc": "Remove IPC class",
+    "removeApplicant": "Remove applicant",
+    "removeBasisMark": "Remove basis mark",
+    "sameDesigner": "Designer information is the same as the client",
+    "sameInventor": "Inventor information is the same as the client",
+    "sideUs": "Our side — opposition",
+    "sideThem": "Other party — opposed application",
+    "sideUsCancellation": "Our side — cancellation",
+    "sideThemCancellation": "Other party — owner",
+    "sideUsDeletion": "Our side — deletion"
   },
   "trademarkInfo": {
     "addCountry": "添加国家/地区...",
@@ -1170,6 +1468,79 @@
         "bulletin": "附上公告",
         "regFee": "附上付款证明",
         "certificate": "附上证书"
+      }
+    }
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Secondary Actions",
+      "editScope": "Edit Scope / Classes"
+    },
+    "kinds": {
+      "name_address_change": "Name & Address Change",
+      "transfer": "Trademark Transfer / Assignment",
+      "license": "License Agreement",
+      "pledge": "Special Pledge",
+      "injunction": "Interim Measure / Injunction",
+      "surrender": "Full Surrender / Disclaimer",
+      "limitation": "Application Limitation",
+      "insolvency": "Insolvency / Bankruptcy"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Opposition Settlement",
+      "office_action_response": "Office Action Response",
+      "voluntary_limitation": "Voluntary Limitation",
+      "correction_of_error": "Correction of Error",
+      "other": "Other"
+    },
+    "scope": {
+      "title": "Edit Classes & Scope",
+      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
+      "cardTitle": "Classes & goods/services",
+      "cardHint": "Active Nice classes on this trademark file.",
+      "empty": "No classes recorded yet.",
+      "classLabel": "Class {{n}}",
+      "noDescription": "No description",
+      "classes": "Class & goods editor",
+      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Office tracking ID",
+      "filingDate": "Filing date (ДАТА)",
+      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Select a reason…",
+      "legalBasisOther": "Other legal basis",
+      "attachment": "Supporting document",
+      "errors": {
+        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
+        "incomingRequired": "Enter the incoming reference number.",
+        "dateRequired": "Enter the filing date.",
+        "basisRequired": "Select a legal basis.",
+        "saveFailed": "Could not save the scope correction."
+      }
+    },
+    "secondary": {
+      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
+      "generateProforma": "Generate proforma invoice",
+      "governmentFee": "Government fee (€)",
+      "paymentDueDate": "Payment deadline",
+      "paymentReminder": "Remind before payment",
+      "filingDeadline": "Filing / action deadline",
+      "filingReminder": "Remind before filing",
+      "reminderUnit": "Unit",
+      "months": "Months before",
+      "days": "Days before",
+      "titles": {
+        "name_address_change": "Log Name & Address Change",
+        "transfer": "Log Trademark Transfer",
+        "license": "Log License Agreement",
+        "pledge": "Log Special Pledge",
+        "injunction": "Log Interim Measure / Injunction",
+        "surrender": "Log Full Surrender / Disclaimer",
+        "limitation": "Log Application Limitation",
+        "insolvency": "Log Insolvency / Bankruptcy"
+      },
+      "errors": {
+        "feeRequired": "Enter a government fee to generate a proforma invoice.",
+        "saveFailed": "Could not save this action."
       }
     }
   }

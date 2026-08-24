@@ -107,7 +107,8 @@
     "mattersArchived": "Архива",
     "mattersDrafts": "Нацрти",
     "createFile": "Создај датотека",
-    "createFileTrademark": "Трговска марка"
+    "createFileTrademark": "Трговска марка",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "Управен партнер",

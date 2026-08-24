@@ -25,8 +25,10 @@ import {
   MatterQueryDto,
   UpdateMatterDto,
 } from './dto/matter.dto';
+import { TrademarkActionDto } from './dto/trademark-action.dto';
 import { MATTERS_MODULE } from './matters.constants';
 import { MattersService } from './matters.service';
+import { TrademarkActionsService } from './trademark-actions.service';
 
 @Controller('matters')
 @RequirePermissions('matter:read')
@@ -35,6 +37,7 @@ export class MattersController {
   constructor(
     private readonly mattersService: MattersService,
     private readonly renewalsService: RenewalsService,
+    private readonly trademarkActionsService: TrademarkActionsService,
   ) {}
 
   @Post()
@@ -54,6 +57,12 @@ export class MattersController {
   shelfCounts(@Req() req: Request) {
     const user = req.user as AuthenticatedUser;
     return this.mattersService.shelfCounts(user);
+  }
+
+  @Get(':matterId/tab-counts')
+  tabCounts(@Param('matterId') matterId: string, @Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.tabCounts(matterId, user);
   }
 
   @Get(':matterId/deadlines')
@@ -84,6 +93,22 @@ export class MattersController {
   ) {
     const user = req.user as AuthenticatedUser;
     return this.mattersService.update(id, dto, user);
+  }
+
+  @Post(':id/trademark-actions')
+  @RequirePermissions('matter:update')
+  @Audit({
+    action: 'matter.trademarkAction',
+    resource: 'matter',
+    module: MATTERS_MODULE,
+  })
+  recordTrademarkAction(
+    @Param('id') id: string,
+    @Body() dto: TrademarkActionDto,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.trademarkActionsService.record(id, dto, user);
   }
 
   @Post(':id/archive')

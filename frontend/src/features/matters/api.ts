@@ -1,5 +1,9 @@
 import { apiClient } from '@/lib/api-client'
 import type {
+  TrademarkActionInput,
+  TrademarkActionResult,
+} from './trademark-actions'
+import type {
   CreateIpRightInput,
   CreateMatterInput,
   FileIpRightInput,
@@ -7,6 +11,7 @@ import type {
   MatterDetail,
   MatterFilters,
   MatterListResponse,
+  MatterTabCounts,
   UpdateMatterInput,
 } from './types'
 
@@ -25,6 +30,8 @@ export const mattersApi = {
   shelfCounts: () => apiClient.get<MatterShelfCounts>('/matters/shelf-counts'),
 
   get: (id: string) => apiClient.get<MatterDetail>(`/matters/${id}`),
+
+  tabCounts: (id: string) => apiClient.get<MatterTabCounts>(`/matters/${id}/tab-counts`),
 
   create: (data: CreateMatterInput) => apiClient.post<MatterDetail>('/matters', data),
 
@@ -45,4 +52,10 @@ export const mattersApi = {
 
   fileIpRight: (matterId: string, ipRightId: string, data: FileIpRightInput) =>
     apiClient.post<IpRight>(`/matters/${matterId}/ip-rights/${ipRightId}/file`, data),
+
+  recordTrademarkAction: (matterId: string, data: TrademarkActionInput) =>
+    apiClient.post<TrademarkActionResult>(
+      `/matters/${matterId}/trademark-actions`,
+      data,
+    ),
 }

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
-import { Check, Plus, Trash2 } from 'lucide-react'
+import { Check, Plus, StickyNote, Trash2 } from 'lucide-react'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { useAppAlert } from '@/components/feedback/AppAlertProvider'
 import { Drawer } from '@/components/crm/Drawer'
@@ -285,7 +285,10 @@ export function MatterTasksTab() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="font-medium">{t('tasks.title')}</h2>
+          <h2 className="flex items-center gap-2 font-medium">
+            <StickyNote className="size-4 text-muted-foreground" aria-hidden />
+            {t('tasks.title')}
+          </h2>
           <p className="text-sm text-muted-foreground">{t('tasks.description')}</p>
         </div>
         <PermissionGate resource="task" action="create">

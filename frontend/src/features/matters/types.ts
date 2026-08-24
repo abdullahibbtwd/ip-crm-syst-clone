@@ -67,6 +67,22 @@ export type MatterListItem = {
   upcomingDeadlineCount?: number
 }
 
+export type MatterTabCounts = {
+  documents: number
+  correspondence: number
+  correspondenceNew: number
+  deadlines: number
+  deadlinesOverdue: number
+  tasks: number
+  billing: number
+  ipRights: number
+  timeline: number
+  instructions: number
+  approvals: number
+  customs: number
+  secondaryActions: number
+}
+
 export type MatterDetail = MatterListItem & {
   filedBy: MatterUser | null
   attributes: { matterId: string; attributes: Record<string, unknown>; updatedAt: string } | null

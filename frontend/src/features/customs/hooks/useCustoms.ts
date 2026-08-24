@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { customsApi } from '../api'
 import { customsKeys } from '../queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import type {
   CreateCustodyLogInput,
   CreateCustomsApplicationInput,
@@ -40,6 +41,7 @@ export function useCreateCustomsSeizure(matterId: string) {
       customsApi.createSeizure(matterId, data),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: customsKeys.seizures(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }
@@ -81,6 +83,7 @@ export function useCreateCustomsApplication(matterId: string) {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: customsKeys.applications(matterId) })
       qc.invalidateQueries({ queryKey: customsKeys.seizures(matterId) })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
     },
   })
 }

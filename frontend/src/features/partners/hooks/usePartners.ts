@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { partnerInstructionsApi, partnersApi } from '../api'
 import { partnerInstructionsKeys, partnersKeys } from '../queryKeys'
+import { matterKeys } from '@/features/matters/queryKeys'
 import type {
   CreatePartnerInput,
   CreatePartnerInstructionInput,
@@ -61,10 +62,12 @@ export function useCreatePartnerInstruction(matterId: string) {
   return useMutation({
     mutationFn: (data: CreatePartnerInstructionInput) =>
       partnerInstructionsApi.create(matterId, data),
-    onSuccess: () =>
+    onSuccess: () => {
       qc.invalidateQueries({
         queryKey: [...partnerInstructionsKeys.all, 'matter', matterId],
-      }),
+      })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
+    },
   })
 }
 
@@ -78,9 +81,11 @@ export function useTransitionPartnerInstruction(matterId: string) {
       id: string
       status: PartnerInstructionStatus
     }) => partnerInstructionsApi.transition(matterId, id, { status }),
-    onSuccess: () =>
+    onSuccess: () => {
       qc.invalidateQueries({
         queryKey: [...partnerInstructionsKeys.all, 'matter', matterId],
-      }),
+      })
+      qc.invalidateQueries({ queryKey: matterKeys.tabCounts(matterId) })
+    },
   })
 }

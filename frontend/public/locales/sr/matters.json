@@ -44,6 +44,21 @@
       },
       "region": {
         "label": "Географски регион"
+      },
+      "giKind": {
+        "label": "Type"
+      },
+      "giName": {
+        "label": "Name of the geographical indication"
+      },
+      "giTerritory": {
+        "label": "Territory"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
       }
     },
     "industrial_design": {
@@ -56,6 +71,9 @@
       },
       "productDescription": {
         "label": "Опис производа"
+      },
+      "locarnoSubclass": {
+        "label": "Locarno subclass"
       }
     },
     "patent": {
@@ -70,6 +88,18 @@
       },
       "technicalField": {
         "label": "Техничка област"
+      },
+      "epApplicationNumber": {
+        "label": "EP application number"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Patent name"
+      },
+      "patentProcedure": {
+        "label": "Procedure"
       }
     },
     "trademark": {
@@ -108,6 +138,24 @@
       },
       "technicalField": {
         "label": "Техничка област"
+      },
+      "utilityModelName": {
+        "label": "Name"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Number of claims"
+      },
+      "applicationNumber": {
+        "label": "Application number"
+      },
+      "applicationDate": {
+        "label": "Application date"
+      },
+      "registrationNumber": {
+        "label": "Registration number"
       }
     },
     "valuation": {
@@ -160,6 +208,23 @@
     "other": {
       "workSummary": {
         "label": "Резиме рада"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Court"
+      },
+      "incomingNumber": {
+        "label": "Incoming number"
+      },
+      "claimGrounds": {
+        "label": "Grounds (type of claim)"
+      },
+      "claimValue": {
+        "label": "Claim value"
+      },
+      "expertiseType": {
+        "label": "Type of expertise"
       }
     }
   },
@@ -811,8 +876,9 @@
     "ipRights": "права интелектуалне својине",
     "customs": "Царина",
     "overview": "Преглед",
-    "tasks": "Задаци",
-    "timeline": "Временска линија"
+    "tasks": "Белешке",
+    "timeline": "Временска линија",
+    "countAria": "{{count}} on {{tab}}"
   },
   "approvals": {
     "title": "Одобрења клијената",
@@ -944,7 +1010,20 @@
       "jurisdiction": "Изаберите најмање једну територију/земљу.",
       "markWords": "Унесите назив/речи жига.",
       "saveFailed": "Није могуће сачувати нацрт датотеке.",
-      "subtype": "Изаберите подкатегорију жига."
+      "subtype": "Изаберите подкатегорију жига.",
+      "filingRoute": "Select a procedure.",
+      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
+      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
+      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
+      "patentName": "Enter the patent name.",
+      "designName": "Enter the design name.",
+      "utilityModelName": "Enter the utility model name.",
+      "giKind": "Select designation of origin or geographical indication.",
+      "territory": "Select a territory.",
+      "giName": "Enter the name of the geographical indication.",
+      "spcName": "Enter the SPC name.",
+      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
+      "patentSubtype": "Select a patent subcategory."
     },
     "euHint": "Жиг Европске уније (ЕУИПО) — јурисдикција постављена на ЕУ.",
     "fields": {
@@ -969,7 +1048,98 @@
       "phone": "Телефон",
       "postalCode": "Поштански број",
       "territory": "Територија",
-      "vat": "ПДВ ИД"
+      "vat": "ПДВ ИД",
+      "classes": "Classes",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "againstClasses": "Against classes",
+      "owner": "Owner",
+      "transliteration": "Transliteration",
+      "viennaNumber": "Number",
+      "applicationNumber": "Application number",
+      "applicationDate": "Date",
+      "conventionPriority": "Convention priority",
+      "exhibitionPriority": "Exhibition priority",
+      "transformationInternational": "Transformation of international registration",
+      "communityConversion": "Conversion of Community trademark",
+      "applicationBulletin": "Bulletin / publication of the application",
+      "grounds": "Grounds",
+      "specimen": "Specimen",
+      "registrationNumber": "Registration No.",
+      "registrationDate": "Date",
+      "registrationBulletin": "Bulletin / publication of the registration",
+      "certificate": "Attach certificate",
+      "attachDocument": "Attach document",
+      "representative": "Select",
+      "selectRepresentative": "Select representative",
+      "addMoreRepresentatives": "Add more representatives",
+      "claimNumber": "Number",
+      "claimText": "Claim",
+      "epApplicationNumber": "EP application number",
+      "epBulletinNumber": "EP bulletin number",
+      "applicationPublication": "Publication of the application",
+      "applicationPublicationDate": "Date",
+      "epRegistrationNumber": "EP registration number",
+      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
+      "epRegistrationBulletinDate": "Date",
+      "ipc": "IPC",
+      "patentName": "Name",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validation of European patent",
+      "powerOfAttorney": "Power of attorney",
+      "selectProcedure": "Select procedure",
+      "validationCountry": "Select country",
+      "priorityCountry": "Country of previous application",
+      "priorityFromDate": "From Date",
+      "priorityApplicationNumber": "Application number",
+      "exhibitionFirstAppearance": "Date of first appearance",
+      "exhibitionName": "Exhibition name",
+      "bulletinNumber": "Bulletin number",
+      "patentRegistrationNumber": "Registration number",
+      "validationNumber": "Number",
+      "validationFilingDate": "Filing date",
+      "validationPriorityDate": "Priority date",
+      "addImage": "Add image",
+      "addCountry": "Add country",
+      "removeImage": "Remove image",
+      "image": "Image",
+      "designName": "Name",
+      "locarnoClass": "Class",
+      "locarnoSubclass": "Subclass",
+      "classificationText": "Classification",
+      "utilityModelName": "Name",
+      "conversionFromPatent": "Conversion from patent to application",
+      "conversionInvention": "Invention",
+      "conversionRequestNumber": "Request No.",
+      "conversionApplicationDate": "Application date",
+      "conversionPriorityDate": "Priority date",
+      "giKind": "Type",
+      "giName": "Name of the geographical indication",
+      "spcName": "Name",
+      "medicinalProduct": "Medicinal product",
+      "basicPatentNumber": "Patent No.",
+      "effectStartDate": "Start of effect",
+      "effectEndDate": "End date",
+      "firstAuthorization": "First authorization",
+      "theClientIs": "The client is",
+      "court": "Court",
+      "authority": "Authority",
+      "panel": "Panel",
+      "division": "Division",
+      "incomingNumber": "Incoming number",
+      "claimGrounds": "Grounds (type of claim)",
+      "claimValue": "Claim value",
+      "other": "Other",
+      "rightObject": "Object",
+      "selectObject": "Select object…",
+      "rightName": "Name",
+      "rightApplicationDate": "Application date",
+      "rightScope": "Scope",
+      "expertiseType": "Type of expertise",
+      "experts": "Experts",
+      "expertiseQuestions": "Questions on which expertise was admitted"
     },
     "formTitle": "Креирајте датотеку: жиг",
     "fullFormReady": "Доступан пун образац",
@@ -992,20 +1162,26 @@
     "partialSubtypeNote": "Потпуна специјализована поља за ову поткатегорију ће бити проширена касније. Још увек можете да сачувате нацрт повезану са клијентом; документи и преписка остају у спису.",
     "preliminary": "Прелиминарне информације",
     "procedureHints": {
-      "cancellation": "Поступак отказивања — улоге можемо бити ми или они",
-      "new": "Нова пријава за жиг — пун образац за креирање",
-      "objection": "Уложили смо приговор",
-      "opposition_against_us": "Против нас је поднела приговор",
-      "opposition_by_us": "Опозиција коју подносимо",
-      "revocation": "Поступак опозива"
+      "new": "Пријава нове марке — пун образац",
+      "registered": "Већ регистровани жиг",
+      "objection": "Поступак приговора",
+      "opposition": "Поступак опозиције",
+      "cancellation": "Поступак поништења",
+      "deletion": "Поступак брисања",
+      "opposition_against_us": "Поступак опозиције",
+      "opposition_by_us": "Поступак опозиције",
+      "revocation": "Поступак брисања"
     },
     "procedures": {
-      "cancellation": "Отказивање",
-      "new": "Нови заштитни знак",
+      "new": "Нова марка",
+      "registered": "Регистровани жиг",
       "objection": "Приговор",
-      "opposition_against_us": "Опозиција против нас",
-      "opposition_by_us": "Наша опозиција",
-      "revocation": "Опозив"
+      "opposition": "Опозиција",
+      "cancellation": "Поништење",
+      "deletion": "Брисање",
+      "opposition_against_us": "Опозиција",
+      "opposition_by_us": "Опозиција",
+      "revocation": "Брисање"
     },
     "removeClass": "Уклони класу",
     "sameApplicant": "Подаци о подносиоцу захтева су исти као и о клијенту",
@@ -1022,16 +1198,138 @@
       "markName": "Назив жига",
       "registeredAddress": "Регистрована адреса",
       "searchDocs": "Приложите документе за претрагу",
-      "trademark": "Информације о жиговима"
+      "trademark": "Информације о жиговима",
+      "againstApplication": "Against a trademark application",
+      "againstBrand": "Against a trademark",
+      "applicantUser": "Applicant / User",
+      "application": "Application",
+      "attachments": "Attachments",
+      "additionalInfo": "Additional information",
+      "basicInfo": "Basic information",
+      "basisMarks": "Marks on which the opposition is based",
+      "claims": "Claims",
+      "classification": "Classification",
+      "designer": "Designer",
+      "inventor": "Inventor",
+      "instructingClient": "Instructing client",
+      "ipc": "IPC",
+      "filing": "Filing and registration",
+      "geographicalIndication": "Geographical indication information",
+      "spcBasic": "Basic information SPC",
+      "caseData": "Case data",
+      "caseRights": "Rights on which the case is based",
+      "expertise": "Expertise",
+      "lawyers": "Lawyers / Legal advisers",
+      "caseParties": {
+        "plaintiff": "Plaintiffs / Appellants",
+        "defendant": "Defendants",
+        "interested": "Interested parties"
+      },
+      "grounds": "Grounds",
+      "foundation": "Foundation",
+      "oppositionFiler": "Opposition filer",
+      "requester": "Requester",
+      "requestFiler": "Filer of the request",
+      "owner": "Owner",
+      "representative": "Representative",
+      "representatives": "Representatives",
+      "specimen": "Specimen",
+      "vienna": "Vienna classification classes"
     },
     "selectCountries": "Изаберите земље",
-    "subtypeHint": "Прво изаберите подкатегорију жига. Нови заштитни знак отвара пун образац из демо клијента.",
+    "subtypeHint": "Прво изаберите подкатегорију. Нова марка отвара пун образац.",
     "territories": {
       "eu": "Европска унија",
       "international": "међународни (ВО)",
       "national": "Натионал"
     },
-    "trademarkTitle": "Креирајте датотеку — Заштитни знак"
+    "trademarkTitle": "Креирајте датотеку — Заштитни знак",
+    "addClaim": "Add claim",
+    "addIpc": "Add IPC class",
+    "addBasisMark": "Add basis mark",
+    "basisMark": "Basis mark {{number}}",
+    "addAdditionalApplicant": "Add additional applicant",
+    "addAdditionalOwner": "Add additional owner",
+    "additionalApplicant": "Applicant {{number}}",
+    "additionalOwner": "Owner {{number}}",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "kinds": {
+      "newPatent": "New patent",
+      "registeredPatent": "Registered patent",
+      "registeredDesign": "Registered design",
+      "utilityModel": "Utility models",
+      "registeredGi": "Registered GI",
+      "spc": "SPC",
+      "case": "Case"
+    },
+    "comingSoonTitle": "Create file: {{kind}}",
+    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
+    "patentTitle": "Create file — Patent",
+    "patentSubtypeHint": "First choose the patent subcategory.",
+    "patentFormTitle": "Create file: Patent",
+    "designFormTitle": "Create file: Design",
+    "utilityModelFormTitle": "Create file: Utility model",
+    "giFormTitle": "Create file: Geographical indication",
+    "spcFormTitle": "Create file: SPC",
+    "caseFormTitle": "Create file: Case",
+    "addParty": "Add party",
+    "caseClientRoles": {
+      "plaintiff": "Plaintiff / Appellant",
+      "defendant": "Defendant",
+      "interested": "Interested party"
+    },
+    "giKinds": {
+      "designation_of_origin": "Designation of origin",
+      "geographical_indication": "Geographical indication"
+    },
+    "giTerritories": {
+      "national": "National",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "National",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Choose a procedure",
+    "chooseCountry": "Select country",
+    "patentFilingRoutes": {
+      "national": "National",
+      "european": "EP",
+      "ep_validation": "EP-Validation",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia and Herzegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "North Macedonia",
+      "MD": "Moldavia",
+      "ME": "Montenegro",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Turkey"
+    },
+    "patentHints": {
+      "new": "New patent application — full create form",
+      "registered": "Existing registered patent — full create form"
+    },
+    "removeClaim": "Remove claim",
+    "removeIpc": "Remove IPC class",
+    "removeApplicant": "Remove applicant",
+    "removeBasisMark": "Remove basis mark",
+    "sameDesigner": "Designer information is the same as the client",
+    "sameInventor": "Inventor information is the same as the client",
+    "sideUs": "Our side — opposition",
+    "sideThem": "Other party — opposed application",
+    "sideUsCancellation": "Our side — cancellation",
+    "sideThemCancellation": "Other party — owner",
+    "sideUsDeletion": "Our side — deletion"
   },
   "trademarkInfo": {
     "addCountry": "Додај земљу…",
@@ -1170,6 +1468,79 @@
         "bulletin": "Приложите билтен",
         "regFee": "Приложите доказ о уплати",
         "certificate": "Приложите сертификат"
+      }
+    }
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Secondary Actions",
+      "editScope": "Edit Scope / Classes"
+    },
+    "kinds": {
+      "name_address_change": "Name & Address Change",
+      "transfer": "Trademark Transfer / Assignment",
+      "license": "License Agreement",
+      "pledge": "Special Pledge",
+      "injunction": "Interim Measure / Injunction",
+      "surrender": "Full Surrender / Disclaimer",
+      "limitation": "Application Limitation",
+      "insolvency": "Insolvency / Bankruptcy"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Opposition Settlement",
+      "office_action_response": "Office Action Response",
+      "voluntary_limitation": "Voluntary Limitation",
+      "correction_of_error": "Correction of Error",
+      "other": "Other"
+    },
+    "scope": {
+      "title": "Edit Classes & Scope",
+      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
+      "cardTitle": "Classes & goods/services",
+      "cardHint": "Active Nice classes on this trademark file.",
+      "empty": "No classes recorded yet.",
+      "classLabel": "Class {{n}}",
+      "noDescription": "No description",
+      "classes": "Class & goods editor",
+      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Office tracking ID",
+      "filingDate": "Filing date (ДАТА)",
+      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Select a reason…",
+      "legalBasisOther": "Other legal basis",
+      "attachment": "Supporting document",
+      "errors": {
+        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
+        "incomingRequired": "Enter the incoming reference number.",
+        "dateRequired": "Enter the filing date.",
+        "basisRequired": "Select a legal basis.",
+        "saveFailed": "Could not save the scope correction."
+      }
+    },
+    "secondary": {
+      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
+      "generateProforma": "Generate proforma invoice",
+      "governmentFee": "Government fee (€)",
+      "paymentDueDate": "Payment deadline",
+      "paymentReminder": "Remind before payment",
+      "filingDeadline": "Filing / action deadline",
+      "filingReminder": "Remind before filing",
+      "reminderUnit": "Unit",
+      "months": "Months before",
+      "days": "Days before",
+      "titles": {
+        "name_address_change": "Log Name & Address Change",
+        "transfer": "Log Trademark Transfer",
+        "license": "Log License Agreement",
+        "pledge": "Log Special Pledge",
+        "injunction": "Log Interim Measure / Injunction",
+        "surrender": "Log Full Surrender / Disclaimer",
+        "limitation": "Log Application Limitation",
+        "insolvency": "Log Insolvency / Bankruptcy"
+      },
+      "errors": {
+        "feeRequired": "Enter a government fee to generate a proforma invoice.",
+        "saveFailed": "Could not save this action."
       }
     }
   }

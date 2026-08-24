@@ -107,7 +107,8 @@
     "mattersArchived": "Արխիվ",
     "mattersDrafts": "Սևագրեր",
     "createFile": "Ստեղծել ֆայլ",
-    "createFileTrademark": "Ապրանքանիշ"
+    "createFileTrademark": "Ապրանքանիշ",
+    "createFilePatent": "Patent"
   },
   "roles": {
     "managing_partner": "Կառավարող գործընկեր",
