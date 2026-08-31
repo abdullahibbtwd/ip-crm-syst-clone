@@ -5,12 +5,13 @@ import { InvoicesModule } from '../invoices/invoices.module';
 import { RenewalsModule } from '../renewals/renewals.module';
 import { MattersController } from './matters.controller';
 import { MattersService } from './matters.service';
+import { OppositionPdfService } from './opposition-pdf.service';
 import { TrademarkActionsService } from './trademark-actions.service';
 
 @Module({
   imports: [DeadlinesModule, RenewalsModule, BillingModule, InvoicesModule],
   controllers: [MattersController],
-  providers: [MattersService, TrademarkActionsService],
+  providers: [MattersService, TrademarkActionsService, OppositionPdfService],
   exports: [MattersService],
 })
 export class MattersModule {}

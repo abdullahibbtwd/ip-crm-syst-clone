@@ -141,10 +141,24 @@ function matterShelfCountForPath(
   if (params.get('archived') === '1') return counts.archived
   if (params.get('drafts') === '1') return counts.drafts
   if (params.get('group') === 'others') return counts.others
+
+  const trademarkProcedure = params.get('trademarkProcedure')
+  if (params.get('matterType') === 'trademark') {
+    if (trademarkProcedure) {
+      return counts.trademarkByProcedure?.[trademarkProcedure] ?? 0
+    }
+    return counts.trademarkByProcedure?.marks ?? counts.byType.trademark ?? 0
+  }
+
   const matterType = params.get('matterType')
   if (matterType) return counts.byType[matterType] ?? 0
   if (!search) return counts.all
   return null
+}
+
+function navTreeHasActiveItem(item: NavItem, activeNavId: string): boolean {
+  if (navId(item) === activeNavId) return true
+  return item.children?.some((child) => navTreeHasActiveItem(child, activeNavId)) ?? false
 }
 
 function useNavLabel(item: Pick<NavItem, 'labelKey' | 'labelNs'>) {
@@ -295,6 +309,49 @@ function SidebarLink({
   )
 }
 
+function FlyoutNavSection({
+  item,
+  external,
+  activeNavId,
+  onNavigate,
+  onClose,
+  badgeForItem,
+  shelfCounts,
+}: {
+  item: NavItem
+  external?: boolean
+  activeNavId: string
+  onNavigate: (id: string, path?: string) => void
+  onClose: () => void
+  badgeForItem: (item: NavItem) => number
+  shelfCounts?: MatterShelfCounts
+}) {
+  const label = useNavLabel(item)
+  return (
+    <div className="space-y-0.5">
+      <p className="px-2.5 pt-2 pb-0.5 text-[10px] font-bold tracking-widest text-white/45 uppercase">
+        {label}
+      </p>
+      {(item.children ?? []).map((sub) => (
+        <SidebarLink
+          key={navId(sub)}
+          item={sub}
+          external={external}
+          collapsed={false}
+          nested
+          isActive={navId(sub) === activeNavId}
+          onNavigate={(id, path) => {
+            onClose()
+            onNavigate(id, path)
+          }}
+          badge={badgeForItem(sub)}
+          totalCount={matterShelfCountForPath(sub.path, shelfCounts)}
+        />
+      ))}
+    </div>
+  )
+}
+
 function NavGroup({
   item,
   external,
@@ -303,6 +360,7 @@ function NavGroup({
   onNavigate,
   badgeForItem,
   shelfCounts,
+  nested = false,
 }: {
   item: NavItem
   external?: boolean
@@ -311,23 +369,92 @@ function NavGroup({
   onNavigate: (id: string, path?: string) => void
   badgeForItem: (item: NavItem) => number
   shelfCounts?: MatterShelfCounts
+  nested?: boolean
 }) {
   const theme = THEMES[external ? 'external' : 'internal']
   const label = useNavLabel(item)
   const children = item.children ?? []
-  const childActive = children.some((child) => navId(child) === activeNavId)
+  const childActive = navTreeHasActiveItem(item, activeNavId)
   const [open, setOpen] = useState(childActive)
   const [flyoutOpen, setFlyoutOpen] = useState(false)
   const panelId = useId()
   const flyoutRef = useRef<HTMLDivElement>(null)
   const Icon = item.icon
-  // Only the Files shelf group shows the portfolio total — not Create file etc.
-  const parentTotal = children.some((child) => {
-    const pathname = child.path?.split('?')[0]
-    return pathname === '/matters'
-  })
-    ? (shelfCounts?.all ?? null)
-    : null
+  const parentTotal =
+    navId(item) === 'matters-trademark-group'
+      ? (shelfCounts?.byType.trademark ?? null)
+      : children.some((child) => {
+            const pathname = child.path?.split('?')[0]
+            return pathname === '/matters'
+          })
+        ? (shelfCounts?.all ?? null)
+        : null
+
+  const renderChild = (child: NavItem) => {
+    if (child.children?.length) {
+      return (
+        <NavGroup
+          key={navId(child)}
+          item={child}
+          external={external}
+          collapsed={false}
+          nested
+          activeNavId={activeNavId}
+          onNavigate={onNavigate}
+          badgeForItem={badgeForItem}
+          shelfCounts={shelfCounts}
+        />
+      )
+    }
+
+    return (
+      <SidebarLink
+        key={navId(child)}
+        item={child}
+        external={external}
+        collapsed={false}
+        nested
+        isActive={navId(child) === activeNavId}
+        onNavigate={onNavigate}
+        badge={badgeForItem(child)}
+        totalCount={matterShelfCountForPath(child.path, shelfCounts)}
+      />
+    )
+  }
+
+  const renderFlyoutChild = (child: NavItem) => {
+    if (child.children?.length) {
+      return (
+        <FlyoutNavSection
+          key={navId(child)}
+          item={child}
+          external={external}
+          activeNavId={activeNavId}
+          onNavigate={onNavigate}
+          onClose={() => setFlyoutOpen(false)}
+          badgeForItem={badgeForItem}
+          shelfCounts={shelfCounts}
+        />
+      )
+    }
+
+    return (
+      <SidebarLink
+        key={navId(child)}
+        item={child}
+        external={external}
+        collapsed={false}
+        nested
+        isActive={navId(child) === activeNavId}
+        onNavigate={(id, path) => {
+          setFlyoutOpen(false)
+          onNavigate(id, path)
+        }}
+        badge={badgeForItem(child)}
+        totalCount={matterShelfCountForPath(child.path, shelfCounts)}
+      />
+    )
+  }
 
   useEffect(() => {
     if (childActive) setOpen(true)
@@ -405,22 +532,7 @@ function NavGroup({
               {label}
             </p>
             <div className="space-y-0.5">
-              {children.map((child) => (
-                <SidebarLink
-                  key={navId(child)}
-                  item={child}
-                  external={external}
-                  collapsed={false}
-                  nested
-                  isActive={navId(child) === activeNavId}
-                  onNavigate={(id, path) => {
-                    setFlyoutOpen(false)
-                    onNavigate(id, path)
-                  }}
-                  badge={badgeForItem(child)}
-                  totalCount={matterShelfCountForPath(child.path, shelfCounts)}
-                />
-              ))}
+              {children.map((child) => renderFlyoutChild(child))}
             </div>
           </div>
         ) : null}
@@ -429,15 +541,16 @@ function NavGroup({
   }
 
   return (
-    <div className="space-y-1">
+    <div className={cn('space-y-1', nested && 'pt-0.5')}>
       <button
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          'group relative flex h-10 w-full items-center gap-2.5 overflow-hidden rounded-xl px-3 text-[13px]',
+          'group relative flex w-full items-center gap-2.5 overflow-hidden rounded-xl text-[13px]',
           'text-white/75 transition-all duration-400 ease-out',
+          nested ? 'h-8 px-2.5 text-[12.5px]' : 'h-10 px-3',
           childActive
             ? 'bg-white/[0.07] font-semibold text-white'
             : 'hover:bg-white/5 hover:text-white',
@@ -445,7 +558,8 @@ function NavGroup({
       >
         <Icon
           className={cn(
-            'size-4 shrink-0 transition-all duration-400',
+            'shrink-0 transition-all duration-400',
+            nested ? 'size-3.5' : 'size-4',
             childActive ? cn('opacity-100', theme.iconActive) : 'opacity-70 group-hover:opacity-100',
           )}
           aria-hidden
@@ -471,26 +585,15 @@ function NavGroup({
         <div className="overflow-hidden">
           <div
             className={cn(
-              'relative ml-3 space-y-0.5 border-l border-white/10 py-1 pl-2.5',
+              'relative space-y-0.5 border-l border-white/10 py-1',
+              nested ? 'ml-2 pl-2' : 'ml-3 pl-2.5',
               'before:absolute before:inset-y-1 before:left-0 before:w-px',
               external
                 ? 'before:bg-gradient-to-b before:from-emerald-400/40 before:via-white/10 before:to-transparent'
                 : 'before:bg-gradient-to-b before:from-primary/50 before:via-white/10 before:to-transparent',
             )}
           >
-            {children.map((child) => (
-              <SidebarLink
-                key={navId(child)}
-                item={child}
-                external={external}
-                collapsed={false}
-                nested
-                isActive={navId(child) === activeNavId}
-                onNavigate={onNavigate}
-                badge={badgeForItem(child)}
-                totalCount={matterShelfCountForPath(child.path, shelfCounts)}
-              />
-            ))}
+            {children.map((child) => renderChild(child))}
           </div>
         </div>
       </div>

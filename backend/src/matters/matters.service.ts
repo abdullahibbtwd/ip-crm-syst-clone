@@ -13,6 +13,7 @@ import {
   IpRightStatus,
   MatterJurisdictionStatus,
   MatterStatus,
+  MatterType,
   MatterTimelineEventType,
   PartnerInstructionStatus,
   PaymentStatus,
@@ -45,6 +46,15 @@ import {
   filingTimelineTitle,
 } from './ip-right-filing.utils';
 import { countSecondaryTrademarkActions } from './trademark-action.utils';
+import { extractTrademarkListSummary } from './trademark-list-summary.utils';
+import {
+  normalizeTrademarkProcedureShelfKey,
+  readTrademarkProcedureFromAttributes,
+  trademarkProcedureFilter,
+} from './trademark-procedure-filter.utils';
+import { trademarkListFilterWhere } from './trademark-list-filter.utils';
+import { OppositionPdfService } from './opposition-pdf.service';
+import type { OppositionPdfLang } from './opposition-pdf.utils';
 
 const userSelect = { id: true, fullName: true, email: true } as const;
 
@@ -79,6 +89,21 @@ const matterListInclude = {
   },
 } satisfies Prisma.MatterInclude;
 
+const trademarkListInclude = {
+  ...matterListInclude,
+  attributes: { select: { attributes: true } },
+  ipRights: {
+    orderBy: { createdAt: 'asc' as const },
+    take: 1,
+    select: {
+      applicationNumber: true,
+      registrationNumber: true,
+      filingDate: true,
+      registrationDate: true,
+    },
+  },
+} satisfies Prisma.MatterInclude;
+
 const matterDetailInclude = {
   ...matterListInclude,
   filedBy: { select: userSelect },
@@ -107,6 +132,7 @@ export class MattersService {
     private readonly prisma: PrismaService,
     private readonly deadlinesService: DeadlinesService,
     private readonly portalAccess: PortalAccessService,
+    private readonly oppositionPdf: OppositionPdfService,
   ) {}
 
   async create(dto: CreateMatterDto, userId: string) {
@@ -246,11 +272,14 @@ export class MattersService {
     let statusFilter: Prisma.MatterWhereInput['status'] = query.status;
     if (query.draftsOnly) {
       statusFilter = MatterStatus.draft;
-    } else if (!query.status && query.excludeDrafts) {
+    } else if (query.status) {
+      statusFilter = query.status;
+    } else {
+      // Draft create-files stay on the Drafts shelf until partner approval (status → active).
       statusFilter = { not: MatterStatus.draft };
     }
 
-    const where: Prisma.MatterWhereInput = {
+    const baseWhere: Prisma.MatterWhereInput = {
       clientId: scopeClientId ?? query.clientId,
       status: statusFilter,
       matterType: query.matterType
@@ -260,6 +289,9 @@ export class MattersService {
           : undefined,
       assignedToId: query.assignedToId,
       isArchived: query.archivedOnly === true,
+      ...(query.trademarkProcedure
+        ? trademarkProcedureFilter(query.trademarkProcedure)
+        : {}),
       ...(search
         ? {
             OR: [
@@ -287,6 +319,18 @@ export class MattersService {
         : {}),
     };
 
+    const isTrademarkList =
+      query.matterType === MatterType.trademark ||
+      Boolean(query.trademarkProcedure);
+
+    const trademarkPortfolioFilter = isTrademarkList
+      ? trademarkListFilterWhere(query)
+      : undefined;
+
+    const where: Prisma.MatterWhereInput = trademarkPortfolioFilter
+      ? { AND: [baseWhere, trademarkPortfolioFilter] }
+      : baseWhere;
+
     const [total, rows] = await this.prisma.$transaction([
       this.prisma.matter.count({ where }),
       this.prisma.matter.findMany({
@@ -294,21 +338,83 @@ export class MattersService {
         orderBy: { createdAt: 'desc' },
         skip,
         take: limit,
-        include: matterListInclude,
+        include: isTrademarkList ? trademarkListInclude : matterListInclude,
       }),
     ]);
 
     const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
 
-    const upcomingCounts = await this.deadlinesService.countUpcomingByMatterIds(
-      rows.map((m) => m.id),
-    );
+    const matterIds = rows.map((m) => m.id);
+
+    const [upcomingCounts, openDeadlineSummaries, documentCounts] =
+      await Promise.all([
+      this.deadlinesService.countUpcomingByMatterIds(matterIds),
+      isTrademarkList
+        ? this.deadlinesService.summarizeOpenByMatterIds(matterIds)
+        : Promise.resolve(new Map()),
+      isTrademarkList && matterIds.length > 0
+        ? this.prisma.matterDocument.groupBy({
+            by: ['matterId'],
+            where: { matterId: { in: matterIds } },
+            _count: { _all: true },
+          })
+        : Promise.resolve([]),
+    ]);
+
+    const documentCountByMatterId = new Map<string, number>();
+    for (const row of documentCounts) {
+      documentCountByMatterId.set(row.matterId, row._count._all);
+    }
 
     return {
-      items: rows.map((m) => ({
-        ...m,
-        upcomingDeadlineCount: upcomingCounts.get(m.id) ?? 0,
-      })),
+      items: rows.map((m) => {
+        const deadlineSummary = openDeadlineSummaries.get(m.id);
+        const base = {
+          ...m,
+          upcomingDeadlineCount: upcomingCounts.get(m.id) ?? 0,
+          openDeadlineCount: deadlineSummary?.openCount ?? 0,
+          overdueDeadlineCount: deadlineSummary?.overdueCount ?? 0,
+          nextDeadlineDueDate: deadlineSummary?.nextDueDate ?? null,
+        };
+
+        if (!isTrademarkList) {
+          const { attributes: _a, ipRights: _i, ...rest } = base as typeof base & {
+            attributes?: unknown
+            ipRights?: unknown
+          };
+          return rest;
+        }
+
+        const row = m as typeof m & {
+          attributes: { attributes: unknown } | null
+          ipRights: Array<{
+            applicationNumber: string | null
+            registrationNumber: string | null
+            filingDate: Date | null
+            registrationDate: Date | null
+          }>
+        };
+
+        const trademarkSummary = extractTrademarkListSummary(
+          row.attributes?.attributes ?? null,
+          row.ipRights[0] ?? null,
+        );
+
+        const {
+          attributes: _attributes,
+          ipRights: _ipRights,
+          ...matterFields
+        } = base as typeof base & {
+          attributes?: unknown
+          ipRights?: unknown
+        };
+
+        return {
+          ...matterFields,
+          trademarkSummary,
+          documentCount: documentCountByMatterId.get(m.id) ?? 0,
+        };
+      }),
       total,
       page,
       limit,
@@ -341,7 +447,8 @@ export class MattersService {
       status: { not: MatterStatus.draft },
     };
 
-    const [byTypeRows, all, archived, drafts] = await Promise.all([
+    const [byTypeRows, all, archived, drafts, trademarkAttrs] =
+      await Promise.all([
       this.prisma.matter.groupBy({
         by: ['matterType'],
         where: activeScope,
@@ -360,7 +467,22 @@ export class MattersService {
           status: MatterStatus.draft,
         },
       }),
+      this.prisma.matter.findMany({
+        where: { ...activeScope, matterType: MatterType.trademark },
+        select: { attributes: { select: { attributes: true } } },
+      }),
     ]);
+
+    const trademarkByProcedure: Record<string, number> = {};
+    for (const row of trademarkAttrs) {
+      const stored = readTrademarkProcedureFromAttributes(
+        row.attributes?.attributes,
+      );
+      const key = normalizeTrademarkProcedureShelfKey(stored) ?? 'unknown';
+      trademarkByProcedure[key] = (trademarkByProcedure[key] ?? 0) + 1;
+    }
+    trademarkByProcedure.marks =
+      (trademarkByProcedure.new ?? 0) + (trademarkByProcedure.registered ?? 0);
 
     const byType: Record<string, number> = {};
     let others = 0;
@@ -371,7 +493,7 @@ export class MattersService {
       }
     }
 
-    return { all, archived, others, drafts, byType };
+    return { all, archived, others, drafts, byType, trademarkByProcedure };
   }
 
   async listDeadlines(matterId: string, user: AuthenticatedUser) {
@@ -484,6 +606,16 @@ export class MattersService {
     });
     if (!matter) throw new NotFoundException('Matter not found');
     return matter;
+  }
+
+  async getOppositionPdfDownload(
+    id: string,
+    user: AuthenticatedUser,
+    lang?: string,
+  ) {
+    const matter = await this.findOne(id, user);
+    const resolvedLang: OppositionPdfLang = lang === 'bg' ? 'bg' : 'en';
+    return this.oppositionPdf.generateDownload(matter, resolvedLang);
   }
 
   async update(id: string, dto: UpdateMatterDto, user: AuthenticatedUser) {

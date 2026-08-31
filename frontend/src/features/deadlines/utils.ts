@@ -61,6 +61,17 @@ export function deadlineUrgency(
   return 'ok'
 }
 
+export function isDeadlineOpen(status: DeadlineStatus): boolean {
+  return status !== 'completed' && status !== 'superseded'
+}
+
+/** Matter tab: all open deadlines use strong red styling regardless of due date. */
+export const MATTER_OPEN_DEADLINE_ROW_CLASS =
+  'border-l-4 border-l-destructive bg-destructive/[0.07]'
+
+export const MATTER_CLOSED_DEADLINE_ROW_CLASS =
+  'border-l-4 border-l-muted opacity-65'
+
 export const URGENCY_ROW_CLASS: Record<DeadlineUrgency, string> = {
   overdue: 'border-l-2 border-l-destructive bg-destructive/5',
   today: 'border-l-2 border-l-primary bg-primary/10 ring-1 ring-primary/15',

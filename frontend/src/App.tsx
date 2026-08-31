@@ -65,6 +65,12 @@ import { MatterInstructionsTab } from './pages/matters/tabs/MatterInstructionsTa
 import { MatterApprovalsTab } from './pages/matters/tabs/MatterApprovalsTab'
 import { MatterCustomsTab } from './pages/matters/tabs/MatterCustomsTab'
 import { MatterSecondaryActionsTab } from './pages/matters/tabs/MatterSecondaryActionsTab'
+import { CancellationArchiveTab } from './pages/matters/tabs/CancellationArchiveTab'
+import { CancellationNotesTab } from './pages/matters/tabs/CancellationNotesTab'
+import { DeletionArchiveTab } from './pages/matters/tabs/DeletionArchiveTab'
+import { ObjectionArchiveTab } from './pages/matters/tabs/ObjectionArchiveTab'
+import { OppositionArchiveTab } from './pages/matters/tabs/OppositionArchiveTab'
+import { OppositionNotesTab } from './pages/matters/tabs/OppositionNotesTab'
 import { PartnersListPage } from './pages/partners/PartnersListPage'
 import { MyDeadlinesPage } from './pages/deadlines/MyDeadlinesPage'
 import { AllDeadlinesPage } from './pages/deadlines/AllDeadlinesPage'
@@ -205,6 +211,12 @@ export default function App() {
           <Route path="/matters/:id" element={<MatterLayout />}>
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<MatterOverviewTab />} />
+            <Route path="objection-archive" element={<ObjectionArchiveTab />} />
+            <Route path="cancellation-archive" element={<CancellationArchiveTab />} />
+            <Route path="cancellation-notes" element={<CancellationNotesTab />} />
+            <Route path="deletion-archive" element={<DeletionArchiveTab />} />
+            <Route path="opposition-archive" element={<OppositionArchiveTab />} />
+            <Route path="opposition-notes" element={<OppositionNotesTab />} />
             <Route path="timeline" element={<MatterTimelineTab />} />
             <Route path="documents" element={<MatterDocumentsTab />} />
             <Route path="correspondence" element={<MatterCorrespondenceTab />} />

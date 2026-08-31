@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import { useMemo } from 'react'
 import { Link, Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Archive, ArchiveRestore } from 'lucide-react'
 import { MatterTabNav } from '@/components/matters/MatterTabNav'
+import {
+  Eye,
+  Folder,
+  NotebookPen,
+  TrademarkProcedureMatterNav,
+} from '@/components/matters/TrademarkProcedureMatterNav'
 import { MatterStatusBadge } from '@/components/matters/MatterStatusBadge'
 import { EditScopeDrawer } from '@/components/matters/EditScopeDrawer'
 import { SecondaryActionsMenu } from '@/components/matters/SecondaryActionsMenu'
@@ -14,15 +20,38 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import {
   useArchiveMatter,
   useMatter,
+  useMatterTabCounts,
   useRestoreMatter,
 } from '@/features/matters/hooks/useMatters'
 import type { TrademarkSecondaryAction } from '@/features/matters/trademark-actions'
+import { readOppositionFields } from '@/features/matters/opposition-matter'
+import {
+  cancellationHeaderParams,
+  cancellationStageConfig,
+} from '@/features/matters/cancellation-workflow'
+import { readDeletionFields } from '@/features/matters/deletion-matter'
+import {
+  deletionHeaderParams,
+  deletionStageConfig,
+} from '@/features/matters/deletion-workflow'
+import { readCancellationFields } from '@/features/matters/cancellation-matter'
+import {
+  oppositionHeaderParams,
+  oppositionStageConfig,
+} from '@/features/matters/opposition-workflow'
 import { matterTypeLabel } from '@/features/matters/utils'
+import {
+  procedureListUrl,
+  procedurePageTitleKey,
+  procedureViewRoutes,
+  trademarkProcedureView,
+} from '@/features/matters/trademark-procedure-matter'
 import { clientDisplayName } from '@/features/crm/utils'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { getMatterTabFromPath, isPortalMatterTab } from '@/config/matter-tabs'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
+import { useState } from 'react'
 
 export function MatterLayout() {
   const { t } = useTranslation(['matters', 'common'])
@@ -32,12 +61,96 @@ export function MatterLayout() {
   const { user } = useAuth()
   const isPortalClient = user?.roles.includes('portal_client') ?? false
   const { data: matter, isLoading, isError } = useMatter(id)
+  const { data: tabCounts } = useMatterTabCounts(id)
   const archiveMatter = useArchiveMatter(id)
   const restoreMatter = useRestoreMatter(id)
   const [actionError, setActionError] = useState<string | null>(null)
   const [scopeOpen, setScopeOpen] = useState(false)
   const [secondaryAction, setSecondaryAction] =
     useState<TrademarkSecondaryAction | null>(null)
+
+  const procedureView = matter ? trademarkProcedureView(matter) : null
+
+  const procedureNavTabs = useMemo(() => {
+    if (!procedureView || !matter) return []
+    const base = `/matters/${matter.id}`
+    if (procedureView === 'objection') {
+      return [
+        {
+          to: `${base}/overview`,
+          end: true,
+          label: t('objectionView.nav.view'),
+          icon: Eye,
+        },
+        {
+          to: `${base}/objection-archive`,
+          label: t('objectionView.nav.archive'),
+          icon: Folder,
+          badge: tabCounts?.documents ?? 0,
+        },
+      ]
+    }
+    if (procedureView === 'cancellation') {
+      const notesCount = readCancellationFields(matter).notes.length
+      return [
+        {
+          to: `${base}/overview`,
+          end: true,
+          label: t('cancellationView.nav.view'),
+          icon: Eye,
+        },
+        {
+          to: `${base}/cancellation-archive`,
+          label: t('cancellationView.nav.archive'),
+          icon: Folder,
+          badge: tabCounts?.documents ?? 0,
+        },
+        {
+          to: `${base}/cancellation-notes`,
+          label: t('cancellationView.nav.notes'),
+          icon: NotebookPen,
+          badge: notesCount,
+        },
+      ]
+    }
+    if (procedureView === 'deletion') {
+      return [
+        {
+          to: `${base}/overview`,
+          end: true,
+          label: t('deletionView.nav.view'),
+          icon: Eye,
+        },
+        {
+          to: `${base}/deletion-archive`,
+          label: t('deletionView.nav.archive'),
+          icon: Folder,
+          badge: tabCounts?.documents ?? 0,
+        },
+      ]
+    }
+    const notesCount = readOppositionFields(matter).notes.length
+    return [
+      {
+        to: `${base}/overview`,
+        end: true,
+        label: t('oppositionView.nav.view'),
+        icon: Eye,
+      },
+      {
+        to: `${base}/opposition-archive`,
+        label: t('oppositionView.nav.archive'),
+        icon: Folder,
+        badge: tabCounts?.documents ?? 0,
+      },
+      {
+        to: `${base}/opposition-notes`,
+        label: t('oppositionView.nav.notes'),
+        icon: NotebookPen,
+        badge: notesCount,
+      },
+    ]
+  }, [procedureView, matter, t, tabCounts?.documents])
 
   if (!id) return <Navigate to="/matters" replace />
 
@@ -49,6 +162,14 @@ export function MatterLayout() {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
   if (matter && activeTab === 'secondary-actions' && matter.matterType !== 'trademark') {
+    return <Navigate to={`/matters/${id}/overview`} replace />
+  }
+  if (
+    matter &&
+    procedureView &&
+    activeTab &&
+    !procedureViewRoutes(procedureView).includes(activeTab)
+  ) {
     return <Navigate to={`/matters/${id}/overview`} replace />
   }
 
@@ -78,10 +199,72 @@ export function MatterLayout() {
     }
   }
 
+  const oppositionHeader =
+    matter && procedureView === 'opposition'
+      ? (() => {
+          const attrs = matter.attributes?.attributes ?? {}
+          const fields = readOppositionFields(matter)
+          const config = oppositionStageConfig(fields.oppositionStage)
+          const ref = oppositionHeaderParams(attrs, fields.oppositionStage)
+          return t(config.headerKey, {
+            number: ref.number ?? '—',
+            date: ref.date ?? '—',
+            markRef: fields.applicationNumber || matter.title,
+          })
+        })()
+      : null
+
+  const cancellationHeader =
+    matter && procedureView === 'cancellation'
+      ? (() => {
+          const attrs = matter.attributes?.attributes ?? {}
+          const fields = readCancellationFields(matter)
+          const config = cancellationStageConfig(fields.cancellationStage)
+          const ref = cancellationHeaderParams(attrs)
+          const markRef =
+            fields.applicationNumber && fields.applicationNumber !== '—'
+              ? `${fields.applicationNumber} ${matter.title}`.trim()
+              : matter.title
+          return t(config.headerKey, {
+            number: ref.number ?? '—',
+            date: ref.date ?? '—',
+            markRef,
+          })
+        })()
+      : null
+
+  const deletionHeader =
+    matter && procedureView === 'deletion'
+      ? (() => {
+          const attrs = matter.attributes?.attributes ?? {}
+          const fields = readDeletionFields(matter)
+          const config = deletionStageConfig(fields.deletionStage)
+          const ref = deletionHeaderParams(attrs)
+          const markRef =
+            fields.applicationNumber && fields.applicationNumber !== '—'
+              ? `${fields.applicationNumber} ${matter.title}`.trim()
+              : matter.title
+          return t(config.headerKey, {
+            number: ref.number ?? '—',
+            date: ref.date ?? '—',
+            markRef,
+            stopUntil: fields.stopUntil || '—',
+          })
+        })()
+      : null
+
+  const pageHeader = deletionHeader ?? cancellationHeader ?? oppositionHeader
+
   return (
     <div className="space-y-6">
       <Link
-        to={matter?.isArchived ? '/matters?archived=1' : '/matters'}
+        to={
+          matter?.isArchived
+            ? '/matters?archived=1'
+            : procedureView
+              ? procedureListUrl(procedureView)
+              : '/matters'
+        }
         className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
       >
         {t('layout.backToMatters')}
@@ -96,13 +279,22 @@ export function MatterLayout() {
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="font-serif text-2xl">{matter.title}</h1>
+                <h1 className="font-serif text-2xl">
+                  {pageHeader ??
+                    (procedureView ? t(procedurePageTitleKey(procedureView)) : matter.title)}
+                </h1>
                 <MatterStatusBadge status={matter.status} />
                 {matter.isArchived ? (
                   <Badge variant="outline">{t('layout.archivedBadge')}</Badge>
                 ) : null}
               </div>
               <p className="text-sm text-muted-foreground">
+                {procedureView ? (
+                  <>
+                    {matter.title}
+                    {' · '}
+                  </>
+                ) : null}
                 {matterTypeLabel(matter.matterType)} ·{' '}
                 {isPortalClient ? (
                   <span>{clientDisplayName(matter.client)}</span>
@@ -122,7 +314,7 @@ export function MatterLayout() {
 
             {!isPortalClient ? (
               <div className="flex flex-wrap items-center gap-2">
-                {matter.matterType === 'trademark' && !matter.isArchived ? (
+                {matter.matterType === 'trademark' && !matter.isArchived && !procedureView ? (
                   <PermissionGate resource="matter" action="update">
                     <SecondaryActionsMenu
                       onEditScope={() => setScopeOpen(true)}
@@ -159,11 +351,15 @@ export function MatterLayout() {
             ) : null}
           </div>
 
-          <MatterTabNav
-            matterId={id}
-            isPortalClient={isPortalClient}
-            matterType={matter.matterType}
-          />
+          {!procedureView ? (
+            <MatterTabNav
+              matterId={id}
+              isPortalClient={isPortalClient}
+              matterType={matter.matterType}
+            />
+          ) : (
+            <TrademarkProcedureMatterNav tabs={procedureNavTabs} />
+          )}
           <Outlet
             context={{
               matterId: id,
@@ -171,7 +367,7 @@ export function MatterLayout() {
               openEditScope: () => setScopeOpen(true),
             }}
           />
-          {matter.matterType === 'trademark' ? (
+          {matter.matterType === 'trademark' && !procedureView ? (
             <>
               <EditScopeDrawer
                 open={scopeOpen}

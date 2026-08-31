@@ -31,6 +31,14 @@ import {
 import { contactsApi } from '@/features/crm/api'
 import { clientDisplayName } from '@/features/crm/utils'
 import { useCreateMatter } from '@/features/matters/hooks/useMatters'
+import { mattersApi } from '@/features/matters/api'
+import {
+  markImageAttributePatch,
+  uploadMarkImage,
+} from '@/features/matters/mark-image'
+import { buildDefaultCancellationDeadlines } from '@/features/matters/cancellation-matter'
+import { buildDefaultDeletionDeadlines } from '@/features/matters/deletion-matter'
+import { MarkImageUploadField } from '@/components/matters/MarkImageUploadField'
 import {
   COMMERCIAL_REGISTER_URL,
   MARK_KINDS,
@@ -473,8 +481,16 @@ export function CreateTrademarkFilePage() {
   const [applicationNumber, setApplicationNumber] = useState('')
   const [applicationDate, setApplicationDate] = useState('')
   const [conventionPriority, setConventionPriority] = useState(false)
+  const [priorityCountry, setPriorityCountry] = useState('')
+  const [priorityFromDate, setPriorityFromDate] = useState('')
+  const [priorityIncomingNumber, setPriorityIncomingNumber] = useState('')
   const [exhibitionPriority, setExhibitionPriority] = useState(false)
+  const [exhibitionFirstAppearanceDate, setExhibitionFirstAppearanceDate] =
+    useState('')
+  const [exhibitionName, setExhibitionName] = useState('')
   const [transformationInternational, setTransformationInternational] = useState(false)
+  const [internationalRegistrationNumber, setInternationalRegistrationNumber] =
+    useState('')
   const [communityMarkConversion, setCommunityMarkConversion] = useState(false)
   const [applicationBulletinDate, setApplicationBulletinDate] = useState('')
   const [registrationNumber, setRegistrationNumber] = useState('')
@@ -483,6 +499,7 @@ export function CreateTrademarkFilePage() {
   const [certificateFile, setCertificateFile] = useState<File | null>(null)
   const [extraDocumentFile, setExtraDocumentFile] = useState<File | null>(null)
   const [specimenFile, setSpecimenFile] = useState<File | null>(null)
+  const [markImageFile, setMarkImageFile] = useState<File | null>(null)
   const [grounds, setGrounds] = useState('')
   const [representativeGroupId, setRepresentativeGroupId] = useState(NO_HOLDING_GROUP)
   const [addMoreRepresentatives, setAddMoreRepresentatives] = useState(false)
@@ -717,8 +734,28 @@ export function CreateTrademarkFilePage() {
       applicationNumber: applicationNumber.trim() || undefined,
       applicationDate: applicationDate || undefined,
       conventionPriority,
+      priorityCountry:
+        conventionPriority && priorityCountry ? priorityCountry : undefined,
+      priorityFromDate:
+        conventionPriority && priorityFromDate ? priorityFromDate : undefined,
+      priorityIncomingNumber:
+        conventionPriority && priorityIncomingNumber.trim()
+          ? priorityIncomingNumber.trim()
+          : undefined,
       exhibitionPriority,
+      exhibitionFirstAppearanceDate:
+        exhibitionPriority && exhibitionFirstAppearanceDate
+          ? exhibitionFirstAppearanceDate
+          : undefined,
+      exhibitionName:
+        exhibitionPriority && exhibitionName.trim()
+          ? exhibitionName.trim()
+          : undefined,
       transformationInternational,
+      internationalRegistrationNumber:
+        transformationInternational && internationalRegistrationNumber.trim()
+          ? internationalRegistrationNumber.trim()
+          : undefined,
       communityMarkConversion,
       applicationBulletinDate: applicationBulletinDate || undefined,
       registrationNumber:
@@ -790,6 +827,18 @@ export function CreateTrademarkFilePage() {
           ? additionalInformation.trim() || undefined
           : undefined,
       prosecution: { stage: 'prep' },
+      ...(procedure === 'cancellation'
+        ? {
+            cancellationStage: 'waiting_for_login',
+            cancellationDeadlines: buildDefaultCancellationDeadlines(),
+          }
+        : {}),
+      ...(procedure === 'deletion'
+        ? {
+            deletionStage: 'waiting_for_login',
+            deletionDeadlines: buildDefaultDeletionDeadlines(),
+          }
+        : {}),
     }
 
     try {
@@ -949,18 +998,52 @@ export function CreateTrademarkFilePage() {
           tags: 'specimen,create-file',
         })
       }
+      if (markImageFile) {
+        const refs = await uploadMarkImage(matter.id, markImageFile, title)
+        await mattersApi.update(matter.id, {
+          attributes: {
+            ...attributes,
+            ...markImageAttributePatch(refs),
+          },
+        })
+      }
       if (procedure === 'opposition') {
-        for (const mark of basisMarks) {
-          if (!mark.file) continue
-          await documentsApi.upload(matter.id, {
-            file: mark.file,
-            displayName: mark.file.name,
-            category: 'evidence',
-            tags: [
-              'basis-mark',
-              'create-file',
-              mark.applicationNo.trim() || mark.name.trim() || 'opposition',
-            ].join(','),
+        const filteredMarks = basisMarks.filter(
+          (mark) =>
+            mark.applicationNo.trim() ||
+            mark.name.trim() ||
+            mark.owner.trim(),
+        )
+        const basisMarksWithImages = await Promise.all(
+          filteredMarks.map(async (mark) => {
+            const row = {
+              applicationNo: mark.applicationNo.trim() || undefined,
+              name: mark.name.trim() || undefined,
+              applicationDate: mark.applicationDate || undefined,
+              classes: mark.classes.trim() || undefined,
+              owner: mark.owner.trim() || undefined,
+              country: mark.country || undefined,
+              hasFile: Boolean(mark.file),
+            }
+            if (!mark.file) return row
+            const refs = await uploadMarkImage(
+              matter.id,
+              mark.file,
+              mark.name.trim() || mark.applicationNo.trim(),
+            )
+            return {
+              ...row,
+              markImageDocumentId: refs.markImageDocumentId,
+              markImageDocumentVersionId: refs.markImageDocumentVersionId,
+            }
+          }),
+        )
+        if (basisMarksWithImages.length > 0) {
+          await mattersApi.update(matter.id, {
+            attributes: {
+              ...attributes,
+              basisMarks: basisMarksWithImages,
+            },
           })
         }
       }
@@ -1717,6 +1800,13 @@ export function CreateTrademarkFilePage() {
                 ) : null}
               </div>
             ) : null}
+
+            <div className="mt-4 border-t border-border/60 pt-4">
+              <MarkImageUploadField
+                file={markImageFile}
+                onFileChange={setMarkImageFile}
+              />
+            </div>
           </SectionCard>
 
           <SectionCard title={t('createFile.sections.markName')}>
@@ -1926,73 +2016,154 @@ export function CreateTrademarkFilePage() {
                     : t('createFile.sections.application')
                 }
               >
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <Field label={t('createFile.fields.applicationNumber')}>
-                    <Input
-                      value={applicationNumber}
-                      onChange={(e) => setApplicationNumber(e.target.value)}
-                    />
-                  </Field>
-                  <Field label={t('createFile.fields.applicationDate')}>
-                    <Input
-                      type="date"
-                      value={applicationDate}
-                      onChange={(e) => setApplicationDate(e.target.value)}
-                    />
-                  </Field>
-                  <YesNoField
-                    label={t('createFile.fields.conventionPriority')}
-                    value={conventionPriority}
-                    onChange={setConventionPriority}
-                  />
-                  <YesNoField
-                    label={t('createFile.fields.exhibitionPriority')}
-                    value={exhibitionPriority}
-                    onChange={setExhibitionPriority}
-                  />
-                  <YesNoField
-                    label={t('createFile.fields.transformationInternational')}
-                    value={transformationInternational}
-                    onChange={setTransformationInternational}
-                  />
-                  <YesNoField
-                    label={t('createFile.fields.communityConversion')}
-                    value={communityMarkConversion}
-                    onChange={setCommunityMarkConversion}
-                  />
-                  <Field label={t('createFile.fields.applicationBulletin')}>
-                    <Input
-                      type="date"
-                      value={applicationBulletinDate}
-                      onChange={(e) => setApplicationBulletinDate(e.target.value)}
-                    />
-                  </Field>
-                  {isRegistered || isAgainstRegistered ? (
-                    <>
-                      <Field label={t('createFile.fields.registrationNumber')}>
-                        <Input
-                          value={registrationNumber}
-                          onChange={(e) => setRegistrationNumber(e.target.value)}
-                        />
-                      </Field>
-                      <Field label={t('createFile.fields.registrationDate')}>
-                        <Input
-                          type="date"
-                          value={registrationDate}
-                          onChange={(e) => setRegistrationDate(e.target.value)}
-                        />
-                      </Field>
-                      <Field label={t('createFile.fields.registrationBulletin')}>
-                        <Input
-                          type="date"
-                          value={registrationBulletinDate}
-                          onChange={(e) =>
-                            setRegistrationBulletinDate(e.target.value)
-                          }
-                        />
-                      </Field>
-                    </>
-                  ) : null}
+                <div className="space-y-4">
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <Field label={t('createFile.fields.applicationNumber')}>
+                      <Input
+                        value={applicationNumber}
+                        onChange={(e) => setApplicationNumber(e.target.value)}
+                      />
+                    </Field>
+                    <Field label={t('createFile.fields.applicationDate')}>
+                      <Input
+                        type="date"
+                        value={applicationDate}
+                        onChange={(e) => setApplicationDate(e.target.value)}
+                      />
+                    </Field>
+                  </div>
+
+                  <div className="space-y-4 border-t border-border/60 pt-5">
+                    <div className="max-w-xs">
+                      <YesNoField
+                        label={t('createFile.fields.conventionPriority')}
+                        value={conventionPriority}
+                        onChange={setConventionPriority}
+                      />
+                    </div>
+                    {conventionPriority ? (
+                      <div className="grid gap-3 rounded-lg border bg-muted/20 p-4 sm:grid-cols-3">
+                        <Field label={t('createFile.fields.priorityCountry')}>
+                          <CountrySelect
+                            value={priorityCountry}
+                            onValueChange={setPriorityCountry}
+                            placeholder={t('createFile.chooseCountry')}
+                          />
+                        </Field>
+                        <Field label={t('createFile.fields.priorityFromDate')}>
+                          <Input
+                            type="date"
+                            value={priorityFromDate}
+                            onChange={(e) => setPriorityFromDate(e.target.value)}
+                          />
+                        </Field>
+                        <Field label={t('createFile.fields.priorityIncomingNumber')}>
+                          <Input
+                            value={priorityIncomingNumber}
+                            onChange={(e) =>
+                              setPriorityIncomingNumber(e.target.value)
+                            }
+                          />
+                        </Field>
+                      </div>
+                    ) : null}
+
+                    <div className="max-w-xs">
+                      <YesNoField
+                        label={t('createFile.fields.exhibitionPriority')}
+                        value={exhibitionPriority}
+                        onChange={setExhibitionPriority}
+                      />
+                    </div>
+                    {exhibitionPriority ? (
+                      <div className="grid gap-3 rounded-lg border bg-muted/20 p-4 sm:grid-cols-2">
+                        <Field
+                          label={t('createFile.fields.exhibitionFirstAppearance')}
+                        >
+                          <Input
+                            type="date"
+                            value={exhibitionFirstAppearanceDate}
+                            onChange={(e) =>
+                              setExhibitionFirstAppearanceDate(e.target.value)
+                            }
+                          />
+                        </Field>
+                        <Field label={t('createFile.fields.exhibitionName')}>
+                          <Input
+                            value={exhibitionName}
+                            onChange={(e) => setExhibitionName(e.target.value)}
+                          />
+                        </Field>
+                      </div>
+                    ) : null}
+
+                    <div className="max-w-xs">
+                      <YesNoField
+                        label={t('createFile.fields.transformationInternational')}
+                        value={transformationInternational}
+                        onChange={setTransformationInternational}
+                      />
+                    </div>
+                    {transformationInternational ? (
+                      <div className="max-w-md rounded-lg border bg-muted/20 p-4">
+                        <Field
+                          label={t('createFile.fields.internationalRegistrationNumber')}
+                        >
+                          <Input
+                            value={internationalRegistrationNumber}
+                            onChange={(e) =>
+                              setInternationalRegistrationNumber(e.target.value)
+                            }
+                          />
+                        </Field>
+                      </div>
+                    ) : null}
+
+                    <div className="max-w-xs">
+                      <YesNoField
+                        label={t('createFile.fields.communityConversion')}
+                        value={communityMarkConversion}
+                        onChange={setCommunityMarkConversion}
+                      />
+                    </div>
+
+                    <Field label={t('createFile.fields.applicationBulletin')}>
+                      <Input
+                        type="date"
+                        value={applicationBulletinDate}
+                        onChange={(e) =>
+                          setApplicationBulletinDate(e.target.value)
+                        }
+                      />
+                    </Field>
+
+                    {isRegistered || isAgainstRegistered ? (
+                      <div className="grid gap-3 border-t border-border/60 pt-5 sm:grid-cols-2">
+                        <Field label={t('createFile.fields.registrationNumber')}>
+                          <Input
+                            value={registrationNumber}
+                            onChange={(e) => setRegistrationNumber(e.target.value)}
+                          />
+                        </Field>
+                        <Field label={t('createFile.fields.registrationDate')}>
+                          <Input
+                            type="date"
+                            value={registrationDate}
+                            onChange={(e) => setRegistrationDate(e.target.value)}
+                          />
+                        </Field>
+                        <Field label={t('createFile.fields.registrationBulletin')}>
+                          <Input
+                            type="date"
+                            value={registrationBulletinDate}
+                            onChange={(e) =>
+                              setRegistrationBulletinDate(e.target.value)
+                            }
+                          />
+                        </Field>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </SectionCard>
 

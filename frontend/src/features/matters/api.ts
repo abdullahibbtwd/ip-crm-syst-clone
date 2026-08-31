@@ -21,11 +21,24 @@ export type MatterShelfCounts = {
   others: number
   drafts: number
   byType: Record<string, number>
+  trademarkByProcedure?: Record<string, number>
 }
 
 export const mattersApi = {
-  list: (filters?: MatterFilters) =>
-    apiClient.get<MatterListResponse>('/matters', filters as Record<string, unknown>),
+  list: (filters?: MatterFilters) => {
+    const params: MatterFilters = { ...filters }
+    if (params.draftsOnly) {
+      params.status = 'draft'
+    } else if (params.status === 'draft') {
+      delete params.status
+    } else if (!params.status) {
+      params.excludeDrafts = true
+    }
+    return apiClient.get<MatterListResponse>(
+      '/matters',
+      params as Record<string, unknown>,
+    )
+  },
 
   shelfCounts: () => apiClient.get<MatterShelfCounts>('/matters/shelf-counts'),
 
@@ -57,5 +70,11 @@ export const mattersApi = {
     apiClient.post<TrademarkActionResult>(
       `/matters/${matterId}/trademark-actions`,
       data,
+    ),
+
+  getOppositionPdf: (matterId: string, lang?: string) =>
+    apiClient.get<{ url: string; fileName: string; mimeType: string }>(
+      `/matters/${matterId}/opposition-pdf`,
+      lang ? { lang } : undefined,
     ),
 }

@@ -172,11 +172,102 @@ export class MatterQueryDto extends PaginationQueryDto {
   draftsOnly?: boolean;
 
   /**
-   * When true (and status / draftsOnly not set), hide drafts from active shelves.
-   * Default active lists should pass this so drafts live only under Drafts.
+   * @deprecated Drafts are excluded by default; use draftsOnly or status=draft to list them.
+   * Kept for API compatibility — has no effect when status / draftsOnly are unset.
    */
   @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)
   @IsBoolean()
   excludeDrafts?: boolean;
+
+  /** Trademark create-file subcategory (attributes.trademarkProcedure). */
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  trademarkProcedure?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  trademarkApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  trademarkName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  trademarkIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  trademarkRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  trademarkMarkType?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  trademarkMarkKind?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  trademarkTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  trademarkRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  trademarkAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  trademarkAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  trademarkRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  trademarkRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  trademarkContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  trademarkStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  trademarkClass?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 2)
+  trademarkCountry?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true || value === '1')
+  @IsBoolean()
+  trademarkCertificate?: boolean;
 }

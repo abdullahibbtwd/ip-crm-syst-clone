@@ -551,6 +551,46 @@ export class DeadlinesService {
     return new Map(groups.map((g) => [g.matterId, g._count._all]));
   }
 
+  /** Open / overdue counts and earliest due date per matter (all active deadlines). */
+  async summarizeOpenByMatterIds(matterIds: string[]) {
+    type Summary = {
+      openCount: number
+      overdueCount: number
+      nextDueDate: string | null
+    }
+
+    if (matterIds.length === 0) return new Map<string, Summary>();
+
+    const today = startOfDay(new Date());
+
+    const rows = await this.prisma.deadline.findMany({
+      where: {
+        matterId: { in: matterIds },
+        status: { in: [...ACTIVE_DEADLINE_STATUSES] },
+      },
+      select: { matterId: true, dueDate: true },
+      orderBy: [{ dueDate: 'asc' }, { createdAt: 'asc' }],
+    });
+
+    const map = new Map<string, Summary>();
+
+    for (const row of rows) {
+      const existing = map.get(row.matterId) ?? {
+        openCount: 0,
+        overdueCount: 0,
+        nextDueDate: null,
+      }
+      existing.openCount += 1
+      if (row.dueDate < today) existing.overdueCount += 1
+      if (!existing.nextDueDate) {
+        existing.nextDueDate = row.dueDate.toISOString().slice(0, 10)
+      }
+      map.set(row.matterId, existing)
+    }
+
+    return map
+  }
+
   /** Active (pending / in_progress) deadlines for a matter — used by MCP tools. */
   async getActiveByMatterId(matterId: string) {
     await this.assertMatterExists(matterId);

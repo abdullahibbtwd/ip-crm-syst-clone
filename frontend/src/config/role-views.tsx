@@ -54,6 +54,7 @@ import {
 } from 'lucide-react'
 import type { SystemRole } from '../lib/rbac'
 import { PRIMARY_MATTER_TYPES } from '../features/matters/work-file-groups'
+import { trademarkShelfNavItem } from '../features/matters/trademark-procedures-nav'
 
 export type NavItem = {
   icon: LucideIcon
@@ -118,13 +119,17 @@ export function workingFilesNavItem(opts?: {
         path: '/matters',
         id: 'matters-all',
       },
-      ...PRIMARY_TYPE_NAV.map(({ type, icon }) => ({
-        icon,
-        labelKey: `type.${type}`,
-        labelNs: 'matters',
-        path: `/matters?matterType=${type}`,
-        id: `matters-${type}`,
-      })),
+      ...PRIMARY_TYPE_NAV.map(({ type, icon }) =>
+        type === 'trademark'
+          ? trademarkShelfNavItem()
+          : {
+              icon,
+              labelKey: `type.${type}`,
+              labelNs: 'matters',
+              path: `/matters?matterType=${type}`,
+              id: `matters-${type}`,
+            },
+      ),
       {
         icon: Layers,
         labelKey: 'mattersOthers',

@@ -14,6 +14,7 @@ import type { DeadlinesService } from '../deadlines/deadlines.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { SYSTEM_ROLES } from '../rbac/rbac.constants';
 import { MattersService } from './matters.service';
+import type { OppositionPdfService } from './opposition-pdf.service';
 
 describe('MattersService', () => {
   let service: MattersService;
@@ -57,6 +58,7 @@ describe('MattersService', () => {
     generateInitialDeadlines: jest.Mock;
     generateDeadlinesFromFiling: jest.Mock;
     countUpcomingByMatterIds: jest.Mock;
+    summarizeOpenByMatterIds: jest.Mock;
     listForMatter: jest.Mock;
   };
   let portalAccess: {
@@ -111,6 +113,7 @@ describe('MattersService', () => {
       generateInitialDeadlines: jest.fn().mockResolvedValue({}),
       generateDeadlinesFromFiling: jest.fn().mockResolvedValue({}),
       countUpcomingByMatterIds: jest.fn().mockResolvedValue(new Map()),
+      summarizeOpenByMatterIds: jest.fn().mockResolvedValue(new Map()),
       listForMatter: jest.fn().mockResolvedValue([]),
     };
     portalAccess = {
@@ -122,6 +125,7 @@ describe('MattersService', () => {
       prisma as unknown as PrismaService,
       deadlinesService as unknown as DeadlinesService,
       portalAccess as unknown as PortalAccessService,
+      { generateDownload: jest.fn() } as unknown as OppositionPdfService,
     );
   });
 
@@ -193,6 +197,7 @@ describe('MattersService', () => {
       deadlinesService.countUpcomingByMatterIds.mockResolvedValue(
         new Map([['m1', 2]]),
       );
+      deadlinesService.summarizeOpenByMatterIds.mockResolvedValue(new Map());
 
       const result = await service.findAll({ limit: 2, page: 1 }, user);
 
@@ -203,6 +208,78 @@ describe('MattersService', () => {
       expect(result.nextCursor).toBeNull();
       expect(result.items[0].upcomingDeadlineCount).toBe(2);
       expect(portalAccess.requireScopeClientId).toHaveBeenCalledWith(user);
+      expect(prisma.matter.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            status: { not: MatterStatus.draft },
+          }),
+        }),
+      );
+    });
+
+    it('lists only drafts when draftsOnly is true', async () => {
+      prisma.matter.count.mockResolvedValue(1);
+      prisma.matter.findMany.mockResolvedValue([{ id: 'd1', title: 'Draft' }]);
+      deadlinesService.countUpcomingByMatterIds.mockResolvedValue(new Map());
+      deadlinesService.summarizeOpenByMatterIds.mockResolvedValue(new Map());
+
+      await service.findAll({ limit: 20, page: 1, draftsOnly: true }, user);
+
+      expect(prisma.matter.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            status: MatterStatus.draft,
+          }),
+        }),
+      );
+    });
+
+    it('returns trademark summary fields for trademark shelf lists', async () => {
+      prisma.matter.count.mockResolvedValue(1);
+      prisma.matter.findMany.mockResolvedValue([
+        {
+          id: 'm1',
+          matterType: MatterType.trademark,
+          title: 'ACME®',
+          attributes: {
+            attributes: {
+              territory: 'national',
+              markType: 'wordmark',
+              niceClasses: ['35'],
+              prosecution: { stage: 'filing', applicationNumber: 'BG-1' },
+            },
+          },
+          ipRights: [],
+        },
+      ]);
+      deadlinesService.countUpcomingByMatterIds.mockResolvedValue(new Map());
+      deadlinesService.summarizeOpenByMatterIds.mockResolvedValue(
+        new Map([
+          [
+            'm1',
+            { openCount: 2, overdueCount: 1, nextDueDate: '2026-09-01' },
+          ],
+        ]),
+      );
+
+      const result = await service.findAll(
+        { limit: 20, page: 1, matterType: MatterType.trademark },
+        user,
+      );
+
+      expect(result.items[0]).toMatchObject({
+        trademarkSummary: {
+          territory: 'national',
+          prosecutionStage: 'filing',
+          incomingNumber: 'BG-1',
+          markType: 'wordmark',
+          niceClasses: ['35'],
+        },
+        openDeadlineCount: 2,
+        overdueDeadlineCount: 1,
+        nextDeadlineDueDate: '2026-09-01',
+      });
+      expect(result.items[0]).not.toHaveProperty('attributes');
     });
   });
 

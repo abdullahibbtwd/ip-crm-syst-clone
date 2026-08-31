@@ -78,6 +78,21 @@ export class MattersController {
     return this.mattersService.listIpRights(matterId, user);
   }
 
+  @Get(':id/opposition-pdf')
+  @Audit({
+    action: 'matter.oppositionPdf',
+    resource: 'matter',
+    module: MATTERS_MODULE,
+  })
+  getOppositionPdf(
+    @Param('id') id: string,
+    @Query('lang') lang: string | undefined,
+    @Req() req: Request,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    return this.mattersService.getOppositionPdfDownload(id, user, lang);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string, @Req() req: Request) {
     const user = req.user as AuthenticatedUser;

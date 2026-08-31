@@ -17,6 +17,7 @@ describe('MattersController', () => {
     listIpRights: jest.fn(),
     createIpRight: jest.fn(),
     fileIpRight: jest.fn(),
+    getOppositionPdfDownload: jest.fn(),
   };
   const renewalsService = {
     registerIpRight: jest.fn(),
@@ -108,5 +109,14 @@ describe('MattersController', () => {
     const dto = { kind: 'transfer' };
     await controller.recordTrademarkAction('m1', dto as never, req);
     expect(trademarkActionsService.record).toHaveBeenCalledWith('m1', dto, user);
+  });
+
+  it('getOppositionPdf forwards to MattersService', async () => {
+    await controller.getOppositionPdf('m1', 'bg', req);
+    expect(mattersService.getOppositionPdfDownload).toHaveBeenCalledWith(
+      'm1',
+      user,
+      'bg',
+    );
   });
 });

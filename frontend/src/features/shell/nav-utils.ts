@@ -11,12 +11,12 @@ export function navId(item: NavItem): string {
   return item.id ?? slugifyNav(item.labelKey)
 }
 
-/** Flatten top-level and nested nav items (Working files children, etc.). */
+/** Flatten nav tree (Working files → Trademark subcategories, etc.). */
 export function flattenNavItems(items: NavItem[]): NavItem[] {
   const out: NavItem[] = []
   for (const item of items) {
     out.push(item)
-    if (item.children?.length) out.push(...item.children)
+    if (item.children?.length) out.push(...flattenNavItems(item.children))
   }
   return out
 }
@@ -70,6 +70,7 @@ export function isNavPathActive(
   }
 
   const required = new URLSearchParams(itemSearch)
+
   for (const [key, value] of required.entries()) {
     if (current.get(key) !== value) return false
   }

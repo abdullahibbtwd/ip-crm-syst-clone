@@ -102,7 +102,7 @@ export function CreateMatterDrawer({ clientId, open, onClose }: CreateMatterDraw
         matterType,
         title: title.trim(),
         description: description.trim() || undefined,
-        status: 'active',
+        status: 'draft',
         assignedToId,
         jurisdictions: jurisdictionCodes.map((countryCode) => ({ countryCode })),
         attributes,

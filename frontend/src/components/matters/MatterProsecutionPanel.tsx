@@ -357,10 +357,7 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
 
     try {
       patch = await autoCreateDeadlines(patch)
-      await saveProsecution(
-        { ...patch, stage: nxt },
-        matter.status === 'draft' && nxt !== 'prep' ? { status: 'active' } : undefined,
-      )
+      await saveProsecution({ ...patch, stage: nxt })
     } catch {
       /* shown */
     }

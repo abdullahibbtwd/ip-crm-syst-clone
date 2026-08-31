@@ -3,6 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Inbox, Search } from 'lucide-react'
 import { MattersTable } from '@/components/matters/MattersTable'
+import { CancellationsTable } from '@/components/matters/CancellationsTable'
+import { DeletionsTable } from '@/components/matters/DeletionsTable'
+import { ObjectionsTable } from '@/components/matters/ObjectionsTable'
+import { OppositionsTable } from '@/components/matters/OppositionsTable'
+import { TrademarksTable } from '@/components/matters/TrademarksTable'
+import { TrademarkListFilters } from '@/components/matters/TrademarkListFilters'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -22,6 +28,18 @@ import {
   OTHER_MATTER_TYPES,
 } from '@/features/matters/work-file-groups'
 import { ALL_MATTER_TYPES, matterStatusLabel, matterTypeLabel } from '@/features/matters/utils'
+import {
+  DEFAULT_TRADEMARK_LIST_SHELF,
+  normalizeTrademarkListShelf,
+  TRADEMARK_PROCEDURE_QUERY_KEY,
+} from '@/features/matters/trademark-procedures-nav'
+import {
+  EMPTY_TRADEMARK_LIST_FILTERS,
+  parseTrademarkListFilters,
+  trademarkListFiltersToApi,
+  writeTrademarkListFilters,
+  type TrademarkListFilterState,
+} from '@/features/matters/trademark-list-filters'
 import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 
 const ALL_STATUSES = 'all'
@@ -59,6 +77,9 @@ export function MatterListPage() {
   const draftsOnly = searchParams.get('drafts') === '1'
   const othersGroup = searchParams.get('group') === 'others'
 
+  const rawTrademarkProcedure = searchParams.get(TRADEMARK_PROCEDURE_QUERY_KEY)
+  const trademarkListShelf = normalizeTrademarkListShelf(rawTrademarkProcedure)
+
   const primaryShelf =
     !archivedOnly &&
     !draftsOnly &&
@@ -68,8 +89,29 @@ export function MatterListPage() {
       ? typeFilter
       : undefined
 
+  const effectiveTrademarkShelf =
+    primaryShelf === 'trademark'
+      ? trademarkListShelf ?? DEFAULT_TRADEMARK_LIST_SHELF
+      : undefined
+
   const othersTypeFilter =
     othersGroup && typeFilter && isOtherMatterType(typeFilter) ? typeFilter : undefined
+
+  useEffect(() => {
+    if (primaryShelf !== 'trademark') return
+    const canonical =
+      trademarkListShelf ??
+      (rawTrademarkProcedure ? null : DEFAULT_TRADEMARK_LIST_SHELF)
+    if (!canonical || canonical === rawTrademarkProcedure) return
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        next.set(TRADEMARK_PROCEDURE_QUERY_KEY, canonical)
+        return next
+      },
+      { replace: true },
+    )
+  }, [primaryShelf, rawTrademarkProcedure, trademarkListShelf, setSearchParams])
 
   const showTypeFilter =
     !isPortalClient && !primaryShelf && !archivedOnly && !draftsOnly
@@ -80,6 +122,9 @@ export function MatterListPage() {
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE)
+  const appliedTrademarkFilters = parseTrademarkListFilters(searchParams)
+  const [draftTrademarkFilters, setDraftTrademarkFilters] =
+    useState<TrademarkListFilterState>(appliedTrademarkFilters)
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)
@@ -92,10 +137,12 @@ export function MatterListPage() {
     debouncedSearch,
     statusFilter,
     typeFilter,
+    effectiveTrademarkShelf,
     pageSize,
     archivedOnly,
     draftsOnly,
     othersGroup,
+    searchParams.toString(),
   ])
 
   const setTypeFilter = (value: MatterType | undefined) => {
@@ -122,16 +169,41 @@ export function MatterListPage() {
     )
   }
 
+  useEffect(() => {
+    setDraftTrademarkFilters(parseTrademarkListFilters(searchParams))
+  }, [searchParams])
+
+  const applyTrademarkFilters = () => {
+    setSearchParams(
+      (prev) => writeTrademarkListFilters(prev, draftTrademarkFilters),
+      { replace: true },
+    )
+    setPage(1)
+  }
+
+  const clearTrademarkFilters = () => {
+    setDraftTrademarkFilters(EMPTY_TRADEMARK_LIST_FILTERS)
+    setSearchParams(
+      (prev) => writeTrademarkListFilters(prev, EMPTY_TRADEMARK_LIST_FILTERS),
+      { replace: true },
+    )
+    setPage(1)
+  }
+
+  const effectiveStatusFilter =
+    draftsOnly ? 'draft' : statusFilter === 'draft' ? undefined : statusFilter
+
   const filters: MatterFilters = {
     search: debouncedSearch || undefined,
-    status: draftsOnly ? 'draft' : statusFilter,
+    status: effectiveStatusFilter,
     matterType: primaryShelf ?? othersTypeFilter,
+    trademarkProcedure: effectiveTrademarkShelf,
     matterTypes:
       othersGroup && !othersTypeFilter ? OTHER_MATTER_TYPES.join(',') : undefined,
     archivedOnly: archivedOnly || undefined,
     draftsOnly: draftsOnly || undefined,
-    excludeDrafts:
-      !draftsOnly && !archivedOnly && !statusFilter ? true : undefined,
+    excludeDrafts: draftsOnly ? undefined : true,
+    ...trademarkListFiltersToApi(appliedTrademarkFilters),
     page,
     limit: pageSize,
   }
@@ -146,9 +218,13 @@ export function MatterListPage() {
         ? t('list.titleArchived')
         : othersGroup
           ? t('list.titleOthers')
-          : primaryShelf
-            ? matterTypeLabel(primaryShelf)
-            : t('list.title')
+          : primaryShelf === 'trademark' && effectiveTrademarkShelf
+            ? effectiveTrademarkShelf === 'marks'
+              ? t('trademarkShelf.marks')
+              : t(`createFile.procedures.${effectiveTrademarkShelf}`)
+            : primaryShelf
+              ? matterTypeLabel(primaryShelf)
+              : t('list.title')
 
   const description = isPortalClient
     ? t('list.descriptionPortal')
@@ -158,9 +234,24 @@ export function MatterListPage() {
         ? t('list.descriptionArchived')
         : othersGroup
           ? t('list.descriptionOthers')
-          : primaryShelf
-            ? t('list.descriptionType', { type: matterTypeLabel(primaryShelf) })
-            : t('list.description')
+          : primaryShelf === 'trademark' && effectiveTrademarkShelf
+            ? effectiveTrademarkShelf === 'marks'
+              ? t('trademarkList.descriptionMarks')
+              : t('trademarkList.descriptionProcedure', {
+                  procedure: t(`createFile.procedures.${effectiveTrademarkShelf}`),
+                })
+            : primaryShelf === 'trademark'
+              ? t('trademarkList.descriptionMarks')
+              : primaryShelf
+                ? t('list.descriptionType', { type: matterTypeLabel(primaryShelf) })
+                : t('list.description')
+
+  const isTrademarkShelf = primaryShelf === 'trademark'
+  const isMarksShelf = isTrademarkShelf && effectiveTrademarkShelf === 'marks'
+  const isObjectionShelf = isTrademarkShelf && effectiveTrademarkShelf === 'objection'
+  const isOppositionShelf = isTrademarkShelf && effectiveTrademarkShelf === 'opposition'
+  const isCancellationShelf = isTrademarkShelf && effectiveTrademarkShelf === 'cancellation'
+  const isDeletionShelf = isTrademarkShelf && effectiveTrademarkShelf === 'deletion'
 
   return (
     <div className="space-y-6">
@@ -178,40 +269,44 @@ export function MatterListPage() {
       </div>
 
       <div className="flex flex-col gap-3 rounded-xl border border-border/80 bg-muted/15 p-4 sm:flex-row sm:flex-wrap sm:items-center">
-        <div className="relative w-full flex-1 sm:min-w-[220px] sm:max-w-md">
-          <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            placeholder={t('list.searchPlaceholder')}
-            className="bg-background pl-9"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-        </div>
-        {showTypeFilter ? (
-          <Select
-            value={(othersGroup ? othersTypeFilter : typeFilter) ?? ALL_TYPES}
-            onValueChange={(v) =>
-              setTypeFilter(v === ALL_TYPES ? undefined : (v as MatterType))
-            }
-          >
-            <SelectTrigger className="w-full bg-background sm:w-[200px]">
-              <SelectValue
-                placeholder={
-                  othersGroup ? t('list.filters.allOtherTypes') : t('list.filters.allTypes')
-                }
+        {!isMarksShelf ? (
+          <>
+            <div className="relative w-full flex-1 sm:min-w-[220px] sm:max-w-md">
+              <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder={t('list.searchPlaceholder')}
+                className="bg-background pl-9"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
               />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value={ALL_TYPES}>
-                {othersGroup ? t('list.filters.allOtherTypes') : t('list.filters.allTypes')}
-              </SelectItem>
-              {typeFilterOptions.map((type) => (
-                <SelectItem key={type} value={type}>
-                  {matterTypeLabel(type)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            </div>
+            {showTypeFilter ? (
+              <Select
+                value={(othersGroup ? othersTypeFilter : typeFilter) ?? ALL_TYPES}
+                onValueChange={(v) =>
+                  setTypeFilter(v === ALL_TYPES ? undefined : (v as MatterType))
+                }
+              >
+                <SelectTrigger className="w-full bg-background sm:w-[200px]">
+                  <SelectValue
+                    placeholder={
+                      othersGroup ? t('list.filters.allOtherTypes') : t('list.filters.allTypes')
+                    }
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={ALL_TYPES}>
+                    {othersGroup ? t('list.filters.allOtherTypes') : t('list.filters.allTypes')}
+                  </SelectItem>
+                  {typeFilterOptions.map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {matterTypeLabel(type)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : null}
+          </>
         ) : null}
         {showStatusFilter ? (
         <Select
@@ -235,20 +330,101 @@ export function MatterListPage() {
         ) : null}
       </div>
 
-      <MattersTable
-        items={data?.items ?? []}
-        isLoading={isLoading || (isFetching && !data)}
-        isError={isError}
-        page={data?.page ?? page}
-        pageSize={data?.limit ?? pageSize}
-        total={data?.total}
-        pageCount={data?.pageCount}
-        onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
-        onNextPage={() => setPage((current) => current + 1)}
-        onPageChange={setPage}
-        onPageSizeChange={setPageSize}
-        compact={isPortalClient}
-      />
+      {isMarksShelf && !isPortalClient ? (
+        <TrademarkListFilters
+          value={draftTrademarkFilters}
+          onChange={setDraftTrademarkFilters}
+          onApply={applyTrademarkFilters}
+          onClear={clearTrademarkFilters}
+        />
+      ) : null}
+
+      {isObjectionShelf && !isPortalClient ? (
+        <ObjectionsTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      ) : isOppositionShelf && !isPortalClient ? (
+        <OppositionsTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      ) : isCancellationShelf && !isPortalClient ? (
+        <CancellationsTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      ) : isDeletionShelf && !isPortalClient ? (
+        <DeletionsTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      ) : isTrademarkShelf && !isPortalClient ? (
+        <TrademarksTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      ) : (
+        <MattersTable
+          items={data?.items ?? []}
+          isLoading={isLoading || (isFetching && !data)}
+          isError={isError}
+          page={data?.page ?? page}
+          pageSize={data?.limit ?? pageSize}
+          total={data?.total}
+          pageCount={data?.pageCount}
+          onPreviousPage={() => setPage((current) => Math.max(1, current - 1))}
+          onNextPage={() => setPage((current) => current + 1)}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+          compact={isPortalClient}
+        />
+      )}
     </div>
   )
 }

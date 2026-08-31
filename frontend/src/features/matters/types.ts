@@ -46,6 +46,31 @@ export type MatterClientSummary = {
   type: string
 }
 
+export type TrademarkListSummary = {
+  territory: 'national' | 'eu' | 'international' | null
+  prosecutionStage:
+    | 'prep'
+    | 'filing'
+    | 'formal_exam'
+    | 'substantive_exam'
+    | 'publication'
+    | 'reg_fee'
+    | 'registration'
+    | null
+  niceClasses: string[]
+  markType: string | null
+  incomingNumber: string | null
+  incomingDate: string | null
+  registrationNumber: string | null
+  registrationDate: string | null
+  markImageDocumentId: string | null
+  markImageDocumentVersionId: string | null
+  grounds: string | null
+  oppositionStage: string | null
+  cancellationStage: string | null
+  deletionStage: string | null
+}
+
 export type MatterListItem = {
   id: string
   clientId: string
@@ -65,6 +90,11 @@ export type MatterListItem = {
   applicantClient?: MatterClientSummary | null
   intermediaryClient?: MatterClientSummary | null
   upcomingDeadlineCount?: number
+  openDeadlineCount?: number
+  overdueDeadlineCount?: number
+  nextDeadlineDueDate?: string | null
+  trademarkSummary?: TrademarkListSummary | null
+  documentCount?: number
 }
 
 export type MatterTabCounts = {
@@ -121,6 +151,7 @@ export type MatterFilters = {
   clientId?: string
   status?: MatterStatus
   matterType?: MatterType
+  trademarkProcedure?: string
   /** Comma-separated types for multi-type shelves (e.g. Others). */
   matterTypes?: string
   assignedToId?: string
@@ -128,6 +159,23 @@ export type MatterFilters = {
   archivedOnly?: boolean
   draftsOnly?: boolean
   excludeDrafts?: boolean
+  trademarkApplicant?: string
+  trademarkName?: string
+  trademarkIncoming?: string
+  trademarkRegNo?: string
+  trademarkMarkType?: string
+  trademarkMarkKind?: string
+  trademarkTerritory?: string
+  trademarkRepresentative?: string
+  trademarkAppFrom?: string
+  trademarkAppTo?: string
+  trademarkRegFrom?: string
+  trademarkRegTo?: string
+  trademarkContact?: string
+  trademarkStage?: string
+  trademarkClass?: string
+  trademarkCountry?: string
+  trademarkCertificate?: boolean
   page?: number
   limit?: number
   cursor?: string

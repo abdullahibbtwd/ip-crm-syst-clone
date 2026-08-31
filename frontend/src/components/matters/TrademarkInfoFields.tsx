@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useQuery } from '@tanstack/react-query'
 import { Pencil } from 'lucide-react'
 import { CountrySelect } from '@/components/crm/CountrySelect'
+import { MarkImageUploadField } from '@/components/matters/MarkImageUploadField'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
@@ -20,6 +22,12 @@ import {
   type TrademarkTerritory,
 } from '@/features/create-file/trademark-subtypes'
 import { useUpdateMatter } from '@/features/matters/hooks/useMatters'
+import {
+  markImageAttributePatch,
+  readMarkImageRefs,
+  uploadMarkImage,
+} from '@/features/matters/mark-image'
+import { documentsApi } from '@/features/documents/api'
 import { territoryFromAttrs } from '@/features/matters/prosecution-stages'
 import type { MatterDetail } from '@/features/matters/types'
 import { usePermission } from '@/hooks/usePermission'
@@ -98,6 +106,25 @@ export function TrademarkInfoFields({ matter }: TrademarkInfoFieldsProps) {
   const [internationalCountries, setInternationalCountries] = useState(() =>
     readInternationalCountries(attrs, matter),
   )
+  const [markImageFile, setMarkImageFile] = useState<File | null>(null)
+  const [clearMarkImage, setClearMarkImage] = useState(false)
+
+  const storedMarkImage = readMarkImageRefs(attrs)
+  const { data: markImageDownload } = useQuery({
+    queryKey: [
+      'mark-image-preview',
+      matter.id,
+      storedMarkImage.documentId,
+      storedMarkImage.versionId,
+    ],
+    queryFn: () =>
+      documentsApi.getDownloadUrl(
+        storedMarkImage.documentId!,
+        storedMarkImage.versionId ?? undefined,
+      ),
+    enabled: Boolean(storedMarkImage.documentId) && !markImageFile && !clearMarkImage,
+    staleTime: 10 * 60 * 1000,
+  })
 
   const syncFromMatter = () => {
     const nextAttrs = matter.attributes?.attributes ?? {}
@@ -106,6 +133,8 @@ export function TrademarkInfoFields({ matter }: TrademarkInfoFieldsProps) {
     setTerritory(territoryFromAttrs(nextAttrs))
     setNationalCountry(readNationalCountry(nextAttrs, matter))
     setInternationalCountries(readInternationalCountries(nextAttrs, matter))
+    setMarkImageFile(null)
+    setClearMarkImage(false)
   }
 
   useEffect(() => {
@@ -140,6 +169,15 @@ export function TrademarkInfoFields({ matter }: TrademarkInfoFieldsProps) {
     }
 
     try {
+      let markImagePatch: Record<string, string | undefined> = {}
+      if (markImageFile) {
+        markImagePatch = markImageAttributePatch(
+          await uploadMarkImage(matter.id, markImageFile, matter.title),
+        )
+      } else if (clearMarkImage) {
+        markImagePatch = markImageAttributePatch(null)
+      }
+
       await updateMatter.mutateAsync({
         jurisdictions,
         attributes: {
@@ -151,6 +189,7 @@ export function TrademarkInfoFields({ matter }: TrademarkInfoFieldsProps) {
             territory === 'national' ? nationalCountry : undefined,
           internationalCountries:
             territory === 'international' ? internationalCountries : undefined,
+          ...markImagePatch,
         },
       })
       setEditing(false)
@@ -303,6 +342,19 @@ export function TrademarkInfoFields({ matter }: TrademarkInfoFieldsProps) {
             </div>
           ) : null}
         </div>
+
+        <MarkImageUploadField
+          file={markImageFile}
+          onFileChange={(file) => {
+            setMarkImageFile(file)
+            if (file) setClearMarkImage(false)
+          }}
+          remotePreviewUrl={
+            clearMarkImage || markImageFile ? null : markImageDownload?.url
+          }
+          onClearRemote={() => setClearMarkImage(true)}
+          disabled={fieldsLocked}
+        />
 
         {territory === 'international' ? (
           <div className="space-y-2">

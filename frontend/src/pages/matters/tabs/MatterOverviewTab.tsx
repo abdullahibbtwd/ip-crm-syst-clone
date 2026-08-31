@@ -6,6 +6,10 @@ import { MatterAttributeFields } from '@/components/matters/MatterAttributeField
 import { MatterFileApprovalPanel } from '@/components/matters/MatterFileApprovalPanel'
 import { MatterProsecutionPanel } from '@/components/matters/MatterProsecutionPanel'
 import { TrademarkInfoFields } from '@/components/matters/TrademarkInfoFields'
+import { isCancellationMatter } from '@/features/matters/cancellation-matter'
+import { isDeletionMatter } from '@/features/matters/deletion-matter'
+import { isObjectionMatter } from '@/features/matters/objection-matter'
+import { isOppositionMatter } from '@/features/matters/opposition-matter'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -28,10 +32,47 @@ import { usePermission } from '@/hooks/usePermission'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { getCountryLabel } from '@/lib/countries'
 import type { MatterTabContext } from '../MatterLayout'
+import { CancellationMatterTab } from './CancellationMatterTab'
+import { DeletionMatterTab } from './DeletionMatterTab'
+import { ObjectionMatterTab } from './ObjectionMatterTab'
+import { OppositionMatterTab } from './OppositionMatterTab'
 
 export function MatterOverviewTab() {
   const { t } = useTranslation('matters')
   const { matter } = useOutletContext<MatterTabContext>()
+
+  if (isObjectionMatter(matter)) {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <ObjectionMatterTab matter={matter} />
+      </div>
+    )
+  }
+  if (isCancellationMatter(matter)) {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <CancellationMatterTab matter={matter} />
+      </div>
+    )
+  }
+  if (isDeletionMatter(matter)) {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <DeletionMatterTab matter={matter} />
+      </div>
+    )
+  }
+  if (isOppositionMatter(matter)) {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <OppositionMatterTab matter={matter} />
+      </div>
+    )
+  }
   const canUpdate = usePermission('matter', 'update')
   const updateMatter = useUpdateMatter(matter.id)
 
