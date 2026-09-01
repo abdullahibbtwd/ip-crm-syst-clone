@@ -50,6 +50,8 @@ import { CreateUtilityModelFilePage } from './pages/create-file/CreateUtilityMod
 import { CreateGiFilePage } from './pages/create-file/CreateGiFilePage'
 import { CreateSpcFilePage } from './pages/create-file/CreateSpcFilePage'
 import { CreateCaseFilePage } from './pages/create-file/CreateCaseFilePage'
+import { CreateOtherMatterPickerPage } from './pages/create-file/CreateOtherMatterPickerPage'
+import { CreateOtherMatterFilePage } from './pages/create-file/CreateOtherMatterFilePage'
 import { CreateFileComingSoonPage } from './pages/create-file/CreateFileComingSoonPage'
 import { MatterListPage } from './pages/matters/MatterListPage'
 import { MatterLayout } from './pages/matters/MatterLayout'
@@ -188,6 +190,8 @@ export default function App() {
           <Route path="/files/new/gi" element={<CreateGiFilePage />} />
           <Route path="/files/new/spc" element={<CreateSpcFilePage />} />
           <Route path="/files/new/case" element={<CreateCaseFilePage />} />
+          <Route path="/files/new/other" element={<CreateOtherMatterPickerPage />} />
+          <Route path="/files/new/other/:slug" element={<CreateOtherMatterFilePage />} />
           <Route path="/files/new/:kind" element={<CreateFileComingSoonPage />} />
           <Route path="/matters" element={<MatterListPage />} />
           <Route path="/invoices" element={<InvoicesListPage />} />

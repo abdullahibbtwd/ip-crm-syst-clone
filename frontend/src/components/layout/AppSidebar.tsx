@@ -150,6 +150,10 @@ function matterShelfCountForPath(
     return counts.trademarkByProcedure?.marks ?? counts.byType.trademark ?? 0
   }
 
+  if (params.get('matterType') === 'patent' && params.get('spcOnly') === '1') {
+    return counts.byType.spc ?? 0
+  }
+
   const matterType = params.get('matterType')
   if (matterType) return counts.byType[matterType] ?? 0
   if (!search) return counts.all

@@ -98,7 +98,7 @@ export const MATTER_TYPE_LABELS: Record<IntakeLead['matterType'], string> = {
   trademark: 'Trademark',
   patent: 'Patent',
   utility_model: 'Utility model',
-  industrial_design: 'Industrial design',
+  industrial_design: 'Design',
   copyright: 'Copyright',
   geographical_indication: 'Geographical indication',
   border_measures: 'Border measures',

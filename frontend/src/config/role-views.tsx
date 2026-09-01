@@ -7,7 +7,7 @@ import {
   BarChart3,
   Bell,
   BookMarked,
-  Briefcase,
+  // Briefcase, // mattersAll (commented out in workingFilesNavItem)
   Calendar,
   CalendarPlus,
   Building2,
@@ -108,28 +108,48 @@ export function workingFilesNavItem(opts?: {
   id?: string
   labelKey?: string
 }): NavItem {
+  const typeChildren = PRIMARY_TYPE_NAV.flatMap(({ type, icon }) => {
+    const item =
+      type === 'trademark'
+        ? trademarkShelfNavItem()
+        : {
+            icon,
+            labelKey: `type.${type}`,
+            labelNs: 'matters',
+            path: `/matters?matterType=${type}`,
+            id: `matters-${type}`,
+          }
+
+    if (type === 'utility_model') {
+      return [
+        item,
+        {
+          icon: ShieldCheck,
+          labelKey: 'spcShelf.title',
+          labelNs: 'matters',
+          path: '/matters?matterType=patent&spcOnly=1',
+          id: 'matters-spc',
+        },
+      ]
+    }
+
+    return [item]
+  })
+
   return {
     id: opts?.id ?? 'working-files',
     icon: FolderOpen,
     labelKey: opts?.labelKey ?? 'workingFiles',
     children: [
+      /* Hidden — restore by uncommenting:
       {
         icon: Briefcase,
         labelKey: 'mattersAll',
         path: '/matters',
         id: 'matters-all',
       },
-      ...PRIMARY_TYPE_NAV.map(({ type, icon }) =>
-        type === 'trademark'
-          ? trademarkShelfNavItem()
-          : {
-              icon,
-              labelKey: `type.${type}`,
-              labelNs: 'matters',
-              path: `/matters?matterType=${type}`,
-              id: `matters-${type}`,
-            },
-      ),
+      */
+      ...typeChildren,
       {
         icon: Layers,
         labelKey: 'mattersOthers',
@@ -173,7 +193,7 @@ export function createFileNavItem(): NavItem {
       },
       {
         icon: Palette,
-        labelKey: 'createFile.kinds.registeredDesign',
+        labelKey: 'createFile.kinds.design',
         labelNs: 'matters',
         path: '/files/new/design?procedure=registered',
         id: 'create-file-design',
@@ -206,6 +226,13 @@ export function createFileNavItem(): NavItem {
         path: '/files/new/case',
         id: 'create-file-case',
       },
+      {
+        icon: List,
+        labelKey: 'createFile.otherFilesTitle',
+        labelNs: 'matters',
+        path: '/files/new/other',
+        id: 'create-file-other',
+      },
     ],
   }
 }
@@ -235,7 +262,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           createFileNavItem(),
           workingFilesNavItem({ labelKey: 'workingFiles' }),
+          /* Hidden — restore by uncommenting:
           { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
+          */
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
           { icon: BookMarked, labelKey: 'precedents', path: '/precedents' },
         ],
@@ -385,7 +414,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'overview',
         items: [
           { icon: LayoutDashboard, labelKey: 'dashboard', isHome: true, path: '/dashboard' },
+          /* Hidden — restore by uncommenting:
           { icon: Inbox, labelKey: 'intakeQueue', path: '/intake' },
+          */
           { icon: Calendar, labelKey: 'deadlines', path: '/deadlines' },
         ],
       },

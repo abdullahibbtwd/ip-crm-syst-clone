@@ -25,12 +25,26 @@ import {
 import { useUpdateMatter } from '@/features/matters/hooks/useMatters'
 import { missingRequiredAttachLabels } from '@/features/matters/stage-connections'
 import {
+  defaultDesignRoute,
+  defaultPatentRoute,
+  nextDesignStage,
+  nextPatentStage,
   nextStage,
+  nextUtilityModelStage,
+  pipelineForDesignRoute,
+  pipelineForPatentRoute,
   pipelineForTerritory,
+  pipelineForUtilityModel,
+  previousDesignStage,
+  previousPatentStage,
   previousStage,
+  previousUtilityModelStage,
+  prosecutionStageLabelKey,
   readProsecution,
   stageAdvanceBlockReason,
   territoryFromAttrs,
+  type DesignFilingRoute,
+  type PatentFilingRoute,
   type ProsecutionStage,
   type ProsecutionState,
 } from '@/features/matters/prosecution-stages'
@@ -60,8 +74,25 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
   const [invoiceBusy, setInvoiceBusy] = useState(false)
 
   const attrs = matter.attributes?.attributes ?? {}
+  const isPatent = matter.matterType === 'patent'
+  const isSpc =
+    isPatent &&
+    (attrs.spc === true || attrs.patentProcedure === 'spc')
+  const isRegularPatent = isPatent && !isSpc
+  const isDesign = matter.matterType === 'industrial_design'
+  const isGi = matter.matterType === 'geographical_indication'
+  const isUtilityModel = matter.matterType === 'utility_model'
+  const isTrademark = matter.matterType === 'trademark'
   const territory = territoryFromAttrs(attrs)
-  const pipeline = useMemo(() => pipelineForTerritory(territory), [territory])
+  const patentRoute: PatentFilingRoute = defaultPatentRoute(attrs)
+  const designRoute: DesignFilingRoute = defaultDesignRoute(attrs)
+  const pipeline = useMemo(() => {
+    if (isRegularPatent) return pipelineForPatentRoute(patentRoute)
+    if (isSpc || isGi) return pipelineForUtilityModel()
+    if (isDesign) return pipelineForDesignRoute(designRoute)
+    if (isUtilityModel) return pipelineForUtilityModel()
+    return pipelineForTerritory(territory)
+  }, [isRegularPatent, isSpc, isGi, isDesign, isUtilityModel, patentRoute, designRoute, territory])
   const prosecution = readProsecution(attrs)
   const approval = readFileApproval(attrs)
 
@@ -160,7 +191,7 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
         ...extra,
         attributes: {
           ...attrs,
-          territory,
+          ...(isTrademark ? { territory } : {}),
           prosecution: next,
         },
       })
@@ -349,7 +380,13 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
       return
     }
 
-    const nxt = nextStage(territory, currentStage)
+    const nxt = isRegularPatent
+      ? nextPatentStage(patentRoute, currentStage)
+      : isSpc || isGi || isUtilityModel
+        ? nextUtilityModelStage(currentStage)
+        : isDesign
+          ? nextDesignStage(designRoute, currentStage)
+          : nextStage(territory, currentStage)
     if (!nxt) {
       setError(t('prosecution.errors.alreadyFinal'))
       return
@@ -366,7 +403,13 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
   const handleGoBack = async () => {
     if (!canUpdate) return
     setSavedHint(false)
-    const prev = previousStage(territory, currentStage)
+    const prev = isRegularPatent
+      ? previousPatentStage(patentRoute, currentStage)
+      : isSpc || isGi || isUtilityModel
+        ? previousUtilityModelStage(currentStage)
+        : isDesign
+          ? previousDesignStage(designRoute, currentStage)
+          : previousStage(territory, currentStage)
     if (!prev) return
     try {
       await saveProsecution(buildCurrentPatch(prev))
@@ -375,7 +418,43 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
     }
   }
 
-  if (matter.matterType !== 'trademark') return null
+  if (!isRegularPatent && !isSpc && !isGi && !isTrademark && !isDesign && !isUtilityModel) return null
+
+  const prosecutionMatterType = isRegularPatent
+    ? 'patent'
+    : isDesign || isUtilityModel || isSpc || isGi
+      ? 'design'
+      : 'trademark'
+
+  const stageLabel = (stage: ProsecutionStage) =>
+    t(prosecutionStageLabelKey(prosecutionMatterType, stage, attrs), {
+      defaultValue: stage.replace(/_/g, ' '),
+    })
+
+  const jurisdictionCode = matter.jurisdictions[0]?.countryCode
+  const pipelineSubtitle = isRegularPatent
+    ? t(`createFile.patentFilingRoutes.${patentRoute}`)
+    : isDesign
+      ? t(`createFile.designFilingRoutes.${designRoute}`)
+      : isSpc
+        ? jurisdictionCode ?? t('spcShelf.title')
+        : isGi
+          ? jurisdictionCode ?? t('type.geographical_indication')
+          : isUtilityModel
+            ? jurisdictionCode ?? t('type.utility_model')
+            : t(`prosecution.territoryLabel.${territory}`)
+
+  const pipelineHint = isRegularPatent
+    ? t('prosecution.patentRouteFromInfo')
+    : isDesign
+      ? t('prosecution.designRouteFromInfo')
+      : isSpc
+        ? t('prosecution.spcTerritoryFromInfo')
+        : isGi
+          ? t('prosecution.giTerritoryFromInfo')
+          : isUtilityModel
+            ? t('prosecution.utilityModelTerritoryFromInfo')
+            : t('prosecution.territoryFromInfo')
 
   const busy =
     updateMatter.isPending ||
@@ -388,8 +467,7 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
         <div>
           <CardTitle className="text-base">{t('prosecution.title')}</CardTitle>
           <p className="mt-1 text-xs text-muted-foreground">
-            {t(`prosecution.territoryLabel.${territory}`)} ·{' '}
-            {t('prosecution.territoryFromInfo')}
+            {pipelineSubtitle} · {pipelineHint}
           </p>
         </div>
 
@@ -412,10 +490,10 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
                   {done && !active ? (
                     <span className="inline-flex items-center gap-1">
                       <Check className="size-3" />
-                      {t(`prosecution.stages.${stage}`)}
+                      {stageLabel(stage)}
                     </span>
                   ) : (
-                    t(`prosecution.stages.${stage}`)
+                    stageLabel(stage)
                   )}
                 </div>
                 {i < pipeline.length - 1 ? (
@@ -721,7 +799,13 @@ export function MatterProsecutionPanel({ matter }: MatterProsecutionPanelProps) 
 
         {canUpdate ? (
           <div className="flex flex-wrap items-center gap-2 border-t pt-4">
-            {previousStage(territory, currentStage) ? (
+            {(isRegularPatent
+              ? previousPatentStage(patentRoute, currentStage)
+              : isSpc || isGi || isUtilityModel
+                ? previousUtilityModelStage(currentStage)
+                : isDesign
+                  ? previousDesignStage(designRoute, currentStage)
+                  : previousStage(territory, currentStage)) ? (
               <Button
                 type="button"
                 variant="outline"

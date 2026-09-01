@@ -272,6 +272,17 @@ export function CreateGiFilePage() {
       ownerAddress: ownerSameAsClient ? undefined : ownerAddress,
       representativeHoldingGroupIds: representativeIds,
       addMoreRepresentatives,
+      prosecution: {
+        stage: registrationNumber.trim()
+          ? 'registration'
+          : applicationNumber.trim()
+            ? 'filing'
+            : 'prep',
+        applicationNumber: applicationNumber.trim() || undefined,
+        applicationDate: applicationDate || undefined,
+        bulletinNumber: registrationBulletin.trim() || undefined,
+        bulletinDate: registrationBulletinDate || undefined,
+      },
     }
 
     try {

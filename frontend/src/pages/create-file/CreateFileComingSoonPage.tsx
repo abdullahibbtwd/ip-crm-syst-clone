@@ -9,7 +9,7 @@ function kindLabelKey(kind: string | undefined, procedure: string | null): strin
     return 'createFile.kinds.registeredPatent'
   }
   if (kind === 'patent') return 'createFile.kinds.newPatent'
-  if (kind === 'design') return 'createFile.kinds.registeredDesign'
+  if (kind === 'design') return 'createFile.kinds.design'
   if (kind === 'utility-model') return 'createFile.kinds.utilityModel'
   if (kind === 'gi') return 'createFile.kinds.registeredGi'
   if (kind === 'spc') return 'createFile.kinds.spc'

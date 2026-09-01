@@ -6,10 +6,16 @@ import { MatterAttributeFields } from '@/components/matters/MatterAttributeField
 import { MatterFileApprovalPanel } from '@/components/matters/MatterFileApprovalPanel'
 import { MatterProsecutionPanel } from '@/components/matters/MatterProsecutionPanel'
 import { TrademarkInfoFields } from '@/components/matters/TrademarkInfoFields'
+import { PatentInfoFields } from '@/components/matters/PatentInfoFields'
+import { DesignInfoFields } from '@/components/matters/DesignInfoFields'
+import { UtilityModelInfoFields } from '@/components/matters/UtilityModelInfoFields'
+import { SpcInfoFields } from '@/components/matters/SpcInfoFields'
+import { GiInfoFields } from '@/components/matters/GiInfoFields'
 import { isCancellationMatter } from '@/features/matters/cancellation-matter'
 import { isDeletionMatter } from '@/features/matters/deletion-matter'
 import { isObjectionMatter } from '@/features/matters/objection-matter'
 import { isOppositionMatter } from '@/features/matters/opposition-matter'
+import { isOtherMatterType } from '@/features/matters/work-file-groups'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -36,6 +42,8 @@ import { CancellationMatterTab } from './CancellationMatterTab'
 import { DeletionMatterTab } from './DeletionMatterTab'
 import { ObjectionMatterTab } from './ObjectionMatterTab'
 import { OppositionMatterTab } from './OppositionMatterTab'
+import { CaseMatterTab } from './CaseMatterTab'
+import { OtherMatterTab } from './OtherMatterTab'
 
 export function MatterOverviewTab() {
   const { t } = useTranslation('matters')
@@ -73,6 +81,23 @@ export function MatterOverviewTab() {
       </div>
     )
   }
+  if (matter.matterType === 'cases') {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <CaseMatterTab matter={matter} />
+      </div>
+    )
+  }
+  if (isOtherMatterType(matter.matterType)) {
+    return (
+      <div className="space-y-4">
+        <MatterFileApprovalPanel matter={matter} />
+        <OtherMatterTab matter={matter} />
+      </div>
+    )
+  }
+
   const canUpdate = usePermission('matter', 'update')
   const updateMatter = useUpdateMatter(matter.id)
 
@@ -130,6 +155,11 @@ export function MatterOverviewTab() {
       <MatterFileApprovalPanel matter={matter} />
       <MatterProsecutionPanel matter={matter} />
       <TrademarkInfoFields matter={matter} />
+      <PatentInfoFields matter={matter} />
+      <SpcInfoFields matter={matter} />
+      <GiInfoFields matter={matter} />
+      <DesignInfoFields matter={matter} />
+      <UtilityModelInfoFields matter={matter} />
 
       <Card className="lg:col-span-2">
         <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">

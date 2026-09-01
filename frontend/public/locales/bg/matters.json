@@ -1,22 +1,77 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Маршрут",
+        "options": {
+          "national_bg": "България (национални)",
+          "eu_regulation": "ЕС Регламент 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Защитено право",
+        "options": {
+          "trademark": "Марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "copyright": "Авторско право",
+          "gi": "Географско означение"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Референция на правото"
+      },
       "customsOffice": {
         "label": "Митнически офис"
       },
+      "validFrom": {
+        "label": "Валидно от"
+      },
+      "validUntil": {
+        "label": "Валидно до"
+      },
       "infringingGoods": {
-        "label": "Описание на нарушаващи стоки"
+        "label": "Описание на стоките"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Дата на създаване"
-      },
       "workTitle": {
         "label": "Заглавие на произведението"
       },
       "workType": {
-        "label": "Вид произведение"
+        "label": "Вид произведение",
+        "options": {
+          "literary": "Литературно",
+          "musical": "Музикално",
+          "software": "Софтуер",
+          "audiovisual": "Аудиовизуално",
+          "graphic": "Графично",
+          "other": "Друго"
+        }
+      },
+      "creationDate": {
+        "label": "Дата на създаване"
+      },
+      "firstPublicationDate": {
+        "label": "Дата на първа публикация"
+      },
+      "authorName": {
+        "label": "Автор"
+      },
+      "rightsBasis": {
+        "label": "Основание на правото",
+        "options": {
+          "author": "Автор",
+          "employer": "Работодател",
+          "assignment": "Уступяне",
+          "license": "Лиценз"
+        }
+      },
+      "rightsHolder": {
+        "label": "Притежател на правото"
+      },
+      "infringementContext": {
+        "label": "Контекст на нарушение / защита"
       }
     },
     "cases": {
@@ -37,22 +92,78 @@
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Обобщение на основанието"
+      "disputeKind": {
+        "label": "Вид производство",
+        "options": {
+          "civil": "Гражданско",
+          "administrative": "Административно",
+          "arbitration": "Арбитраж",
+          "mediation": "Медиация",
+          "other": "Друго"
+        }
       },
-      "disputeType": {
-        "label": "Вид спор"
+      "disputeSubject": {
+        "label": "Предмет",
+        "options": {
+          "invalidity": "Недействителност",
+          "infringement": "Нарушение",
+          "ownership": "Собственост",
+          "contract": "Договор",
+          "unfair_competition": "Нелоялна конкуренция",
+          "other": "Друго"
+        }
       },
       "opponentName": {
-        "label": "Опонент / противна страна"
+        "label": "Опонент / страна"
+      },
+      "disputeType": {
+        "label": "Бележки по вида спор"
+      },
+      "filingReference": {
+        "label": "Референция на подаване"
+      },
+      "filingDate": {
+        "label": "Дата на подаване"
+      },
+      "basisSummary": {
+        "label": "Обобщение на основанието"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Обобщение на обхвата"
+      "projectName": {
+        "label": "Име на проект"
+      },
+      "productName": {
+        "label": "Име на продукт"
       },
       "technologyArea": {
         "label": "Технологична област"
+      },
+      "analysisScope": {
+        "label": "Обхват на анализа"
+      },
+      "deliverableType": {
+        "label": "Резултат",
+        "options": {
+          "written_report": "Писмен доклад",
+          "memo": "Мемо",
+          "oral_briefing": "Устно представяне"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Краен срок"
+      },
+      "scopeSummary": {
+        "label": "Обобщение"
+      },
+      "riskLevel": {
+        "label": "Ниво на риск",
+        "options": {
+          "low": "Ниско",
+          "medium": "Средно",
+          "high": "Високо",
+          "pending": "Предстои оценка"
+        }
       }
     },
     "geographical_indication": {
@@ -176,55 +287,213 @@
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Тип актив",
+        "options": {
+          "trademark": "Марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "gi": "ГО",
+          "mixed": "Смесен портфейл",
+          "company_ip": "IP на дружество"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Цел",
+        "options": {
+          "licensing": "Лицензиране",
+          "m_and_a": "M&A",
+          "litigation": "Съдебен спор",
+          "tax": "Данъци",
+          "internal": "Вътрешна"
+        }
+      },
+      "valuationMethod": {
+        "label": "Метод",
+        "options": {
+          "market": "Пазарен",
+          "income": "Доходен",
+          "cost": "Разходен"
+        }
+      },
+      "valuationDate": {
+        "label": "Дата на оценка"
+      },
       "assetDescription": {
         "label": "Описание на актива"
       },
-      "valuationPurpose": {
-        "label": "Цел на оценката"
+      "conclusionValue": {
+        "label": "Стойност (заключение)"
+      },
+      "currency": {
+        "label": "Валута",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Домейн",
-        "placeholder": "напр. example.com"
+        "placeholder": "напр. example.bg"
+      },
+      "tldType": {
+        "label": "TLD",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com",
+          "other": "Друго"
+        }
       },
       "registrar": {
         "label": "Регистратор"
+      },
+      "registrant": {
+        "label": "Регистрант"
+      },
+      "registrationDate": {
+        "label": "Дата на регистрация"
+      },
+      "expiryDate": {
+        "label": "Изтича на"
+      },
+      "disputeRoute": {
+        "label": "Спор",
+        "options": {
+          "none": "Няма",
+          "udrp": "UDRP",
+          "court": "Съд",
+          "negotiation": "Преговори"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Свързана марка"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Референция по дело"
+      "engagementType": {
+        "label": "Вид експертиза",
+        "options": {
+          "patent": "Патент",
+          "trademark": "Марка",
+          "copyright": "Авторско право",
+          "damages": "Обезщетение",
+          "other": "Друго"
+        }
       },
       "courtOrAuthority": {
         "label": "Съд / орган"
       },
+      "caseReference": {
+        "label": "Референция по дело"
+      },
+      "appointingParty": {
+        "label": "Възложител"
+      },
+      "reportDueDate": {
+        "label": "Краен срок за доклад"
+      },
+      "hearingDate": {
+        "label": "Дата на заседание"
+      },
       "reportScope": {
-        "label": "Обхват на становището"
+        "label": "Обхват"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Обобщение на обхвата"
+      "consultationType": {
+        "label": "Форма",
+        "options": {
+          "phone": "Телефон",
+          "written": "Писмено",
+          "meeting": "Среща",
+          "due_diligence": "Due diligence"
+        }
+      },
+      "topicCategory": {
+        "label": "Категория",
+        "options": {
+          "trademark": "Марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "contract": "Договор",
+          "strategy": "Стратегия",
+          "other": "Друго"
+        }
       },
       "topic": {
         "label": "Тема"
+      },
+      "requestedBy": {
+        "label": "Заявено от"
+      },
+      "scopeSummary": {
+        "label": "Обхват"
+      },
+      "timeSpentHours": {
+        "label": "Часове"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Орган / служба"
+        "label": "Орган",
+        "options": {
+          "bpo": "ПВ (BPO)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Друго"
+        }
+      },
+      "feeType": {
+        "label": "Вид такса",
+        "options": {
+          "filing": "Подаване",
+          "publication": "Публикация",
+          "examination": "Експертиза",
+          "renewal": "Подновяване",
+          "annuity": "Ануитет",
+          "opposition": "Опозиция",
+          "other": "Друго"
+        }
       },
       "feeReference": {
-        "label": "Референция на такса / плащане"
+        "label": "Референция"
       },
       "relatedApplication": {
-        "label": "Свързана заявка / файл"
+        "label": "Свързана заявка"
+      },
+      "feeAmount": {
+        "label": "Сума"
+      },
+      "currency": {
+        "label": "Валута",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Краен срок за плащане"
+      },
+      "paymentDate": {
+        "label": "Дата на плащане"
+      },
+      "paymentReference": {
+        "label": "Референция на плащане"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Категория"
+      },
       "workSummary": {
-        "label": "Описание на работата"
+        "label": "Обобщение"
+      },
+      "expectedOutcome": {
+        "label": "Очакван резултат"
       }
     }
   },
@@ -490,6 +759,84 @@
     "territory": "Територия",
     "title": "Информация за марка"
   },
+  "patentInfo": {
+    "title": "Информация за патент",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Заявка No./Дата",
+      "registration": "Рег. No./Дата",
+      "bulletin": "Бюлетин / публикация",
+      "ipc": "IPC",
+      "client": "Възложител",
+      "owner": "Притежател",
+      "contact": "Лице за контакт",
+      "representatives": "Представители",
+      "claims": "Претенции",
+      "territory": "Територия"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Информация за полезен модел",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Заявка No./Дата",
+      "registration": "Рег. No./Дата",
+      "bulletin": "Бюлетин / публикация на регистрацията / дата",
+      "ipc": "IPC",
+      "applicant": "Заявител",
+      "inventor": "Изобретател",
+      "contact": "Лице за контакт",
+      "representatives": "Представители",
+      "claims": "Претенции",
+      "territory": "Територия"
+    }
+  },
+  "spcInfo": {
+    "title": "Информация за SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Заявка No./Дата",
+      "registration": "Рег. No./Дата",
+      "bulletin": "Бюлетин / публикация на регистрацията / дата",
+      "ipc": "IPC",
+      "applicant": "Заявител",
+      "inventor": "Изобретател",
+      "contact": "Лице за контакт",
+      "representatives": "Представители",
+      "claims": "Претенции",
+      "medicinalProduct": "Лекарствен продукт"
+    }
+  },
+  "designInfo": {
+    "title": "Информация за дизайн",
+    "subtitle": "{{territory}} дизайн · {{name}}",
+    "fields": {
+      "application": "Заявка No./Дата",
+      "registration": "Рег. No./Дата",
+      "bulletin": "Бюлетин / публикация на регистрацията / дата",
+      "client": "Възложител",
+      "owner": "Притежател",
+      "contact": "Лице за контакт",
+      "representatives": "Представители",
+      "classification": "Класификация",
+      "territory": "Територия"
+    }
+  },
+  "giInfo": {
+    "title": "Информация за географско означение",
+    "subtitle": "{{territory}} ГО · {{name}}",
+    "fields": {
+      "application": "Заявка No./Дата",
+      "registration": "Рег. No./Дата",
+      "bulletin": "Бюлетин / публикация на регистрацията / дата",
+      "client": "Възложител",
+      "owner": "Притежател",
+      "contact": "Лице за контакт",
+      "representatives": "Представители",
+      "classes": "Класове",
+      "territory": "Територия"
+    }
+  },
   "fileApproval": {
     "clientStep": "1. Одобрение от клиента",
     "clientStepHint": "Служителят потвърждава, че клиентът е съгласен (обаждане/имейл/среща). Клиентът в портала не трябва да одобрява сам.",
@@ -575,7 +922,23 @@
     },
     "territoryLocked": "Територията е фиксирана при създаване на файла",
     "territoryFromInfo": "Територия от информация за марка",
+    "patentRouteFromInfo": "Процедура от създаване на файл",
+    "designRouteFromInfo": "Процедура от създаване на файл",
+    "utilityModelTerritoryFromInfo": "Територия от държава на заявяване",
+    "spcTerritoryFromInfo": "Територия от държава на заявяване",
+    "giTerritoryFromInfo": "Територия от процедурата",
     "title": "Етапи на производството",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Получена валидизация",
+        "filing": "Възлагане",
+        "formal_exam": "Подаване на искане",
+        "substantive_exam": "Експертиза по същество",
+        "publication": "Публикация",
+        "reg_fee": "Такси по регистрация",
+        "registration": "Решение по валидизация"
+      }
+    },
     "yes": "Да",
     "hub": {
       "generateInvoice": "Генерирай фактура",
@@ -649,6 +1012,7 @@
       "giName": "Въведете името на географското означение.",
       "spcName": "Въведете името на SPC.",
       "caseClientRole": "Изберете дали клиентът е ищец, ответник или заинтересована страна.",
+      "otherType": "Неизвестен тип файл. Изберете тип от списъка.",
       "patentSubtype": "Изберете подкатегория на патента.",
       "saveFailed": "Неуспешно запазване на черновата.",
       "subtype": "Изберете подкатегория на марката."
@@ -669,6 +1033,8 @@
       "legalName": "Наименование и вид на юридическото лице",
       "linkClient": "Избери клиент в CRM",
       "linkClientOptional": "Клиент в CRM (по избор)",
+      "fileTitleOptional": "Заглавие (по избор)",
+      "fileDescriptionOptional": "Описание (по избор)",
       "markKind": "Категория на марката",
       "markType": "Вид на марката",
       "markWords": "Име на марката",
@@ -816,7 +1182,8 @@
     "kinds": {
       "newPatent": "Нов патент",
       "registeredPatent": "Регистриран патент",
-      "registeredDesign": "Регистриран дизайн",
+      "design": "Дизайн",
+      "registeredDesign": "Дизайн",
       "utilityModel": "Полезни модели",
       "registeredGi": "Регистрирано ГО",
       "spc": "SPC",
@@ -832,6 +1199,9 @@
     "giFormTitle": "Създай файл: Географско означение",
     "spcFormTitle": "Създай файл: SPC",
     "caseFormTitle": "Създай файл: Дело",
+    "otherFilesTitle": "Други файлове",
+    "otherFilesDescription": "Изберете тип работа извън основните категории — авторско право, домейни, консултации и др.",
+    "otherFileFormTitle": "Създай файл: {{type}}",
     "addParty": "Добави страна",
     "caseClientRoles": {
       "plaintiff": "Ищец / Жалбоподател",
@@ -874,8 +1244,8 @@
       "TR": "Турция"
     },
     "patentHints": {
-      "new": "Нова заявка за патент — пълна форма за създаване",
-      "registered": "Съществуващ регистриран патент — пълна форма за създаване"
+      "new": "Нова заявка — национална, EP или PCT (7-стъпково производство, WorkPatent)",
+      "registered": "Регистриран патент — национален, EP, PCT или EP-валидизация (4 стъпки, WorkValPatent)"
     },
     "removeClass": "Премахни клас",
     "removeClaim": "Премахни претенция",
@@ -903,6 +1273,7 @@
       "attachments": "Прикачени файлове",
       "additionalInfo": "Допълнителна информация",
       "basicInfo": "Основна информация",
+      "fileDetails": "Детайли за файла",
       "basisMarks": "Марки, на които се основава опозицията",
       "claims": "Претенции",
       "classification": "Класификация",
@@ -1385,6 +1756,342 @@
       "chooseCountry": "Изберете държава",
       "all": "Всички",
       "classOption": "Клас {{number}}",
+      "clear": "Изчисти филтрите",
+      "apply": "Приложи филтрите"
+    }
+  },
+  "utilityModelList": {
+    "description": "Полезни модели — територия, претенции, притежател и регистрация на един поглед.",
+    "emptyDescription": "Опитайте да промените филтрите или създайте нов файл за полезен модел.",
+    "searchResults": "Резултати от търсене: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Регистриран"
+    },
+    "columns": {
+      "name": "Име",
+      "territory": "Територия",
+      "incomingRef": "Входящ номер/Дата",
+      "status": "Статус",
+      "classes": "Класове",
+      "owner": "Притежател",
+      "kind": "Вид",
+      "registration": "Рег. No./Дата"
+    },
+    "filters": {
+      "title": "Филтриране на полезни модели",
+      "subtitle": "Стеснете портфолиото по заявител, номера, дати, територия и др.",
+      "activeCount": "{{count}} активни",
+      "applicant": "Заявител/Притежател",
+      "applicantPlaceholder": "Име на клиент или притежател…",
+      "name": "Име",
+      "namePlaceholder": "Име на полезния модел…",
+      "incomingNo": "Входящ номер",
+      "incomingPlaceholder": "Заявка / входящ номер…",
+      "regNo": "Номер на регистрация",
+      "regNoPlaceholder": "Регистрационен номер…",
+      "territory": "Територия",
+      "choose": "Избери",
+      "chooseTerritory": "Изберете територия!",
+      "representative": "Представител",
+      "chooseRepresentative": "Избери представител",
+      "applicationDate": "Дата на заявяване",
+      "registrationDate": "Дата на регистрация",
+      "contact": "Лице за контакт",
+      "contactPlaceholder": "Име, имейл или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "Със сертификат",
+        "without": "Без сертификат"
+      },
+      "statusOptions": {
+        "registered": "Регистриран"
+      },
+      "clear": "Изчисти филтрите",
+      "apply": "Филтрирай"
+    }
+  },
+  "spcList": {
+    "description": "Допълнителни сертификати за защита (SPC) — територия, претенции, притежател и регистрация на един поглед.",
+    "emptyDescription": "Опитайте да промените филтрите или създайте нов SPC файл.",
+    "searchResults": "Резултати от търсене: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Регистриран"
+    },
+    "columns": {
+      "name": "Име",
+      "territory": "Територия",
+      "incomingRef": "Входящ номер/Дата",
+      "status": "Статус",
+      "classes": "Класове",
+      "owner": "Притежател",
+      "kind": "Вид",
+      "registration": "Рег. No./Дата"
+    },
+    "filters": {
+      "title": "Филтриране на SPC",
+      "subtitle": "Стеснете портфолиото по заявител, номера, дати, територия и др.",
+      "activeCount": "{{count}} активни",
+      "applicant": "Заявител/Притежател",
+      "applicantPlaceholder": "Име на клиент или притежател…",
+      "name": "Патент Име",
+      "namePlaceholder": "Име на SPC…",
+      "incomingNo": "Входящ номер",
+      "incomingPlaceholder": "Заявка / входящ номер…",
+      "regNo": "Номер на регистрация",
+      "regNoPlaceholder": "Регистрационен номер…",
+      "territory": "Територия",
+      "choose": "Избери",
+      "chooseTerritory": "Изберете територия!",
+      "representative": "Представител",
+      "chooseRepresentative": "Избери представител",
+      "applicationDate": "Дата на заявяване",
+      "registrationDate": "Дата на регистрация",
+      "contact": "Лице за контакт",
+      "contactPlaceholder": "Име, имейл или телефон…",
+      "status": "Патент Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "Със сертификат",
+        "without": "Без сертификат"
+      },
+      "statusOptions": {
+        "registered": "Регистриран"
+      },
+      "clear": "Изчисти",
+      "apply": "Филтрирай"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Съдебни дела — страни, номер на делото, съд и статус на един поглед.",
+    "emptyDescription": "Създайте нов файл за дело, за да започнете.",
+    "searchResults": "Резултати от търсене: {{count}}",
+    "incomingSuffix": "входящ",
+    "vrs": "срещу",
+    "viewAria": "Преглед {{title}}",
+    "filesAria": "Документи за {{title}} ({{count}})",
+    "columns": {
+      "parties": "Страни",
+      "caseNumber": "Дело №",
+      "court": "Съдилище",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "statusOptions": {
+      "suspended": "Спряно",
+      "scheduled": "Насрочено",
+      "inactive": "Без движение",
+      "appealed": "Обжалвано"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Клиент",
+    "caseNumberLabel": "Дело №",
+    "statusTitle": "Статус",
+    "chooseStatus": "Изберете статус",
+    "saveStatus": "Запази статус",
+    "edit": "Редакция",
+    "save": "Запази",
+    "cancel": "Отказ",
+    "saving": "Запазване…",
+    "editHint": "Редактирайте страни, съд, предмет и други данни по делото.",
+    "subjectTitle": "Предмет на делото",
+    "instanceTitle": "Дело № {{number}} ({{court}})",
+    "eventsTitle": "Събития",
+    "reminderTitle": "Създаване на допълнително напомняне",
+    "addReminder": "Въведи",
+    "openArchive": "Файлов архив",
+    "saved": "Запазено.",
+    "events": {
+      "date": "Дата",
+      "deadline": "Краен срок",
+      "regarding": "Относно",
+      "info": "Допълнителна информация"
+    },
+    "actions": {
+      "decision": "Решение",
+      "agreement": "Споразумение",
+      "ruling": "Определение"
+    },
+    "errors": {
+      "saveFailed": "Неуспешно запазване на детайлите по делото."
+    }
+  },
+  "giList": {
+    "description": "Географски означения — територия, класове продукти, притежател и регистрация на един поглед.",
+    "emptyDescription": "Опитайте да промените филтрите или създайте нов файл за географско означение.",
+    "searchResults": "Резултати от търсене: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Регистриран"
+    },
+    "columns": {
+      "name": "Име",
+      "territory": "Територия",
+      "incomingRef": "Входящ номер/Дата",
+      "status": "Статус",
+      "classification": "Класификация",
+      "owner": "Притежател",
+      "registration": "Рег. No./Дата"
+    },
+    "filters": {
+      "title": "Филтриране на географски означения",
+      "subtitle": "Стеснете портфолиото по заявител, номера, дати, територия и др.",
+      "activeCount": "{{count}} активни",
+      "applicant": "Заявител/Притежател",
+      "applicantPlaceholder": "Име на клиент или притежател…",
+      "name": "Име",
+      "namePlaceholder": "Име на географското означение…",
+      "incomingNo": "Входящ номер",
+      "incomingPlaceholder": "Заявка / входящ номер…",
+      "regNo": "Номер на регистрация",
+      "regNoPlaceholder": "Регистрационен номер…",
+      "territory": "Територия",
+      "choose": "Избери",
+      "chooseTerritory": "Изберете процедура",
+      "representative": "Представител",
+      "chooseRepresentative": "Избери представител",
+      "applicationDate": "Дата на заявяване",
+      "registrationDate": "Дата на регистрация",
+      "contact": "Лице за контакт",
+      "contactPlaceholder": "Име, имейл или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "Със сертификат",
+        "without": "Без сертификат"
+      },
+      "country": "Държава",
+      "chooseCountry": "Изберете държава",
+      "statusOptions": {
+        "registered": "Регистриран"
+      },
+      "clear": "Изчисти",
+      "apply": "Филтрирай"
+    }
+  },
+  "designList": {
+    "description": "Регистрирани дизайни — територия, класификация по Локарно, притежател и регистрация на един поглед.",
+    "emptyDescription": "Опитайте да промените филтрите или създайте нов дизайн файл.",
+    "searchResults": "Резултати от търсене: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Регистриран"
+    },
+    "columns": {
+      "name": "Име",
+      "territory": "Територия",
+      "incomingRef": "Входящ номер/Дата",
+      "status": "Статус",
+      "classification": "Класификация",
+      "owner": "Притежател",
+      "registration": "Рег. No./Дата"
+    },
+    "filters": {
+      "title": "Филтриране на дизайни",
+      "subtitle": "Стеснете портфолиото по заявител, номера, дати, процедура и др.",
+      "activeCount": "{{count}} активни",
+      "applicant": "Заявител/Притежател",
+      "applicantPlaceholder": "Име на клиент или притежател…",
+      "name": "Име",
+      "namePlaceholder": "Име на дизайна…",
+      "incomingNo": "Входящ номер",
+      "incomingPlaceholder": "Заявка / входящ номер…",
+      "regNo": "Номер на регистрация",
+      "regNoPlaceholder": "Регистрационен номер…",
+      "territory": "Територия",
+      "procedure": "Процедура",
+      "choose": "Избери",
+      "chooseTerritory": "Изберете територия",
+      "representative": "Представител",
+      "chooseRepresentative": "Избери представител",
+      "applicationDate": "Дата на заявяване",
+      "registrationDate": "Дата на регистрация",
+      "contact": "Лице за контакт",
+      "contactPlaceholder": "Име, имейл или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "Със сертификат",
+        "without": "Без сертификат"
+      },
+      "country": "Държава",
+      "statusOptions": {
+        "registered": "Регистриран"
+      },
+      "clear": "Изчисти филтрите",
+      "apply": "Приложи филтрите"
+    }
+  },
+  "patentList": {
+    "description": "Нови и регистрирани патенти заедно — статус, претенции, притежател и срокове на един поглед.",
+    "emptyDescription": "Опитайте да промените филтрите или създайте нов патентен файл.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Име",
+      "territory": "Територия",
+      "incomingRef": "Входящ номер/Дата",
+      "stage": "Статус",
+      "claims": "Претенции",
+      "owner": "Притежател",
+      "registration": "Рег. No./Дата",
+      "deadline": "Срок"
+    },
+    "deadlineOpen": "{{count}} отворени",
+    "deadlineOverdue": "{{count}} просрочени",
+    "deadlineNext": "Следващ: {{date}}",
+    "filters": {
+      "title": "Филтриране на патенти",
+      "subtitle": "Стеснете портфолиото по заявител, номера, дати, територия и др.",
+      "activeCount": "{{count}} активни",
+      "applicant": "Заявител/Притежател",
+      "applicantPlaceholder": "Име на клиент или притежател…",
+      "patentName": "Патент — име",
+      "patentNamePlaceholder": "Име на патента…",
+      "incomingNo": "Входящ номер",
+      "incomingPlaceholder": "Заявка / входящ номер…",
+      "regNo": "Номер на регистрация",
+      "regNoPlaceholder": "Регистрационен номер…",
+      "territory": "Територия",
+      "choose": "Избери",
+      "chooseTerritory": "Изберете територия!",
+      "representative": "Представител",
+      "chooseRepresentative": "Избери представител",
+      "applicationDateFrom": "Дата на заявяване от",
+      "applicationDateTo": "Дата на заявяване до",
+      "registrationDateFrom": "Дата на регистрация от",
+      "registrationDateTo": "Дата на регистрация до",
+      "contact": "Лице за контакт",
+      "contactPlaceholder": "Име, имейл или телефон…",
+      "patentStatus": "Патент — статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "Със сертификат",
+        "without": "Без сертификат"
+      },
+      "country": "Държава",
+      "chooseCountry": "Изберете държава",
+      "annualFees": "Плащане на годишни такси",
+      "annualFeesOptions": {
+        "yes": "Да",
+        "no": "Не"
+      },
+      "statusOptions": {
+        "validation_received": "Получена валидизация",
+        "assignment": "Възлагане",
+        "translation_assigned": "Възложен превод",
+        "filing_entry": "Входиране",
+        "validation_decision": "Решение по валидизация",
+        "registered": "Регистриран"
+      },
+      "all": "Всички",
       "clear": "Изчисти филтрите",
       "apply": "Приложи филтрите"
     }
@@ -2029,8 +2736,8 @@
     "copyright": "Авторско право",
     "dispute_opposition": "Спор / опозиция",
     "fto_analysis": "FTO анализ",
-    "geographical_indication": "Географско указание",
-    "industrial_design": "Промишлен дизайн",
+    "geographical_indication": "Географски означения",
+    "industrial_design": "Дизайн",
     "patent": "Патент",
     "trademark": "Марка",
     "utility_model": "Полезен модел",
@@ -2045,5 +2752,91 @@
   "attributeFields": {
     "selectPlaceholder": "Изберете…",
     "title": "Детайли специфични за типа"
+  },
+  "otherMatterSpine": {
+    "sectionTitle": "Референция и статус на файла",
+    "incomingNumber": {
+      "label": "Входящ №"
+    },
+    "incomingDate": {
+      "label": "Входяща дата"
+    },
+    "territoryRoute": {
+      "label": "Територия",
+      "options": {
+        "national_bg": "България (национална)",
+        "eu": "Европейски съюз",
+        "wipo": "WIPO / международна",
+        "international": "Друга международна"
+      }
+    },
+    "authorityOffice": {
+      "label": "Орган / служба"
+    },
+    "relatedApplicationNumber": {
+      "label": "Свързана заявка №"
+    },
+    "workflowStage": {
+      "label": "Етап на работа",
+      "options": {
+        "intake": "Приемане",
+        "analysis": "Анализ",
+        "contract_draft": "Договор / проект",
+        "filed": "Подадено",
+        "closed": "Приключено",
+        "registration": "Регистрация",
+        "active": "Активно",
+        "seizure_pending": "Задържане",
+        "scoping": "Оценка на обхват",
+        "search": "Проучване",
+        "draft_report": "Чернова на доклад",
+        "delivered": "Предадено",
+        "archived": "Архивирано",
+        "pre_dispute": "Преди спор",
+        "hearing": "Заседание",
+        "decision": "Решение",
+        "appeal": "Обжалване",
+        "monitoring": "Мониторинг",
+        "dispute": "Спор",
+        "udrp": "UDRP",
+        "resolved": "Решено",
+        "engaged": "Възложено",
+        "draft": "Чернова",
+        "submitted": "Подадено",
+        "requested": "Заявено",
+        "in_progress": "В процес",
+        "invoiced": "Фактурирано",
+        "pending": "Чакащо",
+        "paid": "Платено",
+        "reimbursed": "Възстановено",
+        "open": "Отворено"
+      }
+    }
+  },
+  "otherMatterView": {
+    "edit": "Редакция",
+    "save": "Запази",
+    "cancel": "Отказ",
+    "saving": "Запазване…",
+    "editHint": "Редактирайте референция, етап и детайли по типа файл.",
+    "clientLabel": "Клиент",
+    "detailsTitle": "Детайли — {{type}}",
+    "errors": {
+      "saveFailed": "Неуспешно запазване на файла."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Създайте нов друг файл или променете филтрите.",
+    "viewAria": "Преглед {{title}}",
+    "filesAria": "Документи за {{title}} ({{count}})",
+    "columns": {
+      "type": "Тип",
+      "subject": "Предмет",
+      "client": "Клиент",
+      "incoming": "Входящ №",
+      "stage": "Етап",
+      "deadline": "Ключова дата",
+      "actions": "Действия"
+    }
   }
 }

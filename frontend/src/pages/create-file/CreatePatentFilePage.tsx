@@ -83,6 +83,20 @@ export function CreatePatentFilePage() {
   const urlSubtype = normalizePatentSubtype(searchParams.get('procedure'))
   const [subtype, setSubtype] = useState(urlSubtype)
 
+  useEffect(() => {
+    setSubtype(urlSubtype)
+  }, [urlSubtype])
+
+  useEffect(() => {
+    if (!subtype) return
+    const allowed = filingRoutesForSubtype(subtype)
+    setFilingRoute((current) => {
+      if (current && (allowed as readonly string[]).includes(current)) return current
+      return allowed[0] ?? null
+    })
+    setEpValidation(allowed.includes('ep_validation'))
+  }, [subtype])
+
   const [clientId, setClientId] = useState<string | undefined>()
   const [legalName, setLegalName] = useState('')
   const [eik, setEik] = useState('')
@@ -356,6 +370,7 @@ export function CreatePatentFilePage() {
         })),
       representativeHoldingGroupIds: representativeIds,
       addMoreRepresentatives,
+      prosecution: { stage: 'prep' },
     }
 
     try {

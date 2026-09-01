@@ -1,5 +1,7 @@
 import i18n from '@/i18n'
 import type { MatterType } from './types'
+import { isOtherMatterType } from './work-file-groups'
+import { buildOtherMatterAttributeFields } from './other-matter-fields'
 
 export type AttributeFieldType =
   | 'text'
@@ -47,7 +49,7 @@ export const MATTER_TYPE_LABELS: Record<MatterType, string> = {
   trademark: 'Trademark',
   patent: 'Patent',
   utility_model: 'Utility model',
-  industrial_design: 'Industrial design',
+  industrial_design: 'Design',
   copyright: 'Copyright',
   geographical_indication: 'Geographical indication',
   border_measures: 'Border measures',
@@ -258,8 +260,11 @@ function translateAttributeField(
 }
 
 export function getMatterAttributeFields(matterType: MatterType): AttributeFieldConfig[] {
-  return (MATTER_ATTRIBUTE_FIELD_DEFS[matterType] ?? []).map((def) =>
-    translateAttributeField(matterType, def),
+  if (isOtherMatterType(matterType)) {
+    return buildOtherMatterAttributeFields(matterType)
+  }
+  return (MATTER_ATTRIBUTE_FIELD_DEFS[matterType as keyof typeof MATTER_ATTRIBUTE_FIELD_DEFS] ?? []).map(
+    (def: AttributeFieldDef) => translateAttributeField(matterType, def),
   )
 }
 

@@ -18,8 +18,14 @@ export const PATENT_FILING_ROUTES = [
 
 export type PatentFilingRoute = (typeof PATENT_FILING_ROUTES)[number]
 
-export const NEW_PATENT_FILING_ROUTES = ['ep_validation'] as const
+/** New application prosecution — WorkPatent.php (7 / 6 / 4 steps). */
+export const NEW_PATENT_FILING_ROUTES = [
+  'national',
+  'european',
+  'pct',
+] as const
 
+/** Existing grant / validation entry — WorkValPatent.php + registered portfolio. */
 export const REGISTERED_PATENT_FILING_ROUTES = PATENT_FILING_ROUTES
 
 export function filingRoutesForSubtype(

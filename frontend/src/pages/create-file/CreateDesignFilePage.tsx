@@ -269,6 +269,17 @@ export function CreateDesignFilePage() {
       designerAddress: designerSameAsClient ? undefined : designerAddress,
       representativeHoldingGroupIds: representativeIds,
       addMoreRepresentatives,
+      prosecution: {
+        stage: registrationNumber.trim()
+          ? 'registration'
+          : applicationNumber.trim()
+            ? 'filing'
+            : 'prep',
+        applicationNumber: applicationNumber.trim() || undefined,
+        applicationDate: applicationDate || undefined,
+        bulletinNumber: registrationBulletin.trim() || undefined,
+        bulletinDate: registrationBulletinDate || undefined,
+      },
     }
 
     try {
@@ -365,7 +376,7 @@ export function CreateDesignFilePage() {
         title: designName.trim(),
         status: 'draft',
         description: t('createFile.draftDescription', {
-          procedure: t('createFile.kinds.registeredDesign'),
+          procedure: t('createFile.kinds.design'),
         }),
         jurisdictions: jurisdictions.map((countryCode) => ({ countryCode })),
         attributes,
@@ -439,7 +450,7 @@ export function CreateDesignFilePage() {
                 {t('createFile.designFormTitle')}
               </h1>
               <p className="mt-1 text-sm text-muted-foreground">
-                {t('createFile.kinds.registeredDesign')}
+                {t('createFile.kinds.design')}
                 {' · '}
                 {t('createFile.sections.basicInfo')}
               </p>

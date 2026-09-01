@@ -46,6 +46,8 @@ import {
   filingTimelineTitle,
 } from './ip-right-filing.utils';
 import { countSecondaryTrademarkActions } from './trademark-action.utils';
+import { extractPatentListSummary } from './patent-list-summary.utils';
+import { extractDesignListSummary } from './design-list-summary.utils';
 import { extractTrademarkListSummary } from './trademark-list-summary.utils';
 import {
   normalizeTrademarkProcedureShelfKey,
@@ -53,6 +55,17 @@ import {
   trademarkProcedureFilter,
 } from './trademark-procedure-filter.utils';
 import { trademarkListFilterWhere } from './trademark-list-filter.utils';
+import { patentListFilterWhere } from './patent-list-filter.utils';
+import { designListFilterWhere } from './design-list-filter.utils';
+import { utilityModelListFilterWhere } from './utility-model-list-filter.utils';
+import { extractUtilityModelListSummary } from './utility-model-list-summary.utils';
+import { spcListFilterWhere } from './spc-list-filter.utils';
+import { excludeSpcMatterWhere, spcMatterWhere } from './spc-matter.utils';
+import { extractGiListSummary } from './gi-list-summary.utils';
+import { giListFilterWhere } from './gi-list-filter.utils';
+import { extractCaseListSummary } from './case-list-summary.utils';
+import { extractOtherListSummary } from './other-list-summary.utils';
+import { isOtherMatterType } from './other-matter.utils';
 import { OppositionPdfService } from './opposition-pdf.service';
 import type { OppositionPdfLang } from './opposition-pdf.utils';
 
@@ -323,12 +336,82 @@ export class MattersService {
       query.matterType === MatterType.trademark ||
       Boolean(query.trademarkProcedure);
 
+    const isSpcList =
+      query.matterType === MatterType.patent && query.spcOnly === true;
+
+    const isPatentList =
+      query.matterType === MatterType.patent && query.spcOnly !== true;
+
+    const isDesignList = query.matterType === MatterType.industrial_design;
+
+    const isUtilityModelList = query.matterType === MatterType.utility_model;
+
+    const isGiList = query.matterType === MatterType.geographical_indication;
+
+    const isCaseList = query.matterType === MatterType.cases;
+
+    const isOtherList =
+      (query.matterType != null && isOtherMatterType(query.matterType)) ||
+      (query.matterTypes != null && query.matterTypes.length > 0);
+
+    const isPortfolioList =
+      isTrademarkList ||
+      isSpcList ||
+      isPatentList ||
+      isDesignList ||
+      isUtilityModelList ||
+      isGiList ||
+      isCaseList ||
+      isOtherList;
+
     const trademarkPortfolioFilter = isTrademarkList
       ? trademarkListFilterWhere(query)
       : undefined;
 
-    const where: Prisma.MatterWhereInput = trademarkPortfolioFilter
-      ? { AND: [baseWhere, trademarkPortfolioFilter] }
+    const patentListFilter = isPatentList
+      ? patentListFilterWhere(query)
+      : undefined;
+
+    const patentPortfolioFilter = isPatentList
+      ? {
+          AND: [
+            excludeSpcMatterWhere(),
+            ...(patentListFilter ? [patentListFilter] : []),
+          ],
+        }
+      : undefined;
+
+    const spcListFilter = isSpcList ? spcListFilterWhere(query) : undefined;
+
+    const spcPortfolioFilter = isSpcList
+      ? {
+          AND: [
+            spcMatterWhere(),
+            ...(spcListFilter ? [spcListFilter] : []),
+          ],
+        }
+      : undefined;
+
+    const designPortfolioFilter = isDesignList
+      ? designListFilterWhere(query)
+      : undefined;
+
+    const utilityModelPortfolioFilter = isUtilityModelList
+      ? utilityModelListFilterWhere(query)
+      : undefined;
+
+    const giPortfolioFilter = isGiList ? giListFilterWhere(query) : undefined;
+
+    const portfolioFilter =
+      trademarkPortfolioFilter ??
+      spcPortfolioFilter ??
+      patentPortfolioFilter ??
+      designPortfolioFilter ??
+      utilityModelPortfolioFilter ??
+      giPortfolioFilter;
+
+    const where: Prisma.MatterWhereInput = portfolioFilter
+      ? { AND: [baseWhere, portfolioFilter] }
       : baseWhere;
 
     const [total, rows] = await this.prisma.$transaction([
@@ -338,7 +421,7 @@ export class MattersService {
         orderBy: { createdAt: 'desc' },
         skip,
         take: limit,
-        include: isTrademarkList ? trademarkListInclude : matterListInclude,
+        include: isPortfolioList ? trademarkListInclude : matterListInclude,
       }),
     ]);
 
@@ -349,10 +432,10 @@ export class MattersService {
     const [upcomingCounts, openDeadlineSummaries, documentCounts] =
       await Promise.all([
       this.deadlinesService.countUpcomingByMatterIds(matterIds),
-      isTrademarkList
+      isPortfolioList
         ? this.deadlinesService.summarizeOpenByMatterIds(matterIds)
         : Promise.resolve(new Map()),
-      isTrademarkList && matterIds.length > 0
+      isPortfolioList && matterIds.length > 0
         ? this.prisma.matterDocument.groupBy({
             by: ['matterId'],
             where: { matterId: { in: matterIds } },
@@ -377,7 +460,7 @@ export class MattersService {
           nextDeadlineDueDate: deadlineSummary?.nextDueDate ?? null,
         };
 
-        if (!isTrademarkList) {
+        if (!isPortfolioList) {
           const { attributes: _a, ipRights: _i, ...rest } = base as typeof base & {
             attributes?: unknown
             ipRights?: unknown
@@ -393,12 +476,11 @@ export class MattersService {
             filingDate: Date | null
             registrationDate: Date | null
           }>
+          jurisdictions: Array<{ countryCode: string }>
         };
 
-        const trademarkSummary = extractTrademarkListSummary(
-          row.attributes?.attributes ?? null,
-          row.ipRights[0] ?? null,
-        );
+        const ipRight = row.ipRights[0] ?? null;
+        const territoryCode = row.jurisdictions[0]?.countryCode ?? null;
 
         const {
           attributes: _attributes,
@@ -408,6 +490,111 @@ export class MattersService {
           attributes?: unknown
           ipRights?: unknown
         };
+
+        if (isSpcList) {
+          const spcSummary = extractUtilityModelListSummary(
+            row.attributes?.attributes ?? null,
+            ipRight,
+            { territoryCode },
+          );
+
+          return {
+            ...matterFields,
+            spcSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isPatentList) {
+          const patentSummary = extractPatentListSummary(
+            row.attributes?.attributes ?? null,
+            ipRight,
+            { territoryCode },
+          );
+
+          return {
+            ...matterFields,
+            patentSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isDesignList) {
+          const designSummary = extractDesignListSummary(
+            row.attributes?.attributes ?? null,
+            ipRight,
+            { territoryCode },
+          );
+
+          return {
+            ...matterFields,
+            designSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isUtilityModelList) {
+          const utilityModelSummary = extractUtilityModelListSummary(
+            row.attributes?.attributes ?? null,
+            ipRight,
+            { territoryCode },
+          );
+
+          return {
+            ...matterFields,
+            utilityModelSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isGiList) {
+          const giSummary = extractGiListSummary(
+            row.attributes?.attributes ?? null,
+            ipRight,
+            { territoryCode },
+          );
+
+          return {
+            ...matterFields,
+            giSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isCaseList) {
+          const attrs = row.attributes?.attributes ?? null
+          const clientName =
+            row.client?.companyName ||
+            [row.client?.firstName, row.client?.lastName].filter(Boolean).join(' ') ||
+            null
+          const caseSummary = extractCaseListSummary(attrs, {
+            clientName,
+          });
+
+          return {
+            ...matterFields,
+            caseSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        if (isOtherList && isOtherMatterType(row.matterType)) {
+          const otherSummary = extractOtherListSummary(
+            row.matterType,
+            row.attributes?.attributes ?? null,
+          );
+
+          return {
+            ...matterFields,
+            otherSummary,
+            documentCount: documentCountByMatterId.get(m.id) ?? 0,
+          };
+        }
+
+        const trademarkSummary = extractTrademarkListSummary(
+          row.attributes?.attributes ?? null,
+          ipRight,
+        );
 
         return {
           ...matterFields,
@@ -447,12 +634,26 @@ export class MattersService {
       status: { not: MatterStatus.draft },
     };
 
-    const [byTypeRows, all, archived, drafts, trademarkAttrs] =
+    const [byTypeRows, spcCount, patentNonSpcCount, all, archived, drafts, trademarkAttrs] =
       await Promise.all([
       this.prisma.matter.groupBy({
         by: ['matterType'],
         where: activeScope,
         _count: { _all: true },
+      }),
+      this.prisma.matter.count({
+        where: {
+          ...activeScope,
+          matterType: MatterType.patent,
+          ...spcMatterWhere(),
+        },
+      }),
+      this.prisma.matter.count({
+        where: {
+          ...activeScope,
+          matterType: MatterType.patent,
+          ...excludeSpcMatterWhere(),
+        },
       }),
       this.prisma.matter.count({
         where: activeScope,
@@ -487,11 +688,16 @@ export class MattersService {
     const byType: Record<string, number> = {};
     let others = 0;
     for (const row of byTypeRows) {
-      byType[row.matterType] = row._count._all;
+      if (row.matterType === MatterType.patent) {
+        byType.patent = patentNonSpcCount;
+      } else {
+        byType[row.matterType] = row._count._all;
+      }
       if (!primaryTypes.has(row.matterType)) {
         others += row._count._all;
       }
     }
+    byType.spc = spcCount;
 
     return { all, archived, others, drafts, byType, trademarkByProcedure };
   }

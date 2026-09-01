@@ -270,4 +270,360 @@ export class MatterQueryDto extends PaginationQueryDto {
   @Transform(({ value }) => value === 'true' || value === true || value === '1')
   @IsBoolean()
   trademarkCertificate?: boolean;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  patentApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  patentName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  patentIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  patentRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  patentTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  patentRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  patentAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  patentAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  patentRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  patentRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  patentContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  patentStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 2)
+  patentCountry?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  patentCertificate?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  patentAnnualFees?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  designApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  designName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  designIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  designRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  designTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  designProcedure?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  designRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  designAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  designAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  designRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  designRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  designContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  designStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 2)
+  designCountry?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  designCertificate?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  utilityModelApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  utilityModelName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  utilityModelIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  utilityModelRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  utilityModelTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  utilityModelRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  utilityModelAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  utilityModelAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  utilityModelRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  utilityModelRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  utilityModelContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  utilityModelStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  utilityModelCertificate?: string;
+
+  /** When true with matterType=patent, list only SPC files (attributes.spc / patentProcedure=spc). */
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true || value === '1')
+  @IsBoolean()
+  spcOnly?: boolean;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  spcApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  spcName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  spcIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  spcRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  spcTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  spcRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  spcAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  spcAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  spcRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  spcRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  spcContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  spcStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  spcCertificate?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  giApplicant?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  giName?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  giIncoming?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  giRegNo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  giTerritory?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  giRepresentative?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  giAppFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  giAppTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  giRegFrom?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(32)
+  giRegTo?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  giContact?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  giStage?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 2)
+  giCountry?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(16)
+  giCertificate?: string;
 }

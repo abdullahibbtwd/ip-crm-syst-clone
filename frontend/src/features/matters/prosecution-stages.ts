@@ -176,3 +176,162 @@ export function stageAdvanceBlockReason(
 export function isCreateFileTrademark(attrs: Record<string, unknown>): boolean {
   return typeof attrs.trademarkProcedure === 'string'
 }
+
+export type PatentFilingRoute =
+  | 'national'
+  | 'european'
+  | 'ep_validation'
+  | 'pct'
+
+/** Patent prosecution pipelines — mirrors legacy WorkPatent / WorkValPatent. */
+export const PATENT_PIPELINES: Record<PatentFilingRoute, ProsecutionStage[]> = {
+  national: PIPELINES.national,
+  european: PIPELINES.eu,
+  ep_validation: ['prep', 'filing', 'formal_exam', 'registration'],
+  pct: PIPELINES.international,
+}
+
+export function patentRouteFromAttrs(
+  attrs: Record<string, unknown>,
+): PatentFilingRoute | null {
+  const route = attrs.patentProcedure
+  if (
+    route === 'national' ||
+    route === 'european' ||
+    route === 'ep_validation' ||
+    route === 'pct'
+  ) {
+    return route
+  }
+  return null
+}
+
+export function defaultPatentRoute(
+  attrs: Record<string, unknown>,
+): PatentFilingRoute {
+  return patentRouteFromAttrs(attrs) ?? 'national'
+}
+
+export function pipelineForPatentRoute(
+  route: PatentFilingRoute,
+): ProsecutionStage[] {
+  return PATENT_PIPELINES[route]
+}
+
+export function nextPatentStage(
+  route: PatentFilingRoute,
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const pipe = PATENT_PIPELINES[route]
+  const idx = pipe.indexOf(current)
+  if (idx < 0 || idx >= pipe.length - 1) return null
+  return pipe[idx + 1]
+}
+
+export function previousPatentStage(
+  route: PatentFilingRoute,
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const pipe = PATENT_PIPELINES[route]
+  const idx = pipe.indexOf(current)
+  if (idx <= 0) return null
+  return pipe[idx - 1]
+}
+
+export function prosecutionStageLabelKey(
+  matterType: 'trademark' | 'patent' | 'design',
+  stage: ProsecutionStage,
+  attrs: Record<string, unknown>,
+): string {
+  if (matterType === 'patent' && patentRouteFromAttrs(attrs) === 'ep_validation') {
+    return `prosecution.patentStages.ep_validation.${stage}`
+  }
+  return `prosecution.stages.${stage}`
+}
+
+export type DesignFilingRoute = 'wipo' | 'national' | 'euipo'
+
+/**
+ * Legacy WorkRegDesign prosecution — publication precedes substantive examination.
+ * Same 7-step bar for national, EUIPO, and WIPO registered designs.
+ */
+export const DESIGN_PIPELINE: ProsecutionStage[] = [
+  'prep',
+  'filing',
+  'formal_exam',
+  'publication',
+  'substantive_exam',
+  'reg_fee',
+  'registration',
+]
+
+export function designRouteFromAttrs(
+  attrs: Record<string, unknown>,
+): DesignFilingRoute | null {
+  const route = attrs.designProcedure
+  if (route === 'wipo' || route === 'national' || route === 'euipo') {
+    return route
+  }
+  return null
+}
+
+export function defaultDesignRoute(attrs: Record<string, unknown>): DesignFilingRoute {
+  return designRouteFromAttrs(attrs) ?? 'national'
+}
+
+export function pipelineForDesignRoute(
+  _route: DesignFilingRoute,
+): ProsecutionStage[] {
+  return DESIGN_PIPELINE
+}
+
+function nextInPipeline(
+  pipe: ProsecutionStage[],
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const idx = pipe.indexOf(current)
+  if (idx < 0 || idx >= pipe.length - 1) return null
+  return pipe[idx + 1]
+}
+
+function previousInPipeline(
+  pipe: ProsecutionStage[],
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  const idx = pipe.indexOf(current)
+  if (idx <= 0) return null
+  return pipe[idx - 1]
+}
+
+export function nextDesignStage(
+  route: DesignFilingRoute,
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  return nextInPipeline(pipelineForDesignRoute(route), current)
+}
+
+export function previousDesignStage(
+  route: DesignFilingRoute,
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  return previousInPipeline(pipelineForDesignRoute(route), current)
+}
+
+/** Legacy WorkModel — same 7-step bar as registered designs. */
+export const UTILITY_MODEL_PIPELINE: ProsecutionStage[] = DESIGN_PIPELINE
+
+export function pipelineForUtilityModel(): ProsecutionStage[] {
+  return UTILITY_MODEL_PIPELINE
+}
+
+export function nextUtilityModelStage(
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  return nextInPipeline(UTILITY_MODEL_PIPELINE, current)
+}
+
+export function previousUtilityModelStage(
+  current: ProsecutionStage,
+): ProsecutionStage | null {
+  return previousInPipeline(UTILITY_MODEL_PIPELINE, current)
+}

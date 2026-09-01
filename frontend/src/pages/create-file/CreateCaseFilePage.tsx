@@ -5,10 +5,9 @@ import {
   ArrowLeft,
   ExternalLink,
   FilePlus2,
-  Plus,
   Search,
-  Trash2,
 } from 'lucide-react'
+import { CasePartyListEditor } from '@/components/matters/CasePartyListEditor'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -31,7 +30,6 @@ import {
   Field,
   SectionCard,
   emptyAddress,
-  nextId,
   type AddressDraft,
 } from '@/features/create-file/create-file-form'
 import {
@@ -43,30 +41,13 @@ import {
   type CasePartyKind,
   type CaseSectionTone,
 } from '@/features/create-file/case-subtypes'
+import { emptyCaseParty, serializeCaseParties } from '@/features/matters/case-party-form'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 
-const emptyParty = (): CasePartyDraft => ({
-  id: nextId('party'),
-  legalName: '',
-  city: '',
-  postalCode: '',
-  country: 'BG',
-  address: '',
-  lawyerLegalName: '',
-})
+const emptyParty = emptyCaseParty
 
-const serializeParties = (rows: CasePartyDraft[]) =>
-  rows
-    .map((row) => ({
-      legalName: row.legalName.trim(),
-      city: row.city.trim(),
-      postalCode: row.postalCode.trim(),
-      country: row.country,
-      address: row.address.trim(),
-      lawyerLegalName: row.lawyerLegalName.trim(),
-    }))
-    .filter((row) => row.legalName || row.address || row.lawyerLegalName)
+const serializeParties = serializeCaseParties
 
 const TONE_SIDE: Record<CaseSectionTone, string> = {
   us: 'border-l-[5px] border-l-emerald-600',
@@ -608,19 +589,19 @@ export function CreateCaseFilePage() {
         </Select>
       </SectionCard>
 
-      <PartyList
+      <CasePartyListEditor
         title={partyTitle('plaintiff')}
         tone={casePartyTone(clientRole, 'plaintiff')}
         rows={plaintiffs}
         onChange={setPlaintiffs}
       />
-      <PartyList
+      <CasePartyListEditor
         title={partyTitle('defendant')}
         tone={casePartyTone(clientRole, 'defendant')}
         rows={defendants}
         onChange={setDefendants}
       />
-      <PartyList
+      <CasePartyListEditor
         title={partyTitle('interested')}
         tone={casePartyTone(clientRole, 'interested')}
         rows={interestedParties}
@@ -796,155 +777,5 @@ export function CreateCaseFilePage() {
         </Button>
       </div>
     </div>
-  )
-}
-
-function PartyList({
-  title,
-  tone,
-  rows,
-  onChange,
-}: {
-  title: string
-  tone: CaseSectionTone
-  rows: CasePartyDraft[]
-  onChange: (rows: CasePartyDraft[]) => void
-}) {
-  const { t } = useTranslation('matters')
-
-  return (
-    <TonePanel
-      tone={tone}
-      title={title}
-      action={
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          className="gap-1"
-          onClick={() => onChange([...rows, emptyParty()])}
-        >
-          <Plus className="size-4" />
-          {t('createFile.addParty')}
-        </Button>
-      }
-    >
-      <div className="space-y-5">
-        {rows.map((row, index) => (
-          <div
-            key={row.id}
-            className="space-y-3 rounded-lg border bg-muted/20 p-4"
-          >
-            <div className="flex items-start justify-end">
-              {rows.length > 1 ? (
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  onClick={() =>
-                    onChange(rows.filter((item) => item.id !== row.id))
-                  }
-                  aria-label={t('createFile.removeApplicant')}
-                >
-                  <Trash2 className="size-4" />
-                </Button>
-              ) : null}
-            </div>
-            <Field label={t('createFile.fields.legalName')}>
-              <Input
-                value={row.legalName}
-                onChange={(e) =>
-                  onChange(
-                    rows.map((item) =>
-                      item.id === row.id
-                        ? { ...item, legalName: e.target.value }
-                        : item,
-                    ),
-                  )
-                }
-              />
-            </Field>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <Field label={t('createFile.fields.city')}>
-                <Input
-                  value={row.city}
-                  onChange={(e) =>
-                    onChange(
-                      rows.map((item) =>
-                        item.id === row.id
-                          ? { ...item, city: e.target.value }
-                          : item,
-                      ),
-                    )
-                  }
-                />
-              </Field>
-              <Field label={t('createFile.fields.postalCode')}>
-                <Input
-                  value={row.postalCode}
-                  onChange={(e) =>
-                    onChange(
-                      rows.map((item) =>
-                        item.id === row.id
-                          ? { ...item, postalCode: e.target.value }
-                          : item,
-                      ),
-                    )
-                  }
-                />
-              </Field>
-              <Field label={t('createFile.fields.country')}>
-                <CountrySelect
-                  value={row.country}
-                  onValueChange={(code) =>
-                    onChange(
-                      rows.map((item) =>
-                        item.id === row.id ? { ...item, country: code } : item,
-                      ),
-                    )
-                  }
-                />
-              </Field>
-              <Field label={t('createFile.fields.address')} className="sm:col-span-3">
-                <Input
-                  value={row.address}
-                  onChange={(e) =>
-                    onChange(
-                      rows.map((item) =>
-                        item.id === row.id
-                          ? { ...item, address: e.target.value }
-                          : item,
-                      ),
-                    )
-                  }
-                />
-              </Field>
-            </div>
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wide text-foreground">
-                {t('createFile.sections.lawyers')}
-              </p>
-              <Field label={t('createFile.fields.legalName')}>
-                <Input
-                  value={row.lawyerLegalName}
-                  onChange={(e) =>
-                    onChange(
-                      rows.map((item) =>
-                        item.id === row.id
-                          ? { ...item, lawyerLegalName: e.target.value }
-                          : item,
-                      ),
-                    )
-                  }
-                />
-              </Field>
-            </div>
-            {index < rows.length - 1 ? (
-              <div className="border-b border-black/10 dark:border-white/10" />
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </TonePanel>
   )
 }

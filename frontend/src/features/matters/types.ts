@@ -71,6 +71,113 @@ export type TrademarkListSummary = {
   deletionStage: string | null
 }
 
+export type PatentListSummary = {
+  patentSubtype: 'new' | 'registered' | null
+  patentProcedure: 'national' | 'european' | 'ep_validation' | 'pct' | null
+  territoryCode: string | null
+  prosecutionStage:
+    | 'prep'
+    | 'filing'
+    | 'formal_exam'
+    | 'substantive_exam'
+    | 'publication'
+    | 'reg_fee'
+    | 'registration'
+    | null
+  claimsSummary: string | null
+  ipcClasses: string[]
+  incomingNumber: string | null
+  incomingDate: string | null
+  registrationNumber: string | null
+  registrationDate: string | null
+  ownerName: string | null
+}
+
+export type DesignListSummary = {
+  designProcedure: 'wipo' | 'national' | 'euipo' | null
+  territoryCode: string | null
+  prosecutionStage:
+    | 'prep'
+    | 'filing'
+    | 'formal_exam'
+    | 'substantive_exam'
+    | 'publication'
+    | 'reg_fee'
+    | 'registration'
+    | null
+  locarnoClass: string | null
+  locarnoSubclass: string | null
+  classification: string | null
+  incomingNumber: string | null
+  incomingDate: string | null
+  registrationNumber: string | null
+  registrationDate: string | null
+  ownerName: string | null
+  isRegistered: boolean
+}
+
+export type UtilityModelListSummary = {
+  territoryCode: string | null
+  prosecutionStage:
+    | 'prep'
+    | 'filing'
+    | 'formal_exam'
+    | 'substantive_exam'
+    | 'publication'
+    | 'reg_fee'
+    | 'registration'
+    | null
+  claimsSummary: string | null
+  ipcClasses: string[]
+  incomingNumber: string | null
+  incomingDate: string | null
+  registrationNumber: string | null
+  registrationDate: string | null
+  ownerName: string | null
+  isRegistered: boolean
+}
+
+export type SpcListSummary = UtilityModelListSummary
+
+export type GiListSummary = {
+  giTerritory: 'national' | 'eu' | 'wo' | null
+  territoryCode: string | null
+  prosecutionStage:
+    | 'prep'
+    | 'filing'
+    | 'formal_exam'
+    | 'substantive_exam'
+    | 'publication'
+    | 'reg_fee'
+    | 'registration'
+    | null
+  classification: string | null
+  incomingNumber: string | null
+  incomingDate: string | null
+  registrationNumber: string | null
+  registrationDate: string | null
+  ownerName: string | null
+  isRegistered: boolean
+}
+
+export type CaseListSummary = {
+  clientName: string | null
+  opposingPartyName: string | null
+  caseNumber: string | null
+  isIncoming: boolean
+  courtLabel: string | null
+  statusLabel: string | null
+}
+
+export type OtherListSummary = {
+  headline: string | null
+  workflowStage: string | null
+  incomingNumber: string | null
+  incomingDate: string | null
+  authorityOffice: string | null
+  deadlineHint: string | null
+}
+
 export type MatterListItem = {
   id: string
   clientId: string
@@ -94,6 +201,13 @@ export type MatterListItem = {
   overdueDeadlineCount?: number
   nextDeadlineDueDate?: string | null
   trademarkSummary?: TrademarkListSummary | null
+  patentSummary?: PatentListSummary | null
+  designSummary?: DesignListSummary | null
+  utilityModelSummary?: UtilityModelListSummary | null
+  spcSummary?: SpcListSummary | null
+  giSummary?: GiListSummary | null
+  caseSummary?: CaseListSummary | null
+  otherSummary?: OtherListSummary | null
   documentCount?: number
 }
 
@@ -176,6 +290,77 @@ export type MatterFilters = {
   trademarkClass?: string
   trademarkCountry?: string
   trademarkCertificate?: boolean
+  patentApplicant?: string
+  patentName?: string
+  patentIncoming?: string
+  patentRegNo?: string
+  patentTerritory?: string
+  patentRepresentative?: string
+  patentAppFrom?: string
+  patentAppTo?: string
+  patentRegFrom?: string
+  patentRegTo?: string
+  patentContact?: string
+  patentStage?: string
+  patentCountry?: string
+  patentCertificate?: string
+  patentAnnualFees?: string
+  designApplicant?: string
+  designName?: string
+  designIncoming?: string
+  designRegNo?: string
+  designTerritory?: string
+  designProcedure?: string
+  designRepresentative?: string
+  designAppFrom?: string
+  designAppTo?: string
+  designRegFrom?: string
+  designRegTo?: string
+  designContact?: string
+  designStage?: string
+  designCountry?: string
+  designCertificate?: string
+  utilityModelApplicant?: string
+  utilityModelName?: string
+  utilityModelIncoming?: string
+  utilityModelRegNo?: string
+  utilityModelTerritory?: string
+  utilityModelRepresentative?: string
+  utilityModelAppFrom?: string
+  utilityModelAppTo?: string
+  utilityModelRegFrom?: string
+  utilityModelRegTo?: string
+  utilityModelContact?: string
+  utilityModelStage?: string
+  utilityModelCertificate?: string
+  spcOnly?: boolean
+  spcApplicant?: string
+  spcName?: string
+  spcIncoming?: string
+  spcRegNo?: string
+  spcTerritory?: string
+  spcRepresentative?: string
+  spcAppFrom?: string
+  spcAppTo?: string
+  spcRegFrom?: string
+  spcRegTo?: string
+  spcContact?: string
+  spcStage?: string
+  spcCertificate?: string
+  giApplicant?: string
+  giName?: string
+  giIncoming?: string
+  giRegNo?: string
+  giTerritory?: string
+  giRepresentative?: string
+  giAppFrom?: string
+  giAppTo?: string
+  giRegFrom?: string
+  giRegTo?: string
+  giContact?: string
+  giStage?: string
+  giCountry?: string
+  giCertificate?: string
   page?: number
   limit?: number
   cursor?: string

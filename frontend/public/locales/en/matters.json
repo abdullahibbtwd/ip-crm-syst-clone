@@ -1,22 +1,77 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Measure route",
+        "options": {
+          "national_bg": "Bulgaria (national)",
+          "eu_regulation": "EU Regulation 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Protected right",
+        "options": {
+          "trademark": "Trademark",
+          "patent": "Patent",
+          "design": "Design",
+          "copyright": "Copyright",
+          "gi": "Geographical indication"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Protected right ref."
+      },
       "customsOffice": {
         "label": "Customs office"
+      },
+      "validFrom": {
+        "label": "Valid from"
+      },
+      "validUntil": {
+        "label": "Valid until"
       },
       "infringingGoods": {
         "label": "Infringing goods description"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Creation date"
-      },
       "workTitle": {
         "label": "Work title"
       },
       "workType": {
-        "label": "Type of work"
+        "label": "Work type",
+        "options": {
+          "literary": "Literary",
+          "musical": "Musical",
+          "software": "Software",
+          "audiovisual": "Audiovisual",
+          "graphic": "Graphic / visual",
+          "other": "Other"
+        }
+      },
+      "creationDate": {
+        "label": "Creation date"
+      },
+      "firstPublicationDate": {
+        "label": "First publication date"
+      },
+      "authorName": {
+        "label": "Author"
+      },
+      "rightsBasis": {
+        "label": "Rights basis",
+        "options": {
+          "author": "Author",
+          "employer": "Employer (work for hire)",
+          "assignment": "Assignment",
+          "license": "License"
+        }
+      },
+      "rightsHolder": {
+        "label": "Rights holder"
+      },
+      "infringementContext": {
+        "label": "Infringement / enforcement context"
       }
     },
     "cases": {
@@ -37,22 +92,78 @@
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Basis summary"
+      "disputeKind": {
+        "label": "Proceeding type",
+        "options": {
+          "civil": "Civil",
+          "administrative": "Administrative",
+          "arbitration": "Arbitration",
+          "mediation": "Mediation",
+          "other": "Other"
+        }
       },
-      "disputeType": {
-        "label": "Dispute type"
+      "disputeSubject": {
+        "label": "Subject",
+        "options": {
+          "invalidity": "Invalidity",
+          "infringement": "Infringement",
+          "ownership": "Ownership",
+          "contract": "Contract",
+          "unfair_competition": "Unfair competition",
+          "other": "Other"
+        }
       },
       "opponentName": {
-        "label": "Opponent / adverse party"
+        "label": "Opponent / counterparty"
+      },
+      "disputeType": {
+        "label": "Dispute type (notes)"
+      },
+      "filingReference": {
+        "label": "Filing reference"
+      },
+      "filingDate": {
+        "label": "Filing date"
+      },
+      "basisSummary": {
+        "label": "Basis summary"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Scope summary"
+      "projectName": {
+        "label": "Project name"
+      },
+      "productName": {
+        "label": "Product name"
       },
       "technologyArea": {
         "label": "Technology area"
+      },
+      "analysisScope": {
+        "label": "Analysis scope"
+      },
+      "deliverableType": {
+        "label": "Deliverable",
+        "options": {
+          "written_report": "Written report",
+          "memo": "Memo",
+          "oral_briefing": "Oral briefing"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Target completion date"
+      },
+      "scopeSummary": {
+        "label": "Scope summary"
+      },
+      "riskLevel": {
+        "label": "Risk level",
+        "options": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "pending": "Pending assessment"
+        }
       }
     },
     "geographical_indication": {
@@ -176,55 +287,213 @@
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Asset type",
+        "options": {
+          "trademark": "Trademark",
+          "patent": "Patent",
+          "design": "Design",
+          "gi": "GI",
+          "mixed": "Mixed portfolio",
+          "company_ip": "Company IP"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Purpose",
+        "options": {
+          "licensing": "Licensing",
+          "m_and_a": "M&A",
+          "litigation": "Litigation",
+          "tax": "Tax",
+          "internal": "Internal"
+        }
+      },
+      "valuationMethod": {
+        "label": "Method",
+        "options": {
+          "market": "Market",
+          "income": "Income",
+          "cost": "Cost"
+        }
+      },
+      "valuationDate": {
+        "label": "Valuation date"
+      },
       "assetDescription": {
         "label": "Asset description"
       },
-      "valuationPurpose": {
-        "label": "Valuation purpose"
+      "conclusionValue": {
+        "label": "Conclusion value"
+      },
+      "currency": {
+        "label": "Currency",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Domain name",
-        "placeholder": "e.g. example.com"
+        "placeholder": "e.g. example.bg"
+      },
+      "tldType": {
+        "label": "TLD type",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "Other"
+        }
       },
       "registrar": {
         "label": "Registrar"
+      },
+      "registrant": {
+        "label": "Registrant"
+      },
+      "registrationDate": {
+        "label": "Registration date"
+      },
+      "expiryDate": {
+        "label": "Expiry date"
+      },
+      "disputeRoute": {
+        "label": "Dispute route",
+        "options": {
+          "none": "None",
+          "udrp": "UDRP",
+          "court": "Court",
+          "negotiation": "Negotiation"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Related trademark"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Case reference"
+      "engagementType": {
+        "label": "Engagement type",
+        "options": {
+          "patent": "Patent",
+          "trademark": "Trademark",
+          "copyright": "Copyright",
+          "damages": "Damages",
+          "other": "Other"
+        }
       },
       "courtOrAuthority": {
         "label": "Court / authority"
+      },
+      "caseReference": {
+        "label": "Case reference"
+      },
+      "appointingParty": {
+        "label": "Appointing party"
+      },
+      "reportDueDate": {
+        "label": "Report due date"
+      },
+      "hearingDate": {
+        "label": "Hearing date"
       },
       "reportScope": {
         "label": "Report scope"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Scope summary"
+      "consultationType": {
+        "label": "Consultation type",
+        "options": {
+          "phone": "Phone",
+          "written": "Written",
+          "meeting": "Meeting",
+          "due_diligence": "Due diligence (light)"
+        }
+      },
+      "topicCategory": {
+        "label": "Topic category",
+        "options": {
+          "trademark": "Trademark",
+          "patent": "Patent",
+          "design": "Design",
+          "contract": "Contract",
+          "strategy": "Strategy",
+          "other": "Other"
+        }
       },
       "topic": {
         "label": "Topic"
+      },
+      "requestedBy": {
+        "label": "Requested by"
+      },
+      "scopeSummary": {
+        "label": "Scope summary"
+      },
+      "timeSpentHours": {
+        "label": "Time spent (hours)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Authority / office"
+        "label": "Authority",
+        "options": {
+          "bpo": "BPO (Bulgaria)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Other"
+        }
+      },
+      "feeType": {
+        "label": "Fee type",
+        "options": {
+          "filing": "Filing",
+          "publication": "Publication",
+          "examination": "Examination",
+          "renewal": "Renewal",
+          "annuity": "Annuity",
+          "opposition": "Opposition",
+          "other": "Other"
+        }
       },
       "feeReference": {
         "label": "Fee / payment reference"
       },
       "relatedApplication": {
         "label": "Related application / file"
+      },
+      "feeAmount": {
+        "label": "Amount"
+      },
+      "currency": {
+        "label": "Currency",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Payment deadline"
+      },
+      "paymentDate": {
+        "label": "Payment date"
+      },
+      "paymentReference": {
+        "label": "Payment reference"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Work category"
+      },
       "workSummary": {
         "label": "Work summary"
+      },
+      "expectedOutcome": {
+        "label": "Expected outcome"
       }
     }
   },
@@ -495,6 +764,84 @@
     "removeMarkImage": "Remove image",
     "markImageHint": "PNG or JPEG — shown in the trademark list beside the name."
   },
+  "patentInfo": {
+    "title": "Patent information",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Application no. / date",
+      "registration": "Reg. no. / date",
+      "bulletin": "Bulletin / publication",
+      "ipc": "IPC",
+      "client": "Client / assignor",
+      "owner": "Owner",
+      "contact": "Contact person",
+      "representatives": "Representatives",
+      "claims": "Claims",
+      "territory": "Territory"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Utility model information",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Application no. / date",
+      "registration": "Reg. no. / date",
+      "bulletin": "Bulletin / registration publication / date",
+      "ipc": "IPC",
+      "applicant": "Applicant",
+      "inventor": "Inventor",
+      "contact": "Contact person",
+      "representatives": "Representatives",
+      "claims": "Claims",
+      "territory": "Territory"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC information",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Application no. / date",
+      "registration": "Reg. no. / date",
+      "bulletin": "Bulletin / registration publication / date",
+      "ipc": "IPC",
+      "applicant": "Applicant",
+      "inventor": "Inventor",
+      "contact": "Contact person",
+      "representatives": "Representatives",
+      "claims": "Claims",
+      "medicinalProduct": "Medicinal product"
+    }
+  },
+  "designInfo": {
+    "title": "Design information",
+    "subtitle": "{{territory}} design · {{name}}",
+    "fields": {
+      "application": "Application no. / date",
+      "registration": "Reg. no. / date",
+      "bulletin": "Bulletin / registration publication / date",
+      "client": "Client / assignor",
+      "owner": "Owner",
+      "contact": "Contact person",
+      "representatives": "Representatives",
+      "classification": "Classification",
+      "territory": "Territory"
+    }
+  },
+  "giInfo": {
+    "title": "Geographical indication information",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Application no. / date",
+      "registration": "Reg. no. / date",
+      "bulletin": "Bulletin / registration publication / date",
+      "client": "Client / assignor",
+      "owner": "Owner",
+      "contact": "Contact person",
+      "representatives": "Representatives",
+      "classes": "Classes",
+      "territory": "Territory"
+    }
+  },
   "fileApproval": {
     "clientStep": "1. Client approved",
     "clientStepHint": "Staff confirms the client agreed offline (call/email/meeting). The portal client does not need to approve themselves.",
@@ -580,7 +927,23 @@
     },
     "territoryLocked": "Territory fixed from create file",
     "territoryFromInfo": "Territory from Trademark information",
+    "patentRouteFromInfo": "Route from create file",
+    "designRouteFromInfo": "Route from create file",
+    "utilityModelTerritoryFromInfo": "Territory from filing country",
+    "spcTerritoryFromInfo": "Territory from filing country",
+    "giTerritoryFromInfo": "Territory from filing route",
     "title": "Prosecution stages",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Validation received",
+        "filing": "Assignment",
+        "formal_exam": "Filing request",
+        "substantive_exam": "Substantive examination",
+        "publication": "Publication",
+        "reg_fee": "Registration fees",
+        "registration": "Validation decision"
+      }
+    },
     "yes": "Yes",
     "hub": {
       "generateInvoice": "Generate invoice",
@@ -667,6 +1030,7 @@
       "giName": "Enter the name of the geographical indication.",
       "spcName": "Enter the SPC name.",
       "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
+      "otherType": "Unknown file type. Choose a type from the list.",
       "patentSubtype": "Select a patent subcategory.",
       "saveFailed": "Could not save the draft file.",
       "subtype": "Select a trademark subcategory."
@@ -687,6 +1051,8 @@
       "legalName": "Name and legal entity type",
       "linkClient": "Select client in CRM",
       "linkClientOptional": "CRM client (optional)",
+      "fileTitleOptional": "Title (optional)",
+      "fileDescriptionOptional": "Description (optional)",
       "markKind": "Mark category",
       "markType": "Mark type",
       "markWords": "Trademark name",
@@ -834,7 +1200,8 @@
     "kinds": {
       "newPatent": "New patent",
       "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
+      "design": "Design",
+      "registeredDesign": "Design",
       "utilityModel": "Utility models",
       "registeredGi": "Registered GI",
       "spc": "SPC",
@@ -850,6 +1217,9 @@
     "giFormTitle": "Create file: Geographical indication",
     "spcFormTitle": "Create file: SPC",
     "caseFormTitle": "Create file: Case",
+    "otherFilesTitle": "Other files",
+    "otherFilesDescription": "Choose a work type outside the main shelves — copyright, domains, consultations, and more.",
+    "otherFileFormTitle": "Create file: {{type}}",
     "addParty": "Add party",
     "caseClientRoles": {
       "plaintiff": "Plaintiff / Appellant",
@@ -892,8 +1262,8 @@
       "TR": "Turkey"
     },
     "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
+      "new": "New application — National, EP, or PCT prosecution (7-step flow in WorkPatent)",
+      "registered": "Existing grant — National, EP, PCT, or EP-Validation (4-step validation in WorkValPatent)"
     },
     "removeClass": "Remove class",
     "removeClaim": "Remove claim",
@@ -921,6 +1291,7 @@
       "attachments": "Attachments",
       "additionalInfo": "Additional information",
       "basicInfo": "Basic information",
+      "fileDetails": "File details",
       "basisMarks": "Marks on which the opposition is based",
       "claims": "Claims",
       "classification": "Classification",
@@ -1395,6 +1766,342 @@
       "chooseCountry": "Choose country",
       "all": "All",
       "classOption": "Class {{number}}",
+      "clear": "Clear filters",
+      "apply": "Apply filters"
+    }
+  },
+  "utilityModelList": {
+    "description": "Utility models — territory, claims, owner, and registration at a glance.",
+    "emptyDescription": "Try adjusting filters or create a new utility model file.",
+    "searchResults": "Search results: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registered"
+    },
+    "columns": {
+      "name": "Name",
+      "territory": "Territory",
+      "incomingRef": "Incoming no. / date",
+      "status": "Status",
+      "classes": "Classes",
+      "owner": "Owner",
+      "kind": "Kind",
+      "registration": "Reg. no. / date"
+    },
+    "filters": {
+      "title": "Filter utility models",
+      "subtitle": "Narrow the portfolio by applicant, numbers, dates, territory, and more.",
+      "activeCount": "{{count}} active",
+      "applicant": "Applicant / owner",
+      "applicantPlaceholder": "Client or owner name…",
+      "name": "Name",
+      "namePlaceholder": "Utility model name…",
+      "incomingNo": "Incoming no.",
+      "incomingPlaceholder": "Application / incoming…",
+      "regNo": "Registration no.",
+      "regNoPlaceholder": "Registration number…",
+      "territory": "Territory",
+      "choose": "Choose",
+      "chooseTerritory": "Choose territory",
+      "representative": "Representative",
+      "chooseRepresentative": "Choose representative",
+      "applicationDate": "Application date",
+      "registrationDate": "Registration date",
+      "contact": "Contact person",
+      "contactPlaceholder": "Contact name, email, or phone…",
+      "status": "Status",
+      "certificate": "Certificate",
+      "certificateOptions": {
+        "with": "With certificate",
+        "without": "Without certificate"
+      },
+      "statusOptions": {
+        "registered": "Registered"
+      },
+      "clear": "Clear filters",
+      "apply": "Apply filters"
+    }
+  },
+  "spcList": {
+    "description": "Supplementary Protection Certificates — territory, claims, owner, and registration at a glance.",
+    "emptyDescription": "Try adjusting filters or create a new SPC file.",
+    "searchResults": "Search results: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registered"
+    },
+    "columns": {
+      "name": "Name",
+      "territory": "Territory",
+      "incomingRef": "Incoming no. / date",
+      "status": "Status",
+      "classes": "Classes",
+      "owner": "Owner",
+      "kind": "Kind",
+      "registration": "Reg. no. / date"
+    },
+    "filters": {
+      "title": "Filter SPC files",
+      "subtitle": "Narrow the portfolio by applicant, numbers, dates, territory, and more.",
+      "activeCount": "{{count}} active",
+      "applicant": "Applicant / owner",
+      "applicantPlaceholder": "Client or owner name…",
+      "name": "Patent name",
+      "namePlaceholder": "SPC name…",
+      "incomingNo": "Incoming no.",
+      "incomingPlaceholder": "Application / incoming…",
+      "regNo": "Registration no.",
+      "regNoPlaceholder": "Registration number…",
+      "territory": "Territory",
+      "choose": "Choose",
+      "chooseTerritory": "Choose territory",
+      "representative": "Representative",
+      "chooseRepresentative": "Choose representative",
+      "applicationDate": "Application date",
+      "registrationDate": "Registration date",
+      "contact": "Contact person",
+      "contactPlaceholder": "Contact name, email, or phone…",
+      "status": "Patent status",
+      "certificate": "Certificate",
+      "certificateOptions": {
+        "with": "With certificate",
+        "without": "Without certificate"
+      },
+      "statusOptions": {
+        "registered": "Registered"
+      },
+      "clear": "Clear filters",
+      "apply": "Apply filters"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Court cases — parties, case number, court, and status at a glance.",
+    "emptyDescription": "Create a new case file to get started.",
+    "searchResults": "Search results: {{count}}",
+    "incomingSuffix": "incoming",
+    "vrs": "vrs.",
+    "viewAria": "View {{title}}",
+    "filesAria": "Documents for {{title}} ({{count}})",
+    "columns": {
+      "parties": "Parties",
+      "caseNumber": "Case no.",
+      "court": "Court",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "statusOptions": {
+      "suspended": "Suspended",
+      "scheduled": "Scheduled",
+      "inactive": "Inactive",
+      "appealed": "Appealed"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Client",
+    "caseNumberLabel": "Case no.",
+    "statusTitle": "Status",
+    "chooseStatus": "Choose status",
+    "saveStatus": "Save status",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saving": "Saving…",
+    "editHint": "Update parties, court details, subject, and other case data.",
+    "subjectTitle": "Subject of the case",
+    "instanceTitle": "Case no. {{number}} ({{court}})",
+    "eventsTitle": "Events",
+    "reminderTitle": "Create additional reminder",
+    "addReminder": "Add",
+    "openArchive": "File archive",
+    "saved": "Saved.",
+    "events": {
+      "date": "Date",
+      "deadline": "Deadline",
+      "regarding": "Regarding",
+      "info": "Additional information"
+    },
+    "actions": {
+      "decision": "Decision",
+      "agreement": "Agreement",
+      "ruling": "Ruling"
+    },
+    "errors": {
+      "saveFailed": "Could not save case details."
+    }
+  },
+  "giList": {
+    "description": "Geographical indications — territory, product classes, owner, and registration at a glance.",
+    "emptyDescription": "Try adjusting filters or create a new geographical indication file.",
+    "searchResults": "Search results: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registered"
+    },
+    "columns": {
+      "name": "Name",
+      "territory": "Territory",
+      "incomingRef": "Incoming no. / date",
+      "status": "Status",
+      "classification": "Classification",
+      "owner": "Owner",
+      "registration": "Reg. no. / date"
+    },
+    "filters": {
+      "title": "Filter geographical indications",
+      "subtitle": "Narrow the portfolio by applicant, numbers, dates, territory route, and more.",
+      "activeCount": "{{count}} active",
+      "applicant": "Applicant / owner",
+      "applicantPlaceholder": "Client or owner name…",
+      "name": "Name",
+      "namePlaceholder": "GI name…",
+      "incomingNo": "Incoming no.",
+      "incomingPlaceholder": "Application / incoming…",
+      "regNo": "Registration no.",
+      "regNoPlaceholder": "Registration number…",
+      "territory": "Territory",
+      "choose": "Choose",
+      "chooseTerritory": "Choose territory route",
+      "representative": "Representative",
+      "chooseRepresentative": "Choose representative",
+      "applicationDate": "Application date",
+      "registrationDate": "Registration date",
+      "contact": "Contact person",
+      "contactPlaceholder": "Contact name, email, or phone…",
+      "status": "Status",
+      "certificate": "Certificate",
+      "certificateOptions": {
+        "with": "With certificate",
+        "without": "Without certificate"
+      },
+      "country": "Country",
+      "chooseCountry": "Choose country",
+      "statusOptions": {
+        "registered": "Registered"
+      },
+      "clear": "Clear filters",
+      "apply": "Apply filters"
+    }
+  },
+  "designList": {
+    "description": "Registered designs — territory, Locarno classification, owner, and registration at a glance.",
+    "emptyDescription": "Try adjusting filters or create a new design file.",
+    "searchResults": "Search results: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registered"
+    },
+    "columns": {
+      "name": "Name",
+      "territory": "Territory",
+      "incomingRef": "Incoming no. / date",
+      "status": "Status",
+      "classification": "Classification",
+      "owner": "Owner",
+      "registration": "Reg. no. / date"
+    },
+    "filters": {
+      "title": "Filter designs",
+      "subtitle": "Narrow the portfolio by applicant, numbers, dates, procedure, and more.",
+      "activeCount": "{{count}} active",
+      "applicant": "Applicant / owner",
+      "applicantPlaceholder": "Client or owner name…",
+      "name": "Name",
+      "namePlaceholder": "Design name…",
+      "incomingNo": "Incoming no.",
+      "incomingPlaceholder": "Application / incoming…",
+      "regNo": "Registration no.",
+      "regNoPlaceholder": "Registration number…",
+      "territory": "Territory",
+      "procedure": "Procedure",
+      "choose": "Choose",
+      "chooseTerritory": "Choose territory",
+      "representative": "Representative",
+      "chooseRepresentative": "Choose representative",
+      "applicationDate": "Application date",
+      "registrationDate": "Registration date",
+      "contact": "Contact person",
+      "contactPlaceholder": "Contact name, email, or phone…",
+      "status": "Status",
+      "certificate": "Certificate",
+      "certificateOptions": {
+        "with": "With certificate",
+        "without": "Without certificate"
+      },
+      "country": "Country",
+      "statusOptions": {
+        "registered": "Registered"
+      },
+      "clear": "Clear filters",
+      "apply": "Apply filters"
+    }
+  },
+  "patentList": {
+    "description": "New and registered patents together — prosecution stage, claims, owner, and deadlines at a glance.",
+    "emptyDescription": "Try adjusting filters or create a new patent file.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Patent name",
+      "territory": "Territory",
+      "incomingRef": "Application / incoming no.",
+      "stage": "Status",
+      "claims": "Claims",
+      "owner": "Owner",
+      "registration": "Reg. no. / date",
+      "deadline": "Deadline"
+    },
+    "deadlineOpen": "{{count}} open",
+    "deadlineOverdue": "{{count}} overdue",
+    "deadlineNext": "Next: {{date}}",
+    "filters": {
+      "title": "Filter patents",
+      "subtitle": "Narrow the portfolio by applicant, numbers, dates, territory, and more.",
+      "activeCount": "{{count}} active",
+      "applicant": "Applicant / owner",
+      "applicantPlaceholder": "Client or owner name…",
+      "patentName": "Patent name",
+      "patentNamePlaceholder": "Patent title…",
+      "incomingNo": "Incoming no.",
+      "incomingPlaceholder": "Application / incoming…",
+      "regNo": "Reg. no.",
+      "regNoPlaceholder": "Registration number…",
+      "territory": "Territory",
+      "choose": "Choose",
+      "chooseTerritory": "Choose territory",
+      "representative": "Representative",
+      "chooseRepresentative": "Choose representative",
+      "applicationDateFrom": "Application date from",
+      "applicationDateTo": "Application date to",
+      "registrationDateFrom": "Registration date from",
+      "registrationDateTo": "Registration date to",
+      "contact": "Contact person",
+      "contactPlaceholder": "Contact name, email, or phone…",
+      "patentStatus": "Patent status",
+      "certificate": "Certificate",
+      "certificateOptions": {
+        "with": "With certificate",
+        "without": "Without certificate"
+      },
+      "country": "Country",
+      "chooseCountry": "Choose country",
+      "annualFees": "Annual fee payment",
+      "annualFeesOptions": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "statusOptions": {
+        "validation_received": "Validation received",
+        "assignment": "Assignment",
+        "translation_assigned": "Assigned translation",
+        "filing_entry": "Filing / entry",
+        "validation_decision": "Validation decision",
+        "registered": "Registered"
+      },
+      "all": "All",
       "clear": "Clear filters",
       "apply": "Apply filters"
     }
@@ -2042,8 +2749,8 @@
     "dispute_opposition": "Dispute / opposition",
     "domain": "Domains",
     "fto_analysis": "FTO analysis",
-    "geographical_indication": "Geographical indication",
-    "industrial_design": "Industrial design",
+    "geographical_indication": "Geographical indications",
+    "industrial_design": "Design",
     "litigation_expert_report": "Litigation / Court Expert Reports",
     "official_fee_payment": "Official Fee Payments",
     "other": "Other",
@@ -2055,5 +2762,91 @@
   "attributeFields": {
     "selectPlaceholder": "Select…",
     "title": "Type-specific details"
+  },
+  "otherMatterSpine": {
+    "sectionTitle": "File reference & status",
+    "incomingNumber": {
+      "label": "Incoming no."
+    },
+    "incomingDate": {
+      "label": "Incoming date"
+    },
+    "territoryRoute": {
+      "label": "Territory route",
+      "options": {
+        "national_bg": "Bulgaria (national)",
+        "eu": "European Union",
+        "wipo": "WIPO / international",
+        "international": "Other international"
+      }
+    },
+    "authorityOffice": {
+      "label": "Authority / office"
+    },
+    "relatedApplicationNumber": {
+      "label": "Related application no."
+    },
+    "workflowStage": {
+      "label": "Workflow stage",
+      "options": {
+        "intake": "Intake",
+        "analysis": "Analysis",
+        "contract_draft": "Contract / draft",
+        "filed": "Filed",
+        "closed": "Closed",
+        "registration": "Registration",
+        "active": "Active",
+        "seizure_pending": "Seizure pending",
+        "scoping": "Scoping",
+        "search": "Search",
+        "draft_report": "Draft report",
+        "delivered": "Delivered",
+        "archived": "Archived",
+        "pre_dispute": "Pre-dispute",
+        "hearing": "Hearing",
+        "decision": "Decision",
+        "appeal": "Appeal",
+        "monitoring": "Monitoring",
+        "dispute": "Dispute",
+        "udrp": "UDRP",
+        "resolved": "Resolved",
+        "engaged": "Engaged",
+        "draft": "Draft",
+        "submitted": "Submitted",
+        "requested": "Requested",
+        "in_progress": "In progress",
+        "invoiced": "Invoiced",
+        "pending": "Pending",
+        "paid": "Paid",
+        "reimbursed": "Reimbursed",
+        "open": "Open"
+      }
+    }
+  },
+  "otherMatterView": {
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saving": "Saving…",
+    "editHint": "Update file reference, workflow stage, and type-specific details.",
+    "clientLabel": "Client",
+    "detailsTitle": "{{type}} details",
+    "errors": {
+      "saveFailed": "Could not save file details."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Create a new other file or adjust filters.",
+    "viewAria": "View {{title}}",
+    "filesAria": "Documents for {{title}} ({{count}})",
+    "columns": {
+      "type": "Type",
+      "subject": "Subject",
+      "client": "Client",
+      "incoming": "Incoming ref.",
+      "stage": "Stage",
+      "deadline": "Key date",
+      "actions": "Actions"
+    }
   }
 }
