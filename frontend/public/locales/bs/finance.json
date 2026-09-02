@@ -117,7 +117,7 @@
     "noPermission": "Nemate dozvolu za upravljanje cjenovnicima.",
     "viewNoPermission": "Nemate dozvolu za pregled cenovnika.",
     "rate": "Ocijenite / h *",
-    "role": "Uloga *",
+    "role": "uloga *",
     "save": "Sačuvaj promjene",
     "scope": "Obim",
     "table": {
@@ -135,7 +135,7 @@
     "firmWideDefault": "Zadana vrijednost za cijelu firmu",
     "editAria": "Uredite cjenik",
     "loadFailed": "Učitavanje cenovnika nije uspjelo.",
-    "loading": "Učitavanje cjenovnika…",
+    "loading": "Učitavanje cenovnika…",
     "empty": "Još nema cenovnika.",
     "billable": "Naplativo",
     "validation": {
@@ -146,7 +146,7 @@
     "billableRate": "Stopa naplate (EUR/sat)",
     "internalCostOptional": "Interni trošak (EUR/sat)",
     "internalCostPlaceholder": "Opciono - za izvještavanje o marži",
-    "internalCostResolutionHint": "Preslikava rezoluciju stope naplate (klijent → firma + vrsta materije → podrazumevana firma). Snimak na novim unosima vremena kao cost_snapshot.",
+    "internalCostResolutionHint": "Rezolucija stope naplate ogledala (klijent → firma + tip materije → podrazumevana firma). Snimak na novim unosima vremena kao cost_snapshot.",
     "effectiveToOptional": "Efektivno za (opciono)"
   },
   "rateRole": {
@@ -177,7 +177,7 @@
     "noPermissionInvoice": "Nemate dozvolu za pregled podataka o fakturi.",
     "openFullReport": "Otvori cijeli izvještaj",
     "outstandingHint": "{{count}} otvorena potraživanja",
-    "outstandingLabel": "Izvanredan",
+    "outstandingLabel": "Izvanredno",
     "rateCardHealth": "Zdravlje cjenovnika",
     "rateCardHealthDescription": "Da li su stope naplate konfigurirane i da li su marže spremne?",
     "rateCardsHintConfigured": "Dostupne cijene",
@@ -193,7 +193,7 @@
   },
   "summary": {
     "billable": "Naplativo",
-    "billableAmount": "Iznos naplate",
+    "billableAmount": "Naplativi iznos",
     "fixedFees": "Fiksne naknade",
     "total": "Ukupno",
     "totalHours": "Ukupno sati",

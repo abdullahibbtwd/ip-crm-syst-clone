@@ -32,8 +32,16 @@
     "deadlines": "Termenele limită",
     "alerts": "Alerte",
     "clients": "Clienții",
-    "holdingGroups": "Grupuri de deținere",
+    "holdingGroups": "Grupuri de exploatare",
     "allMatters": "Toate fișierele",
+    "workingFiles": "Fișiere",
+    "createFile": "Creați fișier",
+    "createFileTrademark": "Marcă comercială",
+    "createFilePatent": "Brevet",
+    "mattersAll": "Toate",
+    "mattersDrafts": "Ciorne",
+    "mattersOthers": "Alţii",
+    "mattersArchived": "Arhivat",
     "matters": "Fișiere",
     "intakeQueue": "Coada de admisie",
     "rightsRegister": "Registrul drepturilor",
@@ -53,7 +61,7 @@
     "officeActions": "Acțiuni de birou",
     "documents": "Documente",
     "correspondence": "Corespondenţă",
-    "myTmMatters": "Fișierele mele de mărci",
+    "myTmMatters": "Fișierele mele TM",
     "oppositions": "Opozițiile",
     "watchAlerts": "Urmăriți alertele",
     "conflictCheck": "Verificarea conflictului",
@@ -66,7 +74,7 @@
     "broadcasts": "Emisiuni",
     "outgoingMail": "E-mail de trimis",
     "myTasks": "Sarcinile mele",
-    "assignedMatters": "Fișiere atribuite",
+    "assignedMatters": "Fișiere alocate",
     "financeDashboard": "Tabloul de bord financiar",
     "invoices": "Facturi",
     "timeEntries": "Intrări de timp",
@@ -100,18 +108,10 @@
     "messages": "Mesaje",
     "approvals": "Aprobari",
     "help": "Ajutor",
-    "myPortfolio": "Portofoliul meu",
-    "workingFiles": "Fișiere",
-    "mattersAll": "Toate",
-    "mattersOthers": "Altele",
-    "mattersArchived": "Arhivate",
-    "mattersDrafts": "Ciorne",
-    "createFile": "Creează fișier",
-    "createFileTrademark": "Marcă",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Portofoliul meu"
   },
   "roles": {
-    "managing_partner": "Managing Partner",
+    "managing_partner": "Partener director",
     "ip_attorney": "IP / Avocat în brevete",
     "trademark_attorney": "Avocat pentru mărci comerciale",
     "coordinator": "Coordonator / Aport",
@@ -129,7 +129,7 @@
     "managing_partner": {
       "eyebrow": "Privire de ansamblu fermă",
       "title": "Privire de ansamblu fermă",
-      "description": "Riscul de termen al portofoliului, volumele de depunere, canalul de reînnoiri, veniturile, volumul de lucru în echipă și profitabilitatea clienților - raportare la nivelul întregii firme dintr-o singură casă."
+      "description": "Riscul de termen al portofoliului, volumele de depunere, canalul de reînnoiri, veniturile, volumul de muncă în echipă și profitabilitatea clienților - raportare la nivelul întregii firme dintr-o singură casă."
     },
     "coordinator": {
       "eyebrow": "Coordonare",
@@ -160,7 +160,7 @@
     "compliance": {
       "eyebrow": "GDPR și conformitate",
       "title": "Conformitate",
-      "description": "Politici de reținere, registre de acces și exporturi de acces la subiect."
+      "description": "Politici de păstrare, registre de acces și exporturi de acces la subiect."
     },
     "systemDashboard": {
       "title": "Tabloul de bord al sistemului"

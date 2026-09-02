@@ -20,7 +20,7 @@
       "setupFailed": "2FA kurulumu başlatılamadı"
     },
     "setup": {
-      "description": "Oturum açtığınızda bir kimlik doğrulama uygulamasından (Google Authenticator, Authy vb.) 6 basamaklı bir kod isteyerek ekstra bir güvenlik katmanı ekleyin.",
+      "description": "Oturum açtığınızda bir kimlik doğrulayıcı uygulamasından (Google Authenticator, Authy vb.) 6 basamaklı bir kod isteyerek ekstra bir güvenlik katmanı ekleyin.",
       "manualKey": "Veya bu anahtarı manuel olarak girin",
       "scanQr": "1. Bu QR kodunu tarayın",
       "scanQrHint": "Kimlik doğrulayıcı uygulamanızı açın ve aşağıdaki kodu tarayın.",

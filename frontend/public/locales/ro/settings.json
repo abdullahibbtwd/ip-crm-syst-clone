@@ -17,10 +17,10 @@
     "errors": {
       "enableFailed": "Nu s-a activat 2FA",
       "invalidCode": "Cod nevalid",
-      "setupFailed": "Nu s-a putut porni configurarea 2FA"
+      "setupFailed": "Nu s-a pornit configurarea 2FA"
     },
     "setup": {
-      "description": "Adăugați un nivel suplimentar de securitate solicitând un cod din 6 cifre de la o aplicație de autentificare (Google Authenticator, Authy etc.) când vă conectați.",
+      "description": "Adăugați un nivel suplimentar de securitate solicitând un cod din 6 cifre de la o aplicație de autentificare (Google Authenticator, Authy etc.) atunci când vă conectați.",
       "manualKey": "Sau introduceți această cheie manual",
       "scanQr": "1. Scanați acest cod QR",
       "scanQrHint": "Deschideți aplicația de autentificare și scanați codul de mai jos.",
@@ -72,7 +72,7 @@
     },
     "roles": {
       "title": "Roluri și permisiuni",
-      "description": "Matrice numai în citire a rolurilor de sistem și a permisiunilor acordate acestora.",
+      "description": "Matrice de numai citire a rolurilor de sistem și a permisiunilor acordate acestora.",
       "action": "Vizualizați matricea rolurilor"
     },
     "systemHealth": {
@@ -109,7 +109,7 @@
     },
     "google": {
       "title": "Google",
-      "description": "Clientul Google OAuth utilizat pentru autentificarea SSO.",
+      "description": "Client Google OAuth utilizat pentru autentificarea SSO.",
       "saveButton": "Salvează Google",
       "saveSuccess": "Setările Google SSO au fost salvate."
     },
@@ -302,7 +302,7 @@
     "noPermission": "Nu aveți permisiunea de a vizualiza șabloanele de documente.",
     "loading": "Se încarcă șabloanele...",
     "loadError": "Nu s-au încărcat șabloanele de documente.",
-    "empty": "Încă nu există șabloane de documente.",
+    "empty": "Nu există încă șabloane de documente.",
     "columns": {
       "name": "Nume",
       "slug": "Melc",
@@ -326,7 +326,7 @@
       "none": "—"
     },
     "drawer": {
-      "createTitle": "Model nou de document",
+      "createTitle": "Nou șablon de document",
       "editTitle": "Editați șablonul de document",
       "loading": "Se încarcă șablonul...",
       "slug": "Melc",
@@ -440,7 +440,7 @@
     "hub": {
       "back": "Toate jurisdicțiile",
       "editOffice": "Editează biroul",
-      "manageRules": "Adăugați sau modificați regulile de termen limită",
+      "manageRules": "Adăugați sau editați reguli de termen limită",
       "manageHolidays": "Adăugați sau editați sărbători",
       "noRules": "Încă nu există reguli de termen limită pentru acest birou. Adăugați unul pentru a activa dochetarea automată.",
       "noHolidays": "Nu există încă sărbători. Adăugați-le astfel încât termenele limită din zile lucrătoare să nu închidă birourile.",

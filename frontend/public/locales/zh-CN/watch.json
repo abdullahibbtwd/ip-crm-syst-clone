@@ -72,8 +72,8 @@
     "new": "新警报",
     "accepted": "公认",
     "rejected": "被拒绝",
-    "hintAwaitingTriage": "待分诊",
-    "hintMattersCreated": "已创建事项",
+    "hintAwaitingTriage": "等待分诊",
+    "hintMattersCreated": "创建的事项",
     "hintFalsePositives": "误报"
   },
   "profileStatus": {

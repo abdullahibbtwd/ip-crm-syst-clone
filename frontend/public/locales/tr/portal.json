@@ -184,7 +184,7 @@
     "domain": "Alanlar",
     "fto_analysis": "FTO analizi",
     "geographical_indication": "Coğrafi işaret",
-    "industrial_design": "Endüstriyel tasarım",
+    "industrial_design": "Tasarım",
     "litigation_expert_report": "Dava/Mahkeme Bilirkişi Raporları",
     "official_fee_payment": "Resmi Ücret Ödemeleri",
     "other": "Diğer",
@@ -214,7 +214,7 @@
   },
   "renewalStatus": {
     "completed": "Tamamlanmış",
-    "filed": "Dosyalanmış",
+    "filed": "Dosyalandı",
     "instructed": "talimat verildi",
     "lapsed": "Süresi dolmuş",
     "upcoming": "Yaklaşan"
@@ -229,7 +229,7 @@
     "approvalsBody": "Firma onayınızı istediğinde (örneğin yenilemeler veya talimatlar), Onaylar sayfasından yanıt verin.",
     "openApprovals": "Onayları aç",
     "contactTitle": "Daha fazla yardıma mı ihtiyacınız var?",
-    "contactBody": "Görevlendirildiğiniz avukatınız veya koordinatörünüzle Mesajlar aracılığıyla iletişime geçin veya bir konuyla ilgili firma yazışmalarına yanıt verin.",
+    "contactBody": "Görevlendirildiğiniz avukat veya koordinatörünüzle Mesajlar aracılığıyla iletişime geçin veya bir konuyla ilgili firma yazışmalarına yanıt verin.",
     "openMessages": "Mesajları aç"
   }
 }

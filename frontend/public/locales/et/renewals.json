@@ -33,7 +33,7 @@
   "widget": {
     "title": "Eelseisvad uuendused",
     "subtitle": "Järgmised 90 päeva juhised",
-    "viewPipeline": "Vaata torujuhet",
+    "viewPipeline": "Vaadake torujuhet",
     "loading": "Uuendusakende arvutamine…",
     "error": "Uuenduste analüüse ei saanud laadida.",
     "stats": {

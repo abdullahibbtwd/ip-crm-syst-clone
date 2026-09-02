@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "测量路线",
+        "options": {
+          "national_bg": "保加利亚（国家）",
+          "eu_regulation": "欧盟法规 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "受保护的权利",
+        "options": {
+          "trademark": "商标",
+          "patent": "专利",
+          "design": "设计",
+          "copyright": "版权",
+          "gi": "地理标志"
+        }
+      },
+      "protectedRightRef": {
+        "label": "受保护的右参考。"
+      },
       "customsOffice": {
         "label": "海关办公室"
+      },
+      "validFrom": {
+        "label": "有效期自"
+      },
+      "validUntil": {
+        "label": "有效期至"
       },
       "infringingGoods": {
         "label": "侵权商品描述"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "创建日期"
-      },
       "workTitle": {
         "label": "作品名称"
       },
       "workType": {
-        "label": "工作类型"
+        "label": "工作类型",
+        "options": {
+          "literary": "文学",
+          "musical": "音乐",
+          "software": "软件",
+          "audiovisual": "视听",
+          "graphic": "图形/视觉",
+          "other": "其他"
+        }
+      },
+      "creationDate": {
+        "label": "创建日期"
+      },
+      "firstPublicationDate": {
+        "label": "首次发布日期"
+      },
+      "authorName": {
+        "label": "作者"
+      },
+      "rightsBasis": {
+        "label": "权利基础",
+        "options": {
+          "author": "作者",
+          "employer": "雇主（受雇工作）",
+          "assignment": "任务",
+          "license": "执照"
+        }
+      },
+      "rightsHolder": {
+        "label": "权利人"
+      },
+      "infringementContext": {
+        "label": "侵权/执法背景"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "法庭"
+      },
+      "incomingNumber": {
+        "label": "来电号码"
+      },
+      "claimGrounds": {
+        "label": "理由（索赔类型）"
+      },
+      "claimValue": {
+        "label": "索赔价值"
+      },
+      "expertiseType": {
+        "label": "专业知识类型"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "基础总结"
+      "disputeKind": {
+        "label": "诉讼类型",
+        "options": {
+          "civil": "民用",
+          "administrative": "行政",
+          "arbitration": "仲裁",
+          "mediation": "调解",
+          "other": "其他"
+        }
       },
-      "disputeType": {
-        "label": "争议类型"
+      "disputeSubject": {
+        "label": "主题",
+        "options": {
+          "invalidity": "无效",
+          "infringement": "侵权",
+          "ownership": "所有权",
+          "contract": "合同",
+          "unfair_competition": "不正当竞争",
+          "other": "其他"
+        }
       },
       "opponentName": {
-        "label": "对手/对方"
+        "label": "对手/对手方"
+      },
+      "disputeType": {
+        "label": "争议类型（备注）"
+      },
+      "filingReference": {
+        "label": "备案参考"
+      },
+      "filingDate": {
+        "label": "申请日期"
+      },
+      "basisSummary": {
+        "label": "基础总结"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "范围摘要"
+      "projectName": {
+        "label": "项目名称"
+      },
+      "productName": {
+        "label": "产品名称"
       },
       "technologyArea": {
         "label": "技术领域"
+      },
+      "analysisScope": {
+        "label": "分析范围"
+      },
+      "deliverableType": {
+        "label": "可交付成果",
+        "options": {
+          "written_report": "书面报告",
+          "memo": "备忘录",
+          "oral_briefing": "口头简报"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "目标完成日期"
+      },
+      "scopeSummary": {
+        "label": "范围摘要"
+      },
+      "riskLevel": {
+        "label": "风险等级",
+        "options": {
+          "low": "低的",
+          "medium": "中等的",
+          "high": "高的",
+          "pending": "待评估"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "类型"
+      },
+      "giName": {
+        "label": "地理标志名称"
+      },
       "productName": {
         "label": "产品名称"
       },
       "region": {
         "label": "地理区域"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "领土"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "申请号"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "注册号"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "洛迦诺级"
       },
+      "locarnoSubclass": {
+        "label": "洛迦诺亚类"
+      },
       "productDescription": {
         "label": "产品描述"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "理赔摘要"
+      },
+      "epApplicationNumber": {
+        "label": "EP申请号"
+      },
+      "ipcClasses": {
+        "label": "工控机"
+      },
+      "patentName": {
+        "label": "专利名称"
+      },
+      "patentProcedure": {
+        "label": "程序"
       },
       "pctNumber": {
         "label": "PCT号"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "技术领域"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "声称的颜色"
       },
       "markDescription": {
-        "label": "标记说明"
-      },
-      "markType": {
-        "label": "标记类型"
-      },
-      "niceClasses": {
-        "label": "不错的课程",
-        "placeholder": "例如 12、35"
+        "label": "商品/服务描述"
       },
       "markKind": {
         "label": "标记类别"
       },
+      "markType": {
+        "label": "标记类型"
+      },
       "markWords": {
         "label": "标记的话"
+      },
+      "niceClasses": {
+        "label": "不错的课程",
+        "placeholder": "例如 12、35"
       },
       "territory": {
         "label": "领土"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "姓名"
+      },
+      "ipcClasses": {
+        "label": "工控机"
+      },
+      "claimsCount": {
+        "label": "索赔数量"
+      },
+      "applicationNumber": {
+        "label": "申请号"
+      },
+      "applicationDate": {
+        "label": "申请日期"
+      },
+      "registrationNumber": {
+        "label": "注册号"
+      },
       "claimsSummary": {
         "label": "理赔摘要"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "技术领域"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "资产类型",
+        "options": {
+          "trademark": "商标",
+          "patent": "专利",
+          "design": "设计",
+          "gi": "胃肠道",
+          "mixed": "混合投资组合",
+          "company_ip": "公司知识产权"
+        }
+      },
+      "valuationPurpose": {
+        "label": "目的",
+        "options": {
+          "licensing": "许可",
+          "m_and_a": "并购",
+          "litigation": "诉讼",
+          "tax": "税",
+          "internal": "内部的"
+        }
+      },
+      "valuationMethod": {
+        "label": "方法",
+        "options": {
+          "market": "市场",
+          "income": "收入",
+          "cost": "成本"
+        }
+      },
+      "valuationDate": {
+        "label": "估价日期"
+      },
       "assetDescription": {
         "label": "资产描述"
       },
-      "valuationPurpose": {
-        "label": "估值目的"
+      "conclusionValue": {
+        "label": "结论值"
+      },
+      "currency": {
+        "label": "货币",
+        "options": {
+          "BGN": "背景GN",
+          "EUR": "欧元",
+          "USD": "美元"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "域名",
-        "placeholder": "例如 example.com"
+        "placeholder": "例如 示例.bg"
+      },
+      "tldType": {
+        "label": "顶级域名类型",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com/gTLD",
+          "other": "其他"
+        }
       },
       "registrar": {
         "label": "登记员"
+      },
+      "registrant": {
+        "label": "注册人"
+      },
+      "registrationDate": {
+        "label": "报名日期"
+      },
+      "expiryDate": {
+        "label": "到期日"
+      },
+      "disputeRoute": {
+        "label": "争议途径",
+        "options": {
+          "none": "没有任何",
+          "udrp": "统一域名争议解决政策",
+          "court": "法庭",
+          "negotiation": "谈判"
+        }
+      },
+      "relatedTrademark": {
+        "label": "相关商标"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "案例参考"
+      "engagementType": {
+        "label": "订婚型",
+        "options": {
+          "patent": "专利",
+          "trademark": "商标",
+          "copyright": "版权",
+          "damages": "损害赔偿",
+          "other": "其他"
+        }
       },
       "courtOrAuthority": {
         "label": "法院/当局"
+      },
+      "caseReference": {
+        "label": "案例参考"
+      },
+      "appointingParty": {
+        "label": "指定方"
+      },
+      "reportDueDate": {
+        "label": "报告截止日期"
+      },
+      "hearingDate": {
+        "label": "听证会日期"
       },
       "reportScope": {
         "label": "报告范围"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "范围摘要"
+      "consultationType": {
+        "label": "咨询类型",
+        "options": {
+          "phone": "电话",
+          "written": "书面",
+          "meeting": "会议",
+          "due_diligence": "尽职调查（轻）"
+        }
+      },
+      "topicCategory": {
+        "label": "主题类别",
+        "options": {
+          "trademark": "商标",
+          "patent": "专利",
+          "design": "设计",
+          "contract": "合同",
+          "strategy": "战略",
+          "other": "其他"
+        }
       },
       "topic": {
         "label": "话题"
+      },
+      "requestedBy": {
+        "label": "请求者"
+      },
+      "scopeSummary": {
+        "label": "范围摘要"
+      },
+      "timeSpentHours": {
+        "label": "花费时间（小时）"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "机关/办公室"
+        "label": "权威",
+        "options": {
+          "bpo": "业务流程外包（保加利亚）",
+          "euipo": "欧盟知识产权局",
+          "wipo": "世界知识产权组织",
+          "other": "其他"
+        }
+      },
+      "feeType": {
+        "label": "费用类型",
+        "options": {
+          "filing": "归档",
+          "publication": "发布",
+          "examination": "考试",
+          "renewal": "更新",
+          "annuity": "年金",
+          "opposition": "反对",
+          "other": "其他"
+        }
       },
       "feeReference": {
         "label": "费用/付款参考"
       },
       "relatedApplication": {
         "label": "相关申请/文件"
+      },
+      "feeAmount": {
+        "label": "数量"
+      },
+      "currency": {
+        "label": "货币",
+        "options": {
+          "BGN": "背景GN",
+          "EUR": "欧元"
+        }
+      },
+      "paymentDeadline": {
+        "label": "付款期限"
+      },
+      "paymentDate": {
+        "label": "付款日期"
+      },
+      "paymentReference": {
+        "label": "付款参考"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "工作类别"
+      },
       "workSummary": {
         "label": "工作总结"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "预期成果"
       }
     }
   },
@@ -470,24 +739,615 @@
     "viewOnEpo": "查看欧洲专利局",
     "viewOnEpoTitle": "在 EPO 注册处打开正式记录"
   },
+  "trademarkInfo": {
+    "addCountry": "添加国家/地区...",
+    "cancel": "取消",
+    "country": "国家",
+    "edit": "编辑",
+    "errors": {
+      "country": "为此地区至少选择一个国家/地区。",
+      "saveFailed": "无法保存商标信息。"
+    },
+    "euFixed": "欧盟 (EUIPO)",
+    "markKind": "标记类别",
+    "markType": "标记类型",
+    "noCountries": "尚未选择国家/地区。",
+    "save": "保存更改",
+    "saved": "已保存。",
+    "saving": "保存…",
+    "selectCountries": "选择国家",
+    "territory": "领土",
+    "title": "商标信息",
+    "markImage": "标记图像",
+    "uploadMarkImage": "上传图片",
+    "replaceMarkImage": "替换图片",
+    "removeMarkImage": "删除图像",
+    "markImageHint": "PNG 或 JPEG — 显示在名称旁边的商标列表中。"
+  },
+  "patentInfo": {
+    "title": "专利信息",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "申请号 / 日期",
+      "registration": "注册。 不。 / 日期",
+      "bulletin": "公告/出版物",
+      "ipc": "工控机",
+      "client": "客户/转让人",
+      "owner": "所有者",
+      "contact": "联络人",
+      "representatives": "代表",
+      "claims": "索赔",
+      "territory": "领土"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "实用新型信息",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "申请号 / 日期",
+      "registration": "注册。 不。 / 日期",
+      "bulletin": "公告/注册发布/日期",
+      "ipc": "工控机",
+      "applicant": "申请人",
+      "inventor": "发明者",
+      "contact": "联络人",
+      "representatives": "代表",
+      "claims": "索赔",
+      "territory": "领土"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC信息",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "申请号 / 日期",
+      "registration": "注册。 不。 / 日期",
+      "bulletin": "公告/注册发布/日期",
+      "ipc": "工控机",
+      "applicant": "申请人",
+      "inventor": "发明者",
+      "contact": "联络人",
+      "representatives": "代表",
+      "claims": "索赔",
+      "medicinalProduct": "医药产品"
+    }
+  },
+  "designInfo": {
+    "title": "设计资料",
+    "subtitle": "{{territory}} 设计 · {{name}}",
+    "fields": {
+      "application": "申请号 / 日期",
+      "registration": "注册。 不。 / 日期",
+      "bulletin": "公告/注册发布/日期",
+      "client": "客户/转让人",
+      "owner": "所有者",
+      "contact": "联络人",
+      "representatives": "代表",
+      "classification": "分类",
+      "territory": "领土"
+    }
+  },
+  "giInfo": {
+    "title": "地理标志信息",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "申请号 / 日期",
+      "registration": "注册。 不。 / 日期",
+      "bulletin": "公告/注册发布/日期",
+      "client": "客户/转让人",
+      "owner": "所有者",
+      "contact": "联络人",
+      "representatives": "代表",
+      "classes": "课程",
+      "territory": "领土"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. 客户认可",
+    "clientStepHint": "工作人员线下确认客户同意（电话/电子邮件/会议）。 门户客户端不需要自行批准。",
+    "errors": {
+      "updateFailed": "无法更新批准状态。"
+    },
+    "hint": "仅内部批准：标记客户同意，然后执行合伙人接受该文件。 无需发送给客户批准。",
+    "markClientApproved": "标记客户已批准",
+    "partnerApprove": "合作伙伴批准文件",
+    "partnerOnly": "只有管​​理合伙人可以完成此步骤",
+    "partnerStep": "2. 管理合伙人接受",
+    "partnerStepHint": "客户标记为已批准后，执行合伙人接受该文件并留下草稿。",
+    "recordedBy": "记录者 {{name}} · {{date}}",
+    "title": "文件审批",
+    "waitForClient": "首先标记客户已批准，然后您可以接受该文件。"
+  },
+  "prosecution": {
+    "cancelEdit": "取消",
+    "completeStage": "完成阶段",
+    "edit": "编辑",
+    "editingNote": "使用“保存”保留您在此阶段输入的内容，或使用“完成”阶段在填写必填字段后继续前进。",
+    "gateHint": "在填写此阶段的必填字段（与系统门相同）之前，您无法继续前进。",
+    "goBack": "回到一个舞台",
+    "errors": {
+      "needAttachments": "在继续之前附加所需的文件：{{list}}",
+      "needInvoice": "在完成此阶段之前，根据国家费用生成发票。",
+      "alreadyFinal": "该文件已经进入最后阶段。",
+      "needApproval": "在离开准备之前完成文件审批（客户+管理合伙人）。",
+      "needBulletin": "在发布之前输入公告编号和日期。",
+      "needFeePaid": "在离开正式考试之前输入州费支付日期。",
+      "needFilingFields": "输入申请号和申请日期以完成申请。",
+      "needFormalFields": "输入州费和付款截止日期以继续。",
+      "needMol": "在完成归档之前，请在文件详细信息（创建文件/编辑）中输入 MOL。",
+      "needOfficeActionDeadline": "审查意见通知书有一个主题——在继续之前设定截止日期。",
+      "needPoaFiled": "在离开正式考试之前输入 PoA 传入号码和日期。",
+      "needRegFeePaid": "在继续之前输入注册费支付日期。",
+      "needRepresentative": "输入至少一名代表，或将“添加代表”设置为“否”。",
+      "saveBeforeNavigate": "返回阶段之前保存或取消您的编辑。",
+      "saveFailed": "无法保存起诉数据。"
+    },
+    "fields": {
+      "addRepresentatives": "您想添加代表吗？",
+      "applicationDate": "申请日期",
+      "applicationNumber": "申请号",
+      "bulletinDate": "公告日期",
+      "bulletinNumber": "公告号",
+      "feePaidDate": "国家费用缴纳日期",
+      "generatePoa": "生成授权书",
+      "officeAction": "审查意见通知书/请求",
+      "officeActionDeadline": "办公室行动截止日期",
+      "paymentDeadline": "付款期限",
+      "poaDate": "授权书日期",
+      "poaDeadline": "PoA 提交截止日期",
+      "poaIncoming": "PoA 来电号码",
+      "regFeePaidDate": "报名费缴纳日期",
+      "remindDays": "在截止日期前几天提醒",
+      "representatives": "代表",
+      "sendPoaEmail": "发送自动电子邮件",
+      "stateFee": "国家费用（保加利亚列弗）"
+    },
+    "molHint": "必须在文件详细信息（来自创建文件）上设置 MOL。 缺少完成此阶段的 MOL 块。",
+    "no": "不",
+    "prepHint": "准备阶段：先完成文件审批，然后管理合伙人接受后进入归档。",
+    "registeredDone": "到达注册阶段。",
+    "saveChanges": "保存更改",
+    "saveEntered": "节省",
+    "saved": "已保存。",
+    "saveFields": "保存字段",
+    "saving": "保存…",
+    "stages": {
+      "filing": "归档",
+      "formal_exam": "形式考试",
+      "prep": "预备",
+      "publication": "发布",
+      "reg_fee": "注册费",
+      "registration": "登记",
+      "substantive_exam": "实质审查"
+    },
+    "territoryLabel": {
+      "eu": "管道：欧盟",
+      "international": "管道：国际（WO）",
+      "national": "管道：国家"
+    },
+    "territoryLocked": "从创建文件中固定的区域",
+    "territoryFromInfo": "商标信息中的领土",
+    "patentRouteFromInfo": "从创建文件的路由",
+    "designRouteFromInfo": "从创建文件的路由",
+    "utilityModelTerritoryFromInfo": "来自申请国的领土",
+    "spcTerritoryFromInfo": "来自申请国的领土",
+    "giTerritoryFromInfo": "申请路线的领土",
+    "title": "起诉阶段",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "已收到验证",
+        "filing": "任务",
+        "formal_exam": "备案要求",
+        "substantive_exam": "实质审查",
+        "publication": "发布",
+        "reg_fee": "注册费",
+        "registration": "验证决定"
+      }
+    },
+    "yes": "是的",
+    "hub": {
+      "generateInvoice": "生成发票",
+      "invoiceIssuedShort": "发票已开具",
+      "invoiceIssued": "发票 {{number}} 已开具。 客户可以在他们的门户中看到它； 它也位于“账单”选项卡上。",
+      "invoiceAlreadyIssued": "发票 {{number}} 已开具 — 在门户和账单中可见。",
+      "invoiceFailed": "无法生成发票。 检查客户账单详细信息。",
+      "invoiceNotes": "官方/国家费用",
+      "uploadFailed": "无法上传文件。",
+      "needStateFee": "首先输入国家费用金额。",
+      "feeDescription": "国家/官方费用",
+      "deadlineFailed": "无法创建截止日期。",
+      "deadlineTitles": {
+        "payment": "国家费用缴纳",
+        "poa": "提交授权书",
+        "oa": "审查请求/审查请求",
+        "oaWithSubject": "审查意见通知书：{{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "在截止日期前 {{days}} 天提醒。"
+      },
+      "attach": {
+        "search": "附加搜索文件",
+        "application": "附上申请表",
+        "feeSlip": "附上费用单",
+        "poa": "附加 PoA",
+        "officeAction": "附上审查意见通知书",
+        "decision": "附上决定",
+        "bulletin": "附上公告",
+        "regFee": "附上付款证明",
+        "certificate": "附上证书"
+      }
+    }
+  },
   "createDrawer": {
     "client": "客户 *",
     "creating": "创造……",
-    "error": "创建档案失败",
+    "error": "创建文件失败",
     "jurisdictionHelp": "选择一个或多个提交管辖区。",
     "jurisdictions": "司法管辖区",
     "matterType": "工作类型 *",
-    "open": "打开档案",
+    "open": "打开文件",
     "responsibleAttorney": "责任律师",
-    "title": "打开新档案",
+    "title": "打开新文件",
     "titleField": "标题 *",
     "titlePlaceholder": "例如 ACME 文字商标 – 欧盟"
+  },
+  "createFile": {
+    "addClass": "添加班级",
+    "addClaim": "添加索赔",
+    "addIpc": "添加IPC类",
+    "addBasisMark": "添加基准标记",
+    "basisMark": "基准标记 {{number}}",
+    "addAdditionalApplicant": "添加额外申请人",
+    "addAdditionalOwner": "添加其他所有者",
+    "additionalApplicant": "申请人 {{number}}",
+    "additionalOwner": "所有者 {{number}}",
+    "yes": "是的",
+    "no": "不",
+    "none": "没有任何",
+    "backToFiles": "返回文件",
+    "cancel": "取消",
+    "changeSubtype": "更改子类别",
+    "checkRegister": "检查商业登记簿",
+    "clearClient": "更换客户",
+    "clientOptionalHint": "没有 CRM 匹配吗？ 填写下面的客户详细信息 - 保存草稿将自动在客户中创建它们。",
+    "applicantOptionalHint": "没有 CRM 匹配吗？ 在下面填写申请人详细信息 - 保存草稿将自动在客户端中创建它们。",
+    "draftDescription": "通过创建文件 ({{procedure}}) 创建 — 草稿",
+    "errors": {
+      "client": "选择一个客户端以继续。",
+      "clientOrDetails": "选择 CRM 客户端，或输入客户端名称和详细信息以创建它们。",
+      "applicantOrDetails": "在 CRM 中选择申请人，或输入申请人姓名和详细信息来创建申请人。",
+      "jurisdiction": "至少选择一个地区/国家。",
+      "markWords": "输入商标名称/文字。",
+      "filingRoute": "选择一个过程。",
+      "ownerOrDetails": "输入所有者姓名和地址，或将所有者标记为与客户相同。",
+      "designerOrDetails": "输入设计师姓名和地址，或将设计师标记为与客户相同。",
+      "inventorOrDetails": "输入发明人姓名和地址，或将发明人标记为与客户相同。",
+      "patentName": "输入专利名称。",
+      "designName": "输入设计名称。",
+      "utilityModelName": "输入实用新型名称。",
+      "giKind": "选择原产地名称或地理标志。",
+      "territory": "选择一个地区。",
+      "giName": "输入地理标志的名称。",
+      "spcName": "输入 SPC 名称。",
+      "caseClientRole": "选择客户是原告、被告还是利害关系人。",
+      "otherType": "未知的文件类型。 从列表中选择一种类型。",
+      "patentSubtype": "选择专利子类别。",
+      "saveFailed": "无法保存草稿文件。",
+      "subtype": "选择商标子类别。"
+    },
+    "euHint": "欧盟商标 (EUIPO) — 管辖权设定为欧盟。",
+    "fields": {
+      "address": "地址",
+      "applicantClient": "申请客户",
+      "applicantClientOptional": "CRM 中的申请人（可选）",
+      "city": "城市",
+      "classNumber": "班级编号",
+      "classes": "课程",
+      "country": "国家",
+      "eik": "伊利诺伊大学/伊利诺伊大学",
+      "email": "电子邮件",
+      "fax": "传真",
+      "goodsText": "商品和服务",
+      "legalName": "名称和法律实体类型",
+      "linkClient": "在 CRM 中选择客户",
+      "linkClientOptional": "CRM 客户端（可选）",
+      "fileTitleOptional": "标题（可选）",
+      "fileDescriptionOptional": "说明（可选）",
+      "markKind": "标记类别",
+      "markType": "标记类型",
+      "markWords": "商标名称",
+      "mol": "商船三井（签字）",
+      "name": "姓名",
+      "oppositionFiler": "反对派归档人",
+      "requester": "请求者",
+      "requestFiler": "请求的归档者",
+      "againstClasses": "反对阶级",
+      "owner": "所有者",
+      "phone": "电话",
+      "postalCode": "邮政编码",
+      "territory": "领土",
+      "transliteration": "音译",
+      "viennaNumber": "数字",
+      "applicationNumber": "申请号",
+      "applicationDate": "日期",
+      "conventionPriority": "公约优先",
+      "exhibitionPriority": "展会优先",
+      "transformationInternational": "国际注册的转变",
+      "communityConversion": "共同体商标的转换",
+      "applicationBulletin": "公告/公布申请",
+      "grounds": "理由",
+      "specimen": "标本",
+      "registrationNumber": "注册号",
+      "registrationDate": "日期",
+      "registrationBulletin": "登记公告/公布",
+      "certificate": "附上证书",
+      "attachDocument": "附上文件",
+      "representative": "选择",
+      "selectRepresentative": "选择代表",
+      "addMoreRepresentatives": "添加更多代表",
+      "claimNumber": "数字",
+      "claimText": "宣称",
+      "epApplicationNumber": "EP申请号",
+      "epBulletinNumber": "EP公告号",
+      "applicationPublication": "公布申请",
+      "applicationPublicationDate": "日期",
+      "epRegistrationNumber": "EP注册号",
+      "epRegistrationBulletin": "EP注册的公告/公布",
+      "epRegistrationBulletinDate": "日期",
+      "ipc": "工控机",
+      "patentName": "姓名",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "欧洲专利的验证",
+      "powerOfAttorney": "授权书",
+      "selectProcedure": "选择程序",
+      "validationCountry": "选择国家",
+      "priorityCountry": "之前申请的国家/地区",
+      "priorityFromDate": "开始日期",
+      "priorityApplicationNumber": "申请号",
+      "priorityIncomingNumber": "在。 不。",
+      "internationalRegistrationNumber": "国际注册号",
+      "exhibitionFirstAppearance": "首次出现日期",
+      "exhibitionName": "展会名称",
+      "bulletinNumber": "公告号",
+      "patentRegistrationNumber": "注册号",
+      "validationNumber": "数字",
+      "validationFilingDate": "申请日期",
+      "validationPriorityDate": "优先权日期",
+      "addImage": "添加图片",
+      "addCountry": "添加国家/地区",
+      "removeImage": "删除图像",
+      "image": "图像",
+      "designName": "姓名",
+      "locarnoClass": "班级",
+      "locarnoSubclass": "子类",
+      "classificationText": "分类",
+      "vat": "增值税号",
+      "utilityModelName": "姓名",
+      "conversionFromPatent": "从专利到申请的转换",
+      "conversionInvention": "发明",
+      "conversionRequestNumber": "请求编号",
+      "conversionApplicationDate": "申请日期",
+      "conversionPriorityDate": "优先权日期",
+      "giKind": "类型",
+      "giName": "地理标志名称",
+      "spcName": "姓名",
+      "medicinalProduct": "医药产品",
+      "basicPatentNumber": "专利号",
+      "effectStartDate": "效果开始",
+      "effectEndDate": "结束日期",
+      "firstAuthorization": "首次授权",
+      "theClientIs": "客户是",
+      "court": "法庭",
+      "authority": "权威",
+      "panel": "控制板",
+      "division": "分配",
+      "incomingNumber": "来电号码",
+      "claimGrounds": "理由（索赔类型）",
+      "claimValue": "索赔价值",
+      "other": "其他",
+      "rightObject": "目的",
+      "selectObject": "选择对象...",
+      "rightName": "姓名",
+      "rightApplicationDate": "申请日期",
+      "rightScope": "范围",
+      "expertiseType": "专业知识类型",
+      "experts": "专家",
+      "expertiseQuestions": "关于哪些专业知识被承认的问题"
+    },
+    "formTitle": "创建文件：商标",
+    "fullFormReady": "提供完整表格",
+    "goodsPlaceholder": "例如 瓶子； 零售服务…",
+    "markKinds": {
+      "certification": "认证",
+      "collective": "集体",
+      "individual": "个人"
+    },
+    "markTypes": {
+      "combination_of_colors": "颜色组合",
+      "combined": "组合",
+      "figurative": "具象的",
+      "sound": "声音",
+      "three_dimensional": "三维",
+      "wordmark": "文字标记"
+    },
+    "noClients": "没有匹配的客户。 首先在 CRM 中创建客户，然后返回此处。",
+    "optionalMark": "标记/主题（可选）",
+    "partialSubtypeNote": "该子类别的完整专业领域将在稍后扩展。 您仍然可以保存链接到客户端的草稿； 文件和信件保留在档案中。",
+    "preliminary": "初步信息",
+    "procedureHints": {
+      "cancellation": "撤销注册商标——完整创建表格",
+      "deletion": "删除注册商标 - 完整创建表格",
+      "new": "新商标申请——完整创建表格",
+      "objection": "对商标申请的异议 - 完整创建表格",
+      "opposition": "商标申请异议 - 完整创建表格",
+      "opposition_against_us": "异议程序",
+      "opposition_by_us": "异议程序",
+      "registered": "现有注册商标",
+      "revocation": "删除程序"
+    },
+    "procedures": {
+      "cancellation": "消除",
+      "deletion": "删除",
+      "new": "新品牌",
+      "objection": "异议",
+      "opposition": "反对",
+      "opposition_against_us": "反对",
+      "opposition_by_us": "反对",
+      "registered": "注册商标",
+      "revocation": "删除"
+    },
+    "kinds": {
+      "newPatent": "新专利",
+      "registeredPatent": "注册专利",
+      "design": "设计",
+      "registeredDesign": "设计",
+      "utilityModel": "实用新型",
+      "registeredGi": "注册地理标志",
+      "spc": "程控",
+      "case": "案件"
+    },
+    "comingSoonTitle": "创建文件：{{kind}}",
+    "comingSoonBody": "接下来将添加此文件类型的专用形式。 商标创建文件表格已经可以从同一菜单中获得。",
+    "patentTitle": "创建文件 — 专利",
+    "patentSubtypeHint": "首先选择专利子类别。",
+    "patentFormTitle": "创建文件：专利",
+    "designFormTitle": "创建文件：设计",
+    "utilityModelFormTitle": "创建文件：实用新型",
+    "giFormTitle": "创建文件：地理标志",
+    "spcFormTitle": "创建文件：SPC",
+    "caseFormTitle": "创建文件：案例",
+    "otherFilesTitle": "其他文件",
+    "otherFilesDescription": "选择主书架之外的作品类型——版权、域名、咨询等等。",
+    "otherFileFormTitle": "创建文件：{{type}}",
+    "addParty": "添加队伍",
+    "caseClientRoles": {
+      "plaintiff": "原告/上诉人",
+      "defendant": "被告",
+      "interested": "利害关系方"
+    },
+    "giKinds": {
+      "designation_of_origin": "原产地名称",
+      "geographical_indication": "地理标志"
+    },
+    "giTerritories": {
+      "national": "国家的",
+      "eu": "欧盟",
+      "wo": "沃"
+    },
+    "designFilingRoutes": {
+      "wipo": "世界知识产权组织",
+      "national": "国家的",
+      "euipo": "欧盟知识产权局"
+    },
+    "chooseProcedure": "选择程序",
+    "chooseCountry": "选择国家",
+    "patentFilingRoutes": {
+      "national": "国家的",
+      "european": "EP",
+      "ep_validation": "EP验证",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "阿尔巴尼亚",
+      "BA": "波斯尼亚和黑塞哥维那",
+      "BG": "保加利亚",
+      "EE": "爱沙尼亚",
+      "MK": "北马其顿",
+      "MD": "摩尔达维亚",
+      "ME": "黑山",
+      "RO": "罗马尼亚",
+      "RS": "塞尔维亚",
+      "SI": "斯洛文尼亚",
+      "TR": "火鸡"
+    },
+    "patentHints": {
+      "new": "新申请 — 国家、欧洲专利局或 PCT 审查（WorkPatent 中的 7 步流程）",
+      "registered": "现有资助 — 国家、EP、PCT 或 EP 验证（WorkValPatent 中的 4 步验证）"
+    },
+    "removeClass": "删除班级",
+    "removeClaim": "删除声明",
+    "removeIpc": "删除IPC类",
+    "removeApplicant": "删除申请人",
+    "removeBasisMark": "去除基准标记",
+    "sameApplicant": "申请人信息与客户信息一致",
+    "sameDesigner": "设计师信息与客户相同",
+    "sameInventor": "发明人信息与客户相同",
+    "sameCorrespondence": "通讯地址与注册地址相同",
+    "saveDraft": "另存为草稿",
+    "saving": "保存…",
+    "searchClient": "按名称或代码搜索客户...",
+    "sideUs": "我们这边——反对派",
+    "sideThem": "另一方——反对申请",
+    "sideUsCancellation": "我们这边——取消",
+    "sideThemCancellation": "另一方——所有者",
+    "sideUsDeletion": "我们这边——删除",
+    "sections": {
+      "againstApplication": "反对商标申请",
+      "againstBrand": "反对商标",
+      "applicant": "申请人",
+      "applicantUser": "申请人/用户",
+      "application": "应用",
+      "attachments": "附件",
+      "additionalInfo": "附加信息",
+      "basicInfo": "基本信息",
+      "fileDetails": "文件详情",
+      "basisMarks": "反对意见所依据的商标",
+      "claims": "索赔",
+      "classification": "分类",
+      "designer": "设计师",
+      "inventor": "发明者",
+      "client": "客户资料",
+      "instructingClient": "指导客户",
+      "ipc": "工控机",
+      "contact": "联络人",
+      "correspondence": "通讯地址",
+      "filing": "备案登记",
+      "goods": "商品和服务清单",
+      "geographicalIndication": "地理标志信息",
+      "spcBasic": "基本信息 SPC",
+      "caseData": "案例数据",
+      "caseRights": "案件所依据的权利",
+      "expertise": "专业知识",
+      "lawyers": "律师/法律顾问",
+      "caseParties": {
+        "plaintiff": "原告/上诉人",
+        "defendant": "被告",
+        "interested": "有意者"
+      },
+      "grounds": "理由",
+      "foundation": "基础",
+      "markName": "商标名称",
+      "oppositionFiler": "反对派归档人",
+      "requester": "请求者",
+      "requestFiler": "请求的归档者",
+      "owner": "所有者",
+      "registeredAddress": "注册地址",
+      "representative": "代表",
+      "representatives": "代表",
+      "searchDocs": "附上搜索文件",
+      "specimen": "标本",
+      "trademark": "商标信息",
+      "vienna": "维也纳分类"
+    },
+    "selectCountries": "选择国家",
+    "subtypeHint": "首先选择商标子类别。 新品牌开启完整形态。",
+    "territories": {
+      "eu": "欧洲联盟",
+      "international": "国际（WO）",
+      "national": "国家的"
+    },
+    "trademarkTitle": "创建文件 — 商标"
   },
   "deadlines": {
     "complete": "完全的",
     "daysLeft": "还剩 {{count}} 天",
     "daysOverdue": "逾期 {{count}} 天",
     "dueToday": "今天到期",
+    "summary": {
+      "open": "开放截止日期",
+      "overdue": "逾期"
+    },
     "empty": "此事没有最后期限。",
     "error": "无法加载截止日期。",
     "loading": "加载截止日期...",
@@ -719,43 +1579,952 @@
     "rejected": "被拒绝"
   },
   "layout": {
-    "backToMatters": "← 返回档案",
-    "loading": "正在加载档案…",
-    "notFound": "未找到档案。",
+    "backToMatters": "← 返回文件",
+    "loading": "正在加载文件...",
+    "notFound": "未找到文件。",
     "archivedBadge": "已存档",
     "archive": "档案",
     "archiving": "归档...",
     "restore": "恢复",
     "restoring": "正在恢复…",
-    "archiveFailed": "归档档案失败",
-    "restoreFailed": "恢复档案失败",
-    "archiveConfirm": "归档此档案？它将离开活动列表，但仍可在“已归档”中搜索。"
+    "archiveFailed": "归档文件失败",
+    "restoreFailed": "恢复文件失败",
+    "archiveConfirm": "存档此文件？ 它将离开活动列表，但在“已存档”下仍可搜索。"
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "次要行动",
+      "editScope": "编辑范围/类别"
+    },
+    "kinds": {
+      "name_address_change": "姓名和地址变更",
+      "transfer": "商标转让/转让",
+      "license": "许可协议",
+      "pledge": "特别承诺",
+      "injunction": "临时措施/禁令",
+      "surrender": "完全投降/免责声明",
+      "limitation": "应用限制",
+      "insolvency": "无力偿债/破产"
+    },
+    "legalBasis": {
+      "opposition_settlement": "反对派和解",
+      "office_action_response": "办公室行动回应",
+      "voluntary_limitation": "自愿限制",
+      "correction_of_error": "错误更正",
+      "other": "其他"
+    },
+    "scope": {
+      "title": "编辑类别和范围",
+      "description": "修改尼斯类别和商品/服务描述，然后记录办公室备案详细信息。",
+      "cardTitle": "课程和商品/服务",
+      "cardHint": "此商标文件上的 Active Nice 类。",
+      "empty": "尚未记录任何课程。",
+      "classLabel": "类 {{n}}",
+      "noDescription": "无描述",
+      "classes": "类别和商品编辑",
+      "incomingNumber": "传入参考号 (ВХ.НОМЕР)",
+      "incomingPlaceholder": "办公室追踪 ID",
+      "filingDate": "申请日期 (ДАТА)",
+      "legalBasis": "法律依据 (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "选择一个原因...",
+      "legalBasisOther": "其他法律依据",
+      "attachment": "支持文件",
+      "errors": {
+        "classRequired": "保留至少一门 Nice 课程，或使用“完全投降”放弃分数。",
+        "incomingRequired": "输入传入参考号。",
+        "dateRequired": "输入申请日期。",
+        "basisRequired": "选择法律依据。",
+        "saveFailed": "无法保存范围校正。"
+      }
+    },
+    "secondary": {
+      "description": "记录此行政行为、可选政府费用和提醒截止日期。",
+      "generateProforma": "生成形式发票",
+      "governmentFee": "政府费用（欧元）",
+      "paymentDueDate": "付款期限",
+      "paymentReminder": "付款前提醒",
+      "filingDeadline": "提交/行动截止日期",
+      "filingReminder": "备案前提醒",
+      "reminderUnit": "单元",
+      "months": "几个月前",
+      "days": "几天前",
+      "titles": {
+        "name_address_change": "日志名称和地址更改",
+        "transfer": "记录商标转让",
+        "license": "记录许可协议",
+        "pledge": "记录特别承诺",
+        "injunction": "记录临时措施/禁令",
+        "surrender": "记录完全投降/免责声明",
+        "limitation": "日志应用限制",
+        "insolvency": "记录无力偿债/破产"
+      },
+      "errors": {
+        "feeRequired": "输入政府费用以生成形式发票。",
+        "saveFailed": "无法保存此操作。"
+      }
+    },
+    "table": {
+      "title": "次要行动",
+      "description": "该商标的已记录程序。 打开文件夹可查看或上传相关文件。",
+      "empty": "尚未采取任何二次行动。 使用标头中的辅助操作来记录一项。",
+      "procedure": "程序",
+      "action": "行动",
+      "loggedAt": "已登录",
+      "viewAria": "查看动作详情",
+      "filesAria": "打开文件存档（{{count}} 文件）"
+    },
+    "archive": {
+      "title": "文件存档",
+      "empty": "尚无文件附加到此操作。",
+      "date": "日期",
+      "regarding": "关于",
+      "regardingPlaceholder": "例如 决定、形式、支持信",
+      "document": "文档",
+      "user": "用户",
+      "attach": "附上文件",
+      "upload": "上传文件",
+      "download": "下载",
+      "regardingRequired": "输入文件的相关内容。",
+      "fileRequired": "选择要上传的文件。",
+      "uploadFailed": "无法上传文件。"
+    }
   },
   "list": {
-    "description": "全部档案总览 — 可按标题、客户或申请号搜索。",
-    "descriptionPortal": "问询转化后为贵组织打开的档案。",
-    "descriptionArchived": "已完成或停用的档案，供查阅保留。",
+    "description": "所有文件的组合视图 - 按标题、客户或申请号搜索。",
+    "descriptionPortal": "接收转换后为您的组织打开的文件。",
+    "descriptionArchived": "保留已完成或未使用的文件以供参考。",
+    "descriptionOthers": "六个主要架子之外的文件 - 按下面的工作类型过滤。",
+    "descriptionType": "{{type}} 文件 — 按标题、客户或申请号搜索。",
     "filters": {
       "allStatuses": "所有状态",
       "allTypes": "所有工作类型",
+      "allOtherTypes": "所有其他类型",
       "active": "积极的",
-      "archived": "已归档",
-      "allOtherTypes": "所有其他类型"
+      "archived": "已存档"
     },
     "intakeQueue": "摄入队列",
     "pagination": {
       "ofTotal": "{{total}} 的"
     },
     "perPage": "每页 {{count}}",
-    "searchPlaceholder": "搜索标题、客户、申请号…",
-    "title": "档案",
-    "titleArchived": "已归档档案",
-    "titlePortal": "我的档案",
-    "descriptionOthers": "不在六大主类中的档案 — 请在下方按类型筛选。",
-    "descriptionType": "{{type}} 档案 — 可按标题、客户或申请号搜索。",
-    "titleOthers": "其他档案",
+    "searchPlaceholder": "搜索标题、客户、申请号...",
+    "title": "文件",
+    "titleArchived": "存档文件",
     "titleDrafts": "草稿",
-    "descriptionDrafts": "待批准或提交的草稿 — 与有效商标及其他分类分开存放。"
+    "titleOthers": "其他文件",
+    "titlePortal": "我的文件",
+    "descriptionDrafts": "等待批准或归档的草稿文件 - 与有效商标和其他货架分开。"
+  },
+  "trademarkList": {
+    "description": "商标组合——申请阶段、类别、申请人和截止日期一目了然。",
+    "descriptionMarks": "新商标和注册商标——申请阶段、类别、申请人和截止日期一目了然。",
+    "descriptionProcedure": "{{procedure}} 商标文件 — 审查阶段、类别和截止日期一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的商标文件。",
+    "columns": {
+      "name": "商标名称",
+      "territory": "领土",
+      "incomingRef": "申请/传入号码",
+      "stage": "起诉阶段",
+      "classes": "不错的课程",
+      "applicant": "申请人/业主",
+      "markType": "标记类型",
+      "registration": "注册。 不。 / 日期",
+      "deadline": "最后期限"
+    },
+    "deadlineOpen": "{{count}} 开放",
+    "deadlineOverdue": "{{count}} 逾期",
+    "deadlineNext": "下一页： {{date}}",
+    "filters": {
+      "title": "过滤标记",
+      "subtitle": "按申请人、人数、日期、类别等缩小作品集范围。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或申请人姓名...",
+      "markName": "商标名称",
+      "markNamePlaceholder": "标记标题...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册。 不。",
+      "regNoPlaceholder": "注册号...",
+      "markType": "标记类型",
+      "markKind": "马克·坎德",
+      "territory": "领土",
+      "representative": "代表",
+      "representativePlaceholder": "代表姓名...",
+      "applicationDateFrom": "申请日期自",
+      "applicationDateTo": "申请日期至",
+      "registrationDateFrom": "注册日期自",
+      "registrationDateTo": "登记日期至",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "markStatus": "标记状态",
+      "niceClass": "不错的课",
+      "country": "国家",
+      "hasCertificate": "附有证书",
+      "choose": "选择",
+      "chooseClass": "选择班级",
+      "chooseCountry": "选择国家",
+      "all": "全部",
+      "classOption": "类 {{number}}",
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "utilityModelList": {
+    "description": "实用新型——领土、权利要求、所有者和注册一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的实用新型文件。",
+    "searchResults": "搜索结果：{{count}}",
+    "territoryWipo": "世界知识产权组织",
+    "status": {
+      "registered": "挂号的"
+    },
+    "columns": {
+      "name": "姓名",
+      "territory": "领土",
+      "incomingRef": "来电号码 / 日期",
+      "status": "地位",
+      "classes": "课程",
+      "owner": "所有者",
+      "kind": "种类",
+      "registration": "注册。 不。 / 日期"
+    },
+    "filters": {
+      "title": "过滤器实用新型",
+      "subtitle": "按申请人、人数、日期、地区等缩小投资组合范围。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或业主姓名...",
+      "name": "姓名",
+      "namePlaceholder": "实用新型名称...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册号",
+      "regNoPlaceholder": "注册号...",
+      "territory": "领土",
+      "choose": "选择",
+      "chooseTerritory": "选择地区",
+      "representative": "代表",
+      "chooseRepresentative": "选择代表",
+      "applicationDate": "申请日期",
+      "registrationDate": "报名日期",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "status": "地位",
+      "certificate": "证书",
+      "certificateOptions": {
+        "with": "有证书",
+        "without": "无证书"
+      },
+      "statusOptions": {
+        "registered": "挂号的"
+      },
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "spcList": {
+    "description": "补充保护证书——领土、主张、所有者和注册一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的 SPC 文件。",
+    "searchResults": "搜索结果：{{count}}",
+    "territoryWipo": "世界知识产权组织",
+    "status": {
+      "registered": "挂号的"
+    },
+    "columns": {
+      "name": "姓名",
+      "territory": "领土",
+      "incomingRef": "来电号码 / 日期",
+      "status": "地位",
+      "classes": "课程",
+      "owner": "所有者",
+      "kind": "种类",
+      "registration": "注册。 不。 / 日期"
+    },
+    "filters": {
+      "title": "过滤SPC文件",
+      "subtitle": "按申请人、人数、日期、地区等缩小投资组合范围。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或业主姓名...",
+      "name": "专利名称",
+      "namePlaceholder": "SPC 名称...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册号",
+      "regNoPlaceholder": "注册号...",
+      "territory": "领土",
+      "choose": "选择",
+      "chooseTerritory": "选择地区",
+      "representative": "代表",
+      "chooseRepresentative": "选择代表",
+      "applicationDate": "申请日期",
+      "registrationDate": "报名日期",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "status": "专利状况",
+      "certificate": "证书",
+      "certificateOptions": {
+        "with": "有证书",
+        "without": "无证书"
+      },
+      "statusOptions": {
+        "registered": "挂号的"
+      },
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "spcShelf": {
+    "title": "程控"
+  },
+  "caseList": {
+    "description": "法院案件——当事人、案件编号、法院和状态一目了然。",
+    "emptyDescription": "创建一个新的案例文件以开始。",
+    "searchResults": "搜索结果：{{count}}",
+    "incomingSuffix": "传入",
+    "vrs": "vrs。",
+    "viewAria": "查看{{title}}",
+    "filesAria": "{{title}} ({{count}}) 的文件",
+    "columns": {
+      "parties": "派对",
+      "caseNumber": "案件编号",
+      "court": "法庭",
+      "status": "地位",
+      "actions": "行动"
+    },
+    "statusOptions": {
+      "suspended": "暂停",
+      "scheduled": "预定",
+      "inactive": "不活跃",
+      "appealed": "已上诉"
+    }
+  },
+  "caseView": {
+    "clientLabel": "客户",
+    "caseNumberLabel": "案件编号",
+    "statusTitle": "地位",
+    "chooseStatus": "选择状态",
+    "saveStatus": "保存状态",
+    "edit": "编辑",
+    "save": "节省",
+    "cancel": "取消",
+    "saving": "保存…",
+    "editHint": "更新当事人、法庭详细信息、主题和其他案件数据。",
+    "subjectTitle": "案件主题",
+    "instanceTitle": "案件编号 {{number}} ({{court}})",
+    "eventsTitle": "活动",
+    "reminderTitle": "创建额外提醒",
+    "addReminder": "添加",
+    "openArchive": "文件存档",
+    "saved": "已保存。",
+    "events": {
+      "date": "日期",
+      "deadline": "最后期限",
+      "regarding": "关于",
+      "info": "附加信息"
+    },
+    "actions": {
+      "decision": "决定",
+      "agreement": "协议",
+      "ruling": "裁决"
+    },
+    "errors": {
+      "saveFailed": "无法保存案例详细信息。"
+    }
+  },
+  "giList": {
+    "description": "地理标志——领土、产品类别、所有者和注册一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的地理标志文件。",
+    "searchResults": "搜索结果：{{count}}",
+    "territoryEu": "欧盟",
+    "territoryWipo": "世界知识产权组织",
+    "status": {
+      "registered": "挂号的"
+    },
+    "columns": {
+      "name": "姓名",
+      "territory": "领土",
+      "incomingRef": "来电号码 / 日期",
+      "status": "地位",
+      "classification": "分类",
+      "owner": "所有者",
+      "registration": "注册。 不。 / 日期"
+    },
+    "filters": {
+      "title": "过滤地理标志",
+      "subtitle": "按申请人、人数、日期、地区路线等缩小投资组合。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或业主姓名...",
+      "name": "姓名",
+      "namePlaceholder": "地理标志名称...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册号",
+      "regNoPlaceholder": "注册号...",
+      "territory": "领土",
+      "choose": "选择",
+      "chooseTerritory": "选择地域航线",
+      "representative": "代表",
+      "chooseRepresentative": "选择代表",
+      "applicationDate": "申请日期",
+      "registrationDate": "报名日期",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "status": "地位",
+      "certificate": "证书",
+      "certificateOptions": {
+        "with": "有证书",
+        "without": "无证书"
+      },
+      "country": "国家",
+      "chooseCountry": "选择国家",
+      "statusOptions": {
+        "registered": "挂号的"
+      },
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "designList": {
+    "description": "注册外观设计 — 领土、洛迦诺分类、所有者和注册一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的设计文件。",
+    "searchResults": "搜索结果：{{count}}",
+    "territoryEu": "欧盟",
+    "territoryWipo": "世界知识产权组织",
+    "status": {
+      "registered": "挂号的"
+    },
+    "columns": {
+      "name": "姓名",
+      "territory": "领土",
+      "incomingRef": "来电号码 / 日期",
+      "status": "地位",
+      "classification": "分类",
+      "owner": "所有者",
+      "registration": "注册。 不。 / 日期"
+    },
+    "filters": {
+      "title": "滤波器设计",
+      "subtitle": "按申请人、人数、日期、程序等缩小投资组合范围。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或业主姓名...",
+      "name": "姓名",
+      "namePlaceholder": "设计名称...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册号",
+      "regNoPlaceholder": "注册号...",
+      "territory": "领土",
+      "procedure": "程序",
+      "choose": "选择",
+      "chooseTerritory": "选择地区",
+      "representative": "代表",
+      "chooseRepresentative": "选择代表",
+      "applicationDate": "申请日期",
+      "registrationDate": "报名日期",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "status": "地位",
+      "certificate": "证书",
+      "certificateOptions": {
+        "with": "有证书",
+        "without": "无证书"
+      },
+      "country": "国家",
+      "statusOptions": {
+        "registered": "挂号的"
+      },
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "patentList": {
+    "description": "新专利和注册专利一起 — 起诉阶段、权利要求、所有者和截止日期一目了然。",
+    "emptyDescription": "尝试调整过滤器或创建新的专利文件。",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "专利名称",
+      "territory": "领土",
+      "incomingRef": "申请/传入号码",
+      "stage": "地位",
+      "claims": "索赔",
+      "owner": "所有者",
+      "registration": "注册。 不。 / 日期",
+      "deadline": "最后期限"
+    },
+    "deadlineOpen": "{{count}} 开放",
+    "deadlineOverdue": "{{count}} 逾期",
+    "deadlineNext": "下一页： {{date}}",
+    "filters": {
+      "title": "过滤器专利",
+      "subtitle": "按申请人、人数、日期、地区等缩小投资组合范围。",
+      "activeCount": "{{count}} 活跃",
+      "applicant": "申请人/业主",
+      "applicantPlaceholder": "客户或业主姓名...",
+      "patentName": "专利名称",
+      "patentNamePlaceholder": "专利名称...",
+      "incomingNo": "来电号码",
+      "incomingPlaceholder": "申请/传入...",
+      "regNo": "注册。 不。",
+      "regNoPlaceholder": "注册号...",
+      "territory": "领土",
+      "choose": "选择",
+      "chooseTerritory": "选择地区",
+      "representative": "代表",
+      "chooseRepresentative": "选择代表",
+      "applicationDateFrom": "申请日期自",
+      "applicationDateTo": "申请日期至",
+      "registrationDateFrom": "注册日期自",
+      "registrationDateTo": "登记日期至",
+      "contact": "联络人",
+      "contactPlaceholder": "联系人姓名、电子邮件或电话...",
+      "patentStatus": "专利状况",
+      "certificate": "证书",
+      "certificateOptions": {
+        "with": "有证书",
+        "without": "无证书"
+      },
+      "country": "国家",
+      "chooseCountry": "选择国家",
+      "annualFees": "年费缴纳",
+      "annualFeesOptions": {
+        "yes": "是的",
+        "no": "不"
+      },
+      "statusOptions": {
+        "validation_received": "已收到验证",
+        "assignment": "任务",
+        "translation_assigned": "指定翻译",
+        "filing_entry": "归档/录入",
+        "validation_decision": "验证决定",
+        "registered": "挂号的"
+      },
+      "all": "全部",
+      "clear": "清除过滤器",
+      "apply": "应用过滤器"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "马克"
+  },
+  "objectionList": {
+    "view": "看法",
+    "fileArchive": "文件存档",
+    "viewAria": "查看异议 {{title}}",
+    "filesAria": "打开 {{title}}（{{count}} 文件）的文件存档",
+    "emptyDescription": "尝试调整过滤器或创建新的反对文件。",
+    "columns": {
+      "againstMark": "反对标记",
+      "grounds": "理由",
+      "client": "客户",
+      "status": "地位",
+      "actions": "行动"
+    }
+  },
+  "oppositionList": {
+    "view": "看法",
+    "fileArchive": "文件存档",
+    "viewAria": "查看反对派 {{title}}",
+    "filesAria": "打开 {{title}} 的异议文件存档（{{count}} 文件）",
+    "emptyDescription": "尝试调整过滤器或创建新的反对文件。",
+    "columns": {
+      "againstMark": "反对标记",
+      "client": "客户",
+      "status": "地位",
+      "actions": "行动"
+    },
+    "stages": {
+      "disputes_division": "争议部门的反对派",
+      "opposition_decision": "反对决定",
+      "disputes_department_decision": "争议部门决定",
+      "case": "案件",
+      "stopped": "已停止",
+      "closed": "关闭"
+    },
+    "stageLegend": {
+      "disputes_division": "蓝色 — 正在争议部门审查中",
+      "opposition_decision": "琥珀色——决定已发布或待决",
+      "disputes_department_decision": "橙色——部门级决策",
+      "case": "红色——升级为法庭案件",
+      "stopped": "灰色——诉讼暂停",
+      "closed": "绿色——反对结束"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "异议",
+    "basicInfo": "基本信息",
+    "foundation": "基础",
+    "archiveTitle": "异议文件存档",
+    "nav": {
+      "view": "看法",
+      "archive": "文件存档"
+    },
+    "markName": "商标名称",
+    "applicationNumber": "申请号",
+    "applicationDate": "申请日期",
+    "classes": "课程",
+    "markType": "商标类型",
+    "applicant": "申请人",
+    "noMarkImage": "商标没有形象",
+    "grounds": "基础",
+    "submissionDate": "提交日期",
+    "incomingNumber": "来电号码",
+    "poaIncomingNumber": "传入授权书号码",
+    "poaDate": "日期",
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存更改",
+    "saving": "保存…",
+    "errors": {
+      "markNameRequired": "商标名称为必填项。",
+      "saveFailed": "无法保存异议。"
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "反对",
+    "subjectMark": "主体商标",
+    "opposingMarks": "异议商标",
+    "archiveTitle": "反对派档案",
+    "nav": {
+      "view": "看法",
+      "archive": "文件存档",
+      "notes": "笔记"
+    },
+    "markName": "商标名称",
+    "applicationNumber": "申请号",
+    "applicationDate": "申请日期",
+    "classes": "课程",
+    "markType": "商标类型",
+    "applicant": "申请人",
+    "representative": "代表",
+    "noMarkImage": "商标没有形象",
+    "noBasisMarks": "没有异议商标记录。",
+    "basisMarkName": "商标名称",
+    "basisTerritory": "领土",
+    "basisMarkNo": "标记没有。",
+    "basisAppDate": "申请日期",
+    "basisClasses": "课程",
+    "againstClasses": "反对阶级",
+    "submittedBy": "提交者",
+    "statusHistory": "状态历史记录",
+    "stage": "地位",
+    "stagePlaceholder": "选择状态...",
+    "stageNone": "未设置",
+    "stageChangeHint": "保存新状态会更新异议列表中的彩色徽章，向状态历史记录添加一行，并将案件设置为“暂停”（已停止）或“已关闭”（如果适用）。",
+    "decisionNumber": "决定编号",
+    "decisionDate": "决定日期",
+    "actions": {
+      "stop": "停止",
+      "print": "打印 PDF",
+      "printing": "生成…",
+      "stopFailed": "无法阻止反对派。",
+      "printFailed": "无法生成 PDF。"
+    },
+    "stageDescriptions": {
+      "disputes_division": "反对派正在接受争议部门的审查。",
+      "opposition_decision": "关于反对派的决定已经发布或预计将作出。",
+      "disputes_department_decision": "争议部门已发布或正在审查其决定。",
+      "case": "此事已升级为法庭案件。",
+      "stopped": "异议程序暂停； 此事已被搁置。",
+      "closed": "反对派结束了； 该案件已设为“结束”。"
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — 争议部门中的反对派",
+      "opposition_decision": "关于异议的决定编号 {{number}} / {{date}}",
+      "disputes_department_decision": "争议部门决定编号 {{number}} / {{date}}",
+      "case": "针对异议号 {{number}} / {{date}} 的上诉决定",
+      "stopped": "{{markRef}} — 反对派停止",
+      "closed": "{{markRef}} — 反对派结束"
+    },
+    "timeline": {
+      "decision": "反对决定",
+      "department_decision": "争议部门决定",
+      "second_decision": "第二次反对决定",
+      "appealedBy": "上诉人：{{name}}",
+      "appealedInCourtBy": "{{name}} 向法庭提出上诉",
+      "decisionRef": "编号 {{number}} / {{date}}",
+      "appealFiled": "提出上诉",
+      "courtAppealFiled": "向法院提起上诉"
+    },
+    "workflow": {
+      "appealTitle": "上诉 — 来电号码",
+      "correspondenceTitle": "一致",
+      "solutionTitle": "解决方案",
+      "incomingNumber": "来电号码",
+      "date": "日期",
+      "attachAppeal": "附上上诉",
+      "attachDocument": "附上文件",
+      "regarding": "关于",
+      "deadline": "最后期限",
+      "additionalInfo": "附加信息",
+      "correspondence": "一致",
+      "submit": "提交",
+      "solutionSubmit": "解决方案",
+      "caseDraft": "案件草稿",
+      "courtAppeal": "向法庭提出上诉",
+      "saveFailed": "无法保存。"
+    },
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存更改",
+    "saving": "保存…",
+    "errors": {
+      "markNameRequired": "商标名称为必填项。",
+      "saveFailed": "无法拯救反对派。"
+    },
+    "notes": {
+      "title": "反对笔记",
+      "empty": "还没有笔记。",
+      "date": "日期",
+      "regarding": "关于",
+      "details": "附加信息",
+      "submit": "添加",
+      "regardingRequired": "输入注释的主题。",
+      "saveFailed": "无法保存笔记。",
+      "editAria": "编辑备注",
+      "deleteAria": "删除注释"
+    }
+  },
+  "cancellationList": {
+    "view": "概述",
+    "fileArchive": "文件",
+    "viewAria": "查看取消 {{title}}",
+    "filesAria": "打开 {{title}} 的取消文件存档（{{count}} 文件）",
+    "emptyDescription": "尝试调整过滤器或创建新的取消文件。",
+    "stageNone": "未设置",
+    "columns": {
+      "againstMark": "对抗一个品牌",
+      "client": "客户",
+      "status": "地位",
+      "actions": "行动"
+    },
+    "stages": {
+      "waiting_for_login": "等待登录",
+      "in_correspondence": "在信件中",
+      "case": "案件",
+      "stopped": "已停止",
+      "closed": "关闭"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "消除",
+    "subjectMark": "主体商标",
+    "cancellationSide": "取消详情",
+    "archiveTitle": "取消文件存档",
+    "nav": {
+      "view": "看法",
+      "archive": "文件存档",
+      "notes": "笔记"
+    },
+    "markName": "商标名称",
+    "applicationNumber": "申请号",
+    "applicationDate": "申请日期",
+    "registrationNumber": "注册号",
+    "classes": "课程",
+    "markType": "标记类型",
+    "applicant": "申请人",
+    "representative": "代表",
+    "againstClasses": "反对阶级",
+    "submittedBy": "提交者",
+    "foundation": "基础",
+    "stage": "地位",
+    "stagePlaceholder": "选择状态...",
+    "stageNone": "未设置",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — 取消",
+      "in_correspondence": "取消编号 {{number}} / {{date}}",
+      "case": "取消编号 {{number}} / {{date}} — 案例",
+      "stopped": "{{markRef}} — 取消已停止",
+      "closed": "{{markRef}} — 取消已结束"
+    },
+    "deadlines": {
+      "date": "日期",
+      "deadline": "最后期限",
+      "regarding": "关于",
+      "details": "附加信息"
+    },
+    "workflow": {
+      "feeTitle": "国家费用 — 付款日期",
+      "poaTitle": "授权书",
+      "filingTitle": "取消备案",
+      "correspondenceTitle": "一致",
+      "feeAmount": "金额（保加利亚列弗）",
+      "feeDate": "付款日期",
+      "poaNumber": "授权书号码",
+      "poaDate": "收货日期",
+      "cancellationNumber": "取消号码",
+      "filingDate": "申请日期",
+      "attachDocument": "附上文件",
+      "attachPoa": "附上授权书",
+      "regarding": "关于",
+      "deadline": "最后期限",
+      "additionalInfo": "附加信息",
+      "submit": "提交",
+      "decision": "决定",
+      "feePaid": "记录国家费用",
+      "poaReceived": "已记录授权书",
+      "filingRecorded": "取消备案已记录",
+      "correspondence": "一致",
+      "saveFailed": "无法保存。"
+    },
+    "actions": {
+      "stop": "停止",
+      "stopFailed": "无法阻止取消。"
+    },
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存更改",
+    "saving": "保存…",
+    "errors": {
+      "markNameRequired": "商标名称为必填项。",
+      "saveFailed": "无法保存取消。"
+    },
+    "notes": {
+      "title": "取消须知",
+      "empty": "还没有笔记。",
+      "date": "日期",
+      "regarding": "关于",
+      "details": "附加信息",
+      "submit": "添加",
+      "regardingRequired": "输入注释的主题。",
+      "saveFailed": "无法保存笔记。",
+      "editAria": "编辑备注",
+      "deleteAria": "删除注释"
+    }
+  },
+  "deletionList": {
+    "view": "概述",
+    "fileArchive": "文件",
+    "viewAria": "查看删除 {{title}}",
+    "filesAria": "打开 {{title}}（{{count}} 文件）的删除文件存档",
+    "emptyDescription": "尝试调整过滤器或创建新的删除文件。",
+    "stageNone": "未设置",
+    "columns": {
+      "againstMark": "对抗一个品牌",
+      "client": "客户",
+      "status": "地位",
+      "actions": "行动"
+    },
+    "stages": {
+      "waiting_for_login": "提交删除",
+      "in_correspondence": "在信件中",
+      "decision": "决定",
+      "case": "案件",
+      "stopped": "已停止",
+      "closed": "关闭"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "删除",
+    "subjectMark": "主体商标",
+    "deletionSide": "删除详情",
+    "archiveTitle": "删除文件存档",
+    "archivedStamp": "已存档",
+    "noMarkImage": "商标没有形象",
+    "nav": {
+      "view": "看法",
+      "archive": "文件存档"
+    },
+    "markName": "商标名称",
+    "applicationNumber": "申请号",
+    "applicationDate": "申请日期",
+    "registrationNumber": "注册号",
+    "classes": "课程",
+    "markType": "标记类型",
+    "applicant": "申请人",
+    "representative": "代表",
+    "againstClasses": "反对阶级",
+    "submittedBy": "提交者",
+    "foundation": "基础",
+    "stage": "地位",
+    "stagePlaceholder": "选择状态...",
+    "stageNone": "未设置",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — 删除",
+      "in_correspondence": "删除编号 {{number}} / {{date}}",
+      "decision": "删除决定编号 {{number}} / {{date}}",
+      "case": "删除决定编号 {{number}} / {{date}} — 案例",
+      "stopped": "{{markRef}} — 停止（直到 {{stopUntil}}）",
+      "closed": "{{markRef}} — 删除已关闭"
+    },
+    "deadlines": {
+      "date": "提醒日期",
+      "deadline": "最后期限",
+      "regarding": "关于",
+      "details": "附加信息",
+      "appealTitle": "上诉截止日期"
+    },
+    "stopped": {
+      "title": "已停止",
+      "until": "（直到 {{date}}）",
+      "reason": "原因：{{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "生成形式",
+      "stateFee": "国家收费",
+      "feePaymentDeadline": "付款期限",
+      "poaSendDeadline": "发送授权书的截止日期",
+      "filingDeadlineLabel": "提交截止日期",
+      "remindBefore": "之前提醒一下",
+      "reminderDays": "天",
+      "reminderMonths": "几个月",
+      "feeDeadlineRegarding": "缴纳国家费用的截止日期",
+      "poaDeadlineRegarding": "发送授权书的截止日期",
+      "filingDeadlineRegarding": "提交删除申请的截止日期",
+      "proformaRecorded": "记录形式和截止日期",
+      "feeTitle": "国家费用 — 付款日期",
+      "poaTitle": "授权书",
+      "filingTitle": "删除备案",
+      "correspondenceTitle": "一致",
+      "decisionTitle": "删除决定",
+      "feeAmount": "金额（保加利亚列弗）",
+      "feeDate": "付款日期",
+      "poaNumber": "授权书号码",
+      "poaDate": "收货日期",
+      "deletionNumber": "删除数量",
+      "filingDate": "申请日期",
+      "decisionNumber": "决定编号",
+      "decisionDate": "决定日期",
+      "attachDocument": "附上文件",
+      "attachPoa": "附上授权书",
+      "regarding": "关于",
+      "deadline": "最后期限",
+      "additionalInfo": "附加信息",
+      "submit": "提交",
+      "decision": "决定",
+      "caseDraft": "案件草稿",
+      "notAppealed": "未上诉",
+      "appealed": "已上诉",
+      "feePaid": "记录国家费用",
+      "poaReceived": "已记录授权书",
+      "filingRecorded": "删除备案记录",
+      "decisionRecorded": "已记录删除决定",
+      "correspondence": "一致",
+      "decisionNumberRequired": "输入决策编号。",
+      "saveFailed": "无法保存。"
+    },
+    "actions": {
+      "stop": "停止",
+      "stopReason": "原因",
+      "stopUntil": "停止直到",
+      "restore": "恢复",
+      "restored": "已恢复",
+      "archive": "档案",
+      "archiveConfirm": "存档此删除文件吗？",
+      "archiveFailed": "无法存档删除。",
+      "stopFailed": "无法停止删除。",
+      "restoreFailed": "无法恢复删除。"
+    },
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存更改",
+    "saving": "保存…",
+    "errors": {
+      "markNameRequired": "商标名称为必填项。",
+      "saveFailed": "无法保存删除。"
+    }
   },
   "ipRightsRegister": {
     "description": "公司范围内的知识产权登记，并按客户、司法管辖区、类型、状态和有效期进行过滤。",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "组合",
+    "combination_of_colors": "颜色组合",
     "figurative": "具象的",
     "sound": "声音",
     "three_dimensional": "3D",
-    "wordmark": "文字标记",
-    "combination_of_colors": "颜色组合"
+    "wordmark": "文字标记"
   },
   "overview": {
     "assignedTo": "首席律师",
@@ -801,18 +2570,6 @@
     "clientHint": "指示方——收到发票",
     "intermediary": "中介",
     "description": "描述",
-    "jurisdictions": "司法管辖区",
-    "jurisdictionsEmpty": "没有管辖区记录。",
-    "openedBy": "开启者",
-    "status": "地位",
-    "table": {
-      "country": "国家",
-      "localRef": "本地参考。",
-      "status": "地位"
-    },
-    "title": "档案详情",
-    "type": "工作类型",
-    "typeSpecific": "特定于类型的属性",
     "edit": {
       "cancel": "取消",
       "edit": "编辑",
@@ -829,7 +2586,19 @@
       "saved": "已保存。",
       "saving": "保存…",
       "title": "文件详情"
-    }
+    },
+    "jurisdictions": "司法管辖区",
+    "jurisdictionsEmpty": "没有管辖区记录。",
+    "openedBy": "开启者",
+    "status": "地位",
+    "table": {
+      "country": "国家",
+      "localRef": "本地参考。",
+      "status": "地位"
+    },
+    "title": "文件详情",
+    "type": "工作类型",
+    "typeSpecific": "特定于类型的属性"
   },
   "parties": {
     "title": "派对",
@@ -874,11 +2643,12 @@
     "instructions": "指示",
     "approvals": "批准",
     "ipRights": "知识产权",
+    "secondaryActions": "次要行动",
     "customs": "海关",
     "overview": "概述",
-    "tasks": "备注",
+    "tasks": "笔记",
     "timeline": "时间轴",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} 于 {{tab}}"
   },
   "approvals": {
     "title": "客户认可",
@@ -887,7 +2657,7 @@
     "loading": "正在加载批准...",
     "loadError": "无法加载批准。",
     "empty": "尚无批准请求。",
-    "noPermission": "您无权查看对此事项的批准。",
+    "noPermission": "您无权查看此事的批准。",
     "decisionNote": "客户备注：{{note}}",
     "columns": {
       "title": "标题",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "添加任务",
+    "add": "添加备注",
     "assignedTo": "分配给",
     "assignedToUser": "分配给 {{name}}",
     "completed": "完全的",
     "completedByUser": "由 {{name}} 完成",
-    "confirmComplete": "将此任务标记为已完成？",
-    "confirmDelete": "删除这个任务吗？",
+    "confirmComplete": "将此注释标记为已完成？",
+    "confirmDelete": "删除此注释？",
     "delete": "删除",
-    "deleteMessage": "该任务将被永久删除。",
-    "deleteTitle": "删除任务？",
-    "description": "在这个问题上需要完成的工作——与系统生成的最后期限分开。",
-    "drawerTitle": "添加任务",
+    "deleteMessage": "此注释将被永久删除。",
+    "deleteTitle": "删除注释？",
+    "description": "关于此事的内部注释 - 与系统生成的截止日期分开。",
+    "drawerTitle": "添加备注",
     "dueOn": "截止日期 {{date}}",
-    "empty": "没有关于此事的任务。",
-    "emptyOpen": "没有开放任务。 当有工作需要跟踪此事时添加一个。",
-    "error": "加载任务失败。",
-    "errorCreate": "创建任务失败",
+    "empty": "没有关于这个问题的注释。",
+    "emptyOpen": "没有打开的笔记。 当此事需要跟踪时添加一个。",
+    "error": "无法加载笔记。",
+    "errorCreate": "创建笔记失败",
     "form": {
       "assigneeLabel": "分配给",
-      "assigneeRequired": "选择谁应该执行此任务",
+      "assigneeRequired": "选择此注释的对象",
       "dueDateOptional": "截止日期（可选）",
       "notesOptional": "注释（可选）",
       "notesPlaceholder": "受托人的任何额外背景",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "例如 致电客户回复：BPO 响应",
       "titleRequired": "标题为必填项"
     },
-    "loading": "正在加载任务...",
+    "loading": "正在加载笔记...",
     "markComplete": "标记完成",
     "noDueDate": "无截止日期",
     "open": "打开",
@@ -954,11 +2724,11 @@
       "high": "高的",
       "normal": "普通的"
     },
-    "title": "任务"
+    "title": "笔记"
   },
   "timeline": {
     "description": "关于此事的起诉和通信的时间历史。",
-    "empty": "还没有时间轴事件。 在此记录信件或提交申请以查看活动。",
+    "empty": "还没有时间线事件。 在此记录信件或提交申请以查看活动。",
     "error": "无法加载时间线。",
     "eventType": {
       "correspondence": "一致",
@@ -980,7 +2750,7 @@
     "domain": "域名",
     "fto_analysis": "FTO分析",
     "geographical_indication": "地理标志",
-    "industrial_design": "工业设计",
+    "industrial_design": "设计",
     "litigation_expert_report": "诉讼/法庭专家报告",
     "official_fee_payment": "官方费用支付",
     "other": "其他",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "选择…",
     "title": "特定于类型的详细信息"
   },
-  "createFile": {
-    "addClass": "添加班级",
-    "backToFiles": "返回文件",
-    "cancel": "取消",
-    "changeSubtype": "更改子类别",
-    "checkRegister": "检查商业登记簿",
-    "clearClient": "更换客户",
-    "clientOptionalHint": "没有 CRM 匹配吗？ 填写下面的客户详细信息 - 保存草稿将自动在客户中创建它们。",
-    "applicantOptionalHint": "没有 CRM 匹配吗？ 在下面填写申请人详细信息 - 保存草稿将自动在客户端中创建它们。",
-    "draftDescription": "通过创建文件 ({{procedure}}) 创建 — 草稿",
-    "errors": {
-      "client": "选择一个客户端以继续。",
-      "clientOrDetails": "选择 CRM 客户端，或输入客户端名称和详细信息以创建它们。",
-      "applicantOrDetails": "在 CRM 中选择申请人，或输入申请人姓名和详细信息来创建申请人。",
-      "jurisdiction": "至少选择一个地区/国家。",
-      "markWords": "输入商标名称/文字。",
-      "saveFailed": "无法保存草稿文件。",
-      "subtype": "选择商标子类别。",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "文件参考和状态",
+    "incomingNumber": {
+      "label": "来电号码"
     },
-    "euHint": "欧盟商标 (EUIPO) — 管辖权设定为欧盟。",
-    "fields": {
-      "address": "地址",
-      "applicantClient": "申请客户",
-      "applicantClientOptional": "CRM 中的申请人（可选）",
-      "city": "城市",
-      "classNumber": "班级编号",
-      "country": "国家",
-      "eik": "伊利诺伊大学/伊利诺伊大学",
-      "email": "电子邮件",
-      "fax": "传真",
-      "goodsText": "商品和服务",
-      "legalName": "名称和法律实体类型",
-      "linkClient": "在 CRM 中选择客户",
-      "linkClientOptional": "CRM 客户端（可选）",
-      "markKind": "标记类别",
-      "markType": "标记类型",
-      "markWords": "标记的话",
-      "mol": "商船三井（签字）",
-      "name": "姓名",
-      "phone": "电话",
-      "postalCode": "邮政编码",
-      "territory": "领土",
-      "vat": "增值税号",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "到货日期"
     },
-    "formTitle": "创建文件：商标",
-    "fullFormReady": "提供完整表格",
-    "goodsPlaceholder": "例如 瓶子； 零售服务…",
-    "markKinds": {
-      "certification": "认证",
-      "collective": "集体",
-      "individual": "个人"
+    "territoryRoute": {
+      "label": "境内航线",
+      "options": {
+        "national_bg": "保加利亚（国家）",
+        "eu": "欧洲联盟",
+        "wipo": "产权组织/国际",
+        "international": "其他国际"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "颜色组合",
-      "combined": "组合",
-      "figurative": "具象的",
-      "sound": "声音",
-      "three_dimensional": "三维",
-      "wordmark": "文字标记"
+    "authorityOffice": {
+      "label": "机关/办公室"
     },
-    "noClients": "没有匹配的客户。 首先在 CRM 中创建客户，然后返回此处。",
-    "optionalMark": "标记/主题（可选）",
-    "partialSubtypeNote": "该子类别的完整专业领域将在稍后扩展。 您仍然可以保存链接到客户端的草稿； 文件和信件保留在档案中。",
-    "preliminary": "初步信息",
-    "procedureHints": {
-      "new": "新商标申请 — 完整表单",
-      "registered": "已注册商标",
-      "objection": "异议程序",
-      "opposition": "反对程序",
-      "cancellation": "无效宣告程序",
-      "deletion": "注销程序",
-      "opposition_against_us": "反对程序",
-      "opposition_by_us": "反对程序",
-      "revocation": "注销程序"
+    "relatedApplicationNumber": {
+      "label": "相关申请号"
     },
-    "procedures": {
-      "new": "新品牌",
-      "registered": "注册商标",
-      "objection": "异议",
-      "opposition": "反对",
-      "cancellation": "宣告无效",
-      "deletion": "注销",
-      "opposition_against_us": "反对",
-      "opposition_by_us": "反对",
-      "revocation": "注销"
-    },
-    "removeClass": "删除班级",
-    "sameApplicant": "申请人信息与客户信息一致",
-    "sameCorrespondence": "通讯地址与注册地址相同",
-    "saveDraft": "另存为草稿",
-    "saving": "保存…",
-    "searchClient": "按名称或代码搜索客户...",
-    "sections": {
-      "applicant": "申请人",
-      "client": "客户资料",
-      "contact": "联络人",
-      "correspondence": "通讯地址",
-      "goods": "商品和服务清单",
-      "markName": "商标名称",
-      "registeredAddress": "注册地址",
-      "searchDocs": "附上搜索文件",
-      "trademark": "商标信息",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "选择国家",
-    "subtypeHint": "请先选择子类别。新品牌将打开完整表单。",
-    "territories": {
-      "eu": "欧洲联盟",
-      "international": "国际（WO）",
-      "national": "国家的"
-    },
-    "trademarkTitle": "创建文件 — 商标",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "添加国家/地区...",
-    "cancel": "取消",
-    "country": "国家",
-    "edit": "编辑",
-    "errors": {
-      "country": "为此地区至少选择一个国家/地区。",
-      "saveFailed": "无法保存商标信息。"
-    },
-    "euFixed": "欧盟 (EUIPO)",
-    "markKind": "标记类别",
-    "markType": "标记类型",
-    "noCountries": "尚未选择国家/地区。",
-    "save": "保存更改",
-    "saved": "已保存。",
-    "saving": "保存…",
-    "selectCountries": "选择国家",
-    "territory": "领土",
-    "title": "商标信息"
-  },
-  "fileApproval": {
-    "clientStep": "1. 客户认可",
-    "clientStepHint": "工作人员离线确认客户同意（电话/电子邮件/会议）。 门户客户端不需要自行批准。",
-    "errors": {
-      "updateFailed": "无法更新批准状态。"
-    },
-    "hint": "仅内部批准：标记客户同意，然后执行合伙人接受该文件。 无需发送给客户批准。",
-    "markClientApproved": "标记客户已批准",
-    "partnerApprove": "合作伙伴批准文件",
-    "partnerOnly": "只有管​​理合伙人可以完成此步骤",
-    "partnerStep": "2. 管理合伙人接受",
-    "partnerStepHint": "客户标记为已批准后，执行合伙人接受该文件并留下草稿。",
-    "recordedBy": "记录者 {{name}} · {{date}}",
-    "title": "文件审批",
-    "waitForClient": "首先标记客户已批准，然后您可以接受该文件。"
-  },
-  "prosecution": {
-    "cancelEdit": "取消",
-    "completeStage": "完成阶段",
-    "edit": "编辑",
-    "editingNote": "使用“保存”保留您在此阶段输入的内容，或使用“完成”阶段在填写必填字段后继续前进。",
-    "gateHint": "在填写此阶段的必填字段（与系统门相同）之前，您无法继续前进。",
-    "goBack": "回到一个舞台",
-    "errors": {
-      "needAttachments": "在继续之前附加所需的文件：{{list}}",
-      "needInvoice": "在完成此阶段之前，根据国家费用生成发票。",
-      "alreadyFinal": "该文件已经进入最后阶段。",
-      "needApproval": "在离开准备之前完成文件审批（客户+管理合伙人）。",
-      "needBulletin": "在发布之前输入公告编号和日期。",
-      "needFeePaid": "在离开正式考试之前输入州费支付日期。",
-      "needFilingFields": "输入申请号和申请日期以完成申请。",
-      "needFormalFields": "输入州费和付款截止日期以继续。",
-      "needMol": "在完成归档之前，请在文件详细信息（创建文件/编辑）中输入 MOL。",
-      "needOfficeActionDeadline": "审查意见通知书有一个主题——在继续之前设定截止日期。",
-      "needPoaFiled": "在离开正式考试之前输入 PoA 传入号码和日期。",
-      "needRegFeePaid": "在继续之前输入注册费支付日期。",
-      "needRepresentative": "输入至少一名代表，或将“添加代表”设置为“否”。",
-      "saveBeforeNavigate": "返回阶段之前保存或取消您的编辑。",
-      "saveFailed": "无法保存起诉数据。"
-    },
-    "fields": {
-      "addRepresentatives": "您想添加代表吗？",
-      "applicationDate": "申请日期",
-      "applicationNumber": "申请号",
-      "bulletinDate": "公告日期",
-      "bulletinNumber": "公告号",
-      "feePaidDate": "国家费用缴纳日期",
-      "generatePoa": "生成授权书",
-      "officeAction": "审查意见通知书/请求",
-      "officeActionDeadline": "办公室行动截止日期",
-      "paymentDeadline": "付款期限",
-      "poaDate": "授权书日期",
-      "poaDeadline": "PoA 提交截止日期",
-      "poaIncoming": "PoA 来电号码",
-      "regFeePaidDate": "报名费缴纳日期",
-      "remindDays": "在截止日期前几天提醒",
-      "representatives": "代表",
-      "sendPoaEmail": "发送自动电子邮件",
-      "stateFee": "国家费用（保加利亚列弗）"
-    },
-    "molHint": "必须在文件详细信息（来自创建文件）上设置 MOL。 缺少完成此阶段的 MOL 块。",
-    "no": "不",
-    "prepHint": "准备阶段：先完成文件审批，然后管理合伙人接受后进入归档。",
-    "registeredDone": "到达注册阶段。",
-    "saveChanges": "保存更改",
-    "saveEntered": "节省",
-    "saved": "已保存。",
-    "saveFields": "保存字段",
-    "saving": "保存…",
-    "stages": {
-      "filing": "提交申请",
-      "formal_exam": "形式审查",
-      "prep": "准备",
-      "publication": "公告",
-      "reg_fee": "注册费",
-      "registration": "注册",
-      "substantive_exam": "实质审查"
-    },
-    "territoryLabel": {
-      "eu": "管道：欧盟",
-      "international": "管道：国际（WO）",
-      "national": "管道：国家"
-    },
-    "territoryLocked": "从创建文件中固定的区域",
-    "territoryFromInfo": "商标信息中的领土",
-    "title": "程序阶段",
-    "yes": "是的",
-    "hub": {
-      "generateInvoice": "生成发票",
-      "invoiceIssuedShort": "发票已开具",
-      "invoiceIssued": "发票 {{number}} 已开具。 客户可以在他们的门户中看到它； 它也位于“账单”选项卡上。",
-      "invoiceAlreadyIssued": "发票 {{number}} 已开具 — 在门户和账单中可见。",
-      "invoiceFailed": "无法生成发票。 检查客户账单详细信息。",
-      "invoiceNotes": "官方/国家费用",
-      "uploadFailed": "无法上传文件。",
-      "needStateFee": "首先输入国家费用金额。",
-      "feeDescription": "国家/官方费用",
-      "deadlineFailed": "无法创建截止日期。",
-      "deadlineTitles": {
-        "payment": "国家费用缴纳",
-        "poa": "提交授权书",
-        "oa": "审查请求/审查请求",
-        "oaWithSubject": "审查意见通知书：{{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "在截止日期前 {{days}} 天提醒。"
-      },
-      "attach": {
-        "search": "附加搜索文件",
-        "application": "附上申请表",
-        "feeSlip": "附上费用单",
-        "poa": "附加 PoA",
-        "officeAction": "附上审查意见通知书",
-        "decision": "附上决定",
-        "bulletin": "附上公告",
-        "regFee": "附上付款证明",
-        "certificate": "附上证书"
+    "workflowStage": {
+      "label": "工作流程阶段",
+      "options": {
+        "intake": "摄入量",
+        "analysis": "分析",
+        "contract_draft": "合同/草稿",
+        "filed": "提起",
+        "closed": "关闭",
+        "registration": "登记",
+        "active": "积极的",
+        "seizure_pending": "扣押待决",
+        "scoping": "范围界定",
+        "search": "搜索",
+        "draft_report": "报告草稿",
+        "delivered": "发表",
+        "archived": "已存档",
+        "pre_dispute": "争议前",
+        "hearing": "听力",
+        "decision": "决定",
+        "appeal": "上诉",
+        "monitoring": "监控",
+        "dispute": "争议",
+        "udrp": "统一域名争议解决政策",
+        "resolved": "已解决",
+        "engaged": "已订婚的",
+        "draft": "草稿",
+        "submitted": "已提交",
+        "requested": "已请求",
+        "in_progress": "进行中",
+        "invoiced": "已开具发票",
+        "pending": "待办的",
+        "paid": "有薪酬的",
+        "reimbursed": "已报销",
+        "open": "打开"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "编辑",
+    "save": "节省",
+    "cancel": "取消",
+    "saving": "保存…",
+    "editHint": "更新文件参考、工作流程阶段和特定于类型的详细信息。",
+    "clientLabel": "客户",
+    "detailsTitle": "{{type}} 详细信息",
+    "errors": {
+      "saveFailed": "无法保存文件详细信息。"
+    }
+  },
+  "otherList": {
+    "emptyDescription": "创建新的其他文件或调整过滤器。",
+    "viewAria": "查看{{title}}",
+    "filesAria": "{{title}} ({{count}}) 的文件",
+    "columns": {
+      "type": "类型",
+      "subject": "主题",
+      "client": "客户",
+      "incoming": "传入参考号",
+      "stage": "阶段",
+      "deadline": "关键日期",
+      "actions": "行动"
     }
   }
 }

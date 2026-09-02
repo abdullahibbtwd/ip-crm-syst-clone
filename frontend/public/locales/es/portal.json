@@ -106,7 +106,7 @@
     "description": "Presente una nueva solicitud de presentación o revise las consultas que ya ha enviado.",
     "empty": {
       "action": "Presentar una consulta",
-      "description": "Presente una consulta de marca comercial o patente para comenzar.",
+      "description": "Presente una consulta de marca o patente para comenzar.",
       "title": "Aún no hay consultas"
     },
     "error": "No se pudieron cargar sus consultas.",
@@ -184,7 +184,7 @@
     "domain": "Dominios",
     "fto_analysis": "Análisis de libertad de acción",
     "geographical_indication": "indicación geográfica",
-    "industrial_design": "diseño industrial",
+    "industrial_design": "Diseño",
     "litigation_expert_report": "Litigios / Peritajes judiciales",
     "official_fee_payment": "Pagos de tasas oficiales",
     "other": "Otra",

@@ -72,9 +72,9 @@
     "new": "Neue Warnungen",
     "accepted": "Akzeptiert",
     "rejected": "Abgelehnt",
-    "hintAwaitingTriage": "Wartet auf Prüfung",
-    "hintMattersCreated": "Angelegte Sachen",
-    "hintFalsePositives": "Falschmeldungen"
+    "hintAwaitingTriage": "Warten auf Triage",
+    "hintMattersCreated": "Angelegenheiten erstellt",
+    "hintFalsePositives": "Falsch positive Ergebnisse"
   },
   "profileStatus": {
     "active": "Aktiv",

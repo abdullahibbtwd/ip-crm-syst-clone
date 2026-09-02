@@ -99,7 +99,7 @@
     "unlink": "Rimuovi dal gruppo",
     "unlinkFailed": "Impossibile rimuovere il client dal gruppo",
     "searchPlaceholder": "Cerca nome o paese...",
-    "title": "Gruppi di tenuta",
+    "title": "Gruppi di partecipazione",
     "viewAria": "Visualizza {{name}}"
   },
   "addressInsights": {

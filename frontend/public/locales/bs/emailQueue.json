@@ -3,7 +3,7 @@
   "subtitle": "Nepovezane e-poruke izvučene iz povezanih poštanskih sandučića. Otvorite e-poštu, a zatim je priložite u registar korespondencije.",
   "fetchEmails": "Preuzmite 5 e-poruka",
   "mailboxSettings": "Postavke poštanskog sandučeta",
-  "fetchSuccess": "Preuzeto do {{limit}} inbox poruka(a) — {{ingested}} novih u redu{{emptyHint}}.",
+  "fetchSuccess": "Preuzeto do {{limit}} inbox poruka(a) — {{ingested}} novo u redu{{emptyHint}}.",
   "fetchEmptyHint": "(već uvezeno ili inbox prazan)",
   "fetchFailed": "Dohvaćanje e-pošte nije uspjelo",
   "columns": {
@@ -17,13 +17,13 @@
   "loading": "Učitavanje reda…",
   "loadFailed": "Učitavanje reda e-pošte nije uspjelo.",
   "emptyTitle": "Red je prazan",
-  "emptyDescription": "Povežite poštansko sanduče u postavkama i dohvatite e-poštu za uvoz novih poruka.",
+  "emptyDescription": "Povežite poštanski sandučić u postavkama i dohvatite e-poštu za uvoz novih poruka.",
   "noSubject": "(bez predmeta)",
   "suggestions": {
     "subjectRef": "Ref klijenta u predmetu",
     "bodyRef": "Ref klijenta u tijelu",
     "singleActiveMatter": "Pojedinačna aktivna materija",
-    "contactMatch": "Kontaktna utakmica",
+    "contactMatch": "Kontakt meč",
     "default": "Predložena stvar",
     "officeAction": "Kancelarijska akcija",
     "renewal": "Obnova"

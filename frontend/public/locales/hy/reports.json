@@ -165,7 +165,7 @@
       "collectedHint": "Ժամանակահատվածում գրանցված վճարումներ",
       "criticalReceivables": "60+ օր ժամկետանց",
       "criticalReceivablesHint": "Հետևողականություն պահանջող դեբիտորական պարտքեր",
-      "outstanding": "Ակնառու",
+      "outstanding": "Աչքի ընկնող",
       "totalInvoiced": "Ընդհանուր հաշիվ-ապրանքագիր"
     },
     "table": {
@@ -176,7 +176,7 @@
       "invoiced": "Հաշվարկված",
       "month": "Ամիս",
       "open": "Բաց",
-      "outstanding": "Ակնառու",
+      "outstanding": "Աչքի ընկնող",
       "paid": "Վճարված"
     },
     "title": "Եկամուտներ և դեբիտորական պարտքեր"
@@ -211,7 +211,7 @@
       "highestExposure": "Ամենաբարձր ռիսկի ենթարկվածությունը",
       "criticalCount": "{{count}} կրիտիկական",
       "portfolioClear": "Պորտֆոլիոն պարզ է",
-      "noCriticalInWindow": "Հաջորդ {{days}} օրվա ընթացքում կրիտիկական ռիսկ չի հայտնաբերվել:",
+      "noCriticalInWindow": "Առաջիկա {{days}} օրվա ընթացքում կրիտիկական ռիսկ չի հայտնաբերվել:",
       "table": {
         "priorityDeadline": "Առաջնահերթության ժամկետը",
         "clientJurisdiction": "Հաճախորդ և իրավասություն",
@@ -249,7 +249,7 @@
       "issued_other": "{{count}} թողարկված",
       "collected": "Հավաքված",
       "paidInPeriod": "Վճարված ժամանակաշրջանում",
-      "outstanding": "Ակնառու",
+      "outstanding": "Աչքի ընկնող",
       "open_one": "{{count}} բաց",
       "open_other": "{{count}} բաց",
       "criticalRisk": "Կրիտիկական ռիսկ",
@@ -265,7 +265,7 @@
       "table": {
         "invoiceInfo": "Հաշիվ-ապրանքագրի տվյալներ",
         "client": "Հաճախորդ",
-        "outstanding": "Ակնառու"
+        "outstanding": "Աչքի ընկնող"
       },
       "showingOf": "Ցուցադրվում են {{shown}} {{total}} բաց հաշիվ-ապրանքագրերը",
       "viewPortfolio": "Դիտեք ամբողջ պորտֆելը"
@@ -283,7 +283,7 @@
       "pendingAction": "Սպասվող գործողություն",
       "deadlines": "Վերջնաժամկետներ",
       "activeWindow": "Ակտիվ պատուհան",
-      "busiest": "Ամենազբաղված",
+      "busiest": "Ամենազբաղ",
       "items_one": "{{count}} կետ",
       "items_other": "{{count}} տարր",
       "clear": "Պարզ",

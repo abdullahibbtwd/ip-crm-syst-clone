@@ -8,7 +8,7 @@
     "in_progress": "Në vazhdim",
     "completed": "E përfunduar",
     "missed": "I humbur",
-    "escalated": "E përshkallëzuar",
+    "escalated": "I përshkallëzuar",
     "superseded": "Zëvendësuar"
   },
   "urgency": {
@@ -20,7 +20,7 @@
     "description": "Regjistrohu i afatit në të gjithë firmën për çdo çështje dhe të caktuar.",
     "newDeadline": "Afati i ri",
     "firmDueToday_one": "Sot pritet 1 afat i caktuar për të gjitha çështjet.",
-    "firmDueToday_other": "Afatet e përcaktuara {{count}} janë të përcaktuara sot për të gjitha çështjet.",
+    "firmDueToday_other": "{{count}} afatet e përcaktuara janë caktuar sot për të gjitha çështjet.",
     "filters": {
       "attorney": "avokat",
       "allAttorneys": "Të gjithë avokatët",

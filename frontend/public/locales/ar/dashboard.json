@@ -40,7 +40,7 @@
     "trendVsPrior6Mo": "{{pct}}% مقارنة بالشهر السادس السابق",
     "thisMonth": "{{count}} هذا الشهر",
     "renewalsHint": "{{critical}} حرج · {{upcoming}} في انتظار التعليمات",
-    "loadingClients": "جارٍ تحميل محفظة العملاء…",
+    "loadingClients": "جارٍ تحميل محفظة العملاء...",
     "clientsError": "لا يمكن تحميل العملاء",
     "clientsHintMore": "{{count}}+ العملاء غير المؤرشفين",
     "clientsHint": "محافظ العملاء غير المؤرشفة",

@@ -138,7 +138,7 @@
       "description": "Snimak svih otvorenih potraživanja po danima kašnjenja",
       "title": "Sažetak starenja"
     },
-    "description": "Ukupni iznosi izdanih računa po mjesecima, naplate i otvorena potraživanja stara prema danima kašnjenja - usklađeno sa scenarijem praćenja plaćanja Financija.",
+    "description": "Ukupni iznosi izdanih računa po mjesecima, naplate i otvorena potraživanja stara po danima kašnjenja - usklađeno sa scenarijem praćenja plaćanja Financija.",
     "error": "Nije moguće učitati sažetak prihoda.",
     "filters": {
       "periodFrom": "Razdoblje od",

@@ -15,7 +15,7 @@
   },
   "dataExports": {
     "title": "Jurnal de exporturi de date",
-    "subtitle": "Exporturile și descărcările de date personale urmărite pentru conformitatea GDPR.",
+    "subtitle": "Exporturile și descărcările de date personale urmărite pentru conformitatea cu GDPR.",
     "loading": "Se încarcă jurnalul de export...",
     "loadFailed": "Nu s-a încărcat jurnalul de export.",
     "empty": "Nu s-au înregistrat încă exporturi.",

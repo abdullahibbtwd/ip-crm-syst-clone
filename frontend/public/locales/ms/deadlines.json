@@ -32,7 +32,7 @@
       "allStatuses": "Semua status",
       "overdue": "Tertunggak",
       "dueFrom": "Disebabkan daripada",
-      "dueTo": "Disebabkan"
+      "dueTo": "Disebabkan oleh"
     },
     "loading": "Memuatkan tarikh akhir…",
     "error": "Gagal memuatkan tarikh akhir.",

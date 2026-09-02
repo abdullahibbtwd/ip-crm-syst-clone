@@ -72,8 +72,8 @@
     "new": "Nouvelles alertes",
     "accepted": "Accepté",
     "rejected": "Rejetée",
-    "hintAwaitingTriage": "En attente de triage",
-    "hintMattersCreated": "Dossiers créés",
+    "hintAwaitingTriage": "En attente de tri",
+    "hintMattersCreated": "Sujets créés",
     "hintFalsePositives": "Faux positifs"
   },
   "profileStatus": {

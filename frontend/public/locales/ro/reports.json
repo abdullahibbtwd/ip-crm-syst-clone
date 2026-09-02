@@ -21,7 +21,7 @@
     "clientMatters": "Clientul contează",
     "clientsInWindow": "{{clients}} clienți · {{days}} orizont de zi",
     "crossTabTitle": "Client × jurisdicție × avocat",
-    "description": "Viitoarele termene critice grupate după client, jurisdicție și avocat responsabil. Culorile de urgență se potrivesc cu listele de lucru cu termenul limită și etapele de notificări.",
+    "description": "Viitoarele termene critice grupate după client, jurisdicție și avocat responsabil. Culorile de urgență se potrivesc cu listele de lucru ale termenului limită și etapele de notificări.",
     "emptyDescription": "Încercați să extindeți fereastra portofoliului sau să ștergeți filtrele.",
     "emptyTitle": "Nu există termene limită în această fereastră",
     "error": "Nu s-a putut încărca raportul de risc privind termenul limită.",
@@ -138,7 +138,7 @@
       "description": "Un instantaneu al tuturor creanțelor deschise în funcție de zilele restante",
       "title": "Rezumatul îmbătrânirii"
     },
-    "description": "Totalurile facturilor emise pe lună, încasări și creanțe deschise cu vechime în zilele restante - aliniate cu scenariul de urmărire a plăților din Finanțe.",
+    "description": "Totalurile facturilor emise pe lună, încasări și creanțe deschise învechite cu zile restante - aliniate cu scenariul de urmărire a plăților din Finanțe.",
     "error": "Nu s-a putut încărca rezumatul veniturilor.",
     "filters": {
       "periodFrom": "Perioada de la",
@@ -163,7 +163,7 @@
     "stats": {
       "collected": "Colectat",
       "collectedHint": "Plăți înregistrate în perioada",
-      "criticalReceivables": "60+ zile întârziate",
+      "criticalReceivables": "60+ zile restante",
       "criticalReceivablesHint": "Creanțe care necesită urmărire",
       "outstanding": "Remarcabil",
       "totalInvoiced": "Total facturat"
@@ -253,7 +253,7 @@
       "open_one": "{{count}} deschis",
       "open_other": "{{count}} deschis",
       "criticalRisk": "Risc critic",
-      "overdue60Days": "60+ zile întârziate",
+      "overdue60Days": "60+ zile restante",
       "receivablesAging": "Îmbătrânirea creanțelor",
       "agingSubtitle": "Deschideți facturile emise cu zile restante",
       "fullReport": "Raport complet",
@@ -268,13 +268,13 @@
         "outstanding": "Remarcabil"
       },
       "showingOf": "Se afișează {{shown}} din {{total}} facturi deschise",
-      "viewPortfolio": "Vedeți întregul portofoliu"
+      "viewPortfolio": "Vizualizați întregul portofoliu"
     },
     "teamWorkload": {
       "title": "Volumul de lucru în echipă",
       "subtitle": "Probleme deschise, sarcini și termene limită per membru",
-      "viewTeam": "Vizualizați echipa",
-      "loading": "Se calculează distribuția volumului de muncă...",
+      "viewTeam": "Vedeți echipa",
+      "loading": "Se calculează distribuția sarcinii de lucru...",
       "error": "Nu s-au putut încărca datele echipei.",
       "matters": "Contează",
       "members_one": "{{count}} membru",
@@ -314,7 +314,7 @@
       "unbilledWip": "WIP nefacturat",
       "pendingAccrual": "Acumulare în așteptare",
       "firmBilled": "Firmă facturată",
-      "totalMatters": "Chestiuni totale",
+      "totalMatters": "Total chestiuni",
       "empty": "Nu au fost detectate date de facturare ale clientului.",
       "table": {
         "clientPortfolio": "Portofoliu de clienți",

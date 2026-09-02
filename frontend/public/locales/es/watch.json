@@ -6,7 +6,7 @@
     "empty": "Ninguna alerta de reloj coincide con tus filtros.",
     "loading": "Cargando alertas de vigilancia...",
     "worklist": "Lista de trabajo",
-    "worklistDescription": "Filtre por estado, jurisdicción o fuente de registro."
+    "worklistDescription": "Filtrar por estado, jurisdicción o fuente de registro."
   },
   "detail": {
     "title": "Ver alerta",
@@ -41,7 +41,7 @@
     "archive": "Archivo",
     "epoScan": "Escanee EPO para alertas",
     "epoScanning": "Escaneando EPO…",
-    "epoScanSuccess": "Se crearon {{alerts}} nuevas alertas de EPO a partir de perfiles {{profiles}}.",
+    "epoScanSuccess": "Se crearon {{alerts}} nuevas alertas de EPO de los perfiles {{profiles}}.",
     "epoScanFailed": "Falló el análisis de vigilancia de EPO",
     "viewAlerts": "Ver alertas de reloj"
   },
@@ -72,7 +72,7 @@
     "new": "Nuevas alertas",
     "accepted": "Aceptada",
     "rejected": "Rechazada",
-    "hintAwaitingTriage": "Pendiente de triaje",
+    "hintAwaitingTriage": "En espera de clasificación",
     "hintMattersCreated": "Asuntos creados",
     "hintFalsePositives": "Falsos positivos"
   },

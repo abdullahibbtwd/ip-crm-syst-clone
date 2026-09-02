@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Izmjerite rutu",
+        "options": {
+          "national_bg": "Bugarska (nacionalna)",
+          "eu_regulation": "Uredba EU 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Zaštićeno pravo",
+        "options": {
+          "trademark": "Zaštitni znak",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "copyright": "Autorska prava",
+          "gi": "Oznaka zemljopisnog podrijetla"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Zaštićeno pravo ref."
+      },
       "customsOffice": {
         "label": "Carinarnica"
+      },
+      "validFrom": {
+        "label": "Vrijedi od"
+      },
+      "validUntil": {
+        "label": "Vrijedi do"
       },
       "infringingGoods": {
         "label": "Opis robe koja krši autorska prava"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Datum izrade"
-      },
       "workTitle": {
         "label": "Naslov rada"
       },
       "workType": {
-        "label": "Vrsta rada"
+        "label": "Vrsta rada",
+        "options": {
+          "literary": "Literarni",
+          "musical": "Glazbeni",
+          "software": "Softver",
+          "audiovisual": "Audiovizualno",
+          "graphic": "Grafičko / vizualno",
+          "other": "ostalo"
+        }
+      },
+      "creationDate": {
+        "label": "Datum izrade"
+      },
+      "firstPublicationDate": {
+        "label": "Datum prve objave"
+      },
+      "authorName": {
+        "label": "Autor"
+      },
+      "rightsBasis": {
+        "label": "Temelj prava",
+        "options": {
+          "author": "Autor",
+          "employer": "Poslodavac (rad za najam)",
+          "assignment": "Zadatak",
+          "license": "Licenca"
+        }
+      },
+      "rightsHolder": {
+        "label": "Nositelj prava"
+      },
+      "infringementContext": {
+        "label": "Kontekst kršenja / provedbe"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Sud"
+      },
+      "incomingNumber": {
+        "label": "Dolazni broj"
+      },
+      "claimGrounds": {
+        "label": "Razlozi (vrsta tužbe)"
+      },
+      "claimValue": {
+        "label": "Vrijednost zahtjeva"
+      },
+      "expertiseType": {
+        "label": "Vrsta vještačenja"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Sažetak osnove"
+      "disputeKind": {
+        "label": "Vrsta postupka",
+        "options": {
+          "civil": "Građanski",
+          "administrative": "Upravni",
+          "arbitration": "Arbitraža",
+          "mediation": "Posredovanje",
+          "other": "ostalo"
+        }
       },
-      "disputeType": {
-        "label": "Vrsta spora"
+      "disputeSubject": {
+        "label": "Predmet",
+        "options": {
+          "invalidity": "Nevaljanost",
+          "infringement": "Povreda",
+          "ownership": "Vlasništvo",
+          "contract": "Ugovor",
+          "unfair_competition": "Nelojalna konkurencija",
+          "other": "ostalo"
+        }
       },
       "opponentName": {
-        "label": "Protivnik/suprotna strana"
+        "label": "Protivnik / protustranka"
+      },
+      "disputeType": {
+        "label": "Vrsta spora (napomene)"
+      },
+      "filingReference": {
+        "label": "Referenca za podnošenje"
+      },
+      "filingDate": {
+        "label": "Datum podnošenja"
+      },
+      "basisSummary": {
+        "label": "Sažetak osnove"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Sažetak opsega"
+      "projectName": {
+        "label": "Naziv projekta"
+      },
+      "productName": {
+        "label": "Naziv proizvoda"
       },
       "technologyArea": {
         "label": "Područje tehnologije"
+      },
+      "analysisScope": {
+        "label": "Opseg analize"
+      },
+      "deliverableType": {
+        "label": "Isporučivo",
+        "options": {
+          "written_report": "Pisani izvještaj",
+          "memo": "dopis",
+          "oral_briefing": "Usmeni brifing"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Ciljani datum završetka"
+      },
+      "scopeSummary": {
+        "label": "Sažetak opsega"
+      },
+      "riskLevel": {
+        "label": "Razina rizika",
+        "options": {
+          "low": "Niska",
+          "medium": "srednje",
+          "high": "visoko",
+          "pending": "Procjena na čekanju"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Tip"
+      },
+      "giName": {
+        "label": "Naziv oznake zemljopisnog podrijetla"
+      },
       "productName": {
         "label": "Naziv proizvoda"
       },
       "region": {
         "label": "Zemljopisna regija"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Teritorija"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Broj prijave"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Matični broj"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "klasa Locarno"
       },
+      "locarnoSubclass": {
+        "label": "Podklasa Locarno"
+      },
       "productDescription": {
         "label": "Opis proizvoda"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Sažetak zahtjeva"
+      },
+      "epApplicationNumber": {
+        "label": "broj EP prijave"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Naziv patenta"
+      },
+      "patentProcedure": {
+        "label": "Postupak"
       },
       "pctNumber": {
         "label": "PCT broj"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Tehničko područje"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Boje tražene"
       },
       "markDescription": {
-        "label": "Opis oznake"
-      },
-      "markType": {
-        "label": "Vrsta oznake"
-      },
-      "niceClasses": {
-        "label": "Lijepi tečajevi",
-        "placeholder": "npr. 12, 35"
+        "label": "Opis roba/usluga"
       },
       "markKind": {
         "label": "Označite kategoriju"
       },
+      "markType": {
+        "label": "Vrsta oznake"
+      },
       "markWords": {
         "label": "Riječi oznake"
+      },
+      "niceClasses": {
+        "label": "Lijepi tečajevi",
+        "placeholder": "npr. 12, 35"
       },
       "territory": {
         "label": "Teritorija"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Ime"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Broj zahtjeva"
+      },
+      "applicationNumber": {
+        "label": "Broj prijave"
+      },
+      "applicationDate": {
+        "label": "Datum prijave"
+      },
+      "registrationNumber": {
+        "label": "Matični broj"
+      },
       "claimsSummary": {
         "label": "Sažetak zahtjeva"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Tehničko područje"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Vrsta imovine",
+        "options": {
+          "trademark": "Zaštitni znak",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "gi": "GI",
+          "mixed": "Mješoviti portfelj",
+          "company_ip": "IP tvrtke"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Svrha",
+        "options": {
+          "licensing": "Licenciranje",
+          "m_and_a": "M&A",
+          "litigation": "Sudski sporovi",
+          "tax": "Porez",
+          "internal": "Interni"
+        }
+      },
+      "valuationMethod": {
+        "label": "metoda",
+        "options": {
+          "market": "Tržište",
+          "income": "Prihod",
+          "cost": "trošak"
+        }
+      },
+      "valuationDate": {
+        "label": "Datum vrednovanja"
+      },
       "assetDescription": {
         "label": "Opis imovine"
       },
-      "valuationPurpose": {
-        "label": "Svrha vrednovanja"
+      "conclusionValue": {
+        "label": "Vrijednost zaključka"
+      },
+      "currency": {
+        "label": "Valuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Naziv domene",
-        "placeholder": "npr. primjer.com"
+        "placeholder": "npr. primjer.bg"
+      },
+      "tldType": {
+        "label": "TLD vrsta",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "ostalo"
+        }
       },
       "registrar": {
         "label": "matičar"
+      },
+      "registrant": {
+        "label": "Registrant"
+      },
+      "registrationDate": {
+        "label": "Datum registracije"
+      },
+      "expiryDate": {
+        "label": "Rok trajanja"
+      },
+      "disputeRoute": {
+        "label": "Put spora",
+        "options": {
+          "none": "Nijedan",
+          "udrp": "UDRP",
+          "court": "Sud",
+          "negotiation": "Pregovaranje"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Povezani zaštitni znak"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Referenca slučaja"
+      "engagementType": {
+        "label": "Vrsta angažmana",
+        "options": {
+          "patent": "Patent",
+          "trademark": "Zaštitni znak",
+          "copyright": "Autorska prava",
+          "damages": "Naknada štete",
+          "other": "ostalo"
+        }
       },
       "courtOrAuthority": {
         "label": "Sud / vlast"
+      },
+      "caseReference": {
+        "label": "Referenca slučaja"
+      },
+      "appointingParty": {
+        "label": "Imenovanje stranke"
+      },
+      "reportDueDate": {
+        "label": "Rok prijave"
+      },
+      "hearingDate": {
+        "label": "Datum saslušanja"
       },
       "reportScope": {
         "label": "Opseg izvješća"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Sažetak opsega"
+      "consultationType": {
+        "label": "Vrsta konzultacije",
+        "options": {
+          "phone": "Telefon",
+          "written": "Napisano",
+          "meeting": "Sastanak",
+          "due_diligence": "Due diligence (lagano)"
+        }
+      },
+      "topicCategory": {
+        "label": "Kategorija teme",
+        "options": {
+          "trademark": "Zaštitni znak",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "contract": "Ugovor",
+          "strategy": "Strategija",
+          "other": "ostalo"
+        }
       },
       "topic": {
         "label": "Tema"
+      },
+      "requestedBy": {
+        "label": "Zatraženo od"
+      },
+      "scopeSummary": {
+        "label": "Sažetak opsega"
+      },
+      "timeSpentHours": {
+        "label": "Potrošeno vrijeme (sati)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Tijelo / ured"
+        "label": "Autoritet",
+        "options": {
+          "bpo": "BPO (Bugarska)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "ostalo"
+        }
+      },
+      "feeType": {
+        "label": "Vrsta naknade",
+        "options": {
+          "filing": "Turpijanje",
+          "publication": "Objavljivanje",
+          "examination": "Ispitivanje",
+          "renewal": "Obnova",
+          "annuity": "Anuitet",
+          "opposition": "Opozicija",
+          "other": "ostalo"
+        }
       },
       "feeReference": {
         "label": "Naknada / referenca plaćanja"
       },
       "relatedApplication": {
         "label": "Povezana aplikacija/datoteka"
+      },
+      "feeAmount": {
+        "label": "Iznositi"
+      },
+      "currency": {
+        "label": "Valuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Rok plaćanja"
+      },
+      "paymentDate": {
+        "label": "Datum plaćanja"
+      },
+      "paymentReference": {
+        "label": "Referenca plaćanja"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Radna kategorija"
+      },
       "workSummary": {
         "label": "Sažetak rada"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Očekivani ishod"
       }
     }
   },
@@ -278,7 +547,7 @@
       },
       "hourlyRate": "Satnica (€)",
       "hoursHint": "Pomaci od četvrt sata (najmanje 0,25)",
-      "noRateCardWarning": "Nije pronađen cjenik za vašu ulogu. Ovaj će se unos spremiti kao nenaplativ sve dok financije ne postave stopu ili je ne unesete ručno.",
+      "noRateCardWarning": "Nije pronađen cjenik za vašu ulogu. Ovaj unos će biti spremljen kao nenaplativ sve dok financije ne postave stopu ili je ne unesete ručno.",
       "resolvingRate": "Stopa rješavanja...",
       "saveFailed": "Spremanje unosa vremena nije uspjelo"
     },
@@ -396,7 +665,7 @@
       "dropEml": "Ispustite svoju .eml datoteku ovdje",
       "dropEmlHint": "Spremite poruku iz Outlooka ili Gmaila, a zatim je povucite unutra",
       "browseFiles": "Pregledajte datoteke",
-      "pastePlaceholder": "Zalijepite cijelu e-poštu ovdje, uključujući zaglavlja ako su dostupna: \n\nOd: client@example.com \nZa: you@firm.com \nPredmet: Uredska akcija \nDatum: pon, 9. srpnja 2026 \n\nPoštovani savjetniče,…",
+      "pastePlaceholder": "Ovdje zalijepite cijelu e-poštu, uključujući zaglavlja ako su dostupna: \n\nOd: client@example.com \nZa: you@firm.com \nPredmet: Uredska akcija \nDatum: pon, 9. srpnja 2026 \n\nPoštovani savjetniče,…",
       "extractDetails": "Izdvoj pojedinosti e-pošte",
       "parsing": "Raščlanjivanje...",
       "extractedTitle": "Podaci o e-pošti izdvojeni",
@@ -470,867 +739,6 @@
     "viewOnEpo": "Pogledajte na EPO",
     "viewOnEpoTitle": "Otvorite službeni zapis u EPO registru"
   },
-  "createDrawer": {
-    "client": "Klijent *",
-    "creating": "Izrada...",
-    "error": "Stvaranje datoteke nije uspjelo",
-    "jurisdictionHelp": "Odaberite jednu ili više jurisdikcija za podnošenje.",
-    "jurisdictions": "Nadležnosti",
-    "matterType": "Vrsta posla *",
-    "open": "Otvori datoteku",
-    "responsibleAttorney": "Odgovorni odvjetnik",
-    "title": "Otvori novu datoteku",
-    "titleField": "Naslov *",
-    "titlePlaceholder": "npr. Riječni znak ACME – EU"
-  },
-  "deadlines": {
-    "complete": "Kompletan",
-    "daysLeft": "Još {{count}} dana",
-    "daysOverdue": "{{count}} dana kašnjenja",
-    "dueToday": "Rok je danas",
-    "empty": "Nema rokova po ovom pitanju.",
-    "error": "Učitavanje rokova nije uspjelo.",
-    "loading": "Učitavanje rokova…",
-    "start": "Pokreni",
-    "table": {
-      "assigned": "Dodijeljeno",
-      "due": "Datum dospijeća",
-      "grace": "Milost",
-      "jurisdiction": "Nadležnost",
-      "status": "Status",
-      "title": "Titula",
-      "type": "Tip"
-    },
-    "title": "Rokovi"
-  },
-  "documents": {
-    "allCategories": "Sve kategorije",
-    "browse": "pregledavati",
-    "category": "Kategorija",
-    "chooseFile": "Odaberite datoteku za prijenos",
-    "chooseTemplate": "Odaberite predložak pisma",
-    "description": "Kartoteka za ovu stvar — učitajte PDF-ove, Word datoteke i dokaze.",
-    "displayName": "Ime za prikaz",
-    "displayNamePlaceholder": "npr. BPO paket za podnošenje — konačan",
-    "dragDrop": "Povucite datoteku ovdje ili",
-    "empty": "Još nema učitanih dokumenata.",
-    "error": "Učitavanje dokumenata nije uspjelo.",
-    "errorGeneration": "Generiranje dokumenta nije uspjelo",
-    "errorNoDocx": "Ovaj predložak nema učitanu Word (.docx) datoteku",
-    "errorUpload": "Prijenos nije uspio",
-    "format": "Format",
-    "generate": "Generiraj dokument",
-    "generateDescription": "Odaberite predložak pisma. Podaci o predmetu i klijentu automatski se popunjavaju i spremaju u ovu mapu.",
-    "generatePdf": "Generiraj PDF",
-    "generateWord": "Generirajte Word",
-    "generating": "Generiranje...",
-    "loading": "Učitavanje dokumenata...",
-    "noTemplates": "Nema dostupnih predložaka.",
-    "notAvailable": "— nije dostupno",
-    "search": "Traži ime ili oznake...",
-    "table": {
-      "category": "Kategorija",
-      "displayName": "Ime za prikaz",
-      "name": "Ime",
-      "tags": "oznake",
-      "uploaded": "Učitano",
-      "version": "Verzija"
-    },
-    "tags": "oznake",
-    "tagsHint": "Ključne riječi odvojene zarezima za pretraživanje",
-    "tagsPlaceholder": "hitno, bpo, odobreno od strane klijenta",
-    "title": "Dokumenti",
-    "upload": "Učitaj dokument",
-    "uploadAction": "Upload",
-    "uploadNew": "Učitaj novi dokument",
-    "uploading": "Prijenos…",
-    "word": "Riječ"
-  },
-  "ipRightStatus": {
-    "cancelled": "Otkazano",
-    "expired": "Istekao",
-    "filed": "Podneseno",
-    "pending": "Čeka se prijava",
-    "registered": "Registriran"
-  },
-  "ipRights": {
-    "abandon": "Napustiti",
-    "add": "Dodajte IP desno",
-    "addRight": "Dodaj desno",
-    "addTitle": "Dodajte IP desno",
-    "annuitySchedule": "Raspored rente",
-    "applicationNumber": "Broj prijave",
-    "checkEpo": "Provjerite EPO",
-    "checkEpoAddNumber": "Dodajte broj aplikacije prije provjere EPO-a",
-    "checkEpoTitle": "Provjerite EPO pravni status (OPS)",
-    "complete": "Kompletan",
-    "confirmFiling": "Potvrdite prijavu",
-    "confirmRegistration": "Potvrdite registraciju",
-    "cycleDue": "Ciklus {{n}} · rok {{date}}",
-    "cycleLabel": "Ciklus {{n}}",
-    "description": "Podnesite prava na nacrt nakon što klijent potvrdi i paket za podnošenje bude spreman.",
-    "editSplit": "Uredi podjelu",
-    "empty": "Još nema IP prava. Propuh se automatski stvara kada se dovod pretvori; dodati više prava ručno nakon kaznenog progona.",
-    "epoCheckFailed": "EPO provjera statusa nije uspjela",
-    "error": "Neuspješno učitavanje IP prava.",
-    "errors": {
-      "addFailed": "Nije uspjelo dodavanje IP-a",
-      "applicationNumberRequired": "Unesite službeni broj prijave",
-      "documentVersionRequired": "Odaberite verziju dokumenta paketa za arhiviranje",
-      "fileFailed": "Podnošenje zahtjeva nije uspjelo",
-      "registerFailed": "Neuspješna registracija IP prava",
-      "registrationNumberRequired": "Unesite matični broj",
-      "splitFailed": "Nije moguće podijeliti obnovu",
-      "splitJurisdictionRequired": "Dodajte barem jedan dio s nadležnošću",
-      "titleRequired": "Unesite naslov za IP pravo"
-    },
-    "expiryDate": "Rok trajanja",
-    "expiryDateOptional": "Datum isteka (nije obavezno)",
-    "expiryDateHint": "Ostavite prazno za izračun iz ciklusa obnove nadležnosti.",
-    "file": "File",
-    "fileApplication": "Aplikacija datoteke",
-    "fileDrawer": {
-      "applicationNumberPlaceholder": "Službeni broj od BPO / EUIPO / EPO",
-      "filingPackage": "Paket arhiviranja",
-      "filingPackageHint": "Odaberite verziju dokumenta učitanu za ovu arhivu (obično pod Application).",
-      "jurisdictionHint": "Odaberite EPO (EP) da omogućite provjere statusa kaznenog progona prema OPS-u.",
-      "noDocuments": "Još nema dokumenata o ovom pitanju. Najprije učitajte dokumentirani PDF na kartici Dokumenti.",
-      "selectDocument": "Odaberite verziju dokumenta…"
-    },
-    "filing": "Podnošenje…",
-    "filingDate": "Datum podnošenja",
-    "filingOffice": "Ured za arhiviranje / nadležnost",
-    "jurisdictionHint": "Koristite EPO (EP) za europske patente, EUIPO (EU) za trgovačke znakove/dizajne EU, BPO (BG) za Bugarsku, WIPO (WO) za PCT.",
-    "loading": "Učitavanje IP prava…",
-    "loadingRenewals": "Učitavanje obnova...",
-    "markFiled": "Mark podnio",
-    "noAnnuityWindows": "Još nema prozora anuiteta. Registrirajte patent za otvaranje 1. godine.",
-    "noRenewalWindows": "Još nema prozora za obnovu. Registrirajte IP pravo na otvaranje ciklusa 1.",
-    "partialRenewals": "Djelomične obnove",
-    "partsCount": "({{count}} dijelova)",
-    "proceed": "Snimanje nastaviti",
-    "register": "Registar",
-    "registerDrawerHint": "Otvara prozor obnove ciklusa 1 i generira rokove obnove.",
-    "registerTitle": "Registrirajte IP pravo",
-    "registering": "Registracija…",
-    "registrationDate": "Datum registracije",
-    "registrationNumber": "Matični broj",
-    "renewalSchedule": "Prozori za obnovu",
-    "renewalWindows": "Prozori za obnovu",
-    "splitRenewal": "Split obnova",
-    "splitRenewalDescription": "Podijelite ovu obnovu na dijelove jurisdikcije / Nice-class. Svaki dio se podučava i ispunjava zasebno; status prozora rola se iz dijelova.",
-    "splitRenewalTitle": "Split obnova",
-    "splitPart": "Dio {{n}}",
-    "splitAddPart": "Dodajte dio",
-    "splitSaveParts": "Sačuvajte dijelove",
-    "splitNiceClasses": "Lijepi razredi (odvojeni zarezima)",
-    "splitNotes": "Bilješke",
-    "splitJurisdiction": "Nadležnost",
-    "table": {
-      "actions": "Radnje",
-      "applicationNo": "Zahtjev br.",
-      "cycle": "Ciklus",
-      "dueDate": "Datum dospijeća",
-      "jurisdiction": "Nadležnost",
-      "localRef": "Lokalni ref.",
-      "niceClasses": "Lijepi tečajevi",
-      "status": "Status",
-      "title": "Titula",
-      "type": "Tip",
-      "yearCycle": "Godina / ciklus"
-    },
-    "title": "IP prava",
-    "titleField": "Titula",
-    "titleRegister": "registar prava intelektualne svojine",
-    "yearLabel": "Godina {{n}}"
-  },
-  "customs": {
-    "afa": {
-      "add": "Dodajte AFA",
-      "authority": "Autoritet",
-      "authorityRequired": "Potrebna je ovlast",
-      "createFailed": "Nije moguće izraditi AFA",
-      "empty": "Još nije zabilježen nijedan AFA.",
-      "linkedSeizure": "Povezani napadaj (nije obavezno)",
-      "loading": "Učitavanje aplikacija...",
-      "none": "Nijedan",
-      "number": "Broj prijave",
-      "sectionDescription": "Carinske aplikacije za zaštitu prava na granici.",
-      "sectionTitle": "Prijave za djelovanje (AFA)",
-      "validUntil": "Vrijedi do"
-    },
-    "columns": {
-      "authority": "Autoritet",
-      "custody": "Skrbništvo",
-      "date": "Datum",
-      "goods": "Roba",
-      "number": "Broj",
-      "office": "Ured",
-      "status": "Status",
-      "validUntil": "Vrijedi do"
-    },
-    "custody": {
-      "addEntry": "Dodajte unos skrbništva",
-      "append": "Dodati",
-      "empty": "Još nema unosa skrbništva.",
-      "notesPlaceholder": "Bilješke (nije obavezno)",
-      "timeline": "Vremenski okvir skrbništva"
-    },
-    "detail": {
-      "clearLink": "Obriši vezu",
-      "linkedMatter": "Povezana parnična stvar",
-      "loading": "učitavanje...",
-      "saveChanges": "Spremite promjene",
-      "searchMatters": "Pitanja potrage eskaliraju...",
-      "seizedOn": "Zaplijenjeno {{date}}",
-      "title": "Detalj zapljene",
-      "updateFailed": "Nije moguće ažurirati napad"
-    },
-    "errors": {
-      "addCustodyFailed": "Nije moguće dodati unos skrbništva",
-      "createSeizureFailed": "Nije moguće stvoriti napadaj",
-      "officeAndGoodsRequired": "Potrebni su carinski ured i opis robe"
-    },
-    "open": "Otvoriti",
-    "seizures": {
-      "consignmentRef": "Pošiljka ref",
-      "create": "Stvorite napadaj",
-      "createTitle": "Dnevnik carinska zapljena",
-      "deadlineHint": "Rok za odgovor generira se automatski (10 radnih dana od datuma zapljene).",
-      "empty": "Još nema zabilježenih napadaja.",
-      "goodsDescription": "Opis robe",
-      "loadFailed": "Učitavanje napadaja nije uspjelo.",
-      "loading": "Učitavanje napadaja...",
-      "logSeizure": "Zapljena trupaca",
-      "office": "Carinarnica",
-      "portOfEntry": "Ulazna luka",
-      "quantity": "Količina",
-      "sectionDescription": "Granična zadržavanja i pritvor za ovu stvar.",
-      "sectionTitle": "Napadaji",
-      "seizureDate": "Datum zapljene",
-      "status": "Status"
-    },
-    "wrongMatterType": "Carinska evidencija dostupna je samo o graničnim mjerama."
-  },
-  "jurisdictionStatus": {
-    "approved": "Odobreno",
-    "filed": "Podneseno",
-    "pending": "Na čekanju",
-    "rejected": "Odbijen"
-  },
-  "layout": {
-    "backToMatters": "← Natrag na datoteke",
-    "loading": "Učitavanje datoteke…",
-    "notFound": "Datoteka nije pronađena.",
-    "archivedBadge": "Arhivirano",
-    "archive": "Arhiva",
-    "archiving": "Arhiviranje...",
-    "restore": "Vratiti",
-    "restoring": "Vraćanje...",
-    "archiveFailed": "Arhiviranje datoteke nije uspjelo",
-    "restoreFailed": "Vraćanje datoteke nije uspjelo",
-    "archiveConfirm": "Arhivirati ovu datoteku? Napustit će aktivni popis, ali ostaje pretraživa u Arhivi."
-  },
-  "list": {
-    "description": "Pregled svih datoteka — pretražite po naslovu, klijentu ili br. prijave.",
-    "descriptionPortal": "Datoteke otvorene za vašu organizaciju nakon pretvorbe upita.",
-    "descriptionArchived": "Završene ili neaktivne datoteke sačuvane za referencu.",
-    "filters": {
-      "allStatuses": "Svi statusi",
-      "allTypes": "Sve vrste radova",
-      "active": "Aktivan",
-      "archived": "Arhiva",
-      "allOtherTypes": "Sve ostale vrste"
-    },
-    "intakeQueue": "Red čekanja za unos",
-    "pagination": {
-      "ofTotal": "od {{total}}"
-    },
-    "perPage": "{{count}} po stranici",
-    "searchPlaceholder": "Pretraži naslov, klijent, br. prijave…",
-    "title": "Datoteke",
-    "titleArchived": "Arhivirane datoteke",
-    "titlePortal": "Moje datoteke",
-    "descriptionOthers": "Datoteke izvan šest glavnih kategorija — filtrirajte po vrsti dolje.",
-    "descriptionType": "Datoteke tipa {{type}} — pretražite po naslovu, klijentu ili br. prijave.",
-    "titleOthers": "Ostale datoteke",
-    "titleDrafts": "Nacrti",
-    "descriptionDrafts": "Nacrti koji čekaju odobrenje ili podnošenje — odvojeno od aktivnih žigova i drugih polica."
-  },
-  "ipRightsRegister": {
-    "description": "Registar prava intelektualnog vlasništva za cijelu tvrtku s filtrima prema klijentu, jurisdikciji, vrsti, statusu i isteku.",
-    "empty": "Nisu pronađena IP prava za ove filtere.",
-    "filters": {
-      "all": "Sve",
-      "allClients": "Svi klijenti",
-      "allJurisdictions": "Sve jurisdikcije",
-      "allStatuses": "Svi statusi",
-      "allTypes": "Sve vrste",
-      "client": "Klijent",
-      "expiryFrom": "Istek od",
-      "expiryTo": "Istek do",
-      "jurisdiction": "Nadležnost",
-      "matterType": "Vrsta rada",
-      "status": "Status"
-    },
-    "loading": "učitavanje...",
-    "table": {
-      "applicationNo": "Zahtjev br.",
-      "client": "Klijent",
-      "expiry": "Istek",
-      "ipRight": "IP pravo",
-      "jurisdiction": "Nadležnost",
-      "matter": "Materija",
-      "status": "Status",
-      "type": "Tip"
-    },
-    "title": "Registar prava intelektualnog vlasništva"
-  },
-  "markType": {
-    "combined": "Kombinirano",
-    "figurative": "Figurativno",
-    "sound": "Zvuk",
-    "three_dimensional": "3D",
-    "wordmark": "Riječna oznaka",
-    "combination_of_colors": "Kombinacija boja"
-  },
-  "overview": {
-    "assignedTo": "Glavni odvjetnik",
-    "applicant": "Podnositelj/Nositelj prava (vlasnik)",
-    "client": "Klijent",
-    "clientHint": "Nalogodavac — prima račune",
-    "intermediary": "Posrednik",
-    "description": "Opis",
-    "jurisdictions": "Nadležnosti",
-    "jurisdictionsEmpty": "Nema zabilježenih nadležnosti.",
-    "openedBy": "Otvorio",
-    "status": "Status",
-    "table": {
-      "country": "Zemlja",
-      "localRef": "Lokalni ref.",
-      "status": "Status"
-    },
-    "title": "Detalji datoteke",
-    "type": "Vrsta rada",
-    "typeSpecific": "Atributi specifični za tip",
-    "edit": {
-      "cancel": "Otkazati",
-      "edit": "Uredi",
-      "errors": {
-        "saveFailed": "Nije moguće spremiti detalje datoteke.",
-        "title": "Naslov je obavezan."
-      },
-      "fields": {
-        "territory": "Teritorij (iz kreirane datoteke)",
-        "title": "Titula"
-      },
-      "hint": "Pritisnite Uredi za promjenu pojedinosti o datoteci, zatim Spremi promjene. Teritorij ostaje kao postavljen kada je datoteka stvorena.",
-      "save": "Spremite promjene",
-      "saved": "Spremljeno.",
-      "saving": "Spremanje...",
-      "title": "Pojedinosti datoteke"
-    }
-  },
-  "parties": {
-    "title": "Stranke",
-    "hint": "Klijent je taj koji vas instruira i dobiva račun. Podnositelj zahtjeva / Nositelj prava (vlasnik) i posrednik postavite samo kada se razlikuju od klijenta.",
-    "applicant": "Podnositelj/Nositelj prava (vlasnik)",
-    "applicantHint": "Pravni vlasnik zaštitnog znaka, patenta ili drugog IP-a. Zadana je za klijenta kada ostane prazna.",
-    "intermediary": "Posrednik (nije obavezno)",
-    "intermediaryHint": "Stranka koja šalje radove u ime druge osobe, ako nije klijent.",
-    "searchPlaceholder": "Traži klijente…",
-    "clear": "Jasan"
-  },
-  "status": {
-    "abandoned": "Napuštena",
-    "active": "Aktivan",
-    "closed": "Zatvoreno",
-    "draft": "Nacrt",
-    "on_hold": "Na čekanju"
-  },
-  "table": {
-    "assigned": "Dodijeljeno",
-    "client": "Klijent",
-    "created": "Stvoreno",
-    "deadlines": "Rokovi",
-    "empty": "Nije pronađen nijedan problem",
-    "emptyDescription": "Pokušajte prilagoditi filtre ili otvorite novu temu.",
-    "emptyPortal": "Još nijedna stvar nije podijeljena s vama.",
-    "error": "Učitavanje predmeta nije uspjelo.",
-    "jurisdiction": "Nadležnost",
-    "jurisdictions": "Nadležnosti",
-    "leadAttorney": "Glavni odvjetnik",
-    "status": "Status",
-    "title": "Titula",
-    "type": "Tip",
-    "upcoming": "{{count}} nadolazeće",
-    "viewAria": "Prikaži {{title}}"
-  },
-  "tabs": {
-    "billing": "Naplata",
-    "correspondence": "dopisivanje",
-    "deadlines": "Rokovi",
-    "documents": "Dokumenti",
-    "instructions": "upute",
-    "approvals": "Odobrenja",
-    "ipRights": "IP prava",
-    "customs": "Običaji",
-    "overview": "Pregled",
-    "tasks": "Bilješke",
-    "timeline": "Vremenska crta",
-    "countAria": "{{count}} on {{tab}}"
-  },
-  "approvals": {
-    "title": "Odobrenja klijenata",
-    "subtitle": "Nacrtajte i podnesite zahtjeve za odobrenje za klijentski portal.",
-    "newDraft": "Novi nacrt",
-    "loading": "Učitavanje odobrenja...",
-    "loadError": "Učitavanje odobrenja nije uspjelo.",
-    "empty": "Još nema zahtjeva za odobrenje.",
-    "noPermission": "Nemate dopuštenje za pregled odobrenja za ovu stvar.",
-    "decisionNote": "Napomena za klijenta: {{note}}",
-    "columns": {
-      "title": "Titula",
-      "status": "Status",
-      "dueDate": "Duge",
-      "created": "Stvoreno"
-    },
-    "status": {
-      "draft": "Nacrt",
-      "pending": "Na čekanju",
-      "approved": "Odobreno",
-      "rejected": "Odbijen"
-    },
-    "actions": {
-      "submit": "Pošalji"
-    },
-    "drawer": {
-      "createTitle": "Novi zahtjev za odobrenje",
-      "title": "Titula",
-      "description": "Opis",
-      "dueDate": "Datum dospijeća",
-      "cancel": "Otkazati",
-      "create": "Napravi nacrt"
-    },
-    "errors": {
-      "titleRequired": "Naslov je obavezan",
-      "saveFailed": "Izrada odobrenja nije uspjela"
-    }
-  },
-  "tasks": {
-    "add": "Dodaj zadatak",
-    "assignedTo": "Dodijeljeno",
-    "assignedToUser": "Dodijeljeno {{name}}",
-    "completed": "Završeno",
-    "completedByUser": "Dovršio {{name}}",
-    "confirmComplete": "Označiti ovaj zadatak kao dovršen?",
-    "confirmDelete": "Izbrisati ovaj zadatak?",
-    "delete": "Izbrisati",
-    "deleteMessage": "Ovaj će zadatak biti trajno uklonjen.",
-    "deleteTitle": "Izbrisati zadatak?",
-    "description": "Treba raditi na ovom pitanju — odvojeno od rokova koje generira sustav.",
-    "drawerTitle": "Dodaj zadatak",
-    "dueOn": "Rok {{date}}",
-    "empty": "Nema zadataka po ovom pitanju.",
-    "emptyOpen": "Nema otvorenih zadataka. Dodajte jedan kada bude bilo posla za praćenje po ovom pitanju.",
-    "error": "Učitavanje zadataka nije uspjelo.",
-    "errorCreate": "Izrada zadatka nije uspjela",
-    "form": {
-      "assigneeLabel": "Dodijeljeno",
-      "assigneeRequired": "Odaberite tko bi trebao obaviti ovaj zadatak",
-      "dueDateOptional": "Datum dospijeća (nije obavezno)",
-      "notesOptional": "Bilješke (nije obavezno)",
-      "notesPlaceholder": "Svaki dodatni kontekst za opunomoćenika",
-      "priorityLabel": "Prioritet",
-      "titleLabel": "Što treba učiniti",
-      "titlePlaceholder": "npr. Nazovite klijenta re: BPO odgovor",
-      "titleRequired": "Naslov je obavezan"
-    },
-    "loading": "Učitavanje zadataka...",
-    "markComplete": "Označi kao dovršeno",
-    "noDueDate": "Nema roka",
-    "open": "Otvoriti",
-    "priority": {
-      "high": "visoko",
-      "normal": "Normalan"
-    },
-    "title": "Zadaci"
-  },
-  "timeline": {
-    "description": "Kronološka povijest kaznenog progona i prepiska o ovom pitanju.",
-    "empty": "Još nema događaja na vremenskoj traci. Prijavite korespondenciju ili podnesite prijavu da biste vidjeli aktivnost ovdje.",
-    "error": "Učitavanje vremenske trake nije uspjelo.",
-    "eventType": {
-      "correspondence": "dopisivanje",
-      "deadline": "Rok",
-      "filing": "Turpijanje",
-      "note": "Bilješka",
-      "task": "Zadatak"
-    },
-    "loading": "Učitavanje vremenske trake…",
-    "loggedBy": "Zabilježio {{name}}",
-    "title": "Vremenska crta"
-  },
-  "type": {
-    "border_measures": "Granične mjere",
-    "cases": "Slučajevi",
-    "consultation": "Konzultacije",
-    "copyright": "Autorska prava",
-    "dispute_opposition": "Spor / opozicija",
-    "domain": "Domene",
-    "fto_analysis": "FTO analiza",
-    "geographical_indication": "Oznaka zemljopisnog podrijetla",
-    "industrial_design": "Industrijski dizajn",
-    "litigation_expert_report": "Parnice / Izvještaji sudskih vještaka",
-    "official_fee_payment": "Službena plaćanja naknada",
-    "other": "ostalo",
-    "patent": "Patent",
-    "trademark": "Zaštitni znak",
-    "utility_model": "Korisni model",
-    "valuation": "Vrijednost"
-  },
-  "attributeFields": {
-    "selectPlaceholder": "Odaberite…",
-    "title": "Detalji specifični za tip"
-  },
-  "createFile": {
-    "addClass": "Dodaj razred",
-    "backToFiles": "Povratak na datoteke",
-    "cancel": "Otkazati",
-    "changeSubtype": "Promjena potkategorije",
-    "checkRegister": "Provjerite u trgovačkom registru",
-    "clearClient": "Promjena klijenta",
-    "clientOptionalHint": "Nema CRM podudaranja? Ispunite podatke o klijentu u nastavku — spremanjem nacrta automatski će se stvoriti u Klijentima.",
-    "applicantOptionalHint": "Nema CRM podudaranja? Ispunite podatke o podnositelju zahtjeva u nastavku — spremanjem nacrta automatski će se stvoriti u Klijentima.",
-    "draftDescription": "Stvoreno putem Stvori datoteku ({{procedure}}) — skica",
-    "errors": {
-      "client": "Odaberite klijenta za nastavak.",
-      "clientOrDetails": "Odaberite CRM klijenta ili unesite ime klijenta i pojedinosti da biste ih izradili.",
-      "applicantOrDetails": "Odaberite podnositelja zahtjeva u CRM-u ili unesite ime podnositelja zahtjeva i pojedinosti da biste ih izradili.",
-      "jurisdiction": "Odaberite barem jedan teritorij/zemlju.",
-      "markWords": "Unesite ime / riječi zaštitnog znaka.",
-      "saveFailed": "Nije moguće spremiti datoteku nacrta.",
-      "subtype": "Odaberite podkategoriju zaštitnog znaka.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
-    },
-    "euHint": "Zaštitni znak Europske unije (EUIPO) — nadležnost postavljena na EU.",
-    "fields": {
-      "address": "Adresa",
-      "applicantClient": "Klijent podnositelj zahtjeva",
-      "applicantClientOptional": "Podnositelj zahtjeva u CRM-u (nije obavezno)",
-      "city": "Grad",
-      "classNumber": "Broj klase",
-      "country": "Zemlja",
-      "eik": "UIC / EIK",
-      "email": "E-mail",
-      "fax": "Faks",
-      "goodsText": "Robe i usluge",
-      "legalName": "Naziv i vrsta pravne osobe",
-      "linkClient": "Odaberite klijenta u CRM-u",
-      "linkClientOptional": "CRM klijent (izborno)",
-      "markKind": "Označite kategoriju",
-      "markType": "Vrsta oznake",
-      "markWords": "Riječi oznake",
-      "mol": "MOL (potpisnik)",
-      "name": "Ime",
-      "phone": "Telefon",
-      "postalCode": "Poštanski broj",
-      "territory": "Teritorija",
-      "vat": "PDV ID",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
-    },
-    "formTitle": "Stvori datoteku: zaštitni znak",
-    "fullFormReady": "Puni obrazac dostupan",
-    "goodsPlaceholder": "npr. boce; maloprodajne usluge…",
-    "markKinds": {
-      "certification": "Certifikacija",
-      "collective": "Kolektivna",
-      "individual": "Pojedinac"
-    },
-    "markTypes": {
-      "combination_of_colors": "Kombinacija boja",
-      "combined": "Kombinirano",
-      "figurative": "Figurativno",
-      "sound": "Zvuk",
-      "three_dimensional": "Trodimenzionalni",
-      "wordmark": "Riječna oznaka"
-    },
-    "noClients": "Nema odgovarajućih klijenata. Prvo kreirajte klijenta u CRM-u, a zatim se vratite ovdje.",
-    "optionalMark": "Oznaka / predmet (nije obavezno)",
-    "partialSubtypeNote": "Potpuna specijalizirana polja za ovu potkategoriju bit će proširena kasnije. Još uvijek možete spremiti nacrt povezan s klijentom; dokumenti i korespondencija ostaju u spisu.",
-    "preliminary": "Preliminarne informacije",
-    "procedureHints": {
-      "new": "Prijava nove marke — puni obrazac",
-      "registered": "Već registrirani žig",
-      "objection": "Postupak prigovora",
-      "opposition": "Postupak opozicije",
-      "cancellation": "Postupak poništenja",
-      "deletion": "Postupak brisanja",
-      "opposition_against_us": "Postupak opozicije",
-      "opposition_by_us": "Postupak opozicije",
-      "revocation": "Postupak brisanja"
-    },
-    "procedures": {
-      "new": "Nova marka",
-      "registered": "Registrirani žig",
-      "objection": "Prigovor",
-      "opposition": "Opozicija",
-      "cancellation": "Poništenje",
-      "deletion": "Brisanje",
-      "opposition_against_us": "Opozicija",
-      "opposition_by_us": "Opozicija",
-      "revocation": "Brisanje"
-    },
-    "removeClass": "Ukloni razred",
-    "sameApplicant": "Podaci o podnositelju zahtjeva isti su kao i podaci o klijentu",
-    "sameCorrespondence": "Adresa za dopisivanje je ista kao i registrirana adresa",
-    "saveDraft": "Spremi kao nacrt",
-    "saving": "Spremanje...",
-    "searchClient": "Pretražujte klijente po imenu ili kodu…",
-    "sections": {
-      "applicant": "Podnositelj zahtjeva",
-      "client": "Podaci o klijentu",
-      "contact": "Kontakt osoba",
-      "correspondence": "Adresa za dopisivanje",
-      "goods": "Popis roba i usluga",
-      "markName": "Naziv zaštitnog znaka",
-      "registeredAddress": "Registrirana adresa",
-      "searchDocs": "Priložite dokumente za pretraživanje",
-      "trademark": "Informacije o zaštitnim znakovima",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Odaberite zemlje",
-    "subtypeHint": "Prvo odaberite potkategoriju. Nova marka otvara puni obrazac.",
-    "territories": {
-      "eu": "Europska unija",
-      "international": "Međunarodni (WO)",
-      "national": "Nacionalni"
-    },
-    "trademarkTitle": "Stvori datoteku — zaštitni znak",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
   "trademarkInfo": {
     "addCountry": "Dodaj zemlju…",
     "cancel": "Otkazati",
@@ -1349,7 +757,90 @@
     "saving": "Spremanje...",
     "selectCountries": "Odaberite zemlje",
     "territory": "Teritorija",
-    "title": "Informacije o zaštitnim znakovima"
+    "title": "Informacije o zaštitnim znakovima",
+    "markImage": "Označi sliku",
+    "uploadMarkImage": "Učitaj sliku",
+    "replaceMarkImage": "Zamijeni sliku",
+    "removeMarkImage": "Ukloni sliku",
+    "markImageHint": "PNG ili JPEG — prikazano na popisu zaštitnih znakova pored naziva."
+  },
+  "patentInfo": {
+    "title": "Podaci o patentu",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Zahtjev br. / datum",
+      "registration": "Reg. Ne. / datum",
+      "bulletin": "Bilten / publikacija",
+      "ipc": "IPC",
+      "client": "Naručitelj/naručitelj",
+      "owner": "Vlasnik",
+      "contact": "Kontakt osoba",
+      "representatives": "Zastupnici",
+      "claims": "Potraživanja",
+      "territory": "Teritorija"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Informacije o korisnom modelu",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Zahtjev br. / datum",
+      "registration": "Reg. Ne. / datum",
+      "bulletin": "Bilten / registracijska objava / datum",
+      "ipc": "IPC",
+      "applicant": "Podnositelj zahtjeva",
+      "inventor": "Izumitelj",
+      "contact": "Kontakt osoba",
+      "representatives": "Zastupnici",
+      "claims": "Potraživanja",
+      "territory": "Teritorija"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC informacije",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Zahtjev br. / datum",
+      "registration": "Reg. Ne. / datum",
+      "bulletin": "Bilten / registracijska objava / datum",
+      "ipc": "IPC",
+      "applicant": "Podnositelj zahtjeva",
+      "inventor": "Izumitelj",
+      "contact": "Kontakt osoba",
+      "representatives": "Zastupnici",
+      "claims": "Potraživanja",
+      "medicinalProduct": "Ljekoviti proizvod"
+    }
+  },
+  "designInfo": {
+    "title": "Informacije o dizajnu",
+    "subtitle": "{{territory}} dizajn · {{name}}",
+    "fields": {
+      "application": "Zahtjev br. / datum",
+      "registration": "Reg. Ne. / datum",
+      "bulletin": "Bilten / registracijska objava / datum",
+      "client": "Naručitelj/naručitelj",
+      "owner": "Vlasnik",
+      "contact": "Kontakt osoba",
+      "representatives": "Zastupnici",
+      "classification": "Klasifikacija",
+      "territory": "Teritorija"
+    }
+  },
+  "giInfo": {
+    "title": "Informacije o geografskoj oznaci",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Zahtjev br. / datum",
+      "registration": "Reg. Ne. / datum",
+      "bulletin": "Bilten / registracijska objava / datum",
+      "client": "Naručitelj/naručitelj",
+      "owner": "Vlasnik",
+      "contact": "Kontakt osoba",
+      "representatives": "Zastupnici",
+      "classes": "Nastava",
+      "territory": "Teritorija"
+    }
   },
   "fileApproval": {
     "clientStep": "1. Klijent odobren",
@@ -1421,22 +912,38 @@
     "saveFields": "Spremi polja",
     "saving": "Spremanje...",
     "stages": {
-      "filing": "Podnošenje",
+      "filing": "Turpijanje",
       "formal_exam": "Formalni ispit",
       "prep": "Pripremni",
-      "publication": "Objava",
-      "reg_fee": "Naknade za registraciju",
+      "publication": "Objavljivanje",
+      "reg_fee": "Pristojbe za registraciju",
       "registration": "Registracija",
-      "substantive_exam": "Ispit po meri"
+      "substantive_exam": "Suštinsko ispitivanje"
     },
     "territoryLabel": {
       "eu": "Cjevovod: EU",
       "international": "Cjevovod: Međunarodni (WO)",
-      "national": "Cjevovod: nacionalni"
+      "national": "Cjevovod: Nacionalni"
     },
     "territoryLocked": "Teritorij fiksiran iz datoteke za stvaranje",
     "territoryFromInfo": "Područje iz informacija o zaštitnim znakovima",
-    "title": "Faze postupka",
+    "patentRouteFromInfo": "Ruta iz kreirane datoteke",
+    "designRouteFromInfo": "Ruta iz kreirane datoteke",
+    "utilityModelTerritoryFromInfo": "Područje iz zemlje podnošenja",
+    "spcTerritoryFromInfo": "Područje iz zemlje podnošenja",
+    "giTerritoryFromInfo": "Teritorij s rute arhiviranja",
+    "title": "Faze kaznenog progona",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Primljena potvrda",
+        "filing": "Zadatak",
+        "formal_exam": "Podnošenje zahtjeva",
+        "substantive_exam": "Suštinsko ispitivanje",
+        "publication": "Objavljivanje",
+        "reg_fee": "Pristojbe za registraciju",
+        "registration": "Odluka o validaciji"
+      }
+    },
     "yes": "Da",
     "hub": {
       "generateInvoice": "Generiraj fakturu",
@@ -1471,77 +978,1875 @@
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
+  "createDrawer": {
+    "client": "Klijent *",
+    "creating": "Izrada...",
+    "error": "Izrada datoteke nije uspjela",
+    "jurisdictionHelp": "Odaberite jednu ili više jurisdikcija za podnošenje.",
+    "jurisdictions": "Nadležnosti",
+    "matterType": "Vrsta posla *",
+    "open": "Otvori datoteku",
+    "responsibleAttorney": "Odgovorni odvjetnik",
+    "title": "Otvorite novu datoteku",
+    "titleField": "Naslov *",
+    "titlePlaceholder": "npr. Riječni znak ACME – EU"
+  },
+  "createFile": {
+    "addClass": "Dodaj razred",
+    "addClaim": "Dodaj zahtjev",
+    "addIpc": "Dodaj IPC klasu",
+    "addBasisMark": "Dodajte oznaku osnove",
+    "basisMark": "Osnovna oznaka {{number}}",
+    "addAdditionalApplicant": "Dodajte još jednog podnositelja zahtjeva",
+    "addAdditionalOwner": "Dodaj dodatnog vlasnika",
+    "additionalApplicant": "Podnositelj zahtjeva {{number}}",
+    "additionalOwner": "Vlasnik {{number}}",
+    "yes": "Da",
+    "no": "Ne",
+    "none": "Nijedan",
+    "backToFiles": "Povratak na datoteke",
+    "cancel": "Otkazati",
+    "changeSubtype": "Promjena potkategorije",
+    "checkRegister": "Provjerite u trgovačkom registru",
+    "clearClient": "Promjena klijenta",
+    "clientOptionalHint": "Nema CRM podudaranja? Ispunite podatke o klijentu u nastavku — spremanjem nacrta automatski će se stvoriti u Klijentima.",
+    "applicantOptionalHint": "Nema CRM podudaranja? U nastavku ispunite podatke o podnositelju zahtjeva — spremanjem nacrta automatski će se stvoriti u Klijentima.",
+    "draftDescription": "Stvoreno putem Stvori datoteku ({{procedure}}) — skica",
+    "errors": {
+      "client": "Odaberite klijenta za nastavak.",
+      "clientOrDetails": "Odaberite CRM klijenta ili unesite ime klijenta i pojedinosti da biste ih izradili.",
+      "applicantOrDetails": "Odaberite podnositelja zahtjeva u CRM-u ili unesite ime podnositelja zahtjeva i pojedinosti da biste ih izradili.",
+      "jurisdiction": "Odaberite barem jedan teritorij/zemlju.",
+      "markWords": "Unesite ime / riječi zaštitnog znaka.",
+      "filingRoute": "Odaberite postupak.",
+      "ownerOrDetails": "Unesite ime i adresu vlasnika ili označite vlasnika kao klijenta.",
+      "designerOrDetails": "Unesite ime i adresu dizajnera ili označite dizajnera kao klijenta.",
+      "inventorOrDetails": "Unesite ime i adresu izumitelja ili označite izumitelja kao klijenta.",
+      "patentName": "Unesite naziv patenta.",
+      "designName": "Unesite naziv dizajna.",
+      "utilityModelName": "Unesite naziv pomoćnog modela.",
+      "giKind": "Odaberite oznaku izvornosti ili oznaku zemljopisnog podrijetla.",
+      "territory": "Odaberite teritorij.",
+      "giName": "Upisuje se naziv oznake zemljopisnog podrijetla.",
+      "spcName": "Unesite naziv SPC-a.",
+      "caseClientRole": "Odaberite je li klijent tužitelj, tuženik ili zainteresirana strana.",
+      "otherType": "Nepoznata vrsta datoteke. Odaberite vrstu s popisa.",
+      "patentSubtype": "Odaberite podkategoriju patenta.",
+      "saveFailed": "Nije moguće spremiti datoteku nacrta.",
+      "subtype": "Odaberite podkategoriju zaštitnog znaka."
+    },
+    "euHint": "Zaštitni znak Europske unije (EUIPO) — nadležnost postavljena na EU.",
+    "fields": {
+      "address": "Adresa",
+      "applicantClient": "Klijent podnositelj zahtjeva",
+      "applicantClientOptional": "Podnositelj zahtjeva u CRM-u (nije obavezno)",
+      "city": "Grad",
+      "classNumber": "Broj klase",
+      "classes": "Nastava",
+      "country": "Zemlja",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Faks",
+      "goodsText": "Robe i usluge",
+      "legalName": "Naziv i vrsta pravne osobe",
+      "linkClient": "Odaberite klijenta u CRM-u",
+      "linkClientOptional": "CRM klijent (izborno)",
+      "fileTitleOptional": "naslov (neobavezno)",
+      "fileDescriptionOptional": "Opis (nije obavezno)",
+      "markKind": "Označite kategoriju",
+      "markType": "Vrsta oznake",
+      "markWords": "Naziv zaštitnog znaka",
+      "mol": "MOL (potpisnik)",
+      "name": "Ime",
+      "oppositionFiler": "Podnositelj prigovora",
+      "requester": "Podnositelj zahtjeva",
+      "requestFiler": "Podnositelj zahtjeva",
+      "againstClasses": "Protiv klasa",
+      "owner": "Vlasnik",
+      "phone": "Telefon",
+      "postalCode": "Poštanski broj",
+      "territory": "Teritorija",
+      "transliteration": "Transliteracija",
+      "viennaNumber": "Broj",
+      "applicationNumber": "Broj prijave",
+      "applicationDate": "Datum",
+      "conventionPriority": "Konvencijski prioritet",
+      "exhibitionPriority": "Prioritet izložbe",
+      "transformationInternational": "Transformacija međunarodne registracije",
+      "communityConversion": "Pretvorba žiga Zajednice",
+      "applicationBulletin": "Bilten/objava prijave",
+      "grounds": "Temelji",
+      "specimen": "Primjerak",
+      "registrationNumber": "registracijski br.",
+      "registrationDate": "Datum",
+      "registrationBulletin": "Bilten/objava registracije",
+      "certificate": "Priložite potvrdu",
+      "attachDocument": "Priloži dokument",
+      "representative": "Odaberite",
+      "selectRepresentative": "Odaberite predstavnika",
+      "addMoreRepresentatives": "Dodajte više predstavnika",
+      "claimNumber": "Broj",
+      "claimText": "Zahtjev",
+      "epApplicationNumber": "broj EP prijave",
+      "epBulletinNumber": "Broj biltena EP",
+      "applicationPublication": "Objava prijave",
+      "applicationPublicationDate": "Datum",
+      "epRegistrationNumber": "EP registarski broj",
+      "epRegistrationBulletin": "Bilten/objava registracije EP",
+      "epRegistrationBulletinDate": "Datum",
+      "ipc": "IPC",
+      "patentName": "Ime",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validacija europskog patenta",
+      "powerOfAttorney": "Punomoć",
+      "selectProcedure": "Odaberite postupak",
+      "validationCountry": "Odaberite zemlju",
+      "priorityCountry": "Država prethodne prijave",
+      "priorityFromDate": "Od datuma",
+      "priorityApplicationNumber": "Broj prijave",
+      "priorityIncomingNumber": "U. Ne.",
+      "internationalRegistrationNumber": "Međunarodni registracijski br.",
+      "exhibitionFirstAppearance": "Datum prvog pojavljivanja",
+      "exhibitionName": "Naziv izložbe",
+      "bulletinNumber": "Broj biltena",
+      "patentRegistrationNumber": "Matični broj",
+      "validationNumber": "Broj",
+      "validationFilingDate": "Datum podnošenja",
+      "validationPriorityDate": "Datum prioriteta",
+      "addImage": "Dodaj sliku",
+      "addCountry": "Dodajte zemlju",
+      "removeImage": "Ukloni sliku",
+      "image": "Slika",
+      "designName": "Ime",
+      "locarnoClass": "Klasa",
+      "locarnoSubclass": "Podrazred",
+      "classificationText": "Klasifikacija",
+      "vat": "PDV ID",
+      "utilityModelName": "Ime",
+      "conversionFromPatent": "Konverzija iz patenta u prijavu",
+      "conversionInvention": "Izum",
+      "conversionRequestNumber": "Zahtjev br.",
+      "conversionApplicationDate": "Datum prijave",
+      "conversionPriorityDate": "Datum prioriteta",
+      "giKind": "Tip",
+      "giName": "Naziv oznake zemljopisnog podrijetla",
+      "spcName": "Ime",
+      "medicinalProduct": "Ljekoviti proizvod",
+      "basicPatentNumber": "patent br.",
+      "effectStartDate": "Početak učinka",
+      "effectEndDate": "Datum završetka",
+      "firstAuthorization": "Prvo ovlaštenje",
+      "theClientIs": "Klijent je",
+      "court": "Sud",
+      "authority": "Autoritet",
+      "panel": "Ploča",
+      "division": "Podjela",
+      "incomingNumber": "Dolazni broj",
+      "claimGrounds": "Razlozi (vrsta tužbe)",
+      "claimValue": "Vrijednost zahtjeva",
+      "other": "ostalo",
+      "rightObject": "Objekt",
+      "selectObject": "Odaberite objekt…",
+      "rightName": "Ime",
+      "rightApplicationDate": "Datum prijave",
+      "rightScope": "Opseg",
+      "expertiseType": "Vrsta vještačenja",
+      "experts": "Stručnjaci",
+      "expertiseQuestions": "Pitanja o kojima je dopušteno vještačenje"
+    },
+    "formTitle": "Stvori datoteku: zaštitni znak",
+    "fullFormReady": "Puni obrazac dostupan",
+    "goodsPlaceholder": "npr. boce; maloprodajne usluge…",
+    "markKinds": {
+      "certification": "Certifikacija",
+      "collective": "Kolektivna",
+      "individual": "Pojedinac"
+    },
+    "markTypes": {
+      "combination_of_colors": "Kombinacija boja",
+      "combined": "Kombinirano",
+      "figurative": "Figurativno",
+      "sound": "Zvuk",
+      "three_dimensional": "Trodimenzionalni",
+      "wordmark": "Riječna oznaka"
+    },
+    "noClients": "Nema odgovarajućih klijenata. Prvo kreirajte klijenta u CRM-u, a zatim se vratite ovdje.",
+    "optionalMark": "Oznaka / predmet (nije obavezno)",
+    "partialSubtypeNote": "Potpuna specijalizirana polja za ovu potkategoriju bit će kasnije proširena. Još uvijek možete spremiti nacrt povezan s klijentom; dokumenti i korespondencija ostaju u spisu.",
+    "preliminary": "Preliminarne informacije",
+    "procedureHints": {
+      "cancellation": "Poništenje registriranog zaštitnog znaka — puni obrazac za kreiranje",
+      "deletion": "Brisanje registriranog zaštitnog znaka — puni obrazac za kreiranje",
+      "new": "Nova prijava zaštitnog znaka — puni obrazac za izradu",
+      "objection": "Prigovor protiv prijave žiga — potpuni obrazac za izradu",
+      "opposition": "Prigovor protiv prijave žiga — puni obrazac za izradu",
+      "opposition_against_us": "Postupak po prigovoru",
+      "opposition_by_us": "Postupak po prigovoru",
+      "registered": "Postojeći registrirani zaštitni znak",
+      "revocation": "Postupak brisanja"
+    },
+    "procedures": {
+      "cancellation": "Otkazivanje",
+      "deletion": "Brisanje",
+      "new": "Nova marka",
+      "objection": "Prigovor",
+      "opposition": "Opozicija",
+      "opposition_against_us": "Opozicija",
+      "opposition_by_us": "Opozicija",
+      "registered": "Registrirani zaštitni znak",
+      "revocation": "Brisanje"
     },
     "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
+      "newPatent": "Novi patent",
+      "registeredPatent": "Registrirani patent",
+      "design": "Dizajn",
+      "registeredDesign": "Dizajn",
+      "utilityModel": "Korisni modeli",
+      "registeredGi": "Registrirani GI",
+      "spc": "SPC",
+      "case": "Spis"
+    },
+    "comingSoonTitle": "Izradi datoteku: {{kind}}",
+    "comingSoonBody": "Sljedeći će biti dodan specijalizirani obrazac za ovu vrstu datoteke. Obrasci za stvaranje datoteke zaštitnih znakova već su dostupni iz istog izbornika.",
+    "patentTitle": "Stvori datoteku — Patent",
+    "patentSubtypeHint": "Prvo odaberite potkategoriju patenta.",
+    "patentFormTitle": "Napravi datoteku: Patent",
+    "designFormTitle": "Napravi datoteku: Dizajn",
+    "utilityModelFormTitle": "Kreiraj datoteku: Korisni model",
+    "giFormTitle": "Kreiraj datoteku: Oznaka zemljopisnog podrijetla",
+    "spcFormTitle": "Stvori datoteku: SPC",
+    "caseFormTitle": "Stvori datoteku: Case",
+    "otherFilesTitle": "Ostale datoteke",
+    "otherFilesDescription": "Odaberite vrstu posla izvan glavnih polica — autorska prava, domene, konzultacije i više.",
+    "otherFileFormTitle": "Izradi datoteku: {{type}}",
+    "addParty": "Dodaj stranku",
+    "caseClientRoles": {
+      "plaintiff": "Tužitelj / žalitelj",
+      "defendant": "optuženik",
+      "interested": "Zainteresirana strana"
+    },
+    "giKinds": {
+      "designation_of_origin": "Oznaka izvornosti",
+      "geographical_indication": "Oznaka zemljopisnog podrijetla"
+    },
+    "giTerritories": {
+      "national": "Nacionalni",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Nacionalni",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Odaberite postupak",
+    "chooseCountry": "Odaberite zemlju",
+    "patentFilingRoutes": {
+      "national": "Nacionalni",
+      "european": "EP",
+      "ep_validation": "EP-Validacija",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albanija",
+      "BA": "Bosna i Hercegovina",
+      "BG": "Bugarska",
+      "EE": "Estonija",
+      "MK": "Sjeverna Makedonija",
+      "MD": "Moldavija",
+      "ME": "Crne Gore",
+      "RO": "Rumunija",
+      "RS": "Srbija",
+      "SI": "Slovenija",
+      "TR": "Turska"
+    },
+    "patentHints": {
+      "new": "Nova prijava — nacionalni, EP ili PCT tužiteljstvo (tok u 7 koraka u WorkPatentu)",
+      "registered": "Postojeća potpora — nacionalna, EP, PCT ili EP-validacija (provjera u 4 koraka u WorkValPatentu)"
+    },
+    "removeClass": "Ukloni razred",
+    "removeClaim": "Ukloni zahtjev",
+    "removeIpc": "Ukloni IPC klasu",
+    "removeApplicant": "Ukloni podnositelja zahtjeva",
+    "removeBasisMark": "Uklonite oznaku osnove",
+    "sameApplicant": "Podaci o podnositelju zahtjeva isti su kao i podaci o klijentu",
+    "sameDesigner": "Podaci o dizajneru isti su kao i podaci o klijentu",
+    "sameInventor": "Podaci o izumitelju isti su kao i podaci o klijentu",
+    "sameCorrespondence": "Adresa za dopisivanje je ista kao i registrirana adresa",
+    "saveDraft": "Spremi kao nacrt",
+    "saving": "Spremanje...",
+    "searchClient": "Pretražujte klijente po imenu ili kodu…",
+    "sideUs": "Naša strana — opozicija",
+    "sideThem": "Druga strana — prigovor",
+    "sideUsCancellation": "Naša strana — otkazivanje",
+    "sideThemCancellation": "Druga strana — vlasnik",
+    "sideUsDeletion": "Naša strana — brisanje",
+    "sections": {
+      "againstApplication": "Protiv prijave žiga",
+      "againstBrand": "Protiv robne marke",
+      "applicant": "Podnositelj zahtjeva",
+      "applicantUser": "Podnositelj/korisnik",
+      "application": "Primjena",
+      "attachments": "Prilozi",
+      "additionalInfo": "Dodatne informacije",
+      "basicInfo": "Osnovne informacije",
+      "fileDetails": "Pojedinosti datoteke",
+      "basisMarks": "Oznake na kojima se temelji opozicija",
+      "claims": "Potraživanja",
+      "classification": "Klasifikacija",
+      "designer": "Dizajner",
+      "inventor": "Izumitelj",
+      "client": "Podaci o klijentima",
+      "instructingClient": "Upućivanje klijenta",
+      "ipc": "IPC",
+      "contact": "Kontakt osoba",
+      "correspondence": "Adresa za dopisivanje",
+      "filing": "Podnošenje i registracija",
+      "goods": "Popis roba i usluga",
+      "geographicalIndication": "Informacije o geografskoj oznaci",
+      "spcBasic": "Osnovne informacije SPC",
+      "caseData": "Podaci o slučaju",
+      "caseRights": "Prava na kojima se temelji predmet",
+      "expertise": "Stručnost",
+      "lawyers": "Odvjetnici/Pravni savjetnici",
+      "caseParties": {
+        "plaintiff": "Tužitelji/žalitelji",
+        "defendant": "optuženici",
+        "interested": "Zainteresirane strane"
+      },
+      "grounds": "Temelji",
+      "foundation": "Temelj",
+      "markName": "Naziv zaštitnog znaka",
+      "oppositionFiler": "Podnositelj prigovora",
+      "requester": "Podnositelj zahtjeva",
+      "requestFiler": "Podnositelj zahtjeva",
+      "owner": "Vlasnik",
+      "registeredAddress": "Registrirana adresa",
+      "representative": "Predstavnik",
+      "representatives": "Zastupnici",
+      "searchDocs": "Priložite dokumente za pretraživanje",
+      "specimen": "Primjerak",
+      "trademark": "Informacije o zaštitnim znakovima",
+      "vienna": "razredi bečke klasifikacije"
+    },
+    "selectCountries": "Odaberite zemlje",
+    "subtypeHint": "Prvo odaberite potkategoriju zaštitnog znaka. Novi brend otvara punu formu.",
+    "territories": {
+      "eu": "Europska unija",
+      "international": "Međunarodni (WO)",
+      "national": "Nacionalni"
+    },
+    "trademarkTitle": "Stvori datoteku — zaštitni znak"
+  },
+  "deadlines": {
+    "complete": "Kompletan",
+    "daysLeft": "Još {{count}} dana",
+    "daysOverdue": "{{count}} dana kašnjenja",
+    "dueToday": "Rok je danas",
+    "summary": {
+      "open": "Otvoreni rokovi",
+      "overdue": "Zakašnjelo"
+    },
+    "empty": "Nema rokova po ovom pitanju.",
+    "error": "Učitavanje rokova nije uspjelo.",
+    "loading": "Učitavanje rokova…",
+    "start": "Start",
+    "table": {
+      "assigned": "Dodijeljeno",
+      "due": "Datum dospijeća",
+      "grace": "Milost",
+      "jurisdiction": "Nadležnost",
+      "status": "Status",
+      "title": "Titula",
+      "type": "Tip"
+    },
+    "title": "Rokovi"
+  },
+  "documents": {
+    "allCategories": "Sve kategorije",
+    "browse": "pregledavati",
+    "category": "Kategorija",
+    "chooseFile": "Odaberite datoteku za prijenos",
+    "chooseTemplate": "Odaberite predložak pisma",
+    "description": "Kartoteka za ovu stvar — učitajte PDF-ove, Word datoteke i dokaze.",
+    "displayName": "Ime za prikaz",
+    "displayNamePlaceholder": "npr. BPO paket za podnošenje — konačan",
+    "dragDrop": "Povucite datoteku ovdje ili",
+    "empty": "Još nema učitanih dokumenata.",
+    "error": "Učitavanje dokumenata nije uspjelo.",
+    "errorGeneration": "Generiranje dokumenta nije uspjelo",
+    "errorNoDocx": "Ovaj predložak nema učitanu Word (.docx) datoteku",
+    "errorUpload": "Prijenos nije uspio",
+    "format": "Format",
+    "generate": "Generiraj dokument",
+    "generateDescription": "Odaberite predložak pisma. Podaci o predmetu i klijentu automatski se popunjavaju i spremaju u ovu mapu.",
+    "generatePdf": "Generiraj PDF",
+    "generateWord": "Generirajte Word",
+    "generating": "Generiranje...",
+    "loading": "Učitavanje dokumenata...",
+    "noTemplates": "Nema dostupnih predložaka.",
+    "notAvailable": "— nije dostupno",
+    "search": "Traži ime ili oznake...",
+    "table": {
+      "category": "Kategorija",
+      "displayName": "Ime za prikaz",
+      "name": "Ime",
+      "tags": "oznake",
+      "uploaded": "Učitano",
+      "version": "Verzija"
+    },
+    "tags": "oznake",
+    "tagsHint": "Ključne riječi odvojene zarezima za pretraživanje",
+    "tagsPlaceholder": "hitno, bpo, odobreno od strane klijenta",
+    "title": "Dokumenti",
+    "upload": "Učitaj dokument",
+    "uploadAction": "Upload",
+    "uploadNew": "Učitaj novi dokument",
+    "uploading": "Prijenos…",
+    "word": "Riječ"
+  },
+  "ipRightStatus": {
+    "cancelled": "Otkazano",
+    "expired": "Istekao",
+    "filed": "Podneseno",
+    "pending": "Podnošenje na čekanju",
+    "registered": "Registriran"
+  },
+  "ipRights": {
+    "abandon": "Napustiti",
+    "add": "Dodajte IP desno",
+    "addRight": "Dodaj desno",
+    "addTitle": "Dodajte IP desno",
+    "annuitySchedule": "Raspored rente",
+    "applicationNumber": "Broj prijave",
+    "checkEpo": "Provjerite EPO",
+    "checkEpoAddNumber": "Dodajte broj aplikacije prije provjere EPO-a",
+    "checkEpoTitle": "Provjerite EPO pravni status (OPS)",
+    "complete": "Kompletan",
+    "confirmFiling": "Potvrdite prijavu",
+    "confirmRegistration": "Potvrdite registraciju",
+    "cycleDue": "Ciklus {{n}} · rok {{date}}",
+    "cycleLabel": "Ciklus {{n}}",
+    "description": "Podnesite prava na nacrt nakon što klijent potvrdi i paket za podnošenje bude spreman.",
+    "editSplit": "Uredi podjelu",
+    "empty": "Još nema IP prava. Propuh se automatski stvara kada se dovod pretvori; dodati više prava ručno nakon kaznenog progona.",
+    "epoCheckFailed": "EPO provjera statusa nije uspjela",
+    "error": "Neuspješno učitavanje IP prava.",
+    "errors": {
+      "addFailed": "Nije uspjelo dodavanje IP-a",
+      "applicationNumberRequired": "Unesite službeni broj prijave",
+      "documentVersionRequired": "Odaberite verziju dokumenta paketa za arhiviranje",
+      "fileFailed": "Podnošenje prijave nije uspjelo",
+      "registerFailed": "Neuspješna registracija IP prava",
+      "registrationNumberRequired": "Unesite matični broj",
+      "splitFailed": "Nije moguće podijeliti obnovu",
+      "splitJurisdictionRequired": "Dodajte barem jedan dio s jurisdikcijom",
+      "titleRequired": "Unesite naslov za IP pravo"
+    },
+    "expiryDate": "Rok trajanja",
+    "expiryDateOptional": "Datum isteka (nije obavezno)",
+    "expiryDateHint": "Ostavite prazno za izračun iz ciklusa obnove nadležnosti.",
+    "file": "File",
+    "fileApplication": "Aplikacija datoteke",
+    "fileDrawer": {
+      "applicationNumberPlaceholder": "Službeni broj od BPO / EUIPO / EPO",
+      "filingPackage": "Paket arhiviranja",
+      "filingPackageHint": "Odaberite verziju dokumenta učitanu za ovo podnošenje (obično pod Prijavom).",
+      "jurisdictionHint": "Odaberite EPO (EP) da omogućite provjere statusa kaznenog progona prema OPS-u.",
+      "noDocuments": "Još nema dokumenata o ovom pitanju. Najprije učitajte dokumentirani PDF na kartici Dokumenti.",
+      "selectDocument": "Odaberite verziju dokumenta…"
+    },
+    "filing": "Podnošenje…",
+    "filingDate": "Datum podnošenja",
+    "filingOffice": "Ured za arhiviranje / nadležnost",
+    "jurisdictionHint": "Koristite EPO (EP) za europske patente, EUIPO (EU) za trgovačke znakove/dizajne EU, BPO (BG) za Bugarsku, WIPO (WO) za PCT.",
+    "loading": "Učitavanje IP prava…",
+    "loadingRenewals": "Učitavanje obnova...",
+    "markFiled": "Mark podnio",
+    "noAnnuityWindows": "Još nema prozora anuiteta. Registrirajte patent za otvaranje 1. godine.",
+    "noRenewalWindows": "Još nema prozora za obnovu. Registrirajte IP pravo na otvaranje ciklusa 1.",
+    "partialRenewals": "Djelomične obnove",
+    "partsCount": "({{count}} dijelova)",
+    "proceed": "Snimanje nastaviti",
+    "register": "Registar",
+    "registerDrawerHint": "Otvara prozor obnove ciklusa 1 i generira rokove obnove.",
+    "registerTitle": "Registrirajte IP pravo",
+    "registering": "Registracija…",
+    "registrationDate": "Datum registracije",
+    "registrationNumber": "Matični broj",
+    "renewalSchedule": "Prozori za obnovu",
+    "renewalWindows": "Prozori za obnovu",
+    "splitRenewal": "Split obnova",
+    "splitRenewalDescription": "Podijelite ovu obnovu na dijelove jurisdikcije / Nice-class. Svaki dio se podučava i ispunjava zasebno; status prozora rola se iz dijelova.",
+    "splitRenewalTitle": "Split obnova",
+    "splitPart": "Dio {{n}}",
+    "splitAddPart": "Dodajte dio",
+    "splitSaveParts": "Sačuvajte dijelove",
+    "splitNiceClasses": "Lijepi razredi (odvojeni zarezom)",
+    "splitNotes": "Bilješke",
+    "splitJurisdiction": "Nadležnost",
+    "table": {
+      "actions": "Radnje",
+      "applicationNo": "Zahtjev br.",
+      "cycle": "Ciklus",
+      "dueDate": "Datum dospijeća",
+      "jurisdiction": "Nadležnost",
+      "localRef": "Lokalni ref.",
+      "niceClasses": "Lijepi tečajevi",
+      "status": "Status",
+      "title": "Titula",
+      "type": "Tip",
+      "yearCycle": "Godina / ciklus"
+    },
+    "title": "IP prava",
+    "titleField": "Titula",
+    "titleRegister": "registar prava intelektualne svojine",
+    "yearLabel": "Godina {{n}}"
+  },
+  "customs": {
+    "afa": {
+      "add": "Dodajte AFA",
+      "authority": "Autoritet",
+      "authorityRequired": "Potrebna je ovlast",
+      "createFailed": "Nije moguće izraditi AFA",
+      "empty": "Još nije zabilježen nijedan AFA.",
+      "linkedSeizure": "Povezani napadaj (nije obavezno)",
+      "loading": "Učitavanje aplikacija...",
+      "none": "Nijedan",
+      "number": "Broj prijave",
+      "sectionDescription": "Carinske aplikacije za zaštitu prava na granici.",
+      "sectionTitle": "Prijave za djelovanje (AFA)",
+      "validUntil": "Vrijedi do"
+    },
+    "columns": {
+      "authority": "Autoritet",
+      "custody": "Skrbništvo",
+      "date": "Datum",
+      "goods": "Roba",
+      "number": "Broj",
+      "office": "Ured",
+      "status": "Status",
+      "validUntil": "Vrijedi do"
+    },
+    "custody": {
+      "addEntry": "Dodajte unos skrbništva",
+      "append": "Dodati",
+      "empty": "Još nema unosa skrbništva.",
+      "notesPlaceholder": "Bilješke (nije obavezno)",
+      "timeline": "Vremenski okvir skrbništva"
+    },
+    "detail": {
+      "clearLink": "Obriši vezu",
+      "linkedMatter": "Povezana parnična stvar",
+      "loading": "učitavanje...",
+      "saveChanges": "Spremite promjene",
+      "searchMatters": "Pitanja potrage eskaliraju...",
+      "seizedOn": "Zaplijenjeno {{date}}",
+      "title": "Detalj zapljene",
+      "updateFailed": "Nije moguće ažurirati napad"
+    },
+    "errors": {
+      "addCustodyFailed": "Nije moguće dodati unos skrbništva",
+      "createSeizureFailed": "Nije moguće stvoriti napadaj",
+      "officeAndGoodsRequired": "Potrebni su carinski ured i opis robe"
+    },
+    "open": "Otvoriti",
+    "seizures": {
+      "consignmentRef": "Pošiljka ref",
+      "create": "Stvoriti napadaj",
+      "createTitle": "Dnevnik carinska zapljena",
+      "deadlineHint": "Rok za odgovor generira se automatski (10 radnih dana od datuma zapljene).",
+      "empty": "Još nema zabilježenih napadaja.",
+      "goodsDescription": "Opis robe",
+      "loadFailed": "Učitavanje napadaja nije uspjelo.",
+      "loading": "Učitavanje napadaja...",
+      "logSeizure": "Zapljena trupaca",
+      "office": "Carinarnica",
+      "portOfEntry": "Ulazna luka",
+      "quantity": "Količina",
+      "sectionDescription": "Granična zadržavanja i pritvor za ovu stvar.",
+      "sectionTitle": "Napadaji",
+      "seizureDate": "Datum zapljene",
+      "status": "Status"
+    },
+    "wrongMatterType": "Carinska evidencija dostupna je samo o graničnim mjerama."
+  },
+  "jurisdictionStatus": {
+    "approved": "Odobreno",
+    "filed": "Podneseno",
+    "pending": "Na čekanju",
+    "rejected": "Odbijen"
+  },
+  "layout": {
+    "backToMatters": "← Natrag na datoteke",
+    "loading": "Učitavanje datoteke...",
+    "notFound": "Datoteka nije pronađena.",
+    "archivedBadge": "Arhivirano",
+    "archive": "Arhiva",
+    "archiving": "Arhiviranje...",
+    "restore": "Vratiti",
+    "restoring": "Vraćanje...",
+    "archiveFailed": "Arhiviranje datoteke nije uspjelo",
+    "restoreFailed": "Vraćanje datoteke nije uspjelo",
+    "archiveConfirm": "Arhivirati ovu datoteku? Napustit će aktivni popis, ali će se moći pretraživati ​​pod Arhivirano."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Sekundarne radnje",
+      "editScope": "Uredi opseg / klase"
+    },
+    "kinds": {
+      "name_address_change": "Promjena imena i adrese",
+      "transfer": "Prijenos/ustupanje zaštitnog znaka",
+      "license": "Ugovor o licenci",
+      "pledge": "Poseban zalog",
+      "injunction": "Privremena mjera / zabrana",
+      "surrender": "Potpuna predaja / Odricanje od odgovornosti",
+      "limitation": "Ograničenje primjene",
+      "insolvency": "Nelikvidnost/stečaj"
     },
     "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
+      "opposition_settlement": "Oporbena nagodba",
       "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
+      "voluntary_limitation": "Dobrovoljno ograničenje",
+      "correction_of_error": "Ispravak pogreške",
+      "other": "ostalo"
     },
     "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
+      "title": "Uredite klase i opseg",
+      "description": "Izmijenite Nice razrede i opise robe/usluga, a zatim zabilježite podatke o uredskoj dokumentaciji.",
+      "cardTitle": "Predavanja i roba/usluge",
+      "cardHint": "Aktivni Nice razredi na ovoj datoteci zaštitnog znaka.",
+      "empty": "Još nema zabilježenih predavanja.",
+      "classLabel": "Razred {{n}}",
+      "noDescription": "Nema opisa",
+      "classes": "Urednik klasa i robe",
+      "incomingNumber": "Dolazni referentni broj (VH. NOMER)",
+      "incomingPlaceholder": "Uredski ID praćenja",
+      "filingDate": "Datum podnošenja (DATA)",
+      "legalBasis": "Pravna osnova (OSNOVANIE)",
+      "legalBasisPlaceholder": "Odaberite razlog...",
+      "legalBasisOther": "Drugi pravni temelj",
+      "attachment": "Popratni dokument",
       "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
+        "classRequired": "Zadržite barem jednu klasu Nice ili upotrijebite Potpunu predaju da odustanete od oznake.",
+        "incomingRequired": "Unesite dolazni poziv na broj.",
+        "dateRequired": "Unesite datum podnošenja.",
+        "basisRequired": "Odaberite pravnu osnovu.",
+        "saveFailed": "Nije moguće spremiti ispravak opsega."
       }
     },
     "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
+      "description": "Zabilježite ovu administrativnu radnju, neobaveznu državnu naknadu i rokove podsjetnika.",
+      "generateProforma": "Generirajte predračun",
+      "governmentFee": "Državna pristojba (€)",
+      "paymentDueDate": "Rok plaćanja",
+      "paymentReminder": "Podsjetnik prije plaćanja",
+      "filingDeadline": "Rok za podnošenje / radnju",
+      "filingReminder": "Podsjeti prije podnošenja",
+      "reminderUnit": "Jedinica",
+      "months": "Mjesecima prije",
+      "days": "Danima prije",
       "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
+        "name_address_change": "Promjena imena i adrese zapisnika",
+        "transfer": "Prijavite prijenos zaštitnog znaka",
+        "license": "Log licencni ugovor",
+        "pledge": "Dnevnik posebnog zaloga",
+        "injunction": "Prijavite privremenu mjeru / zabranu",
+        "surrender": "Prijavite punu predaju / odricanje od odgovornosti",
+        "limitation": "Ograničenje aplikacije dnevnika",
+        "insolvency": "Prijavite nesolventnost/bankrot"
       },
       "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
+        "feeRequired": "Unesite državnu naknadu za generiranje predračuna.",
+        "saveFailed": "Nije moguće spremiti ovu radnju."
       }
+    },
+    "table": {
+      "title": "Sekundarne radnje",
+      "description": "Zabilježeni postupci za ovaj zaštitni znak. Otvorite mapu za pregled ili prijenos povezanih datoteka.",
+      "empty": "Još nema sekundarnih radnji. Upotrijebite sekundarne radnje u zaglavlju da biste je prijavili.",
+      "procedure": "Postupak",
+      "action": "Akcijski",
+      "loggedAt": "Prijavljen",
+      "viewAria": "Pogledajte detalje radnje",
+      "filesAria": "Otvori arhivu datoteka ({{count}} datoteka)"
+    },
+    "archive": {
+      "title": "Arhiva datoteka",
+      "empty": "Za ovu radnju još nema priloženih datoteka.",
+      "date": "Datum",
+      "regarding": "Što se tiče",
+      "regardingPlaceholder": "npr. Rješenje, proforma, popratno pismo",
+      "document": "Dokument",
+      "user": "Korisnik",
+      "attach": "Priloži dokument",
+      "upload": "Učitaj datoteku",
+      "download": "preuzimanje",
+      "regardingRequired": "Unesite na što se datoteka odnosi.",
+      "fileRequired": "Odaberite datoteku za prijenos.",
+      "uploadFailed": "Nije moguće učitati datoteku."
+    }
+  },
+  "list": {
+    "description": "Pregled portfelja svih datoteka — pretraživanje po naslovu, klijentu ili broju aplikacije.",
+    "descriptionPortal": "Datoteke otvorene za vašu organizaciju nakon konverzije unosa.",
+    "descriptionArchived": "Dovršene ili neaktivne datoteke čuvaju se za referencu.",
+    "descriptionOthers": "Datoteke izvan šest glavnih polica — filtrirajte prema vrsti posla u nastavku.",
+    "descriptionType": "{{type}} datoteke — tražite po naslovu, klijentu ili broju aplikacije.",
+    "filters": {
+      "allStatuses": "Svi statusi",
+      "allTypes": "Sve vrste radova",
+      "allOtherTypes": "Sve ostale vrste",
+      "active": "Aktivan",
+      "archived": "Arhivirano"
+    },
+    "intakeQueue": "Red čekanja za unos",
+    "pagination": {
+      "ofTotal": "od {{total}}"
+    },
+    "perPage": "{{count}} po stranici",
+    "searchPlaceholder": "Naslov pretraživanja, klijent, broj aplikacije…",
+    "title": "Datoteke",
+    "titleArchived": "Arhivirane datoteke",
+    "titleDrafts": "Nacrti",
+    "titleOthers": "Ostale datoteke",
+    "titlePortal": "Moje datoteke",
+    "descriptionDrafts": "Nacrti datoteka čekaju odobrenje ili arhiviranje — odvojeno od aktivnih zaštitnih znakova i drugih polica."
+  },
+  "trademarkList": {
+    "description": "Portfelj zaštitnih znakova — faza tužbe, klase, podnositelj zahtjeva i rokovi na prvi pogled.",
+    "descriptionMarks": "Novi i registrirani zaštitni znakovi — faza tužbe, klase, podnositelj zahtjeva i rokovi na prvi pogled.",
+    "descriptionProcedure": "{{procedure}} datoteke zaštitnih znakova — kratak pregled faze tužbe, klase i rokovi.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku zaštitnog znaka.",
+    "columns": {
+      "name": "Naziv zaštitnog znaka",
+      "territory": "Teritorija",
+      "incomingRef": "Prijava / ulazni br.",
+      "stage": "Stadij kaznenog progona",
+      "classes": "Lijepi tečajevi",
+      "applicant": "Podnositelj/vlasnik",
+      "markType": "Vrsta oznake",
+      "registration": "Reg. Ne. / datum",
+      "deadline": "Rok"
+    },
+    "deadlineOpen": "{{count}} otvoren",
+    "deadlineOverdue": "{{count}} kasni",
+    "deadlineNext": "Sljedeći: {{date}}",
+    "filters": {
+      "title": "Oznake filtera",
+      "subtitle": "Suzite portfelj prema kandidatu, brojevima, datumima, razredu i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili podnositelja zahtjeva…",
+      "markName": "Naziv zaštitnog znaka",
+      "markNamePlaceholder": "Označi naslov…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Reg. Ne.",
+      "regNoPlaceholder": "Registarski broj…",
+      "markType": "Vrsta oznake",
+      "markKind": "Mark ljubazni",
+      "territory": "Teritorija",
+      "representative": "Predstavnik",
+      "representativePlaceholder": "Ime predstavnika…",
+      "applicationDateFrom": "Datum prijave od",
+      "applicationDateTo": "Datum prijave do",
+      "registrationDateFrom": "Datum registracije od",
+      "registrationDateTo": "Datum registracije do",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "markStatus": "Označi status",
+      "niceClass": "Lijep razred",
+      "country": "Zemlja",
+      "hasCertificate": "Ima certifikat u prilogu",
+      "choose": "Odaberite",
+      "chooseClass": "Odaberite razred",
+      "chooseCountry": "Odaberite državu",
+      "all": "Sve",
+      "classOption": "Razred {{number}}",
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "utilityModelList": {
+    "description": "Korisni modeli — teritorij, potraživanja, vlasnik i registracija na prvi pogled.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku korisnog modela.",
+    "searchResults": "Rezultati pretraživanja: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registriran"
+    },
+    "columns": {
+      "name": "Ime",
+      "territory": "Teritorija",
+      "incomingRef": "Dolazni br. / datum",
+      "status": "Status",
+      "classes": "Nastava",
+      "owner": "Vlasnik",
+      "kind": "Vrsta",
+      "registration": "Reg. Ne. / datum"
+    },
+    "filters": {
+      "title": "Filtriranje korisnih modela",
+      "subtitle": "Suzite portfelj prema podnositelju zahtjeva, brojevima, datumima, teritoriju i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili vlasnika…",
+      "name": "Ime",
+      "namePlaceholder": "Naziv pomoćnog modela…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Registarski br.",
+      "regNoPlaceholder": "Registarski broj…",
+      "territory": "Teritorija",
+      "choose": "Odaberite",
+      "chooseTerritory": "Odaberite teritorij",
+      "representative": "Predstavnik",
+      "chooseRepresentative": "Odaberite predstavnika",
+      "applicationDate": "Datum prijave",
+      "registrationDate": "Datum registracije",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "status": "Status",
+      "certificate": "Potvrda",
+      "certificateOptions": {
+        "with": "Sa certifikatom",
+        "without": "Bez certifikata"
+      },
+      "statusOptions": {
+        "registered": "Registriran"
+      },
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "spcList": {
+    "description": "Certifikati dodatne zaštite — teritorij, zahtjevi, vlasnik i registracija na prvi pogled.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu SPC datoteku.",
+    "searchResults": "Rezultati pretraživanja: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registriran"
+    },
+    "columns": {
+      "name": "Ime",
+      "territory": "Teritorija",
+      "incomingRef": "Dolazni br. / datum",
+      "status": "Status",
+      "classes": "Nastava",
+      "owner": "Vlasnik",
+      "kind": "Vrsta",
+      "registration": "Reg. Ne. / datum"
+    },
+    "filters": {
+      "title": "Filtrirajte SPC datoteke",
+      "subtitle": "Suzite portfelj prema podnositelju zahtjeva, brojevima, datumima, teritoriju i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili vlasnika…",
+      "name": "Naziv patenta",
+      "namePlaceholder": "SPC naziv…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Registarski br.",
+      "regNoPlaceholder": "Registarski broj…",
+      "territory": "Teritorija",
+      "choose": "Odaberite",
+      "chooseTerritory": "Odaberite teritorij",
+      "representative": "Predstavnik",
+      "chooseRepresentative": "Odaberite predstavnika",
+      "applicationDate": "Datum prijave",
+      "registrationDate": "Datum registracije",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "status": "Status patenta",
+      "certificate": "Potvrda",
+      "certificateOptions": {
+        "with": "Sa certifikatom",
+        "without": "Bez certifikata"
+      },
+      "statusOptions": {
+        "registered": "Registriran"
+      },
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Sudski predmeti — stranke, broj predmeta, sud i status na prvi pogled.",
+    "emptyDescription": "Za početak izradite novi spis slučaja.",
+    "searchResults": "Rezultati pretraživanja: {{count}}",
+    "incomingSuffix": "dolazni",
+    "vrs": "vrs.",
+    "viewAria": "Prikaži {{title}}",
+    "filesAria": "Dokumenti za {{title}} ({{count}})",
+    "columns": {
+      "parties": "Stranke",
+      "caseNumber": "Slučaj br.",
+      "court": "Sud",
+      "status": "Status",
+      "actions": "Radnje"
+    },
+    "statusOptions": {
+      "suspended": "Suspendiran",
+      "scheduled": "Zakazano",
+      "inactive": "Neaktivan",
+      "appealed": "Uložio žalbu"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Klijent",
+    "caseNumberLabel": "Slučaj br.",
+    "statusTitle": "Status",
+    "chooseStatus": "Odaberite status",
+    "saveStatus": "Spremi status",
+    "edit": "Uredi",
+    "save": "Uštedjeti",
+    "cancel": "Otkazati",
+    "saving": "Spremanje...",
+    "editHint": "Ažurirajte podatke o strankama, pojedinostima o sudu, subjektu i drugim podacima o predmetu.",
+    "subjectTitle": "Predmet slučaja",
+    "instanceTitle": "Slučaj br. {{number}} ({{court}})",
+    "eventsTitle": "Događaji",
+    "reminderTitle": "Stvorite dodatni podsjetnik",
+    "addReminder": "Dodati",
+    "openArchive": "Arhiva datoteka",
+    "saved": "Spremljeno.",
+    "events": {
+      "date": "Datum",
+      "deadline": "Rok",
+      "regarding": "Što se tiče",
+      "info": "Dodatne informacije"
+    },
+    "actions": {
+      "decision": "Odluka",
+      "agreement": "Sporazum",
+      "ruling": "Vladajući"
+    },
+    "errors": {
+      "saveFailed": "Nije moguće spremiti detalje slučaja."
+    }
+  },
+  "giList": {
+    "description": "Oznake zemljopisnog podrijetla — teritorij, klase proizvoda, vlasnik i registracija na prvi pogled.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku s oznakom zemljopisnog podrijetla.",
+    "searchResults": "Rezultati pretraživanja: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registriran"
+    },
+    "columns": {
+      "name": "Ime",
+      "territory": "Teritorija",
+      "incomingRef": "Dolazni br. / datum",
+      "status": "Status",
+      "classification": "Klasifikacija",
+      "owner": "Vlasnik",
+      "registration": "Reg. Ne. / datum"
+    },
+    "filters": {
+      "title": "Filtrirajte zemljopisne oznake",
+      "subtitle": "Suzite portfelj prema prijavitelju, brojevima, datumima, teritorijalnoj ruti i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili vlasnika…",
+      "name": "Ime",
+      "namePlaceholder": "GI ime…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Registarski br.",
+      "regNoPlaceholder": "Registarski broj…",
+      "territory": "Teritorija",
+      "choose": "Odaberite",
+      "chooseTerritory": "Odaberite teritorijalnu rutu",
+      "representative": "Predstavnik",
+      "chooseRepresentative": "Odaberite predstavnika",
+      "applicationDate": "Datum prijave",
+      "registrationDate": "Datum registracije",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "status": "Status",
+      "certificate": "Potvrda",
+      "certificateOptions": {
+        "with": "Sa certifikatom",
+        "without": "Bez certifikata"
+      },
+      "country": "Zemlja",
+      "chooseCountry": "Odaberite državu",
+      "statusOptions": {
+        "registered": "Registriran"
+      },
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "designList": {
+    "description": "Registrirani dizajni — teritorij, klasifikacija u Locarnu, vlasnik i registracija na prvi pogled.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku dizajna.",
+    "searchResults": "Rezultati pretraživanja: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registriran"
+    },
+    "columns": {
+      "name": "Ime",
+      "territory": "Teritorija",
+      "incomingRef": "Dolazni br. / datum",
+      "status": "Status",
+      "classification": "Klasifikacija",
+      "owner": "Vlasnik",
+      "registration": "Reg. Ne. / datum"
+    },
+    "filters": {
+      "title": "Dizajni filtera",
+      "subtitle": "Suzite portfelj prema podnositelju zahtjeva, brojevima, datumima, postupku i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili vlasnika…",
+      "name": "Ime",
+      "namePlaceholder": "Naziv dizajna…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Registarski br.",
+      "regNoPlaceholder": "Registarski broj…",
+      "territory": "Teritorija",
+      "procedure": "Postupak",
+      "choose": "Odaberite",
+      "chooseTerritory": "Odaberite teritorij",
+      "representative": "Predstavnik",
+      "chooseRepresentative": "Odaberite predstavnika",
+      "applicationDate": "Datum prijave",
+      "registrationDate": "Datum registracije",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "status": "Status",
+      "certificate": "Potvrda",
+      "certificateOptions": {
+        "with": "Sa certifikatom",
+        "without": "Bez certifikata"
+      },
+      "country": "Zemlja",
+      "statusOptions": {
+        "registered": "Registriran"
+      },
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "patentList": {
+    "description": "Novi i registrirani patenti zajedno — faza tužbe, zahtjevi, vlasnik i rokovi na prvi pogled.",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu patentnu datoteku.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Naziv patenta",
+      "territory": "Teritorija",
+      "incomingRef": "Prijava / ulazni br.",
+      "stage": "Status",
+      "claims": "Potraživanja",
+      "owner": "Vlasnik",
+      "registration": "Reg. Ne. / datum",
+      "deadline": "Rok"
+    },
+    "deadlineOpen": "{{count}} otvoren",
+    "deadlineOverdue": "{{count}} kasni",
+    "deadlineNext": "Sljedeći: {{date}}",
+    "filters": {
+      "title": "Filtrirajte patente",
+      "subtitle": "Suzite portfelj prema podnositelju zahtjeva, brojevima, datumima, teritoriju i još mnogo toga.",
+      "activeCount": "{{count}} aktivno",
+      "applicant": "Podnositelj/vlasnik",
+      "applicantPlaceholder": "Ime klijenta ili vlasnika…",
+      "patentName": "Naziv patenta",
+      "patentNamePlaceholder": "Naslov patenta…",
+      "incomingNo": "Dolazni br.",
+      "incomingPlaceholder": "Prijava / dolazna…",
+      "regNo": "Reg. Ne.",
+      "regNoPlaceholder": "Registarski broj…",
+      "territory": "Teritorija",
+      "choose": "Odaberite",
+      "chooseTerritory": "Odaberite teritorij",
+      "representative": "Predstavnik",
+      "chooseRepresentative": "Odaberite predstavnika",
+      "applicationDateFrom": "Datum prijave od",
+      "applicationDateTo": "Datum prijave do",
+      "registrationDateFrom": "Datum registracije od",
+      "registrationDateTo": "Datum registracije do",
+      "contact": "Kontakt osoba",
+      "contactPlaceholder": "Ime kontakta, e-mail ili telefon…",
+      "patentStatus": "Status patenta",
+      "certificate": "Potvrda",
+      "certificateOptions": {
+        "with": "Sa certifikatom",
+        "without": "Bez certifikata"
+      },
+      "country": "Zemlja",
+      "chooseCountry": "Odaberite državu",
+      "annualFees": "Plaćanje godišnje naknade",
+      "annualFeesOptions": {
+        "yes": "Da",
+        "no": "Ne"
+      },
+      "statusOptions": {
+        "validation_received": "Primljena potvrda",
+        "assignment": "Zadatak",
+        "translation_assigned": "Dodijeljeni prijevod",
+        "filing_entry": "Podnošenje / unos",
+        "validation_decision": "Odluka o validaciji",
+        "registered": "Registriran"
+      },
+      "all": "Sve",
+      "clear": "Očisti filtre",
+      "apply": "Primijeni filtre"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Oznake"
+  },
+  "objectionList": {
+    "view": "Pogled",
+    "fileArchive": "Arhiva datoteka",
+    "viewAria": "Pogledaj prigovor {{title}}",
+    "filesAria": "Otvori arhivu datoteka za {{title}} ({{count}} datoteke)",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku prigovora.",
+    "columns": {
+      "againstMark": "Protiv oznake",
+      "grounds": "Temelji",
+      "client": "Klijent",
+      "status": "Status",
+      "actions": "Radnje"
+    }
+  },
+  "oppositionList": {
+    "view": "Pogled",
+    "fileArchive": "Arhiva datoteka",
+    "viewAria": "Pogledaj protivljenje {{title}}",
+    "filesAria": "Otvorite arhivu datoteke protivljenja za {{title}} ({{count}} datoteke)",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu oporbenu datoteku.",
+    "columns": {
+      "againstMark": "Protiv oznake",
+      "client": "Klijent",
+      "status": "Status",
+      "actions": "Radnje"
+    },
+    "stages": {
+      "disputes_division": "Opozicija u podjeli sporova",
+      "opposition_decision": "Odluka opozicije",
+      "disputes_department_decision": "Odluka odjela za sporove",
+      "case": "Spis",
+      "stopped": "Zaustavljeno",
+      "closed": "Zatvoreno"
+    },
+    "stageLegend": {
+      "disputes_division": "Plavo — u razmatranju u odjelu za sporove",
+      "opposition_decision": "Jantar — odluka izdana ili na čekanju",
+      "disputes_department_decision": "Narančasto — odluka na razini odjela",
+      "case": "Crveno — eskalirao do sudskog postupka",
+      "stopped": "Gray — postupak pauziran",
+      "closed": "Zeleno — opozicija gotova"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Prigovor",
+    "basicInfo": "Osnovne informacije",
+    "foundation": "Temelj",
+    "archiveTitle": "Arhiva prigovora",
+    "nav": {
+      "view": "Pogled",
+      "archive": "Arhiva datoteka"
+    },
+    "markName": "Naziv zaštitnog znaka",
+    "applicationNumber": "Broj prijave",
+    "applicationDate": "Datum prijave",
+    "classes": "Nastava",
+    "markType": "Vrsta zaštitnog znaka",
+    "applicant": "Podnositelj zahtjeva",
+    "noMarkImage": "Zaštitni znak nema sliku",
+    "grounds": "Temelj",
+    "submissionDate": "Datum podnošenja",
+    "incomingNumber": "Dolazni broj",
+    "poaIncomingNumber": "Ulazni broj punomoći",
+    "poaDate": "Datum",
+    "edit": "Uredi",
+    "cancel": "Otkazati",
+    "save": "Spremite promjene",
+    "saving": "Spremanje...",
+    "errors": {
+      "markNameRequired": "Naziv zaštitnog znaka je obavezan.",
+      "saveFailed": "Nije moguće spremiti prigovor."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Opozicija",
+    "subjectMark": "Predmetni zaštitni znak",
+    "opposingMarks": "Suprotstavljeni zaštitni znakovi",
+    "archiveTitle": "Arhiva dosjea oporbe",
+    "nav": {
+      "view": "Pogled",
+      "archive": "Arhiva datoteka",
+      "notes": "Bilješke"
+    },
+    "markName": "Naziv zaštitnog znaka",
+    "applicationNumber": "Broj prijave",
+    "applicationDate": "Datum prijave",
+    "classes": "Nastava",
+    "markType": "Vrsta zaštitnog znaka",
+    "applicant": "Podnositelj zahtjeva",
+    "representative": "Predstavnik",
+    "noMarkImage": "Zaštitni znak nema sliku",
+    "noBasisMarks": "Nema zabilježenih suprotnih zaštitnih znakova.",
+    "basisMarkName": "Naziv zaštitnog znaka",
+    "basisTerritory": "Teritorija",
+    "basisMarkNo": "Oznaka br.",
+    "basisAppDate": "Datum prijave",
+    "basisClasses": "Nastava",
+    "againstClasses": "Protiv klasa",
+    "submittedBy": "Predao",
+    "statusHistory": "Povijest stanja",
+    "stage": "Status",
+    "stagePlaceholder": "Odaberite status…",
+    "stageNone": "Nije postavljeno",
+    "stageChangeHint": "Spremanje novog statusa ažurira značku u boji na popisu protivljenja, dodaje redak u povijest statusa i postavlja stvar na Na čekanju (Zaustavljeno) ili Zatvoreno kada je primjenjivo.",
+    "decisionNumber": "Broj odluke",
+    "decisionDate": "Datum odluke",
+    "actions": {
+      "stop": "Stop",
+      "print": "Ispiši PDF",
+      "printing": "Generiranje...",
+      "stopFailed": "Nije mogao zaustaviti opoziciju.",
+      "printFailed": "Nije moguće generirati PDF."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Prigovor ispituje Odjel za sporove.",
+      "opposition_decision": "Odluka o prigovoru je donesena ili se očekuje.",
+      "disputes_department_decision": "Odjel za sporove donio je ili preispituje svoju odluku.",
+      "case": "Stvar je eskalirala do sudskog postupka.",
+      "stopped": "Postupak prigovora je zaustavljen; stvar je postavljena na Na čekanju.",
+      "closed": "Opozicija je gotova; predmet je postavljen na Zatvoreno."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Oporba u podjeli sporova",
+      "opposition_decision": "Odluka o prigovoru br. {{number}} / {{date}}",
+      "disputes_department_decision": "Odluka odjela za sporove br. {{number}} / {{date}}",
+      "case": "Uložena žalba na odluku o prigovoru br. {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Opozicija prekinuta",
+      "closed": "{{markRef}} — Prigovor zatvoren"
+    },
+    "timeline": {
+      "decision": "Odluka o prigovoru",
+      "department_decision": "Odluka odjela za sporove",
+      "second_decision": "Druga odluka o prigovoru",
+      "appealedBy": "Žalio se {{name}}",
+      "appealedInCourtBy": "{{name}} uložio žalbu sudu",
+      "decisionRef": "Br. {{number}} / {{date}}",
+      "appealFiled": "Podnesena žalba",
+      "courtAppealFiled": "Podnesena žalba sudu"
+    },
+    "workflow": {
+      "appealTitle": "Žalba — dolazni broj",
+      "correspondenceTitle": "dopisivanje",
+      "solutionTitle": "Otopina",
+      "incomingNumber": "Dolazni broj",
+      "date": "Datum",
+      "attachAppeal": "Priloži žalbu",
+      "attachDocument": "Priloži dokument",
+      "regarding": "Što se tiče",
+      "deadline": "Rok",
+      "additionalInfo": "Dodatne informacije",
+      "correspondence": "dopisivanje",
+      "submit": "Pošalji",
+      "solutionSubmit": "Otopina",
+      "caseDraft": "Nacrt slučaja",
+      "courtAppeal": "Žalba sudu",
+      "saveFailed": "Nije moguće spremiti."
+    },
+    "edit": "Uredi",
+    "cancel": "Otkazati",
+    "save": "Spremite promjene",
+    "saving": "Spremanje...",
+    "errors": {
+      "markNameRequired": "Naziv zaštitnog znaka je obavezan.",
+      "saveFailed": "Nije mogao spasiti opoziciju."
+    },
+    "notes": {
+      "title": "Oporbene bilješke",
+      "empty": "Još nema bilješki.",
+      "date": "Datum",
+      "regarding": "Što se tiče",
+      "details": "Dodatne informacije",
+      "submit": "Dodati",
+      "regardingRequired": "Unesite predmet za bilješku.",
+      "saveFailed": "Nije moguće spremiti bilješku.",
+      "editAria": "Uredi bilješku",
+      "deleteAria": "Izbriši bilješku"
+    }
+  },
+  "cancellationList": {
+    "view": "Pregled",
+    "fileArchive": "Datoteke",
+    "viewAria": "Prikaži otkazivanje {{title}}",
+    "filesAria": "Otvorite arhivu datoteke otkazivanja za {{title}} ({{count}} datoteke)",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku za otkazivanje.",
+    "stageNone": "Nije postavljeno",
+    "columns": {
+      "againstMark": "Protiv robne marke",
+      "client": "Klijent",
+      "status": "Status",
+      "actions": "Radnje"
+    },
+    "stages": {
+      "waiting_for_login": "Čekanje na prijavu",
+      "in_correspondence": "U dopisivanju",
+      "case": "Spis",
+      "stopped": "Zaustavljeno",
+      "closed": "Zatvoreno"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Otkazivanje",
+    "subjectMark": "Predmetni zaštitni znak",
+    "cancellationSide": "Detalji otkazivanja",
+    "archiveTitle": "Arhiva datoteke za otkazivanje",
+    "nav": {
+      "view": "Pogled",
+      "archive": "Arhiva datoteka",
+      "notes": "Bilješke"
+    },
+    "markName": "Naziv zaštitnog znaka",
+    "applicationNumber": "Broj prijave",
+    "applicationDate": "Datum prijave",
+    "registrationNumber": "Matični broj",
+    "classes": "Nastava",
+    "markType": "Vrsta oznake",
+    "applicant": "Podnositelj zahtjeva",
+    "representative": "Predstavnik",
+    "againstClasses": "Protiv klasa",
+    "submittedBy": "Predao",
+    "foundation": "Temelj",
+    "stage": "Status",
+    "stagePlaceholder": "Odaberite status…",
+    "stageNone": "Nije postavljeno",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Otkazivanje",
+      "in_correspondence": "Otkaz br. {{number}} / {{date}}",
+      "case": "Otkaz br. {{number}} / {{date}} — Predmet",
+      "stopped": "{{markRef}} — Otkazivanje zaustavljeno",
+      "closed": "{{markRef}} — Otkazivanje zatvoreno"
+    },
+    "deadlines": {
+      "date": "Datum",
+      "deadline": "Rok",
+      "regarding": "Što se tiče",
+      "details": "Dodatne informacije"
+    },
+    "workflow": {
+      "feeTitle": "Državna pristojba — datum plaćanja",
+      "poaTitle": "Punomoć",
+      "filingTitle": "Prijava otkaza",
+      "correspondenceTitle": "dopisivanje",
+      "feeAmount": "Iznos (BGN)",
+      "feeDate": "Datum plaćanja",
+      "poaNumber": "POA broj",
+      "poaDate": "Datum primitka",
+      "cancellationNumber": "Broj poništenja",
+      "filingDate": "Datum podnošenja",
+      "attachDocument": "Priloži dokument",
+      "attachPoa": "Priloži POA",
+      "regarding": "Što se tiče",
+      "deadline": "Rok",
+      "additionalInfo": "Dodatne informacije",
+      "submit": "Pošalji",
+      "decision": "Odluka",
+      "feePaid": "Državna pristojba evidentirana",
+      "poaReceived": "Punomoć evidentirana",
+      "filingRecorded": "Zabilježen otkazni zahtjev",
+      "correspondence": "dopisivanje",
+      "saveFailed": "Nije moguće spremiti."
+    },
+    "actions": {
+      "stop": "Stop",
+      "stopFailed": "Nije moguće zaustaviti otkazivanje."
+    },
+    "edit": "Uredi",
+    "cancel": "Otkazati",
+    "save": "Spremite promjene",
+    "saving": "Spremanje...",
+    "errors": {
+      "markNameRequired": "Naziv zaštitnog znaka je obavezan.",
+      "saveFailed": "Nije moguće spremiti otkazivanje."
+    },
+    "notes": {
+      "title": "Bilješke o otkazu",
+      "empty": "Još nema bilješki.",
+      "date": "Datum",
+      "regarding": "Što se tiče",
+      "details": "Dodatne informacije",
+      "submit": "Dodati",
+      "regardingRequired": "Unesite predmet za bilješku.",
+      "saveFailed": "Nije moguće spremiti bilješku.",
+      "editAria": "Uredi bilješku",
+      "deleteAria": "Izbriši bilješku"
+    }
+  },
+  "deletionList": {
+    "view": "Pregled",
+    "fileArchive": "Datoteke",
+    "viewAria": "Prikaži brisanje {{title}}",
+    "filesAria": "Otvorite arhivu datoteka za brisanje za {{title}} ({{count}} datoteke)",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili izradite novu datoteku za brisanje.",
+    "stageNone": "Nije postavljeno",
+    "columns": {
+      "againstMark": "Protiv robne marke",
+      "client": "Klijent",
+      "status": "Status",
+      "actions": "Radnje"
+    },
+    "stages": {
+      "waiting_for_login": "Pošaljite brisanje",
+      "in_correspondence": "U dopisivanju",
+      "decision": "Odluka",
+      "case": "Spis",
+      "stopped": "Zaustavljeno",
+      "closed": "Zatvoreno"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Brisanje",
+    "subjectMark": "Predmetni zaštitni znak",
+    "deletionSide": "Pojedinosti o brisanju",
+    "archiveTitle": "Arhiva datoteke za brisanje",
+    "archivedStamp": "Arhivirano",
+    "noMarkImage": "Zaštitni znak nema sliku",
+    "nav": {
+      "view": "Pogled",
+      "archive": "Arhiva datoteka"
+    },
+    "markName": "Naziv zaštitnog znaka",
+    "applicationNumber": "Broj prijave",
+    "applicationDate": "Datum prijave",
+    "registrationNumber": "Matični broj",
+    "classes": "Nastava",
+    "markType": "Vrsta oznake",
+    "applicant": "Podnositelj zahtjeva",
+    "representative": "Predstavnik",
+    "againstClasses": "Protiv klasa",
+    "submittedBy": "Predao",
+    "foundation": "Temelj",
+    "stage": "Status",
+    "stagePlaceholder": "Odaberite status…",
+    "stageNone": "Nije postavljeno",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Brisanje",
+      "in_correspondence": "Brisanje br. {{number}} / {{date}}",
+      "decision": "Odluka o brisanju br. {{number}} / {{date}}",
+      "case": "Odluka o brisanju br. {{number}} / {{date}} — Predmet",
+      "stopped": "{{markRef}} — Zaustavljeno (do {{stopUntil}})",
+      "closed": "{{markRef}} — Brisanje je zatvoreno"
+    },
+    "deadlines": {
+      "date": "Datum podsjetnika",
+      "deadline": "Rok",
+      "regarding": "Što se tiče",
+      "details": "Dodatne informacije",
+      "appealTitle": "Rok za žalbu"
+    },
+    "stopped": {
+      "title": "Zaustavljeno",
+      "until": "(do {{date}})",
+      "reason": "Razlog: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Generiraj proformu",
+      "stateFee": "Državna pristojba",
+      "feePaymentDeadline": "Rok plaćanja",
+      "poaSendDeadline": "Rok za slanje punomoći",
+      "filingDeadlineLabel": "Rok za prijavu",
+      "remindBefore": "Podsjeti prije",
+      "reminderDays": "dana",
+      "reminderMonths": "mjeseci",
+      "feeDeadlineRegarding": "Rok za plaćanje državne pristojbe",
+      "poaDeadlineRegarding": "Rok za slanje punomoći",
+      "filingDeadlineRegarding": "Rok za podnošenje zahtjeva za brisanje",
+      "proformaRecorded": "Proforma i rokovi evidentirani",
+      "feeTitle": "Državna pristojba — datum plaćanja",
+      "poaTitle": "Punomoć",
+      "filingTitle": "Prijava brisanja",
+      "correspondenceTitle": "dopisivanje",
+      "decisionTitle": "Odluka o brisanju",
+      "feeAmount": "Iznos (BGN)",
+      "feeDate": "Datum plaćanja",
+      "poaNumber": "POA broj",
+      "poaDate": "Datum primitka",
+      "deletionNumber": "Broj brisanja",
+      "filingDate": "Datum podnošenja",
+      "decisionNumber": "Broj odluke",
+      "decisionDate": "Datum odluke",
+      "attachDocument": "Priloži dokument",
+      "attachPoa": "Priloži POA",
+      "regarding": "Što se tiče",
+      "deadline": "Rok",
+      "additionalInfo": "Dodatne informacije",
+      "submit": "Pošalji",
+      "decision": "Odluka",
+      "caseDraft": "Nacrt slučaja",
+      "notAppealed": "Nije uložena žalba",
+      "appealed": "Uložio žalbu",
+      "feePaid": "Državna pristojba evidentirana",
+      "poaReceived": "Punomoć evidentirana",
+      "filingRecorded": "Zabilježena je prijava brisanja",
+      "decisionRecorded": "Odluka o brisanju zabilježena",
+      "correspondence": "dopisivanje",
+      "decisionNumberRequired": "Unesite broj rješenja.",
+      "saveFailed": "Nije moguće spremiti."
+    },
+    "actions": {
+      "stop": "Stop",
+      "stopReason": "Razlog",
+      "stopUntil": "Zaustavljen do",
+      "restore": "Vratiti",
+      "restored": "Obnovljena",
+      "archive": "Arhiva",
+      "archiveConfirm": "Arhivirati ovu datoteku za brisanje?",
+      "archiveFailed": "Nije moguće arhivirati brisanje.",
+      "stopFailed": "Nije moguće zaustaviti brisanje.",
+      "restoreFailed": "Nije moguće vratiti brisanje."
+    },
+    "edit": "Uredi",
+    "cancel": "Otkazati",
+    "save": "Spremite promjene",
+    "saving": "Spremanje...",
+    "errors": {
+      "markNameRequired": "Naziv zaštitnog znaka je obavezan.",
+      "saveFailed": "Nije moguće spremiti brisanje."
+    }
+  },
+  "ipRightsRegister": {
+    "description": "Registar prava intelektualnog vlasništva za cijelu tvrtku s filtrima prema klijentu, jurisdikciji, vrsti, statusu i isteku.",
+    "empty": "Za ove filtre nisu pronađena IP prava.",
+    "filters": {
+      "all": "Sve",
+      "allClients": "Svi klijenti",
+      "allJurisdictions": "Sve jurisdikcije",
+      "allStatuses": "Svi statusi",
+      "allTypes": "Sve vrste",
+      "client": "Klijent",
+      "expiryFrom": "Istek od",
+      "expiryTo": "Istek do",
+      "jurisdiction": "Nadležnost",
+      "matterType": "Vrsta rada",
+      "status": "Status"
+    },
+    "loading": "učitavanje...",
+    "table": {
+      "applicationNo": "Zahtjev br.",
+      "client": "Klijent",
+      "expiry": "Istek",
+      "ipRight": "IP pravo",
+      "jurisdiction": "Nadležnost",
+      "matter": "Materija",
+      "status": "Status",
+      "type": "Tip"
+    },
+    "title": "Registar prava intelektualnog vlasništva"
+  },
+  "markType": {
+    "combined": "Kombinirano",
+    "combination_of_colors": "Kombinacija boja",
+    "figurative": "Figurativno",
+    "sound": "Zvuk",
+    "three_dimensional": "3D",
+    "wordmark": "Riječna oznaka"
+  },
+  "overview": {
+    "assignedTo": "Glavni odvjetnik",
+    "applicant": "Podnositelj/Nositelj prava (vlasnik)",
+    "client": "Klijent",
+    "clientHint": "Nalogodavac — prima račune",
+    "intermediary": "Posrednik",
+    "description": "Opis",
+    "edit": {
+      "cancel": "Otkazati",
+      "edit": "Uredi",
+      "errors": {
+        "saveFailed": "Nije moguće spremiti detalje datoteke.",
+        "title": "Naslov je obavezan."
+      },
+      "fields": {
+        "territory": "Teritorij (iz kreirane datoteke)",
+        "title": "Titula"
+      },
+      "hint": "Pritisnite Uredi za promjenu pojedinosti o datoteci, zatim Spremi promjene. Teritorij ostaje kao postavljen kada je datoteka stvorena.",
+      "save": "Spremite promjene",
+      "saved": "Spremljeno.",
+      "saving": "Spremanje...",
+      "title": "Pojedinosti datoteke"
+    },
+    "jurisdictions": "Nadležnosti",
+    "jurisdictionsEmpty": "Nema zabilježenih nadležnosti.",
+    "openedBy": "Otvorio",
+    "status": "Status",
+    "table": {
+      "country": "Zemlja",
+      "localRef": "Lokalni ref.",
+      "status": "Status"
+    },
+    "title": "Pojedinosti datoteke",
+    "type": "Vrsta rada",
+    "typeSpecific": "Atributi specifični za tip"
+  },
+  "parties": {
+    "title": "Stranke",
+    "hint": "Klijent je taj koji vas instruira i dobiva račun. Podnositelj zahtjeva / Nositelj prava (vlasnik) i posrednik postavite samo kada se razlikuju od klijenta.",
+    "applicant": "Podnositelj/Nositelj prava (vlasnik)",
+    "applicantHint": "Pravni vlasnik zaštitnog znaka, patenta ili drugog IP-a. Zadana je za klijenta kada ostane prazna.",
+    "intermediary": "Posrednik (nije obavezno)",
+    "intermediaryHint": "Stranka koja šalje radove u ime druge osobe, ako nije klijent.",
+    "searchPlaceholder": "Traži klijente…",
+    "clear": "Jasan"
+  },
+  "status": {
+    "abandoned": "Napuštena",
+    "active": "Aktivan",
+    "closed": "Zatvoreno",
+    "draft": "Nacrt",
+    "on_hold": "Na čekanju"
+  },
+  "table": {
+    "assigned": "Dodijeljeno",
+    "client": "Klijent",
+    "created": "Stvoreno",
+    "deadlines": "Rokovi",
+    "empty": "Nije pronađen nijedan problem",
+    "emptyDescription": "Pokušajte prilagoditi filtre ili otvorite novu temu.",
+    "emptyPortal": "Još nijedna stvar nije podijeljena s vama.",
+    "error": "Učitavanje predmeta nije uspjelo.",
+    "jurisdiction": "Nadležnost",
+    "jurisdictions": "Nadležnosti",
+    "leadAttorney": "Glavni odvjetnik",
+    "status": "Status",
+    "title": "Titula",
+    "type": "Tip",
+    "upcoming": "{{count}} nadolazeće",
+    "viewAria": "Prikaži {{title}}"
+  },
+  "tabs": {
+    "billing": "Naplata",
+    "correspondence": "dopisivanje",
+    "deadlines": "Rokovi",
+    "documents": "Dokumenti",
+    "instructions": "upute",
+    "approvals": "Odobrenja",
+    "ipRights": "IP prava",
+    "secondaryActions": "Sekundarne radnje",
+    "customs": "Običaji",
+    "overview": "Pregled",
+    "tasks": "Bilješke",
+    "timeline": "Vremenska crta",
+    "countAria": "{{count}} dana {{tab}}"
+  },
+  "approvals": {
+    "title": "Odobrenja klijenata",
+    "subtitle": "Nacrtajte i podnesite zahtjeve za odobrenje za klijentski portal.",
+    "newDraft": "Novi nacrt",
+    "loading": "Učitavanje odobrenja...",
+    "loadError": "Učitavanje odobrenja nije uspjelo.",
+    "empty": "Još nema zahtjeva za odobrenje.",
+    "noPermission": "Nemate dopuštenje za pregled odobrenja za ovu stvar.",
+    "decisionNote": "Napomena za klijenta: {{note}}",
+    "columns": {
+      "title": "Titula",
+      "status": "Status",
+      "dueDate": "Duge",
+      "created": "Stvoreno"
+    },
+    "status": {
+      "draft": "Nacrt",
+      "pending": "Na čekanju",
+      "approved": "Odobreno",
+      "rejected": "Odbijen"
+    },
+    "actions": {
+      "submit": "Pošalji"
+    },
+    "drawer": {
+      "createTitle": "Novi zahtjev za odobrenje",
+      "title": "Titula",
+      "description": "Opis",
+      "dueDate": "Datum dospijeća",
+      "cancel": "Otkazati",
+      "create": "Napravi nacrt"
+    },
+    "errors": {
+      "titleRequired": "Naslov je obavezan",
+      "saveFailed": "Izrada odobrenja nije uspjela"
+    }
+  },
+  "tasks": {
+    "add": "Dodaj bilješku",
+    "assignedTo": "Dodijeljeno",
+    "assignedToUser": "Dodijeljeno {{name}}",
+    "completed": "Završeno",
+    "completedByUser": "Dovršio {{name}}",
+    "confirmComplete": "Označiti ovu bilješku kao dovršenu?",
+    "confirmDelete": "Izbrisati ovu bilješku?",
+    "delete": "Izbrisati",
+    "deleteMessage": "Ova će bilješka biti trajno uklonjena.",
+    "deleteTitle": "Izbrisati bilješku?",
+    "description": "Interne bilješke o ovom pitanju — odvojeno od rokova koje generira sustav.",
+    "drawerTitle": "Dodaj bilješku",
+    "dueOn": "Rok {{date}}",
+    "empty": "Nema napomena o ovom pitanju.",
+    "emptyOpen": "Nema otvorenih bilješki. Dodajte jedan kada bude bilo što za pratiti po ovom pitanju.",
+    "error": "Učitavanje bilješki nije uspjelo.",
+    "errorCreate": "Stvaranje bilješke nije uspjelo",
+    "form": {
+      "assigneeLabel": "Dodijeljeno",
+      "assigneeRequired": "Odaberite za koga je ova bilješka",
+      "dueDateOptional": "Datum dospijeća (nije obavezno)",
+      "notesOptional": "Bilješke (nije obavezno)",
+      "notesPlaceholder": "Svaki dodatni kontekst za opunomoćenika",
+      "priorityLabel": "Prioritet",
+      "titleLabel": "Što treba učiniti",
+      "titlePlaceholder": "npr. Nazovite klijenta re: BPO odgovor",
+      "titleRequired": "Naslov je obavezan"
+    },
+    "loading": "Učitavanje bilješki...",
+    "markComplete": "Označi kao dovršeno",
+    "noDueDate": "Nema roka",
+    "open": "Otvoriti",
+    "priority": {
+      "high": "visoko",
+      "normal": "Normalan"
+    },
+    "title": "Bilješke"
+  },
+  "timeline": {
+    "description": "Kronološka povijest kaznenog progona i prepiska o ovom pitanju.",
+    "empty": "Još nema događaja na vremenskoj traci. Prijavite korespondenciju ili podnesite prijavu da biste vidjeli aktivnost ovdje.",
+    "error": "Učitavanje vremenske trake nije uspjelo.",
+    "eventType": {
+      "correspondence": "dopisivanje",
+      "deadline": "Rok",
+      "filing": "Turpijanje",
+      "note": "Bilješka",
+      "task": "Zadatak"
+    },
+    "loading": "Učitavanje vremenske trake…",
+    "loggedBy": "Zabilježio {{name}}",
+    "title": "Vremenska crta"
+  },
+  "type": {
+    "border_measures": "Granične mjere",
+    "cases": "Slučajevi",
+    "consultation": "Konzultacije",
+    "copyright": "Autorska prava",
+    "dispute_opposition": "Spor / opozicija",
+    "domain": "Domene",
+    "fto_analysis": "FTO analiza",
+    "geographical_indication": "Oznake zemljopisnog podrijetla",
+    "industrial_design": "Dizajn",
+    "litigation_expert_report": "Parnice / Izvještaji sudskih vještaka",
+    "official_fee_payment": "Službena plaćanja naknada",
+    "other": "ostalo",
+    "patent": "Patent",
+    "trademark": "Zaštitni znak",
+    "utility_model": "Korisni model",
+    "valuation": "Vrijednost"
+  },
+  "attributeFields": {
+    "selectPlaceholder": "Odaberite…",
+    "title": "Detalji specifični za tip"
+  },
+  "otherMatterSpine": {
+    "sectionTitle": "Referenca datoteke i status",
+    "incomingNumber": {
+      "label": "Dolazni br."
+    },
+    "incomingDate": {
+      "label": "Datum dolaska"
+    },
+    "territoryRoute": {
+      "label": "Put teritorija",
+      "options": {
+        "national_bg": "Bugarska (nacionalna)",
+        "eu": "Europska unija",
+        "wipo": "WIPO / međunarodni",
+        "international": "Ostali međunarodni"
+      }
+    },
+    "authorityOffice": {
+      "label": "Tijelo / ured"
+    },
+    "relatedApplicationNumber": {
+      "label": "Povezana prijava br."
+    },
+    "workflowStage": {
+      "label": "Faza tijeka rada",
+      "options": {
+        "intake": "Unos",
+        "analysis": "Analiza",
+        "contract_draft": "Ugovor / nacrt",
+        "filed": "Podneseno",
+        "closed": "Zatvoreno",
+        "registration": "Registracija",
+        "active": "Aktivan",
+        "seizure_pending": "Zapljena u tijeku",
+        "scoping": "Određivanje opsega",
+        "search": "Pretraživanje",
+        "draft_report": "Nacrt izvješća",
+        "delivered": "Isporučeno",
+        "archived": "Arhivirano",
+        "pre_dispute": "Prije spora",
+        "hearing": "Sluh",
+        "decision": "Odluka",
+        "appeal": "Apel",
+        "monitoring": "Praćenje",
+        "dispute": "spor",
+        "udrp": "UDRP",
+        "resolved": "Riješeno",
+        "engaged": "Zaručen",
+        "draft": "Nacrt",
+        "submitted": "Poslano",
+        "requested": "Zatraženo",
+        "in_progress": "U tijeku",
+        "invoiced": "Fakturirano",
+        "pending": "Na čekanju",
+        "paid": "Plaćeno",
+        "reimbursed": "Naknađeno",
+        "open": "Otvoriti"
+      }
+    }
+  },
+  "otherMatterView": {
+    "edit": "Uredi",
+    "save": "Uštedjeti",
+    "cancel": "Otkazati",
+    "saving": "Spremanje...",
+    "editHint": "Ažurirajte referencu datoteke, fazu tijeka rada i detalje specifične za vrstu.",
+    "clientLabel": "Klijent",
+    "detailsTitle": "{{type}} pojedinosti",
+    "errors": {
+      "saveFailed": "Nije moguće spremiti detalje datoteke."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Stvorite novu drugu datoteku ili prilagodite filtre.",
+    "viewAria": "Prikaži {{title}}",
+    "filesAria": "Dokumenti za {{title}} ({{count}})",
+    "columns": {
+      "type": "Tip",
+      "subject": "Predmet",
+      "client": "Klijent",
+      "incoming": "Dolazni ref.",
+      "stage": "Pozornica",
+      "deadline": "Ključni datum",
+      "actions": "Radnje"
     }
   }
 }

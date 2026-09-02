@@ -12,7 +12,7 @@
     "title": "Vaata märguannet",
     "back": "Tagasi vaatamise tööloendisse",
     "loading": "Hoiatuse laadimine…",
-    "notFound": "Vaata hoiatust ei leitud.",
+    "notFound": "Vaata märguannet ei leitud.",
     "watchedMark": "Vaadatud märk",
     "conflictingMark": "Vastuoluline märk",
     "registrySource": "Registri allikas",
@@ -32,7 +32,7 @@
   },
   "clientTab": {
     "title": "Vaata profiile",
-    "description": "Jälgige registrites kanoonilisi jurisdiktsiooni koode (BG, EL, EP).",
+    "description": "Jälgige märke registrites, kasutades kanoonilisi jurisdiktsiooni koode (BG, EL, EP).",
     "add": "Lisage kaubamärgiga kell",
     "empty": "Vaatamisprofiile pole veel. Lisage profiil, et alustada selle kliendi märkide jälgimist.",
     "loading": "Kellaprofiilide laadimine…",
@@ -54,7 +54,7 @@
     "niceClasses": "Toredad klassid",
     "niceClassesPlaceholder": "nt. 32, 33",
     "frequency": "Skaneerimise sagedus",
-    "save": "Salvesta kellaprofiil"
+    "save": "Salvestage kellaprofiil"
   },
   "filters": {
     "status": "Olek",

@@ -38,6 +38,6 @@
     "publishFailed": "Avaldamine ebaõnnestus",
     "archiveFailed": "Arhiivimine ebaõnnestus",
     "saveFailed": "Pretsedenti ei õnnestunud salvestada",
-    "requiredFields": "Pealkiri, kategooria ja keha on kohustuslikud"
+    "requiredFields": "Pealkiri, kategooria ja keha on nõutavad"
   }
 }

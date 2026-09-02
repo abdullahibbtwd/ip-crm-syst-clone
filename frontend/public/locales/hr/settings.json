@@ -20,10 +20,10 @@
       "setupFailed": "Pokretanje 2FA postavljanja nije uspjelo"
     },
     "setup": {
-      "description": "Dodajte dodatni sloj sigurnosti zahtijevajući 6-znamenkasti kod od aplikacije za provjeru autentičnosti (Google Authenticator, Authy itd.) kada se prijavite.",
+      "description": "Dodajte dodatni sloj sigurnosti zahtijevajući 6-znamenkasti kod od aplikacije za autentifikaciju (Google Authenticator, Authy itd.) kada se prijavite.",
       "manualKey": "Ili unesite ovaj ključ ručno",
       "scanQr": "1. Skenirajte ovaj QR kod",
-      "scanQrHint": "Otvorite aplikaciju za autentifikaciju i skenirajte kod u nastavku.",
+      "scanQrHint": "Otvorite svoju aplikaciju za autentifikaciju i skenirajte kod u nastavku.",
       "verify": "2. Potvrdite 6-znamenkastim kodom",
       "verifyHint": "Unesite kod prikazan u vašoj aplikaciji da potvrdite postavku."
     }
@@ -138,7 +138,7 @@
   "systemHealth": {
     "title": "Zdravlje sustava",
     "subtitle": "Provjere uživo za bazu podataka, Redis i pohranu objekata.",
-    "noPermission": "Nemate dozvolu za pregled stanja sustava.",
+    "noPermission": "Nemate dopuštenje za pregled stanja sustava.",
     "loading": "Provjera usluga…",
     "error": "Učitavanje zdravstvenog statusa nije uspjelo.",
     "overall": "Sve u svemu",

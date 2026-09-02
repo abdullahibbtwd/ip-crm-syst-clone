@@ -47,7 +47,7 @@
     },
     "jurisdictions": {
       "title": "Jurisdikcije",
-      "description": "Jedno mjesto za upravljanje uredima za arhiviranje, pravilima o rokovima i kalendarima praznika za svaku državu ili regionalnu kancelariju.",
+      "description": "Jedno mjesto za upravljanje uredima za arhiviranje, pravilima o rokovima i kalendarima praznika za svaku zemlju ili regionalnu kancelariju.",
       "action": "Upravljajte jurisdikcijama"
     },
     "holidays": {
@@ -94,7 +94,7 @@
     "clientId": "ID klijenta",
     "clientSecret": "Tajna klijenta",
     "tenantId": "ID stanara",
-    "redirectUri": "URI preusmjeravanja (registrirajte se u konzoli provajdera)",
+    "redirectUri": "URI preusmjeravanja (registrirajte se na konzoli provajdera)",
     "sourceDatabase": "Baza podataka",
     "sourceEnv": "Okruženje (.env)",
     "sourceNone": "Nije konfigurisano",
@@ -104,7 +104,7 @@
     "microsoft": {
       "title": "Microsoft",
       "description": "Entra ID / Microsoft 365 OIDC aplikacija koja se koristi za prijavu osoblja i SSO na portal.",
-      "saveButton": "Sačuvaj Microsoft",
+      "saveButton": "Save Microsoft",
       "saveSuccess": "Microsoft SSO postavke su sačuvane."
     },
     "google": {
@@ -117,7 +117,7 @@
       "title": "MFA politika",
       "description": "MFA postavke za cijelu organizaciju. Korisnici se i dalje prijavljuju sa svoje stranice Postavke.",
       "requireInternal": "Zahtijeva MIP za interno osoblje",
-      "requireInternalHint": "Kada je omogućeno, interni korisnici bi trebali upisati MFA pod Postavke → Sigurnost. Sprovođenje prijave može se pooštriti u nastavku.",
+      "requireInternalHint": "Kada je omogućeno, interni korisnici treba da upišu MFA pod Postavke → Sigurnost. Sprovođenje prijave može se pooštriti u nastavku.",
       "saveButton": "Sačuvajte MFA politiku",
       "saveSuccess": "MFA politika je sačuvana."
     }
@@ -193,9 +193,9 @@
     },
     "accounting": {
       "xeroTitle": "Xero",
-      "xeroDescription": "Prebacite izdate fakture u Xero Accounting putem API-ja. Poslane su samo fakture koje su promijenjene od posljednje uspješne sinhronizacije.",
+      "xeroDescription": "Prebacite izdate fakture u Xero Accounting putem API-ja. Poslane su samo fakture promijenjene od posljednje uspješne sinhronizacije.",
       "quickbooksTitle": "QuickBooks Online",
-      "quickbooksDescription": "Prebacite izdate fakture u QuickBooks. Kupci se podudaraju (ili kreiraju) prema nazivu za prikaz.",
+      "quickbooksDescription": "Prebacite izdate fakture u QuickBooks. Kupci su upareni (ili kreirani) prema nazivu za prikaz.",
       "xeroTenantId": "ID zakupca Xero",
       "quickbooksRealmId": "QuickBooks područje / ID kompanije",
       "statusConfigured": "Konfigurisano",
@@ -224,7 +224,7 @@
     "subtitle": "Nadležnost i pomaci tipa predmeta koji se koriste prilikom automatskog kreiranja rokova od kreiranja predmeta, radnji ureda i obnove.",
     "newRule": "Novo pravilo",
     "noPermission": "Nemate dozvolu za pregled pravila o rokovima.",
-    "loading": "Učitavanje pravila o rokovima…",
+    "loading": "Učitavanje rokova pravila…",
     "loadError": "Učitavanje pravila o rokovima nije uspjelo.",
     "empty": "Nijedno pravilo o rokovima ne odgovara ovim filterima.",
     "allJurisdictions": "Sve jurisdikcije",
@@ -363,7 +363,7 @@
     "noPermission": "Nemate dozvolu za gledanje praznika.",
     "loading": "Učitavanje praznika…",
     "loadError": "Učitavanje praznika nije uspjelo.",
-    "empty": "Nijedan praznik ne odgovara ovom filteru.",
+    "empty": "Nema praznika koji odgovaraju ovom filteru.",
     "allJurisdictions": "Sve jurisdikcije",
     "filters": {
       "jurisdiction": "Nadležnost"
@@ -403,7 +403,7 @@
     "newJurisdiction": "Dodajte nadležnost",
     "noPermission": "Nemate dozvolu za upravljanje jurisdikcijama.",
     "loading": "Učitavanje nadležnosti…",
-    "loadError": "Učitavanje nadležnosti nije uspjelo.",
+    "loadError": "Učitavanje jurisdikcija nije uspjelo.",
     "empty": "Nijedna jurisdikcija ne odgovara ovim filterima.",
     "searchPlaceholder": "Pretražite kod, ured ili ime…",
     "editAria": "Uredi nadležnost",
@@ -450,7 +450,7 @@
         "holidays": "Praznici"
       },
       "automationHint": {
-        "full": "Auto-docketing je spreman — pravila i praznici su konfigurisani.",
+        "full": "Auto-doketing je spreman — pravila i praznici su konfigurisani.",
         "partial": "Pravila postoje, ali praznici nedostaju. Brojanje radnih dana koristi se samo vikendom.",
         "manual": "Još nema pravila o rokovima. Prava se i dalje mogu prijaviti ovdje; rokovi se moraju kreirati ručno dok se ne dodaju pravila."
       }
@@ -487,7 +487,7 @@
     "googleWorkspace": "Google Workspace",
     "connected": "Povezano",
     "error": "Greška",
-    "notConnected": "Nije povezan",
+    "notConnected": "Nije povezano",
     "providerEnabledDescription": "Povucite nove poruke u prijemnom sandučetu u red čekanja e-pošte.",
     "providerDisabledDescription": "Nije konfigurisano na ovom serveru (nedostaju OAuth akreditivi).",
     "redirectUriHint": "Registrirajte ovaj URI za preusmjeravanje u vašoj {{provider}} OAuth aplikaciji:",

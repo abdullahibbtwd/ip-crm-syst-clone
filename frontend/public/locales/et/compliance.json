@@ -15,7 +15,7 @@
   },
   "dataExports": {
     "title": "Andmete ekspordi logi",
-    "subtitle": "Isikuandmete eksporti ja allalaadimisi jälgitakse GDPR-i järgimise tagamiseks.",
+    "subtitle": "Isikuandmete eksportimist ja allalaadimist jälgitakse GDPR-i järgimise tagamiseks.",
     "loading": "Ekspordilogi laadimine…",
     "loadFailed": "Ekspordilogi laadimine ebaõnnestus.",
     "empty": "Eksporti pole veel registreeritud.",
@@ -29,11 +29,11 @@
   "retention": {
     "title": "Säilitamise reeglid",
     "subtitle": "Igaöise skannimistööga jõustatud GDPR-i säilitamiseeskirjad (vaikeseade 3:00). Kasutage kuivkäivitust, et vaadata, mitut kirjet see mõjutab.",
-    "noPermission": "Teil pole säilitusreeglite haldamise luba.",
+    "noPermission": "Teil pole säilitusreeglite haldamiseks luba.",
     "newRule": "Uus reegel",
     "loading": "Säilitusreeglite laadimine…",
     "loadFailed": "Säilitusreeglite laadimine ebaõnnestus.",
-    "empty": "Säilitusreegleid veel pole.",
+    "empty": "Säilitusreegleid pole veel.",
     "dryRun": "Kuivjooks",
     "dryRunAria": "Kuivkäigu säilitamise reegel",
     "editAria": "Säilitusreegli muutmine",

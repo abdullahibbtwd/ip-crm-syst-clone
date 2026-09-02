@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Измерить маршрут",
+        "options": {
+          "national_bg": "Болгария (национальная)",
+          "eu_regulation": "Регламент ЕС 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Защищенное право",
+        "options": {
+          "trademark": "Торговая марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "copyright": "Авторское право",
+          "gi": "Географическое указание"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Защищенное право исх."
+      },
       "customsOffice": {
         "label": "Таможня"
+      },
+      "validFrom": {
+        "label": "Действительно с"
+      },
+      "validUntil": {
+        "label": "Действительно до"
       },
       "infringingGoods": {
         "label": "Нарушающее описание товара"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Дата создания"
-      },
       "workTitle": {
         "label": "Название работы"
       },
       "workType": {
-        "label": "Тип работы"
+        "label": "Тип работы",
+        "options": {
+          "literary": "Литературный",
+          "musical": "Мюзикл",
+          "software": "Программное обеспечение",
+          "audiovisual": "Аудиовизуальный",
+          "graphic": "Графический/визуальный",
+          "other": "Другой"
+        }
+      },
+      "creationDate": {
+        "label": "Дата создания"
+      },
+      "firstPublicationDate": {
+        "label": "Дата первой публикации"
+      },
+      "authorName": {
+        "label": "Автор"
+      },
+      "rightsBasis": {
+        "label": "Основа прав",
+        "options": {
+          "author": "Автор",
+          "employer": "Работодатель (работа по найму)",
+          "assignment": "Назначение",
+          "license": "Лицензия"
+        }
+      },
+      "rightsHolder": {
+        "label": "Правообладатель"
+      },
+      "infringementContext": {
+        "label": "Контекст нарушения/принуждения"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Суд"
+      },
+      "incomingNumber": {
+        "label": "Входящий номер"
+      },
+      "claimGrounds": {
+        "label": "Основания (вид претензии)"
+      },
+      "claimValue": {
+        "label": "Заявленная стоимость"
+      },
+      "expertiseType": {
+        "label": "Вид экспертизы"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Краткое изложение основы"
+      "disputeKind": {
+        "label": "Тип разбирательства",
+        "options": {
+          "civil": "Гражданский",
+          "administrative": "Административный",
+          "arbitration": "Арбитраж",
+          "mediation": "Посредничество",
+          "other": "Другой"
+        }
       },
-      "disputeType": {
-        "label": "Тип спора"
+      "disputeSubject": {
+        "label": "Предмет",
+        "options": {
+          "invalidity": "Недействительность",
+          "infringement": "Нарушение",
+          "ownership": "Право собственности",
+          "contract": "Договор",
+          "unfair_competition": "Нечестная конкуренция",
+          "other": "Другой"
+        }
       },
       "opponentName": {
-        "label": "Оппонент/противная сторона"
+        "label": "Оппонент/контрагент"
+      },
+      "disputeType": {
+        "label": "Тип спора (примечания)"
+      },
+      "filingReference": {
+        "label": "Справка о подаче документов"
+      },
+      "filingDate": {
+        "label": "Дата подачи"
+      },
+      "basisSummary": {
+        "label": "Краткое изложение основы"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Краткое описание объема"
+      "projectName": {
+        "label": "Название проекта"
+      },
+      "productName": {
+        "label": "Название продукта"
       },
       "technologyArea": {
         "label": "Технологическая область"
+      },
+      "analysisScope": {
+        "label": "Объем анализа"
+      },
+      "deliverableType": {
+        "label": "Результат",
+        "options": {
+          "written_report": "Письменный отчет",
+          "memo": "Памятка",
+          "oral_briefing": "Устный брифинг"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Планируемая дата завершения"
+      },
+      "scopeSummary": {
+        "label": "Краткое описание объема"
+      },
+      "riskLevel": {
+        "label": "Уровень риска",
+        "options": {
+          "low": "Низкий",
+          "medium": "Середина",
+          "high": "Высокий",
+          "pending": "Ожидается оценка"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Тип"
+      },
+      "giName": {
+        "label": "Название географического указания"
+      },
       "productName": {
         "label": "Название продукта"
       },
       "region": {
         "label": "Географический регион"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Территория"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Номер заявки"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Регистрационный номер"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Локарно класс"
       },
+      "locarnoSubclass": {
+        "label": "Подкласс Локарно"
+      },
       "productDescription": {
         "label": "Описание продукта"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Сводка претензий"
+      },
+      "epApplicationNumber": {
+        "label": "Номер заявки EP"
+      },
+      "ipcClasses": {
+        "label": "МПК"
+      },
+      "patentName": {
+        "label": "Название патента"
+      },
+      "patentProcedure": {
+        "label": "Процедура"
       },
       "pctNumber": {
         "label": "номер РСТ"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Техническая область"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Заявленные цвета"
       },
       "markDescription": {
-        "label": "Описание отметки"
-      },
-      "markType": {
-        "label": "Тип отметки"
-      },
-      "niceClasses": {
-        "label": "Хорошие занятия",
-        "placeholder": "например 12, 35"
+        "label": "Описание товаров/услуг"
       },
       "markKind": {
         "label": "Отметить категорию"
       },
+      "markType": {
+        "label": "Тип отметки"
+      },
       "markWords": {
         "label": "Слова знака"
+      },
+      "niceClasses": {
+        "label": "Хорошие занятия",
+        "placeholder": "например 12, 35"
       },
       "territory": {
         "label": "Территория"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Имя"
+      },
+      "ipcClasses": {
+        "label": "МПК"
+      },
+      "claimsCount": {
+        "label": "Количество претензий"
+      },
+      "applicationNumber": {
+        "label": "Номер заявки"
+      },
+      "applicationDate": {
+        "label": "Дата подачи заявления"
+      },
+      "registrationNumber": {
+        "label": "Регистрационный номер"
+      },
       "claimsSummary": {
         "label": "Сводка претензий"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Техническая область"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Тип актива",
+        "options": {
+          "trademark": "Торговая марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "gi": "GI",
+          "mixed": "Смешанное портфолио",
+          "company_ip": "ИП компании"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Цель",
+        "options": {
+          "licensing": "Лицензирование",
+          "m_and_a": "Слияния и поглощения",
+          "litigation": "Судебные разбирательства",
+          "tax": "Налог",
+          "internal": "Внутренний"
+        }
+      },
+      "valuationMethod": {
+        "label": "Метод",
+        "options": {
+          "market": "Рынок",
+          "income": "Доход",
+          "cost": "Расходы"
+        }
+      },
+      "valuationDate": {
+        "label": "Дата оценки"
+      },
       "assetDescription": {
         "label": "Описание актива"
       },
-      "valuationPurpose": {
-        "label": "Цель оценки"
+      "conclusionValue": {
+        "label": "Ценность заключения"
+      },
+      "currency": {
+        "label": "Валюта",
+        "options": {
+          "BGN": "левов",
+          "EUR": "евро",
+          "USD": "доллар США"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Доменное имя",
-        "placeholder": "например example.com"
+        "placeholder": "например пример.bg"
+      },
+      "tldType": {
+        "label": "Тип домена верхнего уровня",
+        "options": {
+          "bg": ".bg",
+          "eu": ".Евросоюз",
+          "com": ".com/рДВУ",
+          "other": "Другой"
+        }
       },
       "registrar": {
         "label": "Регистратор"
+      },
+      "registrant": {
+        "label": "Регистрант"
+      },
+      "registrationDate": {
+        "label": "Дата регистрации"
+      },
+      "expiryDate": {
+        "label": "Дата истечения срока действия"
+      },
+      "disputeRoute": {
+        "label": "Путь спора",
+        "options": {
+          "none": "Никто",
+          "udrp": "ЕПРД",
+          "court": "Суд",
+          "negotiation": "Переговоры"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Связанный товарный знак"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Ссылка на дело"
+      "engagementType": {
+        "label": "Тип взаимодействия",
+        "options": {
+          "patent": "Патент",
+          "trademark": "Торговая марка",
+          "copyright": "Авторское право",
+          "damages": "Ущерб",
+          "other": "Другой"
+        }
       },
       "courtOrAuthority": {
         "label": "Суд / орган власти"
+      },
+      "caseReference": {
+        "label": "Ссылка на дело"
+      },
+      "appointingParty": {
+        "label": "Назначающая сторона"
+      },
+      "reportDueDate": {
+        "label": "Срок сдачи отчета"
+      },
+      "hearingDate": {
+        "label": "Дата слушания"
       },
       "reportScope": {
         "label": "Область отчета"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Краткое описание объема"
+      "consultationType": {
+        "label": "Тип консультации",
+        "options": {
+          "phone": "Телефон",
+          "written": "Написано",
+          "meeting": "Встреча",
+          "due_diligence": "Комплексная проверка (легкая)"
+        }
+      },
+      "topicCategory": {
+        "label": "Категория темы",
+        "options": {
+          "trademark": "Торговая марка",
+          "patent": "Патент",
+          "design": "Дизайн",
+          "contract": "Договор",
+          "strategy": "Стратегия",
+          "other": "Другой"
+        }
       },
       "topic": {
         "label": "Тема"
+      },
+      "requestedBy": {
+        "label": "По запросу"
+      },
+      "scopeSummary": {
+        "label": "Краткое описание объема"
+      },
+      "timeSpentHours": {
+        "label": "Затраченное время (часы)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Орган / офис"
+        "label": "Власть",
+        "options": {
+          "bpo": "БПО (Болгария)",
+          "euipo": "ВИСПО",
+          "wipo": "ВОИС",
+          "other": "Другой"
+        }
+      },
+      "feeType": {
+        "label": "Тип комиссии",
+        "options": {
+          "filing": "Подача",
+          "publication": "Публикация",
+          "examination": "обследование",
+          "renewal": "Обновление",
+          "annuity": "Аннуитет",
+          "opposition": "Оппозиция",
+          "other": "Другой"
+        }
       },
       "feeReference": {
-        "label": "Ссылка на комиссию/платеж"
+        "label": "Ссылка на комиссию / платеж"
       },
       "relatedApplication": {
         "label": "Связанное приложение/файл"
+      },
+      "feeAmount": {
+        "label": "Количество"
+      },
+      "currency": {
+        "label": "Валюта",
+        "options": {
+          "BGN": "левов",
+          "EUR": "евро"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Срок оплаты"
+      },
+      "paymentDate": {
+        "label": "Дата платежа"
+      },
+      "paymentReference": {
+        "label": "Ссылка на платеж"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Категория работы"
+      },
       "workSummary": {
         "label": "Краткое содержание работы"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Ожидаемый результат"
       }
     }
   },
@@ -324,7 +593,7 @@
     "downloadTitle": "Скачать {{fileName}}",
     "drawerTitle": "Журнал переписки",
     "empty": "Переписка еще не зарегистрирована.",
-    "emptyHint": "Зарегистрируйте переписку или электронную почту, чтобы создать запись по этому делу.",
+    "emptyHint": "Зарегистрируйте переписку или электронную почту, чтобы создать запись по этому вопросу.",
     "emptyTitle": "Переписки пока нет",
     "error": "Не удалось загрузить переписку.",
     "errorLog": "Не удалось зарегистрировать переписку",
@@ -394,7 +663,7 @@
       "readingFile": "Чтение файла электронной почты…",
       "parsedReview": "Разобрано — подробности см. ниже",
       "dropEml": "Перетащите сюда свой файл .eml.",
-      "dropEmlHint": "Сохраните сообщение из Outlook или Gmail, затем перетащите его.",
+      "dropEmlHint": "Сохраните сообщение из Outlook или Gmail, а затем перетащите его.",
       "browseFiles": "Просмотр файлов",
       "pastePlaceholder": "Вставьте сюда полное письмо, включая заголовки, если они есть: \n\nОт: client@example.com \nКому: you@firm.com \nТема: Действия офиса \nДата: понедельник, 9 июля 2026 г. \n\nУважаемый советник,…",
       "extractDetails": "Извлечь данные электронной почты",
@@ -470,6 +739,245 @@
     "viewOnEpo": "Посмотреть на ЕПО",
     "viewOnEpoTitle": "Открыть официальную запись в Регистре ЕПВ"
   },
+  "trademarkInfo": {
+    "addCountry": "Добавить страну…",
+    "cancel": "Отмена",
+    "country": "Страна",
+    "edit": "Редактировать",
+    "errors": {
+      "country": "Выберите хотя бы одну страну для этой территории.",
+      "saveFailed": "Не удалось сохранить информацию о товарном знаке."
+    },
+    "euFixed": "Европейский Союз (EUIPO)",
+    "markKind": "Отметить категорию",
+    "markType": "Тип отметки",
+    "noCountries": "Страны пока не выбраны.",
+    "save": "Сохранить изменения",
+    "saved": "Сохранено.",
+    "saving": "Сохранение…",
+    "selectCountries": "Выберите страны",
+    "territory": "Территория",
+    "title": "Информация о торговой марке",
+    "markImage": "Отметить изображение",
+    "uploadMarkImage": "Загрузить изображение",
+    "replaceMarkImage": "Заменить изображение",
+    "removeMarkImage": "Удалить изображение",
+    "markImageHint": "PNG или JPEG — отображается в списке товарных знаков рядом с названием."
+  },
+  "patentInfo": {
+    "title": "Патентная информация",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Приложение №. / дата",
+      "registration": "Рег. нет. / дата",
+      "bulletin": "Бюллетень/публикация",
+      "ipc": "МПК",
+      "client": "Клиент/цедент",
+      "owner": "Владелец",
+      "contact": "Контактное лицо",
+      "representatives": "Представители",
+      "claims": "Претензии",
+      "territory": "Территория"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Информация о полезной модели",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Приложение №. / дата",
+      "registration": "Рег. нет. / дата",
+      "bulletin": "Бюллетень/регистрационная публикация/дата",
+      "ipc": "МПК",
+      "applicant": "Заявитель",
+      "inventor": "изобретатель",
+      "contact": "Контактное лицо",
+      "representatives": "Представители",
+      "claims": "Претензии",
+      "territory": "Территория"
+    }
+  },
+  "spcInfo": {
+    "title": "Информация СПК",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Приложение №. / дата",
+      "registration": "Рег. нет. / дата",
+      "bulletin": "Бюллетень/регистрационная публикация/дата",
+      "ipc": "МПК",
+      "applicant": "Заявитель",
+      "inventor": "изобретатель",
+      "contact": "Контактное лицо",
+      "representatives": "Представители",
+      "claims": "Претензии",
+      "medicinalProduct": "Лекарственный препарат"
+    }
+  },
+  "designInfo": {
+    "title": "Информация о дизайне",
+    "subtitle": "{{territory}} дизайн · {{name}}",
+    "fields": {
+      "application": "Приложение №. / дата",
+      "registration": "Рег. нет. / дата",
+      "bulletin": "Бюллетень/регистрационная публикация/дата",
+      "client": "Клиент/цедент",
+      "owner": "Владелец",
+      "contact": "Контактное лицо",
+      "representatives": "Представители",
+      "classification": "Классификация",
+      "territory": "Территория"
+    }
+  },
+  "giInfo": {
+    "title": "Информация о географическом указании",
+    "subtitle": "{{territory}} ГИ · {{name}}",
+    "fields": {
+      "application": "Приложение №. / дата",
+      "registration": "Рег. нет. / дата",
+      "bulletin": "Бюллетень/регистрационная публикация/дата",
+      "client": "Клиент/цедент",
+      "owner": "Владелец",
+      "contact": "Контактное лицо",
+      "representatives": "Представители",
+      "classes": "Классы",
+      "territory": "Территория"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Клиент одобрен",
+    "clientStepHint": "Персонал подтверждает, что клиент согласился офлайн (звонок/электронное письмо/встреча). Клиенту портала не требуется самоутверждаться.",
+    "errors": {
+      "updateFailed": "Не удалось обновить статус одобрения."
+    },
+    "hint": "Только внутреннее одобрение: отметьте, что клиент согласился, после чего управляющий партнер примет файл. Никакого одобрения отправки клиенту не требуется.",
+    "markClientApproved": "Отметить клиента одобренным",
+    "partnerApprove": "Файл одобрения партнера",
+    "partnerOnly": "Этот шаг может выполнить только управляющий партнер.",
+    "partnerStep": "2. Управляющий партнер принимает",
+    "partnerStepHint": "После того, как клиент помечен как одобренный, управляющий партнер принимает файл и оставляет его черновиком.",
+    "recordedBy": "Записал {{name}} · {{date}}",
+    "title": "Утверждение файла",
+    "waitForClient": "Сначала пометьте клиента одобренным, после чего вы сможете принять файл."
+  },
+  "prosecution": {
+    "cancelEdit": "Отмена",
+    "completeStage": "Завершенный этап",
+    "edit": "Редактировать",
+    "editingNote": "Используйте «Сохранить», чтобы сохранить то, что вы ввели на этом этапе, или «Завершить», чтобы двигаться вперед после заполнения обязательных полей.",
+    "gateHint": "Вы не можете двигаться вперед, пока не будут заполнены обязательные для этого этапа поля (так же, как и их системные ворота).",
+    "goBack": "Вернитесь на сцену",
+    "errors": {
+      "needAttachments": "Прежде чем продолжить, прикрепите необходимые файлы: {{list}}.",
+      "needInvoice": "Перед завершением этого этапа сформируйте счет-фактуру от государственной пошлины.",
+      "alreadyFinal": "Этот файл уже находится на финальной стадии.",
+      "needApproval": "Завершите утверждение файла (клиент + управляющий партнер) перед тем, как уйти с подготовительной стадии.",
+      "needBulletin": "Введите номер и дату бюллетеня, прежде чем покинуть публикацию.",
+      "needFeePaid": "Перед сдачей официального экзамена укажите дату уплаты государственной пошлины.",
+      "needFilingFields": "Введите номер заявки и дату подачи для завершения подачи.",
+      "needFormalFields": "Введите государственную пошлину и срок оплаты, чтобы продолжить.",
+      "needMol": "Пожалуйста, введите MOL в сведениях о файле (создать-файл/редактировать) перед завершением подачи.",
+      "needOfficeActionDeadline": "У действия офиса есть предмет — установите его крайний срок, прежде чем продолжить.",
+      "needPoaFiled": "Введите входящий номер PoA и дату перед тем, как покинуть формальный экзамен.",
+      "needRegFeePaid": "Прежде чем продолжить, введите дату оплаты регистрационного взноса.",
+      "needRepresentative": "Введите хотя бы одного представителя или установите для параметра «Добавить представителей» значение «Нет».",
+      "saveBeforeNavigate": "Сохраните или отмените изменения, прежде чем вернуться на сцену.",
+      "saveFailed": "Не удалось сохранить данные обвинения."
+    },
+    "fields": {
+      "addRepresentatives": "Хотите добавить представителей?",
+      "applicationDate": "Дата подачи заявления",
+      "applicationNumber": "Номер заявки",
+      "bulletinDate": "Дата выпуска",
+      "bulletinNumber": "Номер бюллетеня",
+      "feePaidDate": "Дата уплаты государственной пошлины",
+      "generatePoa": "Создать доверенность",
+      "officeAction": "Действие/запрос офиса",
+      "officeActionDeadline": "Срок действия ведомства",
+      "paymentDeadline": "Срок оплаты",
+      "poaDate": "Дата заключения договора",
+      "poaDeadline": "Срок подачи доверенности",
+      "poaIncoming": "PoA входящий номер",
+      "regFeePaidDate": "Дата оплаты регистрационного взноса",
+      "remindDays": "Напомнить за несколько дней до крайнего срока",
+      "representatives": "Представитель(и)",
+      "sendPoaEmail": "Отправлять автоматическое электронное письмо",
+      "stateFee": "Государственная пошлина (BGN)"
+    },
+    "molHint": "MOL должен быть установлен в деталях файла (из создания файла). Недостающие блоки MOL завершают этот этап.",
+    "no": "Нет",
+    "prepHint": "Подготовительный этап: сначала завершите утверждение файла, затем управляющий партнер примет предложение перевести вас в режим подачи документов.",
+    "registeredDone": "Достигнута стадия регистрации.",
+    "saveChanges": "Сохранить изменения",
+    "saveEntered": "Сохранять",
+    "saved": "Сохранено.",
+    "saveFields": "Сохранить поля",
+    "saving": "Сохранение…",
+    "stages": {
+      "filing": "Подача",
+      "formal_exam": "Формальный экзамен",
+      "prep": "Подготовительный",
+      "publication": "Публикация",
+      "reg_fee": "Регистрационные сборы",
+      "registration": "Регистрация",
+      "substantive_exam": "Экспертиза по существу"
+    },
+    "territoryLabel": {
+      "eu": "Трубопровод: ЕС",
+      "international": "Трубопровод: Международный (WO)",
+      "national": "Трубопровод: Национальный"
+    },
+    "territoryLocked": "Территория исправлена ​​из файла создания",
+    "territoryFromInfo": "Территория из информации о товарных знаках",
+    "patentRouteFromInfo": "Маршрут от создания файла",
+    "designRouteFromInfo": "Маршрут от создания файла",
+    "utilityModelTerritoryFromInfo": "Территория страны подачи",
+    "spcTerritoryFromInfo": "Территория страны подачи",
+    "giTerritoryFromInfo": "Территория от подачи маршрута",
+    "title": "Стадии уголовного преследования",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Подтверждение получено",
+        "filing": "Назначение",
+        "formal_exam": "Подача запроса",
+        "substantive_exam": "Экспертиза по существу",
+        "publication": "Публикация",
+        "reg_fee": "Регистрационные сборы",
+        "registration": "Решение о валидации"
+      }
+    },
+    "yes": "Да",
+    "hub": {
+      "generateInvoice": "Создать счет",
+      "invoiceIssuedShort": "Счет выставлен",
+      "invoiceIssued": "Счет {{number}} выставлен. Клиент может увидеть это на своем портале; он также находится на вкладке «Оплата».",
+      "invoiceAlreadyIssued": "Счет {{number}} уже выставлен — его можно увидеть на портале и в разделе «Выставление счетов».",
+      "invoiceFailed": "Не удалось создать счет. Проверьте платежные реквизиты клиента.",
+      "invoiceNotes": "Официальная/государственная пошлина",
+      "uploadFailed": "Не удалось загрузить файл.",
+      "needStateFee": "Сначала введите сумму государственной пошлины.",
+      "feeDescription": "Государственный/официальный сбор",
+      "deadlineFailed": "Не удалось создать крайние сроки.",
+      "deadlineTitles": {
+        "payment": "Оплата государственной пошлины",
+        "poa": "Представление доверенности",
+        "oa": "Действия ведомства/запрос на экспертизу",
+        "oaWithSubject": "Действие офиса: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Напомнить за {{days}} дней до крайнего срока."
+      },
+      "attach": {
+        "search": "Прикрепить файл поиска",
+        "application": "Прикрепить заявку",
+        "feeSlip": "Прикрепить квитанцию ​​об оплате",
+        "poa": "Прикрепить свидетельство о намерении",
+        "officeAction": "Прикрепить действие офиса",
+        "decision": "Прикрепить решение",
+        "bulletin": "Прикрепить бюллетень",
+        "regFee": "Прикрепите подтверждение оплаты",
+        "certificate": "Прикрепить сертификат"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Клиент *",
     "creating": "Создание…",
@@ -483,11 +991,363 @@
     "titleField": "Заголовок *",
     "titlePlaceholder": "например Словесный знак ACME – ЕС"
   },
+  "createFile": {
+    "addClass": "Добавить курс",
+    "addClaim": "Добавить претензию",
+    "addIpc": "Добавить класс IPC",
+    "addBasisMark": "Добавить базовую марку",
+    "basisMark": "Базовая марка {{number}}",
+    "addAdditionalApplicant": "Добавить дополнительного заявителя",
+    "addAdditionalOwner": "Добавить дополнительного владельца",
+    "additionalApplicant": "Заявитель {{number}}",
+    "additionalOwner": "Владелец {{number}}",
+    "yes": "Да",
+    "no": "Нет",
+    "none": "Никто",
+    "backToFiles": "Вернуться к файлам",
+    "cancel": "Отмена",
+    "changeSubtype": "Изменить подкатегорию",
+    "checkRegister": "Проверить в торговом реестре",
+    "clearClient": "Сменить клиента",
+    "clientOptionalHint": "Нет соответствия CRM? Заполните данные клиента ниже — при сохранении черновика они автоматически появятся в разделе «Клиенты».",
+    "applicantOptionalHint": "Нет соответствия CRM? Заполните данные заявителя ниже — при сохранении черновика они автоматически появятся в Клиентах.",
+    "draftDescription": "Создано через Создать файл ({{procedure}}) — черновик",
+    "errors": {
+      "client": "Выберите клиента, чтобы продолжить.",
+      "clientOrDetails": "Выберите клиент CRM или введите имя клиента и данные для его создания.",
+      "applicantOrDetails": "Выберите заявителя в CRM или введите имя заявителя и данные для его создания.",
+      "jurisdiction": "Выберите хотя бы одну территорию/страну.",
+      "markWords": "Введите название/слова торговой марки.",
+      "filingRoute": "Выберите процедуру.",
+      "ownerOrDetails": "Введите имя и адрес владельца или отметьте владельца как клиента.",
+      "designerOrDetails": "Введите имя и адрес дизайнера или отметьте дизайнера как клиента.",
+      "inventorOrDetails": "Введите имя и адрес изобретателя или отметьте изобретателя как клиента.",
+      "patentName": "Введите название патента.",
+      "designName": "Введите название дизайна.",
+      "utilityModelName": "Введите название полезной модели.",
+      "giKind": "Выберите обозначение происхождения или географическое указание.",
+      "territory": "Выберите территорию.",
+      "giName": "Введите название географического указания.",
+      "spcName": "Введите имя SPC.",
+      "caseClientRole": "Выберите, является ли клиент истцом, ответчиком или заинтересованной стороной.",
+      "otherType": "Неизвестный тип файла. Выберите тип из списка.",
+      "patentSubtype": "Выберите подкатегорию патента.",
+      "saveFailed": "Не удалось сохранить файл черновика.",
+      "subtype": "Выберите подкатегорию товарного знака."
+    },
+    "euHint": "Товарный знак Европейского Союза (EUIPO) — юрисдикция установлена ​​ЕС.",
+    "fields": {
+      "address": "Адрес",
+      "applicantClient": "Заявитель-клиент",
+      "applicantClientOptional": "Заявитель в CRM (по желанию)",
+      "city": "Город",
+      "classNumber": "Номер класса",
+      "classes": "Классы",
+      "country": "Страна",
+      "eik": "МСЖД / ЕИК",
+      "email": "Электронная почта",
+      "fax": "Факс",
+      "goodsText": "Товары и услуги",
+      "legalName": "Название и тип юридического лица",
+      "linkClient": "Выбор клиента в CRM",
+      "linkClientOptional": "CRM-клиент (опционально)",
+      "fileTitleOptional": "Название (необязательно)",
+      "fileDescriptionOptional": "Описание (необязательно)",
+      "markKind": "Отметить категорию",
+      "markType": "Тип отметки",
+      "markWords": "Название торговой марки",
+      "mol": "МОЛ (подписавший)",
+      "name": "Имя",
+      "oppositionFiler": "Оппозиционный файл",
+      "requester": "Запрашивающая сторона",
+      "requestFiler": "Податель запроса",
+      "againstClasses": "Против занятий",
+      "owner": "Владелец",
+      "phone": "Телефон",
+      "postalCode": "Почтовый индекс",
+      "territory": "Территория",
+      "transliteration": "Транслитерация",
+      "viennaNumber": "Число",
+      "applicationNumber": "Номер заявки",
+      "applicationDate": "Дата",
+      "conventionPriority": "Приоритет Конвенции",
+      "exhibitionPriority": "Приоритет выставки",
+      "transformationInternational": "Трансформация международной регистрации",
+      "communityConversion": "Преобразование товарного знака Сообщества",
+      "applicationBulletin": "Бюллетень/публикация приложения",
+      "grounds": "Основания",
+      "specimen": "Образец",
+      "registrationNumber": "Регистрационный номер.",
+      "registrationDate": "Дата",
+      "registrationBulletin": "Бюллетень/публикация регистрации",
+      "certificate": "Прикрепить сертификат",
+      "attachDocument": "Прикрепить документ",
+      "representative": "Выбирать",
+      "selectRepresentative": "Выберите представителя",
+      "addMoreRepresentatives": "Добавить больше представителей",
+      "claimNumber": "Число",
+      "claimText": "Требовать",
+      "epApplicationNumber": "Номер заявки EP",
+      "epBulletinNumber": "Номер бюллетеня EP",
+      "applicationPublication": "Публикация приложения",
+      "applicationPublicationDate": "Дата",
+      "epRegistrationNumber": "Регистрационный номер ЭП",
+      "epRegistrationBulletin": "Бюллетень/публикация регистрации ЭП",
+      "epRegistrationBulletinDate": "Дата",
+      "ipc": "МПК",
+      "patentName": "Имя",
+      "pct": "РСТ",
+      "pctNumber": "РСТ",
+      "epValidation": "Проверка европейского патента",
+      "powerOfAttorney": "Доверенность",
+      "selectProcedure": "Выберите процедуру",
+      "validationCountry": "Выберите страну",
+      "priorityCountry": "Страна предыдущей заявки",
+      "priorityFromDate": "С даты",
+      "priorityApplicationNumber": "Номер заявки",
+      "priorityIncomingNumber": "В. Нет.",
+      "internationalRegistrationNumber": "Международная регистрация №.",
+      "exhibitionFirstAppearance": "Дата первого появления",
+      "exhibitionName": "Название выставки",
+      "bulletinNumber": "Номер бюллетеня",
+      "patentRegistrationNumber": "Регистрационный номер",
+      "validationNumber": "Число",
+      "validationFilingDate": "Дата подачи",
+      "validationPriorityDate": "Дата приоритета",
+      "addImage": "Добавить изображение",
+      "addCountry": "Добавить страну",
+      "removeImage": "Удалить изображение",
+      "image": "Изображение",
+      "designName": "Имя",
+      "locarnoClass": "Сорт",
+      "locarnoSubclass": "Подкласс",
+      "classificationText": "Классификация",
+      "vat": "Идентификатор НДС",
+      "utilityModelName": "Имя",
+      "conversionFromPatent": "Переход от патента к заявке",
+      "conversionInvention": "Изобретение",
+      "conversionRequestNumber": "Номер запроса.",
+      "conversionApplicationDate": "Дата подачи заявления",
+      "conversionPriorityDate": "Дата приоритета",
+      "giKind": "Тип",
+      "giName": "Название географического указания",
+      "spcName": "Имя",
+      "medicinalProduct": "Лекарственный препарат",
+      "basicPatentNumber": "Патент №.",
+      "effectStartDate": "Начало эффекта",
+      "effectEndDate": "Дата окончания",
+      "firstAuthorization": "Первая авторизация",
+      "theClientIs": "Клиент",
+      "court": "Суд",
+      "authority": "Власть",
+      "panel": "Панель",
+      "division": "Разделение",
+      "incomingNumber": "Входящий номер",
+      "claimGrounds": "Основания (вид претензии)",
+      "claimValue": "Заявленная стоимость",
+      "other": "Другой",
+      "rightObject": "Объект",
+      "selectObject": "Выбрать объект…",
+      "rightName": "Имя",
+      "rightApplicationDate": "Дата подачи заявления",
+      "rightScope": "Объем",
+      "expertiseType": "Вид экспертизы",
+      "experts": "Эксперты",
+      "expertiseQuestions": "Вопросы, по которым была признана экспертиза"
+    },
+    "formTitle": "Создать файл: Товарный знак",
+    "fullFormReady": "Доступна полная форма",
+    "goodsPlaceholder": "например бутылки; розничные услуги…",
+    "markKinds": {
+      "certification": "Сертификация",
+      "collective": "Коллектив",
+      "individual": "Индивидуальный"
+    },
+    "markTypes": {
+      "combination_of_colors": "Сочетание цветов",
+      "combined": "Комбинированный",
+      "figurative": "Фигуративный",
+      "sound": "Звук",
+      "three_dimensional": "Трехмерный",
+      "wordmark": "Словесный знак"
+    },
+    "noClients": "Нет подходящих клиентов. Сначала создайте клиента в CRM, а затем вернитесь сюда.",
+    "optionalMark": "Отметка/тема (необязательно)",
+    "partialSubtypeNote": "Полные специализированные поля для этой подкатегории будут расширены позже. Вы по-прежнему можете сохранить черновик, связанный с клиентом; документы и переписка остаются в деле.",
+    "preliminary": "Предварительная информация",
+    "procedureHints": {
+      "cancellation": "Аннулирование зарегистрированного товарного знака — полная форма создания",
+      "deletion": "Удаление зарегистрированного товарного знака — полная форма создания",
+      "new": "Новая заявка на товарный знак — полная форма создания",
+      "objection": "Возражение против заявки на регистрацию товарного знака — полная форма создания",
+      "opposition": "Возражение против заявки на регистрацию товарного знака — полная форма создания",
+      "opposition_against_us": "Оппозиционное разбирательство",
+      "opposition_by_us": "Оппозиционное разбирательство",
+      "registered": "Существующая зарегистрированная торговая марка",
+      "revocation": "Процедура удаления"
+    },
+    "procedures": {
+      "cancellation": "Отмена",
+      "deletion": "Удаление",
+      "new": "Новый бренд",
+      "objection": "Возражение",
+      "opposition": "Оппозиция",
+      "opposition_against_us": "Оппозиция",
+      "opposition_by_us": "Оппозиция",
+      "registered": "Зарегистрированная торговая марка",
+      "revocation": "Удаление"
+    },
+    "kinds": {
+      "newPatent": "Новый патент",
+      "registeredPatent": "Зарегистрированный патент",
+      "design": "Дизайн",
+      "registeredDesign": "Дизайн",
+      "utilityModel": "Полезные модели",
+      "registeredGi": "Зарегистрированный ГУ",
+      "spc": "НПЦ",
+      "case": "Случай"
+    },
+    "comingSoonTitle": "Создать файл: {{kind}}",
+    "comingSoonBody": "Далее будет добавлена ​​специализированная форма для этого типа файлов. Формы создания файла торговой марки уже доступны из этого же меню.",
+    "patentTitle": "Создать файл — Патент",
+    "patentSubtypeHint": "Сначала выберите подкатегорию патента.",
+    "patentFormTitle": "Создать файл: Патент",
+    "designFormTitle": "Создать файл: Дизайн",
+    "utilityModelFormTitle": "Создать файл: Полезная модель",
+    "giFormTitle": "Создать файл: Географическое указание",
+    "spcFormTitle": "Создать файл: SPC",
+    "caseFormTitle": "Создать файл: Дело",
+    "otherFilesTitle": "Другие файлы",
+    "otherFilesDescription": "Выбирайте тип работы вне основных полок — авторские права, домены, консультации и многое другое.",
+    "otherFileFormTitle": "Создать файл: {{type}}",
+    "addParty": "Добавить вечеринку",
+    "caseClientRoles": {
+      "plaintiff": "Истец/Апеллянт",
+      "defendant": "Ответчик",
+      "interested": "Заинтересованная сторона"
+    },
+    "giKinds": {
+      "designation_of_origin": "Обозначение происхождения",
+      "geographical_indication": "Географическое указание"
+    },
+    "giTerritories": {
+      "national": "Национальный",
+      "eu": "Евросоюз",
+      "wo": "ВО"
+    },
+    "designFilingRoutes": {
+      "wipo": "ВОИС",
+      "national": "Национальный",
+      "euipo": "ВИСПО"
+    },
+    "chooseProcedure": "Выберите процедуру",
+    "chooseCountry": "Выберите страну",
+    "patentFilingRoutes": {
+      "national": "Национальный",
+      "european": "EP",
+      "ep_validation": "EP-валидация",
+      "pct": "РСТ"
+    },
+    "epValidationCountries": {
+      "AL": "Албания",
+      "BA": "Босния и Герцеговина",
+      "BG": "Болгария",
+      "EE": "Эстония",
+      "MK": "Северная Македония",
+      "MD": "Молдавия",
+      "ME": "Черногория",
+      "RO": "Румыния",
+      "RS": "Сербия",
+      "SI": "Словения",
+      "TR": "Турция"
+    },
+    "patentHints": {
+      "new": "Новая заявка — национальное судебное преследование, судебное преследование EP или PCT (7 этапов в WorkPatent)",
+      "registered": "Существующий грант — национальный, EP, PCT или EP-Validation (4-этапная проверка в WorkValPatent)"
+    },
+    "removeClass": "Удалить курс",
+    "removeClaim": "Удалить претензию",
+    "removeIpc": "Удалить класс IPC",
+    "removeApplicant": "Удалить заявителя",
+    "removeBasisMark": "Удалить базовую отметку",
+    "sameApplicant": "Информация о заявителе совпадает с информацией о клиенте.",
+    "sameDesigner": "Информация о дизайнере такая же, как и о клиенте.",
+    "sameInventor": "Информация об изобретателе такая же, как и о клиенте.",
+    "sameCorrespondence": "Адрес для корреспонденции совпадает с зарегистрированным адресом",
+    "saveDraft": "Сохранить как черновик",
+    "saving": "Сохранение…",
+    "searchClient": "Поиск клиентов по имени или коду…",
+    "sideUs": "Наша сторона — оппозиция",
+    "sideThem": "Другая сторона — возражение против заявления",
+    "sideUsCancellation": "Наша сторона — отмена",
+    "sideThemCancellation": "Другая сторона — собственник",
+    "sideUsDeletion": "Наша сторона — удаление",
+    "sections": {
+      "againstApplication": "Против заявки на регистрацию товарного знака",
+      "againstBrand": "Против товарного знака",
+      "applicant": "Заявитель",
+      "applicantUser": "Заявитель/Пользователь",
+      "application": "Приложение",
+      "attachments": "Вложения",
+      "additionalInfo": "Дополнительная информация",
+      "basicInfo": "Основная информация",
+      "fileDetails": "Детали файла",
+      "basisMarks": "Приметы, на которых основывается оппозиция",
+      "claims": "Претензии",
+      "classification": "Классификация",
+      "designer": "Дизайнер",
+      "inventor": "изобретатель",
+      "client": "Данные клиента",
+      "instructingClient": "Инструктирование клиента",
+      "ipc": "МПК",
+      "contact": "Контактное лицо",
+      "correspondence": "Адрес для корреспонденции",
+      "filing": "Подача и регистрация",
+      "goods": "Список товаров и услуг",
+      "geographicalIndication": "Информация о географическом указании",
+      "spcBasic": "Основная информация НПЦ",
+      "caseData": "Данные дела",
+      "caseRights": "Права, на которых основано дело",
+      "expertise": "Экспертиза",
+      "lawyers": "Юристы / Юридические консультанты",
+      "caseParties": {
+        "plaintiff": "Истцы/Апеллянты",
+        "defendant": "Ответчики",
+        "interested": "Заинтересованные стороны"
+      },
+      "grounds": "Основания",
+      "foundation": "Фундамент",
+      "markName": "Название торговой марки",
+      "oppositionFiler": "Оппозиционный файл",
+      "requester": "Запрашивающая сторона",
+      "requestFiler": "Податель запроса",
+      "owner": "Владелец",
+      "registeredAddress": "Юридический адрес",
+      "representative": "Представитель",
+      "representatives": "Представители",
+      "searchDocs": "Прикрепите документы поиска",
+      "specimen": "Образец",
+      "trademark": "Информация о торговой марке",
+      "vienna": "Классы Венской классификации"
+    },
+    "selectCountries": "Выберите страны",
+    "subtypeHint": "Сначала выберите подкатегорию товарного знака. Новый бренд открывает полную форму.",
+    "territories": {
+      "eu": "Евросоюз",
+      "international": "Международный (WO)",
+      "national": "Национальный"
+    },
+    "trademarkTitle": "Создать файл — Торговая марка"
+  },
   "deadlines": {
     "complete": "Полный",
     "daysLeft": "Осталось {{count}} дней",
     "daysOverdue": "Просрочка на {{count}} дней",
     "dueToday": "Срок оплаты сегодня",
+    "summary": {
+      "open": "Открытые сроки",
+      "overdue": "Просрочено"
+    },
     "empty": "Никаких сроков по этому вопросу нет.",
     "error": "Не удалось загрузить сроки.",
     "loading": "Загрузка сроков…",
@@ -509,7 +1369,7 @@
     "category": "Категория",
     "chooseFile": "Выберите файл для загрузки",
     "chooseTemplate": "Выберите шаблон письма",
-    "description": "Картотека по этому вопросу — загружайте PDF-файлы, файлы Word и доказательства.",
+    "description": "Картотека по этому делу — загружайте PDF-файлы, файлы Word и доказательства.",
     "displayName": "Отображаемое имя",
     "displayNamePlaceholder": "например Пакет документов BPO — окончательный",
     "dragDrop": "Перетащите файл сюда или",
@@ -568,7 +1428,7 @@
     "confirmRegistration": "Подтвердить регистрацию",
     "cycleDue": "Цикл {{n}} · срок погашения {{date}}",
     "cycleLabel": "Цикл {{n}}",
-    "description": "Подайте черновик прав, как только клиент подтвердит, и пакет документов будет готов.",
+    "description": "Подайте черновик прав после того, как клиент подтвердит, и пакет документов будет готов.",
     "editSplit": "Редактировать разделение",
     "empty": "Прав интеллектуальной собственности пока нет. Черновик создается автоматически при преобразовании воздухозаборника; добавить больше прав вручную после судебного преследования.",
     "epoCheckFailed": "Проверка статуса EPO не удалась",
@@ -697,7 +1557,7 @@
       "create": "Создать захват",
       "createTitle": "Журнал таможенного ареста",
       "deadlineHint": "Срок ответа определяется автоматически (10 рабочих дней с даты изъятия).",
-      "empty": "Приступов пока не зарегистрировано.",
+      "empty": "Приступов пока не зафиксировано.",
       "goodsDescription": "Описание товара",
       "loadFailed": "Не удалось загрузить записи.",
       "loading": "Загрузка приступов…",
@@ -727,39 +1587,948 @@
     "archiving": "Архивирование…",
     "restore": "Восстановить",
     "restoring": "Восстановление…",
-    "archiveFailed": "Не удалось архивировать файл",
+    "archiveFailed": "Не удалось заархивировать файл",
     "restoreFailed": "Не удалось восстановить файл",
-    "archiveConfirm": "Архивировать этот файл? Он исчезнет из активного списка, но останется в Архиве."
+    "archiveConfirm": "Архивировать этот файл? Он покинет активный список, но останется доступным для поиска в разделе «Архив»."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Вторичные действия",
+      "editScope": "Редактировать область/классы"
+    },
+    "kinds": {
+      "name_address_change": "Изменение имени и адреса",
+      "transfer": "Передача/уступка товарного знака",
+      "license": "Лицензионное соглашение",
+      "pledge": "Специальное обещание",
+      "injunction": "Временная мера / судебный запрет",
+      "surrender": "Полная капитуляция/Отказ от ответственности",
+      "limitation": "Ограничение применения",
+      "insolvency": "Несостоятельность / Банкротство"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Оппозиционное поселение",
+      "office_action_response": "Ответные действия офиса",
+      "voluntary_limitation": "Добровольное ограничение",
+      "correction_of_error": "Исправление ошибки",
+      "other": "Другой"
+    },
+    "scope": {
+      "title": "Редактировать классы и область действия",
+      "description": "Внесите поправки в классы Ниццы и описания товаров/услуг, а затем запишите данные для подачи в офис.",
+      "cardTitle": "Классы и товары/услуги",
+      "cardHint": "Активные классы Nice в этом файле товарного знака.",
+      "empty": "Занятия пока не записаны.",
+      "classLabel": "Класс {{n}}",
+      "noDescription": "Нет описания",
+      "classes": "Редактор классов и товаров",
+      "incomingNumber": "Входящий номер (ВХ.НОМЕР)",
+      "incomingPlaceholder": "Идентификатор отслеживания офиса",
+      "filingDate": "Дата подачи (ДАТА)",
+      "legalBasis": "Правовая основа (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Выберите причину…",
+      "legalBasisOther": "Другая правовая основа",
+      "attachment": "Подтверждающий документ",
+      "errors": {
+        "classRequired": "Сохраните хотя бы один класс «Ницца» или используйте «Полную капитуляцию», чтобы отказаться от оценки.",
+        "incomingRequired": "Введите входящий ссылочный номер.",
+        "dateRequired": "Введите дату подачи.",
+        "basisRequired": "Выберите правовую основу.",
+        "saveFailed": "Не удалось сохранить корректировку области действия."
+      }
+    },
+    "secondary": {
+      "description": "Зарегистрируйте это административное действие, необязательную государственную пошлину и сроки напоминания.",
+      "generateProforma": "Создать счет-проформу",
+      "governmentFee": "Государственная пошлина (€)",
+      "paymentDueDate": "Срок оплаты",
+      "paymentReminder": "Напомнить перед оплатой",
+      "filingDeadline": "Срок подачи/действия",
+      "filingReminder": "Напомнить перед подачей",
+      "reminderUnit": "Единица",
+      "months": "За несколько месяцев до этого",
+      "days": "Дней назад",
+      "titles": {
+        "name_address_change": "Зарегистрировать изменение имени и адреса",
+        "transfer": "Передача товарного знака журнала",
+        "license": "Лицензионное соглашение журнала",
+        "pledge": "Специальное обещание войти",
+        "injunction": "Зарегистрировать временную меру/судебный запрет",
+        "surrender": "Полная сдача журнала / отказ от ответственности",
+        "limitation": "Ограничение приложения журнала",
+        "insolvency": "Войти Неплатежеспособность / Банкротство"
+      },
+      "errors": {
+        "feeRequired": "Введите государственную пошлину для создания счета-проформы.",
+        "saveFailed": "Не удалось сохранить это действие."
+      }
+    },
+    "table": {
+      "title": "Вторичные действия",
+      "description": "Зарегистрированные процедуры для этого товарного знака. Откройте папку, чтобы просмотреть или загрузить связанные файлы.",
+      "empty": "Второстепенных действий пока нет. Используйте «Вторичные действия» в заголовке, чтобы зарегистрировать одно из них.",
+      "procedure": "Процедура",
+      "action": "Действие",
+      "loggedAt": "Вошёл в систему",
+      "viewAria": "Посмотреть подробности действия",
+      "filesAria": "Открыть файловый архив (файлы {{count}})"
+    },
+    "archive": {
+      "title": "Архив файлов",
+      "empty": "К этому действию пока не прикреплено ни одного файла.",
+      "date": "Дата",
+      "regarding": "Касательно",
+      "regardingPlaceholder": "например Решение, форма, сопроводительное письмо",
+      "document": "Документ",
+      "user": "Пользователь",
+      "attach": "Прикрепить документ",
+      "upload": "Загрузить файл",
+      "download": "Скачать",
+      "regardingRequired": "Введите, о чем идет речь в файле.",
+      "fileRequired": "Выберите файл для загрузки.",
+      "uploadFailed": "Не удалось загрузить файл."
+    }
   },
   "list": {
-    "description": "Обзор всех файлов — поиск по названию, клиенту или номеру заявки.",
-    "descriptionPortal": "Файлы, открытые для вашей организации после конверсии обращения.",
-    "descriptionArchived": "Завершённые или неактивные файлы для справки.",
+    "description": "Просмотр всех файлов в портфолио — поиск по названию, клиенту или номеру заявки.",
+    "descriptionPortal": "Файлы, открытые для вашей организации после преобразования приема.",
+    "descriptionArchived": "Заполненные или неактивные файлы сохраняются для справки.",
+    "descriptionOthers": "Файлы за пределами основных шести полок — фильтр по типу работы ниже.",
+    "descriptionType": "Файлы {{type}} — поиск по названию, клиенту или номеру заявки.",
     "filters": {
       "allStatuses": "Все статусы",
       "allTypes": "Все виды работ",
+      "allOtherTypes": "Все остальные типы",
       "active": "Активный",
-      "archived": "Архив",
-      "allOtherTypes": "Все прочие типы"
+      "archived": "В архиве"
     },
     "intakeQueue": "Очередь приема",
     "pagination": {
       "ofTotal": "из {{total}}"
     },
     "perPage": "{{count}} на странице",
-    "searchPlaceholder": "Поиск по названию, клиенту, номеру заявки…",
+    "searchPlaceholder": "Поиск по названию, клиенту, номеру приложения…",
     "title": "Файлы",
-    "titleArchived": "Архивные файлы",
-    "titlePortal": "Мои файлы",
-    "descriptionOthers": "Файлы вне шести основных категорий — фильтр по типу ниже.",
-    "descriptionType": "Файлы типа {{type}} — поиск по названию, клиенту или номеру заявки.",
-    "titleOthers": "Прочие файлы",
+    "titleArchived": "Архивированные файлы",
     "titleDrafts": "Черновики",
-    "descriptionDrafts": "Черновики до одобрения или подачи — отдельно от активных товарных знаков и других полок."
+    "titleOthers": "Другие файлы",
+    "titlePortal": "Мои файлы",
+    "descriptionDrafts": "Черновики файлов, ожидающих утверждения или подачи, — отдельно от активных товарных знаков и других полок."
+  },
+  "trademarkList": {
+    "description": "Портфолио товарных знаков — краткий обзор стадии судебного преследования, классов, заявителя и сроков.",
+    "descriptionMarks": "Новые и зарегистрированные товарные знаки — краткий обзор стадии судебного преследования, классов, заявителя и сроков.",
+    "descriptionProcedure": "{{procedure}} файлы о товарных знаках — краткий обзор стадии судебного преследования, классов и сроков.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл товарного знака.",
+    "columns": {
+      "name": "Название торговой марки",
+      "territory": "Территория",
+      "incomingRef": "Заявка/входящий номер.",
+      "stage": "Стадия обвинения",
+      "classes": "Хорошие занятия",
+      "applicant": "Заявитель/владелец",
+      "markType": "Тип отметки",
+      "registration": "Рег. нет. / дата",
+      "deadline": "Крайний срок"
+    },
+    "deadlineOpen": "{{count}} открыто",
+    "deadlineOverdue": "{{count}} просрочено",
+    "deadlineNext": "Далее: {{date}}",
+    "filters": {
+      "title": "Метки фильтра",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, классам и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или заявителя…",
+      "markName": "Название торговой марки",
+      "markNamePlaceholder": "Отметить заголовок…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Рег. нет.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "markType": "Тип отметки",
+      "markKind": "Марк добрый",
+      "territory": "Территория",
+      "representative": "Представитель",
+      "representativePlaceholder": "Имя представителя…",
+      "applicationDateFrom": "Дата подачи заявления с",
+      "applicationDateTo": "Дата подачи заявления на",
+      "registrationDateFrom": "Дата регистрации с",
+      "registrationDateTo": "Дата регистрации до",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "markStatus": "Отметить статус",
+      "niceClass": "Хороший класс",
+      "country": "Страна",
+      "hasCertificate": "Сертификат прилагается",
+      "choose": "Выбирать",
+      "chooseClass": "Выберите класс",
+      "chooseCountry": "Выберите страну",
+      "all": "Все",
+      "classOption": "Класс {{number}}",
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "utilityModelList": {
+    "description": "Полезные модели: краткий обзор территории, претензий, владельца и регистрации.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл полезной модели.",
+    "searchResults": "Результаты поиска: {{count}}",
+    "territoryWipo": "ВОИС",
+    "status": {
+      "registered": "Зарегистрирован"
+    },
+    "columns": {
+      "name": "Имя",
+      "territory": "Территория",
+      "incomingRef": "Входящий номер. / дата",
+      "status": "Статус",
+      "classes": "Классы",
+      "owner": "Владелец",
+      "kind": "Добрый",
+      "registration": "Рег. нет. / дата"
+    },
+    "filters": {
+      "title": "Фильтровать полезные модели",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, территории и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или владельца…",
+      "name": "Имя",
+      "namePlaceholder": "Название полезной модели…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Регистрационный номер.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "territory": "Территория",
+      "choose": "Выбирать",
+      "chooseTerritory": "Выберите территорию",
+      "representative": "Представитель",
+      "chooseRepresentative": "Выберите представителя",
+      "applicationDate": "Дата подачи заявления",
+      "registrationDate": "Дата регистрации",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "С сертификатом",
+        "without": "Без сертификата"
+      },
+      "statusOptions": {
+        "registered": "Зарегистрирован"
+      },
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "spcList": {
+    "description": "Сертификаты дополнительной защиты: краткий обзор территории, претензий, владельца и регистрации.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл SPC.",
+    "searchResults": "Результаты поиска: {{count}}",
+    "territoryWipo": "ВОИС",
+    "status": {
+      "registered": "Зарегистрирован"
+    },
+    "columns": {
+      "name": "Имя",
+      "territory": "Территория",
+      "incomingRef": "Входящий номер. / дата",
+      "status": "Статус",
+      "classes": "Классы",
+      "owner": "Владелец",
+      "kind": "Добрый",
+      "registration": "Рег. нет. / дата"
+    },
+    "filters": {
+      "title": "Фильтровать файлы SPC",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, территории и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или владельца…",
+      "name": "Название патента",
+      "namePlaceholder": "Название СПК…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Регистрационный номер.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "territory": "Территория",
+      "choose": "Выбирать",
+      "chooseTerritory": "Выберите территорию",
+      "representative": "Представитель",
+      "chooseRepresentative": "Выберите представителя",
+      "applicationDate": "Дата подачи заявления",
+      "registrationDate": "Дата регистрации",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "status": "Статус патента",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "С сертификатом",
+        "without": "Без сертификата"
+      },
+      "statusOptions": {
+        "registered": "Зарегистрирован"
+      },
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "spcShelf": {
+    "title": "НПЦ"
+  },
+  "caseList": {
+    "description": "Судебные дела — краткий обзор сторон, номера дела, суда и статуса.",
+    "emptyDescription": "Чтобы начать работу, создайте новый файл дела.",
+    "searchResults": "Результаты поиска: {{count}}",
+    "incomingSuffix": "входящий",
+    "vrs": "врс.",
+    "viewAria": "Посмотреть {{title}}",
+    "filesAria": "Документы для {{title}} ({{count}})",
+    "columns": {
+      "parties": "Вечеринки",
+      "caseNumber": "Номер дела.",
+      "court": "Суд",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "statusOptions": {
+      "suspended": "Приостановленный",
+      "scheduled": "Запланировано",
+      "inactive": "Неактивный",
+      "appealed": "Обжаловано"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Клиент",
+    "caseNumberLabel": "Номер дела.",
+    "statusTitle": "Статус",
+    "chooseStatus": "Выберите статус",
+    "saveStatus": "Сохранить статус",
+    "edit": "Редактировать",
+    "save": "Сохранять",
+    "cancel": "Отмена",
+    "saving": "Сохранение…",
+    "editHint": "Обновите стороны, детали суда, предмет и другие данные по делу.",
+    "subjectTitle": "Предмет дела",
+    "instanceTitle": "Номер дела. {{number}} ({{court}})",
+    "eventsTitle": "События",
+    "reminderTitle": "Создать дополнительное напоминание",
+    "addReminder": "Добавлять",
+    "openArchive": "Архив файлов",
+    "saved": "Сохранено.",
+    "events": {
+      "date": "Дата",
+      "deadline": "Крайний срок",
+      "regarding": "Касательно",
+      "info": "Дополнительная информация"
+    },
+    "actions": {
+      "decision": "Решение",
+      "agreement": "Соглашение",
+      "ruling": "Постановление"
+    },
+    "errors": {
+      "saveFailed": "Не удалось сохранить сведения о деле."
+    }
+  },
+  "giList": {
+    "description": "Географические указания — краткий обзор территории, классов продукции, владельца и регистрации.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл географического указания.",
+    "searchResults": "Результаты поиска: {{count}}",
+    "territoryEu": "Евросоюз",
+    "territoryWipo": "ВОИС",
+    "status": {
+      "registered": "Зарегистрирован"
+    },
+    "columns": {
+      "name": "Имя",
+      "territory": "Территория",
+      "incomingRef": "Входящий номер. / дата",
+      "status": "Статус",
+      "classification": "Классификация",
+      "owner": "Владелец",
+      "registration": "Рег. нет. / дата"
+    },
+    "filters": {
+      "title": "Фильтровать географические указания",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, маршруту территории и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или владельца…",
+      "name": "Имя",
+      "namePlaceholder": "Имя военнослужащего…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Регистрационный номер.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "territory": "Территория",
+      "choose": "Выбирать",
+      "chooseTerritory": "Выберите маршрут по территории",
+      "representative": "Представитель",
+      "chooseRepresentative": "Выберите представителя",
+      "applicationDate": "Дата подачи заявления",
+      "registrationDate": "Дата регистрации",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "С сертификатом",
+        "without": "Без сертификата"
+      },
+      "country": "Страна",
+      "chooseCountry": "Выберите страну",
+      "statusOptions": {
+        "registered": "Зарегистрирован"
+      },
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "designList": {
+    "description": "Зарегистрированные образцы — краткий обзор территории, классификации Локарно, владельца и регистрации.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл дизайна.",
+    "searchResults": "Результаты поиска: {{count}}",
+    "territoryEu": "Евросоюз",
+    "territoryWipo": "ВОИС",
+    "status": {
+      "registered": "Зарегистрирован"
+    },
+    "columns": {
+      "name": "Имя",
+      "territory": "Территория",
+      "incomingRef": "Входящий номер. / дата",
+      "status": "Статус",
+      "classification": "Классификация",
+      "owner": "Владелец",
+      "registration": "Рег. нет. / дата"
+    },
+    "filters": {
+      "title": "Фильтровать дизайны",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, процедурам и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или владельца…",
+      "name": "Имя",
+      "namePlaceholder": "Название конструкции…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Регистрационный номер.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "territory": "Территория",
+      "procedure": "Процедура",
+      "choose": "Выбирать",
+      "chooseTerritory": "Выберите территорию",
+      "representative": "Представитель",
+      "chooseRepresentative": "Выберите представителя",
+      "applicationDate": "Дата подачи заявления",
+      "registrationDate": "Дата регистрации",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "status": "Статус",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "С сертификатом",
+        "without": "Без сертификата"
+      },
+      "country": "Страна",
+      "statusOptions": {
+        "registered": "Зарегистрирован"
+      },
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "patentList": {
+    "description": "Новые и зарегистрированные патенты вместе — краткий обзор стадии судебного разбирательства, претензий, владельца и сроков.",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл патента.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Название патента",
+      "territory": "Территория",
+      "incomingRef": "Заявка/входящий номер.",
+      "stage": "Статус",
+      "claims": "Претензии",
+      "owner": "Владелец",
+      "registration": "Рег. нет. / дата",
+      "deadline": "Крайний срок"
+    },
+    "deadlineOpen": "{{count}} открыто",
+    "deadlineOverdue": "{{count}} просрочено",
+    "deadlineNext": "Далее: {{date}}",
+    "filters": {
+      "title": "Фильтровать патенты",
+      "subtitle": "Ограничьте портфолио по заявителям, числам, датам, территории и т. д.",
+      "activeCount": "{{count}} активен",
+      "applicant": "Заявитель/владелец",
+      "applicantPlaceholder": "Имя клиента или владельца…",
+      "patentName": "Название патента",
+      "patentNamePlaceholder": "Название патента…",
+      "incomingNo": "Входящий номер.",
+      "incomingPlaceholder": "Заявка/входящая…",
+      "regNo": "Рег. нет.",
+      "regNoPlaceholder": "Регистрационный номер…",
+      "territory": "Территория",
+      "choose": "Выбирать",
+      "chooseTerritory": "Выберите территорию",
+      "representative": "Представитель",
+      "chooseRepresentative": "Выберите представителя",
+      "applicationDateFrom": "Дата подачи заявления с",
+      "applicationDateTo": "Дата подачи заявления на",
+      "registrationDateFrom": "Дата регистрации с",
+      "registrationDateTo": "Дата регистрации до",
+      "contact": "Контактное лицо",
+      "contactPlaceholder": "Контактное имя, адрес электронной почты или телефон…",
+      "patentStatus": "Статус патента",
+      "certificate": "Сертификат",
+      "certificateOptions": {
+        "with": "С сертификатом",
+        "without": "Без сертификата"
+      },
+      "country": "Страна",
+      "chooseCountry": "Выберите страну",
+      "annualFees": "Оплата ежегодного взноса",
+      "annualFeesOptions": {
+        "yes": "Да",
+        "no": "Нет"
+      },
+      "statusOptions": {
+        "validation_received": "Подтверждение получено",
+        "assignment": "Назначение",
+        "translation_assigned": "Назначенный перевод",
+        "filing_entry": "Подача / запись",
+        "validation_decision": "Решение о валидации",
+        "registered": "Зарегистрирован"
+      },
+      "all": "Все",
+      "clear": "Очистить фильтры",
+      "apply": "Применить фильтры"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Знаки"
+  },
+  "objectionList": {
+    "view": "Вид",
+    "fileArchive": "Архив файлов",
+    "viewAria": "Посмотреть возражение {{title}}",
+    "filesAria": "Открыть файловый архив для {{title}} (файлы {{count}})",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл возражений.",
+    "columns": {
+      "againstMark": "Против отметки",
+      "grounds": "Основания",
+      "client": "Клиент",
+      "status": "Статус",
+      "actions": "Действия"
+    }
+  },
+  "oppositionList": {
+    "view": "Вид",
+    "fileArchive": "Архив файлов",
+    "viewAria": "Посмотреть возражение {{title}}",
+    "filesAria": "Открыть файловый архив возражения для {{title}} (файлы {{count}})",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл оппозиции.",
+    "columns": {
+      "againstMark": "Против отметки",
+      "client": "Клиент",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "stages": {
+      "disputes_division": "Отдел оппозиции по спорам",
+      "opposition_decision": "Решение оппозиции",
+      "disputes_department_decision": "Решение отдела споров",
+      "case": "Случай",
+      "stopped": "Остановлено",
+      "closed": "Закрыто"
+    },
+    "stageLegend": {
+      "disputes_division": "Синий — на рассмотрении в отделе по разрешению споров",
+      "opposition_decision": "Желтый — решение принято или находится на рассмотрении",
+      "disputes_department_decision": "Оранжевый — решение на уровне отдела",
+      "case": "Красный — дело передано в суд",
+      "stopped": "Серый — разбирательство приостановлено",
+      "closed": "Зеленый — противостояние завершено"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Возражение",
+    "basicInfo": "Основная информация",
+    "foundation": "Фундамент",
+    "archiveTitle": "Архив файлов возражений",
+    "nav": {
+      "view": "Вид",
+      "archive": "Архив файлов"
+    },
+    "markName": "Название торговой марки",
+    "applicationNumber": "Номер заявки",
+    "applicationDate": "Дата подачи заявления",
+    "classes": "Классы",
+    "markType": "Тип торговой марки",
+    "applicant": "Заявитель",
+    "noMarkImage": "Товарный знак не имеет изображения",
+    "grounds": "Фундамент",
+    "submissionDate": "Дата подачи",
+    "incomingNumber": "Входящий номер",
+    "poaIncomingNumber": "Номер входящей доверенности",
+    "poaDate": "Дата",
+    "edit": "Редактировать",
+    "cancel": "Отмена",
+    "save": "Сохранить изменения",
+    "saving": "Сохранение…",
+    "errors": {
+      "markNameRequired": "Укажите название торговой марки.",
+      "saveFailed": "Не удалось сохранить возражение."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Оппозиция",
+    "subjectMark": "Предметный товарный знак",
+    "opposingMarks": "Противоречащие товарные знаки",
+    "archiveTitle": "Архив файлов оппозиции",
+    "nav": {
+      "view": "Вид",
+      "archive": "Архив файлов",
+      "notes": "Примечания"
+    },
+    "markName": "Название торговой марки",
+    "applicationNumber": "Номер заявки",
+    "applicationDate": "Дата подачи заявления",
+    "classes": "Классы",
+    "markType": "Тип торговой марки",
+    "applicant": "Заявитель",
+    "representative": "Представитель",
+    "noMarkImage": "Товарный знак не имеет изображения",
+    "noBasisMarks": "Противоречащие товарные знаки не зарегистрированы.",
+    "basisMarkName": "Название торговой марки",
+    "basisTerritory": "Территория",
+    "basisMarkNo": "Марк нет.",
+    "basisAppDate": "Дата подачи заявления",
+    "basisClasses": "Классы",
+    "againstClasses": "Против занятий",
+    "submittedBy": "Представлено",
+    "statusHistory": "История статусов",
+    "stage": "Статус",
+    "stagePlaceholder": "Выберите статус…",
+    "stageNone": "Не установлено",
+    "stageChangeHint": "При сохранении нового статуса обновляется цветной значок в списке возражений, добавляется строка в историю статусов и устанавливается значение «На удержании» (Остановлено) или «Закрыто», если применимо.",
+    "decisionNumber": "Номер решения",
+    "decisionDate": "Дата решения",
+    "actions": {
+      "stop": "Останавливаться",
+      "print": "Распечатать PDF",
+      "printing": "Создание…",
+      "stopFailed": "Не удалось остановить оппозицию.",
+      "printFailed": "Не удалось создать PDF-файл."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Возражение рассматривается отделом по спорам.",
+      "opposition_decision": "Решение по возражению уже принято или ожидается.",
+      "disputes_department_decision": "Отдел по разрешению споров вынес или пересматривает свое решение.",
+      "case": "Дело было передано в суд.",
+      "stopped": "Производство по возражению приостановлено; дело поставлено на удержание.",
+      "closed": "Оппозиция закончилась; дело имеет статус «Закрыто»."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Отдел возражений по спорам",
+      "opposition_decision": "Решение по возражению № __И18Н_ПХ_0__/__И18Н_ПХ_1__",
+      "disputes_department_decision": "Решение отдела по спорам № {{number}} / {{date}}",
+      "case": "Обжалованное решение по возражению № {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Оппозиция остановлена",
+      "closed": "{{markRef}} — Оппозиция закрыта"
+    },
+    "timeline": {
+      "decision": "Решение по оппозиции",
+      "department_decision": "Решение отдела споров",
+      "second_decision": "Второе решение по оппозиции",
+      "appealedBy": "Апелляция подана {{name}}",
+      "appealedInCourtBy": "Подал апелляцию в суд {{name}}",
+      "decisionRef": "№ {{number}} / {{date}}",
+      "appealFiled": "Апелляция подана",
+      "courtAppealFiled": "Подана апелляция в суд"
+    },
+    "workflow": {
+      "appealTitle": "Обращение — входящий номер",
+      "correspondenceTitle": "Переписка",
+      "solutionTitle": "Решение",
+      "incomingNumber": "Входящий номер",
+      "date": "Дата",
+      "attachAppeal": "Прикрепить апелляцию",
+      "attachDocument": "Прикрепить документ",
+      "regarding": "Касательно",
+      "deadline": "Крайний срок",
+      "additionalInfo": "Дополнительная информация",
+      "correspondence": "Переписка",
+      "submit": "Представлять на рассмотрение",
+      "solutionSubmit": "Решение",
+      "caseDraft": "Проект дела",
+      "courtAppeal": "Обжалование в суде",
+      "saveFailed": "Не удалось сохранить."
+    },
+    "edit": "Редактировать",
+    "cancel": "Отмена",
+    "save": "Сохранить изменения",
+    "saving": "Сохранение…",
+    "errors": {
+      "markNameRequired": "Укажите название торговой марки.",
+      "saveFailed": "Не удалось спасти оппозицию."
+    },
+    "notes": {
+      "title": "Оппозиция отмечает",
+      "empty": "Примечаний пока нет.",
+      "date": "Дата",
+      "regarding": "Касательно",
+      "details": "Дополнительная информация",
+      "submit": "Добавлять",
+      "regardingRequired": "Введите тему заметки.",
+      "saveFailed": "Не удалось сохранить заметку.",
+      "editAria": "Изменить заметку",
+      "deleteAria": "Удалить заметку"
+    }
+  },
+  "cancellationList": {
+    "view": "Обзор",
+    "fileArchive": "Файлы",
+    "viewAria": "Посмотреть отмену {{title}}",
+    "filesAria": "Открыть архив файлов отмены для {{title}} (файлы {{count}})",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл отмены.",
+    "stageNone": "Не установлено",
+    "columns": {
+      "againstMark": "Против бренда",
+      "client": "Клиент",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "stages": {
+      "waiting_for_login": "Ожидание входа в систему",
+      "in_correspondence": "В переписке",
+      "case": "Случай",
+      "stopped": "Остановлено",
+      "closed": "Закрыто"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Отмена",
+    "subjectMark": "Предметный товарный знак",
+    "cancellationSide": "Подробности отмены",
+    "archiveTitle": "Архив файлов отмены",
+    "nav": {
+      "view": "Вид",
+      "archive": "Архив файлов",
+      "notes": "Примечания"
+    },
+    "markName": "Название торговой марки",
+    "applicationNumber": "Номер заявки",
+    "applicationDate": "Дата подачи заявления",
+    "registrationNumber": "Регистрационный номер",
+    "classes": "Классы",
+    "markType": "Тип отметки",
+    "applicant": "Заявитель",
+    "representative": "Представитель",
+    "againstClasses": "Против занятий",
+    "submittedBy": "Представлено",
+    "foundation": "Фундамент",
+    "stage": "Статус",
+    "stagePlaceholder": "Выберите статус…",
+    "stageNone": "Не установлено",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Отмена",
+      "in_correspondence": "Отмена № {{number}} / {{date}}",
+      "case": "Отмена № {{number}} / {{date}} — Дело",
+      "stopped": "{{markRef}} — Отмена остановлена",
+      "closed": "{{markRef}} — Отмена закрыта"
+    },
+    "deadlines": {
+      "date": "Дата",
+      "deadline": "Крайний срок",
+      "regarding": "Касательно",
+      "details": "Дополнительная информация"
+    },
+    "workflow": {
+      "feeTitle": "Государственная пошлина — дата оплаты",
+      "poaTitle": "Доверенность",
+      "filingTitle": "Заявление об отмене",
+      "correspondenceTitle": "Переписка",
+      "feeAmount": "Сумма (левов)",
+      "feeDate": "Дата платежа",
+      "poaNumber": "номер доверенного лица",
+      "poaDate": "Дата получения",
+      "cancellationNumber": "Номер отмены",
+      "filingDate": "Дата подачи",
+      "attachDocument": "Прикрепить документ",
+      "attachPoa": "Прикрепить доверенность",
+      "regarding": "Касательно",
+      "deadline": "Крайний срок",
+      "additionalInfo": "Дополнительная информация",
+      "submit": "Представлять на рассмотрение",
+      "decision": "Решение",
+      "feePaid": "Госпошлина учтена",
+      "poaReceived": "Доверенность записана",
+      "filingRecorded": "Заявление об отмене зарегистрировано",
+      "correspondence": "Переписка",
+      "saveFailed": "Не удалось сохранить."
+    },
+    "actions": {
+      "stop": "Останавливаться",
+      "stopFailed": "Не удалось остановить отмену."
+    },
+    "edit": "Редактировать",
+    "cancel": "Отмена",
+    "save": "Сохранить изменения",
+    "saving": "Сохранение…",
+    "errors": {
+      "markNameRequired": "Укажите название торговой марки.",
+      "saveFailed": "Не удалось сохранить отмену."
+    },
+    "notes": {
+      "title": "Примечания об отмене",
+      "empty": "Примечаний пока нет.",
+      "date": "Дата",
+      "regarding": "Касательно",
+      "details": "Дополнительная информация",
+      "submit": "Добавлять",
+      "regardingRequired": "Введите тему заметки.",
+      "saveFailed": "Не удалось сохранить заметку.",
+      "editAria": "Изменить заметку",
+      "deleteAria": "Удалить заметку"
+    }
+  },
+  "deletionList": {
+    "view": "Обзор",
+    "fileArchive": "Файлы",
+    "viewAria": "Просмотр удаления {{title}}",
+    "filesAria": "Открыть архив файлов удаления для {{title}} (файлы {{count}})",
+    "emptyDescription": "Попробуйте настроить фильтры или создать новый файл удаления.",
+    "stageNone": "Не установлено",
+    "columns": {
+      "againstMark": "Против бренда",
+      "client": "Клиент",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "stages": {
+      "waiting_for_login": "Отправить на удаление",
+      "in_correspondence": "В переписке",
+      "decision": "Решение",
+      "case": "Случай",
+      "stopped": "Остановлено",
+      "closed": "Закрыто"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Удаление",
+    "subjectMark": "Предметный товарный знак",
+    "deletionSide": "Подробности удаления",
+    "archiveTitle": "Удаление файлового архива",
+    "archivedStamp": "В архиве",
+    "noMarkImage": "Товарный знак не имеет изображения",
+    "nav": {
+      "view": "Вид",
+      "archive": "Архив файлов"
+    },
+    "markName": "Название торговой марки",
+    "applicationNumber": "Номер заявки",
+    "applicationDate": "Дата подачи заявления",
+    "registrationNumber": "Регистрационный номер",
+    "classes": "Классы",
+    "markType": "Тип отметки",
+    "applicant": "Заявитель",
+    "representative": "Представитель",
+    "againstClasses": "Против занятий",
+    "submittedBy": "Представлено",
+    "foundation": "Фундамент",
+    "stage": "Статус",
+    "stagePlaceholder": "Выберите статус…",
+    "stageNone": "Не установлено",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Удаление",
+      "in_correspondence": "Удаление № {{number}} / {{date}}",
+      "decision": "Решение об удалении № {{number}} / {{date}}",
+      "case": "Решение об удалении № {{number}} / {{date}} — Дело",
+      "stopped": "{{markRef}} — остановлено (до {{stopUntil}})",
+      "closed": "{{markRef}} — Удаление закрыто"
+    },
+    "deadlines": {
+      "date": "Дата напоминания",
+      "deadline": "Крайний срок",
+      "regarding": "Касательно",
+      "details": "Дополнительная информация",
+      "appealTitle": "Срок подачи апелляции"
+    },
+    "stopped": {
+      "title": "Остановлено",
+      "until": "(до {{date}})",
+      "reason": "Причина: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Создать проформу",
+      "stateFee": "Государственная пошлина",
+      "feePaymentDeadline": "Срок оплаты",
+      "poaSendDeadline": "Срок отправки доверенности",
+      "filingDeadlineLabel": "Крайний срок подачи",
+      "remindBefore": "Напомнить раньше",
+      "reminderDays": "Дни",
+      "reminderMonths": "Месяцы",
+      "feeDeadlineRegarding": "Срок уплаты государственной пошлины",
+      "poaDeadlineRegarding": "Срок отправки доверенности",
+      "filingDeadlineRegarding": "Срок подачи заявления об удалении",
+      "proformaRecorded": "Проформа и сроки зафиксированы",
+      "feeTitle": "Государственная пошлина — дата оплаты",
+      "poaTitle": "Доверенность",
+      "filingTitle": "Заявление об удалении",
+      "correspondenceTitle": "Переписка",
+      "decisionTitle": "Решение об удалении",
+      "feeAmount": "Сумма (левов)",
+      "feeDate": "Дата платежа",
+      "poaNumber": "номер доверенного лица",
+      "poaDate": "Дата получения",
+      "deletionNumber": "Номер удаления",
+      "filingDate": "Дата подачи",
+      "decisionNumber": "Номер решения",
+      "decisionDate": "Дата решения",
+      "attachDocument": "Прикрепить документ",
+      "attachPoa": "Прикрепить доверенность",
+      "regarding": "Касательно",
+      "deadline": "Крайний срок",
+      "additionalInfo": "Дополнительная информация",
+      "submit": "Представлять на рассмотрение",
+      "decision": "Решение",
+      "caseDraft": "Проект дела",
+      "notAppealed": "Не обжаловано",
+      "appealed": "Обжаловано",
+      "feePaid": "Госпошлина учтена",
+      "poaReceived": "Доверенность записана",
+      "filingRecorded": "Заявление об удалении зарегистрировано",
+      "decisionRecorded": "Решение об удалении зарегистрировано",
+      "correspondence": "Переписка",
+      "decisionNumberRequired": "Введите номер решения.",
+      "saveFailed": "Не удалось сохранить."
+    },
+    "actions": {
+      "stop": "Останавливаться",
+      "stopReason": "Причина",
+      "stopUntil": "Остановлено до",
+      "restore": "Восстановить",
+      "restored": "Восстановлен",
+      "archive": "Архив",
+      "archiveConfirm": "Архивировать этот файл удаления?",
+      "archiveFailed": "Не удалось заархивировать удаление.",
+      "stopFailed": "Не удалось остановить удаление.",
+      "restoreFailed": "Не удалось восстановить удаление."
+    },
+    "edit": "Редактировать",
+    "cancel": "Отмена",
+    "save": "Сохранить изменения",
+    "saving": "Сохранение…",
+    "errors": {
+      "markNameRequired": "Укажите название торговой марки.",
+      "saveFailed": "Не удалось сохранить удаление."
+    }
   },
   "ipRightsRegister": {
     "description": "Общефирменный реестр прав интеллектуальной собственности с фильтрами по клиенту, юрисдикции, типу, статусу и сроку действия.",
-    "empty": "Для этих фильтров не найдено прав IP.",
+    "empty": "Для этих фильтров не найдены права IP.",
     "filters": {
       "all": "Все",
       "allClients": "Все клиенты",
@@ -767,7 +2536,7 @@
       "allStatuses": "Все статусы",
       "allTypes": "Все типы",
       "client": "Клиент",
-      "expiryFrom": "Срок действия с",
+      "expiryFrom": "Срок действия от",
       "expiryTo": "Срок действия до",
       "jurisdiction": "Юрисдикция",
       "matterType": "Тип работы",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Комбинированный",
+    "combination_of_colors": "Сочетание цветов",
     "figurative": "Фигуративный",
     "sound": "Звук",
     "three_dimensional": "3D",
-    "wordmark": "Словесный знак",
-    "combination_of_colors": "Сочетание цветов"
+    "wordmark": "Словесный знак"
   },
   "overview": {
     "assignedTo": "Ведущий адвокат",
@@ -801,18 +2570,6 @@
     "clientHint": "Инструктирующая сторона — получает счета-фактуры",
     "intermediary": "Посредник",
     "description": "Описание",
-    "jurisdictions": "Юрисдикции",
-    "jurisdictionsEmpty": "Юрисдикции не зарегистрированы.",
-    "openedBy": "Открыто",
-    "status": "Статус",
-    "table": {
-      "country": "Страна",
-      "localRef": "Местный исх.",
-      "status": "Статус"
-    },
-    "title": "Сведения о файле",
-    "type": "Тип работы",
-    "typeSpecific": "Атрибуты, специфичные для типа",
     "edit": {
       "cancel": "Отмена",
       "edit": "Редактировать",
@@ -829,7 +2586,19 @@
       "saved": "Сохранено.",
       "saving": "Сохранение…",
       "title": "Детали файла"
-    }
+    },
+    "jurisdictions": "Юрисдикции",
+    "jurisdictionsEmpty": "Юрисдикции не зарегистрированы.",
+    "openedBy": "Открыто",
+    "status": "Статус",
+    "table": {
+      "country": "Страна",
+      "localRef": "Местный исх.",
+      "status": "Статус"
+    },
+    "title": "Детали файла",
+    "type": "Тип работы",
+    "typeSpecific": "Атрибуты, специфичные для типа"
   },
   "parties": {
     "title": "Вечеринки",
@@ -874,11 +2643,12 @@
     "instructions": "Инструкции",
     "approvals": "Разрешения",
     "ipRights": "права интеллектуальной собственности",
+    "secondaryActions": "Вторичные действия",
     "customs": "Таможня",
     "overview": "Обзор",
-    "tasks": "Заметки",
+    "tasks": "Примечания",
     "timeline": "Хронология",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} в {{tab}}"
   },
   "approvals": {
     "title": "Одобрения клиентов",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Добавить задачу",
+    "add": "Добавить примечание",
     "assignedTo": "Назначено",
     "assignedToUser": "Назначено {{name}}",
     "completed": "Завершенный",
     "completedByUser": "Выполнил {{name}}",
-    "confirmComplete": "Отметить эту задачу как выполненную?",
-    "confirmDelete": "Удалить эту задачу?",
+    "confirmComplete": "Отметить эту заметку как завершенную?",
+    "confirmDelete": "Удалить эту заметку?",
     "delete": "Удалить",
-    "deleteMessage": "Эта задача будет удалена навсегда.",
-    "deleteTitle": "Удалить задачу?",
-    "description": "Работа, которую необходимо проделать по этому вопросу, не зависит от установленных системой сроков.",
-    "drawerTitle": "Добавить задачу",
+    "deleteMessage": "Это примечание будет удалено навсегда.",
+    "deleteTitle": "Удалить заметку?",
+    "description": "Внутренние примечания по этому поводу — отдельно от установленных системой сроков.",
+    "drawerTitle": "Добавить примечание",
     "dueOn": "Срок погашения {{date}}",
-    "empty": "Никаких задач по этому поводу.",
-    "emptyOpen": "Нет открытых задач. Добавьте его, когда есть работа, которую нужно отслеживать по этому вопросу.",
-    "error": "Не удалось загрузить задачи.",
-    "errorCreate": "Не удалось создать задачу",
+    "empty": "Никаких замечаний по этому поводу.",
+    "emptyOpen": "Нет открытых заметок. Добавьте его, если есть что отслеживать по этому вопросу.",
+    "error": "Не удалось загрузить заметки.",
+    "errorCreate": "Не удалось создать заметку",
     "form": {
       "assigneeLabel": "Назначено",
-      "assigneeRequired": "Выберите, кто должен выполнить это задание",
+      "assigneeRequired": "Выберите, для кого предназначена эта заметка",
       "dueDateOptional": "Срок сдачи (необязательно)",
       "notesOptional": "Примечания (необязательно)",
       "notesPlaceholder": "Любой дополнительный контекст для правопреемника",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "например Звонок клиенту по поводу ответа BPO",
       "titleRequired": "Требуется название"
     },
-    "loading": "Загрузка задач…",
+    "loading": "Загрузка заметок…",
     "markComplete": "Отметить как завершенное",
     "noDueDate": "Нет срока сдачи",
     "open": "Открыть",
@@ -954,7 +2724,7 @@
       "high": "Высокий",
       "normal": "Нормальный"
     },
-    "title": "Задачи"
+    "title": "Примечания"
   },
   "timeline": {
     "description": "Хронологическая история преследования и переписка по этому поводу.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Спор/оппозиция",
     "domain": "Домены",
     "fto_analysis": "FTO-анализ",
-    "geographical_indication": "Географическое указание",
-    "industrial_design": "Промышленный дизайн",
+    "geographical_indication": "Географические указания",
+    "industrial_design": "Дизайн",
     "litigation_expert_report": "Судебные разбирательства/Отчеты судебных экспертов",
     "official_fee_payment": "Официальные платежи",
     "other": "Другой",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Выбирать…",
     "title": "Детали, специфичные для типа"
   },
-  "createFile": {
-    "addClass": "Добавить курс",
-    "backToFiles": "Вернуться к файлам",
-    "cancel": "Отмена",
-    "changeSubtype": "Изменить подкатегорию",
-    "checkRegister": "Проверить в торговом реестре",
-    "clearClient": "Сменить клиента",
-    "clientOptionalHint": "Нет соответствия CRM? Заполните данные клиента ниже — при сохранении черновика они автоматически появятся в разделе «Клиенты».",
-    "applicantOptionalHint": "Нет соответствия CRM? Заполните данные заявителя ниже — при сохранении черновика они автоматически появятся в Клиентах.",
-    "draftDescription": "Создано через Создать файл ({{procedure}}) — черновик",
-    "errors": {
-      "client": "Выберите клиента, чтобы продолжить.",
-      "clientOrDetails": "Выберите клиент CRM или введите имя клиента и данные для его создания.",
-      "applicantOrDetails": "Выберите заявителя в CRM или введите имя заявителя и данные для его создания.",
-      "jurisdiction": "Выберите хотя бы одну территорию/страну.",
-      "markWords": "Введите название/слова торговой марки.",
-      "saveFailed": "Не удалось сохранить файл черновика.",
-      "subtype": "Выберите подкатегорию товарного знака.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Ссылка на файл и статус",
+    "incomingNumber": {
+      "label": "Входящий номер."
     },
-    "euHint": "Товарный знак Европейского Союза (EUIPO) — юрисдикция установлена ​​ЕС.",
-    "fields": {
-      "address": "Адрес",
-      "applicantClient": "Заявитель-клиент",
-      "applicantClientOptional": "Заявитель в CRM (по желанию)",
-      "city": "Город",
-      "classNumber": "Номер класса",
-      "country": "Страна",
-      "eik": "МСЖД / ЕИК",
-      "email": "Электронная почта",
-      "fax": "Факс",
-      "goodsText": "Товары и услуги",
-      "legalName": "Название и тип юридического лица",
-      "linkClient": "Выбор клиента в CRM",
-      "linkClientOptional": "CRM-клиент (опционально)",
-      "markKind": "Отметить категорию",
-      "markType": "Тип отметки",
-      "markWords": "Слова знака",
-      "mol": "МОЛ (подписавший)",
-      "name": "Имя",
-      "phone": "Телефон",
-      "postalCode": "Почтовый индекс",
-      "territory": "Территория",
-      "vat": "Идентификатор НДС",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Дата поступления"
     },
-    "formTitle": "Создать файл: Товарный знак",
-    "fullFormReady": "Доступна полная форма",
-    "goodsPlaceholder": "например бутылки; розничные услуги…",
-    "markKinds": {
-      "certification": "Сертификация",
-      "collective": "Коллектив",
-      "individual": "Индивидуальный"
+    "territoryRoute": {
+      "label": "Территориальный маршрут",
+      "options": {
+        "national_bg": "Болгария (национальная)",
+        "eu": "Евросоюз",
+        "wipo": "ВОИС / международный",
+        "international": "Другие международные"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Сочетание цветов",
-      "combined": "Комбинированный",
-      "figurative": "Фигуративный",
-      "sound": "Звук",
-      "three_dimensional": "Трехмерный",
-      "wordmark": "Словесный знак"
+    "authorityOffice": {
+      "label": "Орган / офис"
     },
-    "noClients": "Нет подходящих клиентов. Сначала создайте клиента в CRM, а затем вернитесь сюда.",
-    "optionalMark": "Отметка/тема (необязательно)",
-    "partialSubtypeNote": "Полные специализированные поля для этой подкатегории будут расширены позже. Вы по-прежнему можете сохранить черновик, связанный с клиентом; документы и переписка остаются в деле.",
-    "preliminary": "Предварительная информация",
-    "procedureHints": {
-      "new": "Заявка на новый товарный знак — полная форма",
-      "registered": "Уже зарегистрированный товарный знак",
-      "objection": "Производство по возражению",
-      "opposition": "Производство по оппозиции",
-      "cancellation": "Производство по аннулированию",
-      "deletion": "Производство по исключению",
-      "opposition_against_us": "Производство по оппозиции",
-      "opposition_by_us": "Производство по оппозиции",
-      "revocation": "Производство по исключению"
+    "relatedApplicationNumber": {
+      "label": "Соответствующее приложение №."
     },
-    "procedures": {
-      "new": "Новый бренд",
-      "registered": "Зарегистрированный товарный знак",
-      "objection": "Возражение",
-      "opposition": "Оппозиция",
-      "cancellation": "Аннулирование",
-      "deletion": "Исключение",
-      "opposition_against_us": "Оппозиция",
-      "opposition_by_us": "Оппозиция",
-      "revocation": "Исключение"
-    },
-    "removeClass": "Удалить курс",
-    "sameApplicant": "Информация о заявителе совпадает с информацией о клиенте.",
-    "sameCorrespondence": "Адрес для корреспонденции совпадает с зарегистрированным адресом",
-    "saveDraft": "Сохранить как черновик",
-    "saving": "Сохранение…",
-    "searchClient": "Поиск клиентов по имени или коду…",
-    "sections": {
-      "applicant": "Заявитель",
-      "client": "Данные клиента",
-      "contact": "Контактное лицо",
-      "correspondence": "Адрес для корреспонденции",
-      "goods": "Список товаров и услуг",
-      "markName": "Название торговой марки",
-      "registeredAddress": "Юридический адрес",
-      "searchDocs": "Прикрепите документы поиска",
-      "trademark": "Информация о торговой марке",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Выберите страны",
-    "subtypeHint": "Сначала выберите подкатегорию. Новый бренд открывает полную форму.",
-    "territories": {
-      "eu": "Евросоюз",
-      "international": "Международный (WO)",
-      "national": "Национальный"
-    },
-    "trademarkTitle": "Создать файл — Торговая марка",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Добавить страну…",
-    "cancel": "Отмена",
-    "country": "Страна",
-    "edit": "Редактировать",
-    "errors": {
-      "country": "Выберите хотя бы одну страну для этой территории.",
-      "saveFailed": "Не удалось сохранить информацию о товарном знаке."
-    },
-    "euFixed": "Европейский Союз (EUIPO)",
-    "markKind": "Отметить категорию",
-    "markType": "Тип отметки",
-    "noCountries": "Страны пока не выбраны.",
-    "save": "Сохранить изменения",
-    "saved": "Сохранено.",
-    "saving": "Сохранение…",
-    "selectCountries": "Выберите страны",
-    "territory": "Территория",
-    "title": "Информация о торговой марке"
-  },
-  "fileApproval": {
-    "clientStep": "1. Клиент одобрен",
-    "clientStepHint": "Персонал подтверждает, что клиент согласился офлайн (звонок/электронное письмо/встреча). Клиенту портала не требуется самоутверждаться.",
-    "errors": {
-      "updateFailed": "Не удалось обновить статус одобрения."
-    },
-    "hint": "Только внутреннее одобрение: отметьте, что клиент согласился, после чего управляющий партнер примет файл. Никакого одобрения отправки клиенту не требуется.",
-    "markClientApproved": "Отметить клиента одобренным",
-    "partnerApprove": "Файл одобрения партнера",
-    "partnerOnly": "Этот шаг может выполнить только управляющий партнер.",
-    "partnerStep": "2. Управляющий партнер принимает",
-    "partnerStepHint": "После того, как клиент помечен как одобренный, управляющий партнер принимает файл и оставляет его черновиком.",
-    "recordedBy": "Записал {{name}} · {{date}}",
-    "title": "Утверждение файла",
-    "waitForClient": "Сначала пометьте клиента одобренным, после чего вы сможете принять файл."
-  },
-  "prosecution": {
-    "cancelEdit": "Отмена",
-    "completeStage": "Завершенный этап",
-    "edit": "Редактировать",
-    "editingNote": "Используйте «Сохранить», чтобы сохранить то, что вы ввели на этом этапе, или «Завершить», чтобы двигаться вперед после заполнения обязательных полей.",
-    "gateHint": "Вы не можете двигаться вперед, пока не будут заполнены обязательные для этого этапа поля (так же, как и их системные ворота).",
-    "goBack": "Вернитесь на сцену",
-    "errors": {
-      "needAttachments": "Прежде чем продолжить, прикрепите необходимые файлы: {{list}}.",
-      "needInvoice": "Перед завершением этого этапа сформируйте счет-фактуру от государственной пошлины.",
-      "alreadyFinal": "Этот файл уже находится на финальной стадии.",
-      "needApproval": "Завершите утверждение файла (клиент + управляющий партнер) перед тем, как уйти с подготовительной стадии.",
-      "needBulletin": "Введите номер и дату бюллетеня, прежде чем покинуть публикацию.",
-      "needFeePaid": "Перед сдачей официального экзамена укажите дату уплаты государственной пошлины.",
-      "needFilingFields": "Введите номер заявки и дату подачи для завершения подачи.",
-      "needFormalFields": "Введите государственную пошлину и срок оплаты, чтобы продолжить.",
-      "needMol": "Пожалуйста, введите MOL в сведениях о файле (создать-файл/редактировать) перед завершением подачи.",
-      "needOfficeActionDeadline": "У действия офиса есть предмет — установите его крайний срок, прежде чем продолжить.",
-      "needPoaFiled": "Введите входящий номер PoA и дату перед тем, как покинуть формальный экзамен.",
-      "needRegFeePaid": "Прежде чем продолжить, введите дату оплаты регистрационного взноса.",
-      "needRepresentative": "Введите хотя бы одного представителя или установите для параметра «Добавить представителей» значение «Нет».",
-      "saveBeforeNavigate": "Сохраните или отмените изменения, прежде чем вернуться на сцену.",
-      "saveFailed": "Не удалось сохранить данные обвинения."
-    },
-    "fields": {
-      "addRepresentatives": "Хотите добавить представителей?",
-      "applicationDate": "Дата подачи заявления",
-      "applicationNumber": "Номер заявки",
-      "bulletinDate": "Дата выпуска",
-      "bulletinNumber": "Номер бюллетеня",
-      "feePaidDate": "Дата уплаты государственной пошлины",
-      "generatePoa": "Создать доверенность",
-      "officeAction": "Действие/запрос офиса",
-      "officeActionDeadline": "Срок действия ведомства",
-      "paymentDeadline": "Срок оплаты",
-      "poaDate": "Дата заключения договора",
-      "poaDeadline": "Срок подачи доверенности",
-      "poaIncoming": "PoA входящий номер",
-      "regFeePaidDate": "Дата оплаты регистрационного взноса",
-      "remindDays": "Напомнить за несколько дней до крайнего срока",
-      "representatives": "Представитель(и)",
-      "sendPoaEmail": "Отправлять автоматическое электронное письмо",
-      "stateFee": "Государственная пошлина (BGN)"
-    },
-    "molHint": "MOL должен быть установлен в деталях файла (из создания файла). Недостающие блоки MOL завершают этот этап.",
-    "no": "Нет",
-    "prepHint": "Подготовительный этап: сначала завершите утверждение файла, затем управляющий партнер примет предложение перевести вас в режим подачи документов.",
-    "registeredDone": "Достигнута стадия регистрации.",
-    "saveChanges": "Сохранить изменения",
-    "saveEntered": "Сохранять",
-    "saved": "Сохранено.",
-    "saveFields": "Сохранить поля",
-    "saving": "Сохранение…",
-    "stages": {
-      "filing": "Подача",
-      "formal_exam": "Формальная экспертиза",
-      "prep": "Подготовительный",
-      "publication": "Публикация",
-      "reg_fee": "Регистрационные пошлины",
-      "registration": "Регистрация",
-      "substantive_exam": "Экспертиза по существу"
-    },
-    "territoryLabel": {
-      "eu": "Трубопровод: ЕС",
-      "international": "Трубопровод: Международный (WO)",
-      "national": "Трубопровод: Национальный"
-    },
-    "territoryLocked": "Территория исправлена ​​из файла создания",
-    "territoryFromInfo": "Территория из информации о товарных знаках",
-    "title": "Этапы делопроизводства",
-    "yes": "Да",
-    "hub": {
-      "generateInvoice": "Создать счет",
-      "invoiceIssuedShort": "Счет выставлен",
-      "invoiceIssued": "Счет {{number}} выставлен. Клиент может увидеть это на своем портале; он также находится на вкладке «Оплата».",
-      "invoiceAlreadyIssued": "Счет {{number}} уже выставлен — его можно увидеть на портале и в разделе «Выставление счетов».",
-      "invoiceFailed": "Не удалось создать счет. Проверьте платежные реквизиты клиента.",
-      "invoiceNotes": "Официальная/государственная пошлина",
-      "uploadFailed": "Не удалось загрузить файл.",
-      "needStateFee": "Сначала введите сумму государственной пошлины.",
-      "feeDescription": "Государственный/официальный сбор",
-      "deadlineFailed": "Не удалось создать крайние сроки.",
-      "deadlineTitles": {
-        "payment": "Оплата государственной пошлины",
-        "poa": "Представление доверенности",
-        "oa": "Действия ведомства/запрос на экспертизу",
-        "oaWithSubject": "Действие офиса: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Напомнить за {{days}} дней до крайнего срока."
-      },
-      "attach": {
-        "search": "Прикрепить файл поиска",
-        "application": "Прикрепить заявку",
-        "feeSlip": "Прикрепить квитанцию ​​об оплате",
-        "poa": "Прикрепить свидетельство о намерении",
-        "officeAction": "Прикрепить действие офиса",
-        "decision": "Прикрепить решение",
-        "bulletin": "Прикрепить бюллетень",
-        "regFee": "Прикрепите подтверждение оплаты",
-        "certificate": "Прикрепить сертификат"
+    "workflowStage": {
+      "label": "Этап рабочего процесса",
+      "options": {
+        "intake": "Впуск",
+        "analysis": "Анализ",
+        "contract_draft": "Контракт/проект",
+        "filed": "Поданный",
+        "closed": "Закрыто",
+        "registration": "Регистрация",
+        "active": "Активный",
+        "seizure_pending": "Ожидается арест",
+        "scoping": "Обзор",
+        "search": "Поиск",
+        "draft_report": "Проект отчета",
+        "delivered": "Доставленный",
+        "archived": "В архиве",
+        "pre_dispute": "Предварительный спор",
+        "hearing": "Слух",
+        "decision": "Решение",
+        "appeal": "Обращаться",
+        "monitoring": "Мониторинг",
+        "dispute": "Спор",
+        "udrp": "ЕПРД",
+        "resolved": "Решено",
+        "engaged": "Помолвлен",
+        "draft": "Черновик",
+        "submitted": "Поданный",
+        "requested": "Запрошено",
+        "in_progress": "В ходе выполнения",
+        "invoiced": "выставлен счет",
+        "pending": "В ожидании",
+        "paid": "Оплаченный",
+        "reimbursed": "Возмещено",
+        "open": "Открыть"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Редактировать",
+    "save": "Сохранять",
+    "cancel": "Отмена",
+    "saving": "Сохранение…",
+    "editHint": "Обновите ссылку на файл, этап рабочего процесса и сведения о конкретном типе.",
+    "clientLabel": "Клиент",
+    "detailsTitle": "{{type}} подробности",
+    "errors": {
+      "saveFailed": "Не удалось сохранить сведения о файле."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Создайте новый другой файл или настройте фильтры.",
+    "viewAria": "Посмотреть {{title}}",
+    "filesAria": "Документы для {{title}} ({{count}})",
+    "columns": {
+      "type": "Тип",
+      "subject": "Предмет",
+      "client": "Клиент",
+      "incoming": "Входящий исх.",
+      "stage": "Этап",
+      "deadline": "Ключевая дата",
+      "actions": "Действия"
     }
   }
 }

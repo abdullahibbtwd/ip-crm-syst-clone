@@ -129,7 +129,7 @@
       "scope": "Umfang"
     },
     "title": "Preislisten",
-    "pageDescription": "Firmenpreisliste nach Rolle, Sachverhaltstyp und optionaler Kundenüberschreibung. Beim Protokollieren der Zeit wird der abrechenbare Tarif verwendet. Optionale interne Kosten sorgen für echte Margenrentabilität.",
+    "pageDescription": "Firmenpreisliste nach Rolle, Sachverhaltstyp und optionaler Kundenüberschreibung. Beim Protokollieren der Zeit wird der abrechenbare Tarif verwendet; Optionale interne Kosten sorgen für echte Margenrentabilität.",
     "anyMatterType": "Jeder Materietyp",
     "clientOverride": "Client-Überschreibung",
     "firmWideDefault": "Firmenweiter Standard",

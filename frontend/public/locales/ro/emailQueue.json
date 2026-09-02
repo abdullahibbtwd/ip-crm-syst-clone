@@ -2,7 +2,7 @@
   "title": "Coada de e-mailuri",
   "subtitle": "E-mailuri deconectate extrase din cutiile poștale conectate. Deschideți un e-mail, apoi atașați-l la registrul de corespondență al unei probleme.",
   "fetchEmails": "Preluați 5 e-mailuri",
-  "mailboxSettings": "Setări cutie poștală",
+  "mailboxSettings": "Setări pentru cutia poștală",
   "fetchSuccess": "S-au preluat până la {{limit}} mesaje primite — {{ingested}} nou în coadă{{emptyHint}}.",
   "fetchEmptyHint": "(deja importat sau inbox gol)",
   "fetchFailed": "E-mailurile nu au fost preluate",

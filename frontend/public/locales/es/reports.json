@@ -92,7 +92,7 @@
     "byDueMonth": "Por mes de vencimiento",
     "byJurisdiction": "Por jurisdicción",
     "cycle": "ciclo {{number}}",
-    "description": "Próximos períodos de renovación por estado, jurisdicción y mes de vencimiento, con niveles de urgencia alineados con los informes de riesgo de fecha límite.",
+    "description": "Próximos plazos de renovación por estado, jurisdicción y mes de vencimiento, con niveles de urgencia alineados con los informes de riesgo de fecha límite.",
     "dueBefore": "Vencimiento antes",
     "dueBeforeLabel": "Vencimiento antes del {{date}}",
     "error": "No se pudo cargar el resumen de renovaciones.",

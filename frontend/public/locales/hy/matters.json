@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Չափել երթուղին",
+        "options": {
+          "national_bg": "Բուլղարիա (ազգային)",
+          "eu_regulation": "ԵՄ կանոնակարգ 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Պաշտպանված իրավունք",
+        "options": {
+          "trademark": "Ապրանքային նշան",
+          "patent": "Արտոնագիր",
+          "design": "Դիզայն",
+          "copyright": "Հեղինակային իրավունք",
+          "gi": "Աշխարհագրական նշում"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Պաշտպանված իրավունք ռեֆ."
+      },
       "customsOffice": {
         "label": "Մաքսային գրասենյակ"
+      },
+      "validFrom": {
+        "label": "Վավերական է"
+      },
+      "validUntil": {
+        "label": "Գործում է մինչև"
       },
       "infringingGoods": {
         "label": "Խախտող ապրանքների նկարագրություն"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Ստեղծման ամսաթիվը"
-      },
       "workTitle": {
         "label": "Աշխատանքի անվանումը"
       },
       "workType": {
-        "label": "Աշխատանքի տեսակը"
+        "label": "Աշխատանքի տեսակը",
+        "options": {
+          "literary": "գրական",
+          "musical": "Երաժշտական",
+          "software": "Ծրագրային ապահովում",
+          "audiovisual": "Աուդիովիզուալ",
+          "graphic": "Գրաֆիկական / տեսողական",
+          "other": "Այլ"
+        }
+      },
+      "creationDate": {
+        "label": "Ստեղծման ամսաթիվը"
+      },
+      "firstPublicationDate": {
+        "label": "Առաջին հրապարակման ամսաթիվը"
+      },
+      "authorName": {
+        "label": "Հեղինակ"
+      },
+      "rightsBasis": {
+        "label": "Իրավունքների հիմքը",
+        "options": {
+          "author": "Հեղինակ",
+          "employer": "Գործատու (աշխատանք վարձով)",
+          "assignment": "Հանձնարարություն",
+          "license": "Լիցենզիա"
+        }
+      },
+      "rightsHolder": {
+        "label": "Իրավատեր"
+      },
+      "infringementContext": {
+        "label": "Խախտում / կիրարկում համատեքստ"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Դատարան"
+      },
+      "incomingNumber": {
+        "label": "Մուտքային համարը"
+      },
+      "claimGrounds": {
+        "label": "Հիմքեր (պահանջի տեսակ)"
+      },
+      "claimValue": {
+        "label": "Պահանջի արժեքը"
+      },
+      "expertiseType": {
+        "label": "Փորձաքննության տեսակը"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Հիմնական ամփոփում"
+      "disputeKind": {
+        "label": "Ընթացքի տեսակը",
+        "options": {
+          "civil": "քաղ",
+          "administrative": "Վարչական",
+          "arbitration": "Արբիտրաժ",
+          "mediation": "Միջնորդություն",
+          "other": "Այլ"
+        }
       },
-      "disputeType": {
-        "label": "Վեճի տեսակը"
+      "disputeSubject": {
+        "label": "Թեմա",
+        "options": {
+          "invalidity": "Անվավերություն",
+          "infringement": "Խախտում",
+          "ownership": "Սեփականություն",
+          "contract": "Պայմանագիր",
+          "unfair_competition": "Անբարեխիղճ մրցակցություն",
+          "other": "Այլ"
+        }
       },
       "opponentName": {
-        "label": "Հակառակորդ / հակառակ կողմ"
+        "label": "Հակառակորդ / կոնտրագենտ"
+      },
+      "disputeType": {
+        "label": "Վեճի տեսակը (նշումներ)"
+      },
+      "filingReference": {
+        "label": "Ներկայացման տեղեկանք"
+      },
+      "filingDate": {
+        "label": "Ներկայացման ամսաթիվը"
+      },
+      "basisSummary": {
+        "label": "Հիմնական ամփոփում"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Շրջանակի ամփոփում"
+      "projectName": {
+        "label": "Նախագծի անվանումը"
+      },
+      "productName": {
+        "label": "Ապրանքի անվանումը"
       },
       "technologyArea": {
         "label": "Տեխնոլոգիական ոլորտ"
+      },
+      "analysisScope": {
+        "label": "Վերլուծության շրջանակը"
+      },
+      "deliverableType": {
+        "label": "Առաքման ենթակա",
+        "options": {
+          "written_report": "Գրավոր հաշվետվություն",
+          "memo": "Հուշագիր",
+          "oral_briefing": "Բանավոր ճեպազրույց"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Նպատակային ավարտի ամսաթիվը"
+      },
+      "scopeSummary": {
+        "label": "Շրջանակի ամփոփում"
+      },
+      "riskLevel": {
+        "label": "Ռիսկի մակարդակը",
+        "options": {
+          "low": "Ցածր",
+          "medium": "Միջին",
+          "high": "Բարձր",
+          "pending": "Սպասվող գնահատում"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Տեսակ"
+      },
+      "giName": {
+        "label": "Աշխարհագրական նշման անվանումը"
+      },
       "productName": {
         "label": "Ապրանքի անվանումը"
       },
       "region": {
         "label": "Աշխարհագրական տարածաշրջան"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Տարածք"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Դիմումի համարը"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Գրանցման համարը"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Լոկառնոյի դաս"
       },
+      "locarnoSubclass": {
+        "label": "Լոկառնոյի ենթադաս"
+      },
       "productDescription": {
         "label": "Ապրանքի նկարագրությունը"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Հայցերի ամփոփագիր"
+      },
+      "epApplicationNumber": {
+        "label": "EP դիմումի համարը"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Արտոնագրային անվանումը"
+      },
+      "patentProcedure": {
+        "label": "Ընթացակարգը"
       },
       "pctNumber": {
         "label": "PCT համարը"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Տեխնիկական ոլորտ"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Գույները պնդում են"
       },
       "markDescription": {
-        "label": "Նշել նկարագրությունը"
-      },
-      "markType": {
-        "label": "Նշեք տեսակը"
-      },
-      "niceClasses": {
-        "label": "Հաճելի դասեր",
-        "placeholder": "օր. 12, 35"
+        "label": "Ապրանքների / ծառայությունների նկարագրությունը"
       },
       "markKind": {
         "label": "Նշել կատեգորիա"
       },
+      "markType": {
+        "label": "Նշեք տեսակը"
+      },
       "markWords": {
         "label": "Նշանի բառեր"
+      },
+      "niceClasses": {
+        "label": "Հաճելի դասեր",
+        "placeholder": "օր. 12, 35"
       },
       "territory": {
         "label": "Տարածք"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Անուն"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Պահանջների քանակը"
+      },
+      "applicationNumber": {
+        "label": "Դիմումի համարը"
+      },
+      "applicationDate": {
+        "label": "Դիմումի ամսաթիվը"
+      },
+      "registrationNumber": {
+        "label": "Գրանցման համարը"
+      },
       "claimsSummary": {
         "label": "Հայցերի ամփոփագիր"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Տեխնիկական ոլորտ"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Ակտիվների տեսակը",
+        "options": {
+          "trademark": "Ապրանքային նշան",
+          "patent": "Արտոնագիր",
+          "design": "Դիզայն",
+          "gi": "GI",
+          "mixed": "Խառը պորտֆոլիո",
+          "company_ip": "Ընկերության IP"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Նպատակը",
+        "options": {
+          "licensing": "Լիցենզավորում",
+          "m_and_a": "M&A",
+          "litigation": "Դատավարություն",
+          "tax": "Հարկային",
+          "internal": "Ներքին"
+        }
+      },
+      "valuationMethod": {
+        "label": "Մեթոդ",
+        "options": {
+          "market": "Շուկա",
+          "income": "Եկամուտ",
+          "cost": "Արժեքը"
+        }
+      },
+      "valuationDate": {
+        "label": "Գնահատման ամսաթիվը"
+      },
       "assetDescription": {
         "label": "Ակտիվների նկարագրությունը"
       },
-      "valuationPurpose": {
-        "label": "Գնահատման նպատակը"
+      "conclusionValue": {
+        "label": "Եզրակացության արժեքը"
+      },
+      "currency": {
+        "label": "Արժույթ",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "եվրո",
+          "USD": "ԱՄՆ դոլար"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Դոմենի անուն",
-        "placeholder": "օր. example.com"
+        "placeholder": "օր. օրինակ.բգ"
+      },
+      "tldType": {
+        "label": "TLD տեսակը",
+        "options": {
+          "bg": ".բգ",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "Այլ"
+        }
       },
       "registrar": {
         "label": "Գրանցող"
+      },
+      "registrant": {
+        "label": "Գրանցվող"
+      },
+      "registrationDate": {
+        "label": "Գրանցման ամսաթիվը"
+      },
+      "expiryDate": {
+        "label": "Ժամկետի ժամկետը"
+      },
+      "disputeRoute": {
+        "label": "Վեճերի երթուղի",
+        "options": {
+          "none": "Ոչ մեկը",
+          "udrp": "UDRP",
+          "court": "Դատարան",
+          "negotiation": "Բանակցություն"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Առնչվող ապրանքային նշան"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Գործի տեղեկանք"
+      "engagementType": {
+        "label": "Նշանադրության տեսակը",
+        "options": {
+          "patent": "Արտոնագիր",
+          "trademark": "Ապրանքային նշան",
+          "copyright": "Հեղինակային իրավունք",
+          "damages": "Վնասներ",
+          "other": "Այլ"
+        }
       },
       "courtOrAuthority": {
         "label": "Դատարան / իշխանություն"
+      },
+      "caseReference": {
+        "label": "Գործի տեղեկանք"
+      },
+      "appointingParty": {
+        "label": "Կուսակցություն նշանակելը"
+      },
+      "reportDueDate": {
+        "label": "Հաշվետվության ժամկետը"
+      },
+      "hearingDate": {
+        "label": "Լսման ամսաթիվը"
       },
       "reportScope": {
         "label": "Հաշվետվության շրջանակը"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Շրջանակի ամփոփում"
+      "consultationType": {
+        "label": "Խորհրդակցության տեսակը",
+        "options": {
+          "phone": "Հեռախոս",
+          "written": "Գրավոր",
+          "meeting": "Հանդիպում",
+          "due_diligence": "Պատշաճ ջանասիրություն (թեթև)"
+        }
+      },
+      "topicCategory": {
+        "label": "Թեմայի կատեգորիա",
+        "options": {
+          "trademark": "Ապրանքային նշան",
+          "patent": "Արտոնագիր",
+          "design": "Դիզայն",
+          "contract": "Պայմանագիր",
+          "strategy": "Ռազմավարություն",
+          "other": "Այլ"
+        }
       },
       "topic": {
         "label": "Թեմա"
+      },
+      "requestedBy": {
+        "label": "Պահանջել է"
+      },
+      "scopeSummary": {
+        "label": "Շրջանակի ամփոփում"
+      },
+      "timeSpentHours": {
+        "label": "Ծախսված ժամանակը (ժամեր)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Իշխանություն / գրասենյակ"
+        "label": "Իշխանություն",
+        "options": {
+          "bpo": "BPO (Բուլղարիա)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Այլ"
+        }
+      },
+      "feeType": {
+        "label": "Վճարի տեսակը",
+        "options": {
+          "filing": "Ներկայացում",
+          "publication": "Հրապարակում",
+          "examination": "Փորձաքննություն",
+          "renewal": "Թարմացում",
+          "annuity": "Անուիտետ",
+          "opposition": "Ընդդիմություն",
+          "other": "Այլ"
+        }
       },
       "feeReference": {
         "label": "Վճար / վճարման տեղեկանք"
       },
       "relatedApplication": {
-        "label": "Առնչվող դիմում / ֆայլ"
+        "label": "Առնչվող հավելված / ֆայլ"
+      },
+      "feeAmount": {
+        "label": "Գումարը"
+      },
+      "currency": {
+        "label": "Արժույթ",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "եվրո"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Վճարման վերջնաժամկետ"
+      },
+      "paymentDate": {
+        "label": "Վճարման ամսաթիվը"
+      },
+      "paymentReference": {
+        "label": "Վճարման տեղեկանք"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Աշխատանքի կատեգորիա"
+      },
       "workSummary": {
         "label": "Աշխատանքի ամփոփում"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Ակնկալվող արդյունքը"
       }
     }
   },
@@ -255,12 +524,12 @@
       },
       "saveFailed": "Չհաջողվեց պահպանել ֆիքսված վճարը"
     },
-    "fixedFees": "Հաստատագրված վճարներ",
+    "fixedFees": "Հաստատուն վճարներ",
     "loading": "Վճարման բեռնում…",
     "loadingInvoices": "Հաշիվ-ապրանքագրերի բեռնում…",
     "loadInvoicesFailed": "Չհաջողվեց բեռնել հաշիվ-ապրանքագրերը:",
     "noPermission": "Դուք այս հարցի համար վճարումները դիտելու թույլտվություն չունեք:",
-    "noRateCard": "Ոչ մի տոկոսադրույք",
+    "noRateCard": "Գնահատման քարտ չկա",
     "nonBillableAria": "Ոչ վճարովի",
     "portalDescription": "Այս հարցի համար հաշիվ-ապրանքագրեր և վճարման կարգավիճակ:",
     "timeDrawer": {
@@ -278,7 +547,7 @@
       },
       "hourlyRate": "Ժամավճար (€)",
       "hoursHint": "Քառորդ ժամ ավելացումներ (նվազագույնը 0,25)",
-      "noRateCardWarning": "Ձեր դերի համար տոկոսադրույքի քարտ չի գտնվել: Այս գրառումը կպահվի որպես չվճարվող, մինչև որ ֆինանսները չսահմանեն տոկոսադրույքը կամ դուք ձեռքով մուտքագրեք այն:",
+      "noRateCardWarning": "Ձեր դերի համար տոկոսադրույքի քարտ չի գտնվել: Այս գրառումը կպահվի որպես չվճարվող, մինչև ֆինանսները չսահմանեն տոկոսադրույքը, կամ դուք ձեռքով մուտքագրեք այն:",
       "resolvingRate": "Փոխարժեքի լուծում…",
       "saveFailed": "Չհաջողվեց խնայել մուտքագրման ժամանակը"
     },
@@ -470,24 +739,615 @@
     "viewOnEpo": "Դիտել EPO-ում",
     "viewOnEpoTitle": "Բացեք պաշտոնական գրառումը EPO ռեգիստրում"
   },
+  "trademarkInfo": {
+    "addCountry": "Ավելացնել երկիր…",
+    "cancel": "Չեղարկել",
+    "country": "Երկիր",
+    "edit": "Խմբագրել",
+    "errors": {
+      "country": "Ընտրեք առնվազն մեկ երկիր այս տարածքի համար:",
+      "saveFailed": "Չհաջողվեց պահպանել ապրանքանիշի մասին տեղեկությունները:"
+    },
+    "euFixed": "Եվրոպական միություն (EUIPO)",
+    "markKind": "Նշել կատեգորիա",
+    "markType": "Նշեք տեսակը",
+    "noCountries": "Դեռևս ընտրված երկրներ չկան:",
+    "save": "Պահպանել փոփոխությունները",
+    "saved": "Պահպանված է:",
+    "saving": "Պահվում է…",
+    "selectCountries": "Ընտրեք երկրներ",
+    "territory": "Տարածք",
+    "title": "Ապրանքային նշանի մասին տեղեկատվություն",
+    "markImage": "Նշել պատկերը",
+    "uploadMarkImage": "Վերբեռնեք պատկեր",
+    "replaceMarkImage": "Փոխարինեք պատկերը",
+    "removeMarkImage": "Հեռացնել պատկերը",
+    "markImageHint": "PNG կամ JPEG — ցուցադրված է ապրանքային նշանների ցանկում՝ անվան կողքին:"
+  },
+  "patentInfo": {
+    "title": "Արտոնագրային տեղեկատվություն",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Դիմում թիվ. / ամսաթիվը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "bulletin": "Տեղեկագիր / հրապարակում",
+      "ipc": "IPC",
+      "client": "Հաճախորդ / հանձնարարող",
+      "owner": "Սեփականատեր",
+      "contact": "Կոնտակտային անձ",
+      "representatives": "ներկայացուցիչներ",
+      "claims": "Պահանջներ",
+      "territory": "Տարածք"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Օգտակար մոդելի մասին տեղեկատվություն",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Դիմում թիվ. / ամսաթիվը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "bulletin": "Տեղեկագիր / գրանցման հրապարակման / ամսաթիվ",
+      "ipc": "IPC",
+      "applicant": "Դիմորդ",
+      "inventor": "Գյուտարար",
+      "contact": "Կոնտակտային անձ",
+      "representatives": "ներկայացուցիչներ",
+      "claims": "Պահանջներ",
+      "territory": "Տարածք"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC տեղեկատվություն",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Դիմում թիվ. / ամսաթիվը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "bulletin": "Տեղեկագիր / գրանցման հրապարակման / ամսաթիվ",
+      "ipc": "IPC",
+      "applicant": "Դիմորդ",
+      "inventor": "Գյուտարար",
+      "contact": "Կոնտակտային անձ",
+      "representatives": "ներկայացուցիչներ",
+      "claims": "Պահանջներ",
+      "medicinalProduct": "Դեղորայքային արտադրանք"
+    }
+  },
+  "designInfo": {
+    "title": "Դիզայնի տեղեկատվություն",
+    "subtitle": "{{territory}} դիզայն · {{name}}",
+    "fields": {
+      "application": "Դիմում թիվ. / ամսաթիվը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "bulletin": "Տեղեկագիր / գրանցման հրապարակման / ամսաթիվ",
+      "client": "Հաճախորդ / հանձնարարող",
+      "owner": "Սեփականատեր",
+      "contact": "Կոնտակտային անձ",
+      "representatives": "ներկայացուցիչներ",
+      "classification": "Դասակարգում",
+      "territory": "Տարածք"
+    }
+  },
+  "giInfo": {
+    "title": "Աշխարհագրական նշումների մասին տեղեկություններ",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Դիմում թիվ. / ամսաթիվը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "bulletin": "Տեղեկագիր / գրանցման հրապարակման / ամսաթիվ",
+      "client": "Հաճախորդ / հանձնարարող",
+      "owner": "Սեփականատեր",
+      "contact": "Կոնտակտային անձ",
+      "representatives": "ներկայացուցիչներ",
+      "classes": "Դասեր",
+      "territory": "Տարածք"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Հաճախորդը հաստատված է",
+    "clientStepHint": "Անձնակազմը հաստատում է, որ հաճախորդը համաձայնվել է անցանց (զանգ/էլ./հանդիպում): Պորտալի հաճախորդը կարիք չունի հաստատել իրենց:",
+    "errors": {
+      "updateFailed": "Չհաջողվեց թարմացնել հաստատման կարգավիճակը:"
+    },
+    "hint": "Միայն ներքին հաստատում. նշեք, որ հաճախորդը համաձայն է, այնուհետև կառավարող գործընկերն ընդունում է ֆայլը: Հաճախորդին ուղարկելու հաստատում չի պահանջվում:",
+    "markClientApproved": "Նշել հաճախորդին հաստատված",
+    "partnerApprove": "Գործընկերոջ հաստատման ֆայլը",
+    "partnerOnly": "Միայն կառավարող գործընկերը կարող է ավարտել այս քայլը",
+    "partnerStep": "2. Կառավարող գործընկեր ընդունել",
+    "partnerStepHint": "Այն բանից հետո, երբ հաճախորդը նշվում է որպես հաստատված, կառավարող գործընկերն ընդունում է ֆայլը և այն թողնում է նախագիծը:",
+    "recordedBy": "Ձայնագրել է {{name}} · {{date}}",
+    "title": "Ֆայլի հաստատում",
+    "waitForClient": "Նշեք հաճախորդը հաստատված, այնուհետև կարող եք ընդունել ֆայլը:"
+  },
+  "prosecution": {
+    "cancelEdit": "Չեղարկել",
+    "completeStage": "Ամբողջական փուլ",
+    "edit": "Խմբագրել",
+    "editingNote": "Օգտագործեք «Պահպանել»՝ ձեր մուտքագրածն այս փուլում պահելու համար, կամ «Ավարտել»՝ առաջ շարժվելու համար, երբ պահանջվող դաշտերը լրացվեն:",
+    "gateHint": "Դուք չեք կարող առաջ շարժվել, քանի դեռ այս փուլի համար անհրաժեշտ դաշտերը չեն լրացվել (նույնը, ինչ նրանց համակարգի դարպասները):",
+    "goBack": "Վերադարձեք մի բեմ",
+    "errors": {
+      "needAttachments": "Շարունակելուց առաջ կցեք պահանջվող ֆայլերը՝ {{list}}",
+      "needInvoice": "Նախքան այս փուլն ավարտելը, ձևավորեք հաշիվ-ապրանքագիրը պետական ​​տուրքից:",
+      "alreadyFinal": "Այս ֆայլն արդեն ավարտական ​​փուլում է։",
+      "needApproval": "Ավարտեք ֆայլի հաստատումը (հաճախորդ + կառավարող գործընկեր) նախքան նախապատրաստական ​​աշխատանքները մեկնելը:",
+      "needBulletin": "Հրապարակումը թողնելուց առաջ մուտքագրեք տեղեկագրի համարը և ամսաթիվը:",
+      "needFeePaid": "Մուտքագրեք պետական ​​տուրքի վճարման ամսաթիվը նախքան պաշտոնական քննությունը թողնելը:",
+      "needFilingFields": "Մուտքագրեք հայտի համարը և լրացման ամսաթիվը:",
+      "needFormalFields": "Շարունակելու համար մուտքագրեք պետական ​​տուրքը և վճարման վերջնաժամկետը:",
+      "needMol": "Խնդրում ենք մուտքագրել MOL ֆայլի մանրամասների վրա (ստեղծել-ֆայլ / խմբագրել) նախքան լրացնելը:",
+      "needOfficeActionDeadline": "Գրասենյակային գործողությունն ունի թեմա՝ նախքան շարունակելը սահմանեք դրա վերջնաժամկետը:",
+      "needPoaFiled": "Մուտքագրեք PoA-ի մուտքային համարը և ամսաթիվը, նախքան պաշտոնական քննությունը թողնելը:",
+      "needRegFeePaid": "Շարունակելուց առաջ մուտքագրեք գրանցման վճարի վճարման ամսաթիվը:",
+      "needRepresentative": "Մուտքագրեք առնվազն մեկ ներկայացուցիչ կամ սահմանեք «Ավելացնել ներկայացուցիչներ» թիվը:",
+      "saveBeforeNavigate": "Պահպանեք կամ չեղարկեք ձեր խմբագրումները նախքան փուլ վերադառնալը:",
+      "saveFailed": "Չհաջողվեց պահել դատախազության տվյալները:"
+    },
+    "fields": {
+      "addRepresentatives": "Ցանկանու՞մ եք ներկայացուցիչներ ավելացնել:",
+      "applicationDate": "Դիմումի ամսաթիվը",
+      "applicationNumber": "Դիմումի համարը",
+      "bulletinDate": "Տեղեկագրի ամսաթիվը",
+      "bulletinNumber": "Տեղեկագրի համարը",
+      "feePaidDate": "Պետական ​​տուրքի վճարման ամսաթիվը",
+      "generatePoa": "Ստեղծեք լիազորագիր",
+      "officeAction": "Գրասենյակային գործողություն / հարցում",
+      "officeActionDeadline": "Գրասենյակային գործողությունների վերջնաժամկետ",
+      "paymentDeadline": "Վճարման վերջնաժամկետ",
+      "poaDate": "PoA ամսաթիվը",
+      "poaDeadline": "PoA-ի ներկայացման վերջնաժամկետը",
+      "poaIncoming": "PoA մուտքային համարը",
+      "regFeePaidDate": "Գրանցման վճարի վճարման ամսաթիվը",
+      "remindDays": "Հիշեցրեք վերջնաժամկետից օրեր առաջ",
+      "representatives": "Ներկայացուցիչ(ներ)",
+      "sendPoaEmail": "Ուղարկել ավտոմատ էլ",
+      "stateFee": "Պետական ​​տուրք (BGN)"
+    },
+    "molHint": "MOL-ը պետք է սահմանվի ֆայլի մանրամասների վրա (ստեղծել ֆայլից): Այս փուլն ավարտող MOL բլոկները բացակայում են:",
+    "no": "Ոչ",
+    "prepHint": "Նախապատրաստական ​​փուլ. նախ ավարտեք ֆայլի հաստատումը, այնուհետև կառավարող գործընկերի ընդունումը ձեզ տեղափոխում է Filing:",
+    "registeredDone": "Գրանցման փուլը հասել է.",
+    "saveChanges": "Պահպանել փոփոխությունները",
+    "saveEntered": "Պահպանել",
+    "saved": "Պահպանված է:",
+    "saveFields": "Պահպանել դաշտերը",
+    "saving": "Պահվում է…",
+    "stages": {
+      "filing": "Ներկայացում",
+      "formal_exam": "Պաշտոնական քննություն",
+      "prep": "Նախապատրաստական",
+      "publication": "Հրապարակում",
+      "reg_fee": "Գրանցման վճարներ",
+      "registration": "Գրանցում",
+      "substantive_exam": "Նյութական փորձաքննություն"
+    },
+    "territoryLabel": {
+      "eu": "Խողովակաշար՝ ԵՄ",
+      "international": "Խողովակաշար՝ միջազգային (WO)",
+      "national": "Խողովակաշար՝ ազգային"
+    },
+    "territoryLocked": "Տարածքը ֆիքսված է ստեղծել ֆայլից",
+    "territoryFromInfo": "Տարածքը՝ ապրանքանիշի տեղեկություններից",
+    "patentRouteFromInfo": "Երթուղի ստեղծել ֆայլից",
+    "designRouteFromInfo": "Երթուղի ստեղծել ֆայլից",
+    "utilityModelTerritoryFromInfo": "Տարածք ներկայացվող երկրից",
+    "spcTerritoryFromInfo": "Տարածք ներկայացվող երկրից",
+    "giTerritoryFromInfo": "Տարածք ներկայացման երթուղուց",
+    "title": "Քրեական հետապնդման փուլերը",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Ստացված վավերացում",
+        "filing": "Հանձնարարություն",
+        "formal_exam": "Հայցադիմում",
+        "substantive_exam": "Նյութական փորձաքննություն",
+        "publication": "Հրապարակում",
+        "reg_fee": "Գրանցման վճարներ",
+        "registration": "Վավերացման որոշում"
+      }
+    },
+    "yes": "Այո՛",
+    "hub": {
+      "generateInvoice": "Ստեղծեք հաշիվ-ապրանքագիր",
+      "invoiceIssuedShort": "Տրված հաշիվ-ապրանքագիր",
+      "invoiceIssued": "Տրված է {{number}} հաշիվ-ապրանքագիր: Հաճախորդը կարող է տեսնել այն իր պորտալում. այն նաև գտնվում է Billing ներդիրում:",
+      "invoiceAlreadyIssued": "{{number}} հաշիվ-ապրանքագիր արդեն տրված է՝ տեսանելի պորտալում և Billing-ում:",
+      "invoiceFailed": "Չհաջողվեց ստեղծել հաշիվ-ապրանքագիր: Ստուգեք հաճախորդի վճարման մանրամասները:",
+      "invoiceNotes": "Պաշտոնական / պետական ​​տուրք",
+      "uploadFailed": "Չհաջողվեց վերբեռնել ֆայլը:",
+      "needStateFee": "Նախ մուտքագրեք պետական ​​տուրքի չափը:",
+      "feeDescription": "Պետական ​​/ պաշտոնական վճար",
+      "deadlineFailed": "Չհաջողվեց ստեղծել վերջնաժամկետ(ներ):",
+      "deadlineTitles": {
+        "payment": "Պետական ​​տուրքի վճարում",
+        "poa": "Լիազորագրի ներկայացում",
+        "oa": "Գրասենյակային գործողություն / քննության հարցում",
+        "oaWithSubject": "Գրասենյակային գործողություն՝ {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Հիշեցրեք {{days}} օր(եր) մինչև վերջնաժամկետը:"
+      },
+      "attach": {
+        "search": "Կցեք որոնման ֆայլը",
+        "application": "Կցել դիմումը",
+        "feeSlip": "Կցեք վճարման կտրոնը",
+        "poa": "Կցեք PoA-ն",
+        "officeAction": "Կցեք գրասենյակային գործողությունը",
+        "decision": "Կցել որոշումը",
+        "bulletin": "Կցեք տեղեկագիրը",
+        "regFee": "Կցեք վճարման ապացույցը",
+        "certificate": "Կցել վկայական"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Հաճախորդ *",
     "creating": "Ստեղծվում է…",
-    "error": "Ֆայլի ստեղծումը ձախողվեց",
+    "error": "Չհաջողվեց ստեղծել ֆայլ",
     "jurisdictionHelp": "Ընտրեք մեկ կամ մի քանի ներկայացման իրավասություններ:",
     "jurisdictions": "Իրավասություններ",
     "matterType": "Աշխատանքի տեսակը *",
     "open": "Բացել ֆայլը",
     "responsibleAttorney": "Պատասխանատու փաստաբան",
-    "title": "Բացել նոր ֆայլ",
+    "title": "Բացեք նոր ֆայլ",
     "titleField": "Վերնագիր *",
     "titlePlaceholder": "օր. ACME բառային նշան – ԵՄ"
+  },
+  "createFile": {
+    "addClass": "Ավելացնել դաս",
+    "addClaim": "Ավելացրեք հայց",
+    "addIpc": "Ավելացնել IPC դաս",
+    "addBasisMark": "Ավելացնել հիմքի նշան",
+    "basisMark": "Հիմնական նշան {{number}}",
+    "addAdditionalApplicant": "Ավելացնել լրացուցիչ դիմորդ",
+    "addAdditionalOwner": "Ավելացնել լրացուցիչ սեփականատեր",
+    "additionalApplicant": "Դիմող {{number}}",
+    "additionalOwner": "Սեփականատեր {{number}}",
+    "yes": "Այո՛",
+    "no": "Ոչ",
+    "none": "Ոչ մեկը",
+    "backToFiles": "Վերադարձ դեպի ֆայլեր",
+    "cancel": "Չեղարկել",
+    "changeSubtype": "Փոխել ենթակարգը",
+    "checkRegister": "Ստուգեք առևտրային ռեգիստրում",
+    "clearClient": "Փոխել հաճախորդը",
+    "clientOptionalHint": "CRM համընկնում չկա՞ Լրացրեք հաճախորդի տվյալները ստորև. սևագիրը պահպանելու դեպքում դրանք ավտոմատ կերպով կստեղծվեն Հաճախորդներում:",
+    "applicantOptionalHint": "CRM համընկնում չկա՞ Լրացրեք հայտատուի մանրամասները ստորև. սևագիրը պահպանելու դեպքում դրանք ավտոմատ կերպով կստեղծվեն Հաճախորդներում:",
+    "draftDescription": "Ստեղծվել է Ստեղծել ֆայլի միջոցով ({{procedure}}) — սևագիր",
+    "errors": {
+      "client": "Ընտրեք հաճախորդ՝ շարունակելու համար:",
+      "clientOrDetails": "Ընտրեք CRM հաճախորդ կամ մուտքագրեք հաճախորդի անունը և մանրամասները՝ դրանք ստեղծելու համար:",
+      "applicantOrDetails": "Ընտրեք հայտատուին CRM-ում կամ մուտքագրեք դիմողի անունը և մանրամասները՝ դրանք ստեղծելու համար:",
+      "jurisdiction": "Ընտրեք առնվազն մեկ տարածք/երկիր:",
+      "markWords": "Մուտքագրեք ապրանքանիշի անվանումը / բառերը:",
+      "filingRoute": "Ընտրեք ընթացակարգ:",
+      "ownerOrDetails": "Մուտքագրեք սեփականատիրոջ անունը և հասցեն, կամ նշեք սեփականատիրոջը որպես հաճախորդի նույնը:",
+      "designerOrDetails": "Մուտքագրեք դիզայների անունը և հասցեն, կամ նշեք դիզայներին որպես հաճախորդի նույնը:",
+      "inventorOrDetails": "Մուտքագրեք գյուտարարի անունը և հասցեն, կամ նշեք գյուտարարին նույնը, ինչ հաճախորդը:",
+      "patentName": "Մուտքագրեք արտոնագրի անունը:",
+      "designName": "Մուտքագրեք դիզայնի անունը:",
+      "utilityModelName": "Մուտքագրեք օգտակար մոդելի անունը:",
+      "giKind": "Ընտրեք ծագման անվանումը կամ աշխարհագրական նշումը:",
+      "territory": "Ընտրեք տարածք:",
+      "giName": "Մուտքագրեք աշխարհագրական նշման անվանումը:",
+      "spcName": "Մուտքագրեք SPC անունը:",
+      "caseClientRole": "Ընտրեք՝ արդյոք հաճախորդը հայցվոր է, պատասխանող կամ շահագրգիռ կողմ:",
+      "otherType": "Անհայտ ֆայլի տեսակ: Ընտրեք տեսակը ցանկից:",
+      "patentSubtype": "Ընտրեք արտոնագրի ենթակատեգորիա:",
+      "saveFailed": "Չհաջողվեց պահպանել սևագրի ֆայլը:",
+      "subtype": "Ընտրեք ապրանքանիշի ենթակատեգորիա:"
+    },
+    "euHint": "Եվրոպական միության ապրանքային նշան (EUIPO) - իրավասություն սահմանվել է ԵՄ-ին:",
+    "fields": {
+      "address": "Հասցե",
+      "applicantClient": "Դիմող հաճախորդ",
+      "applicantClientOptional": "CRM-ի դիմորդ (ըստ ցանկության)",
+      "city": "Քաղաք",
+      "classNumber": "Դասի համարը",
+      "classes": "Դասեր",
+      "country": "Երկիր",
+      "eik": "UIC / EIK",
+      "email": "Էլ",
+      "fax": "Ֆաքս",
+      "goodsText": "Ապրանքներ և ծառայություններ",
+      "legalName": "Անունը և իրավաբանական անձի տեսակը",
+      "linkClient": "Ընտրեք հաճախորդ CRM-ում",
+      "linkClientOptional": "CRM հաճախորդ (ըստ ցանկության)",
+      "fileTitleOptional": "Վերնագիր (ըստ ցանկության)",
+      "fileDescriptionOptional": "Նկարագրություն (ըստ ցանկության)",
+      "markKind": "Նշել կատեգորիա",
+      "markType": "Նշեք տեսակը",
+      "markWords": "Ապրանքանիշի անվանումը",
+      "mol": "MOL (ստորագրող)",
+      "name": "Անուն",
+      "oppositionFiler": "Ընդդիմադիր ներկայացնող",
+      "requester": "Հայցող",
+      "requestFiler": "Հայցադիմում",
+      "againstClasses": "Դասերի դեմ",
+      "owner": "Սեփականատեր",
+      "phone": "Հեռախոս",
+      "postalCode": "Փոստային ինդեքս",
+      "territory": "Տարածք",
+      "transliteration": "Տառադարձություն",
+      "viennaNumber": "Համար",
+      "applicationNumber": "Դիմումի համարը",
+      "applicationDate": "Ամսաթիվ",
+      "conventionPriority": "Կոնվենցիայի առաջնահերթություն",
+      "exhibitionPriority": "Ցուցահանդեսի առաջնահերթություն",
+      "transformationInternational": "Միջազգային գրանցման վերափոխում",
+      "communityConversion": "Համայնքի ապրանքային նշանի փոխակերպում",
+      "applicationBulletin": "Տեղեկագիր / հայտի հրապարակում",
+      "grounds": "Հիմքեր",
+      "specimen": "Նմուշ",
+      "registrationNumber": "Գրանցման թիվ",
+      "registrationDate": "Ամսաթիվ",
+      "registrationBulletin": "Տեղեկագիր / գրանցման հրապարակում",
+      "certificate": "Կցել վկայական",
+      "attachDocument": "Կցեք փաստաթուղթը",
+      "representative": "Ընտրել",
+      "selectRepresentative": "Ընտրեք ներկայացուցիչ",
+      "addMoreRepresentatives": "Ավելացնել ավելի շատ ներկայացուցիչներ",
+      "claimNumber": "Համար",
+      "claimText": "Հայց",
+      "epApplicationNumber": "EP դիմումի համարը",
+      "epBulletinNumber": "EP տեղեկագրի համարը",
+      "applicationPublication": "Դիմումի հրապարակում",
+      "applicationPublicationDate": "Ամսաթիվ",
+      "epRegistrationNumber": "EP գրանցման համարը",
+      "epRegistrationBulletin": "Տեղեկագիր / ՊԸ գրանցման հրապարակում",
+      "epRegistrationBulletinDate": "Ամսաթիվ",
+      "ipc": "IPC",
+      "patentName": "Անուն",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Եվրոպական արտոնագրի վավերացում",
+      "powerOfAttorney": "լիազորագիր",
+      "selectProcedure": "Ընտրեք ընթացակարգը",
+      "validationCountry": "Ընտրեք երկիրը",
+      "priorityCountry": "Նախորդ դիմումի երկիրը",
+      "priorityFromDate": "Ամսաթիվից",
+      "priorityApplicationNumber": "Դիմումի համարը",
+      "priorityIncomingNumber": "Մեջ. Ոչ",
+      "internationalRegistrationNumber": "Միջազգային գրանցում No.",
+      "exhibitionFirstAppearance": "Առաջին հայտնվելու ամսաթիվը",
+      "exhibitionName": "Ցուցահանդեսի անվանումը",
+      "bulletinNumber": "Տեղեկագրի համարը",
+      "patentRegistrationNumber": "Գրանցման համարը",
+      "validationNumber": "Համար",
+      "validationFilingDate": "Ներկայացման ամսաթիվը",
+      "validationPriorityDate": "Առաջնահերթության ամսաթիվը",
+      "addImage": "Ավելացնել պատկեր",
+      "addCountry": "Ավելացնել երկիր",
+      "removeImage": "Հեռացնել պատկերը",
+      "image": "Պատկեր",
+      "designName": "Անուն",
+      "locarnoClass": "Դասարան",
+      "locarnoSubclass": "Ենթադաս",
+      "classificationText": "Դասակարգում",
+      "vat": "ԱԱՀ ID",
+      "utilityModelName": "Անուն",
+      "conversionFromPatent": "Արտոնագրից հայտի փոխակերպում",
+      "conversionInvention": "Գյուտ",
+      "conversionRequestNumber": "Հարցում No.",
+      "conversionApplicationDate": "Դիմումի ամսաթիվը",
+      "conversionPriorityDate": "Առաջնահերթության ամսաթիվը",
+      "giKind": "Տեսակ",
+      "giName": "Աշխարհագրական նշման անվանումը",
+      "spcName": "Անուն",
+      "medicinalProduct": "Դեղորայքային արտադրանք",
+      "basicPatentNumber": "Արտոնագիր No.",
+      "effectStartDate": "Էֆեկտի սկիզբ",
+      "effectEndDate": "Ավարտի ամսաթիվը",
+      "firstAuthorization": "Առաջին թույլտվություն",
+      "theClientIs": "Հաճախորդն է",
+      "court": "Դատարան",
+      "authority": "Իշխանություն",
+      "panel": "Վահանակ",
+      "division": "Բաժանում",
+      "incomingNumber": "Մուտքային համարը",
+      "claimGrounds": "Հիմքեր (պահանջի տեսակ)",
+      "claimValue": "Պահանջի արժեքը",
+      "other": "Այլ",
+      "rightObject": "Օբյեկտ",
+      "selectObject": "Ընտրել օբյեկտ…",
+      "rightName": "Անուն",
+      "rightApplicationDate": "Դիմումի ամսաթիվը",
+      "rightScope": "Շրջանակ",
+      "expertiseType": "Փորձաքննության տեսակը",
+      "experts": "Փորձագետներ",
+      "expertiseQuestions": "Հարցեր, որոնց վերաբերյալ ընդունվել է փորձաքննություն"
+    },
+    "formTitle": "Ստեղծել ֆայլ՝ ապրանքանիշ",
+    "fullFormReady": "Ամբողջական ձևը հասանելի է",
+    "goodsPlaceholder": "օր. շշեր; մանրածախ ծառայություններ…",
+    "markKinds": {
+      "certification": "Հավաստագրում",
+      "collective": "Կոլեկտիվ",
+      "individual": "Անհատական"
+    },
+    "markTypes": {
+      "combination_of_colors": "Գույների համադրություն",
+      "combined": "Համակցված",
+      "figurative": "Փոխաբերական",
+      "sound": "Ձայն",
+      "three_dimensional": "Եռաչափ",
+      "wordmark": "Բառի նշան"
+    },
+    "noClients": "Համապատասխան հաճախորդներ չկան: Սկզբում ստեղծեք հաճախորդը CRM-ում, այնուհետև վերադարձեք այստեղ:",
+    "optionalMark": "Նշել / թեմա (ըստ ցանկության)",
+    "partialSubtypeNote": "Այս ենթակատեգորիայի լրիվ մասնագիտացված դաշտերը հետագայում կընդլայնվեն: Դուք դեռ կարող եք պահպանել հաճախորդի հետ կապված սևագիրը. փաստաթղթերը և նամակագրությունը մնում են ֆայլում:",
+    "preliminary": "Նախնական տեղեկություն",
+    "procedureHints": {
+      "cancellation": "Գրանցված ապրանքային նշանի չեղարկում — ամբողջական ստեղծման ձև",
+      "deletion": "Գրանցված ապրանքային նշանի ջնջում — ամբողջական ստեղծման ձև",
+      "new": "Նոր ապրանքանիշի հայտ — ամբողջական ստեղծման ձև",
+      "objection": "Առարկություն ապրանքային նշանի հայտի դեմ — ամբողջական ստեղծման ձև",
+      "opposition": "Ընդդիմություն ապրանքային նշանի հայտի դեմ՝ ամբողջական ստեղծման ձև",
+      "opposition_against_us": "Ընդդիմության վարույթ",
+      "opposition_by_us": "Ընդդիմության վարույթ",
+      "registered": "Առկա գրանցված ապրանքային նշան",
+      "revocation": "Ջնջման վարույթ"
+    },
+    "procedures": {
+      "cancellation": "Չեղարկում",
+      "deletion": "Ջնջում",
+      "new": "Նոր ապրանքանիշ",
+      "objection": "Առարկություն",
+      "opposition": "Ընդդիմություն",
+      "opposition_against_us": "Ընդդիմություն",
+      "opposition_by_us": "Ընդդիմություն",
+      "registered": "Գրանցված ապրանքային նշան",
+      "revocation": "Ջնջում"
+    },
+    "kinds": {
+      "newPatent": "Նոր արտոնագիր",
+      "registeredPatent": "Գրանցված արտոնագիր",
+      "design": "Դիզայն",
+      "registeredDesign": "Դիզայն",
+      "utilityModel": "Օգտակար մոդելներ",
+      "registeredGi": "Գրանցված GI",
+      "spc": "SPC",
+      "case": "Գործ"
+    },
+    "comingSoonTitle": "Ստեղծել ֆայլ՝ {{kind}}",
+    "comingSoonBody": "Այս ֆայլի տեսակի մասնագիտացված ձևը կավելացվի հաջորդիվ: Ապրանքանիշի ստեղծման ֆայլի ձևերն արդեն հասանելի են նույն ընտրացանկից:",
+    "patentTitle": "Ստեղծել ֆայլ — Արտոնագիր",
+    "patentSubtypeHint": "Նախ ընտրեք արտոնագրային ենթակարգը:",
+    "patentFormTitle": "Ստեղծել ֆայլ՝ արտոնագիր",
+    "designFormTitle": "Ստեղծել ֆայլ. Դիզայն",
+    "utilityModelFormTitle": "Ստեղծել ֆայլ. Օգտակար մոդել",
+    "giFormTitle": "Ստեղծել ֆայլ՝ աշխարհագրական նշում",
+    "spcFormTitle": "Ստեղծել ֆայլ՝ SPC",
+    "caseFormTitle": "Ստեղծել ֆայլ. Case",
+    "otherFilesTitle": "Այլ ֆայլեր",
+    "otherFilesDescription": "Ընտրեք աշխատանքի տեսակը հիմնական դարակներից դուրս՝ հեղինակային իրավունք, տիրույթներ, խորհրդատվություն և այլն:",
+    "otherFileFormTitle": "Ստեղծել ֆայլ՝ {{type}}",
+    "addParty": "Ավելացնել կուսակցություն",
+    "caseClientRoles": {
+      "plaintiff": "Հայցվոր / Վերաքննիչ",
+      "defendant": "Ամբաստանյալ",
+      "interested": "Շահագրգիռ կողմ"
+    },
+    "giKinds": {
+      "designation_of_origin": "Ծագման անվանումը",
+      "geographical_indication": "Աշխարհագրական նշում"
+    },
+    "giTerritories": {
+      "national": "Ազգային",
+      "eu": "ԵՄ",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Ազգային",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Ընտրեք ընթացակարգ",
+    "chooseCountry": "Ընտրեք երկիրը",
+    "patentFilingRoutes": {
+      "national": "Ազգային",
+      "european": "ՊԸ",
+      "ep_validation": "EP-վավերացում",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Ալբանիա",
+      "BA": "Բոսնիա և Հերցեգովինա",
+      "BG": "Բուլղարիա",
+      "EE": "Էստոնիա",
+      "MK": "Հյուսիսային Մակեդոնիա",
+      "MD": "Մոլդովա",
+      "ME": "Մոնտենեգրո",
+      "RO": "Ռումինիա",
+      "RS": "Սերբիա",
+      "SI": "Սլովենիա",
+      "TR": "Թուրքիա"
+    },
+    "patentHints": {
+      "new": "Նոր դիմում — Ազգային, EP կամ PCT քրեական հետապնդում (7-քայլ հոսք WorkPatent-ում)",
+      "registered": "Առկա դրամաշնորհ — Ազգային, EP, PCT կամ EP-validation (4-քայլ վավերացում WorkValPatent-ում)"
+    },
+    "removeClass": "Հեռացնել դասը",
+    "removeClaim": "Հեռացնել հայցը",
+    "removeIpc": "Հեռացրեք IPC դասը",
+    "removeApplicant": "Հեռացրեք դիմորդին",
+    "removeBasisMark": "Հեռացնել հիմքի նշանը",
+    "sameApplicant": "Դիմողի տեղեկատվությունը նույնն է, ինչ հաճախորդը",
+    "sameDesigner": "Դիզայների տեղեկատվությունը նույնն է, ինչ հաճախորդը",
+    "sameInventor": "Գյուտարարի տեղեկատվությունը նույնն է, ինչ հաճախորդը",
+    "sameCorrespondence": "Նամակագրության հասցեն նույնն է, ինչ գրանցված հասցեն",
+    "saveDraft": "Պահել որպես սևագիր",
+    "saving": "Պահվում է…",
+    "searchClient": "Որոնեք հաճախորդներին անունով կամ կոդով…",
+    "sideUs": "Մեր կողմը՝ ընդդիմություն",
+    "sideThem": "Մյուս կողմ — դեմ դիմում",
+    "sideUsCancellation": "Մեր կողմը՝ չեղարկում",
+    "sideThemCancellation": "Մյուս կողմ — սեփականատեր",
+    "sideUsDeletion": "Մեր կողմը՝ ջնջում",
+    "sections": {
+      "againstApplication": "Ապրանքանիշի հայտի դեմ",
+      "againstBrand": "Ապրանքային նշանի դեմ",
+      "applicant": "Դիմորդ",
+      "applicantUser": "Դիմորդ / Օգտագործող",
+      "application": "Դիմում",
+      "attachments": "Կցորդներ",
+      "additionalInfo": "Լրացուցիչ տեղեկություններ",
+      "basicInfo": "Հիմնական տեղեկություններ",
+      "fileDetails": "Ֆայլի մանրամասները",
+      "basisMarks": "Նշաններ, որոնց վրա հիմնված է ընդդիմությունը",
+      "claims": "Պահանջներ",
+      "classification": "Դասակարգում",
+      "designer": "Դիզայներ",
+      "inventor": "Գյուտարար",
+      "client": "Հաճախորդի տվյալներ",
+      "instructingClient": "Հաճախորդին հրահանգավորելը",
+      "ipc": "IPC",
+      "contact": "Կոնտակտային անձ",
+      "correspondence": "Նամակագրության հասցե",
+      "filing": "Ներկայացում և գրանցում",
+      "goods": "Ապրանքների և ծառայությունների ցանկ",
+      "geographicalIndication": "Աշխարհագրական նշումների մասին տեղեկություններ",
+      "spcBasic": "Հիմնական տեղեկություններ SPC",
+      "caseData": "Գործի տվյալներ",
+      "caseRights": "Իրավունքներ, որոնց վրա հիմնված է գործը",
+      "expertise": "Փորձաքննություն",
+      "lawyers": "Իրավաբաններ / Իրավաբանական խորհրդատուներ",
+      "caseParties": {
+        "plaintiff": "Հայցվորներ / Վերաքննիչ",
+        "defendant": "Ամբաստանյալներ",
+        "interested": "Շահագրգիռ կողմեր"
+      },
+      "grounds": "Հիմքեր",
+      "foundation": "Հիմնադրամ",
+      "markName": "Ապրանքանիշի անվանումը",
+      "oppositionFiler": "Ընդդիմադիր ներկայացնող",
+      "requester": "Հայցող",
+      "requestFiler": "Հայցադիմում",
+      "owner": "Սեփականատեր",
+      "registeredAddress": "Գրանցված հասցե",
+      "representative": "ներկայացուցիչ",
+      "representatives": "ներկայացուցիչներ",
+      "searchDocs": "Կցեք որոնման փաստաթղթերը",
+      "specimen": "Նմուշ",
+      "trademark": "Ապրանքային նշանի մասին տեղեկատվություն",
+      "vienna": "Վիեննայի դասակարգման դասեր"
+    },
+    "selectCountries": "Ընտրեք երկրներ",
+    "subtypeHint": "Նախ ընտրեք ապրանքանիշի ենթակատեգորիան: Նոր ապրանքանիշը բացում է ամբողջական ձևը:",
+    "territories": {
+      "eu": "Եվրամիություն",
+      "international": "Միջազգային (WO)",
+      "national": "Ազգային"
+    },
+    "trademarkTitle": "Ստեղծել ֆայլ — Ապրանքանիշ"
   },
   "deadlines": {
     "complete": "Ամբողջական",
     "daysLeft": "Մնաց {{count}} օր",
     "daysOverdue": "{{count}} օր ժամկետանց",
     "dueToday": "Ժամկետը այսօր",
+    "summary": {
+      "open": "Բաց ժամկետներ",
+      "overdue": "Ժամկետանց"
+    },
     "empty": "Այս հարցում ժամկետներ չկան:",
     "error": "Չհաջողվեց բեռնել վերջնաժամկետները:",
     "loading": "Ժամկետների բեռնում…",
@@ -507,7 +1367,7 @@
     "allCategories": "Բոլոր կատեգորիաները",
     "browse": "թերթել",
     "category": "Կարգավիճակ",
-    "chooseFile": "Ընտրեք ֆայլ՝ վերբեռնելու համար",
+    "chooseFile": "Ընտրեք ֆայլ վերբեռնելու համար",
     "chooseTemplate": "Ընտրեք նամակի ձևանմուշ",
     "description": "Այս հարցի համար փաստաթղթերի կաբինետ — վերբեռնեք PDF ֆայլեր, Word ֆայլեր և ապացույցներ:",
     "displayName": "Ցուցադրվող անուն",
@@ -719,43 +1579,952 @@
     "rejected": "Մերժված է"
   },
   "layout": {
-    "backToMatters": "← Վերադարձ ֆայլեր",
-    "loading": "Ֆայլը բեռնվում է…",
-    "notFound": "Ֆայլը չի գտնվել.",
+    "backToMatters": "← Վերադառնալ ֆայլեր",
+    "loading": "Ֆայլի բեռնում…",
+    "notFound": "Ֆայլը չի ​​գտնվել:",
     "archivedBadge": "Արխիվացված",
     "archive": "Արխիվ",
     "archiving": "Արխիվացում…",
     "restore": "Վերականգնել",
     "restoring": "Վերականգնվում է…",
-    "archiveFailed": "Ֆայլը չհաջողվեց արխիվացնել",
-    "restoreFailed": "Ֆայլը չհաջողվեց վերականգնել",
-    "archiveConfirm": "Արխիվացնե՞լ այս ֆայլը։ Այն կհեռանա ակտիվ ցանկից, բայց կմնա որոնելի Արխիվում."
+    "archiveFailed": "Չհաջողվեց արխիվացնել ֆայլը",
+    "restoreFailed": "Չհաջողվեց վերականգնել ֆայլը",
+    "archiveConfirm": "Արխիվացնե՞լ այս ֆայլը: Այն կթողնի ակտիվ ցուցակը, բայց որոնելի կլինի Արխիվացված տակ:"
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Երկրորդական գործողություններ",
+      "editScope": "Խմբագրել շրջանակը / Դասերը"
+    },
+    "kinds": {
+      "name_address_change": "Անվան և հասցեի փոփոխություն",
+      "transfer": "Ապրանքանիշի փոխանցում / հանձնարարություն",
+      "license": "Լիցենզիայի պայմանագիր",
+      "pledge": "Հատուկ գրավ",
+      "injunction": "Միջանկյալ միջոց / արգելք",
+      "surrender": "Ամբողջական հանձնում / հերքում",
+      "limitation": "Դիմումի սահմանափակում",
+      "insolvency": "Անվճարունակություն / Սնանկություն"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Ընդդիմության կարգավորում",
+      "office_action_response": "Գրասենյակային գործողությունների արձագանք",
+      "voluntary_limitation": "Կամավոր սահմանափակում",
+      "correction_of_error": "Սխալի ուղղում",
+      "other": "Այլ"
+    },
+    "scope": {
+      "title": "Խմբագրել դասերը և շրջանակը",
+      "description": "Փոփոխեք Nice դասերի և ապրանքների/ծառայությունների նկարագրությունները, այնուհետև գրանցեք գրասենյակի ներկայացման մանրամասները:",
+      "cardTitle": "Դասեր և ապրանքներ/ծառայություններ",
+      "cardHint": "Active Nice դասեր այս ապրանքանիշի ֆայլում:",
+      "empty": "Դեռևս ոչ մի դաս չի գրանցվել:",
+      "classLabel": "Դաս {{n}}",
+      "noDescription": "Ոչ մի նկարագրություն",
+      "classes": "Դասի և ապրանքների խմբագիր",
+      "incomingNumber": "Մուտքային տեղեկանքի համարը (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Գրասենյակի հետագծման ID",
+      "filingDate": "Ներկայացման ամսաթիվ (ДАТА)",
+      "legalBasis": "Իրավական հիմքեր (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Ընտրեք պատճառ…",
+      "legalBasisOther": "Այլ իրավական հիմքեր",
+      "attachment": "Աջակցող փաստաթուղթ",
+      "errors": {
+        "classRequired": "Պահպանեք առնվազն մեկ Nice դաս, կամ օգտագործեք Full Surrender՝ նշանը թողնելու համար:",
+        "incomingRequired": "Մուտքագրեք մուտքային տեղեկանքի համարը:",
+        "dateRequired": "Մուտքագրեք ներկայացման ամսաթիվը:",
+        "basisRequired": "Ընտրեք իրավական հիմք:",
+        "saveFailed": "Չհաջողվեց պահպանել շրջանակի ուղղումը:"
+      }
+    },
+    "secondary": {
+      "description": "Գրանցեք այս վարչական գործողությունը, կամընտիր պետական ​​տուրքը և հիշեցման վերջնաժամկետները:",
+      "generateProforma": "Ստեղծեք պրոֆորմա հաշիվ-ապրանքագիր",
+      "governmentFee": "Պետական ​​վճար (€)",
+      "paymentDueDate": "Վճարման վերջնաժամկետ",
+      "paymentReminder": "Հիշեցրեք վճարումից առաջ",
+      "filingDeadline": "Ներկայացման / գործողության վերջնաժամկետ",
+      "filingReminder": "Հիշեցրեք նախքան ներկայացնելը",
+      "reminderUnit": "Միավոր",
+      "months": "Ամիսներ առաջ",
+      "days": "Օրեր առաջ",
+      "titles": {
+        "name_address_change": "Մատյան անվան և հասցեի փոփոխություն",
+        "transfer": "Մուտք ապրանքանիշի փոխանցում",
+        "license": "Մուտք գործելու լիցենզային պայմանագիր",
+        "pledge": "Մատյան հատուկ գրավական",
+        "injunction": "Մատյան միջանկյալ միջոց / արգելք",
+        "surrender": "Մատյան Full Surrender / Disclaimer",
+        "limitation": "Մատյանների կիրառման սահմանափակում",
+        "insolvency": "Մատյան Անվճարունակություն / Սնանկություն"
+      },
+      "errors": {
+        "feeRequired": "Մուտքագրեք պետական ​​տուրք՝ պրոֆորմա հաշիվ-ապրանքագիր ստեղծելու համար:",
+        "saveFailed": "Չհաջողվեց պահել այս գործողությունը:"
+      }
+    },
+    "table": {
+      "title": "Երկրորդական գործողություններ",
+      "description": "Մուտքագրված ընթացակարգեր այս ապրանքային նշանի համար: Բացեք թղթապանակը՝ հարակից ֆայլերը դիտելու կամ վերբեռնելու համար:",
+      "empty": "Երկրորդական գործողություններ դեռ չկան։ Օգտագործեք երկրորդական գործողություններ վերնագրում, մեկը գրանցելու համար:",
+      "procedure": "Ընթացակարգը",
+      "action": "Գործողություն",
+      "loggedAt": "Մուտք եք գործել",
+      "viewAria": "Դիտեք գործողությունների մանրամասները",
+      "filesAria": "Բացել ֆայլերի արխիվը ({{count}} ֆայլեր)"
+    },
+    "archive": {
+      "title": "Ֆայլերի արխիվ",
+      "empty": "Այս գործողությանը կցված ֆայլ դեռ չկա:",
+      "date": "Ամսաթիվ",
+      "regarding": "Ինչ վերաբերում է",
+      "regardingPlaceholder": "օր. Որոշում, պրոֆորմա, օժանդակ նամակ",
+      "document": "Փաստաթուղթ",
+      "user": "Օգտատեր",
+      "attach": "Կցեք փաստաթուղթը",
+      "upload": "Վերբեռնել ֆայլը",
+      "download": "Բեռնել",
+      "regardingRequired": "Մուտքագրեք, թե ինչի մասին է ֆայլը:",
+      "fileRequired": "Ընտրեք ֆայլ՝ վերբեռնելու համար:",
+      "uploadFailed": "Չհաջողվեց վերբեռնել ֆայլը:"
+    }
   },
   "list": {
-    "description": "Բոլոր ֆայլերի տեսք — որոնեք վերնագրով, հաճախորդով կամ հայտի համարով.",
-    "descriptionPortal": "Ձեր կազմակերպության համար բացված ֆայլեր՝ հարցման փոխակերպումից հետո.",
-    "descriptionArchived": "Ավարտված կամ ոչ ակտիվ ֆայլեր՝ հղման համար.",
+    "description": "Բոլոր ֆայլերի պորտֆոլիոյի դիտում — որոնում ըստ վերնագրի, հաճախորդի կամ հավելվածի համարի:",
+    "descriptionPortal": "Ձեր կազմակերպության համար բացված ֆայլերը ընդունման փոխարկումից հետո:",
+    "descriptionArchived": "Ավարտված կամ ոչ ակտիվ ֆայլերը պահվում են հղման համար:",
+    "descriptionOthers": "Ֆայլեր հիմնական վեց դարակներից դուրս. զտել ըստ աշխատանքի տեսակի՝ ստորև:",
+    "descriptionType": "{{type}} ֆայլեր — որոնել ըստ վերնագրի, հաճախորդի կամ հավելվածի համարի:",
     "filters": {
       "allStatuses": "Բոլոր կարգավիճակները",
       "allTypes": "Աշխատանքի բոլոր տեսակները",
+      "allOtherTypes": "Մնացած բոլոր տեսակները",
       "active": "Ակտիվ",
-      "archived": "Արխիվ",
-      "allOtherTypes": "Բոլոր այլ տեսակները"
+      "archived": "Արխիվացված"
     },
     "intakeQueue": "Ընդունման հերթ",
     "pagination": {
       "ofTotal": "{{total}}-ից"
     },
     "perPage": "{{count}} մեկ էջում",
-    "searchPlaceholder": "Որոնել վերնագիր, հաճախորդ, հայտի համար…",
+    "searchPlaceholder": "Որոնել վերնագիրը, հաճախորդը, հավելվածի համարը…",
     "title": "Ֆայլեր",
     "titleArchived": "Արխիվացված ֆայլեր",
-    "titlePortal": "Իմ ֆայլերը",
-    "descriptionOthers": "Ֆայլեր վեց հիմնական կատեգորիաներից դուրս — զտեք ըստ տեսակի ստորև.",
-    "descriptionType": "{{type}} ֆայլեր — որոնեք վերնագրով, հաճախորդով կամ հայտի համարով.",
-    "titleOthers": "Այլ ֆայլեր",
     "titleDrafts": "Սևագրեր",
-    "descriptionDrafts": "Սևագրեր՝ մինչև հաստատում կամ ներկայացում — առանձին ակտիվ ապրանքանիշերից և այլ դարակներից."
+    "titleOthers": "Այլ ֆայլեր",
+    "titlePortal": "Իմ ֆայլերը",
+    "descriptionDrafts": "Նախագծային ֆայլեր, որոնք սպասում են հաստատման կամ ներկայացման՝ առանձին ապրանքային նշաններից և այլ դարակաշարերից:"
+  },
+  "trademarkList": {
+    "description": "Ապրանքային նշանների պորտֆոլիո - դատավարության փուլ, դասեր, հայտատու և վերջնաժամկետներ մի հայացքով:",
+    "descriptionMarks": "Նոր և գրանցված ապրանքային նշաններ — դատավարության փուլ, դասեր, հայտատու և ժամկետներ մի հայացքով:",
+    "descriptionProcedure": "{{procedure}} ապրանքանիշի ֆայլեր — դատավարության փուլը, դասերը և վերջնաժամկետները մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր ապրանքանիշի ֆայլ:",
+    "columns": {
+      "name": "Ապրանքանիշի անվանումը",
+      "territory": "Տարածք",
+      "incomingRef": "Դիմում / մուտքային թիվ.",
+      "stage": "Դատախազության փուլ",
+      "classes": "Հաճելի դասեր",
+      "applicant": "Հայտատու / սեփականատեր",
+      "markType": "Նշեք տեսակը",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "deadline": "Վերջնաժամկետ"
+    },
+    "deadlineOpen": "{{count}} բաց",
+    "deadlineOverdue": "{{count}} ժամկետանց",
+    "deadlineNext": "Հաջորդը՝ {{date}}",
+    "filters": {
+      "title": "Զտիչ նշաններ",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, դասի և այլն:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ դիմողի անունը…",
+      "markName": "Ապրանքանիշի անվանումը",
+      "markNamePlaceholder": "Նշել վերնագիրը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "կանոն. ոչ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "markType": "Նշեք տեսակը",
+      "markKind": "Նշեք բարի",
+      "territory": "Տարածք",
+      "representative": "ներկայացուցիչ",
+      "representativePlaceholder": "Ներկայացուցչի անունը…",
+      "applicationDateFrom": "Դիմումի ամսաթիվը",
+      "applicationDateTo": "Դիմումի ամսաթիվը",
+      "registrationDateFrom": "Գրանցման ամսաթիվը",
+      "registrationDateTo": "Գրանցման ամսաթիվը մինչև",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "markStatus": "Նշել կարգավիճակը",
+      "niceClass": "Հաճելի դաս",
+      "country": "Երկիր",
+      "hasCertificate": "Կցված է վկայական",
+      "choose": "Ընտրեք",
+      "chooseClass": "Ընտրեք դասարան",
+      "chooseCountry": "Ընտրեք երկիրը",
+      "all": "Բոլորը",
+      "classOption": "Դաս {{number}}",
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "utilityModelList": {
+    "description": "Օգտակար մոդելներ — տարածք, պահանջներ, սեփականատեր և գրանցում մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր օգտակար մոդելի ֆայլ:",
+    "searchResults": "Որոնման արդյունքներ՝ {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Գրանցված է"
+    },
+    "columns": {
+      "name": "Անուն",
+      "territory": "Տարածք",
+      "incomingRef": "Մուտքային թիվ. / ամսաթիվը",
+      "status": "Կարգավիճակ",
+      "classes": "Դասեր",
+      "owner": "Սեփականատեր",
+      "kind": "Բարի",
+      "registration": "կանոն. ոչ / ամսաթիվը"
+    },
+    "filters": {
+      "title": "Զտել օգտակար մոդելներ",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, տարածքի և այլնի:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ սեփականատիրոջ անունը…",
+      "name": "Անուն",
+      "namePlaceholder": "Օգտակար մոդելի անվանումը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "Գրանցման թիվ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "territory": "Տարածք",
+      "choose": "Ընտրեք",
+      "chooseTerritory": "Ընտրեք տարածք",
+      "representative": "ներկայացուցիչ",
+      "chooseRepresentative": "Ընտրեք ներկայացուցիչ",
+      "applicationDate": "Դիմումի ամսաթիվը",
+      "registrationDate": "Գրանցման ամսաթիվը",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "status": "Կարգավիճակ",
+      "certificate": "Վկայական",
+      "certificateOptions": {
+        "with": "Վկայականով",
+        "without": "Առանց վկայականի"
+      },
+      "statusOptions": {
+        "registered": "Գրանցված է"
+      },
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "spcList": {
+    "description": "Լրացուցիչ պաշտպանության վկայագրեր — տարածք, պահանջներ, սեփականատեր և գրանցում մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր SPC ֆայլ:",
+    "searchResults": "Որոնման արդյունքներ՝ {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Գրանցված է"
+    },
+    "columns": {
+      "name": "Անուն",
+      "territory": "Տարածք",
+      "incomingRef": "Մուտքային թիվ. / ամսաթիվը",
+      "status": "Կարգավիճակ",
+      "classes": "Դասեր",
+      "owner": "Սեփականատեր",
+      "kind": "Բարի",
+      "registration": "կանոն. ոչ / ամսաթիվը"
+    },
+    "filters": {
+      "title": "Զտել SPC ֆայլերը",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, տարածքի և այլնի:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ սեփականատիրոջ անունը…",
+      "name": "Արտոնագրային անվանումը",
+      "namePlaceholder": "SPC անվանումը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "Գրանցման թիվ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "territory": "Տարածք",
+      "choose": "Ընտրեք",
+      "chooseTerritory": "Ընտրեք տարածք",
+      "representative": "ներկայացուցիչ",
+      "chooseRepresentative": "Ընտրեք ներկայացուցիչ",
+      "applicationDate": "Դիմումի ամսաթիվը",
+      "registrationDate": "Գրանցման ամսաթիվը",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "status": "Արտոնագրային կարգավիճակը",
+      "certificate": "Վկայական",
+      "certificateOptions": {
+        "with": "Վկայականով",
+        "without": "Առանց վկայականի"
+      },
+      "statusOptions": {
+        "registered": "Գրանցված է"
+      },
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Դատական ​​գործեր — կողմերը, գործի համարը, դատարանը և կարգավիճակը մի հայացքով:",
+    "emptyDescription": "Սկսելու համար ստեղծեք նոր գործի ֆայլ:",
+    "searchResults": "Որոնման արդյունքներ՝ {{count}}",
+    "incomingSuffix": "մուտքային",
+    "vrs": "vrs.",
+    "viewAria": "Դիտել {{title}}",
+    "filesAria": "Փաստաթղթեր {{title}}-ի համար ({{count}})",
+    "columns": {
+      "parties": "Կուսակցություններ",
+      "caseNumber": "Գործի թիվ.",
+      "court": "Դատարան",
+      "status": "Կարգավիճակ",
+      "actions": "Գործողություններ"
+    },
+    "statusOptions": {
+      "suspended": "Կասեցվել է",
+      "scheduled": "Պլանավորված",
+      "inactive": "Ոչ ակտիվ",
+      "appealed": "Բողոքարկել է"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Հաճախորդ",
+    "caseNumberLabel": "Գործի թիվ.",
+    "statusTitle": "Կարգավիճակ",
+    "chooseStatus": "Ընտրեք կարգավիճակը",
+    "saveStatus": "Պահպանել կարգավիճակը",
+    "edit": "Խմբագրել",
+    "save": "Պահպանել",
+    "cancel": "Չեղարկել",
+    "saving": "Պահվում է…",
+    "editHint": "Թարմացրեք կողմերի, դատարանի մանրամասները, առարկան և գործի այլ տվյալները:",
+    "subjectTitle": "Գործի առարկա",
+    "instanceTitle": "Գործի թիվ. {{number}} ({{court}})",
+    "eventsTitle": "Իրադարձություններ",
+    "reminderTitle": "Ստեղծեք լրացուցիչ հիշեցում",
+    "addReminder": "Ավելացնել",
+    "openArchive": "Ֆայլերի արխիվ",
+    "saved": "Պահպանված է:",
+    "events": {
+      "date": "Ամսաթիվ",
+      "deadline": "Վերջնաժամկետ",
+      "regarding": "Ինչ վերաբերում է",
+      "info": "Լրացուցիչ տեղեկություններ"
+    },
+    "actions": {
+      "decision": "Որոշում",
+      "agreement": "Համաձայնագիր",
+      "ruling": "Իշխող"
+    },
+    "errors": {
+      "saveFailed": "Չհաջողվեց պահել գործի մանրամասները:"
+    }
+  },
+  "giList": {
+    "description": "Աշխարհագրական նշումներ — տարածք, ապրանքի դասեր, սեփականատեր և գրանցում մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր աշխարհագրական նշումների ֆայլ:",
+    "searchResults": "Որոնման արդյունքներ՝ {{count}}",
+    "territoryEu": "ԵՄ",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Գրանցված է"
+    },
+    "columns": {
+      "name": "Անուն",
+      "territory": "Տարածք",
+      "incomingRef": "Մուտքային թիվ. / ամսաթիվը",
+      "status": "Կարգավիճակ",
+      "classification": "Դասակարգում",
+      "owner": "Սեփականատեր",
+      "registration": "կանոն. ոչ / ամսաթիվը"
+    },
+    "filters": {
+      "title": "Զտել աշխարհագրական նշումները",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, տարածքի երթուղու և այլնի:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ սեփականատիրոջ անունը…",
+      "name": "Անուն",
+      "namePlaceholder": "GI անունը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "Գրանցման թիվ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "territory": "Տարածք",
+      "choose": "Ընտրեք",
+      "chooseTerritory": "Ընտրեք տարածքային երթուղի",
+      "representative": "ներկայացուցիչ",
+      "chooseRepresentative": "Ընտրեք ներկայացուցիչ",
+      "applicationDate": "Դիմումի ամսաթիվը",
+      "registrationDate": "Գրանցման ամսաթիվը",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "status": "Կարգավիճակ",
+      "certificate": "Վկայական",
+      "certificateOptions": {
+        "with": "Վկայականով",
+        "without": "Առանց վկայականի"
+      },
+      "country": "Երկիր",
+      "chooseCountry": "Ընտրեք երկիրը",
+      "statusOptions": {
+        "registered": "Գրանցված է"
+      },
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "designList": {
+    "description": "Գրանցված նմուշներ — տարածք, Լոկառնոյի դասակարգում, սեփականատեր և գրանցում մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել ֆիլտրերը կամ ստեղծել նոր դիզայնի ֆայլ:",
+    "searchResults": "Որոնման արդյունքներ՝ {{count}}",
+    "territoryEu": "ԵՄ",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Գրանցված է"
+    },
+    "columns": {
+      "name": "Անուն",
+      "territory": "Տարածք",
+      "incomingRef": "Մուտքային թիվ. / ամսաթիվը",
+      "status": "Կարգավիճակ",
+      "classification": "Դասակարգում",
+      "owner": "Սեփականատեր",
+      "registration": "կանոն. ոչ / ամսաթիվը"
+    },
+    "filters": {
+      "title": "Զտիչների ձևավորում",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, ընթացակարգի և այլնի:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ սեփականատիրոջ անունը…",
+      "name": "Անուն",
+      "namePlaceholder": "Դիզայնի անվանումը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "Գրանցման թիվ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "territory": "Տարածք",
+      "procedure": "Ընթացակարգը",
+      "choose": "Ընտրեք",
+      "chooseTerritory": "Ընտրեք տարածք",
+      "representative": "ներկայացուցիչ",
+      "chooseRepresentative": "Ընտրեք ներկայացուցիչ",
+      "applicationDate": "Դիմումի ամսաթիվը",
+      "registrationDate": "Գրանցման ամսաթիվը",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "status": "Կարգավիճակ",
+      "certificate": "Վկայական",
+      "certificateOptions": {
+        "with": "Վկայականով",
+        "without": "Առանց վկայականի"
+      },
+      "country": "Երկիր",
+      "statusOptions": {
+        "registered": "Գրանցված է"
+      },
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "patentList": {
+    "description": "Նոր և գրանցված արտոնագրերը միասին՝ դատավարության փուլ, պահանջներ, սեփականատեր և ժամկետներ մի հայացքով:",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր արտոնագրային ֆայլ:",
+    "territoryEp": "ՊԸ",
+    "columns": {
+      "name": "Արտոնագրային անվանումը",
+      "territory": "Տարածք",
+      "incomingRef": "Դիմում / մուտքային թիվ.",
+      "stage": "Կարգավիճակ",
+      "claims": "Պահանջներ",
+      "owner": "Սեփականատեր",
+      "registration": "կանոն. ոչ / ամսաթիվը",
+      "deadline": "Վերջնաժամկետ"
+    },
+    "deadlineOpen": "{{count}} բաց",
+    "deadlineOverdue": "{{count}} ժամկետանց",
+    "deadlineNext": "Հաջորդը՝ {{date}}",
+    "filters": {
+      "title": "Զտել արտոնագրերը",
+      "subtitle": "Նեղացրեք պորտֆելը ըստ դիմորդի, թվերի, ամսաթվերի, տարածքի և այլնի:",
+      "activeCount": "{{count}} ակտիվ",
+      "applicant": "Հայտատու / սեփականատեր",
+      "applicantPlaceholder": "Հաճախորդի կամ սեփականատիրոջ անունը…",
+      "patentName": "Արտոնագրային անվանումը",
+      "patentNamePlaceholder": "Արտոնագրային անվանումը…",
+      "incomingNo": "Մուտքային թիվ.",
+      "incomingPlaceholder": "Դիմում / մուտքային…",
+      "regNo": "կանոն. ոչ",
+      "regNoPlaceholder": "Գրանցման համարը…",
+      "territory": "Տարածք",
+      "choose": "Ընտրեք",
+      "chooseTerritory": "Ընտրեք տարածք",
+      "representative": "ներկայացուցիչ",
+      "chooseRepresentative": "Ընտրեք ներկայացուցիչ",
+      "applicationDateFrom": "Դիմումի ամսաթիվը",
+      "applicationDateTo": "Դիմումի ամսաթիվը",
+      "registrationDateFrom": "Գրանցման ամսաթիվը",
+      "registrationDateTo": "Գրանցման ամսաթիվը մինչև",
+      "contact": "Կոնտակտային անձ",
+      "contactPlaceholder": "Կոնտակտային անուն, էլ. փոստ կամ հեռախոս…",
+      "patentStatus": "Արտոնագրային կարգավիճակը",
+      "certificate": "Վկայական",
+      "certificateOptions": {
+        "with": "Վկայականով",
+        "without": "Առանց վկայականի"
+      },
+      "country": "Երկիր",
+      "chooseCountry": "Ընտրեք երկիրը",
+      "annualFees": "Տարեկան տուրքի վճարում",
+      "annualFeesOptions": {
+        "yes": "Այո՛",
+        "no": "Ոչ"
+      },
+      "statusOptions": {
+        "validation_received": "Ստացված վավերացում",
+        "assignment": "Հանձնարարություն",
+        "translation_assigned": "Նշանակված թարգմանություն",
+        "filing_entry": "Ներկայացում / մուտքագրում",
+        "validation_decision": "Վավերացման որոշում",
+        "registered": "Գրանցված է"
+      },
+      "all": "Բոլորը",
+      "clear": "Մաքրել զտիչները",
+      "apply": "Կիրառել զտիչներ"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Նշաններ"
+  },
+  "objectionList": {
+    "view": "Դիտել",
+    "fileArchive": "Ֆայլերի արխիվ",
+    "viewAria": "Դիտել առարկությունը {{title}}",
+    "filesAria": "Բացել ֆայլերի արխիվը {{title}}-ի համար ({{count}} ֆայլ)",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր առարկությունների ֆայլ:",
+    "columns": {
+      "againstMark": "Նշանի դեմ",
+      "grounds": "Հիմքեր",
+      "client": "Հաճախորդ",
+      "status": "Կարգավիճակ",
+      "actions": "Գործողություններ"
+    }
+  },
+  "oppositionList": {
+    "view": "Դիտել",
+    "fileArchive": "Ֆայլերի արխիվ",
+    "viewAria": "Դիտել ընդդիմությունը {{title}}",
+    "filesAria": "Բացել ընդդիմադիր ֆայլերի արխիվը {{title}}-ի համար ({{count}} ֆայլեր)",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել նոր հակադիր ֆայլ:",
+    "columns": {
+      "againstMark": "Նշանի դեմ",
+      "client": "Հաճախորդ",
+      "status": "Կարգավիճակ",
+      "actions": "Գործողություններ"
+    },
+    "stages": {
+      "disputes_division": "Ընդդիմությունը վեճերի բաժանման մեջ",
+      "opposition_decision": "Ընդդիմության որոշումը",
+      "disputes_department_decision": "Վեճերի վարչության որոշումը",
+      "case": "Գործ",
+      "stopped": "Դադարեցվեց",
+      "closed": "Փակված է"
+    },
+    "stageLegend": {
+      "disputes_division": "Կապույտ - վերանայվում է վեճերի բաժնում",
+      "opposition_decision": "Սաթ - որոշում կայացված կամ առկախ",
+      "disputes_department_decision": "Orange — վարչության մակարդակի որոշում",
+      "case": "Կարմիր — վերաճել է դատական ​​գործ",
+      "stopped": "Մոխրագույն — դատավարությունը դադարեցված է",
+      "closed": "Կանաչ. ընդդիմությունն ավարտվեց"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Առարկություն",
+    "basicInfo": "Հիմնական տեղեկություններ",
+    "foundation": "Հիմնադրամ",
+    "archiveTitle": "Առարկությունների ֆայլի արխիվ",
+    "nav": {
+      "view": "Դիտել",
+      "archive": "Ֆայլերի արխիվ"
+    },
+    "markName": "Ապրանքանիշի անվանումը",
+    "applicationNumber": "Դիմումի համարը",
+    "applicationDate": "Դիմումի ամսաթիվը",
+    "classes": "Դասեր",
+    "markType": "Ապրանքանիշի տեսակը",
+    "applicant": "Դիմորդ",
+    "noMarkImage": "Ապրանքանիշը պատկեր չունի",
+    "grounds": "Հիմնադրամ",
+    "submissionDate": "Ներկայացման ամսաթիվը",
+    "incomingNumber": "Մուտքային համարը",
+    "poaIncomingNumber": "Մուտքային լիազորագրի համարը",
+    "poaDate": "Ամսաթիվ",
+    "edit": "Խմբագրել",
+    "cancel": "Չեղարկել",
+    "save": "Պահպանել փոփոխությունները",
+    "saving": "Պահվում է…",
+    "errors": {
+      "markNameRequired": "Ապրանքանիշի անունը պարտադիր է:",
+      "saveFailed": "Չհաջողվեց պահպանել առարկությունը:"
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Ընդդիմություն",
+    "subjectMark": "Առարկայական ապրանքային նշան",
+    "opposingMarks": "Հակառակ ապրանքային նշաններ",
+    "archiveTitle": "Ընդդիմության ֆայլերի արխիվ",
+    "nav": {
+      "view": "Դիտել",
+      "archive": "Ֆայլերի արխիվ",
+      "notes": "Նշումներ"
+    },
+    "markName": "Ապրանքանիշի անվանումը",
+    "applicationNumber": "Դիմումի համարը",
+    "applicationDate": "Դիմումի ամսաթիվը",
+    "classes": "Դասեր",
+    "markType": "Ապրանքանիշի տեսակը",
+    "applicant": "Դիմորդ",
+    "representative": "ներկայացուցիչ",
+    "noMarkImage": "Ապրանքանիշը պատկեր չունի",
+    "noBasisMarks": "Հակառակ ապրանքային նշաններ չեն գրանցվել:",
+    "basisMarkName": "Ապրանքանիշի անվանումը",
+    "basisTerritory": "Տարածք",
+    "basisMarkNo": "Նշել ոչ.",
+    "basisAppDate": "Դիմումի ամսաթիվը",
+    "basisClasses": "Դասեր",
+    "againstClasses": "Դասերի դեմ",
+    "submittedBy": "Ներկայացված է",
+    "statusHistory": "Կարգավիճակի պատմություն",
+    "stage": "Կարգավիճակ",
+    "stagePlaceholder": "Ընտրել կարգավիճակը…",
+    "stageNone": "Սահմանված չէ",
+    "stageChangeHint": "Նոր կարգավիճակի պահպանումը թարմացնում է գունավոր կրծքանշանը հակադրությունների ցանկում, տող է ավելացնում կարգավիճակի պատմությանը և հարցը դնում է «Սպասում» (Դադարեցված) կամ «Փակված»՝ անհրաժեշտության դեպքում:",
+    "decisionNumber": "Որոշման համարը",
+    "decisionDate": "Որոշման ամսաթիվը",
+    "actions": {
+      "stop": "Դադարեցրեք",
+      "print": "Տպել PDF",
+      "printing": "Ստեղծվում է…",
+      "stopFailed": "Չհաջողվեց կանգնեցնել ընդդիմությանը.",
+      "printFailed": "Չհաջողվեց ստեղծել PDF-ը:"
+    },
+    "stageDescriptions": {
+      "disputes_division": "Ընդդիմությունը քննվում է վիճաբանությունների բաժնում։",
+      "opposition_decision": "Ընդդիմության մասին որոշում կայացվել է կամ սպասվում է.",
+      "disputes_department_decision": "Վեճերի վարչությունը հրապարակել է կամ վերանայում է իր որոշումը։",
+      "case": "Գործը հասցվել է դատական ​​գործի։",
+      "stopped": "Ընդդիմության դատավարությունը դադարեցված է. հարցը դրված է Սպասման ռեժիմում:",
+      "closed": "Ընդդիմությունն ավարտված է. գործը փակված է:"
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Ընդդիմությունը վեճերի բաժանման մեջ",
+      "opposition_decision": "Ընդդիմության որոշում թիվ {{number}} / {{date}}",
+      "disputes_department_decision": "Վիճվարչության թիվ {{number}} / {{date}} որոշում",
+      "case": "Բողոքարկված թիվ {{number}} / {{date}} ընդդիմության որոշումը",
+      "stopped": "{{markRef}} — Ընդդիմությունը դադարեց",
+      "closed": "{{markRef}} — Ընդդիմությունը փակվեց"
+    },
+    "timeline": {
+      "decision": "Ընդդիմության մասին որոշում",
+      "department_decision": "Վեճերի վարչության որոշումը",
+      "second_decision": "Ընդդիմության մասին երկրորդ որոշումը",
+      "appealedBy": "Բողոքարկել է {{name}}",
+      "appealedInCourtBy": "Բողոքարկել է դատարան՝ {{name}}-ի կողմից",
+      "decisionRef": "Թիվ {{number}} / {{date}}",
+      "appealFiled": "Բողոքը ներկայացվել է",
+      "courtAppealFiled": "Դատարանի վերաքննիչ բողոք"
+    },
+    "workflow": {
+      "appealTitle": "Բողոքարկում — մուտքային համար",
+      "correspondenceTitle": "Նամակագրություն",
+      "solutionTitle": "Լուծում",
+      "incomingNumber": "Մուտքային համարը",
+      "date": "Ամսաթիվ",
+      "attachAppeal": "Կցել բողոքարկումը",
+      "attachDocument": "Կցեք փաստաթուղթը",
+      "regarding": "Ինչ վերաբերում է",
+      "deadline": "Վերջնաժամկետ",
+      "additionalInfo": "Լրացուցիչ տեղեկություններ",
+      "correspondence": "Նամակագրություն",
+      "submit": "Ներկայացրե՛ք",
+      "solutionSubmit": "Լուծում",
+      "caseDraft": "Գործի նախագիծ",
+      "courtAppeal": "Բողոքարկել դատարանում",
+      "saveFailed": "Չհաջողվեց պահպանել:"
+    },
+    "edit": "Խմբագրել",
+    "cancel": "Չեղարկել",
+    "save": "Պահպանել փոփոխությունները",
+    "saving": "Պահվում է…",
+    "errors": {
+      "markNameRequired": "Ապրանքանիշի անունը պարտադիր է:",
+      "saveFailed": "Չհաջողվեց փրկել ընդդիմությանը."
+    },
+    "notes": {
+      "title": "Ընդդիմությունը նշում է",
+      "empty": "Դեռևս նշումներ չկան:",
+      "date": "Ամսաթիվ",
+      "regarding": "Ինչ վերաբերում է",
+      "details": "Լրացուցիչ տեղեկություններ",
+      "submit": "Ավելացնել",
+      "regardingRequired": "Նշման համար մուտքագրեք թեմա:",
+      "saveFailed": "Չհաջողվեց պահել նշումը:",
+      "editAria": "Խմբագրել նշումը",
+      "deleteAria": "Ջնջել նշումը"
+    }
+  },
+  "cancellationList": {
+    "view": "Ընդհանուր ակնարկ",
+    "fileArchive": "Ֆայլեր",
+    "viewAria": "Դիտել չեղարկումը {{title}}",
+    "filesAria": "Բացել չեղարկման ֆայլի արխիվը {{title}}-ի համար ({{count}} ֆայլ)",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծեք չեղարկման նոր ֆայլ:",
+    "stageNone": "Սահմանված չէ",
+    "columns": {
+      "againstMark": "Բրենդի դեմ",
+      "client": "Հաճախորդ",
+      "status": "Կարգավիճակ",
+      "actions": "Գործողություններ"
+    },
+    "stages": {
+      "waiting_for_login": "Սպասում է մուտքի",
+      "in_correspondence": "Նամակագրության մեջ",
+      "case": "Գործ",
+      "stopped": "Դադարեցվեց",
+      "closed": "Փակված է"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Չեղարկում",
+    "subjectMark": "Առարկայական ապրանքային նշան",
+    "cancellationSide": "Չեղարկման մանրամասները",
+    "archiveTitle": "Չեղարկման ֆայլի արխիվ",
+    "nav": {
+      "view": "Դիտել",
+      "archive": "Ֆայլերի արխիվ",
+      "notes": "Նշումներ"
+    },
+    "markName": "Ապրանքանիշի անվանումը",
+    "applicationNumber": "Դիմումի համարը",
+    "applicationDate": "Դիմումի ամսաթիվը",
+    "registrationNumber": "Գրանցման համարը",
+    "classes": "Դասեր",
+    "markType": "Նշեք տեսակը",
+    "applicant": "Դիմորդ",
+    "representative": "ներկայացուցիչ",
+    "againstClasses": "Դասերի դեմ",
+    "submittedBy": "Ներկայացված է",
+    "foundation": "Հիմնադրամ",
+    "stage": "Կարգավիճակ",
+    "stagePlaceholder": "Ընտրել կարգավիճակը…",
+    "stageNone": "Սահմանված չէ",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Չեղարկում",
+      "in_correspondence": "Չեղարկման համար՝ {{number}} / {{date}}",
+      "case": "Չեղարկման թիվ {{number}} / {{date}} — Գործ",
+      "stopped": "{{markRef}} — Չեղարկումը դադարեցվել է",
+      "closed": "{{markRef}} — Չեղարկումը փակված է"
+    },
+    "deadlines": {
+      "date": "Ամսաթիվ",
+      "deadline": "Վերջնաժամկետ",
+      "regarding": "Ինչ վերաբերում է",
+      "details": "Լրացուցիչ տեղեկություններ"
+    },
+    "workflow": {
+      "feeTitle": "Պետական ​​տուրք - վճարման ամսաթիվ",
+      "poaTitle": "լիազորագիր",
+      "filingTitle": "Չեղարկման դիմում",
+      "correspondenceTitle": "Նամակագրություն",
+      "feeAmount": "Գումարը (BGN)",
+      "feeDate": "Վճարման ամսաթիվը",
+      "poaNumber": "POA համարը",
+      "poaDate": "Ստանալու ամսաթիվը",
+      "cancellationNumber": "Չեղարկման համարը",
+      "filingDate": "Ներկայացման ամսաթիվը",
+      "attachDocument": "Կցեք փաստաթուղթը",
+      "attachPoa": "Կցեք POA-ն",
+      "regarding": "Ինչ վերաբերում է",
+      "deadline": "Վերջնաժամկետ",
+      "additionalInfo": "Լրացուցիչ տեղեկություններ",
+      "submit": "Ներկայացրե՛ք",
+      "decision": "Որոշում",
+      "feePaid": "Արձանագրվել է պետական ​​տուրք",
+      "poaReceived": "Լիազորագիրն արձանագրվել է",
+      "filingRecorded": "Արձանագրվել է չեղարկման դիմում",
+      "correspondence": "Նամակագրություն",
+      "saveFailed": "Չհաջողվեց պահպանել:"
+    },
+    "actions": {
+      "stop": "Դադարեցրեք",
+      "stopFailed": "Չհաջողվեց դադարեցնել չեղարկումը:"
+    },
+    "edit": "Խմբագրել",
+    "cancel": "Չեղարկել",
+    "save": "Պահպանել փոփոխությունները",
+    "saving": "Պահվում է…",
+    "errors": {
+      "markNameRequired": "Ապրանքանիշի անունը պարտադիր է:",
+      "saveFailed": "Չհաջողվեց պահել չեղարկումը:"
+    },
+    "notes": {
+      "title": "Չեղարկման նշումներ",
+      "empty": "Դեռևս նշումներ չկան:",
+      "date": "Ամսաթիվ",
+      "regarding": "Ինչ վերաբերում է",
+      "details": "Լրացուցիչ տեղեկություններ",
+      "submit": "Ավելացնել",
+      "regardingRequired": "Նշման համար մուտքագրեք թեմա:",
+      "saveFailed": "Չհաջողվեց պահել նշումը:",
+      "editAria": "Խմբագրել նշումը",
+      "deleteAria": "Ջնջել նշումը"
+    }
+  },
+  "deletionList": {
+    "view": "Ընդհանուր ակնարկ",
+    "fileArchive": "Ֆայլեր",
+    "viewAria": "Դիտել ջնջումը {{title}}",
+    "filesAria": "Բացել ջնջման ֆայլի արխիվը {{title}}-ի համար ({{count}} ֆայլեր)",
+    "emptyDescription": "Փորձեք կարգավորել զտիչները կամ ստեղծել ջնջման նոր ֆայլ:",
+    "stageNone": "Սահմանված չէ",
+    "columns": {
+      "againstMark": "Բրենդի դեմ",
+      "client": "Հաճախորդ",
+      "status": "Կարգավիճակ",
+      "actions": "Գործողություններ"
+    },
+    "stages": {
+      "waiting_for_login": "Ներկայացրեք ջնջումը",
+      "in_correspondence": "Նամակագրության մեջ",
+      "decision": "Որոշում",
+      "case": "Գործ",
+      "stopped": "Դադարեցվեց",
+      "closed": "Փակված է"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Ջնջում",
+    "subjectMark": "Առարկայական ապրանքային նշան",
+    "deletionSide": "Ջնջման մանրամասները",
+    "archiveTitle": "Ջնջման ֆայլի արխիվ",
+    "archivedStamp": "Արխիվացված",
+    "noMarkImage": "Ապրանքանիշը պատկեր չունի",
+    "nav": {
+      "view": "Դիտել",
+      "archive": "Ֆայլերի արխիվ"
+    },
+    "markName": "Ապրանքանիշի անվանումը",
+    "applicationNumber": "Դիմումի համարը",
+    "applicationDate": "Դիմումի ամսաթիվը",
+    "registrationNumber": "Գրանցման համարը",
+    "classes": "Դասեր",
+    "markType": "Նշեք տեսակը",
+    "applicant": "Դիմորդ",
+    "representative": "ներկայացուցիչ",
+    "againstClasses": "Դասերի դեմ",
+    "submittedBy": "Ներկայացված է",
+    "foundation": "Հիմնադրամ",
+    "stage": "Կարգավիճակ",
+    "stagePlaceholder": "Ընտրել կարգավիճակը…",
+    "stageNone": "Սահմանված չէ",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Ջնջում",
+      "in_correspondence": "Ջնջում թիվ {{number}} / {{date}}",
+      "decision": "Ջնջման որոշում թիվ {{number}} / {{date}}",
+      "case": "Ջնջման որոշում թիվ {{number}} / {{date}} — Գործ.",
+      "stopped": "{{markRef}} — Դադարեցված է (մինչև {{stopUntil}})",
+      "closed": "{{markRef}} — Ջնջումը փակված է"
+    },
+    "deadlines": {
+      "date": "Հիշեցման ամսաթիվ",
+      "deadline": "Վերջնաժամկետ",
+      "regarding": "Ինչ վերաբերում է",
+      "details": "Լրացուցիչ տեղեկություններ",
+      "appealTitle": "Բողոքարկման վերջնաժամկետ"
+    },
+    "stopped": {
+      "title": "Դադարեցվեց",
+      "until": "(մինչև {{date}})",
+      "reason": "Պատճառը՝ {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Ստեղծեք պրոֆորմա",
+      "stateFee": "Պետական ​​տուրք",
+      "feePaymentDeadline": "Վճարման վերջնաժամկետ",
+      "poaSendDeadline": "Լիազորագիր ուղարկելու վերջնաժամկետ",
+      "filingDeadlineLabel": "Ներկայացման վերջնաժամկետ",
+      "remindBefore": "Նախկինում հիշեցնել",
+      "reminderDays": "Օրեր",
+      "reminderMonths": "Ամիսներ",
+      "feeDeadlineRegarding": "Պետական ​​տուրքի վճարման վերջնաժամկետ",
+      "poaDeadlineRegarding": "Լիազորագիր ուղարկելու վերջնաժամկետ",
+      "filingDeadlineRegarding": "Ջնջումը ներկայացնելու վերջնաժամկետ",
+      "proformaRecorded": "Proforma և ժամկետները գրանցված են",
+      "feeTitle": "Պետական ​​տուրք - վճարման ամսաթիվ",
+      "poaTitle": "լիազորագիր",
+      "filingTitle": "Ջնջման ներկայացում",
+      "correspondenceTitle": "Նամակագրություն",
+      "decisionTitle": "Ջնջման որոշում",
+      "feeAmount": "Գումարը (BGN)",
+      "feeDate": "Վճարման ամսաթիվը",
+      "poaNumber": "POA համարը",
+      "poaDate": "Ստանալու ամսաթիվը",
+      "deletionNumber": "Ջնջման համարը",
+      "filingDate": "Ներկայացման ամսաթիվը",
+      "decisionNumber": "Որոշման համարը",
+      "decisionDate": "Որոշման ամսաթիվը",
+      "attachDocument": "Կցեք փաստաթուղթը",
+      "attachPoa": "Կցեք POA-ն",
+      "regarding": "Ինչ վերաբերում է",
+      "deadline": "Վերջնաժամկետ",
+      "additionalInfo": "Լրացուցիչ տեղեկություններ",
+      "submit": "Ներկայացրե՛ք",
+      "decision": "Որոշում",
+      "caseDraft": "Գործի նախագիծ",
+      "notAppealed": "Չի բողոքարկվել",
+      "appealed": "Բողոքարկել է",
+      "feePaid": "Արձանագրվել է պետական ​​տուրք",
+      "poaReceived": "Լիազորագիրն արձանագրվել է",
+      "filingRecorded": "Ջնջման ֆայլը գրանցված է",
+      "decisionRecorded": "Ջնջման որոշումը արձանագրվել է",
+      "correspondence": "Նամակագրություն",
+      "decisionNumberRequired": "Մուտքագրեք որոշման համարը:",
+      "saveFailed": "Չհաջողվեց պահպանել:"
+    },
+    "actions": {
+      "stop": "Դադարեցրեք",
+      "stopReason": "Պատճառը",
+      "stopUntil": "Դադարեցվեց մինչև",
+      "restore": "Վերականգնել",
+      "restored": "Վերականգնվել է",
+      "archive": "Արխիվ",
+      "archiveConfirm": "Արխիվացնե՞լ այս ջնջվող ֆայլը:",
+      "archiveFailed": "Չհաջողվեց արխիվացնել ջնջումը:",
+      "stopFailed": "Չհաջողվեց դադարեցնել ջնջումը:",
+      "restoreFailed": "Չհաջողվեց վերականգնել ջնջումը:"
+    },
+    "edit": "Խմբագրել",
+    "cancel": "Չեղարկել",
+    "save": "Պահպանել փոփոխությունները",
+    "saving": "Պահվում է…",
+    "errors": {
+      "markNameRequired": "Ապրանքանիշի անունը պարտադիր է:",
+      "saveFailed": "Չհաջողվեց պահպանել ջնջումը:"
+    }
   },
   "ipRightsRegister": {
     "description": "ՄՍ իրավունքների ֆիրմային ռեգիստր՝ զտիչներով ըստ հաճախորդի, իրավասության, տեսակի, կարգավիճակի և ժամկետի:",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Համակցված",
+    "combination_of_colors": "Գույների համադրություն",
     "figurative": "Փոխաբերական",
     "sound": "Ձայն",
     "three_dimensional": "3D",
-    "wordmark": "Բառի նշան",
-    "combination_of_colors": "Գույների համադրություն"
+    "wordmark": "Բառի նշան"
   },
   "overview": {
     "assignedTo": "Առաջատար փաստաբան",
@@ -801,18 +2570,6 @@
     "clientHint": "Հանձնարարող կողմ — ստանում է հաշիվ-ապրանքագրեր",
     "intermediary": "Միջնորդ",
     "description": "Նկարագրություն",
-    "jurisdictions": "Իրավասություններ",
-    "jurisdictionsEmpty": "Ոչ մի իրավասություն չի գրանցվել:",
-    "openedBy": "Բացել է",
-    "status": "Կարգավիճակ",
-    "table": {
-      "country": "Երկիր",
-      "localRef": "Տեղական ռեֆ.",
-      "status": "Կարգավիճակ"
-    },
-    "title": "Ֆայլի մանրամասներ",
-    "type": "Աշխատանքի տեսակը",
-    "typeSpecific": "Տիպային հատուկ ատրիբուտներ",
     "edit": {
       "cancel": "Չեղարկել",
       "edit": "Խմբագրել",
@@ -829,7 +2586,19 @@
       "saved": "Պահպանված է:",
       "saving": "Պահվում է…",
       "title": "Ֆայլի մանրամասները"
-    }
+    },
+    "jurisdictions": "Իրավասություններ",
+    "jurisdictionsEmpty": "Ոչ մի իրավասություն չի գրանցվել:",
+    "openedBy": "Բացել է",
+    "status": "Կարգավիճակ",
+    "table": {
+      "country": "Երկիր",
+      "localRef": "Տեղական ռեֆ.",
+      "status": "Կարգավիճակ"
+    },
+    "title": "Ֆայլի մանրամասները",
+    "type": "Աշխատանքի տեսակը",
+    "typeSpecific": "Տիպային հատուկ ատրիբուտներ"
   },
   "parties": {
     "title": "Կուսակցություններ",
@@ -874,11 +2643,12 @@
     "instructions": "Հրահանգներ",
     "approvals": "Հաստատումներ",
     "ipRights": "ՄՍ իրավունքներ",
+    "secondaryActions": "Երկրորդական գործողություններ",
     "customs": "Մաքսային",
     "overview": "Ընդհանուր ակնարկ",
     "tasks": "Նշումներ",
     "timeline": "Ժամանակացույց",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} {{tab}}-ին"
   },
   "approvals": {
     "title": "Հաճախորդի հաստատումներ",
@@ -910,7 +2680,7 @@
       "description": "Նկարագրություն",
       "dueDate": "Ժամկետը",
       "cancel": "Չեղարկել",
-      "create": "Ստեղծեք նախագիծ"
+      "create": "Ստեղծել նախագիծ"
     },
     "errors": {
       "titleRequired": "Պահանջվում է վերնագիր",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Ավելացնել առաջադրանք",
+    "add": "Ավելացնել նշում",
     "assignedTo": "Հանձնարարվել է",
     "assignedToUser": "Հանձնարարվել է {{name}}-ին",
     "completed": "Ավարտված",
     "completedByUser": "Ավարտել է {{name}}",
-    "confirmComplete": "Նշե՞լ այս առաջադրանքը որպես ավարտված:",
-    "confirmDelete": "Ջնջե՞լ այս առաջադրանքը:",
+    "confirmComplete": "Նշե՞լ այս նշումը որպես ավարտված:",
+    "confirmDelete": "Ջնջե՞լ այս նշումը:",
     "delete": "Ջնջել",
-    "deleteMessage": "Այս առաջադրանքը ընդմիշտ կհեռացվի:",
-    "deleteTitle": "Ջնջե՞լ առաջադրանքը",
-    "description": "Աշխատանքներ, որոնք պետք է արվեն այս հարցի շուրջ՝ անջատված համակարգի կողմից ստեղծված ժամկետներից:",
-    "drawerTitle": "Ավելացնել առաջադրանք",
+    "deleteMessage": "Այս նշումը ընդմիշտ կհեռացվի:",
+    "deleteTitle": "Ջնջե՞լ գրառումը",
+    "description": "Այս հարցի վերաբերյալ ներքին նշումներ՝ առանձին՝ համակարգի կողմից ստեղծված վերջնաժամկետներից:",
+    "drawerTitle": "Ավելացնել նշում",
     "dueOn": "Ժամկետանց {{date}}",
-    "empty": "Այս հարցում առաջադրանքներ չկան:",
-    "emptyOpen": "Բաց առաջադրանքներ չկան: Ավելացրեք մեկը, երբ այս հարցում հետևելու աշխատանք կա:",
-    "error": "Չհաջողվեց բեռնել առաջադրանքները:",
-    "errorCreate": "Չհաջողվեց ստեղծել առաջադրանք",
+    "empty": "Այս հարցի վերաբերյալ նշումներ չկան:",
+    "emptyOpen": "Բաց նշումներ չկան: Ավելացրեք մեկը, երբ այս հարցում հետևելու բան կա:",
+    "error": "Չհաջողվեց բեռնել նշումները:",
+    "errorCreate": "Չհաջողվեց ստեղծել նշում",
     "form": {
       "assigneeLabel": "Հանձնարարվել է",
-      "assigneeRequired": "Ընտրեք, թե ով պետք է կատարի այս առաջադրանքը",
+      "assigneeRequired": "Ընտրեք, թե ում համար է այս գրառումը",
       "dueDateOptional": "Վերջնաժամկետ (ըստ ցանկության)",
       "notesOptional": "Նշումներ (ըստ ցանկության)",
       "notesPlaceholder": "Ցանկացած լրացուցիչ համատեքստ հանձնարարողի համար",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "օր. Զանգահարեք հաճախորդին. BPO արձագանք",
       "titleRequired": "Պահանջվում է վերնագիր"
     },
-    "loading": "Առաջադրանքների բեռնում…",
+    "loading": "Նշումների բեռնում…",
     "markComplete": "Նշել ավարտված",
     "noDueDate": "Ժամկետ չկա",
     "open": "Բաց",
@@ -954,7 +2724,7 @@
       "high": "Բարձր",
       "normal": "Նորմալ"
     },
-    "title": "Առաջադրանքներ"
+    "title": "Նշումներ"
   },
   "timeline": {
     "description": "Այս հարցի վերաբերյալ քրեական հետապնդման և նամակագրության ժամանակագրական պատմությունը:",
@@ -967,7 +2737,7 @@
       "note": "Նշում",
       "task": "Առաջադրանք"
     },
-    "loading": "Ժամանակացույցի բեռնում…",
+    "loading": "Ժամանակագրության բեռնում…",
     "loggedBy": "Գրանցված է {{name}}",
     "title": "Ժամանակացույց"
   },
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Վեճ / ընդդիմություն",
     "domain": "Դոմեններ",
     "fto_analysis": "FTO վերլուծություն",
-    "geographical_indication": "Աշխարհագրական նշում",
-    "industrial_design": "Արդյունաբերական դիզայն",
+    "geographical_indication": "Աշխարհագրական նշումներ",
+    "industrial_design": "Դիզայն",
     "litigation_expert_report": "Դատական ​​դատավարություն / Դատարանի փորձագետների զեկույցներ",
     "official_fee_payment": "Պաշտոնական վճարներ",
     "other": "Այլ",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Ընտրել…",
     "title": "Տիպի հատուկ մանրամասներ"
   },
-  "createFile": {
-    "addClass": "Ավելացնել դաս",
-    "backToFiles": "Վերադարձ դեպի ֆայլեր",
-    "cancel": "Չեղարկել",
-    "changeSubtype": "Փոխել ենթակարգը",
-    "checkRegister": "Ստուգեք առևտրային ռեգիստրում",
-    "clearClient": "Փոխել հաճախորդը",
-    "clientOptionalHint": "CRM համընկնում չկա՞ Լրացրեք հաճախորդի տվյալները ստորև. սևագիրը պահպանելու դեպքում դրանք ավտոմատ կերպով կստեղծվեն Հաճախորդներում:",
-    "applicantOptionalHint": "CRM համընկնում չկա՞ Լրացրեք հայտատուի մանրամասները ստորև. սևագիրը պահպանելու դեպքում դրանք ավտոմատ կերպով կստեղծվեն Հաճախորդներում:",
-    "draftDescription": "Ստեղծվել է Ստեղծել ֆայլի միջոցով ({{procedure}}) — սևագիր",
-    "errors": {
-      "client": "Ընտրեք հաճախորդ՝ շարունակելու համար:",
-      "clientOrDetails": "Ընտրեք CRM հաճախորդ կամ մուտքագրեք հաճախորդի անունը և մանրամասները՝ դրանք ստեղծելու համար:",
-      "applicantOrDetails": "Ընտրեք հայտատուին CRM-ում կամ մուտքագրեք դիմողի անունը և մանրամասները՝ դրանք ստեղծելու համար:",
-      "jurisdiction": "Ընտրեք առնվազն մեկ տարածք/երկիր:",
-      "markWords": "Մուտքագրեք ապրանքանիշի անվանումը / բառերը:",
-      "saveFailed": "Չհաջողվեց պահպանել սևագրի ֆայլը:",
-      "subtype": "Ընտրեք ապրանքանիշի ենթակատեգորիա:",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Ֆայլի հղում և կարգավիճակ",
+    "incomingNumber": {
+      "label": "Մուտքային թիվ."
     },
-    "euHint": "Եվրոպական միության ապրանքային նշան (EUIPO) - իրավասություն սահմանվել է ԵՄ-ին:",
-    "fields": {
-      "address": "Հասցե",
-      "applicantClient": "Դիմող հաճախորդ",
-      "applicantClientOptional": "CRM-ի դիմորդ (ըստ ցանկության)",
-      "city": "Քաղաք",
-      "classNumber": "Դասի համարը",
-      "country": "Երկիր",
-      "eik": "UIC / EIK",
-      "email": "Էլ",
-      "fax": "Ֆաքս",
-      "goodsText": "Ապրանքներ և ծառայություններ",
-      "legalName": "Անունը և իրավաբանական անձի տեսակը",
-      "linkClient": "Ընտրեք հաճախորդ CRM-ում",
-      "linkClientOptional": "CRM հաճախորդ (ըստ ցանկության)",
-      "markKind": "Նշել կատեգորիա",
-      "markType": "Նշեք տեսակը",
-      "markWords": "Նշանի բառեր",
-      "mol": "MOL (ստորագրող)",
-      "name": "Անուն",
-      "phone": "Հեռախոս",
-      "postalCode": "Փոստային ինդեքս",
-      "territory": "Տարածք",
-      "vat": "ԱԱՀ ID",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Մուտքի ամսաթիվը"
     },
-    "formTitle": "Ստեղծել ֆայլ՝ ապրանքանիշ",
-    "fullFormReady": "Ամբողջական ձևը հասանելի է",
-    "goodsPlaceholder": "օր. շշեր; մանրածախ ծառայություններ…",
-    "markKinds": {
-      "certification": "Հավաստագրում",
-      "collective": "Կոլեկտիվ",
-      "individual": "Անհատական"
+    "territoryRoute": {
+      "label": "Տարածքային երթուղի",
+      "options": {
+        "national_bg": "Բուլղարիա (ազգային)",
+        "eu": "Եվրամիություն",
+        "wipo": "WIPO / միջազգային",
+        "international": "Այլ միջազգային"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Գույների համադրություն",
-      "combined": "Համակցված",
-      "figurative": "Փոխաբերական",
-      "sound": "Ձայն",
-      "three_dimensional": "Եռաչափ",
-      "wordmark": "Բառի նշան"
+    "authorityOffice": {
+      "label": "Իշխանություն / գրասենյակ"
     },
-    "noClients": "Համապատասխան հաճախորդներ չկան: Սկզբում ստեղծեք հաճախորդը CRM-ում, այնուհետև վերադարձեք այստեղ:",
-    "optionalMark": "Նշել / թեմա (ըստ ցանկության)",
-    "partialSubtypeNote": "Այս ենթակատեգորիայի լրիվ մասնագիտացված դաշտերը հետագայում կընդլայնվեն: Դուք դեռ կարող եք պահպանել հաճախորդի հետ կապված սևագիրը. փաստաթղթերը և նամակագրությունը մնում են ֆայլում:",
-    "preliminary": "Նախնական տեղեկություն",
-    "procedureHints": {
-      "new": "Նոր ապրանքանիշի հայտ — ամբողջական ձև",
-      "registered": "Արդեն գրանցված ապրանքանիշ",
-      "objection": "Առարկության վարույթ",
-      "opposition": "Ընդդիմության վարույթ",
-      "cancellation": "Անվավեր ճանաչման վարույթ",
-      "deletion": "Ջնջման վարույթ",
-      "opposition_against_us": "Ընդդիմության վարույթ",
-      "opposition_by_us": "Ընդդիմության վարույթ",
-      "revocation": "Ջնջման վարույթ"
+    "relatedApplicationNumber": {
+      "label": "Առնչվող դիմում թիվ."
     },
-    "procedures": {
-      "new": "Նոր ապրանքանիշ",
-      "registered": "Գրանցված ապրանքանիշ",
-      "objection": "Առարկություն",
-      "opposition": "Ընդդիմություն",
-      "cancellation": "Անվավեր ճանաչում",
-      "deletion": "Ջնջում",
-      "opposition_against_us": "Ընդդիմություն",
-      "opposition_by_us": "Ընդդիմություն",
-      "revocation": "Ջնջում"
-    },
-    "removeClass": "Հեռացնել դասը",
-    "sameApplicant": "Դիմողի տեղեկատվությունը նույնն է, ինչ հաճախորդը",
-    "sameCorrespondence": "Նամակագրության հասցեն նույնն է, ինչ գրանցված հասցեն",
-    "saveDraft": "Պահել որպես սևագիր",
-    "saving": "Պահվում է…",
-    "searchClient": "Որոնեք հաճախորդներին անունով կամ կոդով…",
-    "sections": {
-      "applicant": "Դիմորդ",
-      "client": "Հաճախորդի տվյալներ",
-      "contact": "Կոնտակտային անձ",
-      "correspondence": "Նամակագրության հասցե",
-      "goods": "Ապրանքների և ծառայությունների ցանկ",
-      "markName": "Ապրանքային նշանի անվանումը",
-      "registeredAddress": "Գրանցված հասցե",
-      "searchDocs": "Կցեք որոնման փաստաթղթերը",
-      "trademark": "Ապրանքային նշանի մասին տեղեկատվություն",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Ընտրեք երկրներ",
-    "subtypeHint": "Նախ ընտրեք ենթակատեգորիան։ Նոր ապրանքանիշը բացում է ամբողջական ձևը։",
-    "territories": {
-      "eu": "Եվրամիություն",
-      "international": "Միջազգային (WO)",
-      "national": "Ազգային"
-    },
-    "trademarkTitle": "Ստեղծել ֆայլ — Ապրանքանիշ",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Ավելացնել երկիր…",
-    "cancel": "Չեղարկել",
-    "country": "Երկիր",
-    "edit": "Խմբագրել",
-    "errors": {
-      "country": "Ընտրեք առնվազն մեկ երկիր այս տարածքի համար:",
-      "saveFailed": "Չհաջողվեց պահպանել ապրանքանիշի մասին տեղեկությունները:"
-    },
-    "euFixed": "Եվրոպական միություն (EUIPO)",
-    "markKind": "Նշել կատեգորիա",
-    "markType": "Նշեք տեսակը",
-    "noCountries": "Դեռևս ընտրված երկրներ չկան:",
-    "save": "Պահպանել փոփոխությունները",
-    "saved": "Պահպանված է:",
-    "saving": "Պահվում է…",
-    "selectCountries": "Ընտրեք երկրներ",
-    "territory": "Տարածք",
-    "title": "Ապրանքային նշանի մասին տեղեկատվություն"
-  },
-  "fileApproval": {
-    "clientStep": "1. Հաճախորդը հաստատված է",
-    "clientStepHint": "Անձնակազմը հաստատում է, որ հաճախորդը համաձայնվել է անցանց (զանգ/էլ./հանդիպում): Պորտալի հաճախորդը կարիք չունի հաստատել իրենց:",
-    "errors": {
-      "updateFailed": "Չհաջողվեց թարմացնել հաստատման կարգավիճակը:"
-    },
-    "hint": "Միայն ներքին հաստատում. նշեք, որ հաճախորդը համաձայն է, այնուհետև կառավարող գործընկերն ընդունում է ֆայլը: Հաճախորդին ուղարկելու հաստատում չի պահանջվում:",
-    "markClientApproved": "Նշել հաճախորդին հաստատված",
-    "partnerApprove": "Գործընկերոջ հաստատման ֆայլը",
-    "partnerOnly": "Միայն կառավարող գործընկերը կարող է ավարտել այս քայլը",
-    "partnerStep": "2. Կառավարող գործընկեր ընդունել",
-    "partnerStepHint": "Այն բանից հետո, երբ հաճախորդը նշվում է որպես հաստատված, կառավարող գործընկերն ընդունում է ֆայլը և այն թողնում է նախագիծը:",
-    "recordedBy": "Ձայնագրել է {{name}} · {{date}}",
-    "title": "Ֆայլի հաստատում",
-    "waitForClient": "Նշեք հաճախորդը հաստատված, այնուհետև կարող եք ընդունել ֆայլը:"
-  },
-  "prosecution": {
-    "cancelEdit": "Չեղարկել",
-    "completeStage": "Ամբողջական փուլ",
-    "edit": "Խմբագրել",
-    "editingNote": "Օգտագործեք «Պահպանել»՝ ձեր մուտքագրածն այս փուլում պահելու համար, կամ «Ավարտել»՝ առաջ շարժվելու համար, երբ պահանջվող դաշտերը լրացվեն:",
-    "gateHint": "Դուք չեք կարող առաջ շարժվել, քանի դեռ այս փուլի համար անհրաժեշտ դաշտերը չեն լրացվել (նույնը, ինչ նրանց համակարգի դարպասները):",
-    "goBack": "Վերադարձեք մի բեմ",
-    "errors": {
-      "needAttachments": "Շարունակելուց առաջ կցեք պահանջվող ֆայլերը՝ {{list}}",
-      "needInvoice": "Նախքան այս փուլն ավարտելը, ձևավորեք հաշիվ-ապրանքագիրը պետական ​​տուրքից:",
-      "alreadyFinal": "Այս ֆայլն արդեն ավարտական ​​փուլում է։",
-      "needApproval": "Ավարտեք ֆայլի հաստատումը (հաճախորդ + կառավարող գործընկեր) նախքան նախապատրաստական ​​աշխատանքները մեկնելը:",
-      "needBulletin": "Հրապարակումը թողնելուց առաջ մուտքագրեք տեղեկագրի համարը և ամսաթիվը:",
-      "needFeePaid": "Մուտքագրեք պետական ​​տուրքի վճարման ամսաթիվը նախքան պաշտոնական քննությունը թողնելը:",
-      "needFilingFields": "Մուտքագրեք հայտի համարը և լրացման ամսաթիվը:",
-      "needFormalFields": "Շարունակելու համար մուտքագրեք պետական ​​տուրքը և վճարման վերջնաժամկետը:",
-      "needMol": "Խնդրում ենք մուտքագրել MOL ֆայլի մանրամասների վրա (ստեղծել-ֆայլ / խմբագրել) նախքան լրացնելը:",
-      "needOfficeActionDeadline": "Գրասենյակային գործողությունն ունի թեմա՝ նախքան շարունակելը սահմանեք դրա վերջնաժամկետը:",
-      "needPoaFiled": "Մուտքագրեք PoA-ի մուտքային համարը և ամսաթիվը, նախքան պաշտոնական քննությունը թողնելը:",
-      "needRegFeePaid": "Շարունակելուց առաջ մուտքագրեք գրանցման վճարի վճարման ամսաթիվը:",
-      "needRepresentative": "Մուտքագրեք առնվազն մեկ ներկայացուցիչ կամ սահմանեք «Ավելացնել ներկայացուցիչներ» թիվը:",
-      "saveBeforeNavigate": "Պահպանեք կամ չեղարկեք ձեր խմբագրումները նախքան փուլ վերադառնալը:",
-      "saveFailed": "Չհաջողվեց պահել դատախազության տվյալները:"
-    },
-    "fields": {
-      "addRepresentatives": "Ցանկանու՞մ եք ներկայացուցիչներ ավելացնել:",
-      "applicationDate": "Դիմումի ամսաթիվը",
-      "applicationNumber": "Դիմումի համարը",
-      "bulletinDate": "Տեղեկագրի ամսաթիվը",
-      "bulletinNumber": "Տեղեկագրի համարը",
-      "feePaidDate": "Պետական ​​տուրքի վճարման ամսաթիվը",
-      "generatePoa": "Ստեղծեք լիազորագիր",
-      "officeAction": "Գրասենյակային գործողություն / հարցում",
-      "officeActionDeadline": "Գրասենյակային գործողությունների վերջնաժամկետ",
-      "paymentDeadline": "Վճարման վերջնաժամկետ",
-      "poaDate": "PoA ամսաթիվը",
-      "poaDeadline": "PoA-ի ներկայացման վերջնաժամկետը",
-      "poaIncoming": "PoA մուտքային համարը",
-      "regFeePaidDate": "Գրանցման վճարի վճարման ամսաթիվը",
-      "remindDays": "Հիշեցրեք վերջնաժամկետից օրեր առաջ",
-      "representatives": "Ներկայացուցիչ(ներ)",
-      "sendPoaEmail": "Ուղարկել ավտոմատ էլ",
-      "stateFee": "Պետական ​​տուրք (BGN)"
-    },
-    "molHint": "MOL-ը պետք է սահմանվի ֆայլի մանրամասների վրա (ստեղծել ֆայլից): Այս փուլն ավարտող MOL բլոկները բացակայում են:",
-    "no": "Ոչ",
-    "prepHint": "Նախապատրաստական ​​փուլ. նախ ավարտեք ֆայլի հաստատումը, այնուհետև կառավարող գործընկերի ընդունումը ձեզ տեղափոխում է Filing:",
-    "registeredDone": "Գրանցման փուլը հասել է.",
-    "saveChanges": "Պահպանել փոփոխությունները",
-    "saveEntered": "Պահպանել",
-    "saved": "Պահպանված է:",
-    "saveFields": "Պահպանել դաշտերը",
-    "saving": "Պահվում է…",
-    "stages": {
-      "filing": "Ներկայացում",
-      "formal_exam": "Ձևական փորձաքննություն",
-      "prep": "Նախապատրաստական",
-      "publication": "Հրապարակում",
-      "reg_fee": "Գրանցման վճարներ",
-      "registration": "Գրանցում",
-      "substantive_exam": "Էական փորձաքննություն"
-    },
-    "territoryLabel": {
-      "eu": "Խողովակաշար՝ ԵՄ",
-      "international": "Խողովակաշար՝ միջազգային (WO)",
-      "national": "Խողովակաշար՝ ազգային"
-    },
-    "territoryLocked": "Տարածքը ֆիքսված է ստեղծել ֆայլից",
-    "territoryFromInfo": "Տարածքը՝ ապրանքանիշի տեղեկություններից",
-    "title": "Գործընթացի փուլեր",
-    "yes": "Այո՛",
-    "hub": {
-      "generateInvoice": "Ստեղծեք հաշիվ-ապրանքագիր",
-      "invoiceIssuedShort": "Տրված հաշիվ-ապրանքագիր",
-      "invoiceIssued": "Տրված է {{number}} հաշիվ-ապրանքագիր: Հաճախորդը կարող է տեսնել այն իր պորտալում. այն նաև գտնվում է Billing ներդիրում:",
-      "invoiceAlreadyIssued": "{{number}} հաշիվ-ապրանքագիր արդեն տրված է՝ տեսանելի պորտալում և Billing-ում:",
-      "invoiceFailed": "Չհաջողվեց ստեղծել հաշիվ-ապրանքագիր: Ստուգեք հաճախորդի վճարման մանրամասները:",
-      "invoiceNotes": "Պաշտոնական / պետական ​​տուրք",
-      "uploadFailed": "Չհաջողվեց վերբեռնել ֆայլը:",
-      "needStateFee": "Նախ մուտքագրեք պետական ​​տուրքի չափը:",
-      "feeDescription": "Պետական ​​/ պաշտոնական վճար",
-      "deadlineFailed": "Չհաջողվեց ստեղծել վերջնաժամկետ(ներ):",
-      "deadlineTitles": {
-        "payment": "Պետական ​​տուրքի վճարում",
-        "poa": "Լիազորագրի ներկայացում",
-        "oa": "Գրասենյակային գործողություն / քննության հարցում",
-        "oaWithSubject": "Գրասենյակային գործողություն՝ {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Հիշեցրեք {{days}} օր(եր) մինչև վերջնաժամկետը:"
-      },
-      "attach": {
-        "search": "Կցեք որոնման ֆայլը",
-        "application": "Կցել դիմումը",
-        "feeSlip": "Կցեք վճարման կտրոնը",
-        "poa": "Կցեք PoA-ն",
-        "officeAction": "Կցեք գրասենյակային գործողությունը",
-        "decision": "Կցել որոշումը",
-        "bulletin": "Կցեք տեղեկագիրը",
-        "regFee": "Կցեք վճարման ապացույցը",
-        "certificate": "Կցել վկայական"
+    "workflowStage": {
+      "label": "Աշխատանքային հոսքի փուլ",
+      "options": {
+        "intake": "Ընդունում",
+        "analysis": "Վերլուծություն",
+        "contract_draft": "Պայմանագիր / նախագիծ",
+        "filed": "Ներկայացված",
+        "closed": "Փակված է",
+        "registration": "Գրանցում",
+        "active": "Ակտիվ",
+        "seizure_pending": "Առգրավումը սպասվում է",
+        "scoping": "Շրջանակի սահմանում",
+        "search": "Որոնում",
+        "draft_report": "Զեկույցի նախագիծ",
+        "delivered": "Հանձնվել է",
+        "archived": "Արխիվացված",
+        "pre_dispute": "Նախնական վիճաբանություն",
+        "hearing": "Լսողություն",
+        "decision": "Որոշում",
+        "appeal": "Բողոքարկում",
+        "monitoring": "Մոնիտորինգ",
+        "dispute": "Վեճ",
+        "udrp": "UDRP",
+        "resolved": "Լուծվել է",
+        "engaged": "Նշանված",
+        "draft": "Նախագիծ",
+        "submitted": "Ներկայացված է",
+        "requested": "Հայցվել է",
+        "in_progress": "Ընթացքի մեջ է",
+        "invoiced": "Հաշվարկված",
+        "pending": "Սպասվում է",
+        "paid": "Վճարված",
+        "reimbursed": "Փոխհատուցվում է",
+        "open": "Բաց"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Խմբագրել",
+    "save": "Պահպանել",
+    "cancel": "Չեղարկել",
+    "saving": "Պահվում է…",
+    "editHint": "Թարմացրեք ֆայլի տեղեկանքը, աշխատանքային հոսքի փուլը և տիպի հատուկ մանրամասները:",
+    "clientLabel": "Հաճախորդ",
+    "detailsTitle": "{{type}} մանրամասներ",
+    "errors": {
+      "saveFailed": "Չհաջողվեց պահպանել ֆայլի մանրամասները:"
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Ստեղծեք նոր այլ ֆայլ կամ կարգավորեք զտիչները:",
+    "viewAria": "Դիտել {{title}}",
+    "filesAria": "Փաստաթղթեր {{title}}-ի համար ({{count}})",
+    "columns": {
+      "type": "Տեսակ",
+      "subject": "Թեմա",
+      "client": "Հաճախորդ",
+      "incoming": "Մուտքային ռեֆ.",
+      "stage": "Բեմ",
+      "deadline": "Հիմնական ամսաթիվը",
+      "actions": "Գործողություններ"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "auditTrail": {
     "title": "Pista de auditoría",
-    "subtitle": "Registro de auditoría de todo el sistema para revisión del cumplimiento.",
+    "subtitle": "Registro de auditoría de todo el sistema para revisión de cumplimiento.",
     "loading": "Cargando pista de auditoría...",
     "loadFailed": "No se pudo cargar el registro de auditoría.",
     "empty": "No se encontraron entradas de auditoría.",

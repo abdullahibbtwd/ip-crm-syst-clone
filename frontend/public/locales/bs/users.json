@@ -32,7 +32,7 @@
     "fullNamePlaceholder": "Jane Doe",
     "lastEmailFailed": "Zadnji pokušaj e-pošte nije uspio",
     "resend": "Ponovo pošaljite pozivnicu",
-    "resendFailed": "Ponovno slanje e-pošte s pozivom nije uspjelo",
+    "resendFailed": "Ponovo slanje e-pošte s pozivom nije uspjelo",
     "resendSuccess": "E-mail s pozivnicom je poslan",
     "role": "Uloga",
     "submit": "Pošalji pozivnicu",
@@ -44,7 +44,7 @@
   },
   "layout": {
     "accessRestricted": "Pristup ograničen",
-    "description": "Upravljajte internim članovima tima i nalozima klijenata eksternog portala. SSO i prijava zasnovana na lozinki se prikazuju po korisniku.",
+    "description": "Upravljajte internim članovima tima i klijentskim nalozima eksternog portala. SSO i prijava zasnovana na lozinki se prikazuju po korisniku.",
     "noPermission": "Nemate dozvolu za pregled korisnika i članova tima.",
     "title": "Korisnici i tim"
   },
@@ -65,8 +65,8 @@
       "sso": "SSO"
     },
     "clientRecord": "Zapis o klijentu",
-    "empty": "Nema pronađenih korisnika",
-    "emptyDescription": "Pokušajte podesiti pretragu ili filtere.",
+    "empty": "Nije pronađen nijedan korisnik",
+    "emptyDescription": "Pokušajte prilagoditi pretragu ili filtere.",
     "error": "Učitavanje korisnika nije uspjelo.",
     "headers": {
       "invite": "Pozovi",

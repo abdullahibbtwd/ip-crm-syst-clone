@@ -18,7 +18,7 @@
   "deadlineRisk": {
     "clientGroups_one": "{{count}} grupa klijenata",
     "clientGroups_other": "{{count}} grupe klijenata",
-    "clientMatters": "Klijent je bitan",
+    "clientMatters": "Klijent je važan",
     "clientsInWindow": "{{clients}} klijenti · {{days}} dnevni horizont",
     "crossTabTitle": "Klijent × nadležnost × advokat",
     "description": "Predstojeći kritični rokovi grupirani po klijentu, nadležnosti i odgovornom advokatu. Boje hitnosti odgovaraju radnim listama rokova i prekretnicama obavještenja.",
@@ -86,7 +86,7 @@
       "month": "Mjesec",
       "type": "Tip"
     },
-    "title": "Obim arhiviranja"
+    "title": "Svesci arhiviranja"
   },
   "renewalsSummary": {
     "byDueMonth": "Do mjesec dana",
@@ -103,7 +103,7 @@
     "generated": "Generirano {{date}}",
     "loading": "Učitavanje sažetka obnove…",
     "noRenewals": "Nema obnavljanja u prozoru.",
-    "renewalsWorklist": "Radna lista obnove",
+    "renewalsWorklist": "Radna lista za obnavljanje",
     "stats": {
       "critical": "Kritično",
       "criticalHint": "Kasni ili dospjeli ≤7 dana",
@@ -122,7 +122,7 @@
       "status": "Status",
       "windows": "Windows"
     },
-    "title": "Sažetak obnavljanja"
+    "title": "Sažetak obnove"
   },
   "renewalUrgency": {
     "legend": "Hitnost obnove",
@@ -138,7 +138,7 @@
       "description": "Pregled svih otvorenih potraživanja po danima kašnjenja",
       "title": "Sažetak starenja"
     },
-    "description": "Ukupni iznosi izdatih faktura po mjesecima, naplate i otvorena potraživanja zastarjela po danima kašnjenja - usklađeno sa scenarijem praćenja plaćanja finansija.",
+    "description": "Ukupan iznos izdatih faktura po mjesecima, naplata i otvorenih potraživanja zastarjelih po danima kašnjenja - usklađeno sa scenarijem praćenja plaćanja finansija.",
     "error": "Nije moguće učitati sažetak prihoda.",
     "filters": {
       "periodFrom": "Period od",
@@ -165,7 +165,7 @@
       "collectedHint": "Uplate evidentirane u periodu",
       "criticalReceivables": "60+ dana kašnjenja",
       "criticalReceivablesHint": "Potraživanja koja zahtijevaju praćenje",
-      "outstanding": "Izvanredan",
+      "outstanding": "Izvanredno",
       "totalInvoiced": "Ukupno fakturisano"
     },
     "table": {
@@ -176,7 +176,7 @@
       "invoiced": "Fakturisano",
       "month": "Mjesec",
       "open": "Otvori",
-      "outstanding": "Izvanredan",
+      "outstanding": "Izvanredno",
       "paid": "Plaćeno"
     },
     "title": "Prihodi i potraživanja"
@@ -221,7 +221,7 @@
       "viewCrossTab": "Pogledajte kompletan izvještaj sa više kartica"
     },
     "filingVolumes": {
-      "title": "Obim arhiviranja",
+      "title": "Svesci arhiviranja",
       "subtitle": "Prijave podnesene u cijeloj firmi (poslednjih 12 mjeseci)",
       "fullReport": "Cijeli izvještaj",
       "loading": "Agregiranje historije arhiviranja…",
@@ -230,13 +230,13 @@
       "yearToDate": "Godina do danas",
       "primaryType": "Primarni tip",
       "applications_one": "{{count}} aplikacija",
-      "applications_other": "{{count}} aplikacije",
+      "applications_other": "{{count}} aplikacija",
       "noData": "Nema podataka",
       "topRegion": "Top region",
       "monthActivity": "{{month}} Aktivnost:",
       "newFiling_one": "{{count}} novo podnošenje",
       "newFiling_other": "{{count}} nove prijave",
-      "empty": "U novijoj istoriji nisu otkriveni podaci.",
+      "empty": "U novijoj historiji nisu otkrivene prijave.",
       "table": {
         "matterInfo": "Informacije o materiji",
         "type": "Tip",
@@ -249,13 +249,13 @@
       "issued_other": "{{count}} izdano",
       "collected": "Prikupljeno",
       "paidInPeriod": "Plaćeno u periodu",
-      "outstanding": "Izvanredan",
+      "outstanding": "Izvanredno",
       "open_one": "{{count}} otvoren",
       "open_other": "{{count}} otvoren",
       "criticalRisk": "kritični rizik",
       "overdue60Days": "60+ dana kašnjenja",
       "receivablesAging": "Starenje potraživanja",
-      "agingSubtitle": "Otvaranje izdatih računa po danima kašnjenja",
+      "agingSubtitle": "Otvaranje izdatih faktura po danima kašnjenja",
       "fullReport": "Cijeli izvještaj",
       "loading": "Analiziranje podataka o starenju…",
       "error": "Nije moguće učitati podatke o starenju.",
@@ -265,7 +265,7 @@
       "table": {
         "invoiceInfo": "Podaci o fakturi",
         "client": "Klijent",
-        "outstanding": "Izvanredan"
+        "outstanding": "Izvanredno"
       },
       "showingOf": "Prikaz {{shown}} od {{total}} otvorenih faktura",
       "viewPortfolio": "Pogledajte cijeli portfolio"

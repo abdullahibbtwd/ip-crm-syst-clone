@@ -68,7 +68,7 @@
   "reports": {
     "eyebrow": "Raportet"
   },
-  "noPermission": "Asnjë leje.",
+  "noPermission": "Nuk ka leje.",
   "crm": "CRM",
   "clientPortal": "Portali i klientit",
   "tasks": "Detyrat",

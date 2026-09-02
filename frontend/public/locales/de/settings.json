@@ -57,12 +57,12 @@
     },
     "documentTemplates": {
       "title": "Dokumentvorlagen",
-      "description": "Bearbeiten Sie Briefvorlagen, fügen Sie Felder zusammen und zeigen Sie eine Vorschau der generierten PDFs an.",
+      "description": "Bearbeiten Sie Briefvorlagen, führen Sie Felder zusammen und zeigen Sie eine Vorschau der generierten PDFs an.",
       "action": "Vorlagen verwalten"
     },
     "integrations": {
       "title": "Registrierungsintegrationen",
-      "description": "Verbinden Sie EPO OPS und andere IP-Register für Uhrenscans und bibliografische Nachschlagewerke.",
+      "description": "Verbinden Sie EPA OPS und andere IP-Register für Uhrenscans und bibliografische Nachschlagewerke.",
       "action": "Integrationen verwalten"
     },
     "ssoMfa": {

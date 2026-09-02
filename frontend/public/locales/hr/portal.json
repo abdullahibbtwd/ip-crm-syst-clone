@@ -184,7 +184,7 @@
     "domain": "Domene",
     "fto_analysis": "FTO analiza",
     "geographical_indication": "Oznaka zemljopisnog podrijetla",
-    "industrial_design": "Industrijski dizajn",
+    "industrial_design": "Dizajn",
     "litigation_expert_report": "Parnice / Izvještaji sudskih vještaka",
     "official_fee_payment": "Službena plaćanja naknada",
     "other": "ostalo",
@@ -229,7 +229,7 @@
     "approvalsBody": "Kada tvrtka zatraži vaše odobrenje (na primjer obnove ili upute), odgovorite sa stranice Odobrenja.",
     "openApprovals": "Otvorena odobrenja",
     "contactTitle": "Trebate još pomoći?",
-    "contactBody": "Obratite se svom dodijeljenom odvjetniku ili koordinatoru putem poruka ili odgovorite na čvrstu prepisku o određenom pitanju.",
+    "contactBody": "Obratite se svom dodijeljenom odvjetniku ili koordinatoru putem poruka ili odgovorite na čvrstu korespondenciju o predmetu.",
     "openMessages": "Otvorene poruke"
   }
 }

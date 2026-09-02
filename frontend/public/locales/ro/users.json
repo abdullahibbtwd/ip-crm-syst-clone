@@ -26,7 +26,7 @@
     "errors": {
       "clientRequired": "Selectați o înregistrare client pentru utilizatorii portalului",
       "failed": "Nu s-a putut invita utilizatorul",
-      "required": "E-mailul și numele complet sunt necesare"
+      "required": "Sunt necesare adresa de e-mail și numele complet"
     },
     "fullName": "Numele complet",
     "fullNamePlaceholder": "Jane Doe",

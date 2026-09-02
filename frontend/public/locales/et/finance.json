@@ -30,7 +30,7 @@
     "description": "Jälgige väljastatud arveid, makse olekut ja jooksvaid saldosid.",
     "draft": "Mustand",
     "empty": "Arveid ei leitud",
-    "emptyDescription": "Proovige kohandada filtreid või koostada arveta tööst arve.",
+    "emptyDescription": "Proovige filtreid kohandada või koostage arveta tööst arve.",
     "error": "Arvete laadimine ebaõnnestus.",
     "invoiceStatus": {
       "draft": "Mustand",
@@ -68,7 +68,7 @@
     "syncXero": "Sünkrooni Xero",
     "syncQuickBooks": "Sünkrooni QuickBooks",
     "syncFailed": "Raamatupidamise sünkroonimine ebaõnnestus",
-    "searchListPlaceholder": "Otsi arve nr, asja, klient…",
+    "searchListPlaceholder": "Otsi arve nr, asi, klient…",
     "filters": {
       "allPayments": "Kõik maksed",
       "allStatuses": "Kõik olekud"
@@ -146,7 +146,7 @@
     "billableRate": "Arveldatav määr (EUR/h)",
     "internalCostOptional": "Sisekulu (EUR/h)",
     "internalCostPlaceholder": "Valikuline – marginaali aruandluse jaoks",
-    "internalCostResolutionHint": "Peegeldab arveldusmäära eraldusvõimet (klient → firma + asja tüüp → kindel vaikimisi). Uutest ajakirjetest tehtud hetktõmmis kui kulu_hetktõmmis.",
+    "internalCostResolutionHint": "Peegeldab arveldusmäära eraldusvõimet (klient → firma + asja tüüp → kindel vaikimisi). Uutest ajakirjetest tehtud hetketõmmis kui kulu_hetktõmmis.",
     "effectiveToOptional": "Kehtib kuni (valikuline)"
   },
   "rateRole": {

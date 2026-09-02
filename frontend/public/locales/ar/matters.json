@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "قياس المسار",
+        "options": {
+          "national_bg": "بلغاريا (وطنية)",
+          "eu_regulation": "لائحة الاتحاد الأوروبي رقم 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "حق محمي",
+        "options": {
+          "trademark": "علامة تجارية",
+          "patent": "براءة اختراع",
+          "design": "تصميم",
+          "copyright": "حقوق الطبع والنشر",
+          "gi": "الإشارة الجغرافية"
+        }
+      },
+      "protectedRightRef": {
+        "label": "المرجع الحق المحمي."
+      },
       "customsOffice": {
         "label": "مكتب الجمارك"
+      },
+      "validFrom": {
+        "label": "صالحة من"
+      },
+      "validUntil": {
+        "label": "صالحة حتى"
       },
       "infringingGoods": {
         "label": "وصف البضائع المخالفة"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "تاريخ الإنشاء"
-      },
       "workTitle": {
         "label": "عنوان العمل"
       },
       "workType": {
-        "label": "نوع العمل"
+        "label": "نوع العمل",
+        "options": {
+          "literary": "الأدبية",
+          "musical": "موسيقي",
+          "software": "برمجة",
+          "audiovisual": "سمعي بصري",
+          "graphic": "رسومية / بصرية",
+          "other": "آخر"
+        }
+      },
+      "creationDate": {
+        "label": "تاريخ الإنشاء"
+      },
+      "firstPublicationDate": {
+        "label": "تاريخ النشر الأول"
+      },
+      "authorName": {
+        "label": "مؤلف"
+      },
+      "rightsBasis": {
+        "label": "أساس الحقوق",
+        "options": {
+          "author": "مؤلف",
+          "employer": "صاحب العمل (العمل للإيجار)",
+          "assignment": "تكليف",
+          "license": "رخصة"
+        }
+      },
+      "rightsHolder": {
+        "label": "صاحب الحقوق"
+      },
+      "infringementContext": {
+        "label": "سياق الانتهاك/الإنفاذ"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "محكمة"
+      },
+      "incomingNumber": {
+        "label": "رقم الوارد"
+      },
+      "claimGrounds": {
+        "label": "الأسباب (نوع المطالبة)"
+      },
+      "claimValue": {
+        "label": "قيمة المطالبة"
+      },
+      "expertiseType": {
+        "label": "نوع الخبرة"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "ملخص الأساس"
+      "disputeKind": {
+        "label": "نوع الإجراء",
+        "options": {
+          "civil": "مدني",
+          "administrative": "إداري",
+          "arbitration": "التحكيم",
+          "mediation": "وساطة",
+          "other": "آخر"
+        }
       },
-      "disputeType": {
-        "label": "نوع النزاع"
+      "disputeSubject": {
+        "label": "موضوع",
+        "options": {
+          "invalidity": "البطلان",
+          "infringement": "التعدي",
+          "ownership": "ملكية",
+          "contract": "عقد",
+          "unfair_competition": "منافسة غير عادلة",
+          "other": "آخر"
+        }
       },
       "opponentName": {
-        "label": "الخصم / الطرف المعادي"
+        "label": "الخصم / الطرف المقابل"
+      },
+      "disputeType": {
+        "label": "نوع النزاع (ملاحظات)"
+      },
+      "filingReference": {
+        "label": "مرجع الايداع"
+      },
+      "filingDate": {
+        "label": "تاريخ الايداع"
+      },
+      "basisSummary": {
+        "label": "ملخص الأساس"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "ملخص النطاق"
+      "projectName": {
+        "label": "اسم المشروع"
+      },
+      "productName": {
+        "label": "اسم المنتج"
       },
       "technologyArea": {
         "label": "مجال التكنولوجيا"
+      },
+      "analysisScope": {
+        "label": "نطاق التحليل"
+      },
+      "deliverableType": {
+        "label": "قابل للتسليم",
+        "options": {
+          "written_report": "تقرير مكتوب",
+          "memo": "مذكرة",
+          "oral_briefing": "إحاطة شفهية"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "تاريخ الانتهاء المستهدف"
+      },
+      "scopeSummary": {
+        "label": "ملخص النطاق"
+      },
+      "riskLevel": {
+        "label": "مستوى المخاطر",
+        "options": {
+          "low": "قليل",
+          "medium": "واسطة",
+          "high": "عالي",
+          "pending": "في انتظار التقييم"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "يكتب"
+      },
+      "giName": {
+        "label": "اسم المؤشر الجغرافي"
+      },
       "productName": {
         "label": "اسم المنتج"
       },
       "region": {
         "label": "المنطقة الجغرافية"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "إِقلِيم"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "رقم الطلب"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "رقم التسجيل"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "فئة لوكارنو"
       },
+      "locarnoSubclass": {
+        "label": "فئة لوكارنو الفرعية"
+      },
       "productDescription": {
         "label": "وصف المنتج"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "ملخص المطالبات"
+      },
+      "epApplicationNumber": {
+        "label": "رقم طلب EP"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "اسم براءة الاختراع"
+      },
+      "patentProcedure": {
+        "label": "إجراء"
       },
       "pctNumber": {
         "label": "رقم معاهدة التعاون بشأن البراءات"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "المجال الفني"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "ادعى الألوان"
       },
       "markDescription": {
-        "label": "وصف العلامة"
-      },
-      "markType": {
-        "label": "نوع العلامة"
-      },
-      "niceClasses": {
-        "label": "فصول جميلة",
-        "placeholder": "على سبيل المثال 12، 35"
+        "label": "وصف السلع / الخدمات"
       },
       "markKind": {
         "label": "فئة العلامة"
       },
+      "markType": {
+        "label": "نوع العلامة"
+      },
       "markWords": {
         "label": "كلمات العلامة"
+      },
+      "niceClasses": {
+        "label": "فصول جميلة",
+        "placeholder": "على سبيل المثال 12، 35"
       },
       "territory": {
         "label": "إِقلِيم"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "اسم"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "عدد المطالبات"
+      },
+      "applicationNumber": {
+        "label": "رقم الطلب"
+      },
+      "applicationDate": {
+        "label": "تاريخ تقديم الطلب"
+      },
+      "registrationNumber": {
+        "label": "رقم التسجيل"
+      },
       "claimsSummary": {
         "label": "ملخص المطالبات"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "المجال الفني"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "نوع الأصول",
+        "options": {
+          "trademark": "علامة تجارية",
+          "patent": "براءة اختراع",
+          "design": "تصميم",
+          "gi": "جي",
+          "mixed": "محفظة مختلطة",
+          "company_ip": "الملكية الفكرية للشركة"
+        }
+      },
+      "valuationPurpose": {
+        "label": "غاية",
+        "options": {
+          "licensing": "الترخيص",
+          "m_and_a": "عمليات الاندماج والاستحواذ",
+          "litigation": "التقاضي",
+          "tax": "ضريبة",
+          "internal": "داخلي"
+        }
+      },
+      "valuationMethod": {
+        "label": "طريقة",
+        "options": {
+          "market": "سوق",
+          "income": "دخل",
+          "cost": "يكلف"
+        }
+      },
+      "valuationDate": {
+        "label": "تاريخ التقييم"
+      },
       "assetDescription": {
         "label": "وصف الأصول"
       },
-      "valuationPurpose": {
-        "label": "غرض التقييم"
+      "conclusionValue": {
+        "label": "قيمة الاستنتاج"
+      },
+      "currency": {
+        "label": "عملة",
+        "options": {
+          "BGN": "ليفا",
+          "EUR": "يورو",
+          "USD": "دولار أمريكي"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "اسم المجال",
-        "placeholder": "على سبيل المثال example.com"
+        "placeholder": "على سبيل المثال example.bg"
+      },
+      "tldType": {
+        "label": "نوع المستوى الأعلى",
+        "options": {
+          "bg": ".bg",
+          "eu": ".الاتحاد الأوروبي",
+          "com": "كوم / نطاق المستوى الأعلى",
+          "other": "آخر"
+        }
       },
       "registrar": {
         "label": "المسجل"
+      },
+      "registrant": {
+        "label": "المسجل"
+      },
+      "registrationDate": {
+        "label": "تاريخ التسجيل"
+      },
+      "expiryDate": {
+        "label": "تاريخ انتهاء الصلاحية"
+      },
+      "disputeRoute": {
+        "label": "طريق النزاع",
+        "options": {
+          "none": "لا أحد",
+          "udrp": "السياسة الموحدة",
+          "court": "محكمة",
+          "negotiation": "التفاوض"
+        }
+      },
+      "relatedTrademark": {
+        "label": "علامة تجارية ذات صلة"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "مرجع الحالة"
+      "engagementType": {
+        "label": "نوع المشاركة",
+        "options": {
+          "patent": "براءة اختراع",
+          "trademark": "علامة تجارية",
+          "copyright": "حقوق الطبع والنشر",
+          "damages": "الأضرار",
+          "other": "آخر"
+        }
       },
       "courtOrAuthority": {
         "label": "المحكمة / السلطة"
+      },
+      "caseReference": {
+        "label": "مرجع الحالة"
+      },
+      "appointingParty": {
+        "label": "حزب التعيين"
+      },
+      "reportDueDate": {
+        "label": "الإبلاغ عن تاريخ الاستحقاق"
+      },
+      "hearingDate": {
+        "label": "تاريخ الاستماع"
       },
       "reportScope": {
         "label": "نطاق التقرير"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "ملخص النطاق"
+      "consultationType": {
+        "label": "نوع الاستشارة",
+        "options": {
+          "phone": "هاتف",
+          "written": "مكتوب",
+          "meeting": "مقابلة",
+          "due_diligence": "العناية الواجبة (الضوء)"
+        }
+      },
+      "topicCategory": {
+        "label": "فئة الموضوع",
+        "options": {
+          "trademark": "علامة تجارية",
+          "patent": "براءة اختراع",
+          "design": "تصميم",
+          "contract": "عقد",
+          "strategy": "الإستراتيجية",
+          "other": "آخر"
+        }
       },
       "topic": {
         "label": "عنوان"
+      },
+      "requestedBy": {
+        "label": "طلب بواسطة"
+      },
+      "scopeSummary": {
+        "label": "ملخص النطاق"
+      },
+      "timeSpentHours": {
+        "label": "الوقت المستغرق (ساعات)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "الهيئة / المكتب"
+        "label": "سلطة",
+        "options": {
+          "bpo": "BPO (بلغاريا)",
+          "euipo": "الاتحاد الأوروبي للملكية الفكرية",
+          "wipo": "الويبو",
+          "other": "آخر"
+        }
+      },
+      "feeType": {
+        "label": "نوع الرسوم",
+        "options": {
+          "filing": "الايداع",
+          "publication": "النشر",
+          "examination": "فحص",
+          "renewal": "تجديد",
+          "annuity": "المعاش",
+          "opposition": "معارضة",
+          "other": "آخر"
+        }
       },
       "feeReference": {
         "label": "مرجع الرسوم/الدفع"
       },
       "relatedApplication": {
         "label": "التطبيق/الملف ذو الصلة"
+      },
+      "feeAmount": {
+        "label": "كمية"
+      },
+      "currency": {
+        "label": "عملة",
+        "options": {
+          "BGN": "ليفا",
+          "EUR": "يورو"
+        }
+      },
+      "paymentDeadline": {
+        "label": "الموعد النهائي للدفع"
+      },
+      "paymentDate": {
+        "label": "تاريخ الدفع"
+      },
+      "paymentReference": {
+        "label": "مرجع الدفع"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "فئة العمل"
+      },
       "workSummary": {
         "label": "ملخص العمل"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "النتيجة المتوقعة"
       }
     }
   },
@@ -470,24 +739,615 @@
     "viewOnEpo": "عرض على EPO",
     "viewOnEpoTitle": "فتح السجل الرسمي في سجل EPO"
   },
+  "trademarkInfo": {
+    "addCountry": "إضافة دولة...",
+    "cancel": "يلغي",
+    "country": "دولة",
+    "edit": "يحرر",
+    "errors": {
+      "country": "حدد دولة واحدة على الأقل لهذه المنطقة.",
+      "saveFailed": "تعذر حفظ معلومات العلامة التجارية."
+    },
+    "euFixed": "الاتحاد الأوروبي (EUIPO)",
+    "markKind": "فئة العلامة",
+    "markType": "نوع العلامة",
+    "noCountries": "لم يتم اختيار أي دولة حتى الآن.",
+    "save": "حفظ التغييرات",
+    "saved": "أنقذ.",
+    "saving": "توفير…",
+    "selectCountries": "اختر البلدان",
+    "territory": "إِقلِيم",
+    "title": "معلومات العلامة التجارية",
+    "markImage": "صورة العلامة",
+    "uploadMarkImage": "تحميل الصورة",
+    "replaceMarkImage": "استبدال الصورة",
+    "removeMarkImage": "إزالة الصورة",
+    "markImageHint": "PNG أو JPEG — تظهر في قائمة العلامات التجارية بجانب الاسم."
+  },
+  "patentInfo": {
+    "title": "معلومات براءات الاختراع",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "رقم الطلب / تاريخ",
+      "registration": "ريج. لا. / تاريخ",
+      "bulletin": "نشرة / منشور",
+      "ipc": "IPC",
+      "client": "العميل/المحيل",
+      "owner": "مالك",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "representatives": "الممثلين",
+      "claims": "المطالبات",
+      "territory": "إِقلِيم"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "معلومات نموذج المنفعة",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "رقم الطلب / تاريخ",
+      "registration": "ريج. لا. / تاريخ",
+      "bulletin": "النشرة / تاريخ النشر / التسجيل",
+      "ipc": "IPC",
+      "applicant": "مقدم الطلب",
+      "inventor": "مخترع",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "representatives": "الممثلين",
+      "claims": "المطالبات",
+      "territory": "إِقلِيم"
+    }
+  },
+  "spcInfo": {
+    "title": "معلومات SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "رقم الطلب / تاريخ",
+      "registration": "ريج. لا. / تاريخ",
+      "bulletin": "النشرة / تاريخ النشر / التسجيل",
+      "ipc": "IPC",
+      "applicant": "مقدم الطلب",
+      "inventor": "مخترع",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "representatives": "الممثلين",
+      "claims": "المطالبات",
+      "medicinalProduct": "منتج طبي"
+    }
+  },
+  "designInfo": {
+    "title": "معلومات التصميم",
+    "subtitle": "{{territory}} التصميم · {{name}}",
+    "fields": {
+      "application": "رقم الطلب / تاريخ",
+      "registration": "ريج. لا. / تاريخ",
+      "bulletin": "النشرة / تاريخ النشر / التسجيل",
+      "client": "العميل/المحيل",
+      "owner": "مالك",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "representatives": "الممثلين",
+      "classification": "تصنيف",
+      "territory": "إِقلِيم"
+    }
+  },
+  "giInfo": {
+    "title": "معلومات المؤشرات الجغرافية",
+    "subtitle": "{{territory}} غي · {{name}}",
+    "fields": {
+      "application": "رقم الطلب / تاريخ",
+      "registration": "ريج. لا. / تاريخ",
+      "bulletin": "النشرة / تاريخ النشر / التسجيل",
+      "client": "العميل/المحيل",
+      "owner": "مالك",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "representatives": "الممثلين",
+      "classes": "فصول",
+      "territory": "إِقلِيم"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. تمت الموافقة على العميل",
+    "clientStepHint": "يؤكد الموظفون أن العميل وافق دون الاتصال بالإنترنت (مكالمة/بريد إلكتروني/اجتماع). لا يحتاج عميل البوابة الإلكترونية إلى الموافقة على نفسه.",
+    "errors": {
+      "updateFailed": "تعذر تحديث حالة الموافقة."
+    },
+    "hint": "موافقة داخلية فقط: قم بوضع علامة على موافقة العميل، ثم يقوم الشريك الإداري بقبول الملف. لا يلزم الحصول على موافقة الإرسال إلى العميل.",
+    "markClientApproved": "علامة الموافقة على العميل",
+    "partnerApprove": "ملف موافقة الشريك",
+    "partnerOnly": "يمكن للشريك الإداري فقط إكمال هذه الخطوة",
+    "partnerStep": "2. قبول الشريك الإداري",
+    "partnerStepHint": "بعد وضع علامة \"موافق عليه\" على العميل، يقبل الشريك الإداري الملف ويترك المسودة.",
+    "recordedBy": "تم التسجيل بواسطة {{name}} · {{date}}",
+    "title": "الموافقة على الملف",
+    "waitForClient": "قم بتمييز العميل بالموافقة أولاً، ثم يمكنك قبول الملف."
+  },
+  "prosecution": {
+    "cancelEdit": "يلغي",
+    "completeStage": "مرحلة كاملة",
+    "edit": "يحرر",
+    "editingNote": "استخدم \"حفظ\" للاحتفاظ بما قمت بإدخاله في هذه المرحلة، أو \"إكمال المرحلة\" للمضي قدمًا عند ملء الحقول المطلوبة.",
+    "gateHint": "لا يمكنك المضي قدمًا حتى يتم ملء الحقول المطلوبة لهذه المرحلة (مثل بوابات النظام الخاصة بهم).",
+    "goBack": "العودة مرحلة",
+    "errors": {
+      "needAttachments": "قم بإرفاق الملفات المطلوبة قبل المتابعة: {{list}}",
+      "needInvoice": "قم بإنشاء الفاتورة من رسوم الدولة قبل إكمال هذه المرحلة.",
+      "alreadyFinal": "هذا الملف موجود بالفعل في المرحلة النهائية.",
+      "needApproval": "إنهاء الموافقة على الملف (العميل + الشريك الإداري) قبل مغادرة الإعدادي.",
+      "needBulletin": "أدخل رقم النشرة وتاريخها قبل مغادرة النشر.",
+      "needFeePaid": "أدخل تاريخ دفع رسوم الدولة قبل مغادرة الامتحان الرسمي.",
+      "needFilingFields": "أدخل رقم الطلب وتاريخ التقديم لإكمال التقديم.",
+      "needFormalFields": "أدخل رسوم الدولة والموعد النهائي للدفع للمتابعة.",
+      "needMol": "الرجاء إدخال MOL في تفاصيل الملف (إنشاء ملف / تحرير) قبل استكمال عملية الإيداع.",
+      "needOfficeActionDeadline": "يحتوي إجراء Office على موضوع — حدد موعدًا نهائيًا له قبل المتابعة.",
+      "needPoaFiled": "أدخل رقم وتاريخ ورود التوكيل قبل مغادرة الامتحان الرسمي.",
+      "needRegFeePaid": "أدخل تاريخ دفع رسوم التسجيل قبل المتابعة.",
+      "needRepresentative": "أدخل ممثلاً واحدًا على الأقل، أو قم بتعيين إضافة ممثلين إلى لا.",
+      "saveBeforeNavigate": "احفظ تعديلاتك أو قم بإلغائها قبل الرجوع إلى مرحلة ما.",
+      "saveFailed": "لا يمكن حفظ بيانات الادعاء."
+    },
+    "fields": {
+      "addRepresentatives": "هل ترغب في إضافة ممثلين؟",
+      "applicationDate": "تاريخ تقديم الطلب",
+      "applicationNumber": "رقم الطلب",
+      "bulletinDate": "تاريخ النشرة",
+      "bulletinNumber": "رقم النشرة",
+      "feePaidDate": "تاريخ دفع رسوم الدولة",
+      "generatePoa": "توليد التوكيل",
+      "officeAction": "إجراء/طلب المكتب",
+      "officeActionDeadline": "الموعد النهائي لإجراءات المكتب",
+      "paymentDeadline": "الموعد النهائي للدفع",
+      "poaDate": "تاريخ التوكيل",
+      "poaDeadline": "الموعد النهائي لتقديم PoA",
+      "poaIncoming": "رقم الوارد PoA",
+      "regFeePaidDate": "تاريخ دفع رسوم التسجيل",
+      "remindDays": "تذكير قبل أيام من الموعد النهائي",
+      "representatives": "الممثل (الممثلون)",
+      "sendPoaEmail": "إرسال البريد الإلكتروني التلقائي",
+      "stateFee": "رسوم الدولة (BGN)"
+    },
+    "molHint": "يجب ضبط MOL على تفاصيل الملف (من إنشاء الملف). كتل MOL المفقودة تكمل هذه المرحلة.",
+    "no": "لا",
+    "prepHint": "المرحلة التحضيرية: إنهاء الموافقة على الملف أولاً، ثم قبول الشريك الإداري ينقلك إلى حفظ الملفات.",
+    "registeredDone": "وصلت مرحلة التسجيل.",
+    "saveChanges": "حفظ التغييرات",
+    "saveEntered": "يحفظ",
+    "saved": "أنقذ.",
+    "saveFields": "حفظ الحقول",
+    "saving": "توفير…",
+    "stages": {
+      "filing": "الايداع",
+      "formal_exam": "الفحص الرسمي",
+      "prep": "تحضيري",
+      "publication": "النشر",
+      "reg_fee": "رسوم التسجيل",
+      "registration": "تسجيل",
+      "substantive_exam": "الفحص الموضوعي"
+    },
+    "territoryLabel": {
+      "eu": "خط الأنابيب: الاتحاد الأوروبي",
+      "international": "خط الأنابيب: دولي (WO)",
+      "national": "خط الأنابيب: وطني"
+    },
+    "territoryLocked": "المنطقة ثابتة من إنشاء الملف",
+    "territoryFromInfo": "المنطقة من معلومات العلامة التجارية",
+    "patentRouteFromInfo": "الطريق من إنشاء ملف",
+    "designRouteFromInfo": "الطريق من إنشاء ملف",
+    "utilityModelTerritoryFromInfo": "الإقليم من بلد الإيداع",
+    "spcTerritoryFromInfo": "الإقليم من بلد الإيداع",
+    "giTerritoryFromInfo": "المنطقة من طريق الإيداع",
+    "title": "مراحل النيابة",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "تم استلام التحقق",
+        "filing": "تكليف",
+        "formal_exam": "طلب الايداع",
+        "substantive_exam": "الفحص الموضوعي",
+        "publication": "النشر",
+        "reg_fee": "رسوم التسجيل",
+        "registration": "قرار المصادقة"
+      }
+    },
+    "yes": "نعم",
+    "hub": {
+      "generateInvoice": "إنشاء الفاتورة",
+      "invoiceIssuedShort": "تم إصدار الفاتورة",
+      "invoiceIssued": "تم إصدار الفاتورة {{number}}. يمكن للعميل رؤيته في بوابته؛ وهو موجود أيضًا في علامة التبويب \"الفوترة\".",
+      "invoiceAlreadyIssued": "تم إصدار الفاتورة {{number}} بالفعل — وهي مرئية في البوابة الإلكترونية والفوترة.",
+      "invoiceFailed": "لا يمكن إنشاء الفاتورة. التحقق من تفاصيل فواتير العميل.",
+      "invoiceNotes": "الرسوم الرسمية / الدولة",
+      "uploadFailed": "تعذر تحميل الملف.",
+      "needStateFee": "أدخل مبلغ رسوم الدولة أولاً.",
+      "feeDescription": "الدولة / الرسوم الرسمية",
+      "deadlineFailed": "تعذر إنشاء الموعد النهائي (المواعيد النهائية).",
+      "deadlineTitles": {
+        "payment": "دفع رسوم الدولة",
+        "poa": "تقديم التوكيل",
+        "oa": "إجراء مكتبي / طلب فحص",
+        "oaWithSubject": "إجراء المكتب: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "تذكير {{days}} يوم (أيام) قبل الموعد النهائي."
+      },
+      "attach": {
+        "search": "إرفاق ملف البحث",
+        "application": "إرفاق التطبيق",
+        "feeSlip": "إرفاق قسيمة الرسوم",
+        "poa": "إرفاق برنامج العمل",
+        "officeAction": "إرفاق إجراءات المكتب",
+        "decision": "إرفاق القرار",
+        "bulletin": "إرفاق النشرة",
+        "regFee": "إرفاق إثبات الدفع",
+        "certificate": "إرفاق الشهادة"
+      }
+    }
+  },
   "createDrawer": {
     "client": "عميل *",
     "creating": "جارٍ الإنشاء…",
-    "error": "فشل إنشاء الملف",
+    "error": "فشل في إنشاء الملف",
     "jurisdictionHelp": "اختر واحدة أو أكثر من ولايات تقديم الطلبات.",
     "jurisdictions": "الولايات القضائية",
     "matterType": "نوع العمل *",
-    "open": "فتح الملف",
+    "open": "افتح الملف",
     "responsibleAttorney": "المحامي المسؤول",
     "title": "فتح ملف جديد",
     "titleField": "عنوان *",
     "titlePlaceholder": "على سبيل المثال علامة كلمة ACME - الاتحاد الأوروبي"
+  },
+  "createFile": {
+    "addClass": "أضف فئة",
+    "addClaim": "أضف مطالبة",
+    "addIpc": "إضافة فئة IPC",
+    "addBasisMark": "أضف علامة الأساس",
+    "basisMark": "علامة الأساس {{number}}",
+    "addAdditionalApplicant": "إضافة مقدم طلب إضافي",
+    "addAdditionalOwner": "إضافة مالك إضافي",
+    "additionalApplicant": "مقدم الطلب {{number}}",
+    "additionalOwner": "المالك {{number}}",
+    "yes": "نعم",
+    "no": "لا",
+    "none": "لا أحد",
+    "backToFiles": "العودة إلى الملفات",
+    "cancel": "يلغي",
+    "changeSubtype": "تغيير الفئة الفرعية",
+    "checkRegister": "التحقق من السجل التجاري",
+    "clearClient": "تغيير العميل",
+    "clientOptionalHint": "لا توجد مباراة CRM؟ املأ تفاصيل العميل أدناه - سيؤدي حفظ المسودة إلى إنشائها في العملاء تلقائيًا.",
+    "applicantOptionalHint": "لا توجد مباراة CRM؟ املأ تفاصيل مقدم الطلب أدناه - سيؤدي حفظ المسودة إلى إنشائها في العملاء تلقائيًا.",
+    "draftDescription": "تم إنشاؤه عبر إنشاء ملف ({{procedure}}) - مسودة",
+    "errors": {
+      "client": "حدد عميلاً للمتابعة.",
+      "clientOrDetails": "حدد عميل CRM، أو أدخل اسم العميل وتفاصيله لإنشائها.",
+      "applicantOrDetails": "حدد مقدم الطلب في CRM، أو أدخل اسم مقدم الطلب وتفاصيله لإنشائها.",
+      "jurisdiction": "حدد منطقة / دولة واحدة على الأقل.",
+      "markWords": "أدخل اسم العلامة التجارية / الكلمات.",
+      "filingRoute": "حدد الإجراء.",
+      "ownerOrDetails": "أدخل اسم المالك وعنوانه، أو قم بوضع علامة على المالك باعتباره نفس اسم العميل.",
+      "designerOrDetails": "أدخل اسم المصمم وعنوانه، أو قم بوضع علامة على المصمم باعتباره نفس اسم العميل.",
+      "inventorOrDetails": "أدخل اسم المخترع وعنوانه، أو قم بوضع علامة على المخترع باعتباره نفس اسم العميل.",
+      "patentName": "أدخل اسم براءة الاختراع.",
+      "designName": "أدخل اسم التصميم.",
+      "utilityModelName": "أدخل اسم نموذج المنفعة.",
+      "giKind": "اختر تسمية المنشأ أو المؤشر الجغرافي.",
+      "territory": "اختر منطقة.",
+      "giName": "أدخل اسم المؤشر الجغرافي.",
+      "spcName": "أدخل اسم SPC.",
+      "caseClientRole": "حدد ما إذا كان العميل مدعيًا أو مدعى عليه أو طرفًا معنيًا.",
+      "otherType": "نوع الملف غير معروف. اختر نوعًا من القائمة.",
+      "patentSubtype": "حدد فئة فرعية لبراءة الاختراع.",
+      "saveFailed": "تعذر حفظ ملف المسودة.",
+      "subtype": "حدد فئة فرعية للعلامة التجارية."
+    },
+    "euHint": "العلامة التجارية للاتحاد الأوروبي (EUIPO) — تم تحديد الاختصاص القضائي للاتحاد الأوروبي.",
+    "fields": {
+      "address": "عنوان",
+      "applicantClient": "العميل مقدم الطلب",
+      "applicantClientOptional": "مقدم الطلب في CRM (اختياري)",
+      "city": "مدينة",
+      "classNumber": "رقم الفصل",
+      "classes": "فصول",
+      "country": "دولة",
+      "eik": "إيك / إيك",
+      "email": "بريد إلكتروني",
+      "fax": "فاكس",
+      "goodsText": "السلع والخدمات",
+      "legalName": "الاسم ونوع الكيان القانوني",
+      "linkClient": "حدد العميل في CRM",
+      "linkClientOptional": "عميل CRM (اختياري)",
+      "fileTitleOptional": "العنوان (اختياري)",
+      "fileDescriptionOptional": "الوصف (اختياري)",
+      "markKind": "فئة العلامة",
+      "markType": "نوع العلامة",
+      "markWords": "اسم العلامة التجارية",
+      "mol": "مول (موقع)",
+      "name": "اسم",
+      "oppositionFiler": "ملف المعارضة",
+      "requester": "الطالب",
+      "requestFiler": "مقدم الطلب",
+      "againstClasses": "ضد الطبقات",
+      "owner": "مالك",
+      "phone": "هاتف",
+      "postalCode": "رمز بريدي",
+      "territory": "إِقلِيم",
+      "transliteration": "الترجمة الصوتية",
+      "viennaNumber": "رقم",
+      "applicationNumber": "رقم الطلب",
+      "applicationDate": "تاريخ",
+      "conventionPriority": "أولوية الاتفاقية",
+      "exhibitionPriority": "أولوية المعرض",
+      "transformationInternational": "تحويل التسجيل الدولي",
+      "communityConversion": "تحويل العلامة التجارية المجتمعية",
+      "applicationBulletin": "نشرة / نشر التطبيق",
+      "grounds": "أسباب",
+      "specimen": "عينة",
+      "registrationNumber": "رقم التسجيل",
+      "registrationDate": "تاريخ",
+      "registrationBulletin": "نشرة / نشر التسجيل",
+      "certificate": "إرفاق الشهادة",
+      "attachDocument": "إرفاق الوثيقة",
+      "representative": "يختار",
+      "selectRepresentative": "اختر الممثل",
+      "addMoreRepresentatives": "إضافة المزيد من الممثلين",
+      "claimNumber": "رقم",
+      "claimText": "مطالبة",
+      "epApplicationNumber": "رقم طلب EP",
+      "epBulletinNumber": "رقم نشرة EP",
+      "applicationPublication": "نشر التطبيق",
+      "applicationPublicationDate": "تاريخ",
+      "epRegistrationNumber": "رقم التسجيل EP",
+      "epRegistrationBulletin": "نشرة / نشر تسجيل EP",
+      "epRegistrationBulletinDate": "تاريخ",
+      "ipc": "IPC",
+      "patentName": "اسم",
+      "pct": "معاهدة التعاون بشأن البراءات",
+      "pctNumber": "معاهدة التعاون بشأن البراءات",
+      "epValidation": "التحقق من براءة الاختراع الأوروبية",
+      "powerOfAttorney": "تفويض",
+      "selectProcedure": "حدد الإجراء",
+      "validationCountry": "اختر البلد",
+      "priorityCountry": "بلد الطلب السابق",
+      "priorityFromDate": "من التاريخ",
+      "priorityApplicationNumber": "رقم الطلب",
+      "priorityIncomingNumber": "في. لا.",
+      "internationalRegistrationNumber": "رقم التسجيل الدولي",
+      "exhibitionFirstAppearance": "تاريخ أول ظهور",
+      "exhibitionName": "اسم المعرض",
+      "bulletinNumber": "رقم النشرة",
+      "patentRegistrationNumber": "رقم التسجيل",
+      "validationNumber": "رقم",
+      "validationFilingDate": "تاريخ الايداع",
+      "validationPriorityDate": "تاريخ الأولوية",
+      "addImage": "أضف صورة",
+      "addCountry": "إضافة بلد",
+      "removeImage": "إزالة الصورة",
+      "image": "صورة",
+      "designName": "اسم",
+      "locarnoClass": "فصل",
+      "locarnoSubclass": "فئة فرعية",
+      "classificationText": "تصنيف",
+      "vat": "معرف ضريبة القيمة المضافة",
+      "utilityModelName": "اسم",
+      "conversionFromPatent": "التحويل من براءة الاختراع إلى التطبيق",
+      "conversionInvention": "اختراع",
+      "conversionRequestNumber": "رقم الطلب",
+      "conversionApplicationDate": "تاريخ تقديم الطلب",
+      "conversionPriorityDate": "تاريخ الأولوية",
+      "giKind": "يكتب",
+      "giName": "اسم المؤشر الجغرافي",
+      "spcName": "اسم",
+      "medicinalProduct": "منتج طبي",
+      "basicPatentNumber": "رقم براءة الاختراع",
+      "effectStartDate": "بداية التأثير",
+      "effectEndDate": "تاريخ الانتهاء",
+      "firstAuthorization": "التفويض الأول",
+      "theClientIs": "العميل هو",
+      "court": "محكمة",
+      "authority": "سلطة",
+      "panel": "لوحة",
+      "division": "قسم",
+      "incomingNumber": "رقم الوارد",
+      "claimGrounds": "الأسباب (نوع المطالبة)",
+      "claimValue": "قيمة المطالبة",
+      "other": "آخر",
+      "rightObject": "هدف",
+      "selectObject": "حدد كائن...",
+      "rightName": "اسم",
+      "rightApplicationDate": "تاريخ تقديم الطلب",
+      "rightScope": "نِطَاق",
+      "expertiseType": "نوع الخبرة",
+      "experts": "الخبراء",
+      "expertiseQuestions": "الأسئلة التي تم قبول الخبرة فيها"
+    },
+    "formTitle": "إنشاء ملف: العلامة التجارية",
+    "fullFormReady": "النموذج الكامل متاح",
+    "goodsPlaceholder": "على سبيل المثال زجاجات. خدمات التجزئة…",
+    "markKinds": {
+      "certification": "شهادة",
+      "collective": "الجماعية",
+      "individual": "فردي"
+    },
+    "markTypes": {
+      "combination_of_colors": "مزيج من الألوان",
+      "combined": "مجموع",
+      "figurative": "رمزي",
+      "sound": "صوت",
+      "three_dimensional": "ثلاثي الأبعاد",
+      "wordmark": "علامة الكلمة"
+    },
+    "noClients": "لا يوجد عملاء مطابقين. قم بإنشاء العميل في CRM أولاً، ثم قم بالرجوع هنا.",
+    "optionalMark": "العلامة / الموضوع (اختياري)",
+    "partialSubtypeNote": "سيتم توسيع المجالات المتخصصة الكاملة لهذه الفئة الفرعية لاحقًا. لا يزال بإمكانك حفظ مسودة مرتبطة بالعميل؛ تبقى المستندات والمراسلات في الملف.",
+    "preliminary": "معلومات أولية",
+    "procedureHints": {
+      "cancellation": "إلغاء علامة تجارية مسجلة - نموذج الإنشاء الكامل",
+      "deletion": "حذف علامة تجارية مسجلة - نموذج الإنشاء الكامل",
+      "new": "طلب علامة تجارية جديدة - نموذج إنشاء كامل",
+      "objection": "الاعتراض على طلب علامة تجارية - نموذج الإنشاء الكامل",
+      "opposition": "المعارضة ضد طلب العلامة التجارية - نموذج الإنشاء الكامل",
+      "opposition_against_us": "إجراءات المعارضة",
+      "opposition_by_us": "إجراءات المعارضة",
+      "registered": "علامة تجارية مسجلة موجودة",
+      "revocation": "إجراءات الحذف"
+    },
+    "procedures": {
+      "cancellation": "إلغاء",
+      "deletion": "الحذف",
+      "new": "علامة تجارية جديدة",
+      "objection": "اعتراض",
+      "opposition": "معارضة",
+      "opposition_against_us": "معارضة",
+      "opposition_by_us": "معارضة",
+      "registered": "علامة تجارية مسجلة",
+      "revocation": "الحذف"
+    },
+    "kinds": {
+      "newPatent": "براءة اختراع جديدة",
+      "registeredPatent": "براءة اختراع مسجلة",
+      "design": "تصميم",
+      "registeredDesign": "تصميم",
+      "utilityModel": "نماذج المنفعة",
+      "registeredGi": "مسجل جي",
+      "spc": "توافق آراء ساو باولو",
+      "case": "قضية"
+    },
+    "comingSoonTitle": "إنشاء ملف: {{kind}}",
+    "comingSoonBody": "ستتم إضافة النموذج المتخصص لهذا النوع من الملفات بعد ذلك. نماذج إنشاء ملف العلامة التجارية متاحة بالفعل من نفس القائمة.",
+    "patentTitle": "إنشاء ملف - براءة الاختراع",
+    "patentSubtypeHint": "اختر أولاً الفئة الفرعية لبراءة الاختراع.",
+    "patentFormTitle": "إنشاء ملف: براءة الاختراع",
+    "designFormTitle": "إنشاء ملف: التصميم",
+    "utilityModelFormTitle": "إنشاء ملف: نموذج المنفعة",
+    "giFormTitle": "إنشاء ملف: المؤشر الجغرافي",
+    "spcFormTitle": "إنشاء ملف: SPC",
+    "caseFormTitle": "إنشاء ملف: حالة",
+    "otherFilesTitle": "ملفات أخرى",
+    "otherFilesDescription": "اختر نوع العمل خارج الرفوف الرئيسية - حقوق النشر والنطاقات والاستشارات والمزيد.",
+    "otherFileFormTitle": "إنشاء ملف: {{type}}",
+    "addParty": "أضف حفلة",
+    "caseClientRoles": {
+      "plaintiff": "المدعي / المستأنف",
+      "defendant": "المدعى عليه",
+      "interested": "الطرف المهتم"
+    },
+    "giKinds": {
+      "designation_of_origin": "تسمية المنشأ",
+      "geographical_indication": "الإشارة الجغرافية"
+    },
+    "giTerritories": {
+      "national": "وطني",
+      "eu": "الاتحاد الأوروبي",
+      "wo": "أمر Wo"
+    },
+    "designFilingRoutes": {
+      "wipo": "الويبو",
+      "national": "وطني",
+      "euipo": "الاتحاد الأوروبي للملكية الفكرية"
+    },
+    "chooseProcedure": "اختر الإجراء",
+    "chooseCountry": "اختر البلد",
+    "patentFilingRoutes": {
+      "national": "وطني",
+      "european": "الجيش الشعبي",
+      "ep_validation": "التحقق من صحة EP",
+      "pct": "معاهدة التعاون بشأن البراءات"
+    },
+    "epValidationCountries": {
+      "AL": "ألبانيا",
+      "BA": "البوسنة والهرسك",
+      "BG": "بلغاريا",
+      "EE": "إستونيا",
+      "MK": "مقدونيا الشمالية",
+      "MD": "مولدافيا",
+      "ME": "الجبل الأسود",
+      "RO": "رومانيا",
+      "RS": "صربيا",
+      "SI": "سلوفينيا",
+      "TR": "ديك رومى"
+    },
+    "patentHints": {
+      "new": "طلب جديد - الملاحقة القضائية الوطنية أو البرلمان الأوروبي أو معاهدة التعاون بشأن البراءات (تدفق من 7 خطوات في WorkPatent)",
+      "registered": "المنح الحالية - التحقق من الصحة الوطنية أو EP أو PCT أو EP (التحقق من 4 خطوات في WorkValPatent)"
+    },
+    "removeClass": "إزالة الصف",
+    "removeClaim": "إزالة المطالبة",
+    "removeIpc": "إزالة فئة IPC",
+    "removeApplicant": "إزالة مقدم الطلب",
+    "removeBasisMark": "إزالة علامة الأساس",
+    "sameApplicant": "معلومات مقدم الطلب هي نفس معلومات العميل",
+    "sameDesigner": "معلومات المصمم هي نفس معلومات العميل",
+    "sameInventor": "معلومات المخترع هي نفس معلومات العميل",
+    "sameCorrespondence": "عنوان المراسلة هو نفس العنوان المسجل",
+    "saveDraft": "حفظ كمسودة",
+    "saving": "توفير…",
+    "searchClient": "البحث عن العملاء بالاسم أو الرمز...",
+    "sideUs": "جانبنا هو المعارضة",
+    "sideThem": "الطرف الآخر - يعارض الطلب",
+    "sideUsCancellation": "جانبنا — الإلغاء",
+    "sideThemCancellation": "الطرف الآخر - المالك",
+    "sideUsDeletion": "جانبنا — الحذف",
+    "sections": {
+      "againstApplication": "ضد تطبيق العلامة التجارية",
+      "againstBrand": "ضد علامة تجارية",
+      "applicant": "مقدم الطلب",
+      "applicantUser": "مقدم الطلب/المستخدم",
+      "application": "طلب",
+      "attachments": "المرفقات",
+      "additionalInfo": "معلومات إضافية",
+      "basicInfo": "المعلومات الأساسية",
+      "fileDetails": "تفاصيل الملف",
+      "basisMarks": "العلامات التي تقوم عليها المعارضة",
+      "claims": "المطالبات",
+      "classification": "تصنيف",
+      "designer": "مصمم",
+      "inventor": "مخترع",
+      "client": "بيانات العميل",
+      "instructingClient": "إرشاد العميل",
+      "ipc": "IPC",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "correspondence": "عنوان المراسلة",
+      "filing": "الايداع والتسجيل",
+      "goods": "قائمة السلع والخدمات",
+      "geographicalIndication": "معلومات المؤشرات الجغرافية",
+      "spcBasic": "المعلومات الأساسية SPC",
+      "caseData": "بيانات الحالة",
+      "caseRights": "الحقوق التي بنيت عليها الدعوى",
+      "expertise": "خبرة",
+      "lawyers": "محامون / مستشارون قانونيون",
+      "caseParties": {
+        "plaintiff": "المدعين / المستأنفين",
+        "defendant": "المتهمين",
+        "interested": "الأطراف المهتمة"
+      },
+      "grounds": "أسباب",
+      "foundation": "مؤسسة",
+      "markName": "اسم العلامة التجارية",
+      "oppositionFiler": "ملف المعارضة",
+      "requester": "الطالب",
+      "requestFiler": "مقدم الطلب",
+      "owner": "مالك",
+      "registeredAddress": "العنوان المسجل",
+      "representative": "ممثل",
+      "representatives": "الممثلين",
+      "searchDocs": "إرفاق وثائق البحث",
+      "specimen": "عينة",
+      "trademark": "معلومات العلامة التجارية",
+      "vienna": "فئات تصنيف فيينا"
+    },
+    "selectCountries": "اختر البلدان",
+    "subtypeHint": "اختر أولاً الفئة الفرعية للعلامة التجارية. العلامة التجارية الجديدة تفتح النموذج الكامل.",
+    "territories": {
+      "eu": "الاتحاد الأوروبي",
+      "international": "الدولية (WO)",
+      "national": "وطني"
+    },
+    "trademarkTitle": "إنشاء ملف - علامة تجارية"
   },
   "deadlines": {
     "complete": "مكتمل",
     "daysLeft": "{{count}} يوم متبقي",
     "daysOverdue": "{{count}} من الأيام متأخرة",
     "dueToday": "مستحق اليوم",
+    "summary": {
+      "open": "المواعيد النهائية المفتوحة",
+      "overdue": "تأخرت"
+    },
     "empty": "لا توجد مواعيد نهائية بشأن هذه المسألة.",
     "error": "فشل في تحميل المواعيد النهائية.",
     "loading": "جارٍ تحميل المواعيد النهائية...",
@@ -721,41 +1581,950 @@
   "layout": {
     "backToMatters": "← العودة إلى الملفات",
     "loading": "جارٍ تحميل الملف…",
-    "notFound": "الملف غير موجود.",
+    "notFound": "لم يتم العثور على الملف.",
     "archivedBadge": "مؤرشف",
     "archive": "أرشيف",
     "archiving": "الأرشفة…",
     "restore": "يعيد",
     "restoring": "جارٍ الاستعادة…",
-    "archiveFailed": "تعذّر أرشفة الملف",
-    "restoreFailed": "تعذّر استعادة الملف",
-    "archiveConfirm": "أرشفة هذا الملف؟ سيُزال من القائمة النشطة لكنه يبقى قابلاً للبحث تحت المؤرشف."
+    "archiveFailed": "فشل في أرشفة الملف",
+    "restoreFailed": "فشل في استعادة الملف",
+    "archiveConfirm": "أرشفة هذا الملف؟ ستترك القائمة النشطة ولكنها تظل قابلة للبحث ضمن المؤرشفة."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "الإجراءات الثانوية",
+      "editScope": "تحرير النطاق / الفئات"
+    },
+    "kinds": {
+      "name_address_change": "تغيير الاسم والعنوان",
+      "transfer": "نقل / التنازل عن العلامة التجارية",
+      "license": "اتفاقية الترخيص",
+      "pledge": "تعهد خاص",
+      "injunction": "الإجراء المؤقت/الأمر الزجري",
+      "surrender": "الاستسلام الكامل / إخلاء المسؤولية",
+      "limitation": "حدود التطبيق",
+      "insolvency": "الإعسار / الإفلاس"
+    },
+    "legalBasis": {
+      "opposition_settlement": "تسوية المعارضة",
+      "office_action_response": "استجابة إجراءات المكتب",
+      "voluntary_limitation": "التقييد الطوعي",
+      "correction_of_error": "تصحيح الخطأ",
+      "other": "آخر"
+    },
+    "scope": {
+      "title": "تحرير الفئات والنطاق",
+      "description": "قم بتعديل فئات نيس وأوصاف السلع/الخدمات، ثم قم بتسجيل تفاصيل ملفات المكتب.",
+      "cardTitle": "الفئات والسلع/الخدمات",
+      "cardHint": "فئات لطيفة نشطة في ملف العلامة التجارية هذا.",
+      "empty": "لم يتم تسجيل أي فصول بعد.",
+      "classLabel": "فئة {{n}}",
+      "noDescription": "لا يوجد وصف",
+      "classes": "محرر الطبقة والبضائع",
+      "incomingNumber": "الرقم المرجعي الوارد (ВХ.НОМЕР)",
+      "incomingPlaceholder": "معرف تتبع المكتب",
+      "filingDate": "تاريخ التقديم (ДАТА)",
+      "legalBasis": "الأساس القانوني (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "حدد سببًا…",
+      "legalBasisOther": "أساس قانوني آخر",
+      "attachment": "وثيقة داعمة",
+      "errors": {
+        "classRequired": "احتفظ بفصل لطيف واحد على الأقل، أو استخدم الاستسلام الكامل للتخلي عن العلامة.",
+        "incomingRequired": "أدخل الرقم المرجعي الوارد.",
+        "dateRequired": "أدخل تاريخ الايداع.",
+        "basisRequired": "حدد الأساس القانوني.",
+        "saveFailed": "تعذر حفظ تصحيح النطاق."
+      }
+    },
+    "secondary": {
+      "description": "قم بتسجيل هذا الإجراء الإداري والرسوم الحكومية الاختيارية والتذكير بالمواعيد النهائية.",
+      "generateProforma": "إنشاء فاتورة أولية",
+      "governmentFee": "الرسوم الحكومية (€)",
+      "paymentDueDate": "الموعد النهائي للدفع",
+      "paymentReminder": "تذكير قبل الدفع",
+      "filingDeadline": "الموعد النهائي للإيداع/الإجراء",
+      "filingReminder": "تذكير قبل الايداع",
+      "reminderUnit": "وحدة",
+      "months": "قبل أشهر",
+      "days": "قبل أيام",
+      "titles": {
+        "name_address_change": "تغيير اسم السجل والعنوان",
+        "transfer": "سجل نقل العلامة التجارية",
+        "license": "اتفاقية ترخيص السجل",
+        "pledge": "سجل التعهد الخاص",
+        "injunction": "سجل الإجراء المؤقت/الأمر الزجري",
+        "surrender": "سجل الاستسلام الكامل / إخلاء المسؤولية",
+        "limitation": "قيود تطبيق السجل",
+        "insolvency": "سجل الإعسار / الإفلاس"
+      },
+      "errors": {
+        "feeRequired": "أدخل الرسوم الحكومية لإنشاء فاتورة أولية.",
+        "saveFailed": "لا يمكن حفظ هذا الإجراء."
+      }
+    },
+    "table": {
+      "title": "الإجراءات الثانوية",
+      "description": "الإجراءات المسجلة لهذه العلامة التجارية. افتح المجلد لعرض الملفات ذات الصلة أو تحميلها.",
+      "empty": "لا توجد إجراءات ثانوية حتى الآن. استخدم الإجراءات الثانوية في الرأس لتسجيل واحدة.",
+      "procedure": "إجراء",
+      "action": "فعل",
+      "loggedAt": "تم تسجيل الدخول",
+      "viewAria": "عرض تفاصيل الإجراء",
+      "filesAria": "فتح أرشيف الملفات (ملفات {{count}})"
+    },
+    "archive": {
+      "title": "أرشيف الملف",
+      "empty": "لا توجد ملفات مرفقة بهذا الإجراء حتى الآن.",
+      "date": "تاريخ",
+      "regarding": "متعلق",
+      "regardingPlaceholder": "على سبيل المثال القرار، الشكل، الرسالة الداعمة",
+      "document": "وثيقة",
+      "user": "مستخدم",
+      "attach": "إرفاق الوثيقة",
+      "upload": "تحميل الملف",
+      "download": "تحميل",
+      "regardingRequired": "أدخل ما يتعلق بالملف.",
+      "fileRequired": "اختر ملفًا لتحميله.",
+      "uploadFailed": "تعذر تحميل الملف."
+    }
   },
   "list": {
-    "description": "عرض لجميع الملفات — ابحث بالعنوان أو العميل أو رقم الطلب.",
-    "descriptionPortal": "ملفات مفتوحة لمؤسستكم بعد تحويل الاستفسار.",
-    "descriptionArchived": "ملفات منتهية أو غير نشطة محفوظة للمرجعية.",
+    "description": "عرض المحفظة لجميع الملفات - البحث حسب العنوان أو العميل أو رقم التطبيق.",
+    "descriptionPortal": "الملفات المفتوحة لمؤسستك بعد تحويل المدخول.",
+    "descriptionArchived": "يتم الاحتفاظ بالملفات المكتملة أو غير النشطة للرجوع إليها.",
+    "descriptionOthers": "الملفات الموجودة خارج الرفوف الستة الرئيسية — قم بالتصفية حسب نوع العمل أدناه.",
+    "descriptionType": "{{type}} الملفات - البحث حسب العنوان أو العميل أو رقم التطبيق.",
     "filters": {
       "allStatuses": "جميع الحالات",
       "allTypes": "جميع أنواع العمل",
+      "allOtherTypes": "جميع الأنواع الأخرى",
       "active": "نشيط",
-      "archived": "مؤرشف",
-      "allOtherTypes": "جميع الأنواع الأخرى"
+      "archived": "مؤرشف"
     },
     "intakeQueue": "قائمة انتظار المدخول",
     "pagination": {
       "ofTotal": "من {{total}}"
     },
     "perPage": "{{count}} لكل صفحة",
-    "searchPlaceholder": "ابحث بالعنوان أو العميل أو رقم الطلب…",
-    "title": "الملفات",
+    "searchPlaceholder": "عنوان البحث، العميل، رقم الطلب...",
+    "title": "ملفات",
     "titleArchived": "الملفات المؤرشفة",
-    "titlePortal": "ملفاتي",
-    "descriptionOthers": "ملفات خارج الفئات الست الرئيسية — صفِّ حسب النوع أدناه.",
-    "descriptionType": "ملفات {{type}} — ابحث بالعنوان أو العميل أو رقم الطلب.",
-    "titleOthers": "ملفات أخرى",
     "titleDrafts": "المسودات",
-    "descriptionDrafts": "مسودات بانتظار الموافقة أو الإيداع — منفصلة عن العلامات النشطة والأرفف الأخرى."
+    "titleOthers": "ملفات أخرى",
+    "titlePortal": "ملفاتي",
+    "descriptionDrafts": "ملفات المسودة في انتظار الموافقة أو التقديم - منفصلة عن العلامات التجارية النشطة والأرفف الأخرى."
+  },
+  "trademarkList": {
+    "description": "محفظة العلامات التجارية - مرحلة الملاحقة القضائية، والفصول الدراسية، ومقدم الطلب، والمواعيد النهائية في لمحة.",
+    "descriptionMarks": "العلامات التجارية الجديدة والمسجلة - مرحلة الملاحقة القضائية، والفصول، ومقدم الطلب، والمواعيد النهائية في لمحة.",
+    "descriptionProcedure": "{{procedure}} ملفات العلامات التجارية - مرحلة الملاحقة القضائية والفصول الدراسية والمواعيد النهائية في لمحة.",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف جديد للعلامة التجارية.",
+    "columns": {
+      "name": "اسم العلامة التجارية",
+      "territory": "إِقلِيم",
+      "incomingRef": "الطلب / رقم الوارد",
+      "stage": "مرحلة الملاحقة القضائية",
+      "classes": "فصول جميلة",
+      "applicant": "مقدم الطلب / المالك",
+      "markType": "نوع العلامة",
+      "registration": "ريج. لا. / تاريخ",
+      "deadline": "موعد التسليم"
+    },
+    "deadlineOpen": "{{count}} مفتوح",
+    "deadlineOverdue": "{{count}} متأخر",
+    "deadlineNext": "التالي: {{date}}",
+    "filters": {
+      "title": "علامات التصفية",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ والفئة والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو مقدم الطلب...",
+      "markName": "اسم العلامة التجارية",
+      "markNamePlaceholder": "علامة العنوان…",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "ريج. لا.",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "markType": "نوع العلامة",
+      "markKind": "نوع مارك",
+      "territory": "إِقلِيم",
+      "representative": "ممثل",
+      "representativePlaceholder": "اسم الممثل…",
+      "applicationDateFrom": "تاريخ التقديم من",
+      "applicationDateTo": "تاريخ التقديم إلى",
+      "registrationDateFrom": "تاريخ التسجيل من",
+      "registrationDateTo": "تاريخ التسجيل الى",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "markStatus": "حالة العلامة",
+      "niceClass": "فئة لطيفة",
+      "country": "دولة",
+      "hasCertificate": "لديه شهادة مرفقة",
+      "choose": "يختار",
+      "chooseClass": "اختر الفصل",
+      "chooseCountry": "اختر البلد",
+      "all": "الجميع",
+      "classOption": "فئة {{number}}",
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "utilityModelList": {
+    "description": "نماذج المنفعة - المنطقة، والمطالبات، والمالك، والتسجيل في لمحة سريعة.",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف نموذج فائدة جديد.",
+    "searchResults": "نتائج البحث: {{count}}",
+    "territoryWipo": "الويبو",
+    "status": {
+      "registered": "مسجل"
+    },
+    "columns": {
+      "name": "اسم",
+      "territory": "إِقلِيم",
+      "incomingRef": "رقم الوارد / تاريخ",
+      "status": "حالة",
+      "classes": "فصول",
+      "owner": "مالك",
+      "kind": "عطوف",
+      "registration": "ريج. لا. / تاريخ"
+    },
+    "filters": {
+      "title": "تصفية نماذج المنفعة",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ والإقليم والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو المالك...",
+      "name": "اسم",
+      "namePlaceholder": "اسم نموذج الأداة المساعدة...",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "رقم التسجيل",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "territory": "إِقلِيم",
+      "choose": "يختار",
+      "chooseTerritory": "اختر المنطقة",
+      "representative": "ممثل",
+      "chooseRepresentative": "اختر ممثلاً",
+      "applicationDate": "تاريخ تقديم الطلب",
+      "registrationDate": "تاريخ التسجيل",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "status": "حالة",
+      "certificate": "شهادة",
+      "certificateOptions": {
+        "with": "مع الشهادة",
+        "without": "بدون شهادة"
+      },
+      "statusOptions": {
+        "registered": "مسجل"
+      },
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "spcList": {
+    "description": "شهادات الحماية التكميلية - المنطقة، والمطالبات، والمالك، والتسجيل في لمحة.",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف SPC جديد.",
+    "searchResults": "نتائج البحث: {{count}}",
+    "territoryWipo": "الويبو",
+    "status": {
+      "registered": "مسجل"
+    },
+    "columns": {
+      "name": "اسم",
+      "territory": "إِقلِيم",
+      "incomingRef": "رقم الوارد / تاريخ",
+      "status": "حالة",
+      "classes": "فصول",
+      "owner": "مالك",
+      "kind": "عطوف",
+      "registration": "ريج. لا. / تاريخ"
+    },
+    "filters": {
+      "title": "تصفية ملفات SPC",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ والإقليم والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو المالك...",
+      "name": "اسم براءة الاختراع",
+      "namePlaceholder": "اسم SPC...",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "رقم التسجيل",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "territory": "إِقلِيم",
+      "choose": "يختار",
+      "chooseTerritory": "اختر المنطقة",
+      "representative": "ممثل",
+      "chooseRepresentative": "اختر ممثلاً",
+      "applicationDate": "تاريخ تقديم الطلب",
+      "registrationDate": "تاريخ التسجيل",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "status": "حالة براءة الاختراع",
+      "certificate": "شهادة",
+      "certificateOptions": {
+        "with": "مع الشهادة",
+        "without": "بدون شهادة"
+      },
+      "statusOptions": {
+        "registered": "مسجل"
+      },
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "spcShelf": {
+    "title": "توافق آراء ساو باولو"
+  },
+  "caseList": {
+    "description": "قضايا المحكمة - الأطراف ورقم القضية والمحكمة والحالة في لمحة.",
+    "emptyDescription": "قم بإنشاء ملف حالة جديد للبدء.",
+    "searchResults": "نتائج البحث: {{count}}",
+    "incomingSuffix": "واردة",
+    "vrs": "ضد.",
+    "viewAria": "عرض {{title}}",
+    "filesAria": "المستندات الخاصة بـ {{title}} ({{count}})",
+    "columns": {
+      "parties": "الأطراف",
+      "caseNumber": "رقم القضية",
+      "court": "محكمة",
+      "status": "حالة",
+      "actions": "الإجراءات"
+    },
+    "statusOptions": {
+      "suspended": "معلق",
+      "scheduled": "المقرر",
+      "inactive": "غير نشط",
+      "appealed": "استأنف"
+    }
+  },
+  "caseView": {
+    "clientLabel": "عميل",
+    "caseNumberLabel": "رقم القضية",
+    "statusTitle": "حالة",
+    "chooseStatus": "اختر الحالة",
+    "saveStatus": "حفظ الحالة",
+    "edit": "يحرر",
+    "save": "يحفظ",
+    "cancel": "يلغي",
+    "saving": "توفير…",
+    "editHint": "تحديث الأطراف وتفاصيل المحكمة والموضوع وبيانات القضية الأخرى.",
+    "subjectTitle": "موضوع القضية",
+    "instanceTitle": "رقم القضية {{number}} ({{court}})",
+    "eventsTitle": "الأحداث",
+    "reminderTitle": "إنشاء تذكير إضافي",
+    "addReminder": "يضيف",
+    "openArchive": "أرشيف الملف",
+    "saved": "أنقذ.",
+    "events": {
+      "date": "تاريخ",
+      "deadline": "موعد التسليم",
+      "regarding": "متعلق",
+      "info": "معلومات إضافية"
+    },
+    "actions": {
+      "decision": "قرار",
+      "agreement": "اتفاق",
+      "ruling": "حكم"
+    },
+    "errors": {
+      "saveFailed": "لا يمكن حفظ تفاصيل الحالة."
+    }
+  },
+  "giList": {
+    "description": "المؤشرات الجغرافية - المنطقة، وفئات المنتجات، والمالك، والتسجيل في لمحة سريعة.",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف مؤشر جغرافي جديد.",
+    "searchResults": "نتائج البحث: {{count}}",
+    "territoryEu": "الاتحاد الأوروبي",
+    "territoryWipo": "الويبو",
+    "status": {
+      "registered": "مسجل"
+    },
+    "columns": {
+      "name": "اسم",
+      "territory": "إِقلِيم",
+      "incomingRef": "رقم الوارد / تاريخ",
+      "status": "حالة",
+      "classification": "تصنيف",
+      "owner": "مالك",
+      "registration": "ريج. لا. / تاريخ"
+    },
+    "filters": {
+      "title": "تصفية المؤشرات الجغرافية",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ ومسار المنطقة والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو المالك...",
+      "name": "اسم",
+      "namePlaceholder": "اسم جي آي…",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "رقم التسجيل",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "territory": "إِقلِيم",
+      "choose": "يختار",
+      "chooseTerritory": "اختر طريق المنطقة",
+      "representative": "ممثل",
+      "chooseRepresentative": "اختر ممثلاً",
+      "applicationDate": "تاريخ تقديم الطلب",
+      "registrationDate": "تاريخ التسجيل",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "status": "حالة",
+      "certificate": "شهادة",
+      "certificateOptions": {
+        "with": "مع الشهادة",
+        "without": "بدون شهادة"
+      },
+      "country": "دولة",
+      "chooseCountry": "اختر البلد",
+      "statusOptions": {
+        "registered": "مسجل"
+      },
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "designList": {
+    "description": "التصاميم المسجلة - المنطقة، وتصنيف لوكارنو، والمالك، والتسجيل في لمحة.",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف تصميم جديد.",
+    "searchResults": "نتائج البحث: {{count}}",
+    "territoryEu": "الاتحاد الأوروبي",
+    "territoryWipo": "الويبو",
+    "status": {
+      "registered": "مسجل"
+    },
+    "columns": {
+      "name": "اسم",
+      "territory": "إِقلِيم",
+      "incomingRef": "رقم الوارد / تاريخ",
+      "status": "حالة",
+      "classification": "تصنيف",
+      "owner": "مالك",
+      "registration": "ريج. لا. / تاريخ"
+    },
+    "filters": {
+      "title": "تصاميم التصفية",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ والإجراءات والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو المالك...",
+      "name": "اسم",
+      "namePlaceholder": "اسم التصميم…",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "رقم التسجيل",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "territory": "إِقلِيم",
+      "procedure": "إجراء",
+      "choose": "يختار",
+      "chooseTerritory": "اختر المنطقة",
+      "representative": "ممثل",
+      "chooseRepresentative": "اختر ممثلاً",
+      "applicationDate": "تاريخ تقديم الطلب",
+      "registrationDate": "تاريخ التسجيل",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "status": "حالة",
+      "certificate": "شهادة",
+      "certificateOptions": {
+        "with": "مع الشهادة",
+        "without": "بدون شهادة"
+      },
+      "country": "دولة",
+      "statusOptions": {
+        "registered": "مسجل"
+      },
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "patentList": {
+    "description": "براءات الاختراع الجديدة والمسجلة معًا - مرحلة الملاحقة القضائية والمطالبات والمالك والمواعيد النهائية في لمحة.",
+    "emptyDescription": "حاول تعديل المرشحات أو إنشاء ملف براءة اختراع جديد.",
+    "territoryEp": "الجيش الشعبي",
+    "columns": {
+      "name": "اسم براءة الاختراع",
+      "territory": "إِقلِيم",
+      "incomingRef": "الطلب / رقم الوارد",
+      "stage": "حالة",
+      "claims": "المطالبات",
+      "owner": "مالك",
+      "registration": "ريج. لا. / تاريخ",
+      "deadline": "موعد التسليم"
+    },
+    "deadlineOpen": "{{count}} مفتوح",
+    "deadlineOverdue": "{{count}} متأخر",
+    "deadlineNext": "التالي: {{date}}",
+    "filters": {
+      "title": "تصفية براءات الاختراع",
+      "subtitle": "قم بتضييق نطاق المحفظة حسب مقدم الطلب والأرقام والتواريخ والإقليم والمزيد.",
+      "activeCount": "{{count}} نشط",
+      "applicant": "مقدم الطلب / المالك",
+      "applicantPlaceholder": "اسم العميل أو المالك...",
+      "patentName": "اسم براءة الاختراع",
+      "patentNamePlaceholder": "عنوان براءة الاختراع...",
+      "incomingNo": "رقم الوارد",
+      "incomingPlaceholder": "التقديم / وارد…",
+      "regNo": "ريج. لا.",
+      "regNoPlaceholder": "رقم التسجيل…",
+      "territory": "إِقلِيم",
+      "choose": "يختار",
+      "chooseTerritory": "اختر المنطقة",
+      "representative": "ممثل",
+      "chooseRepresentative": "اختر ممثلاً",
+      "applicationDateFrom": "تاريخ التقديم من",
+      "applicationDateTo": "تاريخ التقديم إلى",
+      "registrationDateFrom": "تاريخ التسجيل من",
+      "registrationDateTo": "تاريخ التسجيل الى",
+      "contact": "الشخص الذي يمكن الاتصال به",
+      "contactPlaceholder": "اسم جهة الاتصال أو البريد الإلكتروني أو الهاتف ...",
+      "patentStatus": "حالة براءة الاختراع",
+      "certificate": "شهادة",
+      "certificateOptions": {
+        "with": "مع الشهادة",
+        "without": "بدون شهادة"
+      },
+      "country": "دولة",
+      "chooseCountry": "اختر البلد",
+      "annualFees": "دفع الرسوم السنوية",
+      "annualFeesOptions": {
+        "yes": "نعم",
+        "no": "لا"
+      },
+      "statusOptions": {
+        "validation_received": "تم استلام التحقق",
+        "assignment": "تكليف",
+        "translation_assigned": "الترجمة المخصصة",
+        "filing_entry": "الايداع / الإدخال",
+        "validation_decision": "قرار المصادقة",
+        "registered": "مسجل"
+      },
+      "all": "الجميع",
+      "clear": "مسح المرشحات",
+      "apply": "تطبيق المرشحات"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "ماركس"
+  },
+  "objectionList": {
+    "view": "منظر",
+    "fileArchive": "أرشيف الملف",
+    "viewAria": "عرض الاعتراض {{title}}",
+    "filesAria": "فتح أرشيف الملفات لـ {{title}} (ملفات {{count}})",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف اعتراض جديد.",
+    "columns": {
+      "againstMark": "ضد العلامة",
+      "grounds": "أسباب",
+      "client": "عميل",
+      "status": "حالة",
+      "actions": "الإجراءات"
+    }
+  },
+  "oppositionList": {
+    "view": "منظر",
+    "fileArchive": "أرشيف الملف",
+    "viewAria": "عرض المعارضة {{title}}",
+    "filesAria": "فتح أرشيف ملفات المعارضة لـ {{title}} (ملفات {{count}})",
+    "emptyDescription": "حاول تعديل المرشحات أو إنشاء ملف معارضة جديد.",
+    "columns": {
+      "againstMark": "ضد العلامة",
+      "client": "عميل",
+      "status": "حالة",
+      "actions": "الإجراءات"
+    },
+    "stages": {
+      "disputes_division": "المعارضة في قسم المنازعات",
+      "opposition_decision": "قرار المعارضة",
+      "disputes_department_decision": "قرار قسم المنازعات",
+      "case": "قضية",
+      "stopped": "توقف",
+      "closed": "مغلق"
+    },
+    "stageLegend": {
+      "disputes_division": "الأزرق – قيد المراجعة في قسم المنازعات",
+      "opposition_decision": "العنبر - القرار الصادر أو المعلق",
+      "disputes_department_decision": "البرتقالي - قرار على مستوى القسم",
+      "case": "الأحمر - تصعيد إلى قضية أمام المحكمة",
+      "stopped": "الرمادي - توقفت الإجراءات مؤقتًا",
+      "closed": "الأخضر - انتهت المعارضة"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "اعتراض",
+    "basicInfo": "المعلومات الأساسية",
+    "foundation": "مؤسسة",
+    "archiveTitle": "أرشيف ملفات الاعتراض",
+    "nav": {
+      "view": "منظر",
+      "archive": "أرشيف الملف"
+    },
+    "markName": "اسم العلامة التجارية",
+    "applicationNumber": "رقم الطلب",
+    "applicationDate": "تاريخ تقديم الطلب",
+    "classes": "فصول",
+    "markType": "نوع العلامة التجارية",
+    "applicant": "مقدم الطلب",
+    "noMarkImage": "العلامة التجارية ليس لها صورة",
+    "grounds": "مؤسسة",
+    "submissionDate": "تاريخ التقديم",
+    "incomingNumber": "رقم الوارد",
+    "poaIncomingNumber": "رقم التوكيل الوارد",
+    "poaDate": "تاريخ",
+    "edit": "يحرر",
+    "cancel": "يلغي",
+    "save": "حفظ التغييرات",
+    "saving": "توفير…",
+    "errors": {
+      "markNameRequired": "اسم العلامة التجارية مطلوب.",
+      "saveFailed": "تعذر حفظ الاعتراض."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "معارضة",
+    "subjectMark": "العلامة التجارية الموضوعية",
+    "opposingMarks": "معارضة العلامات التجارية",
+    "archiveTitle": "أرشيف ملف المعارضة",
+    "nav": {
+      "view": "منظر",
+      "archive": "أرشيف الملف",
+      "notes": "ملحوظات"
+    },
+    "markName": "اسم العلامة التجارية",
+    "applicationNumber": "رقم الطلب",
+    "applicationDate": "تاريخ تقديم الطلب",
+    "classes": "فصول",
+    "markType": "نوع العلامة التجارية",
+    "applicant": "مقدم الطلب",
+    "representative": "ممثل",
+    "noMarkImage": "العلامة التجارية ليس لها صورة",
+    "noBasisMarks": "لم يتم تسجيل أي علامات تجارية معارضة.",
+    "basisMarkName": "اسم العلامة التجارية",
+    "basisTerritory": "إِقلِيم",
+    "basisMarkNo": "علامة لا.",
+    "basisAppDate": "تاريخ تقديم الطلب",
+    "basisClasses": "فصول",
+    "againstClasses": "ضد الطبقات",
+    "submittedBy": "مقدم من",
+    "statusHistory": "تاريخ الحالة",
+    "stage": "حالة",
+    "stagePlaceholder": "اختر الحالة...",
+    "stageNone": "لم يتم ضبطه",
+    "stageChangeHint": "يؤدي حفظ حالة جديدة إلى تحديث الشارة الملونة في قائمة المعارضات، وإضافة سطر إلى سجل الحالة، وتعيين الأمر إلى قيد الانتظار (متوقف) أو مغلق عند الاقتضاء.",
+    "decisionNumber": "رقم القرار",
+    "decisionDate": "تاريخ القرار",
+    "actions": {
+      "stop": "قف",
+      "print": "طباعة قوات الدفاع الشعبي",
+      "printing": "جارٍ الإنشاء…",
+      "stopFailed": "لم يتمكن من إيقاف المعارضة.",
+      "printFailed": "لا يمكن إنشاء ملف PDF."
+    },
+    "stageDescriptions": {
+      "disputes_division": "المعارضة قيد النظر من قبل شعبة المنازعات.",
+      "opposition_decision": "وقد صدر قرار بشأن المعارضة أو من المتوقع.",
+      "disputes_department_decision": "أصدرت إدارة المنازعات قرارها أو تقوم بمراجعته.",
+      "case": "وقد تم تصعيد الأمر إلى قضية قضائية.",
+      "stopped": "تم إيقاف إجراءات المعارضة مؤقتًا؛ تم ضبط الأمر على الانتظار.",
+      "closed": "المعارضة انتهت. تم ضبط الأمر على \"مغلق\"."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — المعارضة في قسم المنازعات",
+      "opposition_decision": "قرار بشأن المعارضة رقم {{number}} / {{date}}",
+      "disputes_department_decision": "قرار قسم المنازعات رقم {{number}} / {{date}}",
+      "case": "القرار المستأنف بشأن المعارضة رقم {{number}} / {{date}}",
+      "stopped": "{{markRef}} — توقفت المعارضة",
+      "closed": "{{markRef}} — المعارضة مغلقة"
+    },
+    "timeline": {
+      "decision": "قرار بشأن المعارضة",
+      "department_decision": "قرار قسم المنازعات",
+      "second_decision": "القرار الثاني بشأن المعارضة",
+      "appealedBy": "تم الاستئناف من قبل {{name}}",
+      "appealedInCourtBy": "تم الاستئناف أمام المحكمة بواسطة {{name}}",
+      "decisionRef": "رقم {{number}} / {{date}}",
+      "appealFiled": "تم تقديم الاستئناف",
+      "courtAppealFiled": "قدمت استئناف المحكمة"
+    },
+    "workflow": {
+      "appealTitle": "الاستئناف - الرقم الوارد",
+      "correspondenceTitle": "مراسلة",
+      "solutionTitle": "حل",
+      "incomingNumber": "رقم الوارد",
+      "date": "تاريخ",
+      "attachAppeal": "إرفاق الاستئناف",
+      "attachDocument": "إرفاق الوثيقة",
+      "regarding": "متعلق",
+      "deadline": "موعد التسليم",
+      "additionalInfo": "معلومات إضافية",
+      "correspondence": "مراسلة",
+      "submit": "يُقدِّم",
+      "solutionSubmit": "حل",
+      "caseDraft": "مسودة القضية",
+      "courtAppeal": "الاستئناف في المحكمة",
+      "saveFailed": "لا يمكن الحفظ."
+    },
+    "edit": "يحرر",
+    "cancel": "يلغي",
+    "save": "حفظ التغييرات",
+    "saving": "توفير…",
+    "errors": {
+      "markNameRequired": "اسم العلامة التجارية مطلوب.",
+      "saveFailed": "لا يمكن إنقاذ المعارضة."
+    },
+    "notes": {
+      "title": "مذكرات المعارضة",
+      "empty": "لا توجد ملاحظات حتى الآن.",
+      "date": "تاريخ",
+      "regarding": "متعلق",
+      "details": "معلومات إضافية",
+      "submit": "يضيف",
+      "regardingRequired": "أدخل موضوعًا للمذكرة.",
+      "saveFailed": "تعذر حفظ الملاحظة.",
+      "editAria": "تحرير الملاحظة",
+      "deleteAria": "حذف الملاحظة"
+    }
+  },
+  "cancellationList": {
+    "view": "ملخص",
+    "fileArchive": "ملفات",
+    "viewAria": "عرض الإلغاء {{title}}",
+    "filesAria": "فتح أرشيف ملفات الإلغاء لـ {{title}} (ملفات {{count}})",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف إلغاء جديد.",
+    "stageNone": "لم يتم ضبطه",
+    "columns": {
+      "againstMark": "ضد العلامة التجارية",
+      "client": "عميل",
+      "status": "حالة",
+      "actions": "الإجراءات"
+    },
+    "stages": {
+      "waiting_for_login": "في انتظار تسجيل الدخول",
+      "in_correspondence": "في المراسلات",
+      "case": "قضية",
+      "stopped": "توقف",
+      "closed": "مغلق"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "إلغاء",
+    "subjectMark": "العلامة التجارية الموضوعية",
+    "cancellationSide": "تفاصيل الإلغاء",
+    "archiveTitle": "أرشيف ملف الإلغاء",
+    "nav": {
+      "view": "منظر",
+      "archive": "أرشيف الملف",
+      "notes": "ملحوظات"
+    },
+    "markName": "اسم العلامة التجارية",
+    "applicationNumber": "رقم الطلب",
+    "applicationDate": "تاريخ تقديم الطلب",
+    "registrationNumber": "رقم التسجيل",
+    "classes": "فصول",
+    "markType": "نوع العلامة",
+    "applicant": "مقدم الطلب",
+    "representative": "ممثل",
+    "againstClasses": "ضد الطبقات",
+    "submittedBy": "مقدم من",
+    "foundation": "مؤسسة",
+    "stage": "حالة",
+    "stagePlaceholder": "اختر الحالة...",
+    "stageNone": "لم يتم ضبطه",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — الإلغاء",
+      "in_correspondence": "رقم الإلغاء {{number}} / {{date}}",
+      "case": "رقم الإلغاء {{number}} / {{date}} — الحالة",
+      "stopped": "{{markRef}} — توقف الإلغاء",
+      "closed": "{{markRef}} — تم إغلاق الإلغاء"
+    },
+    "deadlines": {
+      "date": "تاريخ",
+      "deadline": "موعد التسليم",
+      "regarding": "متعلق",
+      "details": "معلومات إضافية"
+    },
+    "workflow": {
+      "feeTitle": "رسوم الدولة - تاريخ الدفع",
+      "poaTitle": "تفويض",
+      "filingTitle": "تقديم الإلغاء",
+      "correspondenceTitle": "مراسلة",
+      "feeAmount": "المبلغ (ليف)",
+      "feeDate": "تاريخ الدفع",
+      "poaNumber": "رقم التوكيل",
+      "poaDate": "تاريخ الاستلام",
+      "cancellationNumber": "رقم الإلغاء",
+      "filingDate": "تاريخ الايداع",
+      "attachDocument": "إرفاق الوثيقة",
+      "attachPoa": "إرفاق التوكيل",
+      "regarding": "متعلق",
+      "deadline": "موعد التسليم",
+      "additionalInfo": "معلومات إضافية",
+      "submit": "يُقدِّم",
+      "decision": "قرار",
+      "feePaid": "سجلت رسوم الدولة",
+      "poaReceived": "تم تسجيل التوكيل",
+      "filingRecorded": "تم تسجيل ملف الإلغاء",
+      "correspondence": "مراسلة",
+      "saveFailed": "لا يمكن الحفظ."
+    },
+    "actions": {
+      "stop": "قف",
+      "stopFailed": "لا يمكن إيقاف الإلغاء."
+    },
+    "edit": "يحرر",
+    "cancel": "يلغي",
+    "save": "حفظ التغييرات",
+    "saving": "توفير…",
+    "errors": {
+      "markNameRequired": "اسم العلامة التجارية مطلوب.",
+      "saveFailed": "تعذر حفظ الإلغاء."
+    },
+    "notes": {
+      "title": "ملاحظات الإلغاء",
+      "empty": "لا توجد ملاحظات حتى الآن.",
+      "date": "تاريخ",
+      "regarding": "متعلق",
+      "details": "معلومات إضافية",
+      "submit": "يضيف",
+      "regardingRequired": "أدخل موضوعًا للمذكرة.",
+      "saveFailed": "تعذر حفظ الملاحظة.",
+      "editAria": "تحرير الملاحظة",
+      "deleteAria": "حذف الملاحظة"
+    }
+  },
+  "deletionList": {
+    "view": "ملخص",
+    "fileArchive": "ملفات",
+    "viewAria": "عرض الحذف {{title}}",
+    "filesAria": "فتح أرشيف ملفات الحذف لـ {{title}} (ملفات {{count}})",
+    "emptyDescription": "حاول تعديل عوامل التصفية أو إنشاء ملف حذف جديد.",
+    "stageNone": "لم يتم ضبطه",
+    "columns": {
+      "againstMark": "ضد العلامة التجارية",
+      "client": "عميل",
+      "status": "حالة",
+      "actions": "الإجراءات"
+    },
+    "stages": {
+      "waiting_for_login": "إرسال الحذف",
+      "in_correspondence": "في المراسلات",
+      "decision": "قرار",
+      "case": "قضية",
+      "stopped": "توقف",
+      "closed": "مغلق"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "الحذف",
+    "subjectMark": "العلامة التجارية الموضوعية",
+    "deletionSide": "تفاصيل الحذف",
+    "archiveTitle": "أرشيف ملف الحذف",
+    "archivedStamp": "مؤرشف",
+    "noMarkImage": "العلامة التجارية ليس لها صورة",
+    "nav": {
+      "view": "منظر",
+      "archive": "أرشيف الملف"
+    },
+    "markName": "اسم العلامة التجارية",
+    "applicationNumber": "رقم الطلب",
+    "applicationDate": "تاريخ تقديم الطلب",
+    "registrationNumber": "رقم التسجيل",
+    "classes": "فصول",
+    "markType": "نوع العلامة",
+    "applicant": "مقدم الطلب",
+    "representative": "ممثل",
+    "againstClasses": "ضد الطبقات",
+    "submittedBy": "مقدم من",
+    "foundation": "مؤسسة",
+    "stage": "حالة",
+    "stagePlaceholder": "اختر الحالة...",
+    "stageNone": "لم يتم ضبطه",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — الحذف",
+      "in_correspondence": "رقم الحذف {{number}} / {{date}}",
+      "decision": "قرار الحذف رقم {{number}} / {{date}}",
+      "case": "قرار الحذف رقم {{number}} / {{date}} — الحالة",
+      "stopped": "{{markRef}} — متوقف (حتى {{stopUntil}})",
+      "closed": "{{markRef}} — تم إغلاق عملية الحذف"
+    },
+    "deadlines": {
+      "date": "تاريخ التذكير",
+      "deadline": "موعد التسليم",
+      "regarding": "متعلق",
+      "details": "معلومات إضافية",
+      "appealTitle": "الموعد النهائي للاستئناف"
+    },
+    "stopped": {
+      "title": "توقف",
+      "until": "(حتى {{date}})",
+      "reason": "السبب: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "توليد النموذج",
+      "stateFee": "رسوم الدولة",
+      "feePaymentDeadline": "الموعد النهائي للدفع",
+      "poaSendDeadline": "الموعد النهائي لإرسال التوكيل",
+      "filingDeadlineLabel": "الموعد النهائي للإيداع",
+      "remindBefore": "أذكر من قبل",
+      "reminderDays": "أيام",
+      "reminderMonths": "شهور",
+      "feeDeadlineRegarding": "الموعد النهائي لدفع رسوم الدولة",
+      "poaDeadlineRegarding": "الموعد النهائي لإرسال التوكيل",
+      "filingDeadlineRegarding": "آخر موعد لتقديم طلب الحذف",
+      "proformaRecorded": "تم تسجيل النموذج والمواعيد النهائية",
+      "feeTitle": "رسوم الدولة - تاريخ الدفع",
+      "poaTitle": "تفويض",
+      "filingTitle": "إيداع الحذف",
+      "correspondenceTitle": "مراسلة",
+      "decisionTitle": "قرار الحذف",
+      "feeAmount": "المبلغ (ليف)",
+      "feeDate": "تاريخ الدفع",
+      "poaNumber": "رقم التوكيل",
+      "poaDate": "تاريخ الاستلام",
+      "deletionNumber": "رقم الحذف",
+      "filingDate": "تاريخ الايداع",
+      "decisionNumber": "رقم القرار",
+      "decisionDate": "تاريخ القرار",
+      "attachDocument": "إرفاق الوثيقة",
+      "attachPoa": "إرفاق التوكيل",
+      "regarding": "متعلق",
+      "deadline": "موعد التسليم",
+      "additionalInfo": "معلومات إضافية",
+      "submit": "يُقدِّم",
+      "decision": "قرار",
+      "caseDraft": "مسودة القضية",
+      "notAppealed": "لم يتم الاستئناف",
+      "appealed": "استأنف",
+      "feePaid": "سجلت رسوم الدولة",
+      "poaReceived": "تم تسجيل التوكيل",
+      "filingRecorded": "تم تسجيل ملف الحذف",
+      "decisionRecorded": "تم تسجيل قرار الحذف",
+      "correspondence": "مراسلة",
+      "decisionNumberRequired": "أدخل رقم القرار.",
+      "saveFailed": "لا يمكن الحفظ."
+    },
+    "actions": {
+      "stop": "قف",
+      "stopReason": "سبب",
+      "stopUntil": "توقفت حتى",
+      "restore": "يعيد",
+      "restored": "المستعادة",
+      "archive": "أرشيف",
+      "archiveConfirm": "أرشفة ملف الحذف هذا؟",
+      "archiveFailed": "تعذر أرشفة الحذف.",
+      "stopFailed": "لا يمكن إيقاف الحذف.",
+      "restoreFailed": "لا يمكن استعادة الحذف."
+    },
+    "edit": "يحرر",
+    "cancel": "يلغي",
+    "save": "حفظ التغييرات",
+    "saving": "توفير…",
+    "errors": {
+      "markNameRequired": "اسم العلامة التجارية مطلوب.",
+      "saveFailed": "لا يمكن حفظ الحذف."
+    }
   },
   "ipRightsRegister": {
     "description": "تسجيل حقوق الملكية الفكرية على مستوى الشركة مع عوامل تصفية حسب العميل والولاية القضائية والنوع والحالة وانتهاء الصلاحية.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "مجموع",
+    "combination_of_colors": "مزيج من الألوان",
     "figurative": "رمزي",
     "sound": "صوت",
     "three_dimensional": "3D",
-    "wordmark": "علامة الكلمة",
-    "combination_of_colors": "مزيج من الألوان"
+    "wordmark": "علامة الكلمة"
   },
   "overview": {
     "assignedTo": "المحامي الرئيسي",
@@ -801,18 +2570,6 @@
     "clientHint": "الطرف الموجه - يتلقى الفواتير",
     "intermediary": "وسيط",
     "description": "وصف",
-    "jurisdictions": "الولايات القضائية",
-    "jurisdictionsEmpty": "لم يتم تسجيل أي ولايات قضائية.",
-    "openedBy": "افتتح بواسطة",
-    "status": "حالة",
-    "table": {
-      "country": "دولة",
-      "localRef": "المرجع المحلي.",
-      "status": "حالة"
-    },
-    "title": "تفاصيل الملف",
-    "type": "نوع العمل",
-    "typeSpecific": "سمات خاصة بالنوع",
     "edit": {
       "cancel": "يلغي",
       "edit": "يحرر",
@@ -829,7 +2586,19 @@
       "saved": "أنقذ.",
       "saving": "توفير…",
       "title": "تفاصيل الملف"
-    }
+    },
+    "jurisdictions": "الولايات القضائية",
+    "jurisdictionsEmpty": "لم يتم تسجيل أي ولايات قضائية.",
+    "openedBy": "افتتح بواسطة",
+    "status": "حالة",
+    "table": {
+      "country": "دولة",
+      "localRef": "المرجع المحلي.",
+      "status": "حالة"
+    },
+    "title": "تفاصيل الملف",
+    "type": "نوع العمل",
+    "typeSpecific": "سمات خاصة بالنوع"
   },
   "parties": {
     "title": "الأطراف",
@@ -874,11 +2643,12 @@
     "instructions": "تعليمات",
     "approvals": "الموافقات",
     "ipRights": "حقوق الملكية الفكرية",
+    "secondaryActions": "الإجراءات الثانوية",
     "customs": "جمارك",
     "overview": "ملخص",
-    "tasks": "ملاحظات",
+    "tasks": "ملحوظات",
     "timeline": "الجدول الزمني",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} على {{tab}}"
   },
   "approvals": {
     "title": "موافقات العميل",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "أضف مهمة",
+    "add": "أضف ملاحظة",
     "assignedTo": "المخصصة ل",
     "assignedToUser": "تم التعيين إلى {{name}}",
     "completed": "مكتمل",
     "completedByUser": "اكتمل بواسطة {{name}}",
-    "confirmComplete": "هل تريد وضع علامة على هذه المهمة كمكتملة؟",
-    "confirmDelete": "هل تريد حذف هذه المهمة؟",
+    "confirmComplete": "هل تريد وضع علامة على هذه الملاحظة كمكتملة؟",
+    "confirmDelete": "هل تريد حذف هذه الملاحظة؟",
     "delete": "يمسح",
-    "deleteMessage": "ستتم إزالة هذه المهمة نهائيًا.",
-    "deleteTitle": "هل تريد حذف المهمة؟",
-    "description": "العمل الذي يتعين القيام به في هذا الشأن – منفصل عن المواعيد النهائية التي يحددها النظام.",
-    "drawerTitle": "أضف مهمة",
+    "deleteMessage": "ستتم إزالة هذه الملاحظة نهائيًا.",
+    "deleteTitle": "هل تريد حذف الملاحظة؟",
+    "description": "ملاحظات داخلية حول هذه المسألة - منفصلة عن المواعيد النهائية التي ينشئها النظام.",
+    "drawerTitle": "أضف ملاحظة",
     "dueOn": "مستحق {{date}}",
-    "empty": "لا توجد مهام في هذا الشأن.",
-    "emptyOpen": "لا توجد مهام مفتوحة. قم بإضافة واحد عندما يكون هناك عمل لتتبعه في هذا الشأن.",
-    "error": "فشل في تحميل المهام.",
-    "errorCreate": "فشل في إنشاء المهمة",
+    "empty": "لا توجد ملاحظات حول هذه المسألة.",
+    "emptyOpen": "لا توجد ملاحظات مفتوحة. قم بإضافة واحد عندما يكون هناك شيء لتتبعه في هذا الشأن.",
+    "error": "فشل تحميل الملاحظات.",
+    "errorCreate": "فشل في إنشاء ملاحظة",
     "form": {
       "assigneeLabel": "المخصصة ل",
-      "assigneeRequired": "حدد من يجب عليه القيام بهذه المهمة",
+      "assigneeRequired": "حدد لمن هذه المذكرة",
       "dueDateOptional": "تاريخ الاستحقاق (اختياري)",
       "notesOptional": "ملاحظات (اختياري)",
       "notesPlaceholder": "أي سياق إضافي للمكلف",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "على سبيل المثال استدعاء العميل لإعادة: استجابة BPO",
       "titleRequired": "العنوان مطلوب"
     },
-    "loading": "جارٍ تحميل المهام...",
+    "loading": "جارٍ تحميل الملاحظات…",
     "markComplete": "وضع علامة مكتملة",
     "noDueDate": "لا يوجد تاريخ استحقاق",
     "open": "يفتح",
@@ -954,7 +2724,7 @@
       "high": "عالي",
       "normal": "طبيعي"
     },
-    "title": "المهام"
+    "title": "ملحوظات"
   },
   "timeline": {
     "description": "التاريخ الزمني للملاحقات القضائية والمراسلات في هذا الشأن.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "النزاع / المعارضة",
     "domain": "المجالات",
     "fto_analysis": "تحليل منظمة إرهابية أجنبية",
-    "geographical_indication": "الإشارة الجغرافية",
-    "industrial_design": "التصميم الصناعي",
+    "geographical_indication": "المؤشرات الجغرافية",
+    "industrial_design": "تصميم",
     "litigation_expert_report": "تقارير خبراء التقاضي/المحكمة",
     "official_fee_payment": "مدفوعات الرسوم الرسمية",
     "other": "آخر",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "يختار…",
     "title": "تفاصيل خاصة بالنوع"
   },
-  "createFile": {
-    "addClass": "أضف فئة",
-    "backToFiles": "العودة إلى الملفات",
-    "cancel": "يلغي",
-    "changeSubtype": "تغيير الفئة الفرعية",
-    "checkRegister": "التحقق من السجل التجاري",
-    "clearClient": "تغيير العميل",
-    "clientOptionalHint": "لا توجد مباراة CRM؟ املأ تفاصيل العميل أدناه - سيؤدي حفظ المسودة إلى إنشائها في العملاء تلقائيًا.",
-    "applicantOptionalHint": "لا توجد مباراة CRM؟ املأ تفاصيل مقدم الطلب أدناه - سيؤدي حفظ المسودة إلى إنشائها في العملاء تلقائيًا.",
-    "draftDescription": "تم الإنشاء عبر إنشاء ملف ({{procedure}}) - مسودة",
-    "errors": {
-      "client": "حدد عميلاً للمتابعة.",
-      "clientOrDetails": "حدد عميل CRM، أو أدخل اسم العميل وتفاصيله لإنشائها.",
-      "applicantOrDetails": "حدد مقدم الطلب في CRM، أو أدخل اسم مقدم الطلب وتفاصيله لإنشائها.",
-      "jurisdiction": "حدد منطقة / دولة واحدة على الأقل.",
-      "markWords": "أدخل اسم العلامة التجارية / الكلمات.",
-      "saveFailed": "تعذر حفظ ملف المسودة.",
-      "subtype": "حدد فئة فرعية للعلامة التجارية.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "مرجع الملف وحالته",
+    "incomingNumber": {
+      "label": "رقم الوارد"
     },
-    "euHint": "العلامة التجارية للاتحاد الأوروبي (EUIPO) — تم تحديد الاختصاص القضائي للاتحاد الأوروبي.",
-    "fields": {
-      "address": "عنوان",
-      "applicantClient": "العميل مقدم الطلب",
-      "applicantClientOptional": "مقدم الطلب في CRM (اختياري)",
-      "city": "مدينة",
-      "classNumber": "رقم الفصل",
-      "country": "دولة",
-      "eik": "إيك / إيك",
-      "email": "بريد إلكتروني",
-      "fax": "فاكس",
-      "goodsText": "السلع والخدمات",
-      "legalName": "الاسم ونوع الكيان القانوني",
-      "linkClient": "حدد العميل في CRM",
-      "linkClientOptional": "عميل CRM (اختياري)",
-      "markKind": "فئة العلامة",
-      "markType": "نوع العلامة",
-      "markWords": "كلمات العلامة",
-      "mol": "مول (موقع)",
-      "name": "اسم",
-      "phone": "هاتف",
-      "postalCode": "رمز بريدي",
-      "territory": "إِقلِيم",
-      "vat": "معرف ضريبة القيمة المضافة",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "تاريخ الوارد"
     },
-    "formTitle": "إنشاء ملف: العلامة التجارية",
-    "fullFormReady": "النموذج الكامل متاح",
-    "goodsPlaceholder": "على سبيل المثال زجاجات. خدمات التجزئة…",
-    "markKinds": {
-      "certification": "شهادة",
-      "collective": "الجماعية",
-      "individual": "فردي"
+    "territoryRoute": {
+      "label": "طريق الإقليم",
+      "options": {
+        "national_bg": "بلغاريا (وطنية)",
+        "eu": "الاتحاد الأوروبي",
+        "wipo": "الويبو / الدولية",
+        "international": "دولية أخرى"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "مزيج من الألوان",
-      "combined": "مجموع",
-      "figurative": "رمزي",
-      "sound": "صوت",
-      "three_dimensional": "ثلاثي الأبعاد",
-      "wordmark": "علامة الكلمة"
+    "authorityOffice": {
+      "label": "الهيئة / المكتب"
     },
-    "noClients": "لا يوجد عملاء مطابقين. قم بإنشاء العميل في CRM أولاً، ثم قم بالرجوع هنا.",
-    "optionalMark": "العلامة / الموضوع (اختياري)",
-    "partialSubtypeNote": "سيتم توسيع المجالات المتخصصة الكاملة لهذه الفئة الفرعية لاحقًا. لا يزال بإمكانك حفظ مسودة مرتبطة بالعميل؛ تبقى المستندات والمراسلات في الملف.",
-    "preliminary": "معلومات أولية",
-    "procedureHints": {
-      "new": "طلب علامة تجارية جديدة — النموذج الكامل",
-      "registered": "علامة تجارية مسجلة مسبقاً",
-      "objection": "إجراءات الاعتراض",
-      "opposition": "إجراءات المعارضة",
-      "cancellation": "إجراءات الإبطال",
-      "deletion": "إجراءات الشطب",
-      "opposition_against_us": "إجراءات المعارضة",
-      "opposition_by_us": "إجراءات المعارضة",
-      "revocation": "إجراءات الشطب"
+    "relatedApplicationNumber": {
+      "label": "رقم الطلب ذو الصلة"
     },
-    "procedures": {
-      "new": "علامة جديدة",
-      "registered": "علامة تجارية مسجلة",
-      "objection": "اعتراض",
-      "opposition": "معارضة",
-      "cancellation": "إبطال",
-      "deletion": "شطب",
-      "opposition_against_us": "معارضة",
-      "opposition_by_us": "معارضة",
-      "revocation": "شطب"
-    },
-    "removeClass": "إزالة الصف",
-    "sameApplicant": "معلومات مقدم الطلب هي نفس معلومات العميل",
-    "sameCorrespondence": "عنوان المراسلة هو نفس العنوان المسجل",
-    "saveDraft": "حفظ كمسودة",
-    "saving": "توفير…",
-    "searchClient": "البحث عن العملاء بالاسم أو الرمز...",
-    "sections": {
-      "applicant": "مقدم الطلب",
-      "client": "بيانات العميل",
-      "contact": "الشخص الذي يمكن الاتصال به",
-      "correspondence": "عنوان المراسلة",
-      "goods": "قائمة السلع والخدمات",
-      "markName": "اسم العلامة التجارية",
-      "registeredAddress": "العنوان المسجل",
-      "searchDocs": "إرفاق وثائق البحث",
-      "trademark": "معلومات العلامة التجارية",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "اختر البلدان",
-    "subtypeHint": "اختر أولاً الفئة الفرعية. العلامة الجديدة تفتح النموذج الكامل.",
-    "territories": {
-      "eu": "الاتحاد الأوروبي",
-      "international": "الدولية (WO)",
-      "national": "وطني"
-    },
-    "trademarkTitle": "إنشاء ملف - علامة تجارية",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "إضافة دولة...",
-    "cancel": "يلغي",
-    "country": "دولة",
-    "edit": "يحرر",
-    "errors": {
-      "country": "حدد دولة واحدة على الأقل لهذه المنطقة.",
-      "saveFailed": "تعذر حفظ معلومات العلامة التجارية."
-    },
-    "euFixed": "الاتحاد الأوروبي (EUIPO)",
-    "markKind": "فئة العلامة",
-    "markType": "نوع العلامة",
-    "noCountries": "لم يتم اختيار أي دولة حتى الآن.",
-    "save": "حفظ التغييرات",
-    "saved": "أنقذ.",
-    "saving": "توفير…",
-    "selectCountries": "اختر البلدان",
-    "territory": "إِقلِيم",
-    "title": "معلومات العلامة التجارية"
-  },
-  "fileApproval": {
-    "clientStep": "1. تمت الموافقة على العميل",
-    "clientStepHint": "يؤكد الموظفون أن العميل وافق دون الاتصال بالإنترنت (مكالمة/بريد إلكتروني/اجتماع). لا يحتاج عميل البوابة الإلكترونية إلى الموافقة على نفسه.",
-    "errors": {
-      "updateFailed": "تعذر تحديث حالة الموافقة."
-    },
-    "hint": "الموافقة الداخلية فقط: قم بوضع علامة على موافقة العميل، ثم يقوم الشريك الإداري بقبول الملف. لا يلزم الحصول على موافقة الإرسال إلى العميل.",
-    "markClientApproved": "علامة الموافقة على العميل",
-    "partnerApprove": "ملف موافقة الشريك",
-    "partnerOnly": "يمكن للشريك الإداري فقط إكمال هذه الخطوة",
-    "partnerStep": "2. قبول الشريك الإداري",
-    "partnerStepHint": "بعد وضع علامة \"موافق عليه\" على العميل، يقبل الشريك الإداري الملف ويترك المسودة.",
-    "recordedBy": "تم التسجيل بواسطة {{name}} · {{date}}",
-    "title": "الموافقة على الملف",
-    "waitForClient": "قم بتمييز العميل بالموافقة أولاً، ثم يمكنك قبول الملف."
-  },
-  "prosecution": {
-    "cancelEdit": "يلغي",
-    "completeStage": "مرحلة كاملة",
-    "edit": "يحرر",
-    "editingNote": "استخدم \"حفظ\" للاحتفاظ بما قمت بإدخاله في هذه المرحلة، أو \"إكمال المرحلة\" للمضي قدمًا عند ملء الحقول المطلوبة.",
-    "gateHint": "لا يمكنك المضي قدمًا حتى يتم ملء الحقول المطلوبة لهذه المرحلة (مثل بوابات النظام الخاصة بهم).",
-    "goBack": "العودة مرحلة",
-    "errors": {
-      "needAttachments": "قم بإرفاق الملفات المطلوبة قبل المتابعة: {{list}}",
-      "needInvoice": "قم بإنشاء الفاتورة من رسوم الدولة قبل إكمال هذه المرحلة.",
-      "alreadyFinal": "هذا الملف موجود بالفعل في المرحلة النهائية.",
-      "needApproval": "إنهاء الموافقة على الملف (العميل + الشريك الإداري) قبل مغادرة الإعدادي.",
-      "needBulletin": "أدخل رقم النشرة وتاريخها قبل مغادرة النشر.",
-      "needFeePaid": "أدخل تاريخ دفع رسوم الدولة قبل مغادرة الامتحان الرسمي.",
-      "needFilingFields": "أدخل رقم الطلب وتاريخ التقديم لإكمال التقديم.",
-      "needFormalFields": "أدخل رسوم الدولة والموعد النهائي للدفع للمتابعة.",
-      "needMol": "الرجاء إدخال MOL في تفاصيل الملف (إنشاء ملف / تحرير) قبل استكمال عملية الإيداع.",
-      "needOfficeActionDeadline": "يحتوي إجراء Office على موضوع — حدد موعدًا نهائيًا له قبل المتابعة.",
-      "needPoaFiled": "أدخل رقم وتاريخ ورود التوكيل قبل مغادرة الامتحان الرسمي.",
-      "needRegFeePaid": "أدخل تاريخ دفع رسوم التسجيل قبل المتابعة.",
-      "needRepresentative": "أدخل ممثلاً واحدًا على الأقل، أو قم بتعيين إضافة ممثلين إلى لا.",
-      "saveBeforeNavigate": "احفظ تعديلاتك أو قم بإلغائها قبل الرجوع إلى مرحلة ما.",
-      "saveFailed": "لا يمكن حفظ بيانات الادعاء."
-    },
-    "fields": {
-      "addRepresentatives": "هل ترغب في إضافة ممثلين؟",
-      "applicationDate": "تاريخ تقديم الطلب",
-      "applicationNumber": "رقم الطلب",
-      "bulletinDate": "تاريخ النشرة",
-      "bulletinNumber": "رقم النشرة",
-      "feePaidDate": "تاريخ دفع رسوم الدولة",
-      "generatePoa": "توليد التوكيل",
-      "officeAction": "إجراء/طلب المكتب",
-      "officeActionDeadline": "الموعد النهائي لإجراءات المكتب",
-      "paymentDeadline": "الموعد النهائي للدفع",
-      "poaDate": "تاريخ التوكيل",
-      "poaDeadline": "الموعد النهائي لتقديم PoA",
-      "poaIncoming": "رقم الوارد PoA",
-      "regFeePaidDate": "تاريخ دفع رسوم التسجيل",
-      "remindDays": "تذكير قبل أيام من الموعد النهائي",
-      "representatives": "الممثل (الممثلون)",
-      "sendPoaEmail": "إرسال البريد الإلكتروني التلقائي",
-      "stateFee": "رسوم الدولة (BGN)"
-    },
-    "molHint": "يجب ضبط MOL على تفاصيل الملف (من إنشاء الملف). كتل MOL المفقودة تكمل هذه المرحلة.",
-    "no": "لا",
-    "prepHint": "المرحلة التحضيرية: إنهاء الموافقة على الملف أولاً، ثم قبول الشريك الإداري ينقلك إلى حفظ الملفات.",
-    "registeredDone": "وصلت مرحلة التسجيل.",
-    "saveChanges": "حفظ التغييرات",
-    "saveEntered": "يحفظ",
-    "saved": "أنقذ.",
-    "saveFields": "حفظ الحقول",
-    "saving": "توفير…",
-    "stages": {
-      "filing": "الإيداع",
-      "formal_exam": "الفحص الشكلي",
-      "prep": "تحضيري",
-      "publication": "النشر",
-      "reg_fee": "رسوم التسجيل",
-      "registration": "التسجيل",
-      "substantive_exam": "الفحص الموضوعي"
-    },
-    "territoryLabel": {
-      "eu": "خط الأنابيب: الاتحاد الأوروبي",
-      "international": "خط الأنابيب: دولي (WO)",
-      "national": "خط الأنابيب: وطني"
-    },
-    "territoryLocked": "المنطقة ثابتة من إنشاء الملف",
-    "territoryFromInfo": "المنطقة من معلومات العلامة التجارية",
-    "title": "مراحل الإجراءات",
-    "yes": "نعم",
-    "hub": {
-      "generateInvoice": "إنشاء الفاتورة",
-      "invoiceIssuedShort": "تم إصدار الفاتورة",
-      "invoiceIssued": "تم إصدار الفاتورة {{number}}. يمكن للعميل رؤيته في بوابته؛ وهو موجود أيضًا في علامة التبويب \"الفوترة\".",
-      "invoiceAlreadyIssued": "تم إصدار الفاتورة {{number}} بالفعل — وهي مرئية في البوابة الإلكترونية والفوترة.",
-      "invoiceFailed": "لا يمكن إنشاء الفاتورة. التحقق من تفاصيل فواتير العميل.",
-      "invoiceNotes": "الرسوم الرسمية / الدولة",
-      "uploadFailed": "تعذر تحميل الملف.",
-      "needStateFee": "أدخل مبلغ رسوم الدولة أولاً.",
-      "feeDescription": "الدولة / الرسوم الرسمية",
-      "deadlineFailed": "تعذر إنشاء الموعد النهائي (المواعيد النهائية).",
-      "deadlineTitles": {
-        "payment": "دفع رسوم الدولة",
-        "poa": "تقديم التوكيل",
-        "oa": "إجراء مكتبي / طلب فحص",
-        "oaWithSubject": "إجراء المكتب: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "تذكير {{days}} يوم (أيام) قبل الموعد النهائي."
-      },
-      "attach": {
-        "search": "إرفاق ملف البحث",
-        "application": "إرفاق التطبيق",
-        "feeSlip": "إرفاق قسيمة الرسوم",
-        "poa": "إرفاق برنامج العمل",
-        "officeAction": "إرفاق إجراءات المكتب",
-        "decision": "إرفاق القرار",
-        "bulletin": "إرفاق النشرة",
-        "regFee": "إرفاق إثبات الدفع",
-        "certificate": "إرفاق الشهادة"
+    "workflowStage": {
+      "label": "مرحلة سير العمل",
+      "options": {
+        "intake": "تناول",
+        "analysis": "تحليل",
+        "contract_draft": "العقد / المسودة",
+        "filed": "قدم",
+        "closed": "مغلق",
+        "registration": "تسجيل",
+        "active": "نشيط",
+        "seizure_pending": "الحجز معلق",
+        "scoping": "تحديد النطاق",
+        "search": "يبحث",
+        "draft_report": "مشروع التقرير",
+        "delivered": "تم التوصيل",
+        "archived": "مؤرشف",
+        "pre_dispute": "ما قبل النزاع",
+        "hearing": "السمع",
+        "decision": "قرار",
+        "appeal": "جاذبية",
+        "monitoring": "يراقب",
+        "dispute": "ينازع",
+        "udrp": "السياسة الموحدة",
+        "resolved": "تم الحل",
+        "engaged": "مرتبط",
+        "draft": "مسودة",
+        "submitted": "مُقَدَّم",
+        "requested": "مطلوب",
+        "in_progress": "في تَقَدم",
+        "invoiced": "فاتورة",
+        "pending": "قيد الانتظار",
+        "paid": "مدفوع",
+        "reimbursed": "تسدد",
+        "open": "يفتح"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "يحرر",
+    "save": "يحفظ",
+    "cancel": "يلغي",
+    "saving": "توفير…",
+    "editHint": "قم بتحديث مرجع الملف ومرحلة سير العمل والتفاصيل الخاصة بالنوع.",
+    "clientLabel": "عميل",
+    "detailsTitle": "{{type}} التفاصيل",
+    "errors": {
+      "saveFailed": "لا يمكن حفظ تفاصيل الملف."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "أنشئ ملفًا آخر جديدًا أو اضبط عوامل التصفية.",
+    "viewAria": "عرض {{title}}",
+    "filesAria": "المستندات الخاصة بـ {{title}} ({{count}})",
+    "columns": {
+      "type": "يكتب",
+      "subject": "موضوع",
+      "client": "عميل",
+      "incoming": "المرجع الوارد.",
+      "stage": "منصة",
+      "deadline": "التاريخ الرئيسي",
+      "actions": "الإجراءات"
     }
   }
 }

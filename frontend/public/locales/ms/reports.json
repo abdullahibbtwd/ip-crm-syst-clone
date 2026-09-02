@@ -21,7 +21,7 @@
     "clientMatters": "Perkara pelanggan",
     "clientsInWindow": "{{clients}} pelanggan · {{days}} hari ufuk",
     "crossTabTitle": "Pelanggan × bidang kuasa × peguam",
-    "description": "Tarikh akhir kritikal yang akan datang dikumpulkan mengikut klien, bidang kuasa dan peguam yang bertanggungjawab. Warna kecemasan sepadan dengan senarai kerja tarikh akhir dan peristiwa penting pemberitahuan.",
+    "description": "Tarikh akhir kritikal yang akan datang dikumpulkan mengikut klien, bidang kuasa dan peguam yang bertanggungjawab. Warna segera sepadan dengan senarai kerja tarikh akhir dan peristiwa penting pemberitahuan.",
     "emptyDescription": "Cuba luaskan tetingkap portfolio atau kosongkan penapis.",
     "emptyTitle": "Tiada tarikh akhir dalam tetingkap ini",
     "error": "Tidak dapat memuatkan laporan risiko tarikh akhir.",

@@ -1,15 +1,15 @@
 {
   "sidebar": {
     "expand": "Proširite bočnu traku",
-    "collapse": "Skupi bočnu traku",
+    "collapse": "Sažmi bočnu traku",
     "close": "Zatvori bočnu traku"
   },
   "sections": {
     "overview": "Pregled",
     "clients": "Klijenti",
     "matters": "Fajlovi",
-    "ipRights": "IP prava",
-    "finance": "finansije",
+    "ipRights": "prava intelektualne svojine",
+    "finance": "Financije",
     "reports": "Izvještaji",
     "myWork": "Moj posao",
     "rights": "Prava",
@@ -32,8 +32,16 @@
     "deadlines": "Rokovi",
     "alerts": "Alerts",
     "clients": "Klijenti",
-    "holdingGroups": "Holding grupe",
+    "holdingGroups": "Držanje grupa",
     "allMatters": "Svi fajlovi",
+    "workingFiles": "Fajlovi",
+    "createFile": "Kreirajte fajl",
+    "createFileTrademark": "Trademark",
+    "createFilePatent": "Patent",
+    "mattersAll": "Sve",
+    "mattersDrafts": "Nacrti",
+    "mattersOthers": "Drugi",
+    "mattersArchived": "Arhivirano",
     "matters": "Fajlovi",
     "intakeQueue": "Intake queue",
     "rightsRegister": "Registar prava",
@@ -41,8 +49,8 @@
     "watch": "Gledaj",
     "billingOverview": "Pregled naplate",
     "deadlineRisk": "Rizik roka",
-    "filingVolumes": "Obim arhiviranja",
-    "renewalsSummary": "Sažetak obnavljanja",
+    "filingVolumes": "Svesci arhiviranja",
+    "renewalsSummary": "Sažetak obnove",
     "revenueReceivables": "Prihodi i potraživanja",
     "team": "Tim",
     "settings": "Postavke",
@@ -100,15 +108,7 @@
     "messages": "Poruke",
     "approvals": "Odobrenja",
     "help": "Upomoć",
-    "myPortfolio": "Moj portfolio",
-    "workingFiles": "Fajlovi",
-    "mattersAll": "Svi",
-    "mattersOthers": "Ostalo",
-    "mattersArchived": "Arhiva",
-    "mattersDrafts": "Nacrti",
-    "createFile": "Kreiraj fajl",
-    "createFileTrademark": "Žig",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Moj portfolio"
   },
   "roles": {
     "managing_partner": "Managing Partner",
@@ -117,7 +117,7 @@
     "coordinator": "Koordinator / Intake",
     "docketing_admin": "Docketing Admin",
     "paralegal": "Paralegal",
-    "finance": "finansije",
+    "finance": "Financije",
     "dpo_compliance": "DPO / Usklađenost",
     "it_admin": "IT / Admin",
     "portal_client": "Klijent (portal)"
@@ -142,14 +142,14 @@
       "description": "Rizik za rokove i dokumentaciju u cijeloj firmi - grupiran prema klijentu, nadležnosti i ovlašteniku s naglaskom na hitnost."
     },
     "finance": {
-      "eyebrow": "finansije",
+      "eyebrow": "Financije",
       "title": "Pregled finansija",
       "description": "Starost izdatih prihoda, naplata i potraživanja - izdavanje faktura i praćenje plaćanja sa jednog mjesta."
     },
     "portal_client": {
       "eyebrow": "Portal za klijente",
       "title": "Dobrodošli nazad",
-      "description": "Pošaljite upite za podnošenje i pratite pitanja za svoju organizaciju."
+      "description": "Pošaljite upite o podnošenju podataka i pratite pitanja za svoju organizaciju."
     },
     "myDashboard": {
       "title": "Moja kontrolna tabla"

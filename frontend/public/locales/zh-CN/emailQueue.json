@@ -3,7 +3,7 @@
   "subtitle": "从连接的邮箱中提取的未链接的电子邮件。 打开电子邮件，然后将其附加到事务的通信登记簿中。",
   "fetchEmails": "获取 5 封电子邮件",
   "mailboxSettings": "邮箱设置",
-  "fetchSuccess": "已获取最多 {{limit}} 收件箱消息 — 队列中新增 {{ingested}} 条消息{{emptyHint}}。",
+  "fetchSuccess": "已获取最多 {{limit}} 条收件箱消息 — {{ingested}} 队列中新增消息 {{emptyHint}}。",
   "fetchEmptyHint": "（已导入或收件箱为空）",
   "fetchFailed": "获取电子邮件失败",
   "columns": {

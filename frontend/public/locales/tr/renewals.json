@@ -2,7 +2,7 @@
   "status": {
     "upcoming": "Yaklaşan",
     "instructed": "talimat verildi",
-    "filed": "Dosyalanmış",
+    "filed": "Dosyalandı",
     "completed": "Tamamlanmış",
     "lapsed": "Süresi dolmuş"
   },

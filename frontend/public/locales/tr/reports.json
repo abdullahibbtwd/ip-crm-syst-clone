@@ -21,7 +21,7 @@
     "clientMatters": "Müşteri önemlidir",
     "clientsInWindow": "{{clients}} müşteri · {{days}} gün ufku",
     "crossTabTitle": "Müşteri × yetki alanı × avukat",
-    "description": "Müşteri, yargı bölgesi ve sorumlu avukata göre gruplandırılmış yaklaşan kritik son teslim tarihleri. Aciliyet renkleri, son teslim tarihi iş listeleri ve bildirim aşamalarıyla eşleşir.",
+    "description": "Müşteriye, yetki alanına ve sorumlu avukata göre gruplandırılmış yaklaşan kritik son teslim tarihleri. Aciliyet renkleri, son teslim tarihi iş listeleri ve bildirim aşamalarıyla eşleşir.",
     "emptyDescription": "Portföy penceresini genişletmeyi veya filtreleri temizlemeyi deneyin.",
     "emptyTitle": "Bu pencerede son tarih yok",
     "error": "Son tarih risk raporu yüklenemedi.",
@@ -56,7 +56,7 @@
   "filingVolumes": {
     "byJurisdiction": "Yargı yetkisine göre",
     "byMonth": "Aylara göre başvurular",
-    "description": "Yapılan başvurular - konu zaman çizelgesindeki dosyalama etkinliklerinden toplanmış, aya, konu türüne ve yetki alanına göre gruplandırılmış.",
+    "description": "Yapılan başvurular - konu zaman çizelgesindeki dosyalama etkinliklerinden toplanmış, aya, konu türüne ve yetki alanına göre gruplandırılmıştır.",
     "error": "Dosyalama hacimleri yüklenemedi.",
     "filters": {
       "allJurisdictions": "Tüm yargı bölgeleri",

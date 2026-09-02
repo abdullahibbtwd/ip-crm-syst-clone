@@ -1,6 +1,6 @@
 {
   "actions": {
-    "start": "Pokreni",
+    "start": "Start",
     "complete": "Kompletan"
   },
   "status": {
@@ -20,7 +20,7 @@
     "description": "Registar rokova za cijelu tvrtku za svaku stvar i opunomoćenika.",
     "newDeadline": "Novi rok",
     "firmDueToday_one": "Danas ističe 1 čvrsti rok za sve predmete.",
-    "firmDueToday_other": "{{count}} danas stižu čvrsti rokovi za sva pitanja.",
+    "firmDueToday_other": "{{count}} danas stižu čvrsti rokovi za sve predmete.",
     "filters": {
       "attorney": "odvjetnik",
       "allAttorneys": "Svi odvjetnici",

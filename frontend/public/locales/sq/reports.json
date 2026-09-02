@@ -56,7 +56,7 @@
   "filingVolumes": {
     "byJurisdiction": "Sipas juridiksionit",
     "byMonth": "Regjistrimet sipas muajve",
-    "description": "Aplikimet e paraqitura - të grumbulluara nga ngjarjet e paraqitjes së afatit kohor të çështjeve, të grupuara sipas muajit, llojit të çështjes dhe juridiksionit.",
+    "description": "Aplikimet e depozituara - të grumbulluara nga ngjarjet e paraqitjes së afatit kohor të çështjeve, të grupuara sipas muajit, llojit të çështjes dhe juridiksionit.",
     "error": "Vëllimet e dosjeve nuk mund të ngarkoheshin.",
     "filters": {
       "allJurisdictions": "Të gjitha juridiksionet",
@@ -92,7 +92,7 @@
     "byDueMonth": "Deri në muajin e caktuar",
     "byJurisdiction": "Sipas juridiksionit",
     "cycle": "cikli {{number}}",
-    "description": "Dritaret e ardhshme të rinovimit sipas statusit, juridiksionit dhe muajit të caktuar - me nivelet e urgjencës në përputhje me raportimin e rrezikut në afat.",
+    "description": "Dritaret e ardhshme të rinovimit sipas statusit, juridiksionit dhe muajit të caktuar - me nivele të urgjencës në përputhje me raportimin e rrezikut në afat.",
     "dueBefore": "Afati paraprak",
     "dueBeforeLabel": "Afati përpara {{date}}",
     "error": "Përmbledhja e rinovimeve nuk mund të ngarkohej.",

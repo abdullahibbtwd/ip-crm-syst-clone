@@ -1,7 +1,7 @@
 {
   "clients": {
     "description": "Şirket ve bireysel müşteri kayıtlarını yönetin. Yeni müşteriler alım yoluyla yaratılır.",
-    "emptyDescription": "Filtreleri ayarlamayı deneyin veya giriş yoluyla bir müşteri oluşturun.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya alım yoluyla bir müşteri oluşturun.",
     "emptyTitle": "Müşteri bulunamadı",
     "error": "İstemciler yüklenemedi.",
     "newViaIntake": "Giriş yoluyla yeni müşteri",

@@ -37,7 +37,7 @@
     "dryRun": "Deneme sürüşü",
     "dryRunAria": "Prova saklama kuralı",
     "editAria": "Saklama kuralını düzenle",
-    "dryRunResult": "Deneme çalışması: {{count}} kayıt(lar)ını etkiler (kesme {{cutoff}}).",
+    "dryRunResult": "Prova: {{count}} kayıt(lar)ı etkiler (kesme {{cutoff}}).",
     "dryRunFailed": "Deneme çalıştırması başarısız oldu",
     "auditTrailHint": "Temizleme geçmişini şurada görüntüleyin:",
     "auditTrailLink": "denetim izi",

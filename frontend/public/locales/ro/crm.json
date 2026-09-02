@@ -99,12 +99,12 @@
     "unlink": "Eliminați din grup",
     "unlinkFailed": "Nu s-a putut elimina clientul din grup",
     "searchPlaceholder": "Căutați numele sau țara...",
-    "title": "Grupuri de deținere",
+    "title": "Grupuri de exploatare",
     "viewAria": "Vedeți {{name}}"
   },
   "addressInsights": {
     "crmRegistered": "CRM adresă înregistrată/legală",
-    "hint": "Adresele de registru sunt reîmprospătate atunci când verificările de stare EPO se execută pe brevetele EP. Verificați nepotrivirile înainte de depuneri și corespondență oficială.",
+    "hint": "Adresele de registru sunt reîmprospătate atunci când verificările de stare EPO sunt executate pe brevetele EP. Verificați nepotrivirile înainte de depuneri și corespondență oficială.",
     "loading": "Se încarcă compararea adresei...",
     "manageAddresses": "Gestionați adresele",
     "matchExact": "Potrivire exactă",
@@ -220,7 +220,7 @@
     "title": "Istoria relațiilor"
   },
   "matters": {
-    "empty": "Încă nu există fișiere de lucru. Deschideți un fișier de lucru pentru a începe activitatea de urmărire penală pentru acest client.",
+    "empty": "Încă nu există fișiere de lucru. Deschideți un fișier de lucru pentru a începe munca de urmărire penală pentru acest client.",
     "loading": "Se încarcă fișierele de lucru...",
     "openNew": "Deschideți un nou fișier de lucru",
     "table": {

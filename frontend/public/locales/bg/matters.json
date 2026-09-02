@@ -757,7 +757,12 @@
     "saving": "Запазване…",
     "selectCountries": "Изберете държави",
     "territory": "Територия",
-    "title": "Информация за марка"
+    "title": "Информация за марка",
+    "markImage": "Mark image",
+    "uploadMarkImage": "Upload image",
+    "replaceMarkImage": "Replace image",
+    "removeMarkImage": "Remove image",
+    "markImageHint": "PNG or JPEG — shown in the trademark list beside the name."
   },
   "patentInfo": {
     "title": "Информация за патент",
@@ -1352,7 +1357,11 @@
       "title": "Заглавие",
       "type": "Тип"
     },
-    "title": "Срокове"
+    "title": "Срокове",
+    "summary": {
+      "open": "Open deadlines",
+      "overdue": "Overdue"
+    }
   },
   "documents": {
     "allCategories": "Всички категории",
@@ -1758,7 +1767,8 @@
       "classOption": "Клас {{number}}",
       "clear": "Изчисти филтрите",
       "apply": "Приложи филтрите"
-    }
+    },
+    "description": "Trademark portfolio — prosecution stage, classes, applicant, and deadlines at a glance."
   },
   "utilityModelList": {
     "description": "Полезни модели — територия, претенции, притежател и регистрация на един поглед.",

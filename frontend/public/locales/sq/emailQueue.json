@@ -3,9 +3,9 @@
   "subtitle": "Email-et e palidhura të tërhequra nga kutitë postare të lidhura. Hapni një email dhe më pas bashkëngjitni atë në regjistrin e korrespondencës së një çështjeje.",
   "fetchEmails": "Merr 5 email",
   "mailboxSettings": "Cilësimet e kutisë postare",
-  "fetchSuccess": "U mora deri në {{limit}} mesazhe në kutinë hyrëse — {{ingested}} e re në radhë{{emptyHint}}.",
+  "fetchSuccess": "U mora deri në {{limit}} mesazhe në kutinë hyrëse — {{ingested}} të reja në radhë{{emptyHint}}.",
   "fetchEmptyHint": "(tashmë e importuar ose kutia hyrëse bosh)",
-  "fetchFailed": "Marrja e emaileve dështoi",
+  "fetchFailed": "Marrja e email-eve dështoi",
   "columns": {
     "received": "Marrë",
     "from": "Nga",

@@ -30,7 +30,7 @@
     "description": "Realice un seguimiento de las facturas emitidas, el estado de los pagos y los saldos pendientes.",
     "draft": "Borrador",
     "empty": "No se encontraron facturas",
-    "emptyDescription": "Intente ajustar los filtros o crear una factura a partir del trabajo no facturado.",
+    "emptyDescription": "Intente ajustar los filtros o cree una factura a partir del trabajo no facturado.",
     "error": "No se pudieron cargar las facturas.",
     "invoiceStatus": {
       "draft": "Borrador",

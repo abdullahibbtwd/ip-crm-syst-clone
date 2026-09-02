@@ -45,7 +45,7 @@
     "columns": {
       "entity": "Entitet",
       "condition": "Stanje",
-      "retention": "Retention",
+      "retention": "Zadržavanje",
       "action": "Akcija",
       "status": "Status",
       "description": "Opis"

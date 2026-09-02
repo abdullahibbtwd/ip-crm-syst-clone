@@ -8,7 +8,7 @@
   },
   "page": {
     "title": "Reînnoiri",
-    "descriptionMy": "Ferestre de reînnoire pentru chestiunile care ți-au fost atribuite.",
+    "descriptionMy": "Ferestre de reînnoire pentru problemele care ți-au fost atribuite.",
     "descriptionFirm": "Lista de lucru de reînnoire la nivel de firmă pentru toate drepturile de proprietate intelectuală.",
     "filters": {
       "status": "Stare",
@@ -48,7 +48,7 @@
     },
     "empty": "Nu au fost urmărite reînnoiri în această fereastră.",
     "table": {
-      "ipAsset": "activ IP",
+      "ipAsset": "Activ IP",
       "client": "Client",
       "dueStatus": "Datorită / Stare"
     },

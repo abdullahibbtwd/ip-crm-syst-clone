@@ -1,7 +1,7 @@
 {
   "clients": {
     "description": "管理公司和个人客户记录。 新客户是通过吸收而创建的。",
-    "emptyDescription": "尝试调整过滤器或通过摄入创建客户。",
+    "emptyDescription": "尝试调整过滤器或通过引入创建客户。",
     "emptyTitle": "没有找到客户",
     "error": "无法加载客户端。",
     "newViaIntake": "通过吸纳新客户",

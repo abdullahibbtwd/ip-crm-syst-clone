@@ -19,7 +19,7 @@
     "clientGroups_one": "{{count}} kliendigrupp",
     "clientGroups_other": "{{count}} kliendirühmad",
     "clientMatters": "Klient on oluline",
-    "clientsInWindow": "{{clients}} klienti · {{days}} päeva horisont",
+    "clientsInWindow": "{{clients}} kliente · {{days}} päeva horisont",
     "crossTabTitle": "Klient × jurisdiktsioon × advokaat",
     "description": "Eelseisvad kriitilised tähtajad, mis on rühmitatud kliendi, jurisdiktsiooni ja vastutava advokaadi järgi. Kiireloomulised värvid vastavad tähtaegade tööloendite ja teavituste verstapostidele.",
     "emptyDescription": "Proovige portfelli akent laiendada või filtreid tühjendada.",
@@ -89,10 +89,10 @@
     "title": "Esitamismahud"
   },
   "renewalsSummary": {
-    "byDueMonth": "Tähtkuuks",
+    "byDueMonth": "Tähtajaliseks kuuks",
     "byJurisdiction": "Jurisdiktsiooni järgi",
     "cycle": "tsükkel {{number}}",
-    "description": "Eelseisvad uuendamisaknad oleku, jurisdiktsiooni ja tähtkuu järgi – kiireloomulisuse tasemed on vastavusse viidud tähtaja riskiaruandlusega.",
+    "description": "Eelseisvad uuendamisaknad oleku, jurisdiktsiooni ja tähtkuu järgi – kiireloomulisuse tasemed on vastavuses tähtaja riskiaruandlusega.",
     "dueBefore": "Tähtaeg enne",
     "dueBeforeLabel": "Tähtaeg enne {{date}}",
     "error": "Pikendamise kokkuvõtet ei saanud laadida.",
@@ -103,7 +103,7 @@
     "generated": "Loodud {{date}}",
     "loading": "Pikendamise kokkuvõtte laadimine…",
     "noRenewals": "Aknas ei uuendata.",
-    "renewalsWorklist": "Uuendab tööloendit",
+    "renewalsWorklist": "Uuenduste tööloend",
     "stats": {
       "critical": "Kriitiline",
       "criticalHint": "Viivis või tähtaeg ≤7 päeva",
@@ -235,7 +235,7 @@
       "topRegion": "Tipppiirkond",
       "monthActivity": "{{month}} Tegevus:",
       "newFiling_one": "{{count}} uus fail",
-      "newFiling_other": "{{count}} uut dokumenti",
+      "newFiling_other": "{{count}} uut faili",
       "empty": "Lähiajaloos ei tuvastatud ühtegi esitamist.",
       "table": {
         "matterInfo": "Asjakohane teave",

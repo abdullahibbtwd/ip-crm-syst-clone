@@ -32,7 +32,7 @@
   },
   "clientTab": {
     "title": "Profilleri izle",
-    "description": "Kanonik yetki kodlarını (BG, AB, EP) kullanarak kayıtlardaki markaları izleyin.",
+    "description": "Kanonik yargı yetkisi kodlarını (BG, AB, EP) kullanarak kayıtlardaki markaları izleyin.",
     "add": "Ticari marka izleme ekle",
     "empty": "Henüz izleme profili yok. Bu müşterinin notlarını izlemeye başlamak için bir profil ekleyin.",
     "loading": "İzleme profilleri yükleniyor…",
@@ -72,8 +72,8 @@
     "new": "Yeni uyarılar",
     "accepted": "Kabul edildi",
     "rejected": "Reddedilmiş",
-    "hintAwaitingTriage": "İnceleme bekliyor",
-    "hintMattersCreated": "Oluşturulan işler",
+    "hintAwaitingTriage": "Triyaj bekleniyor",
+    "hintMattersCreated": "Oluşturulan konular",
     "hintFalsePositives": "Yanlış pozitifler"
   },
   "profileStatus": {

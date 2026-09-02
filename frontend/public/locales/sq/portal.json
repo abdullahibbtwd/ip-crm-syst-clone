@@ -91,7 +91,7 @@
     "download": "Shkarkoni",
     "empty": "Nuk ka ende dokumente. Dokumentet do të shfaqen këtu kur firma juaj t'i ndajë ato për çështjet tuaja.",
     "error": "Ngarkimi i dokumenteve dështoi.",
-    "loading": "Po ngarkon dokumentet…",
+    "loading": "Dokumentet po ngarkohen…",
     "searchPlaceholder": "Kërko dokumente…",
     "table": {
       "category": "Kategoria",
@@ -159,7 +159,7 @@
       "approved": "Kërkesa juaj është pranuar dhe po vendoset si çështje.",
       "conflictFlagged": "Një koordinator po shqyrton kërkesën tuaj përpara se të pranohet.",
       "converted": "Është hapur një çështje. Mund ta gjurmosh nën Çështjet e mia.",
-      "new": "Marrë. Një kontroll konflikti është kryer automatikisht dhe një koordinator do ta shqyrtojë atë së shpejti.",
+      "new": "Marrë. Kontrolli i konfliktit është kryer automatikisht dhe një koordinator do ta shqyrtojë atë së shpejti.",
       "rejected": "Ky hetim nuk u pranua. Na kontaktoni nëse keni pyetje.",
       "reviewing": "Një koordinator po shqyrton kërkesën tuaj."
     },
@@ -184,11 +184,11 @@
     "domain": "Domenet",
     "fto_analysis": "Analiza FTO",
     "geographical_indication": "Treguesi gjeografik",
-    "industrial_design": "Dizajni industrial",
+    "industrial_design": "Dizajn",
     "litigation_expert_report": "Raportet e ekspertëve të çështjeve gjyqësore",
     "official_fee_payment": "Pagesat zyrtare të tarifave",
     "other": "Të tjera",
-    "patent": "Patenta",
+    "patent": "Patent",
     "trademark": "Markë tregtare",
     "utility_model": "Modeli i shërbimeve",
     "valuation": "Vlerësimi"
@@ -205,7 +205,7 @@
       "viewDeadlines": "Shiko afatet e mia",
       "viewMatters": "Shikoni çështjet e mia"
     },
-    "errorFallback": "Ju lutemi, provoni përsëri ose dilni dhe hyni përsëri nëse lejet kanë ndryshuar.",
+    "errorFallback": "Ju lutemi provoni përsëri ose dilni dhe hyni përsëri nëse lejet kanë ndryshuar.",
     "instructionError": "Udhëzimet nuk mund të dorëzoheshin",
     "loading": "Po ngarkohet…",
     "proceed": "Vazhdoni",

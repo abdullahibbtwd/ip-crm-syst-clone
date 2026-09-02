@@ -6,7 +6,7 @@
     "empty": "Nicio alertă de ceas nu se potrivește cu filtrele dvs.",
     "loading": "Se încarcă alertele pentru ceas...",
     "worklist": "Lista de lucru",
-    "worklistDescription": "Filtrați după stare, jurisdicție sau sursă de registru."
+    "worklistDescription": "Filtrați după statut, jurisdicție sau sursă de registru."
   },
   "detail": {
     "title": "Vizionați alerta",
@@ -72,8 +72,8 @@
     "new": "Alerte noi",
     "accepted": "Acceptat",
     "rejected": "Respins",
-    "hintAwaitingTriage": "În așteptare de triaj",
-    "hintMattersCreated": "Dosare create",
+    "hintAwaitingTriage": "Se așteaptă triajul",
+    "hintMattersCreated": "Materie create",
     "hintFalsePositives": "False pozitive"
   },
   "profileStatus": {

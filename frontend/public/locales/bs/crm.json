@@ -98,8 +98,8 @@
     "selectClient": "Izaberite klijenta iz rezultata pretrage",
     "unlink": "Ukloni iz grupe",
     "unlinkFailed": "Uklanjanje klijenta iz grupe nije uspjelo",
-    "searchPlaceholder": "Pretraži ime ili zemlju…",
-    "title": "Holding grupe",
+    "searchPlaceholder": "Pretraži ime ili državu…",
+    "title": "Držanje grupa",
     "viewAria": "Pogledaj {{name}}"
   },
   "addressInsights": {

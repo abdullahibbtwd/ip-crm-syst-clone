@@ -47,7 +47,7 @@
       "description": "每个活跃客户的主要联系电子邮件"
     },
     "pending_eu_renewals": {
-      "label": "等待欧盟续签",
+      "label": "等待欧盟续约",
       "description": "即将/指示/提交欧盟续展的活跃客户"
     },
     "trademark_matters": {

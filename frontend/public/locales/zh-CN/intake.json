@@ -3,7 +3,7 @@
     "approve": "批准-无冲突",
     "checkedAt": "已检查 {{date}}",
     "cleared": "未检测到冲突",
-    "clearedForConversion": "未找到类似名称 - 已清除转换",
+    "clearedForConversion": "未找到相似的名称 - 已清除以进行转换",
     "description": "跨客户、联系人、相关公司和记录的交易对手进行模糊搜索。 综合相似度超过 30% 的匹配将被标记以供审核。",
     "flaggedMatches": "{{count}} 潜在匹配 - 需要审核",
     "entityType": {
@@ -91,7 +91,7 @@
   "create": {
     "back": "← 返回摄入量",
     "description": "在冲突检查和转换之前捕获新的查询。",
-    "title": "新询价"
+    "title": "新询盘"
   },
   "detail": {
     "back": "← 返回接收队列",
@@ -143,7 +143,7 @@
     "empty": "未找到摄入线索",
     "emptyDescription": "尝试调整过滤器或创建新的查询。",
     "error": "无法加载引入线索。",
-    "new": "新询价",
+    "new": "新询盘",
     "pagination": {
       "ofTotal": "{{total}} 的"
     },
@@ -159,7 +159,7 @@
     "domain": "域名",
     "fto_analysis": "FTO分析",
     "geographical_indication": "地理标志",
-    "industrial_design": "工业设计",
+    "industrial_design": "设计",
     "litigation_expert_report": "诉讼/法庭专家报告",
     "official_fee_payment": "官方费用支付",
     "other": "其他",

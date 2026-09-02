@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Măsurați traseul",
+        "options": {
+          "national_bg": "Bulgaria (națională)",
+          "eu_regulation": "Regulamentul UE 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Drept protejat",
+        "options": {
+          "trademark": "Marcă comercială",
+          "patent": "Brevet",
+          "design": "Proiecta",
+          "copyright": "Drepturi de autor",
+          "gi": "Indicație geografică"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Drept protejat ref."
+      },
       "customsOffice": {
         "label": "Biroul vamal"
+      },
+      "validFrom": {
+        "label": "Valabil de la"
+      },
+      "validUntil": {
+        "label": "Valabil până la"
       },
       "infringingGoods": {
         "label": "Descrierea mărfurilor care încalcă drepturile"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Data creării"
-      },
       "workTitle": {
         "label": "Titlul lucrării"
       },
       "workType": {
-        "label": "Tipul muncii"
+        "label": "Tipul muncii",
+        "options": {
+          "literary": "Literar",
+          "musical": "Muzical",
+          "software": "Software",
+          "audiovisual": "Audiovizual",
+          "graphic": "Grafic/vizual",
+          "other": "Alte"
+        }
+      },
+      "creationDate": {
+        "label": "Data creării"
+      },
+      "firstPublicationDate": {
+        "label": "Data primei publicații"
+      },
+      "authorName": {
+        "label": "Autor"
+      },
+      "rightsBasis": {
+        "label": "Baza drepturilor",
+        "options": {
+          "author": "Autor",
+          "employer": "Angajatorul (lucrează pe cont propriu)",
+          "assignment": "Misiunea",
+          "license": "Licenţă"
+        }
+      },
+      "rightsHolder": {
+        "label": "Titularul drepturilor"
+      },
+      "infringementContext": {
+        "label": "Context de încălcare/execuție"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Curtea"
+      },
+      "incomingNumber": {
+        "label": "Numărul de intrare"
+      },
+      "claimGrounds": {
+        "label": "Motive (tipul cererii)"
+      },
+      "claimValue": {
+        "label": "Valoarea revendicării"
+      },
+      "expertiseType": {
+        "label": "Tipul expertizei"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Rezumat de bază"
+      "disputeKind": {
+        "label": "Tipul de procedură",
+        "options": {
+          "civil": "Civil",
+          "administrative": "Administrativ",
+          "arbitration": "Arbitraj",
+          "mediation": "Mediere",
+          "other": "Alte"
+        }
       },
-      "disputeType": {
-        "label": "Tip de dispută"
+      "disputeSubject": {
+        "label": "Subiect",
+        "options": {
+          "invalidity": "Invaliditate",
+          "infringement": "Încălcare",
+          "ownership": "Proprietate",
+          "contract": "Contracta",
+          "unfair_competition": "Concurență neloială",
+          "other": "Alte"
+        }
       },
       "opponentName": {
-        "label": "Adversarul/partea adversă"
+        "label": "Adversarul/contrapartea"
+      },
+      "disputeType": {
+        "label": "Tip de dispută (note)"
+      },
+      "filingReference": {
+        "label": "Referință de depunere"
+      },
+      "filingDate": {
+        "label": "Data depunerii"
+      },
+      "basisSummary": {
+        "label": "Rezumat de bază"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Rezumatul domeniului de aplicare"
+      "projectName": {
+        "label": "Numele proiectului"
+      },
+      "productName": {
+        "label": "Numele produsului"
       },
       "technologyArea": {
         "label": "Zona de tehnologie"
+      },
+      "analysisScope": {
+        "label": "Domeniul analizei"
+      },
+      "deliverableType": {
+        "label": "Livrabil",
+        "options": {
+          "written_report": "Raport scris",
+          "memo": "Notă",
+          "oral_briefing": "Briefing oral"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Data țintă de finalizare"
+      },
+      "scopeSummary": {
+        "label": "Rezumatul domeniului de aplicare"
+      },
+      "riskLevel": {
+        "label": "Nivel de risc",
+        "options": {
+          "low": "Scăzut",
+          "medium": "Mediu",
+          "high": "Ridicat",
+          "pending": "Evaluare în așteptare"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Tip"
+      },
+      "giName": {
+        "label": "Denumirea indicației geografice"
+      },
       "productName": {
         "label": "Numele produsului"
       },
       "region": {
         "label": "Regiunea geografică"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Teritoriu"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Numărul cererii"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Număr de înregistrare"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "clasa Locarno"
       },
+      "locarnoSubclass": {
+        "label": "subclasa Locarno"
+      },
       "productDescription": {
         "label": "Descriere produs"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Rezumatul revendicărilor"
+      },
+      "epApplicationNumber": {
+        "label": "numărul cererii EP"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Denumirea brevetului"
+      },
+      "patentProcedure": {
+        "label": "Procedură"
       },
       "pctNumber": {
         "label": "numărul PCT"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Domeniul tehnic"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Culorile revendicate"
       },
       "markDescription": {
-        "label": "Marcați descrierea"
-      },
-      "markType": {
-        "label": "Tipul de marcare"
-      },
-      "niceClasses": {
-        "label": "Cursuri frumoase",
-        "placeholder": "de ex. 12, 35"
+        "label": "Descrierea bunurilor/serviciilor"
       },
       "markKind": {
         "label": "Marcați categoria"
       },
+      "markType": {
+        "label": "Tipul de marcare"
+      },
       "markWords": {
         "label": "Cuvinte ale mărcii"
+      },
+      "niceClasses": {
+        "label": "Cursuri frumoase",
+        "placeholder": "de ex. 12, 35"
       },
       "territory": {
         "label": "Teritoriu"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Nume"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Numărul de revendicări"
+      },
+      "applicationNumber": {
+        "label": "Numărul cererii"
+      },
+      "applicationDate": {
+        "label": "Data cererii"
+      },
+      "registrationNumber": {
+        "label": "Număr de înregistrare"
+      },
       "claimsSummary": {
         "label": "Rezumatul revendicărilor"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Domeniul tehnic"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Tipul activului",
+        "options": {
+          "trademark": "Marcă comercială",
+          "patent": "Brevet",
+          "design": "Proiecta",
+          "gi": "GI",
+          "mixed": "Portofoliu mixt",
+          "company_ip": "IP-ul companiei"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Scop",
+        "options": {
+          "licensing": "Licențiere",
+          "m_and_a": "M&A",
+          "litigation": "Litigii",
+          "tax": "Taxa",
+          "internal": "Intern"
+        }
+      },
+      "valuationMethod": {
+        "label": "Metodă",
+        "options": {
+          "market": "Piaţă",
+          "income": "Venituri",
+          "cost": "Cost"
+        }
+      },
+      "valuationDate": {
+        "label": "Data evaluării"
+      },
       "assetDescription": {
         "label": "Descrierea bunului"
       },
-      "valuationPurpose": {
-        "label": "Scopul evaluării"
+      "conclusionValue": {
+        "label": "Valoarea concluziei"
+      },
+      "currency": {
+        "label": "Valută",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EURO",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Nume de domeniu",
-        "placeholder": "de ex. exemplu.com"
+        "placeholder": "de ex. exemplu.bg"
+      },
+      "tldType": {
+        "label": "Tip TLD",
+        "options": {
+          "bg": ".bg",
+          "eu": ".UE",
+          "com": ".com / gTLD",
+          "other": "Alte"
+        }
       },
       "registrar": {
         "label": "Grefier"
+      },
+      "registrant": {
+        "label": "Înregistrat"
+      },
+      "registrationDate": {
+        "label": "Data inregistrarii"
+      },
+      "expiryDate": {
+        "label": "Data de expirare"
+      },
+      "disputeRoute": {
+        "label": "Calea disputei",
+        "options": {
+          "none": "Nici unul",
+          "udrp": "UDRP",
+          "court": "Curtea",
+          "negotiation": "Negociere"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Marcă comercială aferentă"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Referință de caz"
+      "engagementType": {
+        "label": "Tipul de implicare",
+        "options": {
+          "patent": "Brevet",
+          "trademark": "Marcă comercială",
+          "copyright": "Drepturi de autor",
+          "damages": "Daune",
+          "other": "Alte"
+        }
       },
       "courtOrAuthority": {
         "label": "Curtea / autoritatea"
+      },
+      "caseReference": {
+        "label": "Referință de caz"
+      },
+      "appointingParty": {
+        "label": "Partea de numire"
+      },
+      "reportDueDate": {
+        "label": "Raportează data scadentă"
+      },
+      "hearingDate": {
+        "label": "Data audierii"
       },
       "reportScope": {
         "label": "Domeniul raportului"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Rezumatul domeniului de aplicare"
+      "consultationType": {
+        "label": "Tip consultatie",
+        "options": {
+          "phone": "Telefon",
+          "written": "Scris",
+          "meeting": "Întâlnire",
+          "due_diligence": "Due diligence (ușoară)"
+        }
+      },
+      "topicCategory": {
+        "label": "Categoria subiectului",
+        "options": {
+          "trademark": "Marcă comercială",
+          "patent": "Brevet",
+          "design": "Proiecta",
+          "contract": "Contracta",
+          "strategy": "Strategie",
+          "other": "Alte"
+        }
       },
       "topic": {
         "label": "Subiect"
+      },
+      "requestedBy": {
+        "label": "Solicitat de"
+      },
+      "scopeSummary": {
+        "label": "Rezumatul domeniului de aplicare"
+      },
+      "timeSpentHours": {
+        "label": "Timp petrecut (ore)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Autoritate / birou"
+        "label": "Autoritate",
+        "options": {
+          "bpo": "BPO (Bulgaria)",
+          "euipo": "EUIPO",
+          "wipo": "OMPI",
+          "other": "Alte"
+        }
+      },
+      "feeType": {
+        "label": "Tipul taxei",
+        "options": {
+          "filing": "Depunerea",
+          "publication": "Publicare",
+          "examination": "Examinare",
+          "renewal": "Reînnoire",
+          "annuity": "Anuitate",
+          "opposition": "Opoziţie",
+          "other": "Alte"
+        }
       },
       "feeReference": {
         "label": "Referință pentru taxă/plată"
       },
       "relatedApplication": {
         "label": "Aplicație/fișier înrudit"
+      },
+      "feeAmount": {
+        "label": "Cantitate"
+      },
+      "currency": {
+        "label": "Valută",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EURO"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Termenul limită de plată"
+      },
+      "paymentDate": {
+        "label": "Data platii"
+      },
+      "paymentReference": {
+        "label": "Referință de plată"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Categoria muncii"
+      },
       "workSummary": {
         "label": "Rezumatul lucrării"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Rezultat așteptat"
       }
     }
   },
@@ -318,7 +587,7 @@
       "incoming": "Sosire",
       "outgoing": "Ieșire"
     },
-    "description": "Camera de corespondență digitală — înregistrează scrisori, acțiuni de birou și e-mailuri pentru această problemă. Folosiți {{logEmail}} pentru fișierele .eml sau pentru textul inbox; utilizați {{logCorrespondence}} pentru intrări structurate, e-mailuri trimise și atașamente la documente.",
+    "description": "Camera de corespondență digitală — înregistrează scrisori, acțiuni de birou și e-mailuri pentru această problemă. Folosiți {{logEmail}} pentru fișierele .eml sau textul inbox; utilizați {{logCorrespondence}} pentru intrări structurate, e-mailuri trimise și atașamente la documente.",
     "documentReady": "Document gata",
     "downloadAttachment": "Descărcați atașamentul",
     "downloadTitle": "Descărcați {{fileName}}",
@@ -348,7 +617,7 @@
       "modeLink": "Legătură",
       "modeUpload": "Încărcați",
       "noDocuments": "Încă nu există documente despre acest {{scope}}.",
-      "selectDocument": "Selectați un document din acest {{scope}}...",
+      "selectDocument": "Selectați un document din acest {{scope}}…",
       "dragFile": "Trageți un fișier aici sau",
       "browse": "răsfoiește",
       "details": "Detalii corespondență",
@@ -365,7 +634,7 @@
       "subjectPlaceholder": "BPO Office Action - Răspuns necesar",
       "bodyPlaceholder": "Textul corpului opțional — inserați din biblioteca de precedente",
       "sendToInbox": "Trimiteți către inbox client",
-      "sendToInboxHint": "Afișați această intrare în portalul client Mesaje primite.",
+      "sendToInboxHint": "Afișați această intrare în inbox-ul de mesaje al portalului client.",
       "officeActionHint": "Un termen limită de răspuns va fi adăugat automat la lista de lucru a avocaților.",
       "cancel": "Anula",
       "save": "Salvați jurnalul",
@@ -417,7 +686,7 @@
       "subjectPlaceholder": "Subiectul e-mailului",
       "bodyPlaceholder": "Opțional — lipiți text sau introduceți un precedent",
       "sendToInbox": "Trimiteți către inbox client",
-      "sendToInboxHint": "Afișați această intrare în portalul client Mesaje primite.",
+      "sendToInboxHint": "Afișați această intrare în inbox-ul de mesaje al portalului client.",
       "officeActionHint": "Un termen limită de răspuns va fi adăugat automat la lista de lucru a avocaților.",
       "cancel": "Anula",
       "saveToMatter": "Salvează la materie",
@@ -439,10 +708,10 @@
     "markSent": "Mark a trimis",
     "openEpoRegister": "Deschide în Registrul EPO",
     "reply": "Răspuns",
-    "replyTitle": "Răspundeți prin căsuța poștală conectată",
+    "replyTitle": "Răspunde prin căsuța poștală conectată",
     "replaceFile": "Înlocuiți fișierul",
     "replaceFileTitle": "Înlocuiți fișierul atașat",
-    "saveAsPrecedent": "Salvați ca precedent",
+    "saveAsPrecedent": "Salvează ca precedent",
     "saveAsPrecedentTitle": "Salvați ca proiect de precedent",
     "savedUnder": "Salvat sub subiectul corespondenței de mai jos",
     "sendToClient": "Trimiteți către inbox client",
@@ -470,24 +739,615 @@
     "viewOnEpo": "Vizualizare pe EPO",
     "viewOnEpoTitle": "Deschideți înregistrarea oficială în Registrul EPO"
   },
+  "trademarkInfo": {
+    "addCountry": "Adăugați țara...",
+    "cancel": "Anula",
+    "country": "Ţară",
+    "edit": "Edita",
+    "errors": {
+      "country": "Selectați cel puțin o țară pentru acest teritoriu.",
+      "saveFailed": "Nu s-au putut salva informațiile despre mărcile comerciale."
+    },
+    "euFixed": "Uniunea Europeană (EUIPO)",
+    "markKind": "Marcați categoria",
+    "markType": "Tipul de marcare",
+    "noCountries": "Nicio țară nu a fost selectată încă.",
+    "save": "Salvați modificările",
+    "saved": "Salvat.",
+    "saving": "Economisire…",
+    "selectCountries": "Selectați țări",
+    "territory": "Teritoriu",
+    "title": "Informații despre mărci comerciale",
+    "markImage": "Marcați imaginea",
+    "uploadMarkImage": "Încărcați imaginea",
+    "replaceMarkImage": "Înlocuiește imaginea",
+    "removeMarkImage": "Eliminați imaginea",
+    "markImageHint": "PNG sau JPEG — afișat în lista de mărci înregistrate lângă nume."
+  },
+  "patentInfo": {
+    "title": "Informații privind brevetele",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Cererea nr. / data",
+      "registration": "Reg. nu. / data",
+      "bulletin": "Buletin/publicare",
+      "ipc": "IPC",
+      "client": "Client/cedent",
+      "owner": "Proprietar",
+      "contact": "Persoana de contact",
+      "representatives": "Reprezentanți",
+      "claims": "Revendicări",
+      "territory": "Teritoriu"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Informații despre modelul de utilitate",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Cererea nr. / data",
+      "registration": "Reg. nu. / data",
+      "bulletin": "Buletin/publicare înregistrare/data",
+      "ipc": "IPC",
+      "applicant": "Solicitant",
+      "inventor": "Inventator",
+      "contact": "Persoana de contact",
+      "representatives": "Reprezentanți",
+      "claims": "Revendicări",
+      "territory": "Teritoriu"
+    }
+  },
+  "spcInfo": {
+    "title": "informații SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Cererea nr. / data",
+      "registration": "Reg. nu. / data",
+      "bulletin": "Buletin/publicare înregistrare/data",
+      "ipc": "IPC",
+      "applicant": "Solicitant",
+      "inventor": "Inventator",
+      "contact": "Persoana de contact",
+      "representatives": "Reprezentanți",
+      "claims": "Revendicări",
+      "medicinalProduct": "Produs medicinal"
+    }
+  },
+  "designInfo": {
+    "title": "Informații de proiectare",
+    "subtitle": "{{territory}} design · {{name}}",
+    "fields": {
+      "application": "Cererea nr. / data",
+      "registration": "Reg. nu. / data",
+      "bulletin": "Buletin/publicare înregistrare/data",
+      "client": "Client/cedent",
+      "owner": "Proprietar",
+      "contact": "Persoana de contact",
+      "representatives": "Reprezentanți",
+      "classification": "Clasificare",
+      "territory": "Teritoriu"
+    }
+  },
+  "giInfo": {
+    "title": "Informații despre indicații geografice",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Cererea nr. / data",
+      "registration": "Reg. nu. / data",
+      "bulletin": "Buletin/publicare înregistrare/data",
+      "client": "Client/cedent",
+      "owner": "Proprietar",
+      "contact": "Persoana de contact",
+      "representatives": "Reprezentanți",
+      "classes": "Clasele",
+      "territory": "Teritoriu"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Client aprobat",
+    "clientStepHint": "Personalul confirmă că clientul a fost de acord offline (apel/e-mail/întâlnire). Clientul portalului nu trebuie să se aprobe singur.",
+    "errors": {
+      "updateFailed": "Nu s-a putut actualiza starea de aprobare."
+    },
+    "hint": "Numai aprobarea internă: marcați că clientul a fost de acord, apoi un partener director acceptă fișierul. Nu este necesară aprobarea trimiterii către client.",
+    "markClientApproved": "Marcați clientul aprobat",
+    "partnerApprove": "Fișierul de aprobare a partenerului",
+    "partnerOnly": "Numai Managing Partner poate parcurge acest pas",
+    "partnerStep": "2. Acceptă partenerul de conducere",
+    "partnerStepHint": "După ce clientul este marcat ca aprobat, Managing Partner acceptă fișierul și părăsește schița.",
+    "recordedBy": "Înregistrat de {{name}} · {{date}}",
+    "title": "Aprobare dosar",
+    "waitForClient": "Marchează clientul aprobat mai întâi, apoi poți accepta fișierul."
+  },
+  "prosecution": {
+    "cancelEdit": "Anula",
+    "completeStage": "Etapa completa",
+    "edit": "Edita",
+    "editingNote": "Utilizați Salvare pentru a păstra ceea ce ați introdus în această etapă sau Finalizați etapa pentru a merge mai departe când câmpurile obligatorii sunt completate.",
+    "gateHint": "Nu puteți merge înainte până când câmpurile obligatorii pentru această etapă nu sunt completate (la fel ca și porțile lor de sistem).",
+    "goBack": "Întoarce-te într-o etapă",
+    "errors": {
+      "needAttachments": "Atașați fișierele necesare înainte de a continua: {{list}}",
+      "needInvoice": "Generați factura din taxa de stat înainte de a parcurge această etapă.",
+      "alreadyFinal": "Acest fișier este deja în stadiul final.",
+      "needApproval": "Finalizați aprobarea fișierului (client + partener director) înainte de a părăsi pregătirea.",
+      "needBulletin": "Introduceți numărul și data buletinului înainte de a părăsi publicația.",
+      "needFeePaid": "Introduceți data plății taxei de stat înainte de a părăsi examenul formal.",
+      "needFilingFields": "Introduceți numărul cererii și data de depunere pentru a finaliza depunerea.",
+      "needFormalFields": "Introduceți taxa de stat și termenul limită de plată pentru a continua.",
+      "needMol": "Vă rugăm să introduceți MOL în detaliile fișierului (creare-fișier/editare) înainte de a finaliza depunerea.",
+      "needOfficeActionDeadline": "Acțiunea biroului are un subiect - stabilește-i termenul înainte de a continua.",
+      "needPoaFiled": "Introduceți numărul și data primirii PoA înainte de a părăsi examinarea formală.",
+      "needRegFeePaid": "Introduceți data plății taxei de înregistrare înainte de a continua.",
+      "needRepresentative": "Introduceți cel puțin un reprezentant sau setați Adăugați reprezentanți la Nr.",
+      "saveBeforeNavigate": "Salvați sau anulați editările înainte de a reveni la o etapă.",
+      "saveFailed": "Nu s-au putut salva datele urmăririi penale."
+    },
+    "fields": {
+      "addRepresentatives": "Doriți să adăugați reprezentanți?",
+      "applicationDate": "Data cererii",
+      "applicationNumber": "Numărul cererii",
+      "bulletinDate": "Data buletinului",
+      "bulletinNumber": "Numărul buletinului",
+      "feePaidDate": "Data plății taxei de stat",
+      "generatePoa": "Generați împuternicire",
+      "officeAction": "Acțiune/cerere la birou",
+      "officeActionDeadline": "Termenul limită pentru acțiunea biroului",
+      "paymentDeadline": "Termenul limită de plată",
+      "poaDate": "data PoA",
+      "poaDeadline": "Termenul limită de depunere a PoA",
+      "poaIncoming": "Numărul de intrare PoA",
+      "regFeePaidDate": "Data plății taxei de înregistrare",
+      "remindDays": "Amintiți-vă cu zile înainte de termenul limită",
+      "representatives": "Reprezentant(i)",
+      "sendPoaEmail": "Trimite e-mail automat",
+      "stateFee": "Taxa de stat (BGN)"
+    },
+    "molHint": "MOL trebuie setat pe detaliile fișierului (din crearea fișierului). Lipsesc blocuri MOL care finalizează această etapă.",
+    "no": "Nu",
+    "prepHint": "Etapa pregătitoare: finalizați mai întâi aprobarea fișierului, apoi Partenerul de conducere acceptă vă mută în Filing.",
+    "registeredDone": "Faza de înregistrare a fost atinsă.",
+    "saveChanges": "Salvați modificările",
+    "saveEntered": "Salva",
+    "saved": "Salvat.",
+    "saveFields": "Salvați câmpurile",
+    "saving": "Economisire…",
+    "stages": {
+      "filing": "Depunerea",
+      "formal_exam": "Examinare formală",
+      "prep": "pregătitoare",
+      "publication": "Publicare",
+      "reg_fee": "Taxe de înregistrare",
+      "registration": "Înregistrare",
+      "substantive_exam": "Examinarea de fond"
+    },
+    "territoryLabel": {
+      "eu": "Conductă: UE",
+      "international": "Conductă: Internațional (WO)",
+      "national": "Conductă: națională"
+    },
+    "territoryLocked": "Teritoriu fixat din fișierul de creare",
+    "territoryFromInfo": "Teritoriul din informații despre mărci comerciale",
+    "patentRouteFromInfo": "Rută din fișierul de creare",
+    "designRouteFromInfo": "Rută din fișierul de creare",
+    "utilityModelTerritoryFromInfo": "Teritoriul din țara de depunere",
+    "spcTerritoryFromInfo": "Teritoriul din țara de depunere",
+    "giTerritoryFromInfo": "Teritoriu de la ruta de depozitare",
+    "title": "Etapele urmăririi penale",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Validare primită",
+        "filing": "Misiunea",
+        "formal_exam": "Cerere de depunere",
+        "substantive_exam": "Examinarea de fond",
+        "publication": "Publicare",
+        "reg_fee": "Taxe de înregistrare",
+        "registration": "Decizia de validare"
+      }
+    },
+    "yes": "Da",
+    "hub": {
+      "generateInvoice": "Generați factura",
+      "invoiceIssuedShort": "Factură emisă",
+      "invoiceIssued": "Factura {{number}} emisă. Clientul îl poate vedea în portalul său; se află și în fila Facturare.",
+      "invoiceAlreadyIssued": "Factura {{number}} deja emisă — vizibilă în portal și Facturare.",
+      "invoiceFailed": "Nu s-a putut genera factura. Verificați detaliile de facturare ale clientului.",
+      "invoiceNotes": "Taxa oficială/de stat",
+      "uploadFailed": "Nu s-a putut încărca fișierul.",
+      "needStateFee": "Introduceți mai întâi suma taxei de stat.",
+      "feeDescription": "Taxa de stat/oficiala",
+      "deadlineFailed": "Nu s-au putut crea termene limită.",
+      "deadlineTitles": {
+        "payment": "Plata taxei de stat",
+        "poa": "Depunerea împuternicirii",
+        "oa": "Cerere de acțiune / examinare la birou",
+        "oaWithSubject": "Acțiune la birou: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Reamintim cu {{days}} zi(e) înainte de termenul limită."
+      },
+      "attach": {
+        "search": "Atașați fișierul de căutare",
+        "application": "Atașați aplicația",
+        "feeSlip": "Atașați talonul de taxă",
+        "poa": "Atașați PoA",
+        "officeAction": "Atașați acțiunea de birou",
+        "decision": "Atașați decizia",
+        "bulletin": "Atașați buletinul",
+        "regFee": "Atașați dovada plății",
+        "certificate": "Ataseaza certificat"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Client *",
     "creating": "Se creează…",
-    "error": "Crearea fișierului a eșuat",
+    "error": "Nu s-a putut crea fișierul",
     "jurisdictionHelp": "Selectați una sau mai multe jurisdicții de depunere.",
     "jurisdictions": "Jurisdicțiile",
     "matterType": "Tipul muncii *",
-    "open": "Deschide fișierul",
+    "open": "Deschideți fișierul",
     "responsibleAttorney": "Avocat responsabil",
-    "title": "Deschide fișier nou",
+    "title": "Deschideți un fișier nou",
     "titleField": "Titlu *",
     "titlePlaceholder": "de ex. Marca verbală ACME – UE"
+  },
+  "createFile": {
+    "addClass": "Adăugați o clasă",
+    "addClaim": "Adăugați revendicare",
+    "addIpc": "Adăugați clasa IPC",
+    "addBasisMark": "Adăugați marcajul de bază",
+    "basisMark": "Nota de bază {{number}}",
+    "addAdditionalApplicant": "Adăugați solicitant suplimentar",
+    "addAdditionalOwner": "Adăugați un proprietar suplimentar",
+    "additionalApplicant": "Solicitantul {{number}}",
+    "additionalOwner": "Proprietar {{number}}",
+    "yes": "Da",
+    "no": "Nu",
+    "none": "Nici unul",
+    "backToFiles": "Înapoi la fișiere",
+    "cancel": "Anula",
+    "changeSubtype": "Schimbați subcategoria",
+    "checkRegister": "Verificați în registrul comerțului",
+    "clearClient": "Schimbați clientul",
+    "clientOptionalHint": "Nicio potrivire CRM? Completați detaliile clientului de mai jos - salvarea schiței le va crea automat în Clienti.",
+    "applicantOptionalHint": "Nicio potrivire CRM? Completați detaliile solicitantului de mai jos - salvarea schiței le va crea automat în Clienti.",
+    "draftDescription": "Creat prin Creare fișier ({{procedure}}) — schiță",
+    "errors": {
+      "client": "Selectați un client pentru a continua.",
+      "clientOrDetails": "Selectați un client CRM sau introduceți numele clientului și detaliile pentru a le crea.",
+      "applicantOrDetails": "Selectați un solicitant în CRM sau introduceți numele și detaliile solicitantului pentru a le crea.",
+      "jurisdiction": "Selectați cel puțin un teritoriu/țară.",
+      "markWords": "Introduceți numele/cuvintele mărcii comerciale.",
+      "filingRoute": "Selectați o procedură.",
+      "ownerOrDetails": "Introduceți numele și adresa proprietarului sau marcați proprietarul ca fiind același cu clientul.",
+      "designerOrDetails": "Introduceți numele și adresa designerului sau marcați designerul ca fiind același cu clientul.",
+      "inventorOrDetails": "Introduceți numele și adresa inventatorului sau marcați inventatorul ca fiind același cu clientul.",
+      "patentName": "Introduceți numele brevetului.",
+      "designName": "Introduceți numele designului.",
+      "utilityModelName": "Introduceți numele modelului de utilitate.",
+      "giKind": "Selectați denumirea de origine sau indicația geografică.",
+      "territory": "Selectați un teritoriu.",
+      "giName": "Introduceți numele indicației geografice.",
+      "spcName": "Introduceți numele SPC.",
+      "caseClientRole": "Selectați dacă clientul este reclamant, pârât sau parte interesată.",
+      "otherType": "Tip de fișier necunoscut. Alegeți un tip din listă.",
+      "patentSubtype": "Selectați o subcategorie de brevet.",
+      "saveFailed": "Nu s-a putut salva fișierul nefinalizat.",
+      "subtype": "Selectați o subcategorie de marcă comercială."
+    },
+    "euHint": "Marca Uniunii Europene (EUIPO) – jurisdicția stabilită la UE.",
+    "fields": {
+      "address": "Adresa",
+      "applicantClient": "Client solicitant",
+      "applicantClientOptional": "Solicitant în CRM (opțional)",
+      "city": "Oraş",
+      "classNumber": "Numărul clasei",
+      "classes": "Clasele",
+      "country": "Ţară",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Bunuri si servicii",
+      "legalName": "Nume și tip de persoană juridică",
+      "linkClient": "Selectați clientul în CRM",
+      "linkClientOptional": "Client CRM (opțional)",
+      "fileTitleOptional": "Titlu (opțional)",
+      "fileDescriptionOptional": "Descriere (opțional)",
+      "markKind": "Marcați categoria",
+      "markType": "Tipul de marcare",
+      "markWords": "Numele mărcii comerciale",
+      "mol": "MOL (semnatar)",
+      "name": "Nume",
+      "oppositionFiler": "Dosar de opoziție",
+      "requester": "Solicitantul",
+      "requestFiler": "Filerul cererii",
+      "againstClasses": "Împotriva claselor",
+      "owner": "Proprietar",
+      "phone": "Telefon",
+      "postalCode": "Cod poștal",
+      "territory": "Teritoriu",
+      "transliteration": "Transliterare",
+      "viennaNumber": "Număr",
+      "applicationNumber": "Numărul cererii",
+      "applicationDate": "Data",
+      "conventionPriority": "Prioritatea convenției",
+      "exhibitionPriority": "Prioritatea expoziției",
+      "transformationInternational": "Transformarea înregistrării internaționale",
+      "communityConversion": "Conversia mărcii comunitare",
+      "applicationBulletin": "Buletinul/publicarea cererii",
+      "grounds": "Terenuri",
+      "specimen": "Specimen",
+      "registrationNumber": "Nr. inregistrare",
+      "registrationDate": "Data",
+      "registrationBulletin": "Buletinul/publicarea înscrierii",
+      "certificate": "Ataseaza certificat",
+      "attachDocument": "Atașați documentul",
+      "representative": "Selecta",
+      "selectRepresentative": "Selectați un reprezentant",
+      "addMoreRepresentatives": "Adăugați mai mulți reprezentanți",
+      "claimNumber": "Număr",
+      "claimText": "Revendicare",
+      "epApplicationNumber": "numărul cererii EP",
+      "epBulletinNumber": "numărul buletinului PE",
+      "applicationPublication": "Publicarea cererii",
+      "applicationPublicationDate": "Data",
+      "epRegistrationNumber": "Număr de înregistrare EP",
+      "epRegistrationBulletin": "Buletinul/publicarea inregistrarii PE",
+      "epRegistrationBulletinDate": "Data",
+      "ipc": "IPC",
+      "patentName": "Nume",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validarea brevetului european",
+      "powerOfAttorney": "Împuternicire",
+      "selectProcedure": "Selectați procedura",
+      "validationCountry": "Selectați țara",
+      "priorityCountry": "Țara aplicației anterioare",
+      "priorityFromDate": "De la Data",
+      "priorityApplicationNumber": "Numărul cererii",
+      "priorityIncomingNumber": "În. Nu.",
+      "internationalRegistrationNumber": "Nr. inregistrare internationala",
+      "exhibitionFirstAppearance": "Data primei apariții",
+      "exhibitionName": "Numele expoziției",
+      "bulletinNumber": "Numărul buletinului",
+      "patentRegistrationNumber": "Număr de înregistrare",
+      "validationNumber": "Număr",
+      "validationFilingDate": "Data depunerii",
+      "validationPriorityDate": "Data de prioritate",
+      "addImage": "Adăugați o imagine",
+      "addCountry": "Adăugați țara",
+      "removeImage": "Eliminați imaginea",
+      "image": "Imagine",
+      "designName": "Nume",
+      "locarnoClass": "Clasă",
+      "locarnoSubclass": "Subclasă",
+      "classificationText": "Clasificare",
+      "vat": "ID de TVA",
+      "utilityModelName": "Nume",
+      "conversionFromPatent": "Conversia din brevet în cerere",
+      "conversionInvention": "Invenţie",
+      "conversionRequestNumber": "Cererea nr.",
+      "conversionApplicationDate": "Data cererii",
+      "conversionPriorityDate": "Data de prioritate",
+      "giKind": "Tip",
+      "giName": "Denumirea indicației geografice",
+      "spcName": "Nume",
+      "medicinalProduct": "Produs medicinal",
+      "basicPatentNumber": "Brevetul nr.",
+      "effectStartDate": "Începutul efectului",
+      "effectEndDate": "Data de încheiere",
+      "firstAuthorization": "Prima autorizare",
+      "theClientIs": "Clientul este",
+      "court": "Curtea",
+      "authority": "Autoritate",
+      "panel": "Panou",
+      "division": "Diviziune",
+      "incomingNumber": "Numărul de intrare",
+      "claimGrounds": "Motive (tipul cererii)",
+      "claimValue": "Valoarea revendicării",
+      "other": "Alte",
+      "rightObject": "Obiect",
+      "selectObject": "Selectați obiectul...",
+      "rightName": "Nume",
+      "rightApplicationDate": "Data cererii",
+      "rightScope": "Domeniul de aplicare",
+      "expertiseType": "Tipul expertizei",
+      "experts": "Experți",
+      "expertiseQuestions": "Întrebări la care a fost admisă expertiza"
+    },
+    "formTitle": "Creați fișier: marcă comercială",
+    "fullFormReady": "Formularul complet disponibil",
+    "goodsPlaceholder": "de ex. sticle; servicii de vânzare cu amănuntul...",
+    "markKinds": {
+      "certification": "Certificare",
+      "collective": "Colectiv",
+      "individual": "Individual"
+    },
+    "markTypes": {
+      "combination_of_colors": "Combinație de culori",
+      "combined": "Combinate",
+      "figurative": "Figurativ",
+      "sound": "Sunet",
+      "three_dimensional": "Tridimensional",
+      "wordmark": "Marca verbală"
+    },
+    "noClients": "Nu există clienți care se potrivesc. Creați mai întâi clientul în CRM, apoi reveniți aici.",
+    "optionalMark": "Marcare/subiect (opțional)",
+    "partialSubtypeNote": "Câmpurile de specialitate complete pentru această subcategorie vor fi extinse ulterior. Puteți salva în continuare o schiță legată de client; documentele și corespondența rămân la dosar.",
+    "preliminary": "Informații preliminare",
+    "procedureHints": {
+      "cancellation": "Anularea unei mărci înregistrate — formular complet de creare",
+      "deletion": "Ștergerea unei mărci comerciale înregistrate — formular complet de creare",
+      "new": "Noua cerere de marcă comercială — formular complet de creare",
+      "objection": "Obiecție împotriva unei cereri de marcă comercială – formular complet de creare",
+      "opposition": "Opoziție împotriva unei cereri de marcă comercială – formular complet de creare",
+      "opposition_against_us": "Procedura de opozitie",
+      "opposition_by_us": "Procedura de opozitie",
+      "registered": "Marcă înregistrată existentă",
+      "revocation": "Procedura de ștergere"
+    },
+    "procedures": {
+      "cancellation": "Anulare",
+      "deletion": "Ștergere",
+      "new": "Brand nou",
+      "objection": "Obiecţie",
+      "opposition": "Opoziţie",
+      "opposition_against_us": "Opoziţie",
+      "opposition_by_us": "Opoziţie",
+      "registered": "Marcă înregistrată",
+      "revocation": "Ștergere"
+    },
+    "kinds": {
+      "newPatent": "Brevet nou",
+      "registeredPatent": "Brevet înregistrat",
+      "design": "Proiecta",
+      "registeredDesign": "Proiecta",
+      "utilityModel": "Modele utilitare",
+      "registeredGi": "IG înregistrat",
+      "spc": "SPC",
+      "case": "Caz"
+    },
+    "comingSoonTitle": "Creați fișier: {{kind}}",
+    "comingSoonBody": "Formularul specializat pentru acest tip de fișier va fi adăugat în continuare. Formularele de creare a fișierelor de mărci comerciale sunt deja disponibile din același meniu.",
+    "patentTitle": "Creați fișier — Patent",
+    "patentSubtypeHint": "Mai întâi alegeți subcategoria de brevet.",
+    "patentFormTitle": "Creați fișier: Patent",
+    "designFormTitle": "Creați fișier: Design",
+    "utilityModelFormTitle": "Creați fișier: model utilitar",
+    "giFormTitle": "Creați fișier: indicație geografică",
+    "spcFormTitle": "Creați fișier: SPC",
+    "caseFormTitle": "Creați fișier: Case",
+    "otherFilesTitle": "Alte fișiere",
+    "otherFilesDescription": "Alegeți un tip de lucru în afara raftului principal - drepturi de autor, domenii, consultații și multe altele.",
+    "otherFileFormTitle": "Creați fișier: {{type}}",
+    "addParty": "Adăugați o petrecere",
+    "caseClientRoles": {
+      "plaintiff": "Reclamant/Recurent",
+      "defendant": "Pârât",
+      "interested": "Partea interesată"
+    },
+    "giKinds": {
+      "designation_of_origin": "Denumirea de origine",
+      "geographical_indication": "Indicație geografică"
+    },
+    "giTerritories": {
+      "national": "Naţional",
+      "eu": "UE",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "OMPI",
+      "national": "Naţional",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Alegeți o procedură",
+    "chooseCountry": "Selectați țara",
+    "patentFilingRoutes": {
+      "national": "Naţional",
+      "european": "EP",
+      "ep_validation": "EP-Validare",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia și Herțegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "Macedonia de Nord",
+      "MD": "Moldova",
+      "ME": "Muntenegru",
+      "RO": "România",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Curcan"
+    },
+    "patentHints": {
+      "new": "Aplicație nouă - urmărire penală națională, EP sau PCT (flux în 7 pași în WorkPatent)",
+      "registered": "Grant existent — Național, EP, PCT sau EP-Validare (validare în 4 pași în WorkValPatent)"
+    },
+    "removeClass": "Eliminați clasa",
+    "removeClaim": "Eliminați revendicarea",
+    "removeIpc": "Eliminați clasa IPC",
+    "removeApplicant": "Eliminați solicitantul",
+    "removeBasisMark": "Eliminați marcajul de bază",
+    "sameApplicant": "Informațiile solicitantului sunt aceleași cu cele ale clientului",
+    "sameDesigner": "Informațiile despre proiectant sunt aceleași cu cele ale clientului",
+    "sameInventor": "Informațiile despre inventator sunt aceleași cu cele ale clientului",
+    "sameCorrespondence": "Adresa de corespondență este aceeași cu adresa înregistrată",
+    "saveDraft": "Salvați ca schiță",
+    "saving": "Economisire…",
+    "searchClient": "Căutați clienți după nume sau cod...",
+    "sideUs": "Partea noastră - opoziția",
+    "sideThem": "Cealaltă parte – cererea care s-a opus",
+    "sideUsCancellation": "Partea noastră - anularea",
+    "sideThemCancellation": "Cealaltă parte – proprietar",
+    "sideUsDeletion": "Partea noastră - ștergerea",
+    "sections": {
+      "againstApplication": "Împotriva unei cereri de marcă",
+      "againstBrand": "Împotriva unei mărci înregistrate",
+      "applicant": "Solicitant",
+      "applicantUser": "Solicitant/Utilizator",
+      "application": "Aplicație",
+      "attachments": "Atasamente",
+      "additionalInfo": "Informații suplimentare",
+      "basicInfo": "Informații de bază",
+      "fileDetails": "Detalii fișier",
+      "basisMarks": "Mărcile pe care se întemeiază opoziția",
+      "claims": "Revendicări",
+      "classification": "Clasificare",
+      "designer": "Designer",
+      "inventor": "Inventator",
+      "client": "Datele clientului",
+      "instructingClient": "Instruirea clientului",
+      "ipc": "IPC",
+      "contact": "Persoana de contact",
+      "correspondence": "Adresa de corespondenta",
+      "filing": "Depunerea și înregistrarea",
+      "goods": "Lista de bunuri si servicii",
+      "geographicalIndication": "Informații despre indicații geografice",
+      "spcBasic": "Informații de bază SPC",
+      "caseData": "Date de caz",
+      "caseRights": "Drepturile pe care se întemeiază cauza",
+      "expertise": "Expertiza",
+      "lawyers": "Avocați/Consilieri juridici",
+      "caseParties": {
+        "plaintiff": "Reclamanții / Recurenți",
+        "defendant": "Inculpaţii",
+        "interested": "Părţile interesate"
+      },
+      "grounds": "Terenuri",
+      "foundation": "Fundaţie",
+      "markName": "Numele mărcii comerciale",
+      "oppositionFiler": "Dosar de opoziție",
+      "requester": "Solicitantul",
+      "requestFiler": "Filerul cererii",
+      "owner": "Proprietar",
+      "registeredAddress": "Adresă înregistrată",
+      "representative": "Reprezentant",
+      "representatives": "Reprezentanți",
+      "searchDocs": "Atașați documentele de căutare",
+      "specimen": "Specimen",
+      "trademark": "Informații despre mărci comerciale",
+      "vienna": "Clasele de clasificare de la Viena"
+    },
+    "selectCountries": "Selectați țări",
+    "subtypeHint": "Mai întâi alegeți subcategoria mărcii comerciale. Noul brand deschide formularul complet.",
+    "territories": {
+      "eu": "Uniunea Europeană",
+      "international": "Internațional (WO)",
+      "national": "Naţional"
+    },
+    "trademarkTitle": "Creare fișier — Marca comercială"
   },
   "deadlines": {
     "complete": "Complet",
     "daysLeft": "Au mai rămas {{count}} zile",
     "daysOverdue": "{{count}} zile întârziate",
     "dueToday": "Datorită astăzi",
+    "summary": {
+      "open": "Termene deschise",
+      "overdue": "Întârziat"
+    },
     "empty": "Nu există termene limită în această chestiune.",
     "error": "Nu s-au încărcat termenele limită.",
     "loading": "Se încarcă termenele limită...",
@@ -597,15 +1457,15 @@
       "noDocuments": "Încă nu există documente pe această temă. Încărcați mai întâi fișierul PDF de depunere în fila Documente.",
       "selectDocument": "Selectați versiunea documentului..."
     },
-    "filing": "Se depune...",
+    "filing": "Se depune…",
     "filingDate": "Data depunerii",
-    "filingOffice": "Birou / jurisdicție",
+    "filingOffice": "Birou de dosare / jurisdicție",
     "jurisdictionHint": "Utilizați EPO (EP) pentru brevetele europene, EUIPO (UE) pentru mărci comerciale/desene și modele UE, BPO (BG) pentru Bulgaria, WIPO (WO) pentru PCT.",
     "loading": "Se încarcă drepturile IP...",
     "loadingRenewals": "Se încarcă reînnoiri…",
     "markFiled": "Mark a depus",
-    "noAnnuityWindows": "Încă nu există ferestre de anuitate. Înregistrați brevetul pentru deschiderea anului 1.",
-    "noRenewalWindows": "Încă nu există ferestre de reînnoire. Înregistrați dreptul IP de a deschide ciclul 1.",
+    "noAnnuityWindows": "Încă nu există ferestre de anuitate. Înregistrați brevetul pentru a deschide anul 1.",
+    "noRenewalWindows": "Încă nu există ferestre de reînnoire. Înregistrați dreptul de IP la deschiderea ciclului 1.",
     "partialRenewals": "Reînnoiri parțiale",
     "partsCount": "({{count}} piese)",
     "proceed": "Continuați înregistrarea",
@@ -678,7 +1538,7 @@
     },
     "detail": {
       "clearLink": "Ștergeți legătura",
-      "linkedMatter": "Litigii legate",
+      "linkedMatter": "Chestiune legată de litigiu",
       "loading": "Încărcare…",
       "saveChanges": "Salvați modificările",
       "searchMatters": "Căutarea contează să escaladeze...",
@@ -699,18 +1559,18 @@
       "deadlineHint": "Un termen limită de răspuns este generat automat (10 zile lucrătoare de la data sechestrului).",
       "empty": "Încă nu au fost înregistrate convulsii.",
       "goodsDescription": "Descrierea mărfurilor",
-      "loadFailed": "Nu s-au încărcat sechestrele.",
+      "loadFailed": "Nu s-au încărcat capturile.",
       "loading": "Se încarcă capturi...",
       "logSeizure": "Sechestrarea buștenilor",
       "office": "Biroul vamal",
       "portOfEntry": "Port de intrare",
       "quantity": "Cantitate",
-      "sectionDescription": "Reținerea la frontieră și custodia pentru această problemă.",
+      "sectionDescription": "Reținerea la frontieră și custodia pentru această chestiune.",
       "sectionTitle": "Convulsii",
       "seizureDate": "Data sechestrului",
       "status": "Stare"
     },
-    "wrongMatterType": "Registrele vamale sunt disponibile numai în chestiuni legate de măsurile de frontieră."
+    "wrongMatterType": "Evidențele vamale sunt disponibile numai în chestiuni legate de măsurile de frontieră."
   },
   "jurisdictionStatus": {
     "approved": "Aprobat",
@@ -720,42 +1580,951 @@
   },
   "layout": {
     "backToMatters": "← Înapoi la fișiere",
-    "loading": "Se încarcă fișierul…",
+    "loading": "Se încarcă fișierul...",
     "notFound": "Fișierul nu a fost găsit.",
     "archivedBadge": "Arhivat",
     "archive": "Arhivă",
     "archiving": "Se arhivează…",
     "restore": "Restabili",
     "restoring": "Se restabilește…",
-    "archiveFailed": "Nu s-a putut arhiva fișierul",
-    "restoreFailed": "Nu s-a putut restaura fișierul",
-    "archiveConfirm": "Arhivați acest fișier? Va ieși din lista activă, dar rămâne căutabil în Arhivate."
+    "archiveFailed": "Fișierul nu a putut fi arhivat",
+    "restoreFailed": "Nu s-a restabilit fișierul",
+    "archiveConfirm": "Arhivați acest fișier? Acesta va părăsi lista activă, dar va rămâne căutat în Arhivat."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Acțiuni secundare",
+      "editScope": "Editați domeniul/clasele"
+    },
+    "kinds": {
+      "name_address_change": "Schimbarea numelui și adresei",
+      "transfer": "Transfer / Cesiune de mărci înregistrate",
+      "license": "Acord de licență",
+      "pledge": "Angajament special",
+      "injunction": "Măsura provizorie / Interdicție",
+      "surrender": "Predare completă / declinare a răspunderii",
+      "limitation": "Limitarea aplicației",
+      "insolvency": "Insolvență/Faliment"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Soluționarea opoziției",
+      "office_action_response": "Răspuns la acțiunea biroului",
+      "voluntary_limitation": "Limitare voluntară",
+      "correction_of_error": "Corectarea erorii",
+      "other": "Alte"
+    },
+    "scope": {
+      "title": "Editați clasele și domeniul de aplicare",
+      "description": "Modificați clasele Nice și descrierile bunurilor/serviciilor, apoi înregistrați detaliile de înregistrare la birou.",
+      "cardTitle": "Clase și bunuri/servicii",
+      "cardHint": "Clasuri active Nice în acest fișier de marcă comercială.",
+      "empty": "Nu s-au înregistrat încă cursuri.",
+      "classLabel": "Clasa {{n}}",
+      "noDescription": "Fără descriere",
+      "classes": "Editor de clasă și bunuri",
+      "incomingNumber": "Numărul de referință primit (ВХ. НОМЕР)",
+      "incomingPlaceholder": "ID de urmărire a biroului",
+      "filingDate": "Data depunerii (ДАТА)",
+      "legalBasis": "Temei juridic (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Selectați un motiv...",
+      "legalBasisOther": "Alt temei juridic",
+      "attachment": "Document justificativ",
+      "errors": {
+        "classRequired": "Păstrați cel puțin o clasă Nice sau folosiți Full Surrender pentru a renunța la nota.",
+        "incomingRequired": "Introduceți numărul de referință primit.",
+        "dateRequired": "Introduceți data de depunere.",
+        "basisRequired": "Selectați un temei legal.",
+        "saveFailed": "Nu s-a putut salva corecția domeniului."
+      }
+    },
+    "secondary": {
+      "description": "Înregistrați această acțiune administrativă, taxa guvernamentală opțională și termenele limită pentru memento.",
+      "generateProforma": "Generați factura proforma",
+      "governmentFee": "Taxa guvernamentala (€)",
+      "paymentDueDate": "Termenul limită de plată",
+      "paymentReminder": "Amintește-ți înainte de plată",
+      "filingDeadline": "Termen de depunere/acțiune",
+      "filingReminder": "Amintiți-vă înainte de depunere",
+      "reminderUnit": "Unitate",
+      "months": "Cu luni înainte",
+      "days": "Cu zile înainte",
+      "titles": {
+        "name_address_change": "Schimbarea numelui și adresei în jurnal",
+        "transfer": "Înregistrează transferul mărcilor comerciale",
+        "license": "Acord de licență pentru jurnal",
+        "pledge": "Înregistrați angajamentul special",
+        "injunction": "Înregistrați Măsura provizorie/Interdicție",
+        "surrender": "Înregistrați predarea completă / declinare a răspunderii",
+        "limitation": "Limitarea aplicației de jurnal",
+        "insolvency": "Jurnal Insolvență/Faliment"
+      },
+      "errors": {
+        "feeRequired": "Introduceți o taxă guvernamentală pentru a genera o factură proforma.",
+        "saveFailed": "Această acțiune nu a putut fi salvată."
+      }
+    },
+    "table": {
+      "title": "Acțiuni secundare",
+      "description": "Proceduri înregistrate pentru această marcă comercială. Deschideți folderul pentru a vedea sau încărca fișiere asociate.",
+      "empty": "Nu există încă acțiuni secundare. Utilizați Acțiuni secundare din antet pentru a vă înregistra una.",
+      "procedure": "Procedură",
+      "action": "Acţiune",
+      "loggedAt": "Conectat",
+      "viewAria": "Vedeți detaliile acțiunii",
+      "filesAria": "Deschideți arhiva fișierelor (fișiere {{count}})"
+    },
+    "archive": {
+      "title": "Arhiva fișierelor",
+      "empty": "Nu există încă fișiere atașate acestei acțiuni.",
+      "date": "Data",
+      "regarding": "Referitor la",
+      "regardingPlaceholder": "de ex. Decizie, proforma, scrisoare justificativa",
+      "document": "Document",
+      "user": "Utilizator",
+      "attach": "Atașați documentul",
+      "upload": "Încărcați fișierul",
+      "download": "Descărcați",
+      "regardingRequired": "Introduceți despre ce se referă fișierul.",
+      "fileRequired": "Alegeți un fișier de încărcat.",
+      "uploadFailed": "Nu s-a putut încărca fișierul."
+    }
   },
   "list": {
-    "description": "Vizualizare a tuturor fișierelor — căutare după titlu, client sau nr. cerere.",
-    "descriptionPortal": "Fișiere deschise pentru organizația dvs. după conversia solicitării.",
-    "descriptionArchived": "Fișiere finalizate sau inactive păstrate pentru referință.",
+    "description": "Vizualizarea portofoliului tuturor fișierelor — căutați după titlu, client sau numărul aplicației.",
+    "descriptionPortal": "Fișierele deschise pentru organizația dvs. după conversia aportului.",
+    "descriptionArchived": "Fișiere completate sau inactive păstrate pentru referință.",
+    "descriptionOthers": "Fișiere în afara celor șase rafturi principale — filtrați mai jos după tipul de lucru.",
+    "descriptionType": "{{type}} fișiere — căutați după titlu, client sau numărul aplicației.",
     "filters": {
       "allStatuses": "Toate stările",
       "allTypes": "Toate tipurile de muncă",
+      "allOtherTypes": "Toate celelalte tipuri",
       "active": "Activ",
-      "archived": "Arhivate",
-      "allOtherTypes": "Toate celelalte tipuri"
+      "archived": "Arhivat"
     },
     "intakeQueue": "Coada de admisie",
     "pagination": {
       "ofTotal": "din {{total}}"
     },
     "perPage": "{{count}} pe pagină",
-    "searchPlaceholder": "Căutare titlu, client, nr. cerere…",
+    "searchPlaceholder": "Căutați titlu, client, aplicație nr...",
     "title": "Fișiere",
     "titleArchived": "Fișiere arhivate",
-    "titlePortal": "Fișierele mele",
-    "descriptionOthers": "Fișiere în afara celor șase categorii principale — filtrați după tip mai jos.",
-    "descriptionType": "Fișiere {{type}} — căutare după titlu, client sau nr. cerere.",
-    "titleOthers": "Alte fișiere",
     "titleDrafts": "Ciorne",
-    "descriptionDrafts": "Ciorne în așteptarea aprobării sau depunerii — separate de mărci active și alte rafturi."
+    "titleOthers": "Alte fișiere",
+    "titlePortal": "Fișierele mele",
+    "descriptionDrafts": "Schițe de fișiere care așteaptă aprobare sau depunere — separate de mărcile comerciale active și alte rafturi."
+  },
+  "trademarkList": {
+    "description": "Portofoliul mărcilor comerciale — etapa de urmărire penală, cursuri, solicitant și termene limită dintr-o privire.",
+    "descriptionMarks": "Mărci comerciale noi și înregistrate — etapa de urmărire penală, cursuri, solicitant și termene limită dintr-o privire.",
+    "descriptionProcedure": "{{procedure}} fișiere cu mărci comerciale — etapa urmăririi penale, cursuri și termene limită dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de marcă comercială.",
+    "columns": {
+      "name": "Numele mărcii comerciale",
+      "territory": "Teritoriu",
+      "incomingRef": "Cerere/primire nr.",
+      "stage": "Etapa de urmărire penală",
+      "classes": "Cursuri frumoase",
+      "applicant": "Solicitant/proprietar",
+      "markType": "Tipul de marcare",
+      "registration": "Reg. nu. / data",
+      "deadline": "Termen limită"
+    },
+    "deadlineOpen": "{{count}} deschis",
+    "deadlineOverdue": "{{count}} întârziat",
+    "deadlineNext": "Următorul: {{date}}",
+    "filters": {
+      "title": "Semne de filtrare",
+      "subtitle": "Restrângeți portofoliul după solicitant, numere, date, clasă și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau solicitantului...",
+      "markName": "Numele mărcii comerciale",
+      "markNamePlaceholder": "Marcați titlul...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Reg. nu.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "markType": "Tipul de marcare",
+      "markKind": "Mark amabil",
+      "territory": "Teritoriu",
+      "representative": "Reprezentant",
+      "representativePlaceholder": "Numele reprezentantului...",
+      "applicationDateFrom": "Data cererii de la",
+      "applicationDateTo": "Data cererii până la",
+      "registrationDateFrom": "Data inregistrarii de la",
+      "registrationDateTo": "Data înregistrării la",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "markStatus": "Marcați starea",
+      "niceClass": "Bună clasă",
+      "country": "Ţară",
+      "hasCertificate": "Are certificat atasat",
+      "choose": "Alege",
+      "chooseClass": "Alegeți clasa",
+      "chooseCountry": "Alege tara",
+      "all": "Toate",
+      "classOption": "Clasa {{number}}",
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "utilityModelList": {
+    "description": "Modele de utilitate — teritoriu, revendicări, proprietar și înregistrare dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de model de utilitate.",
+    "searchResults": "Rezultatele căutării: {{count}}",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Înregistrat"
+    },
+    "columns": {
+      "name": "Nume",
+      "territory": "Teritoriu",
+      "incomingRef": "Sosit nr. / data",
+      "status": "Stare",
+      "classes": "Clasele",
+      "owner": "Proprietar",
+      "kind": "Fel",
+      "registration": "Reg. nu. / data"
+    },
+    "filters": {
+      "title": "Filtrați modelele utilitare",
+      "subtitle": "Restrângeți portofoliul după solicitant, numere, date, teritoriu și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau proprietarului...",
+      "name": "Nume",
+      "namePlaceholder": "Numele modelului de utilitate...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Nr.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "territory": "Teritoriu",
+      "choose": "Alege",
+      "chooseTerritory": "Alegeți teritoriul",
+      "representative": "Reprezentant",
+      "chooseRepresentative": "Alegeți un reprezentant",
+      "applicationDate": "Data cererii",
+      "registrationDate": "Data inregistrarii",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "status": "Stare",
+      "certificate": "Certificat",
+      "certificateOptions": {
+        "with": "Cu certificat",
+        "without": "Fara certificat"
+      },
+      "statusOptions": {
+        "registered": "Înregistrat"
+      },
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "spcList": {
+    "description": "Certificate suplimentare de protecție — teritoriu, revendicări, proprietar și înregistrare dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un fișier SPC nou.",
+    "searchResults": "Rezultatele căutării: {{count}}",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Înregistrat"
+    },
+    "columns": {
+      "name": "Nume",
+      "territory": "Teritoriu",
+      "incomingRef": "Sosit nr. / data",
+      "status": "Stare",
+      "classes": "Clasele",
+      "owner": "Proprietar",
+      "kind": "Fel",
+      "registration": "Reg. nu. / data"
+    },
+    "filters": {
+      "title": "Filtrați fișierele SPC",
+      "subtitle": "Restrângeți portofoliul după solicitant, numere, date, teritoriu și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau proprietarului...",
+      "name": "Denumirea brevetului",
+      "namePlaceholder": "Nume SPC...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Nr.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "territory": "Teritoriu",
+      "choose": "Alege",
+      "chooseTerritory": "Alegeți teritoriul",
+      "representative": "Reprezentant",
+      "chooseRepresentative": "Alegeți un reprezentant",
+      "applicationDate": "Data cererii",
+      "registrationDate": "Data inregistrarii",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "status": "Statutul brevetului",
+      "certificate": "Certificat",
+      "certificateOptions": {
+        "with": "Cu certificat",
+        "without": "Fara certificat"
+      },
+      "statusOptions": {
+        "registered": "Înregistrat"
+      },
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Cauze în instanță — părți, numărul cazului, instanța și statutul dintr-o privire.",
+    "emptyDescription": "Creați un nou dosar de caz pentru a începe.",
+    "searchResults": "Rezultatele căutării: {{count}}",
+    "incomingSuffix": "sosit",
+    "vrs": "vrs.",
+    "viewAria": "Vedeți {{title}}",
+    "filesAria": "Documente pentru {{title}} ({{count}})",
+    "columns": {
+      "parties": "petreceri",
+      "caseNumber": "Cazul nr.",
+      "court": "Curtea",
+      "status": "Stare",
+      "actions": "Acțiuni"
+    },
+    "statusOptions": {
+      "suspended": "Suspendat",
+      "scheduled": "Programat",
+      "inactive": "Inactiv",
+      "appealed": "A făcut recurs"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Client",
+    "caseNumberLabel": "Cazul nr.",
+    "statusTitle": "Stare",
+    "chooseStatus": "Alegeți starea",
+    "saveStatus": "Salvare stare",
+    "edit": "Edita",
+    "save": "Salva",
+    "cancel": "Anula",
+    "saving": "Economisire…",
+    "editHint": "Actualizați părțile, detaliile instanței, subiectul și alte date ale cazului.",
+    "subjectTitle": "Subiectul cauzei",
+    "instanceTitle": "Cazul nr. {{number}} ({{court}})",
+    "eventsTitle": "Evenimente",
+    "reminderTitle": "Creați un memento suplimentar",
+    "addReminder": "Adăuga",
+    "openArchive": "Arhiva fișierelor",
+    "saved": "Salvat.",
+    "events": {
+      "date": "Data",
+      "deadline": "Termen limită",
+      "regarding": "Referitor la",
+      "info": "Informații suplimentare"
+    },
+    "actions": {
+      "decision": "Decizie",
+      "agreement": "Acord",
+      "ruling": "Hotărârea"
+    },
+    "errors": {
+      "saveFailed": "Nu s-au putut salva detaliile cazului."
+    }
+  },
+  "giList": {
+    "description": "Indicații geografice — teritoriu, clase de produse, proprietar și înregistrare dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier cu indicații geografice.",
+    "searchResults": "Rezultatele căutării: {{count}}",
+    "territoryEu": "UE",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Înregistrat"
+    },
+    "columns": {
+      "name": "Nume",
+      "territory": "Teritoriu",
+      "incomingRef": "Sosit nr. / data",
+      "status": "Stare",
+      "classification": "Clasificare",
+      "owner": "Proprietar",
+      "registration": "Reg. nu. / data"
+    },
+    "filters": {
+      "title": "Filtrați indicațiile geografice",
+      "subtitle": "Restrângeți portofoliul în funcție de solicitant, numere, date, traseu pe teritoriu și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau proprietarului...",
+      "name": "Nume",
+      "namePlaceholder": "Nume GI...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Nr.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "territory": "Teritoriu",
+      "choose": "Alege",
+      "chooseTerritory": "Alegeți ruta pe teritoriu",
+      "representative": "Reprezentant",
+      "chooseRepresentative": "Alegeți un reprezentant",
+      "applicationDate": "Data cererii",
+      "registrationDate": "Data inregistrarii",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "status": "Stare",
+      "certificate": "Certificat",
+      "certificateOptions": {
+        "with": "Cu certificat",
+        "without": "Fara certificat"
+      },
+      "country": "Ţară",
+      "chooseCountry": "Alege tara",
+      "statusOptions": {
+        "registered": "Înregistrat"
+      },
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "designList": {
+    "description": "Modele înregistrate — teritoriu, clasificare Locarno, proprietar și înregistrare dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de design.",
+    "searchResults": "Rezultatele căutării: {{count}}",
+    "territoryEu": "UE",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Înregistrat"
+    },
+    "columns": {
+      "name": "Nume",
+      "territory": "Teritoriu",
+      "incomingRef": "Sosit nr. / data",
+      "status": "Stare",
+      "classification": "Clasificare",
+      "owner": "Proprietar",
+      "registration": "Reg. nu. / data"
+    },
+    "filters": {
+      "title": "Modele de filtre",
+      "subtitle": "Restrângeți portofoliul în funcție de solicitant, numere, date, procedură și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau proprietarului...",
+      "name": "Nume",
+      "namePlaceholder": "Numele designului...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Nr.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "territory": "Teritoriu",
+      "procedure": "Procedură",
+      "choose": "Alege",
+      "chooseTerritory": "Alegeți teritoriul",
+      "representative": "Reprezentant",
+      "chooseRepresentative": "Alegeți un reprezentant",
+      "applicationDate": "Data cererii",
+      "registrationDate": "Data inregistrarii",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "status": "Stare",
+      "certificate": "Certificat",
+      "certificateOptions": {
+        "with": "Cu certificat",
+        "without": "Fara certificat"
+      },
+      "country": "Ţară",
+      "statusOptions": {
+        "registered": "Înregistrat"
+      },
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "patentList": {
+    "description": "Brevetele noi și cele înregistrate împreună - etapa de urmărire penală, revendicări, proprietar și termene limită dintr-o privire.",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de brevet.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Denumirea brevetului",
+      "territory": "Teritoriu",
+      "incomingRef": "Cerere/primire nr.",
+      "stage": "Stare",
+      "claims": "Revendicări",
+      "owner": "Proprietar",
+      "registration": "Reg. nu. / data",
+      "deadline": "Termen limită"
+    },
+    "deadlineOpen": "{{count}} deschis",
+    "deadlineOverdue": "{{count}} întârziat",
+    "deadlineNext": "Următorul: {{date}}",
+    "filters": {
+      "title": "Filtrarea brevetelor",
+      "subtitle": "Restrângeți portofoliul după solicitant, numere, date, teritoriu și multe altele.",
+      "activeCount": "{{count}} activ",
+      "applicant": "Solicitant/proprietar",
+      "applicantPlaceholder": "Numele clientului sau proprietarului...",
+      "patentName": "Denumirea brevetului",
+      "patentNamePlaceholder": "Titlul brevetului...",
+      "incomingNo": "Sosit nr.",
+      "incomingPlaceholder": "Aplicație/primire...",
+      "regNo": "Reg. nu.",
+      "regNoPlaceholder": "Număr de înregistrare…",
+      "territory": "Teritoriu",
+      "choose": "Alege",
+      "chooseTerritory": "Alegeți teritoriul",
+      "representative": "Reprezentant",
+      "chooseRepresentative": "Alegeți un reprezentant",
+      "applicationDateFrom": "Data cererii de la",
+      "applicationDateTo": "Data cererii până la",
+      "registrationDateFrom": "Data inregistrarii de la",
+      "registrationDateTo": "Data înregistrării la",
+      "contact": "Persoana de contact",
+      "contactPlaceholder": "Nume de contact, e-mail sau telefon...",
+      "patentStatus": "Statutul brevetului",
+      "certificate": "Certificat",
+      "certificateOptions": {
+        "with": "Cu certificat",
+        "without": "Fara certificat"
+      },
+      "country": "Ţară",
+      "chooseCountry": "Alege tara",
+      "annualFees": "Plata taxei anuale",
+      "annualFeesOptions": {
+        "yes": "Da",
+        "no": "Nu"
+      },
+      "statusOptions": {
+        "validation_received": "Validare primită",
+        "assignment": "Misiunea",
+        "translation_assigned": "Traducere atribuită",
+        "filing_entry": "Depozitare/inscriere",
+        "validation_decision": "Decizia de validare",
+        "registered": "Înregistrat"
+      },
+      "all": "Toate",
+      "clear": "Ștergeți filtrele",
+      "apply": "Aplicați filtre"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Marci"
+  },
+  "objectionList": {
+    "view": "Vedere",
+    "fileArchive": "Arhiva fișierelor",
+    "viewAria": "Vedeți obiecția {{title}}",
+    "filesAria": "Deschideți arhiva fișierelor pentru {{title}} ({{count}} fișiere)",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de obiecție.",
+    "columns": {
+      "againstMark": "Împotriva mărcii",
+      "grounds": "Terenuri",
+      "client": "Client",
+      "status": "Stare",
+      "actions": "Acțiuni"
+    }
+  },
+  "oppositionList": {
+    "view": "Vedere",
+    "fileArchive": "Arhiva fișierelor",
+    "viewAria": "Vedeți opoziția {{title}}",
+    "filesAria": "Deschideți arhiva fișierelor de opoziție pentru {{title}} ({{count}} fișiere)",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de opoziție.",
+    "columns": {
+      "againstMark": "Împotriva mărcii",
+      "client": "Client",
+      "status": "Stare",
+      "actions": "Acțiuni"
+    },
+    "stages": {
+      "disputes_division": "Opoziție în repartizarea litigiilor",
+      "opposition_decision": "Decizie de opoziție",
+      "disputes_department_decision": "Decizia departamentului de litigii",
+      "case": "Caz",
+      "stopped": "oprit",
+      "closed": "Închis"
+    },
+    "stageLegend": {
+      "disputes_division": "Albastru — în curs de revizuire în divizia de litigii",
+      "opposition_decision": "Chihlimbar — decizie emisă sau în curs",
+      "disputes_department_decision": "Portocaliu — decizie la nivel de departament",
+      "case": "Roșu - a ajuns la dosar în instanță",
+      "stopped": "Gray — procedurile au fost întrerupte",
+      "closed": "Verde - opoziție terminată"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Obiecţie",
+    "basicInfo": "Informații de bază",
+    "foundation": "Fundaţie",
+    "archiveTitle": "Arhiva dosar de obiecție",
+    "nav": {
+      "view": "Vedere",
+      "archive": "Arhiva fișierelor"
+    },
+    "markName": "Numele mărcii comerciale",
+    "applicationNumber": "Numărul cererii",
+    "applicationDate": "Data cererii",
+    "classes": "Clasele",
+    "markType": "Tipul mărcii comerciale",
+    "applicant": "Solicitant",
+    "noMarkImage": "Marca comercială nu are imagine",
+    "grounds": "Fundaţie",
+    "submissionDate": "Data depunerii",
+    "incomingNumber": "Numărul de intrare",
+    "poaIncomingNumber": "Numărul împuternicirii primite",
+    "poaDate": "Data",
+    "edit": "Edita",
+    "cancel": "Anula",
+    "save": "Salvați modificările",
+    "saving": "Economisire…",
+    "errors": {
+      "markNameRequired": "Numele mărcii comerciale este obligatoriu.",
+      "saveFailed": "Nu s-a putut salva obiecția."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Opoziţie",
+    "subjectMark": "Marca comercială a subiectului",
+    "opposingMarks": "Mărci comerciale opuse",
+    "archiveTitle": "Arhiva dosarului opoziției",
+    "nav": {
+      "view": "Vedere",
+      "archive": "Arhiva fișierelor",
+      "notes": "Note"
+    },
+    "markName": "Numele mărcii comerciale",
+    "applicationNumber": "Numărul cererii",
+    "applicationDate": "Data cererii",
+    "classes": "Clasele",
+    "markType": "Tipul mărcii comerciale",
+    "applicant": "Solicitant",
+    "representative": "Reprezentant",
+    "noMarkImage": "Marca comercială nu are imagine",
+    "noBasisMarks": "Nu au fost înregistrate mărci comerciale opuse.",
+    "basisMarkName": "Numele mărcii comerciale",
+    "basisTerritory": "Teritoriu",
+    "basisMarkNo": "Mark nu.",
+    "basisAppDate": "Data cererii",
+    "basisClasses": "Clasele",
+    "againstClasses": "Împotriva claselor",
+    "submittedBy": "Trimis de",
+    "statusHistory": "Istoricul stării",
+    "stage": "Stare",
+    "stagePlaceholder": "Selectați starea...",
+    "stageNone": "Nu setat",
+    "stageChangeHint": "Salvarea unei noi stări actualizează insigna colorată în lista de opoziții, adaugă o linie la istoricul stării și setează problema la În așteptare (Oprit) sau Închisă, atunci când este cazul.",
+    "decisionNumber": "Numărul deciziei",
+    "decisionDate": "Data deciziei",
+    "actions": {
+      "stop": "Stop",
+      "print": "Imprimați PDF",
+      "printing": "Se generează…",
+      "stopFailed": "Nu a putut opri opoziția.",
+      "printFailed": "Nu s-a putut genera PDF-ul."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Opoziţia este examinată de secţia de litigii.",
+      "opposition_decision": "O decizie cu privire la opoziție a fost emisă sau este așteptată.",
+      "disputes_department_decision": "Departamentul de litigii a emis sau își revizuiește decizia.",
+      "case": "Chestiunea a fost escaladată într-un proces judiciar.",
+      "stopped": "Procedura de opoziție este întreruptă; problema este setată la În așteptare.",
+      "closed": "Opoziția este terminată; chestiunea este setată la Închis."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Opoziție în diviziunea disputelor",
+      "opposition_decision": "Decizia privind opoziția nr. {{number}} / {{date}}",
+      "disputes_department_decision": "Decizia departamentului litigii nr. {{number}} / {{date}}",
+      "case": "Decizia recurată privind opoziția nr. {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Opoziția sa oprit",
+      "closed": "{{markRef}} — Opoziția închisă"
+    },
+    "timeline": {
+      "decision": "Decizie privind opoziția",
+      "department_decision": "Decizia departamentului de litigii",
+      "second_decision": "A doua decizie de opoziție",
+      "appealedBy": "Contestat de {{name}}",
+      "appealedInCourtBy": "Apelat în instanță de {{name}}",
+      "decisionRef": "Nr. {{number}} / {{date}}",
+      "appealFiled": "Apel depus",
+      "courtAppealFiled": "Apel depus la tribunal"
+    },
+    "workflow": {
+      "appealTitle": "Apel - număr primit",
+      "correspondenceTitle": "Corespondenţă",
+      "solutionTitle": "Soluţie",
+      "incomingNumber": "Numărul de intrare",
+      "date": "Data",
+      "attachAppeal": "Atașați contestația",
+      "attachDocument": "Atașați documentul",
+      "regarding": "Referitor la",
+      "deadline": "Termen limită",
+      "additionalInfo": "Informații suplimentare",
+      "correspondence": "Corespondenţă",
+      "submit": "Trimiteți",
+      "solutionSubmit": "Soluţie",
+      "caseDraft": "Proiect de caz",
+      "courtAppeal": "Apel în instanță",
+      "saveFailed": "Nu s-a putut salva."
+    },
+    "edit": "Edita",
+    "cancel": "Anula",
+    "save": "Salvați modificările",
+    "saving": "Economisire…",
+    "errors": {
+      "markNameRequired": "Numele mărcii comerciale este obligatoriu.",
+      "saveFailed": "Nu a putut salva opoziția."
+    },
+    "notes": {
+      "title": "Note de opoziție",
+      "empty": "Încă nu există note.",
+      "date": "Data",
+      "regarding": "Referitor la",
+      "details": "Informații suplimentare",
+      "submit": "Adăuga",
+      "regardingRequired": "Introduceți un subiect pentru notă.",
+      "saveFailed": "Nu s-a putut salva nota.",
+      "editAria": "Editați nota",
+      "deleteAria": "Ștergeți nota"
+    }
+  },
+  "cancellationList": {
+    "view": "Prezentare generală",
+    "fileArchive": "Fișiere",
+    "viewAria": "Vedeți anularea {{title}}",
+    "filesAria": "Deschideți arhiva fișierelor de anulare pentru {{title}} ({{count}} fișiere)",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de anulare.",
+    "stageNone": "Nu setat",
+    "columns": {
+      "againstMark": "Împotriva unui brand",
+      "client": "Client",
+      "status": "Stare",
+      "actions": "Acțiuni"
+    },
+    "stages": {
+      "waiting_for_login": "Se așteaptă autentificare",
+      "in_correspondence": "În corespondență",
+      "case": "Caz",
+      "stopped": "oprit",
+      "closed": "Închis"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Anulare",
+    "subjectMark": "Marca comercială a subiectului",
+    "cancellationSide": "Detalii de anulare",
+    "archiveTitle": "Arhiva fișierului de anulare",
+    "nav": {
+      "view": "Vedere",
+      "archive": "Arhiva fișierelor",
+      "notes": "Note"
+    },
+    "markName": "Numele mărcii comerciale",
+    "applicationNumber": "Numărul cererii",
+    "applicationDate": "Data cererii",
+    "registrationNumber": "Număr de înregistrare",
+    "classes": "Clasele",
+    "markType": "Tipul de marcare",
+    "applicant": "Solicitant",
+    "representative": "Reprezentant",
+    "againstClasses": "Împotriva claselor",
+    "submittedBy": "Trimis de",
+    "foundation": "Fundaţie",
+    "stage": "Stare",
+    "stagePlaceholder": "Selectați starea...",
+    "stageNone": "Nu setat",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Anulare",
+      "in_correspondence": "Nr. anulare {{number}} / {{date}}",
+      "case": "Nr. anulare {{number}} / {{date}} — Caz",
+      "stopped": "{{markRef}} — Anularea a fost oprită",
+      "closed": "{{markRef}} — Anularea a fost închisă"
+    },
+    "deadlines": {
+      "date": "Data",
+      "deadline": "Termen limită",
+      "regarding": "Referitor la",
+      "details": "Informații suplimentare"
+    },
+    "workflow": {
+      "feeTitle": "Taxa de stat – data plății",
+      "poaTitle": "Împuternicire",
+      "filingTitle": "Dosar de anulare",
+      "correspondenceTitle": "Corespondenţă",
+      "feeAmount": "Sumă (BGN)",
+      "feeDate": "Data plății",
+      "poaNumber": "Numărul POA",
+      "poaDate": "Data primirii",
+      "cancellationNumber": "Număr de anulare",
+      "filingDate": "Data depunerii",
+      "attachDocument": "Atașați documentul",
+      "attachPoa": "Atașați POA",
+      "regarding": "Referitor la",
+      "deadline": "Termen limită",
+      "additionalInfo": "Informații suplimentare",
+      "submit": "Trimiteți",
+      "decision": "Decizie",
+      "feePaid": "Taxa de stat înregistrată",
+      "poaReceived": "Procura înregistrată",
+      "filingRecorded": "S-a înregistrat dosar de anulare",
+      "correspondence": "Corespondenţă",
+      "saveFailed": "Nu s-a putut salva."
+    },
+    "actions": {
+      "stop": "Stop",
+      "stopFailed": "Nu s-a putut opri anularea."
+    },
+    "edit": "Edita",
+    "cancel": "Anula",
+    "save": "Salvați modificările",
+    "saving": "Economisire…",
+    "errors": {
+      "markNameRequired": "Numele mărcii comerciale este obligatoriu.",
+      "saveFailed": "Nu s-a putut salva anularea."
+    },
+    "notes": {
+      "title": "Note de anulare",
+      "empty": "Încă nu există note.",
+      "date": "Data",
+      "regarding": "Referitor la",
+      "details": "Informații suplimentare",
+      "submit": "Adăuga",
+      "regardingRequired": "Introduceți un subiect pentru notă.",
+      "saveFailed": "Nu s-a putut salva nota.",
+      "editAria": "Editați nota",
+      "deleteAria": "Ștergeți nota"
+    }
+  },
+  "deletionList": {
+    "view": "Prezentare generală",
+    "fileArchive": "Fișiere",
+    "viewAria": "Vedeți ștergerea {{title}}",
+    "filesAria": "Deschideți arhiva fișierelor de ștergere pentru {{title}} ({{count}} fișiere)",
+    "emptyDescription": "Încercați să ajustați filtrele sau să creați un nou fișier de ștergere.",
+    "stageNone": "Nu setat",
+    "columns": {
+      "againstMark": "Împotriva unui brand",
+      "client": "Client",
+      "status": "Stare",
+      "actions": "Acțiuni"
+    },
+    "stages": {
+      "waiting_for_login": "Trimiteți ștergerea",
+      "in_correspondence": "În corespondență",
+      "decision": "Decizie",
+      "case": "Caz",
+      "stopped": "oprit",
+      "closed": "Închis"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Ștergere",
+    "subjectMark": "Marca comercială a subiectului",
+    "deletionSide": "Detalii de ștergere",
+    "archiveTitle": "Ștergerea arhivei fișierului",
+    "archivedStamp": "Arhivat",
+    "noMarkImage": "Marca comercială nu are imagine",
+    "nav": {
+      "view": "Vedere",
+      "archive": "Arhiva fișierelor"
+    },
+    "markName": "Numele mărcii comerciale",
+    "applicationNumber": "Numărul cererii",
+    "applicationDate": "Data cererii",
+    "registrationNumber": "Număr de înregistrare",
+    "classes": "Clasele",
+    "markType": "Tipul de marcare",
+    "applicant": "Solicitant",
+    "representative": "Reprezentant",
+    "againstClasses": "Împotriva claselor",
+    "submittedBy": "Trimis de",
+    "foundation": "Fundaţie",
+    "stage": "Stare",
+    "stagePlaceholder": "Selectați starea...",
+    "stageNone": "Nu setat",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Ștergere",
+      "in_correspondence": "Nr. ștergere {{number}} / {{date}}",
+      "decision": "Decizia de ștergere nr. {{number}} / {{date}}",
+      "case": "Decizia de ștergere nr. {{number}} / {{date}} — Caz",
+      "stopped": "{{markRef}} — Oprit (până la {{stopUntil}})",
+      "closed": "{{markRef}} — Ștergere închisă"
+    },
+    "deadlines": {
+      "date": "Data reamintirii",
+      "deadline": "Termen limită",
+      "regarding": "Referitor la",
+      "details": "Informații suplimentare",
+      "appealTitle": "Termen limită pentru contestație"
+    },
+    "stopped": {
+      "title": "oprit",
+      "until": "(până la {{date}})",
+      "reason": "Motiv: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Generați proforma",
+      "stateFee": "Taxa de stat",
+      "feePaymentDeadline": "Termenul limită de plată",
+      "poaSendDeadline": "Termenul limită pentru trimiterea împuternicirii",
+      "filingDeadlineLabel": "Termenul limită pentru depunere",
+      "remindBefore": "Amintește-ți înainte",
+      "reminderDays": "Zile",
+      "reminderMonths": "Luni",
+      "feeDeadlineRegarding": "Termenul limită pentru plata taxei de stat",
+      "poaDeadlineRegarding": "Termenul limită pentru trimiterea împuternicirii",
+      "filingDeadlineRegarding": "Termenul limită pentru depunerea unei ștergeri",
+      "proformaRecorded": "Proforma și termenele limită înregistrate",
+      "feeTitle": "Taxa de stat – data plății",
+      "poaTitle": "Împuternicire",
+      "filingTitle": "Fișier de ștergere",
+      "correspondenceTitle": "Corespondenţă",
+      "decisionTitle": "Decizie de ștergere",
+      "feeAmount": "Sumă (BGN)",
+      "feeDate": "Data plății",
+      "poaNumber": "Numărul POA",
+      "poaDate": "Data primirii",
+      "deletionNumber": "Număr de ștergere",
+      "filingDate": "Data depunerii",
+      "decisionNumber": "Numărul deciziei",
+      "decisionDate": "Data deciziei",
+      "attachDocument": "Atașați documentul",
+      "attachPoa": "Atașați POA",
+      "regarding": "Referitor la",
+      "deadline": "Termen limită",
+      "additionalInfo": "Informații suplimentare",
+      "submit": "Trimiteți",
+      "decision": "Decizie",
+      "caseDraft": "Proiect de caz",
+      "notAppealed": "Nu a fost contestat",
+      "appealed": "A făcut recurs",
+      "feePaid": "Taxa de stat înregistrată",
+      "poaReceived": "Procura înregistrată",
+      "filingRecorded": "S-a înregistrat fișierul de ștergere",
+      "decisionRecorded": "Decizia de ștergere a fost înregistrată",
+      "correspondence": "Corespondenţă",
+      "decisionNumberRequired": "Introduceți numărul deciziei.",
+      "saveFailed": "Nu s-a putut salva."
+    },
+    "actions": {
+      "stop": "Stop",
+      "stopReason": "Motiv",
+      "stopUntil": "S-a oprit până când",
+      "restore": "Restabili",
+      "restored": "Restaurat",
+      "archive": "Arhivă",
+      "archiveConfirm": "Arhivați acest fișier de ștergere?",
+      "archiveFailed": "Nu s-a putut arhiva ștergerea.",
+      "stopFailed": "Nu s-a putut opri ștergerea.",
+      "restoreFailed": "Nu s-a putut restabili ștergerea."
+    },
+    "edit": "Edita",
+    "cancel": "Anula",
+    "save": "Salvați modificările",
+    "saving": "Economisire…",
+    "errors": {
+      "markNameRequired": "Numele mărcii comerciale este obligatoriu.",
+      "saveFailed": "Nu s-a putut salva ștergerea."
+    }
   },
   "ipRightsRegister": {
     "description": "Registrul de drepturi IP la nivelul întregii firme cu filtre în funcție de client, jurisdicție, tip, stare și expirare.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Combinate",
+    "combination_of_colors": "Combinație de culori",
     "figurative": "Figurativ",
     "sound": "Sunet",
     "three_dimensional": "3D",
-    "wordmark": "Marca verbală",
-    "combination_of_colors": "Combinație de culori"
+    "wordmark": "Marca verbală"
   },
   "overview": {
     "assignedTo": "Avocat principal",
@@ -801,18 +2570,6 @@
     "clientHint": "Partea instructoră — primește facturi",
     "intermediary": "Intermediar",
     "description": "Descriere",
-    "jurisdictions": "Jurisdicțiile",
-    "jurisdictionsEmpty": "Nu au fost înregistrate jurisdicții.",
-    "openedBy": "Deschis de",
-    "status": "Stare",
-    "table": {
-      "country": "Ţară",
-      "localRef": "Ref. locală",
-      "status": "Stare"
-    },
-    "title": "Detalii fișier",
-    "type": "Tipul muncii",
-    "typeSpecific": "Atribute specifice tipului",
     "edit": {
       "cancel": "Anula",
       "edit": "Edita",
@@ -824,12 +2581,24 @@
         "territory": "Teritoriu (din fișierul de creare)",
         "title": "Titlu"
       },
-      "hint": "Faceți clic pe Editați pentru a modifica detaliile fișierului, apoi Salvați modificările. Teritoriul rămâne așa cum setat atunci când fișierul a fost creat.",
+      "hint": "Faceți clic pe Editare pentru a modifica detaliile fișierului, apoi Salvați modificările. Teritoriul rămâne așa cum este setat atunci când fișierul a fost creat.",
       "save": "Salvați modificările",
       "saved": "Salvat.",
       "saving": "Economisire…",
       "title": "Detalii fișier"
-    }
+    },
+    "jurisdictions": "Jurisdicțiile",
+    "jurisdictionsEmpty": "Nu au fost înregistrate jurisdicții.",
+    "openedBy": "Deschis de",
+    "status": "Stare",
+    "table": {
+      "country": "Ţară",
+      "localRef": "Ref. locală",
+      "status": "Stare"
+    },
+    "title": "Detalii fișier",
+    "type": "Tipul muncii",
+    "typeSpecific": "Atribute specifice tipului"
   },
   "parties": {
     "title": "petreceri",
@@ -855,7 +2624,7 @@
     "deadlines": "Termenele limită",
     "empty": "Nu s-au găsit probleme",
     "emptyDescription": "Încercați să ajustați filtrele sau deschideți o chestiune nouă.",
-    "emptyPortal": "Nu s-a împărtășit încă probleme cu tine.",
+    "emptyPortal": "Nu s-au împărtășit încă probleme cu tine.",
     "error": "Nu s-au încărcat problemele.",
     "jurisdiction": "Jurisdicția",
     "jurisdictions": "Jurisdicțiile",
@@ -874,11 +2643,12 @@
     "instructions": "Instrucţiuni",
     "approvals": "Aprobari",
     "ipRights": "drepturi de proprietate intelectuală",
+    "secondaryActions": "Acțiuni secundare",
     "customs": "Vamă",
     "overview": "Prezentare generală",
     "tasks": "Note",
     "timeline": "Cronologie",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} pe {{tab}}"
   },
   "approvals": {
     "title": "Aprobarile clientilor",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Adăugați sarcină",
+    "add": "Adăugați o notă",
     "assignedTo": "Atribuit la",
     "assignedToUser": "Atribuit la {{name}}",
     "completed": "Terminat",
     "completedByUser": "Finalizat de {{name}}",
-    "confirmComplete": "Marcați această sarcină ca finalizată?",
-    "confirmDelete": "Ștergeți această sarcină?",
+    "confirmComplete": "Marcați această notă ca finalizată?",
+    "confirmDelete": "Ștergeți această notă?",
     "delete": "Şterge",
-    "deleteMessage": "Această sarcină va fi eliminată definitiv.",
-    "deleteTitle": "Ștergeți sarcina?",
-    "description": "Lucru de făcut în această chestiune — separat de termenele limită generate de sistem.",
-    "drawerTitle": "Adăugați sarcină",
-    "dueOn": "Datorită {{date}}",
-    "empty": "Nicio sarcină în această chestiune.",
-    "emptyOpen": "Fără sarcini deschise. Adăugați unul când există de lucru de urmărit în această chestiune.",
-    "error": "Nu s-au încărcat sarcinile.",
-    "errorCreate": "Nu s-a putut crea sarcina",
+    "deleteMessage": "Această notă va fi eliminată definitiv.",
+    "deleteTitle": "Ștergeți nota?",
+    "description": "Note interne cu privire la această problemă — separate de termenele limită generate de sistem.",
+    "drawerTitle": "Adăugați o notă",
+    "dueOn": "Data scadentă {{date}}",
+    "empty": "Fără notițe despre această chestiune.",
+    "emptyOpen": "Fără note deschise. Adăugați unul când există ceva de urmărit în această chestiune.",
+    "error": "Nu s-au încărcat notele.",
+    "errorCreate": "Nu s-a putut crea nota",
     "form": {
       "assigneeLabel": "Atribuit la",
-      "assigneeRequired": "Selectați cine ar trebui să facă această sarcină",
+      "assigneeRequired": "Selectați cui este această notă",
       "dueDateOptional": "Data scadentă (opțional)",
       "notesOptional": "Note (opțional)",
       "notesPlaceholder": "Orice context suplimentar pentru cesionar",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "de ex. Apelați clientul referitor la răspunsul BPO",
       "titleRequired": "Titlul este obligatoriu"
     },
-    "loading": "Se încarcă sarcini...",
+    "loading": "Se încarcă notele...",
     "markComplete": "Marcați complet",
     "noDueDate": "Fără termen",
     "open": "Deschide",
@@ -954,7 +2724,7 @@
       "high": "Ridicat",
       "normal": "Normal"
     },
-    "title": "Sarcini"
+    "title": "Note"
   },
   "timeline": {
     "description": "Istoricul cronologic al urmăririi penale și corespondența pe această temă.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Litigiu/opoziție",
     "domain": "Domenii",
     "fto_analysis": "Analiza FTO",
-    "geographical_indication": "Indicație geografică",
-    "industrial_design": "Design industrial",
+    "geographical_indication": "Indicatii geografice",
+    "industrial_design": "Proiecta",
     "litigation_expert_report": "Litigii / Rapoarte de expertiză judecătorească",
     "official_fee_payment": "Plățile taxelor oficiale",
     "other": "Alte",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Selecta…",
     "title": "Detalii specifice tipului"
   },
-  "createFile": {
-    "addClass": "Adăugați o clasă",
-    "backToFiles": "Înapoi la fișiere",
-    "cancel": "Anula",
-    "changeSubtype": "Schimbați subcategoria",
-    "checkRegister": "Verificați în registrul comerțului",
-    "clearClient": "Schimbați clientul",
-    "clientOptionalHint": "Nicio potrivire CRM? Completați detaliile clientului de mai jos - salvarea schiței le va crea automat în Clienti.",
-    "applicantOptionalHint": "Nicio potrivire CRM? Completați detaliile solicitantului de mai jos - salvarea schiței le va crea automat în Clienti.",
-    "draftDescription": "Creat prin Creare fișier ({{procedure}}) — schiță",
-    "errors": {
-      "client": "Selectați un client pentru a continua.",
-      "clientOrDetails": "Selectați un client CRM sau introduceți numele clientului și detaliile pentru a le crea.",
-      "applicantOrDetails": "Selectați un solicitant în CRM sau introduceți numele și detaliile solicitantului pentru a le crea.",
-      "jurisdiction": "Selectați cel puțin un teritoriu/țară.",
-      "markWords": "Introduceți numele/cuvintele mărcii comerciale.",
-      "saveFailed": "Nu s-a putut salva fișierul nefinalizat.",
-      "subtype": "Selectați o subcategorie de marcă comercială.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Referința și starea fișierului",
+    "incomingNumber": {
+      "label": "Sosit nr."
     },
-    "euHint": "Marca Uniunii Europene (EUIPO) – jurisdicția stabilită la UE.",
-    "fields": {
-      "address": "Adresa",
-      "applicantClient": "Client solicitant",
-      "applicantClientOptional": "Solicitant în CRM (opțional)",
-      "city": "Oraş",
-      "classNumber": "Numărul clasei",
-      "country": "Ţară",
-      "eik": "UIC / EIK",
-      "email": "E-mail",
-      "fax": "Fax",
-      "goodsText": "Bunuri si servicii",
-      "legalName": "Nume și tip de persoană juridică",
-      "linkClient": "Selectați clientul în CRM",
-      "linkClientOptional": "Client CRM (opțional)",
-      "markKind": "Marcați categoria",
-      "markType": "Tipul de marcare",
-      "markWords": "Cuvinte ale mărcii",
-      "mol": "MOL (semnatar)",
-      "name": "Nume",
-      "phone": "Telefon",
-      "postalCode": "Cod poștal",
-      "territory": "Teritoriu",
-      "vat": "ID de TVA",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Data de intrare"
     },
-    "formTitle": "Creați fișier: marcă comercială",
-    "fullFormReady": "Formularul complet disponibil",
-    "goodsPlaceholder": "de ex. sticle; servicii de vânzare cu amănuntul...",
-    "markKinds": {
-      "certification": "Certificare",
-      "collective": "Colectiv",
-      "individual": "Individual"
+    "territoryRoute": {
+      "label": "Traseul teritorial",
+      "options": {
+        "national_bg": "Bulgaria (națională)",
+        "eu": "Uniunea Europeană",
+        "wipo": "OMPI/internațional",
+        "international": "Altele internaționale"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Combinație de culori",
-      "combined": "Combinate",
-      "figurative": "Figurativ",
-      "sound": "Sunet",
-      "three_dimensional": "Tridimensional",
-      "wordmark": "Marca verbală"
+    "authorityOffice": {
+      "label": "Autoritate / birou"
     },
-    "noClients": "Nu există clienți care se potrivesc. Creați mai întâi clientul în CRM, apoi reveniți aici.",
-    "optionalMark": "Marcare/subiect (opțional)",
-    "partialSubtypeNote": "Câmpurile de specialitate complete pentru această subcategorie vor fi extinse ulterior. Puteți salva în continuare o schiță legată de client; documentele și corespondența rămân la dosar.",
-    "preliminary": "Informații preliminare",
-    "procedureHints": {
-      "new": "Cerere de marcă nouă — formular complet",
-      "registered": "Marcă deja înregistrată",
-      "objection": "Procedură de obiecție",
-      "opposition": "Procedură de opoziție",
-      "cancellation": "Procedură de anulare",
-      "deletion": "Procedură de radiere",
-      "opposition_against_us": "Procedură de opoziție",
-      "opposition_by_us": "Procedură de opoziție",
-      "revocation": "Procedură de radiere"
+    "relatedApplicationNumber": {
+      "label": "Cererea aferentă nr."
     },
-    "procedures": {
-      "new": "Marcă nouă",
-      "registered": "Marcă înregistrată",
-      "objection": "Obiecție",
-      "opposition": "Opoziție",
-      "cancellation": "Anulare",
-      "deletion": "Radiere",
-      "opposition_against_us": "Opoziție",
-      "opposition_by_us": "Opoziție",
-      "revocation": "Radiere"
-    },
-    "removeClass": "Eliminați clasa",
-    "sameApplicant": "Informațiile solicitantului sunt aceleași cu cele ale clientului",
-    "sameCorrespondence": "Adresa de corespondență este aceeași cu adresa înregistrată",
-    "saveDraft": "Salvați ca schiță",
-    "saving": "Economisire…",
-    "searchClient": "Căutați clienți după nume sau cod...",
-    "sections": {
-      "applicant": "Solicitant",
-      "client": "Datele clientului",
-      "contact": "Persoana de contact",
-      "correspondence": "Adresa de corespondenta",
-      "goods": "Lista de bunuri si servicii",
-      "markName": "Numele mărcii comerciale",
-      "registeredAddress": "Adresă înregistrată",
-      "searchDocs": "Atașați documentele de căutare",
-      "trademark": "Informații despre mărci comerciale",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Selectați țări",
-    "subtypeHint": "Alegeți mai întâi subcategoria. Marcă nouă deschide formularul complet.",
-    "territories": {
-      "eu": "Uniunea Europeană",
-      "international": "Internațional (WO)",
-      "national": "Naţional"
-    },
-    "trademarkTitle": "Creare fișier — Marca comercială",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Adăugați țara...",
-    "cancel": "Anula",
-    "country": "Ţară",
-    "edit": "Edita",
-    "errors": {
-      "country": "Selectați cel puțin o țară pentru acest teritoriu.",
-      "saveFailed": "Nu s-au putut salva informațiile despre mărcile comerciale."
-    },
-    "euFixed": "Uniunea Europeană (EUIPO)",
-    "markKind": "Marcați categoria",
-    "markType": "Tipul de marcare",
-    "noCountries": "Nicio țară nu a fost selectată încă.",
-    "save": "Salvați modificările",
-    "saved": "Salvat.",
-    "saving": "Economisire…",
-    "selectCountries": "Selectați țări",
-    "territory": "Teritoriu",
-    "title": "Informații despre mărci comerciale"
-  },
-  "fileApproval": {
-    "clientStep": "1. Client aprobat",
-    "clientStepHint": "Personalul confirmă că clientul a fost de acord offline (apel/e-mail/întâlnire). Clientul portalului nu trebuie să se aprobe singur.",
-    "errors": {
-      "updateFailed": "Nu s-a putut actualiza starea de aprobare."
-    },
-    "hint": "Doar aprobare internă: marcați că clientul a fost de acord, apoi un partener director acceptă fișierul. Nu este necesară aprobarea trimiterii către client.",
-    "markClientApproved": "Marcați clientul aprobat",
-    "partnerApprove": "Fișierul de aprobare a partenerului",
-    "partnerOnly": "Numai Managing Partner poate parcurge acest pas",
-    "partnerStep": "2. Acceptă partenerul de conducere",
-    "partnerStepHint": "După ce clientul este marcat ca aprobat, Managing Partner acceptă fișierul și părăsește schița.",
-    "recordedBy": "Înregistrat de {{name}} · {{date}}",
-    "title": "Aprobare dosar",
-    "waitForClient": "Marcați mai întâi clientul aprobat, apoi puteți accepta fișierul."
-  },
-  "prosecution": {
-    "cancelEdit": "Anula",
-    "completeStage": "Etapa completa",
-    "edit": "Edita",
-    "editingNote": "Utilizați Salvare pentru a păstra ceea ce ați introdus în această etapă sau Finalizați etapa pentru a merge mai departe când câmpurile obligatorii sunt completate.",
-    "gateHint": "Nu puteți avansa până când câmpurile obligatorii pentru această etapă nu sunt completate (la fel ca și porțile lor de sistem).",
-    "goBack": "Întoarce-te într-o etapă",
-    "errors": {
-      "needAttachments": "Atașați fișierele necesare înainte de a continua: {{list}}",
-      "needInvoice": "Generați factura din taxa de stat înainte de a parcurge această etapă.",
-      "alreadyFinal": "Acest fișier este deja în stadiul final.",
-      "needApproval": "Finalizați aprobarea fișierului (client + partener director) înainte de a părăsi pregătirea.",
-      "needBulletin": "Introduceți numărul și data buletinului înainte de a părăsi publicația.",
-      "needFeePaid": "Introduceți data plății taxei de stat înainte de a părăsi examenul formal.",
-      "needFilingFields": "Introduceți numărul cererii și data de depunere pentru a finaliza depunerea.",
-      "needFormalFields": "Introduceți taxa de stat și termenul limită de plată pentru a continua.",
-      "needMol": "Vă rugăm să introduceți MOL în detaliile fișierului (creare-fișier/editare) înainte de a finaliza depunerea.",
-      "needOfficeActionDeadline": "Acțiunea biroului are un subiect - stabilește-i termenul înainte de a continua.",
-      "needPoaFiled": "Introduceți numărul și data primirii PoA înainte de a părăsi examinarea oficială.",
-      "needRegFeePaid": "Introduceți data plății taxei de înregistrare înainte de a continua.",
-      "needRepresentative": "Introduceți cel puțin un reprezentant sau setați Adăugați reprezentanți la Nr.",
-      "saveBeforeNavigate": "Salvați sau anulați editările înainte de a reveni la o etapă.",
-      "saveFailed": "Nu s-au putut salva datele urmăririi penale."
-    },
-    "fields": {
-      "addRepresentatives": "Doriți să adăugați reprezentanți?",
-      "applicationDate": "Data cererii",
-      "applicationNumber": "Numărul cererii",
-      "bulletinDate": "Data buletinului",
-      "bulletinNumber": "Numărul buletinului",
-      "feePaidDate": "Data plății taxei de stat",
-      "generatePoa": "Generați împuternicire",
-      "officeAction": "Acțiune/cerere la birou",
-      "officeActionDeadline": "Termenul limită pentru acțiunea biroului",
-      "paymentDeadline": "Termenul limită de plată",
-      "poaDate": "data PoA",
-      "poaDeadline": "Termenul limită de depunere a PoA",
-      "poaIncoming": "Numărul de intrare PoA",
-      "regFeePaidDate": "Data plății taxei de înregistrare",
-      "remindDays": "Amintiți-vă cu zile înainte de termenul limită",
-      "representatives": "Reprezentant(i)",
-      "sendPoaEmail": "Trimite e-mail automat",
-      "stateFee": "Taxa de stat (BGN)"
-    },
-    "molHint": "MOL trebuie setat pe detaliile fișierului (din crearea fișierului). Lipsesc blocuri MOL care finalizează această etapă.",
-    "no": "Nu",
-    "prepHint": "Etapa pregătitoare: finalizați mai întâi aprobarea fișierului, apoi Partenerul de conducere acceptă vă mută în Filing.",
-    "registeredDone": "Faza de înregistrare a fost atinsă.",
-    "saveChanges": "Salvați modificările",
-    "saveEntered": "Salva",
-    "saved": "Salvat.",
-    "saveFields": "Salvați câmpurile",
-    "saving": "Economisire…",
-    "stages": {
-      "filing": "Depunere",
-      "formal_exam": "Examinare formală",
-      "prep": "Pregătitor",
-      "publication": "Publicare",
-      "reg_fee": "Taxe de înregistrare",
-      "registration": "Înregistrare",
-      "substantive_exam": "Examinare de fond"
-    },
-    "territoryLabel": {
-      "eu": "Conductă: UE",
-      "international": "Conductă: Internațional (WO)",
-      "national": "Conductă: națională"
-    },
-    "territoryLocked": "Teritoriu fixat din fișierul de creare",
-    "territoryFromInfo": "Teritoriu din informații despre mărci comerciale",
-    "title": "Etapele procedurii",
-    "yes": "Da",
-    "hub": {
-      "generateInvoice": "Generați factura",
-      "invoiceIssuedShort": "Factură emisă",
-      "invoiceIssued": "Factura {{number}} emisă. Clientul îl poate vedea în portalul său; se află și în fila Facturare.",
-      "invoiceAlreadyIssued": "Factura {{number}} deja emisă — vizibilă în portal și Facturare.",
-      "invoiceFailed": "Nu s-a putut genera factura. Verificați detaliile de facturare ale clientului.",
-      "invoiceNotes": "Taxa oficială/de stat",
-      "uploadFailed": "Nu s-a putut încărca fișierul.",
-      "needStateFee": "Introduceți mai întâi suma taxei de stat.",
-      "feeDescription": "Taxa de stat/oficiala",
-      "deadlineFailed": "Nu s-au putut crea termene limită.",
-      "deadlineTitles": {
-        "payment": "Plata taxei de stat",
-        "poa": "Depunerea împuternicirii",
-        "oa": "Cerere de acțiune / examinare la birou",
-        "oaWithSubject": "Acțiune la birou: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Amintește-ți cu {{days}} zi(e) înainte de termenul limită."
-      },
-      "attach": {
-        "search": "Atașați fișierul de căutare",
-        "application": "Atașați aplicația",
-        "feeSlip": "Atașați talonul de taxă",
-        "poa": "Atașați PoA",
-        "officeAction": "Atașați acțiunea de birou",
-        "decision": "Atașați decizia",
-        "bulletin": "Atașați buletinul",
-        "regFee": "Atașați dovada plății",
-        "certificate": "Atașați certificat"
+    "workflowStage": {
+      "label": "Etapa fluxului de lucru",
+      "options": {
+        "intake": "Admisie",
+        "analysis": "Analiză",
+        "contract_draft": "Contract / proiect",
+        "filed": "Depus",
+        "closed": "Închis",
+        "registration": "Înregistrare",
+        "active": "Activ",
+        "seizure_pending": "Sechestru în așteptare",
+        "scoping": "Scoping",
+        "search": "Căutare",
+        "draft_report": "Proiect de raport",
+        "delivered": "Livrat",
+        "archived": "Arhivat",
+        "pre_dispute": "Pre-dispută",
+        "hearing": "Audiere",
+        "decision": "Decizie",
+        "appeal": "Recurs",
+        "monitoring": "Monitorizare",
+        "dispute": "Disputa",
+        "udrp": "UDRP",
+        "resolved": "Rezolvat",
+        "engaged": "Logodit",
+        "draft": "Proiect",
+        "submitted": "Trimis",
+        "requested": "Solicitat",
+        "in_progress": "În curs",
+        "invoiced": "Facturat",
+        "pending": "În așteptare",
+        "paid": "Plătit",
+        "reimbursed": "Rambursat",
+        "open": "Deschide"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Edita",
+    "save": "Salva",
+    "cancel": "Anula",
+    "saving": "Economisire…",
+    "editHint": "Actualizați referința fișierului, etapa fluxului de lucru și detaliile specifice tipului.",
+    "clientLabel": "Client",
+    "detailsTitle": "{{type}} detalii",
+    "errors": {
+      "saveFailed": "Nu s-au putut salva detaliile fișierului."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Creați un alt fișier nou sau ajustați filtrele.",
+    "viewAria": "Vedeți {{title}}",
+    "filesAria": "Documente pentru {{title}} ({{count}})",
+    "columns": {
+      "type": "Tip",
+      "subject": "Subiect",
+      "client": "Client",
+      "incoming": "Sosire ref.",
+      "stage": "Etapă",
+      "deadline": "Data cheie",
+      "actions": "Acțiuni"
     }
   }
 }

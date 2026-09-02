@@ -34,6 +34,14 @@
     "clients": "Klijenti",
     "holdingGroups": "Držanje grupa",
     "allMatters": "Sve datoteke",
+    "workingFiles": "Datoteke",
+    "createFile": "Stvori datoteku",
+    "createFileTrademark": "Zaštitni znak",
+    "createFilePatent": "Patent",
+    "mattersAll": "Sve",
+    "mattersDrafts": "Nacrti",
+    "mattersOthers": "Drugi",
+    "mattersArchived": "Arhivirano",
     "matters": "Datoteke",
     "intakeQueue": "Red čekanja za unos",
     "rightsRegister": "Registar prava",
@@ -100,15 +108,7 @@
     "messages": "Poruke",
     "approvals": "Odobrenja",
     "help": "Pomoć",
-    "myPortfolio": "Moj portfelj",
-    "workingFiles": "Datoteke",
-    "mattersAll": "Svi",
-    "mattersOthers": "Ostalo",
-    "mattersArchived": "Arhiva",
-    "mattersDrafts": "Nacrti",
-    "createFile": "Stvori datoteku",
-    "createFileTrademark": "Žig",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Moj portfelj"
   },
   "roles": {
     "managing_partner": "Managing Partner",
@@ -129,7 +129,7 @@
     "managing_partner": {
       "eyebrow": "Pregled poduzeća",
       "title": "Pregled poduzeća",
-      "description": "Rizik roka portfelja, količine podnošenja, obnove, prihod, opterećenje tima i profitabilnost klijenta - izvješćivanje cijele tvrtke iz jednog doma."
+      "description": "Rizik roka portfelja, količina podnošenja, obnova, prihod, opterećenje tima i profitabilnost klijenta - izvješćivanje cijele tvrtke iz jednog doma."
     },
     "coordinator": {
       "eyebrow": "Koordinacija",
@@ -139,7 +139,7 @@
     "docketing_admin": {
       "eyebrow": "Docketing",
       "title": "Ploča s rokom",
-      "description": "Rok i rizik registracije za cijelu tvrtku - grupirani po klijentu, nadležnosti i opunomoćeniku s isticanjem hitnosti."
+      "description": "Rok i rizik registracije za cijelu tvrtku - grupirani po klijentu, jurisdikciji i opunomoćeniku s isticanjem hitnosti."
     },
     "finance": {
       "eyebrow": "Financije",
@@ -160,7 +160,7 @@
     "compliance": {
       "eyebrow": "GDPR i usklađenost",
       "title": "Usklađenost",
-      "description": "Politike zadržavanja, registri pristupa i izvozi pristupa predmetu."
+      "description": "Pravila zadržavanja, registri pristupa i izvozi pristupa predmetu."
     },
     "systemDashboard": {
       "title": "Nadzorna ploča sustava"

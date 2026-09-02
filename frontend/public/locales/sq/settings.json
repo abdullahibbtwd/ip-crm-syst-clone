@@ -24,7 +24,7 @@
       "manualKey": "Ose futeni manualisht këtë çelës",
       "scanQr": "1. Skanoni këtë kod QR",
       "scanQrHint": "Hapni aplikacionin tuaj të vërtetuesit dhe skanoni kodin më poshtë.",
-      "verify": "2. Konfirmo me një kod 6-shifror",
+      "verify": "2. Konfirmoni me një kod 6-shifror",
       "verifyHint": "Futni kodin e shfaqur në aplikacionin tuaj për të verifikuar konfigurimin."
     }
   },
@@ -166,7 +166,7 @@
       "testing": "Po teston…",
       "testSuccess": "Lidhja EPO e suksesshme. Patenta e marrë: {{title}}",
       "testFailed": "Lidhja EPO dështoi",
-      "envHint": "Vendos EPO_CONSUMER_KEY dhe EPO_CONSUMER_SECRET në serverin .env, më pas rinis API-në.",
+      "envHint": "Vendosni EPO_CONSUMER_KEY dhe EPO_CONSUMER_SECRET në serverin .env, më pas rinisni API-në.",
       "consumerKey": "Çelësi i konsumatorit",
       "consumerSecret": "Sekreti i konsumatorit",
       "consumerKeyPlaceholder": "Fut çelësin e konsumatorit EPO",
@@ -236,7 +236,7 @@
     "columns": {
       "jurisdiction": "Juridiksioni",
       "matterType": "Lloji i materies",
-      "event": "Ngjarje",
+      "event": "Ngjarja",
       "trigger": "Kthesë",
       "offset": "Kompensimi",
       "grace": "Grace",
@@ -258,8 +258,8 @@
       "daysOffset": "Kompensimi i ditëve",
       "dayCounting": "Numërimi i ditëve",
       "businessDays": "Ditë pune",
-      "calendarDays": "Ditët kalendarike",
-      "gracePeriod": "Periudha e hirit (ditë)",
+      "calendarDays": "Ditë kalendarike",
+      "gracePeriod": "Periudha e mospagimit (ditë)",
       "priority": "Prioriteti (1–10)",
       "description": "Përshkrimi",
       "status": "Statusi",
@@ -474,13 +474,13 @@
       "required": "Kërkohet emri i zyrës dhe emri i shtetit/rajonit",
       "codeRequired": "Kërkohet kodi",
       "sortOrder": "Fut një renditje të vlefshme të renditjes",
-      "saveFailed": "Juridiksioni dështoi të ruhej"
+      "saveFailed": "Juridiksioni nuk u ruajt"
     }
   },
   "emailIntegration": {
     "breadcrumbSettings": "Cilësimet",
     "title": "Integrimi me email",
-    "description": "Lidhni kutinë tuaj postare të punës për të sinkronizuar postën hyrëse në radhën e postës elektronike dhe dërgoni përgjigje nga CRM. Kërkon Mail.Read + Mail.Send (Microsoft) ose gmail.readonly + gmail.send (Google). Rilidheni pas përditësimeve të fushës për të dhënë lejen e dërgimit.",
+    "description": "Lidhni kutinë tuaj postare të punës për të sinkronizuar postën hyrëse në radhën e postës elektronike dhe dërgoni përgjigje nga CRM. Kërkon Mail.Read + Mail.Send (Microsoft) ose gmail.readonly + gmail.send (Google). Rilidhuni pas përditësimeve të fushës për të dhënë lejen e dërgimit.",
     "fetchEmails": "Merr 5 email",
     "connectedSuccess": "U lidh me sukses {{provider}}.",
     "microsoft365": "Microsoft 365",
@@ -498,7 +498,7 @@
     "connect": "Lidhe {{provider}}",
     "loadingConnections": "Po ngarkon lidhjet…",
     "fetchSuccess": "U mora deri në {{limit}} mesazh(e) — {{ingested}} të reja në radhë.",
-    "fetchFailed": "Marrja e emaileve dështoi"
+    "fetchFailed": "Marrja e email-eve dështoi"
   },
   "consent": {
     "title": "Të dhënat e pëlqimit",

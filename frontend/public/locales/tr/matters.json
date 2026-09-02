@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Rotayı ölç",
+        "options": {
+          "national_bg": "Bulgaristan (ulusal)",
+          "eu_regulation": "AB Düzenlemesi 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Korumalı hak",
+        "options": {
+          "trademark": "Ticari marka",
+          "patent": "Patent",
+          "design": "Tasarım",
+          "copyright": "Telif hakkı",
+          "gi": "Coğrafi işaret"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Korumalı hak ref."
+      },
       "customsOffice": {
         "label": "Gümrük ofisi"
+      },
+      "validFrom": {
+        "label": "Geçerlilik tarihi:"
+      },
+      "validUntil": {
+        "label": "Şu tarihe kadar geçerlidir:"
       },
       "infringingGoods": {
         "label": "İhlal eden ürün açıklaması"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Oluşturulma tarihi"
-      },
       "workTitle": {
         "label": "İşin başlığı"
       },
       "workType": {
-        "label": "İşin türü"
+        "label": "İş türü",
+        "options": {
+          "literary": "Edebi",
+          "musical": "Müzikal",
+          "software": "Yazılım",
+          "audiovisual": "Görsel-işitsel",
+          "graphic": "Grafik / görsel",
+          "other": "Diğer"
+        }
+      },
+      "creationDate": {
+        "label": "Oluşturulma tarihi"
+      },
+      "firstPublicationDate": {
+        "label": "İlk yayın tarihi"
+      },
+      "authorName": {
+        "label": "Yazar"
+      },
+      "rightsBasis": {
+        "label": "Hak temeli",
+        "options": {
+          "author": "Yazar",
+          "employer": "İşveren (kiralık iş)",
+          "assignment": "Atama",
+          "license": "Lisans"
+        }
+      },
+      "rightsHolder": {
+        "label": "Hak sahibi"
+      },
+      "infringementContext": {
+        "label": "İhlal / yaptırım bağlamı"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Mahkeme"
+      },
+      "incomingNumber": {
+        "label": "Gelen numara"
+      },
+      "claimGrounds": {
+        "label": "Gerekçeler (talep türü)"
+      },
+      "claimValue": {
+        "label": "Talep değeri"
+      },
+      "expertiseType": {
+        "label": "Uzmanlık türü"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Temel özet"
+      "disputeKind": {
+        "label": "Bildiri türü",
+        "options": {
+          "civil": "Sivil",
+          "administrative": "İdari",
+          "arbitration": "Tahkim",
+          "mediation": "Arabuluculuk",
+          "other": "Diğer"
+        }
       },
-      "disputeType": {
-        "label": "Anlaşmazlık türü"
+      "disputeSubject": {
+        "label": "Ders",
+        "options": {
+          "invalidity": "Geçersizlik",
+          "infringement": "İhlal",
+          "ownership": "Mülkiyet",
+          "contract": "Sözleşme",
+          "unfair_competition": "Haksız rekabet",
+          "other": "Diğer"
+        }
       },
       "opponentName": {
         "label": "Rakip / karşı taraf"
+      },
+      "disputeType": {
+        "label": "Anlaşmazlık türü (notlar)"
+      },
+      "filingReference": {
+        "label": "Dosyalama referansı"
+      },
+      "filingDate": {
+        "label": "Başvuru tarihi"
+      },
+      "basisSummary": {
+        "label": "Temel özet"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Kapsam özeti"
+      "projectName": {
+        "label": "Proje adı"
+      },
+      "productName": {
+        "label": "Ürün adı"
       },
       "technologyArea": {
         "label": "Teknoloji alanı"
+      },
+      "analysisScope": {
+        "label": "Analiz kapsamı"
+      },
+      "deliverableType": {
+        "label": "teslim edilebilir",
+        "options": {
+          "written_report": "Yazılı rapor",
+          "memo": "Hafıza",
+          "oral_briefing": "Sözlü brifing"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Hedef tamamlanma tarihi"
+      },
+      "scopeSummary": {
+        "label": "Kapsam özeti"
+      },
+      "riskLevel": {
+        "label": "Risk düzeyi",
+        "options": {
+          "low": "Düşük",
+          "medium": "Orta",
+          "high": "Yüksek",
+          "pending": "Değerlendirme bekleniyor"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Tip"
+      },
+      "giName": {
+        "label": "Coğrafi işaretin adı"
+      },
       "productName": {
         "label": "Ürün adı"
       },
       "region": {
         "label": "Coğrafi bölge"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Bölge"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Başvuru numarası"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Kayıt numarası"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Locarno sınıfı"
       },
+      "locarnoSubclass": {
+        "label": "Locarno alt sınıfı"
+      },
       "productDescription": {
         "label": "Ürün Açıklaması"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Talep özeti"
+      },
+      "epApplicationNumber": {
+        "label": "EP başvuru numarası"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Patent adı"
+      },
+      "patentProcedure": {
+        "label": "Prosedür"
       },
       "pctNumber": {
         "label": "PCT numarası"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Teknik alan"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Talep edilen renkler"
       },
       "markDescription": {
-        "label": "Açıklamayı işaretle"
-      },
-      "markType": {
-        "label": "İşaret türü"
-      },
-      "niceClasses": {
-        "label": "Güzel dersler",
-        "placeholder": "örneğin 12, 35"
+        "label": "Mal / hizmet açıklaması"
       },
       "markKind": {
         "label": "Kategoriyi işaretle"
       },
+      "markType": {
+        "label": "İşaret türü"
+      },
       "markWords": {
         "label": "İşaretin sözleri"
+      },
+      "niceClasses": {
+        "label": "Güzel dersler",
+        "placeholder": "örneğin 12, 35"
       },
       "territory": {
         "label": "Bölge"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "İsim"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Talep sayısı"
+      },
+      "applicationNumber": {
+        "label": "Başvuru numarası"
+      },
+      "applicationDate": {
+        "label": "Başvuru tarihi"
+      },
+      "registrationNumber": {
+        "label": "Kayıt numarası"
+      },
       "claimsSummary": {
         "label": "Talep özeti"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Teknik alan"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Varlık türü",
+        "options": {
+          "trademark": "Ticari marka",
+          "patent": "Patent",
+          "design": "Tasarım",
+          "gi": "GI",
+          "mixed": "Karma portföy",
+          "company_ip": "Şirket IP'si"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Amaç",
+        "options": {
+          "licensing": "Lisanslama",
+          "m_and_a": "Birleşme ve Devralma",
+          "litigation": "dava",
+          "tax": "Vergi",
+          "internal": "Dahili"
+        }
+      },
+      "valuationMethod": {
+        "label": "Yöntem",
+        "options": {
+          "market": "Pazar",
+          "income": "Gelir",
+          "cost": "Maliyet"
+        }
+      },
+      "valuationDate": {
+        "label": "Değerleme tarihi"
+      },
       "assetDescription": {
         "label": "Varlık açıklaması"
       },
-      "valuationPurpose": {
-        "label": "Değerleme amacı"
+      "conclusionValue": {
+        "label": "Sonuç değeri"
+      },
+      "currency": {
+        "label": "Para birimi",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "Amerikan Doları"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Alan adı",
-        "placeholder": "örneğin example.com"
+        "placeholder": "örneğin örnek.bg"
+      },
+      "tldType": {
+        "label": "TLD türü",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "Diğer"
+        }
       },
       "registrar": {
         "label": "Kayıt memuru"
+      },
+      "registrant": {
+        "label": "Kayıtlı"
+      },
+      "registrationDate": {
+        "label": "Kayıt tarihi"
+      },
+      "expiryDate": {
+        "label": "Son kullanma tarihi"
+      },
+      "disputeRoute": {
+        "label": "Anlaşmazlık rotası",
+        "options": {
+          "none": "Hiçbiri",
+          "udrp": "UDRP",
+          "court": "Mahkeme",
+          "negotiation": "Müzakere"
+        }
+      },
+      "relatedTrademark": {
+        "label": "İlgili ticari marka"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Vaka referansı"
+      "engagementType": {
+        "label": "Katılım türü",
+        "options": {
+          "patent": "Patent",
+          "trademark": "Ticari marka",
+          "copyright": "Telif hakkı",
+          "damages": "Hasarlar",
+          "other": "Diğer"
+        }
       },
       "courtOrAuthority": {
         "label": "Mahkeme / yetkili"
+      },
+      "caseReference": {
+        "label": "Vaka referansı"
+      },
+      "appointingParty": {
+        "label": "Atanan taraf"
+      },
+      "reportDueDate": {
+        "label": "Rapor son tarihi"
+      },
+      "hearingDate": {
+        "label": "Duruşma tarihi"
       },
       "reportScope": {
         "label": "Rapor kapsamı"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Kapsam özeti"
+      "consultationType": {
+        "label": "Danışma türü",
+        "options": {
+          "phone": "Telefon",
+          "written": "Yazılı",
+          "meeting": "Toplantı",
+          "due_diligence": "Durum tespiti (hafif)"
+        }
+      },
+      "topicCategory": {
+        "label": "Konu kategorisi",
+        "options": {
+          "trademark": "Ticari marka",
+          "patent": "Patent",
+          "design": "Tasarım",
+          "contract": "Sözleşme",
+          "strategy": "Strateji",
+          "other": "Diğer"
+        }
       },
       "topic": {
         "label": "Başlık"
+      },
+      "requestedBy": {
+        "label": "Talep eden"
+      },
+      "scopeSummary": {
+        "label": "Kapsam özeti"
+      },
+      "timeSpentHours": {
+        "label": "Harcanan zaman (saat)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Yetki / ofis"
+        "label": "Yetki",
+        "options": {
+          "bpo": "BPO (Bulgaristan)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Diğer"
+        }
+      },
+      "feeType": {
+        "label": "Ücret türü",
+        "options": {
+          "filing": "Dosyalama",
+          "publication": "Yayın",
+          "examination": "Sınav",
+          "renewal": "Yenileme",
+          "annuity": "Yıllık gelir",
+          "opposition": "Muhalefet",
+          "other": "Diğer"
+        }
       },
       "feeReference": {
         "label": "Ücret / ödeme referansı"
       },
       "relatedApplication": {
         "label": "İlgili uygulama / dosya"
+      },
+      "feeAmount": {
+        "label": "Miktar"
+      },
+      "currency": {
+        "label": "Para birimi",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Ödeme son tarihi"
+      },
+      "paymentDate": {
+        "label": "Ödeme tarihi"
+      },
+      "paymentReference": {
+        "label": "Ödeme referansı"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Çalışma kategorisi"
+      },
       "workSummary": {
         "label": "Çalışma özeti"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Beklenen sonuç"
       }
     }
   },
@@ -470,6 +739,245 @@
     "viewOnEpo": "EPO'da görüntüle",
     "viewOnEpoTitle": "EPO Kaydına ilişkin resmi kaydı açın"
   },
+  "trademarkInfo": {
+    "addCountry": "Ülke ekle…",
+    "cancel": "İptal etmek",
+    "country": "Ülke",
+    "edit": "Düzenlemek",
+    "errors": {
+      "country": "Bu bölge için en az bir ülke seçin.",
+      "saveFailed": "Ticari marka bilgileri kaydedilemedi."
+    },
+    "euFixed": "Avrupa Birliği (EUIPO)",
+    "markKind": "Kategoriyi işaretle",
+    "markType": "İşaret türü",
+    "noCountries": "Henüz ülke seçilmedi.",
+    "save": "Değişiklikleri kaydet",
+    "saved": "Kaydedildi.",
+    "saving": "Kaydediliyor…",
+    "selectCountries": "Ülkeleri seçin",
+    "territory": "Bölge",
+    "title": "Ticari marka bilgileri",
+    "markImage": "Resmi işaretle",
+    "uploadMarkImage": "Resim yükle",
+    "replaceMarkImage": "Resmi değiştir",
+    "removeMarkImage": "Resmi kaldır",
+    "markImageHint": "PNG veya JPEG — ticari marka listesinde adın yanında gösterilir."
+  },
+  "patentInfo": {
+    "title": "Patent bilgileri",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Başvuru no. / tarih",
+      "registration": "Reg. HAYIR. / tarih",
+      "bulletin": "Bülten / yayın",
+      "ipc": "IPC",
+      "client": "Müşteri / devreden",
+      "owner": "Mal sahibi",
+      "contact": "İlgili kişi",
+      "representatives": "Temsilciler",
+      "claims": "İddialar",
+      "territory": "Bölge"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Faydalı model bilgisi",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Başvuru no. / tarih",
+      "registration": "Reg. HAYIR. / tarih",
+      "bulletin": "Bülten / kayıt yayın / tarih",
+      "ipc": "IPC",
+      "applicant": "Başvuru sahibi",
+      "inventor": "Mucit",
+      "contact": "İlgili kişi",
+      "representatives": "Temsilciler",
+      "claims": "İddialar",
+      "territory": "Bölge"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC bilgileri",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Başvuru no. / tarih",
+      "registration": "Reg. HAYIR. / tarih",
+      "bulletin": "Bülten / kayıt yayın / tarih",
+      "ipc": "IPC",
+      "applicant": "Başvuru sahibi",
+      "inventor": "Mucit",
+      "contact": "İlgili kişi",
+      "representatives": "Temsilciler",
+      "claims": "İddialar",
+      "medicinalProduct": "Tıbbi ürün"
+    }
+  },
+  "designInfo": {
+    "title": "Tasarım bilgileri",
+    "subtitle": "{{territory}} tasarım · {{name}}",
+    "fields": {
+      "application": "Başvuru no. / tarih",
+      "registration": "Reg. HAYIR. / tarih",
+      "bulletin": "Bülten / kayıt yayın / tarih",
+      "client": "Müşteri / devreden",
+      "owner": "Mal sahibi",
+      "contact": "İlgili kişi",
+      "representatives": "Temsilciler",
+      "classification": "sınıflandırma",
+      "territory": "Bölge"
+    }
+  },
+  "giInfo": {
+    "title": "Coğrafi işaret bilgileri",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Başvuru no. / tarih",
+      "registration": "Reg. HAYIR. / tarih",
+      "bulletin": "Bülten / kayıt yayın / tarih",
+      "client": "Müşteri / devreden",
+      "owner": "Mal sahibi",
+      "contact": "İlgili kişi",
+      "representatives": "Temsilciler",
+      "classes": "Sınıflar",
+      "territory": "Bölge"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Müşteri onaylı",
+    "clientStepHint": "Personel, müşterinin çevrimdışı olarak kabul edildiğini doğrular (çağrı/e-posta/toplantı). Portal istemcisinin kendisini onaylaması gerekmez.",
+    "errors": {
+      "updateFailed": "Onay durumu güncellenemedi."
+    },
+    "hint": "Yalnızca dahili onay: Müşterinin kabul ettiğini işaretleyin, ardından Yönetici Ortak dosyayı kabul eder. İstemciye gönderme onayı gerekli değildir.",
+    "markClientApproved": "Müşteriyi onaylandı olarak işaretle",
+    "partnerApprove": "İş ortağı onay dosyası",
+    "partnerOnly": "Bu adımı yalnızca Yönetici Ortak tamamlayabilir",
+    "partnerStep": "2. Yönetici Ortak kabul ediyor",
+    "partnerStepHint": "Müşteri onaylandı olarak işaretlendikten sonra Yönetici Ortak dosyayı kabul eder ve taslaktan ayrılır.",
+    "recordedBy": "kaydeden {{name}} · {{date}}",
+    "title": "Dosya onayı",
+    "waitForClient": "Önce istemciyi onaylandı olarak işaretleyin, ardından dosyayı kabul edebilirsiniz."
+  },
+  "prosecution": {
+    "cancelEdit": "İptal etmek",
+    "completeStage": "Aşamayı tamamla",
+    "edit": "Düzenlemek",
+    "editingNote": "Bu aşamada girdiğiniz bilgileri saklamak için Kaydet'i, gerekli alanlar doldurulduğunda ilerlemek için Aşamayı Tamamla'yı kullanın.",
+    "gateHint": "Bu aşama için gerekli alanlar (sistem kapılarında olduğu gibi) doldurulmadan ilerleyemezsiniz.",
+    "goBack": "Bir sahne geri git",
+    "errors": {
+      "needAttachments": "Devam etmeden önce gerekli dosyaları ekleyin: {{list}}",
+      "needInvoice": "Bu aşamayı tamamlamadan önce devlet ücretinden faturayı oluşturun.",
+      "alreadyFinal": "Bu dosya zaten son aşamada.",
+      "needApproval": "Hazırlıktan ayrılmadan önce dosya onayını (müşteri + Yönetici Ortak) tamamlayın.",
+      "needBulletin": "Yayından ayrılmadan önce bülten numarasını ve tarihini girin.",
+      "needFeePaid": "Resmi sınavdan ayrılmadan önce devlet ücreti ödeme tarihini girin.",
+      "needFilingFields": "Başvuruyu tamamlamak için başvuru numarasını ve başvuru tarihini girin.",
+      "needFormalFields": "Devam etmek için devlet ücretini ve ödeme son tarihini girin.",
+      "needMol": "Lütfen dosyalamayı tamamlamadan önce dosya ayrıntılarına (dosya oluştur / düzenle) MOL girin.",
+      "needOfficeActionDeadline": "Ofis eyleminin bir konusu vardır; devam etmeden önce son tarihini belirleyin.",
+      "needPoaFiled": "Resmi sınavdan ayrılmadan önce PoA'nın gelen numarasını ve tarihini girin.",
+      "needRegFeePaid": "Devam etmeden önce kayıt ücreti ödeme tarihini girin.",
+      "needRepresentative": "En az bir temsilci girin veya Temsilci ekle seçeneğini Hayır olarak ayarlayın.",
+      "saveBeforeNavigate": "Bir aşamaya geri dönmeden önce düzenlemelerinizi kaydedin veya iptal edin.",
+      "saveFailed": "Kovuşturma verileri kaydedilemedi."
+    },
+    "fields": {
+      "addRepresentatives": "Temsilci eklemek istiyor musunuz?",
+      "applicationDate": "Başvuru tarihi",
+      "applicationNumber": "Başvuru numarası",
+      "bulletinDate": "Bülten tarihi",
+      "bulletinNumber": "Bülten numarası",
+      "feePaidDate": "Devlet ücreti ödeme tarihi",
+      "generatePoa": "Vekaletname oluştur",
+      "officeAction": "Ofis eylemi / talebi",
+      "officeActionDeadline": "Ofis eyleminin son tarihi",
+      "paymentDeadline": "Ödeme son tarihi",
+      "poaDate": "PoA tarihi",
+      "poaDeadline": "PoA gönderim tarihi",
+      "poaIncoming": "PoA gelen numarası",
+      "regFeePaidDate": "Kayıt ücreti ödeme tarihi",
+      "remindDays": "Son teslim tarihinden önceki günleri hatırlat",
+      "representatives": "Temsilci(ler)",
+      "sendPoaEmail": "Otomatik e-posta gönder",
+      "stateFee": "Devlet ücreti (BGN)"
+    },
+    "molHint": "MOL, dosya ayrıntılarında (dosya oluştur) ayarlanmalıdır. Eksik MOL blokları bu aşamayı tamamlıyor.",
+    "no": "HAYIR",
+    "prepHint": "Hazırlık aşaması: Önce dosya onayını bitirin, ardından Yönetici Ortak kabul ederek Dosyalama aşamasına geçer.",
+    "registeredDone": "Kayıt aşamasına gelindi.",
+    "saveChanges": "Değişiklikleri kaydet",
+    "saveEntered": "Kaydetmek",
+    "saved": "Kaydedildi.",
+    "saveFields": "Alanları kaydet",
+    "saving": "Kaydediliyor…",
+    "stages": {
+      "filing": "Dosyalama",
+      "formal_exam": "Resmi sınav",
+      "prep": "Hazırlık",
+      "publication": "Yayın",
+      "reg_fee": "Kayıt ücretleri",
+      "registration": "Kayıt",
+      "substantive_exam": "Maddi inceleme"
+    },
+    "territoryLabel": {
+      "eu": "Boru Hattı: AB",
+      "international": "Boru Hattı: Uluslararası (WO)",
+      "national": "Boru Hattı: Ulusal"
+    },
+    "territoryLocked": "Oluşturma dosyasından bölge düzeltildi",
+    "territoryFromInfo": "Ticari Marka bilgilerinden bölge",
+    "patentRouteFromInfo": "Oluşturma dosyasından rota",
+    "designRouteFromInfo": "Oluşturma dosyasından rota",
+    "utilityModelTerritoryFromInfo": "Başvuru ülkesinin bulunduğu bölge",
+    "spcTerritoryFromInfo": "Başvuru ülkesinin bulunduğu bölge",
+    "giTerritoryFromInfo": "Dosyalama yolundan bölge",
+    "title": "Kovuşturma aşamaları",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Doğrulama alındı",
+        "filing": "Atama",
+        "formal_exam": "Başvuru talebi",
+        "substantive_exam": "Maddi inceleme",
+        "publication": "Yayın",
+        "reg_fee": "Kayıt ücretleri",
+        "registration": "Doğrulama kararı"
+      }
+    },
+    "yes": "Evet",
+    "hub": {
+      "generateInvoice": "Fatura oluştur",
+      "invoiceIssuedShort": "Fatura düzenlendi",
+      "invoiceIssued": "Fatura {{number}} düzenlendi. Müşteri bunu portalında görebilir; aynı zamanda Faturalandırma sekmesinde de bulunur.",
+      "invoiceAlreadyIssued": "{{number}} numaralı fatura zaten düzenlenmiş — portalda ve Faturalandırmada görülebilir.",
+      "invoiceFailed": "Fatura oluşturulamadı. Müşteri fatura ayrıntılarını kontrol edin.",
+      "invoiceNotes": "Resmi / devlet ücreti",
+      "uploadFailed": "Dosya yüklenemedi.",
+      "needStateFee": "Önce devlet ücreti tutarını girin.",
+      "feeDescription": "Devlet / resmi ücret",
+      "deadlineFailed": "Son tarihler oluşturulamadı.",
+      "deadlineTitles": {
+        "payment": "Devlet ücreti ödemesi",
+        "poa": "Vekaletname sunumu",
+        "oa": "Ofis eylemi/inceleme talebi",
+        "oaWithSubject": "Ofis eylemi: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Son tarihten {{days}} gün önce hatırlatın."
+      },
+      "attach": {
+        "search": "Arama dosyasını ekle",
+        "application": "Uygulamayı ekle",
+        "feeSlip": "Ücret makbuzu ekleyin",
+        "poa": "PoA'yı ekleyin",
+        "officeAction": "Ofis eylemini ekle",
+        "decision": "Kararı ekle",
+        "bulletin": "Bülteni ekle",
+        "regFee": "Ödeme kanıtını ekleyin",
+        "certificate": "Sertifika ekle"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Müşteri *",
     "creating": "Oluşturuluyor…",
@@ -479,15 +987,367 @@
     "matterType": "İş türü *",
     "open": "Dosyayı aç",
     "responsibleAttorney": "Sorumlu avukat",
-    "title": "Yeni dosya aç",
+    "title": "Yeni dosyayı aç",
     "titleField": "Başlık *",
     "titlePlaceholder": "örneğin ACME kelime markası – AB"
+  },
+  "createFile": {
+    "addClass": "Sınıf ekle",
+    "addClaim": "Talep ekle",
+    "addIpc": "IPC sınıfı ekle",
+    "addBasisMark": "Temel işareti ekle",
+    "basisMark": "Temel işareti {{number}}",
+    "addAdditionalApplicant": "Ek başvuru sahibi ekleyin",
+    "addAdditionalOwner": "Ek sahip ekle",
+    "additionalApplicant": "Başvuru Sahibi {{number}}",
+    "additionalOwner": "Sahip {{number}}",
+    "yes": "Evet",
+    "no": "HAYIR",
+    "none": "Hiçbiri",
+    "backToFiles": "Dosyalara geri dön",
+    "cancel": "İptal etmek",
+    "changeSubtype": "Alt kategoriyi değiştir",
+    "checkRegister": "Ticari sicilde kontrol",
+    "clearClient": "İstemciyi değiştir",
+    "clientOptionalHint": "CRM eşleşmesi yok mu? Aşağıdaki müşteri ayrıntılarını doldurun; taslağın kaydedilmesi, bunları Müşterilerde otomatik olarak oluşturacaktır.",
+    "applicantOptionalHint": "CRM eşleşmesi yok mu? Başvuru sahibinin ayrıntılarını aşağıya girin; taslağın kaydedilmesi, bunları Müşterilerde otomatik olarak oluşturacaktır.",
+    "draftDescription": "Dosya oluştur ({{procedure}}) — taslak aracılığıyla oluşturuldu",
+    "errors": {
+      "client": "Devam etmek için bir müşteri seçin.",
+      "clientOrDetails": "Bir CRM istemcisi seçin veya bunları oluşturmak için müşteri adını ve ayrıntılarını girin.",
+      "applicantOrDetails": "CRM'de bir başvuru sahibi seçin veya bunları oluşturmak için başvuru sahibinin adını ve ayrıntılarını girin.",
+      "jurisdiction": "En az bir bölge/ülke seçin.",
+      "markWords": "Ticari marka adını/kelimelerini girin.",
+      "filingRoute": "Bir prosedür seçin.",
+      "ownerOrDetails": "Sahibin adını ve adresini girin veya sahibi müşteriyle aynı olarak işaretleyin.",
+      "designerOrDetails": "Tasarımcının adını ve adresini girin veya tasarımcıyı müşteriyle aynı olarak işaretleyin.",
+      "inventorOrDetails": "Mucidin adını ve adresini girin veya mucidi müşteriyle aynı olarak işaretleyin.",
+      "patentName": "Patent adını girin.",
+      "designName": "Tasarım adını girin.",
+      "utilityModelName": "Faydalı model adını giriniz.",
+      "giKind": "Menşe adını veya coğrafi işareti seçin.",
+      "territory": "Bir bölge seçin.",
+      "giName": "Coğrafi işaretin adını giriniz.",
+      "spcName": "SPC adını girin.",
+      "caseClientRole": "Müşterinin davacı, davalı veya ilgili taraf olup olmadığını seçin.",
+      "otherType": "Bilinmeyen dosya türü. Listeden bir tür seçin.",
+      "patentSubtype": "Bir patent alt kategorisi seçin.",
+      "saveFailed": "Taslak dosya kaydedilemedi.",
+      "subtype": "Bir ticari marka alt kategorisi seçin."
+    },
+    "euHint": "Avrupa Birliği ticari markası (EUIPO) — yargı yetkisi AB'ye ayarlanmıştır.",
+    "fields": {
+      "address": "Adres",
+      "applicantClient": "Başvuru sahibi müşteri",
+      "applicantClientOptional": "CRM'de başvuru sahibi (isteğe bağlı)",
+      "city": "Şehir",
+      "classNumber": "Sınıf numarası",
+      "classes": "Sınıflar",
+      "country": "Ülke",
+      "eik": "UIC / EIK",
+      "email": "E-posta",
+      "fax": "Faks",
+      "goodsText": "Mal ve hizmetler",
+      "legalName": "Ad ve tüzel kişilik türü",
+      "linkClient": "CRM'de müşteri seçin",
+      "linkClientOptional": "CRM istemcisi (isteğe bağlı)",
+      "fileTitleOptional": "Başlık (isteğe bağlı)",
+      "fileDescriptionOptional": "Açıklama (isteğe bağlı)",
+      "markKind": "Kategoriyi işaretle",
+      "markType": "İşaret türü",
+      "markWords": "Ticari marka adı",
+      "mol": "MOL (imza sahibi)",
+      "name": "İsim",
+      "oppositionFiler": "Muhalefet dosyası",
+      "requester": "Talep eden",
+      "requestFiler": "Talebin dosyalayıcısı",
+      "againstClasses": "Sınıflara karşı",
+      "owner": "Mal sahibi",
+      "phone": "Telefon",
+      "postalCode": "Posta Kodu",
+      "territory": "Bölge",
+      "transliteration": "Harf çevirisi",
+      "viennaNumber": "Sayı",
+      "applicationNumber": "Başvuru numarası",
+      "applicationDate": "Tarih",
+      "conventionPriority": "Sözleşme önceliği",
+      "exhibitionPriority": "Sergi önceliği",
+      "transformationInternational": "Uluslararası tescilin dönüşümü",
+      "communityConversion": "Topluluk ticari markasının dönüştürülmesi",
+      "applicationBulletin": "Başvuru bülteni/yayınlanması",
+      "grounds": "Gerekçeler",
+      "specimen": "Numune",
+      "registrationNumber": "Kayıt No.",
+      "registrationDate": "Tarih",
+      "registrationBulletin": "Kayıt bülteni/yayınlanması",
+      "certificate": "Sertifika ekle",
+      "attachDocument": "Belge ekle",
+      "representative": "Seçme",
+      "selectRepresentative": "Temsilci seçin",
+      "addMoreRepresentatives": "Daha fazla temsilci ekleyin",
+      "claimNumber": "Sayı",
+      "claimText": "İddia",
+      "epApplicationNumber": "EP başvuru numarası",
+      "epBulletinNumber": "EP bülten numarası",
+      "applicationPublication": "Başvurunun yayınlanması",
+      "applicationPublicationDate": "Tarih",
+      "epRegistrationNumber": "EP kayıt numarası",
+      "epRegistrationBulletin": "EP kaydının bülteni / yayınlanması",
+      "epRegistrationBulletinDate": "Tarih",
+      "ipc": "IPC",
+      "patentName": "İsim",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Avrupa patentinin validasyonu",
+      "powerOfAttorney": "Temsil yetkisi",
+      "selectProcedure": "Prosedürü seçin",
+      "validationCountry": "Ülke seçin",
+      "priorityCountry": "Önceki başvurunun yapıldığı ülke",
+      "priorityFromDate": "Başlangıç ​​Tarihi",
+      "priorityApplicationNumber": "Başvuru numarası",
+      "priorityIncomingNumber": "İçinde. HAYIR.",
+      "internationalRegistrationNumber": "Uluslararası kayıt numarası",
+      "exhibitionFirstAppearance": "İlk ortaya çıkış tarihi",
+      "exhibitionName": "Sergi adı",
+      "bulletinNumber": "Bülten numarası",
+      "patentRegistrationNumber": "Kayıt numarası",
+      "validationNumber": "Sayı",
+      "validationFilingDate": "Başvuru tarihi",
+      "validationPriorityDate": "Öncelik tarihi",
+      "addImage": "Resim ekle",
+      "addCountry": "Ülke ekle",
+      "removeImage": "Resmi kaldır",
+      "image": "Resim",
+      "designName": "İsim",
+      "locarnoClass": "Sınıf",
+      "locarnoSubclass": "Alt sınıf",
+      "classificationText": "sınıflandırma",
+      "vat": "KDV No",
+      "utilityModelName": "İsim",
+      "conversionFromPatent": "Patentten uygulamaya geçiş",
+      "conversionInvention": "Buluş",
+      "conversionRequestNumber": "Talep No.",
+      "conversionApplicationDate": "Başvuru tarihi",
+      "conversionPriorityDate": "Öncelik tarihi",
+      "giKind": "Tip",
+      "giName": "Coğrafi işaretin adı",
+      "spcName": "İsim",
+      "medicinalProduct": "Tıbbi ürün",
+      "basicPatentNumber": "Patent No.",
+      "effectStartDate": "Etkinin başlangıcı",
+      "effectEndDate": "Bitiş tarihi",
+      "firstAuthorization": "İlk yetkilendirme",
+      "theClientIs": "Müşteri",
+      "court": "Mahkeme",
+      "authority": "Yetki",
+      "panel": "Paneli",
+      "division": "Bölüm",
+      "incomingNumber": "Gelen numara",
+      "claimGrounds": "Gerekçeler (talep türü)",
+      "claimValue": "Talep değeri",
+      "other": "Diğer",
+      "rightObject": "Nesne",
+      "selectObject": "Nesne seç…",
+      "rightName": "İsim",
+      "rightApplicationDate": "Başvuru tarihi",
+      "rightScope": "Kapsam",
+      "expertiseType": "Uzmanlık türü",
+      "experts": "Uzmanlar",
+      "expertiseQuestions": "Uzmanlığın kabul edildiği sorular"
+    },
+    "formTitle": "Dosya oluştur: Ticari Marka",
+    "fullFormReady": "Tam form mevcut",
+    "goodsPlaceholder": "örneğin şişeler; perakende hizmetleri…",
+    "markKinds": {
+      "certification": "Sertifikasyon",
+      "collective": "Toplu",
+      "individual": "Bireysel"
+    },
+    "markTypes": {
+      "combination_of_colors": "Renklerin kombinasyonu",
+      "combined": "Kombine",
+      "figurative": "Figüratif",
+      "sound": "Ses",
+      "three_dimensional": "Üç boyutlu",
+      "wordmark": "Kelime işareti"
+    },
+    "noClients": "Eşleşen müşteri yok. Önce müşteriyi CRM'de oluşturun, ardından buraya geri dönün.",
+    "optionalMark": "İşaretle / konu (isteğe bağlı)",
+    "partialSubtypeNote": "Bu alt kategoriye ilişkin tüm uzmanlık alanları daha sonra genişletilecektir. İstemciye bağlı bir taslağı hâlâ kaydedebilirsiniz; belgeler ve yazışmalar dosyada kalır.",
+    "preliminary": "Ön bilgi",
+    "procedureHints": {
+      "cancellation": "Kayıtlı bir ticari markanın iptali - tam oluşturma formu",
+      "deletion": "Kayıtlı bir ticari markanın silinmesi - tam oluşturma formu",
+      "new": "Yeni ticari marka başvurusu — tam oluşturma formu",
+      "objection": "Ticari marka başvurusuna itiraz - tam oluşturma formu",
+      "opposition": "Ticari marka başvurusuna karşı itiraz - tam oluşturma formu",
+      "opposition_against_us": "İtiraz işlemleri",
+      "opposition_by_us": "İtiraz işlemleri",
+      "registered": "Mevcut tescilli ticari marka",
+      "revocation": "Silme işlemleri"
+    },
+    "procedures": {
+      "cancellation": "İptal",
+      "deletion": "Silme",
+      "new": "Yeni marka",
+      "objection": "İtiraz",
+      "opposition": "Muhalefet",
+      "opposition_against_us": "Muhalefet",
+      "opposition_by_us": "Muhalefet",
+      "registered": "Kayıtlı ticari marka",
+      "revocation": "Silme"
+    },
+    "kinds": {
+      "newPatent": "Yeni patent",
+      "registeredPatent": "Kayıtlı patent",
+      "design": "Tasarım",
+      "registeredDesign": "Tasarım",
+      "utilityModel": "Faydalı modeller",
+      "registeredGi": "Kayıtlı GI",
+      "spc": "SPC",
+      "case": "Dava"
+    },
+    "comingSoonTitle": "Dosya oluştur: {{kind}}",
+    "comingSoonBody": "Bu dosya türü için özel form daha sonra eklenecektir. Ticari marka oluşturma dosyası formlarına aynı menüden zaten ulaşılabilmektedir.",
+    "patentTitle": "Dosya oluştur — Patent",
+    "patentSubtypeHint": "Öncelikle patent alt kategorisini seçin.",
+    "patentFormTitle": "Dosya oluştur: Patent",
+    "designFormTitle": "Dosya oluştur: Tasarım",
+    "utilityModelFormTitle": "Dosya oluştur: Faydalı model",
+    "giFormTitle": "Dosya oluştur: Coğrafi işaret",
+    "spcFormTitle": "Dosya oluştur: SPC",
+    "caseFormTitle": "Dosya oluştur: Vaka",
+    "otherFilesTitle": "Diğer dosyalar",
+    "otherFilesDescription": "Telif hakkı, alan adları, danışmanlık ve daha fazlası gibi ana rafların dışında bir çalışma türü seçin.",
+    "otherFileFormTitle": "Dosya oluştur: {{type}}",
+    "addParty": "Parti ekle",
+    "caseClientRoles": {
+      "plaintiff": "Davacı / Temyiz Eden",
+      "defendant": "Sanık",
+      "interested": "İlgili taraf"
+    },
+    "giKinds": {
+      "designation_of_origin": "Menşe tanımı",
+      "geographical_indication": "Coğrafi işaret"
+    },
+    "giTerritories": {
+      "national": "Ulusal",
+      "eu": "AB",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Ulusal",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Bir prosedür seçin",
+    "chooseCountry": "Ülke seçin",
+    "patentFilingRoutes": {
+      "national": "Ulusal",
+      "european": "EP",
+      "ep_validation": "EP Doğrulaması",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Arnavutluk",
+      "BA": "Bosna Hersek",
+      "BG": "Bulgaristan",
+      "EE": "Estonya",
+      "MK": "Kuzey Makedonya",
+      "MD": "Moldavya",
+      "ME": "Karadağ",
+      "RO": "Romanya",
+      "RS": "Sırbistan",
+      "SI": "Slovenya",
+      "TR": "Türkiye"
+    },
+    "patentHints": {
+      "new": "Yeni başvuru — Ulusal, EP veya PCT kovuşturması (WorkPatent'te 7 adımlı akış)",
+      "registered": "Mevcut hibe — Ulusal, EP, PCT veya EP Doğrulaması (WorkValPatent'te 4 adımlı doğrulama)"
+    },
+    "removeClass": "Sınıfı kaldır",
+    "removeClaim": "Hak talebini kaldır",
+    "removeIpc": "IPC sınıfını kaldır",
+    "removeApplicant": "Başvuru sahibini kaldır",
+    "removeBasisMark": "Temel işaretini kaldır",
+    "sameApplicant": "Başvuru sahibinin bilgileri müşteri bilgileri ile aynıdır.",
+    "sameDesigner": "Tasarımcı bilgileri müşteri bilgileri ile aynıdır",
+    "sameInventor": "Mucit bilgileri müşteri bilgileri ile aynıdır",
+    "sameCorrespondence": "Yazışma adresi kayıtlı adresle aynı",
+    "saveDraft": "Taslak olarak kaydet",
+    "saving": "Kaydediliyor…",
+    "searchClient": "Müşterileri ada veya koda göre arayın…",
+    "sideUs": "Bizim tarafımız – muhalefet",
+    "sideThem": "Karşı taraf – başvuruya karşı çıktı",
+    "sideUsCancellation": "Bizim tarafımız - iptal",
+    "sideThemCancellation": "Diğer taraf – sahip",
+    "sideUsDeletion": "Bizim tarafımız - silme",
+    "sections": {
+      "againstApplication": "Ticari marka başvurusuna karşı",
+      "againstBrand": "Bir ticari markaya karşı",
+      "applicant": "Başvuru sahibi",
+      "applicantUser": "Başvuru Sahibi / Kullanıcı",
+      "application": "Başvuru",
+      "attachments": "Ekler",
+      "additionalInfo": "Ek Bilgiler",
+      "basicInfo": "Temel bilgiler",
+      "fileDetails": "Dosya ayrıntıları",
+      "basisMarks": "Muhalefetin dayandığı işaretler",
+      "claims": "İddialar",
+      "classification": "sınıflandırma",
+      "designer": "Tasarımcı",
+      "inventor": "Mucit",
+      "client": "Müşteri verileri",
+      "instructingClient": "Müşteriye talimat vermek",
+      "ipc": "IPC",
+      "contact": "İlgili kişi",
+      "correspondence": "Yazışma adresi",
+      "filing": "Dosyalama ve kayıt",
+      "goods": "Mal ve hizmetlerin listesi",
+      "geographicalIndication": "Coğrafi işaret bilgileri",
+      "spcBasic": "Temel bilgiler SPC",
+      "caseData": "Vaka verileri",
+      "caseRights": "Davanın dayandığı haklar",
+      "expertise": "Uzmanlık",
+      "lawyers": "Avukatlar / Hukuk danışmanları",
+      "caseParties": {
+        "plaintiff": "Davacılar / Temyiz Edenler",
+        "defendant": "Sanıklar",
+        "interested": "İlgili taraflar"
+      },
+      "grounds": "Gerekçeler",
+      "foundation": "Temel",
+      "markName": "Ticari marka adı",
+      "oppositionFiler": "Muhalefet dosyası",
+      "requester": "Talep eden",
+      "requestFiler": "Talebin dosyalayıcısı",
+      "owner": "Mal sahibi",
+      "registeredAddress": "Kayıtlı adres",
+      "representative": "Temsilci",
+      "representatives": "Temsilciler",
+      "searchDocs": "Arama belgelerini ekleyin",
+      "specimen": "Numune",
+      "trademark": "Ticari marka bilgileri",
+      "vienna": "Viyana sınıflandırma sınıfları"
+    },
+    "selectCountries": "Ülkeleri seçin",
+    "subtypeHint": "Öncelikle ticari marka alt kategorisini seçin. Yeni marka tam formunu açıyor.",
+    "territories": {
+      "eu": "Avrupa Birliği",
+      "international": "Uluslararası (WO)",
+      "national": "Ulusal"
+    },
+    "trademarkTitle": "Dosya oluştur — Ticari marka"
   },
   "deadlines": {
     "complete": "Tamamlamak",
     "daysLeft": "{{count}} gün kaldı",
     "daysOverdue": "{{count}} gün gecikti",
     "dueToday": "Bugün vadesi doluyor",
+    "summary": {
+      "open": "Son teslim tarihlerini aç",
+      "overdue": "vadesi geçmiş"
+    },
     "empty": "Bu konuda son tarih yok.",
     "error": "Son teslim tarihleri ​​yüklenemedi.",
     "loading": "Son teslim tarihleri ​​yükleniyor…",
@@ -549,7 +1409,7 @@
   "ipRightStatus": {
     "cancelled": "İptal edildi",
     "expired": "Günü geçmiş",
-    "filed": "Dosyalanmış",
+    "filed": "Dosyalandı",
     "pending": "Dosyalama bekleniyor",
     "registered": "Kayıtlı"
   },
@@ -618,7 +1478,7 @@
     "renewalSchedule": "Yenileme aralıkları",
     "renewalWindows": "Yenileme aralıkları",
     "splitRenewal": "Bölünmüş yenileme",
-    "splitRenewalDescription": "Bu yenilemeyi yargı yetkisine / Nice sınıfı parçalara bölün. Her bölüm ayrı ayrı anlatılır ve tamamlanır; pencere durumu parçalardan toplanır.",
+    "splitRenewalDescription": "Bu yenilemeyi yetki alanı / Nice sınıfı bölümlere ayırın. Her bölüm ayrı ayrı anlatılır ve tamamlanır; pencere durumu parçalardan toplanır.",
     "splitRenewalTitle": "Bölünmüş yenileme",
     "splitPart": "Bölüm {{n}}",
     "splitAddPart": "Parça ekle",
@@ -714,12 +1574,12 @@
   },
   "jurisdictionStatus": {
     "approved": "Onaylı",
-    "filed": "Dosyalanmış",
+    "filed": "Dosyalandı",
     "pending": "Askıda olması",
     "rejected": "Reddedilmiş"
   },
   "layout": {
-    "backToMatters": "← Dosyalara dön",
+    "backToMatters": "← Dosyalara geri dön",
     "loading": "Dosya yükleniyor…",
     "notFound": "Dosya bulunamadı.",
     "archivedBadge": "Arşivlendi",
@@ -729,33 +1589,942 @@
     "restoring": "Geri yükleniyor…",
     "archiveFailed": "Dosya arşivlenemedi",
     "restoreFailed": "Dosya geri yüklenemedi",
-    "archiveConfirm": "Bu dosya arşivlensin mi? Aktif listeden çıkar ama Arşiv’de aranabilir kalır."
+    "archiveConfirm": "Bu dosya arşivlensin mi? Etkin listeden ayrılacak ancak Arşivlendi altında aranabilir durumda kalacaktır."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "İkincil Eylemler",
+      "editScope": "Kapsamı / Sınıfları Düzenle"
+    },
+    "kinds": {
+      "name_address_change": "İsim ve Adres Değişikliği",
+      "transfer": "Marka Devri / Devri",
+      "license": "Lisans Sözleşmesi",
+      "pledge": "Özel Taahhüt",
+      "injunction": "Geçici Tedbir / Tedbir",
+      "surrender": "Tam Teslim / Sorumluluk Reddi",
+      "limitation": "Uygulama Sınırlaması",
+      "insolvency": "İflas / İflas"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Muhalefet Uzlaşması",
+      "office_action_response": "Ofis Eylemi Yanıtı",
+      "voluntary_limitation": "Gönüllü Sınırlama",
+      "correction_of_error": "Hatanın Düzeltilmesi",
+      "other": "Diğer"
+    },
+    "scope": {
+      "title": "Sınıfları ve Kapsamı Düzenle",
+      "description": "Nice sınıflarını ve mal/hizmet tanımlarını değiştirin, ardından ofis dosyalama ayrıntılarını kaydedin.",
+      "cardTitle": "Sınıflar ve ürünler/hizmetler",
+      "cardHint": "Bu ticari marka dosyasındaki Active Nice sınıfları.",
+      "empty": "Henüz kayıtlı ders yok.",
+      "classLabel": "Sınıf {{n}}",
+      "noDescription": "Açıklama yok",
+      "classes": "Sınıf ve ürünler editörü",
+      "incomingNumber": "Gelen referans numarası (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Ofis izleme kimliği",
+      "filingDate": "Başvuru tarihi (ДАТА)",
+      "legalBasis": "Yasal dayanak (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Bir neden seçin…",
+      "legalBasisOther": "Diğer yasal dayanak",
+      "attachment": "Destekleyici belge",
+      "errors": {
+        "classRequired": "En az bir Nice sınıfına sahip olun veya nottan vazgeçmek için Tam Teslim'i kullanın.",
+        "incomingRequired": "Gelen referans numarasını girin.",
+        "dateRequired": "Başvuru tarihini girin.",
+        "basisRequired": "Yasal bir temel seçin.",
+        "saveFailed": "Kapsam düzeltmesi kaydedilemedi."
+      }
+    },
+    "secondary": {
+      "description": "Bu idari eylemi, isteğe bağlı devlet ücretini ve hatırlatma son tarihlerini kaydedin.",
+      "generateProforma": "Proforma fatura oluştur",
+      "governmentFee": "Devlet ücreti (€)",
+      "paymentDueDate": "Ödeme son tarihi",
+      "paymentReminder": "Ödemeden önce hatırlat",
+      "filingDeadline": "Başvuru/eylem son tarihi",
+      "filingReminder": "Başvuru yapmadan önce hatırlat",
+      "reminderUnit": "Birim",
+      "months": "Aylar önce",
+      "days": "Önceki günler",
+      "titles": {
+        "name_address_change": "Günlük Adı ve Adres Değişikliği",
+        "transfer": "Ticari Marka Transferini Kaydet",
+        "license": "Günlük Lisans Sözleşmesi",
+        "pledge": "Özel Taahhüt Kaydı",
+        "injunction": "Geçici Tedbir / Tedbir Kaydı",
+        "surrender": "Günlük Tam Teslimiyet / Sorumluluk Reddi",
+        "limitation": "Günlük Uygulama Sınırlaması",
+        "insolvency": "İflas / İflas Günlüğü"
+      },
+      "errors": {
+        "feeRequired": "Proforma fatura oluşturmak için bir devlet ücreti girin.",
+        "saveFailed": "Bu işlem kaydedilemedi."
+      }
+    },
+    "table": {
+      "title": "İkincil eylemler",
+      "description": "Bu ticari marka için günlüğe kaydedilen prosedürler. İlgili dosyaları görüntülemek veya yüklemek için klasörü açın.",
+      "empty": "Henüz ikincil işlem yok. Bir tanesini günlüğe kaydetmek için başlıktaki İkincil Eylemleri kullanın.",
+      "procedure": "Prosedür",
+      "action": "Aksiyon",
+      "loggedAt": "Oturum açıldı",
+      "viewAria": "İşlem ayrıntılarını görüntüle",
+      "filesAria": "Dosya arşivini aç ({{count}} dosyalar)"
+    },
+    "archive": {
+      "title": "Dosya arşivi",
+      "empty": "Henüz bu eyleme eklenmiş dosya yok.",
+      "date": "Tarih",
+      "regarding": "İlişkin",
+      "regardingPlaceholder": "örneğin Karar, proforma, destekleyici mektup",
+      "document": "Belge",
+      "user": "Kullanıcı",
+      "attach": "Belge ekle",
+      "upload": "Dosya yükle",
+      "download": "İndirmek",
+      "regardingRequired": "Dosyanın neyle ilgili olduğunu girin.",
+      "fileRequired": "Yüklenecek dosyayı seçin.",
+      "uploadFailed": "Dosya yüklenemedi."
+    }
   },
   "list": {
-    "description": "Tüm dosyaların portföy görünümü — başlık, müvekkil veya başvuru no ile arayın.",
-    "descriptionPortal": "Başvuru dönüşümünden sonra kuruluşunuz için açılan dosyalar.",
-    "descriptionArchived": "Referans için tutulan tamamlanmış veya pasif dosyalar.",
+    "description": "Tüm dosyaların portföy görünümü — başlığa, istemciye veya uygulama numarasına göre arayın.",
+    "descriptionPortal": "Alım dönüşümünden sonra kuruluşunuz için açılan dosyalar.",
+    "descriptionArchived": "Başvuru amacıyla saklanan tamamlanmış veya etkin olmayan dosyalar.",
+    "descriptionOthers": "Altı ana rafın dışındaki dosyalar — aşağıdaki iş türüne göre filtreleyin.",
+    "descriptionType": "{{type}} dosyaları — başlığa, müşteriye veya uygulama numarasına göre arayın.",
     "filters": {
       "allStatuses": "Tüm durumlar",
       "allTypes": "Tüm iş türleri",
+      "allOtherTypes": "Diğer tüm türler",
       "active": "Aktif",
-      "archived": "Arşivlenenler",
-      "allOtherTypes": "Diğer tüm türler"
+      "archived": "Arşivlendi"
     },
     "intakeQueue": "Giriş kuyruğu",
     "pagination": {
       "ofTotal": "{{total}}"
     },
     "perPage": "{{count}} sayfa başına",
-    "searchPlaceholder": "Başlık, müvekkil, başvuru no ara…",
+    "searchPlaceholder": "Arama başlığı, müşteri, başvuru numarası…",
     "title": "Dosyalar",
-    "titleArchived": "Arşivlenmiş dosyalar",
-    "titlePortal": "Dosyalarım",
-    "descriptionOthers": "Ana altı kategori dışındaki dosyalar — aşağıdan türe göre filtreleyin.",
-    "descriptionType": "{{type}} dosyaları — başlık, müvekkil veya başvuru no ile arayın.",
-    "titleOthers": "Diğer dosyalar",
+    "titleArchived": "Arşivlenen dosyalar",
     "titleDrafts": "Taslaklar",
-    "descriptionDrafts": "Onay veya başvuru bekleyen taslaklar — aktif markalardan ve diğer raflardan ayrı."
+    "titleOthers": "Diğer dosyalar",
+    "titlePortal": "Dosyalarım",
+    "descriptionDrafts": "Onaylanmayı veya dosyalanmayı bekleyen taslak dosyalar — etkin Ticari Markalardan ve diğer raflardan ayrı."
+  },
+  "trademarkList": {
+    "description": "Ticari marka portföyü — bir bakışta kovuşturma aşaması, sınıflar, başvuru sahibi ve son başvuru tarihleri.",
+    "descriptionMarks": "Yeni ve tescilli ticari markalar - bir bakışta kovuşturma aşaması, sınıflar, başvuru sahibi ve son başvuru tarihleri.",
+    "descriptionProcedure": "{{procedure}} ticari marka dosyaları — bir bakışta kovuşturma aşaması, sınıflar ve son tarihler.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir ticari marka dosyası oluşturun.",
+    "columns": {
+      "name": "Ticari marka adı",
+      "territory": "Bölge",
+      "incomingRef": "Başvuru / gelen no.",
+      "stage": "Kovuşturma aşaması",
+      "classes": "Güzel dersler",
+      "applicant": "Başvuru sahibi / sahibi",
+      "markType": "İşaret türü",
+      "registration": "Reg. HAYIR. / tarih",
+      "deadline": "Son teslim tarihi"
+    },
+    "deadlineOpen": "{{count}} açık",
+    "deadlineOverdue": "{{count}} gecikmiş",
+    "deadlineNext": "Sonraki: {{date}}",
+    "filters": {
+      "title": "Filtre işaretleri",
+      "subtitle": "Portföyü başvuru sahibine, sayılara, tarihlere, sınıfa ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya başvuranın adı…",
+      "markName": "Ticari marka adı",
+      "markNamePlaceholder": "Başlığı işaretle…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Reg. HAYIR.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "markType": "İşaret türü",
+      "markKind": "Türü işaretle",
+      "territory": "Bölge",
+      "representative": "Temsilci",
+      "representativePlaceholder": "Temsilci adı…",
+      "applicationDateFrom": "Başvuru tarihi",
+      "applicationDateTo": "Başvuru tarihi",
+      "registrationDateFrom": "Kayıt tarihi",
+      "registrationDateTo": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "markStatus": "Durumu işaretle",
+      "niceClass": "Güzel sınıf",
+      "country": "Ülke",
+      "hasCertificate": "Sertifika eklenmiş",
+      "choose": "Seçmek",
+      "chooseClass": "Sınıf seçin",
+      "chooseCountry": "Ülke seçin",
+      "all": "Tüm",
+      "classOption": "Sınıf {{number}}",
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "utilityModelList": {
+    "description": "Faydalı modeller — bir bakışta bölge, hak talepleri, sahip ve tescil.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir faydalı model dosyası oluşturun.",
+    "searchResults": "Arama sonuçları: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Kayıtlı"
+    },
+    "columns": {
+      "name": "İsim",
+      "territory": "Bölge",
+      "incomingRef": "Gelen numara / tarih",
+      "status": "Durum",
+      "classes": "Sınıflar",
+      "owner": "Mal sahibi",
+      "kind": "Tür",
+      "registration": "Reg. HAYIR. / tarih"
+    },
+    "filters": {
+      "title": "Faydalı modelleri filtrele",
+      "subtitle": "Portföyünüzü başvuru sahibine, sayılara, tarihlere, bölgeye ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya sahibin adı…",
+      "name": "İsim",
+      "namePlaceholder": "Faydalı model adı…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Kayıt no.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "territory": "Bölge",
+      "choose": "Seçmek",
+      "chooseTerritory": "Bölgeyi seçin",
+      "representative": "Temsilci",
+      "chooseRepresentative": "Temsilci seçin",
+      "applicationDate": "Başvuru tarihi",
+      "registrationDate": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "status": "Durum",
+      "certificate": "Sertifika",
+      "certificateOptions": {
+        "with": "Sertifikalı",
+        "without": "Sertifika olmadan"
+      },
+      "statusOptions": {
+        "registered": "Kayıtlı"
+      },
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "spcList": {
+    "description": "Ek Koruma Sertifikaları — bir bakışta bölge, hak talepleri, sahip ve kayıt.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir SPC dosyası oluşturun.",
+    "searchResults": "Arama sonuçları: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Kayıtlı"
+    },
+    "columns": {
+      "name": "İsim",
+      "territory": "Bölge",
+      "incomingRef": "Gelen numara / tarih",
+      "status": "Durum",
+      "classes": "Sınıflar",
+      "owner": "Mal sahibi",
+      "kind": "Tür",
+      "registration": "Reg. HAYIR. / tarih"
+    },
+    "filters": {
+      "title": "SPC dosyalarını filtrele",
+      "subtitle": "Portföyünüzü başvuru sahibine, sayılara, tarihlere, bölgeye ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya sahibin adı…",
+      "name": "Patent adı",
+      "namePlaceholder": "SPC adı…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Kayıt no.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "territory": "Bölge",
+      "choose": "Seçmek",
+      "chooseTerritory": "Bölgeyi seçin",
+      "representative": "Temsilci",
+      "chooseRepresentative": "Temsilci seçin",
+      "applicationDate": "Başvuru tarihi",
+      "registrationDate": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "status": "Patent durumu",
+      "certificate": "Sertifika",
+      "certificateOptions": {
+        "with": "Sertifikalı",
+        "without": "Sertifika olmadan"
+      },
+      "statusOptions": {
+        "registered": "Kayıtlı"
+      },
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Mahkeme davaları — Bir bakışta taraflar, dava numarası, mahkeme ve durum.",
+    "emptyDescription": "Başlamak için yeni bir vaka dosyası oluşturun.",
+    "searchResults": "Arama sonuçları: {{count}}",
+    "incomingSuffix": "gelen",
+    "vrs": "vs.",
+    "viewAria": "{{title}} görüntüle",
+    "filesAria": "{{title}} ({{count}}) için belgeler",
+    "columns": {
+      "parties": "Partiler",
+      "caseNumber": "Dava no.",
+      "court": "Mahkeme",
+      "status": "Durum",
+      "actions": "Eylemler"
+    },
+    "statusOptions": {
+      "suspended": "Askıya alınmış",
+      "scheduled": "planlanmış",
+      "inactive": "Etkin değil",
+      "appealed": "İtiraz edildi"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Müşteri",
+    "caseNumberLabel": "Dava no.",
+    "statusTitle": "Durum",
+    "chooseStatus": "Durum seç",
+    "saveStatus": "Durumu kaydet",
+    "edit": "Düzenlemek",
+    "save": "Kaydetmek",
+    "cancel": "İptal etmek",
+    "saving": "Kaydediliyor…",
+    "editHint": "Tarafları, mahkeme ayrıntılarını, konuyu ve diğer dava verilerini güncelleyin.",
+    "subjectTitle": "Davanın konusu",
+    "instanceTitle": "Dava no. {{number}} ({{court}})",
+    "eventsTitle": "Olaylar",
+    "reminderTitle": "Ek hatırlatıcı oluştur",
+    "addReminder": "Eklemek",
+    "openArchive": "Dosya arşivi",
+    "saved": "Kaydedildi.",
+    "events": {
+      "date": "Tarih",
+      "deadline": "Son teslim tarihi",
+      "regarding": "İlişkin",
+      "info": "Ek Bilgiler"
+    },
+    "actions": {
+      "decision": "Karar",
+      "agreement": "Anlaşma",
+      "ruling": "Karar"
+    },
+    "errors": {
+      "saveFailed": "Vaka ayrıntıları kaydedilemedi."
+    }
+  },
+  "giList": {
+    "description": "Coğrafi işaretler — bir bakışta bölge, ürün sınıfları, sahip ve tescil.",
+    "emptyDescription": "Filtreleri ayarlamayı veya yeni bir coğrafi işaret dosyası oluşturmayı deneyin.",
+    "searchResults": "Arama sonuçları: {{count}}",
+    "territoryEu": "AB",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Kayıtlı"
+    },
+    "columns": {
+      "name": "İsim",
+      "territory": "Bölge",
+      "incomingRef": "Gelen numara / tarih",
+      "status": "Durum",
+      "classification": "sınıflandırma",
+      "owner": "Mal sahibi",
+      "registration": "Reg. HAYIR. / tarih"
+    },
+    "filters": {
+      "title": "Coğrafi işaretleri filtrele",
+      "subtitle": "Portföyünüzü başvuru sahibine, sayılara, tarihlere, bölge rotasına ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya sahibin adı…",
+      "name": "İsim",
+      "namePlaceholder": "GI adı…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Kayıt no.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "territory": "Bölge",
+      "choose": "Seçmek",
+      "chooseTerritory": "Bölge rotasını seçin",
+      "representative": "Temsilci",
+      "chooseRepresentative": "Temsilci seçin",
+      "applicationDate": "Başvuru tarihi",
+      "registrationDate": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "status": "Durum",
+      "certificate": "Sertifika",
+      "certificateOptions": {
+        "with": "Sertifikalı",
+        "without": "Sertifika olmadan"
+      },
+      "country": "Ülke",
+      "chooseCountry": "Ülke seçin",
+      "statusOptions": {
+        "registered": "Kayıtlı"
+      },
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "designList": {
+    "description": "Kayıtlı tasarımlar — bir bakışta bölge, Locarno sınıflandırması, sahibi ve tescili.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir tasarım dosyası oluşturun.",
+    "searchResults": "Arama sonuçları: {{count}}",
+    "territoryEu": "AB",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Kayıtlı"
+    },
+    "columns": {
+      "name": "İsim",
+      "territory": "Bölge",
+      "incomingRef": "Gelen numara / tarih",
+      "status": "Durum",
+      "classification": "sınıflandırma",
+      "owner": "Mal sahibi",
+      "registration": "Reg. HAYIR. / tarih"
+    },
+    "filters": {
+      "title": "Filtre tasarımları",
+      "subtitle": "Portföyü başvuru sahibine, sayılara, tarihlere, prosedüre ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya sahibin adı…",
+      "name": "İsim",
+      "namePlaceholder": "Tasarım adı…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Kayıt no.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "territory": "Bölge",
+      "procedure": "Prosedür",
+      "choose": "Seçmek",
+      "chooseTerritory": "Bölgeyi seçin",
+      "representative": "Temsilci",
+      "chooseRepresentative": "Temsilci seçin",
+      "applicationDate": "Başvuru tarihi",
+      "registrationDate": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "status": "Durum",
+      "certificate": "Sertifika",
+      "certificateOptions": {
+        "with": "Sertifikalı",
+        "without": "Sertifika olmadan"
+      },
+      "country": "Ülke",
+      "statusOptions": {
+        "registered": "Kayıtlı"
+      },
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "patentList": {
+    "description": "Yeni ve kayıtlı patentler bir arada; bir bakışta kovuşturma aşaması, hak talepleri, sahipler ve son başvuru tarihleri.",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir patent dosyası oluşturun.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Patent adı",
+      "territory": "Bölge",
+      "incomingRef": "Başvuru / gelen no.",
+      "stage": "Durum",
+      "claims": "İddialar",
+      "owner": "Mal sahibi",
+      "registration": "Reg. HAYIR. / tarih",
+      "deadline": "Son teslim tarihi"
+    },
+    "deadlineOpen": "{{count}} açık",
+    "deadlineOverdue": "{{count}} gecikmiş",
+    "deadlineNext": "Sonraki: {{date}}",
+    "filters": {
+      "title": "Patentleri filtrele",
+      "subtitle": "Portföyünüzü başvuru sahibine, sayılara, tarihlere, bölgeye ve daha fazlasına göre daraltın.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Başvuru sahibi / sahibi",
+      "applicantPlaceholder": "Müşteri veya sahibin adı…",
+      "patentName": "Patent adı",
+      "patentNamePlaceholder": "Patent başlığı…",
+      "incomingNo": "Gelen numara",
+      "incomingPlaceholder": "Başvuru / gelen…",
+      "regNo": "Reg. HAYIR.",
+      "regNoPlaceholder": "Kayıt numarası…",
+      "territory": "Bölge",
+      "choose": "Seçmek",
+      "chooseTerritory": "Bölgeyi seçin",
+      "representative": "Temsilci",
+      "chooseRepresentative": "Temsilci seçin",
+      "applicationDateFrom": "Başvuru tarihi",
+      "applicationDateTo": "Başvuru tarihi",
+      "registrationDateFrom": "Kayıt tarihi",
+      "registrationDateTo": "Kayıt tarihi",
+      "contact": "İlgili kişi",
+      "contactPlaceholder": "Kişinin adı, e-postası veya telefonu…",
+      "patentStatus": "Patent durumu",
+      "certificate": "Sertifika",
+      "certificateOptions": {
+        "with": "Sertifikalı",
+        "without": "Sertifika olmadan"
+      },
+      "country": "Ülke",
+      "chooseCountry": "Ülke seçin",
+      "annualFees": "Yıllık ücret ödemesi",
+      "annualFeesOptions": {
+        "yes": "Evet",
+        "no": "HAYIR"
+      },
+      "statusOptions": {
+        "validation_received": "Doğrulama alındı",
+        "assignment": "Atama",
+        "translation_assigned": "Atanan çeviri",
+        "filing_entry": "Dosyalama / giriş",
+        "validation_decision": "Doğrulama kararı",
+        "registered": "Kayıtlı"
+      },
+      "all": "Tüm",
+      "clear": "Filtreleri temizle",
+      "apply": "Filtreleri uygula"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "İşaretler"
+  },
+  "objectionList": {
+    "view": "Görüş",
+    "fileArchive": "Dosya arşivi",
+    "viewAria": "İtirazı görüntüle {{title}}",
+    "filesAria": "{{title}} ({{count}} dosyaları) için dosya arşivini aç",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir itiraz dosyası oluşturun.",
+    "columns": {
+      "againstMark": "İşarete karşı",
+      "grounds": "Gerekçeler",
+      "client": "Müşteri",
+      "status": "Durum",
+      "actions": "Eylemler"
+    }
+  },
+  "oppositionList": {
+    "view": "Görüş",
+    "fileArchive": "Dosya arşivi",
+    "viewAria": "Muhalefeti görüntüle {{title}}",
+    "filesAria": "{{title}} ({{count}} dosyaları) için muhalefet dosyası arşivini açın",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir muhalefet dosyası oluşturun.",
+    "columns": {
+      "againstMark": "İşarete karşı",
+      "client": "Müşteri",
+      "status": "Durum",
+      "actions": "Eylemler"
+    },
+    "stages": {
+      "disputes_division": "Anlaşmazlıklar bölümünde muhalefet",
+      "opposition_decision": "İtiraz kararı",
+      "disputes_department_decision": "Uyuşmazlık departmanı kararı",
+      "case": "Dava",
+      "stopped": "Durduruldu",
+      "closed": "Kapalı"
+    },
+    "stageLegend": {
+      "disputes_division": "Mavi - anlaşmazlıklar bölümünde inceleniyor",
+      "opposition_decision": "Amber – karar verildi veya bekleniyor",
+      "disputes_department_decision": "Turuncu — departman düzeyinde karar",
+      "case": "Kırmızı - davaya taşındı",
+      "stopped": "Gray - işlemler duraklatıldı",
+      "closed": "Yeşil - muhalefet bitti"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "İtiraz",
+    "basicInfo": "Temel bilgiler",
+    "foundation": "Temel",
+    "archiveTitle": "İtiraz dosyası arşivi",
+    "nav": {
+      "view": "Görüş",
+      "archive": "Dosya arşivi"
+    },
+    "markName": "Ticari marka adı",
+    "applicationNumber": "Başvuru numarası",
+    "applicationDate": "Başvuru tarihi",
+    "classes": "Sınıflar",
+    "markType": "Ticari marka türü",
+    "applicant": "Başvuru sahibi",
+    "noMarkImage": "Ticari markanın resmi yok",
+    "grounds": "Temel",
+    "submissionDate": "Gönderim tarihi",
+    "incomingNumber": "Gelen numara",
+    "poaIncomingNumber": "Gelen vekalet numarası",
+    "poaDate": "Tarih",
+    "edit": "Düzenlemek",
+    "cancel": "İptal etmek",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "errors": {
+      "markNameRequired": "Ticari marka adı gerekli.",
+      "saveFailed": "İtiraz kaydedilemedi."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Muhalefet",
+    "subjectMark": "Konu ticari marka",
+    "opposingMarks": "Ticari markalara karşı çıkma",
+    "archiveTitle": "Muhalefet dosya arşivi",
+    "nav": {
+      "view": "Görüş",
+      "archive": "Dosya arşivi",
+      "notes": "Notlar"
+    },
+    "markName": "Ticari marka adı",
+    "applicationNumber": "Başvuru numarası",
+    "applicationDate": "Başvuru tarihi",
+    "classes": "Sınıflar",
+    "markType": "Ticari marka türü",
+    "applicant": "Başvuru sahibi",
+    "representative": "Temsilci",
+    "noMarkImage": "Ticari markanın resmi yok",
+    "noBasisMarks": "Hiçbir karşıt ticari marka kaydedilmedi.",
+    "basisMarkName": "Ticari marka adı",
+    "basisTerritory": "Bölge",
+    "basisMarkNo": "Hayır olarak işaretleyin.",
+    "basisAppDate": "Başvuru tarihi",
+    "basisClasses": "Sınıflar",
+    "againstClasses": "Sınıflara karşı",
+    "submittedBy": "Gönderen",
+    "statusHistory": "Durum geçmişi",
+    "stage": "Durum",
+    "stagePlaceholder": "Durumu seç…",
+    "stageNone": "Ayarlanmadı",
+    "stageChangeHint": "Yeni bir durumun kaydedilmesi, itirazlar listesindeki renkli rozeti günceller, durum geçmişine bir satır ekler ve konuyu Beklemede (Durduruldu) veya uygun olduğunda Kapalı olarak ayarlar.",
+    "decisionNumber": "Karar numarası",
+    "decisionDate": "Karar tarihi",
+    "actions": {
+      "stop": "Durmak",
+      "print": "PDF'yi yazdır",
+      "printing": "Oluşturuluyor…",
+      "stopFailed": "Muhalefet durdurulamadı.",
+      "printFailed": "PDF oluşturulamadı."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Muhalefet, anlaşmazlıklar bölümü tarafından inceleniyor.",
+      "opposition_decision": "Muhalefetle ilgili bir karar çıktı veya bekleniyor.",
+      "disputes_department_decision": "Uyuşmazlık departmanı kararını yayınladı veya gözden geçiriyor.",
+      "case": "Konu adliyeye taşındı.",
+      "stopped": "İtiraz işlemleri duraklatıldı; konu Beklemede olarak ayarlandı.",
+      "closed": "Muhalefet bitti; konu Kapalı olarak ayarlandı."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Anlaşmazlıklar bölümünde muhalefet",
+      "opposition_decision": "{{number}} / {{date}} Sayılı İtiraz Kararı",
+      "disputes_department_decision": "İhtilaf departmanının {{number}} / {{date}} sayılı kararı",
+      "case": "{{number}} / {{date}} numaralı itiraza ilişkin temyiz edilen karar",
+      "stopped": "{{markRef}} — Muhalefet durduruldu",
+      "closed": "{{markRef}} — Muhalefet kapatıldı"
+    },
+    "timeline": {
+      "decision": "Muhalefet kararı",
+      "department_decision": "Uyuşmazlık departmanı kararı",
+      "second_decision": "Muhalefete ikinci karar",
+      "appealedBy": "{{name}} tarafından itiraz edildi",
+      "appealedInCourtBy": "{{name}} tarafından mahkemede temyiz edildi",
+      "decisionRef": "Hayır. {{number}} / {{date}}",
+      "appealFiled": "İtiraz yapıldı",
+      "courtAppealFiled": "Mahkemeye itiraz yapıldı"
+    },
+    "workflow": {
+      "appealTitle": "İtiraz — gelen numara",
+      "correspondenceTitle": "Yazışma",
+      "solutionTitle": "Çözüm",
+      "incomingNumber": "Gelen numara",
+      "date": "Tarih",
+      "attachAppeal": "İtiraz ekle",
+      "attachDocument": "Belge ekle",
+      "regarding": "İlişkin",
+      "deadline": "Son teslim tarihi",
+      "additionalInfo": "Ek Bilgiler",
+      "correspondence": "Yazışma",
+      "submit": "Göndermek",
+      "solutionSubmit": "Çözüm",
+      "caseDraft": "Vaka taslağı",
+      "courtAppeal": "Mahkemeye itiraz",
+      "saveFailed": "Kaydedilemedi."
+    },
+    "edit": "Düzenlemek",
+    "cancel": "İptal etmek",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "errors": {
+      "markNameRequired": "Ticari marka adı gerekli.",
+      "saveFailed": "Muhalefeti kurtaramadık."
+    },
+    "notes": {
+      "title": "Muhalefet notları",
+      "empty": "Henüz not yok.",
+      "date": "Tarih",
+      "regarding": "İlişkin",
+      "details": "Ek Bilgiler",
+      "submit": "Eklemek",
+      "regardingRequired": "Not için bir konu girin.",
+      "saveFailed": "Not kaydedilemedi.",
+      "editAria": "Notu düzenle",
+      "deleteAria": "Notu sil"
+    }
+  },
+  "cancellationList": {
+    "view": "Genel Bakış",
+    "fileArchive": "Dosyalar",
+    "viewAria": "İptali görüntüle {{title}}",
+    "filesAria": "{{title}} ({{count}} dosyaları) için iptal dosyası arşivini açın",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir iptal dosyası oluşturun.",
+    "stageNone": "Ayarlanmadı",
+    "columns": {
+      "againstMark": "Bir markaya karşı",
+      "client": "Müşteri",
+      "status": "Durum",
+      "actions": "Eylemler"
+    },
+    "stages": {
+      "waiting_for_login": "Giriş bekleniyor",
+      "in_correspondence": "Yazışmalarda",
+      "case": "Dava",
+      "stopped": "Durduruldu",
+      "closed": "Kapalı"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "İptal",
+    "subjectMark": "Konu ticari marka",
+    "cancellationSide": "İptal ayrıntıları",
+    "archiveTitle": "İptal dosyası arşivi",
+    "nav": {
+      "view": "Görüş",
+      "archive": "Dosya arşivi",
+      "notes": "Notlar"
+    },
+    "markName": "Ticari marka adı",
+    "applicationNumber": "Başvuru numarası",
+    "applicationDate": "Başvuru tarihi",
+    "registrationNumber": "Kayıt numarası",
+    "classes": "Sınıflar",
+    "markType": "İşaret türü",
+    "applicant": "Başvuru sahibi",
+    "representative": "Temsilci",
+    "againstClasses": "Sınıflara karşı",
+    "submittedBy": "Gönderen",
+    "foundation": "Temel",
+    "stage": "Durum",
+    "stagePlaceholder": "Durumu seç…",
+    "stageNone": "Ayarlanmadı",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — İptal",
+      "in_correspondence": "İptal No. {{number}} / {{date}}",
+      "case": "İptal No. {{number}} / {{date}} — Durum",
+      "stopped": "{{markRef}} — İptal durduruldu",
+      "closed": "{{markRef}} — İptal kapatıldı"
+    },
+    "deadlines": {
+      "date": "Tarih",
+      "deadline": "Son teslim tarihi",
+      "regarding": "İlişkin",
+      "details": "Ek Bilgiler"
+    },
+    "workflow": {
+      "feeTitle": "Devlet ücreti – ödeme tarihi",
+      "poaTitle": "Temsil yetkisi",
+      "filingTitle": "İptal başvurusu",
+      "correspondenceTitle": "Yazışma",
+      "feeAmount": "Tutar (BGN)",
+      "feeDate": "Ödeme tarihi",
+      "poaNumber": "vekaletname numarası",
+      "poaDate": "Alındığı tarih",
+      "cancellationNumber": "İptal numarası",
+      "filingDate": "Başvuru tarihi",
+      "attachDocument": "Belge ekle",
+      "attachPoa": "POA'yı ekleyin",
+      "regarding": "İlişkin",
+      "deadline": "Son teslim tarihi",
+      "additionalInfo": "Ek Bilgiler",
+      "submit": "Göndermek",
+      "decision": "Karar",
+      "feePaid": "Devlet ücreti kaydedildi",
+      "poaReceived": "Vekaletname kaydedildi",
+      "filingRecorded": "İptal başvurusu kaydedildi",
+      "correspondence": "Yazışma",
+      "saveFailed": "Kaydedilemedi."
+    },
+    "actions": {
+      "stop": "Durmak",
+      "stopFailed": "İptal durdurulamadı."
+    },
+    "edit": "Düzenlemek",
+    "cancel": "İptal etmek",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "errors": {
+      "markNameRequired": "Ticari marka adı gerekli.",
+      "saveFailed": "İptal işlemi kaydedilemedi."
+    },
+    "notes": {
+      "title": "İptal notları",
+      "empty": "Henüz not yok.",
+      "date": "Tarih",
+      "regarding": "İlişkin",
+      "details": "Ek Bilgiler",
+      "submit": "Eklemek",
+      "regardingRequired": "Not için bir konu girin.",
+      "saveFailed": "Not kaydedilemedi.",
+      "editAria": "Notu düzenle",
+      "deleteAria": "Notu sil"
+    }
+  },
+  "deletionList": {
+    "view": "Genel Bakış",
+    "fileArchive": "Dosyalar",
+    "viewAria": "Silme işlemini görüntüle {{title}}",
+    "filesAria": "{{title}} ({{count}} dosyaları) için silme dosyası arşivini açın",
+    "emptyDescription": "Filtreleri ayarlamayı deneyin veya yeni bir silme dosyası oluşturun.",
+    "stageNone": "Ayarlanmadı",
+    "columns": {
+      "againstMark": "Bir markaya karşı",
+      "client": "Müşteri",
+      "status": "Durum",
+      "actions": "Eylemler"
+    },
+    "stages": {
+      "waiting_for_login": "Silme işlemini gönder",
+      "in_correspondence": "Yazışmalarda",
+      "decision": "Karar",
+      "case": "Dava",
+      "stopped": "Durduruldu",
+      "closed": "Kapalı"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Silme",
+    "subjectMark": "Konu ticari marka",
+    "deletionSide": "Silme ayrıntıları",
+    "archiveTitle": "Dosya arşivini silme",
+    "archivedStamp": "Arşivlendi",
+    "noMarkImage": "Ticari markanın resmi yok",
+    "nav": {
+      "view": "Görüş",
+      "archive": "Dosya arşivi"
+    },
+    "markName": "Ticari marka adı",
+    "applicationNumber": "Başvuru numarası",
+    "applicationDate": "Başvuru tarihi",
+    "registrationNumber": "Kayıt numarası",
+    "classes": "Sınıflar",
+    "markType": "İşaret türü",
+    "applicant": "Başvuru sahibi",
+    "representative": "Temsilci",
+    "againstClasses": "Sınıflara karşı",
+    "submittedBy": "Gönderen",
+    "foundation": "Temel",
+    "stage": "Durum",
+    "stagePlaceholder": "Durumu seç…",
+    "stageNone": "Ayarlanmadı",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Silme",
+      "in_correspondence": "Silme No. {{number}} / {{date}}",
+      "decision": "Silme kararı No. {{number}} / {{date}}",
+      "case": "Silme kararı No. {{number}} / {{date}} — Vaka",
+      "stopped": "{{markRef}} — Durduruldu ({{stopUntil}}'ye kadar)",
+      "closed": "{{markRef}} — Silme işlemi kapatıldı"
+    },
+    "deadlines": {
+      "date": "Hatırlatma tarihi",
+      "deadline": "Son teslim tarihi",
+      "regarding": "İlişkin",
+      "details": "Ek Bilgiler",
+      "appealTitle": "İtiraz için son tarih"
+    },
+    "stopped": {
+      "title": "Durduruldu",
+      "until": "({{date}} tarihine kadar)",
+      "reason": "Sebep: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Proforma oluştur",
+      "stateFee": "Devlet ücreti",
+      "feePaymentDeadline": "Ödeme için son tarih",
+      "poaSendDeadline": "Vekaletname gönderimi için son tarih",
+      "filingDeadlineLabel": "Başvuru için son tarih",
+      "remindBefore": "Daha önce hatırlat",
+      "reminderDays": "Günler",
+      "reminderMonths": "Aylar",
+      "feeDeadlineRegarding": "Devlet ücretinin ödenmesi için son tarih",
+      "poaDeadlineRegarding": "Vekaletname gönderimi için son tarih",
+      "filingDeadlineRegarding": "Silme başvurusu için son tarih",
+      "proformaRecorded": "Proforma ve son teslim tarihleri ​​kaydedildi",
+      "feeTitle": "Devlet ücreti – ödeme tarihi",
+      "poaTitle": "Temsil yetkisi",
+      "filingTitle": "Silme dosyası",
+      "correspondenceTitle": "Yazışma",
+      "decisionTitle": "Silme kararı",
+      "feeAmount": "Tutar (BGN)",
+      "feeDate": "Ödeme tarihi",
+      "poaNumber": "vekaletname numarası",
+      "poaDate": "Alındığı tarih",
+      "deletionNumber": "Silme numarası",
+      "filingDate": "Başvuru tarihi",
+      "decisionNumber": "Karar numarası",
+      "decisionDate": "Karar tarihi",
+      "attachDocument": "Belge ekle",
+      "attachPoa": "POA'yı ekleyin",
+      "regarding": "İlişkin",
+      "deadline": "Son teslim tarihi",
+      "additionalInfo": "Ek Bilgiler",
+      "submit": "Göndermek",
+      "decision": "Karar",
+      "caseDraft": "Vaka taslağı",
+      "notAppealed": "İtiraz edilmedi",
+      "appealed": "İtiraz edildi",
+      "feePaid": "Devlet ücreti kaydedildi",
+      "poaReceived": "Vekaletname kaydedildi",
+      "filingRecorded": "Silme dosyası kaydedildi",
+      "decisionRecorded": "Silme kararı kaydedildi",
+      "correspondence": "Yazışma",
+      "decisionNumberRequired": "Karar numarasını girin.",
+      "saveFailed": "Kaydedilemedi."
+    },
+    "actions": {
+      "stop": "Durmak",
+      "stopReason": "Sebep",
+      "stopUntil": "Şu ana kadar durduruldu:",
+      "restore": "Eski haline getirmek",
+      "restored": "Geri yüklendi",
+      "archive": "Arşiv",
+      "archiveConfirm": "Bu silme dosyası arşivlensin mi?",
+      "archiveFailed": "Silme işlemi arşivlenemedi.",
+      "stopFailed": "Silme işlemi durdurulamadı.",
+      "restoreFailed": "Silme işlemi geri yüklenemedi."
+    },
+    "edit": "Düzenlemek",
+    "cancel": "İptal etmek",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "errors": {
+      "markNameRequired": "Ticari marka adı gerekli.",
+      "saveFailed": "Silme işlemi kaydedilemedi."
+    }
   },
   "ipRightsRegister": {
     "description": "Müşteriye, yetki alanına, türe, duruma ve sona erme tarihine göre filtrelerle firma çapında fikri mülkiyet hakları kaydı.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Kombine",
+    "combination_of_colors": "Renklerin kombinasyonu",
     "figurative": "Figüratif",
     "sound": "Ses",
     "three_dimensional": "3 boyutlu",
-    "wordmark": "Kelime işareti",
-    "combination_of_colors": "Renklerin kombinasyonu"
+    "wordmark": "Kelime işareti"
   },
   "overview": {
     "assignedTo": "Baş avukat",
@@ -801,18 +2570,6 @@
     "clientHint": "Talimat veren taraf — faturaları alır",
     "intermediary": "Aracı",
     "description": "Tanım",
-    "jurisdictions": "Yargı bölgeleri",
-    "jurisdictionsEmpty": "Hiçbir yetki alanı kaydedilmedi.",
-    "openedBy": "Tarafından açıldı",
-    "status": "Durum",
-    "table": {
-      "country": "Ülke",
-      "localRef": "Yerel referans.",
-      "status": "Durum"
-    },
-    "title": "Dosya ayrıntıları",
-    "type": "İş türü",
-    "typeSpecific": "Türe özgü özellikler",
     "edit": {
       "cancel": "İptal etmek",
       "edit": "Düzenlemek",
@@ -829,7 +2586,19 @@
       "saved": "Kaydedildi.",
       "saving": "Kaydediliyor…",
       "title": "Dosya ayrıntıları"
-    }
+    },
+    "jurisdictions": "Yargı bölgeleri",
+    "jurisdictionsEmpty": "Hiçbir yetki alanı kaydedilmedi.",
+    "openedBy": "Tarafından açıldı",
+    "status": "Durum",
+    "table": {
+      "country": "Ülke",
+      "localRef": "Yerel referans.",
+      "status": "Durum"
+    },
+    "title": "Dosya ayrıntıları",
+    "type": "İş türü",
+    "typeSpecific": "Türe özgü özellikler"
   },
   "parties": {
     "title": "Partiler",
@@ -874,15 +2643,16 @@
     "instructions": "Talimatlar",
     "approvals": "Onaylar",
     "ipRights": "fikri mülkiyet hakları",
+    "secondaryActions": "İkincil eylemler",
     "customs": "Gümrük",
     "overview": "Genel Bakış",
     "tasks": "Notlar",
     "timeline": "Zaman çizelgesi",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}}, {{tab}} üzerinde"
   },
   "approvals": {
     "title": "Müşteri onayları",
-    "subtitle": "Müşteri portalı için onay taleplerinin taslağını hazırlayın ve gönderin.",
+    "subtitle": "Müşteri portalı için onay isteklerinin taslağını hazırlayın ve gönderin.",
     "newDraft": "Yeni taslak",
     "loading": "Onaylar yükleniyor…",
     "loadError": "Onaylar yüklenemedi.",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Görev ekle",
+    "add": "Not ekle",
     "assignedTo": "Atandı",
     "assignedToUser": "{{name}} adresine atandı",
     "completed": "Tamamlanmış",
     "completedByUser": "{{name}} tarafından tamamlandı",
-    "confirmComplete": "Bu görev tamamlandı olarak işaretlensin mi?",
-    "confirmDelete": "Bu görev silinsin mi?",
+    "confirmComplete": "Bu not tamamlandı olarak işaretlensin mi?",
+    "confirmDelete": "Bu not silinsin mi?",
     "delete": "Silmek",
-    "deleteMessage": "Bu görev kalıcı olarak kaldırılacak.",
-    "deleteTitle": "Görev silinsin mi?",
-    "description": "Bu konuda yapılacak çalışmalar sistem tarafından oluşturulan son teslim tarihlerinden ayrı olarak yapılmalıdır.",
-    "drawerTitle": "Görev ekle",
+    "deleteMessage": "Bu not kalıcı olarak kaldırılacak.",
+    "deleteTitle": "Not silinsin mi?",
+    "description": "Bu konuyla ilgili dahili notlar, sistem tarafından oluşturulan son teslim tarihlerinden ayrıdır.",
+    "drawerTitle": "Not ekle",
     "dueOn": "Vade tarihi {{date}}",
-    "empty": "Bu konuyla ilgili herhangi bir görev yok.",
-    "emptyOpen": "Açık görev yok. Bu konuyla ilgili takip edilecek çalışmalar olduğunda bir tane ekleyin.",
-    "error": "Görevler yüklenemedi.",
-    "errorCreate": "Görev oluşturulamadı",
+    "empty": "Bu konuyla ilgili not yok.",
+    "emptyOpen": "Açık not yok. Bu konuyla ilgili takip edilecek bir şey olduğunda bir tane ekleyin.",
+    "error": "Notlar yüklenemedi.",
+    "errorCreate": "Not oluşturulamadı",
     "form": {
       "assigneeLabel": "Atandı",
-      "assigneeRequired": "Bu görevi kimin yapması gerektiğini seçin",
+      "assigneeRequired": "Bu notun kimin için olduğunu seçin",
       "dueDateOptional": "Son tarih (isteğe bağlı)",
       "notesOptional": "Notlar (isteğe bağlı)",
       "notesPlaceholder": "Atanan kişi için herhangi bir ekstra bağlam",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "örneğin Müşteriyi yeniden arayın: BPO yanıtı",
       "titleRequired": "Başlık gerekli"
     },
-    "loading": "Görevler yükleniyor…",
+    "loading": "Notlar yükleniyor…",
     "markComplete": "Tamamlandı olarak işaretle",
     "noDueDate": "Son tarih yok",
     "open": "Açık",
@@ -954,7 +2724,7 @@
       "high": "Yüksek",
       "normal": "Normal"
     },
-    "title": "Görevler"
+    "title": "Notlar"
   },
   "timeline": {
     "description": "Bu konuyla ilgili kovuşturma ve yazışmaların kronolojik tarihi.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Anlaşmazlık / muhalefet",
     "domain": "Alanlar",
     "fto_analysis": "FTO analizi",
-    "geographical_indication": "Coğrafi işaret",
-    "industrial_design": "Endüstriyel tasarım",
+    "geographical_indication": "Coğrafi işaretler",
+    "industrial_design": "Tasarım",
     "litigation_expert_report": "Dava/Mahkeme Bilirkişi Raporları",
     "official_fee_payment": "Resmi Ücret Ödemeleri",
     "other": "Diğer",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Seçme…",
     "title": "Tipe özgü ayrıntılar"
   },
-  "createFile": {
-    "addClass": "Sınıf ekle",
-    "backToFiles": "Dosyalara geri dön",
-    "cancel": "İptal etmek",
-    "changeSubtype": "Alt kategoriyi değiştir",
-    "checkRegister": "Ticari sicilde kontrol",
-    "clearClient": "İstemciyi değiştir",
-    "clientOptionalHint": "CRM eşleşmesi yok mu? Aşağıdaki müşteri ayrıntılarını doldurun; taslağın kaydedilmesi, bunları Müşterilerde otomatik olarak oluşturacaktır.",
-    "applicantOptionalHint": "CRM eşleşmesi yok mu? Başvuru sahibinin ayrıntılarını aşağıya girin; taslağın kaydedilmesi, bunları Müşterilerde otomatik olarak oluşturacaktır.",
-    "draftDescription": "Dosya oluştur ({{procedure}}) — taslak aracılığıyla oluşturuldu",
-    "errors": {
-      "client": "Devam etmek için bir müşteri seçin.",
-      "clientOrDetails": "Bir CRM istemcisi seçin veya bunları oluşturmak için müşteri adını ve ayrıntılarını girin.",
-      "applicantOrDetails": "CRM'de bir başvuru sahibi seçin veya bunları oluşturmak için başvuru sahibinin adını ve ayrıntılarını girin.",
-      "jurisdiction": "En az bir bölge/ülke seçin.",
-      "markWords": "Ticari marka adını/kelimelerini girin.",
-      "saveFailed": "Taslak dosya kaydedilemedi.",
-      "subtype": "Bir ticari marka alt kategorisi seçin.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Dosya referansı ve durumu",
+    "incomingNumber": {
+      "label": "Gelen numara"
     },
-    "euHint": "Avrupa Birliği ticari markası (EUIPO) — yargı yetkisi AB'ye ayarlanmıştır.",
-    "fields": {
-      "address": "Adres",
-      "applicantClient": "Başvuru sahibi müşteri",
-      "applicantClientOptional": "CRM'de başvuru sahibi (isteğe bağlı)",
-      "city": "Şehir",
-      "classNumber": "Sınıf numarası",
-      "country": "Ülke",
-      "eik": "UIC / EIK",
-      "email": "E-posta",
-      "fax": "Faks",
-      "goodsText": "Mal ve hizmetler",
-      "legalName": "Ad ve tüzel kişilik türü",
-      "linkClient": "CRM'de müşteri seçin",
-      "linkClientOptional": "CRM istemcisi (isteğe bağlı)",
-      "markKind": "Kategoriyi işaretle",
-      "markType": "İşaret türü",
-      "markWords": "İşaretin sözleri",
-      "mol": "MOL (imza sahibi)",
-      "name": "İsim",
-      "phone": "Telefon",
-      "postalCode": "Posta Kodu",
-      "territory": "Bölge",
-      "vat": "KDV No",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Gelen tarih"
     },
-    "formTitle": "Dosya oluştur: Ticari Marka",
-    "fullFormReady": "Tam form mevcut",
-    "goodsPlaceholder": "örneğin şişeler; perakende hizmetleri…",
-    "markKinds": {
-      "certification": "Sertifikasyon",
-      "collective": "Toplu",
-      "individual": "Bireysel"
+    "territoryRoute": {
+      "label": "Bölge rotası",
+      "options": {
+        "national_bg": "Bulgaristan (ulusal)",
+        "eu": "Avrupa Birliği",
+        "wipo": "WIPO / uluslararası",
+        "international": "Diğer uluslararası"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Renklerin kombinasyonu",
-      "combined": "Kombine",
-      "figurative": "Figüratif",
-      "sound": "Ses",
-      "three_dimensional": "Üç boyutlu",
-      "wordmark": "Kelime işareti"
+    "authorityOffice": {
+      "label": "Yetki / ofis"
     },
-    "noClients": "Eşleşen müşteri yok. Önce müşteriyi CRM'de oluşturun, ardından buraya geri dönün.",
-    "optionalMark": "İşaretle / konu (isteğe bağlı)",
-    "partialSubtypeNote": "Bu alt kategoriye ilişkin tüm uzmanlık alanları daha sonra genişletilecektir. İstemciye bağlı bir taslağı hâlâ kaydedebilirsiniz; belgeler ve yazışmalar dosyada kalır.",
-    "preliminary": "Ön bilgi",
-    "procedureHints": {
-      "new": "Yeni marka başvurusu — tam form",
-      "registered": "Mevcut tescilli marka",
-      "objection": "İtiraz işlemi",
-      "opposition": "Muhalefet işlemi",
-      "cancellation": "İptal işlemi",
-      "deletion": "Terkin işlemi",
-      "opposition_against_us": "Muhalefet işlemi",
-      "opposition_by_us": "Muhalefet işlemi",
-      "revocation": "Terkin işlemi"
+    "relatedApplicationNumber": {
+      "label": "İlgili başvuru no."
     },
-    "procedures": {
-      "new": "Yeni marka",
-      "registered": "Tescilli marka",
-      "objection": "İtiraz",
-      "opposition": "Muhalefet",
-      "cancellation": "İptal",
-      "deletion": "Terkin",
-      "opposition_against_us": "Muhalefet",
-      "opposition_by_us": "Muhalefet",
-      "revocation": "Terkin"
-    },
-    "removeClass": "Sınıfı kaldır",
-    "sameApplicant": "Başvuru sahibinin bilgileri müşteri bilgileri ile aynıdır.",
-    "sameCorrespondence": "Yazışma adresi kayıtlı adresle aynı",
-    "saveDraft": "Taslak olarak kaydet",
-    "saving": "Kaydediliyor…",
-    "searchClient": "Müşterileri ada veya koda göre arayın…",
-    "sections": {
-      "applicant": "Başvuru sahibi",
-      "client": "Müşteri verileri",
-      "contact": "İlgili kişi",
-      "correspondence": "Yazışma adresi",
-      "goods": "Mal ve hizmetlerin listesi",
-      "markName": "Ticari marka adı",
-      "registeredAddress": "Kayıtlı adres",
-      "searchDocs": "Arama belgelerini ekleyin",
-      "trademark": "Ticari marka bilgileri",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Ülkeleri seçin",
-    "subtypeHint": "Önce alt kategoriyi seçin. Yeni marka tam formu açar.",
-    "territories": {
-      "eu": "Avrupa Birliği",
-      "international": "Uluslararası (WO)",
-      "national": "Ulusal"
-    },
-    "trademarkTitle": "Dosya oluştur — Ticari marka",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Ülke ekle…",
-    "cancel": "İptal etmek",
-    "country": "Ülke",
-    "edit": "Düzenlemek",
-    "errors": {
-      "country": "Bu bölge için en az bir ülke seçin.",
-      "saveFailed": "Ticari marka bilgileri kaydedilemedi."
-    },
-    "euFixed": "Avrupa Birliği (EUIPO)",
-    "markKind": "Kategoriyi işaretle",
-    "markType": "İşaret türü",
-    "noCountries": "Henüz ülke seçilmedi.",
-    "save": "Değişiklikleri kaydet",
-    "saved": "Kaydedildi.",
-    "saving": "Kaydediliyor…",
-    "selectCountries": "Ülkeleri seçin",
-    "territory": "Bölge",
-    "title": "Ticari marka bilgileri"
-  },
-  "fileApproval": {
-    "clientStep": "1. Müşteri onaylı",
-    "clientStepHint": "Personel, müşterinin çevrimdışı olarak kabul edildiğini doğrular (çağrı/e-posta/toplantı). Portal istemcisinin kendisini onaylaması gerekmez.",
-    "errors": {
-      "updateFailed": "Onay durumu güncellenemedi."
-    },
-    "hint": "Yalnızca dahili onay: Müşterinin kabul ettiğini işaretleyin, ardından Yönetici Ortak dosyayı kabul eder. İstemciye gönderme onayı gerekli değildir.",
-    "markClientApproved": "Müşteriyi onaylandı olarak işaretle",
-    "partnerApprove": "İş ortağı onay dosyası",
-    "partnerOnly": "Bu adımı yalnızca Yönetici Ortak tamamlayabilir",
-    "partnerStep": "2. Yönetici Ortak kabul ediyor",
-    "partnerStepHint": "Müşteri onaylandı olarak işaretlendikten sonra Yönetici Ortak dosyayı kabul eder ve taslaktan ayrılır.",
-    "recordedBy": "kaydeden {{name}} · {{date}}",
-    "title": "Dosya onayı",
-    "waitForClient": "Önce istemciyi onaylandı olarak işaretleyin, ardından dosyayı kabul edebilirsiniz."
-  },
-  "prosecution": {
-    "cancelEdit": "İptal etmek",
-    "completeStage": "Aşamayı tamamla",
-    "edit": "Düzenlemek",
-    "editingNote": "Bu aşamada girdiğiniz bilgileri saklamak için Kaydet'i, gerekli alanlar doldurulduğunda ilerlemek için Aşamayı Tamamla'yı kullanın.",
-    "gateHint": "Bu aşama için gerekli alanlar (sistem kapılarında olduğu gibi) doldurulmadan ilerleyemezsiniz.",
-    "goBack": "Bir sahne geri git",
-    "errors": {
-      "needAttachments": "Devam etmeden önce gerekli dosyaları ekleyin: {{list}}",
-      "needInvoice": "Bu aşamayı tamamlamadan önce devlet ücretinden faturayı oluşturun.",
-      "alreadyFinal": "Bu dosya zaten son aşamada.",
-      "needApproval": "Hazırlıktan ayrılmadan önce dosya onayını (müşteri + Yönetici Ortak) tamamlayın.",
-      "needBulletin": "Yayından ayrılmadan önce bülten numarasını ve tarihini girin.",
-      "needFeePaid": "Resmi sınavdan ayrılmadan önce devlet ücreti ödeme tarihini girin.",
-      "needFilingFields": "Başvuruyu tamamlamak için başvuru numarasını ve başvuru tarihini girin.",
-      "needFormalFields": "Devam etmek için devlet ücretini ve ödeme son tarihini girin.",
-      "needMol": "Lütfen dosyalamayı tamamlamadan önce dosya ayrıntılarına (dosya oluştur / düzenle) MOL girin.",
-      "needOfficeActionDeadline": "Ofis eyleminin bir konusu vardır; devam etmeden önce son tarihini belirleyin.",
-      "needPoaFiled": "Resmi sınavdan ayrılmadan önce PoA'nın gelen numarasını ve tarihini girin.",
-      "needRegFeePaid": "Devam etmeden önce kayıt ücreti ödeme tarihini girin.",
-      "needRepresentative": "En az bir temsilci girin veya Temsilci ekle seçeneğini Hayır olarak ayarlayın.",
-      "saveBeforeNavigate": "Bir aşamaya geri dönmeden önce düzenlemelerinizi kaydedin veya iptal edin.",
-      "saveFailed": "Kovuşturma verileri kaydedilemedi."
-    },
-    "fields": {
-      "addRepresentatives": "Temsilci eklemek istiyor musunuz?",
-      "applicationDate": "Başvuru tarihi",
-      "applicationNumber": "Başvuru numarası",
-      "bulletinDate": "Bülten tarihi",
-      "bulletinNumber": "Bülten numarası",
-      "feePaidDate": "Devlet ücreti ödeme tarihi",
-      "generatePoa": "Vekaletname oluştur",
-      "officeAction": "Ofis eylemi / talebi",
-      "officeActionDeadline": "Ofis eyleminin son tarihi",
-      "paymentDeadline": "Ödeme son tarihi",
-      "poaDate": "PoA tarihi",
-      "poaDeadline": "PoA gönderim tarihi",
-      "poaIncoming": "PoA gelen numarası",
-      "regFeePaidDate": "Kayıt ücreti ödeme tarihi",
-      "remindDays": "Son teslim tarihinden önceki günleri hatırlat",
-      "representatives": "Temsilci(ler)",
-      "sendPoaEmail": "Otomatik e-posta gönder",
-      "stateFee": "Devlet ücreti (BGN)"
-    },
-    "molHint": "MOL, dosya ayrıntılarında (dosya oluştur) ayarlanmalıdır. Eksik MOL blokları bu aşamayı tamamlıyor.",
-    "no": "HAYIR",
-    "prepHint": "Hazırlık aşaması: Önce dosya onayını bitirin, ardından Yönetici Ortak kabul ederek Dosyalama aşamasına geçer.",
-    "registeredDone": "Kayıt aşamasına gelindi.",
-    "saveChanges": "Değişiklikleri kaydet",
-    "saveEntered": "Kaydetmek",
-    "saved": "Kaydedildi.",
-    "saveFields": "Alanları kaydet",
-    "saving": "Kaydediliyor…",
-    "stages": {
-      "filing": "Başvuru",
-      "formal_exam": "Şekil incelemesi",
-      "prep": "Hazırlık",
-      "publication": "Yayın",
-      "reg_fee": "Tescil ücretleri",
-      "registration": "Tescil",
-      "substantive_exam": "Esas incelemesi"
-    },
-    "territoryLabel": {
-      "eu": "Boru Hattı: AB",
-      "international": "Boru Hattı: Uluslararası (WO)",
-      "national": "Boru Hattı: Ulusal"
-    },
-    "territoryLocked": "Oluşturma dosyasından bölge düzeltildi",
-    "territoryFromInfo": "Ticari Marka bilgilerinden bölge",
-    "title": "Takip aşamaları",
-    "yes": "Evet",
-    "hub": {
-      "generateInvoice": "Fatura oluştur",
-      "invoiceIssuedShort": "Fatura düzenlendi",
-      "invoiceIssued": "Fatura {{number}} düzenlendi. Müşteri bunu portalında görebilir; aynı zamanda Faturalandırma sekmesinde de bulunur.",
-      "invoiceAlreadyIssued": "{{number}} numaralı fatura zaten düzenlenmiş — portalda ve Faturalandırmada görülebilir.",
-      "invoiceFailed": "Fatura oluşturulamadı. Müşteri fatura ayrıntılarını kontrol edin.",
-      "invoiceNotes": "Resmi / devlet ücreti",
-      "uploadFailed": "Dosya yüklenemedi.",
-      "needStateFee": "Önce devlet ücreti tutarını girin.",
-      "feeDescription": "Devlet / resmi ücret",
-      "deadlineFailed": "Son tarihler oluşturulamadı.",
-      "deadlineTitles": {
-        "payment": "Devlet ücreti ödemesi",
-        "poa": "Vekaletname sunumu",
-        "oa": "Ofis eylemi/inceleme talebi",
-        "oaWithSubject": "Ofis eylemi: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Son tarihten {{days}} gün önce hatırlatın."
-      },
-      "attach": {
-        "search": "Arama dosyasını ekle",
-        "application": "Uygulamayı ekle",
-        "feeSlip": "Ücret makbuzu ekleyin",
-        "poa": "PoA'yı ekleyin",
-        "officeAction": "Ofis eylemini ekle",
-        "decision": "Kararı ekle",
-        "bulletin": "Bülteni ekle",
-        "regFee": "Ödeme kanıtını ekleyin",
-        "certificate": "Sertifika ekle"
+    "workflowStage": {
+      "label": "İş akışı aşaması",
+      "options": {
+        "intake": "Giriş",
+        "analysis": "Analiz",
+        "contract_draft": "Sözleşme / taslak",
+        "filed": "Dosyalandı",
+        "closed": "Kapalı",
+        "registration": "Kayıt",
+        "active": "Aktif",
+        "seizure_pending": "Nöbet bekleniyor",
+        "scoping": "Kapsam belirleme",
+        "search": "Aramak",
+        "draft_report": "Taslak rapor",
+        "delivered": "Teslim edilmiş",
+        "archived": "Arşivlendi",
+        "pre_dispute": "Ön anlaşmazlık",
+        "hearing": "İşitme",
+        "decision": "Karar",
+        "appeal": "Çekici",
+        "monitoring": "İzleme",
+        "dispute": "Anlaşmazlık",
+        "udrp": "UDRP",
+        "resolved": "Çözüldü",
+        "engaged": "Nişanlı",
+        "draft": "Taslak",
+        "submitted": "Gönderildi",
+        "requested": "İstendi",
+        "in_progress": "Devam etmekte",
+        "invoiced": "Faturalandı",
+        "pending": "Askıda olması",
+        "paid": "Paralı",
+        "reimbursed": "Geri ödeme yapıldı",
+        "open": "Açık"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Düzenlemek",
+    "save": "Kaydetmek",
+    "cancel": "İptal etmek",
+    "saving": "Kaydediliyor…",
+    "editHint": "Dosya referansını, iş akışı aşamasını ve türe özgü ayrıntıları güncelleyin.",
+    "clientLabel": "Müşteri",
+    "detailsTitle": "{{type}} ayrıntılar",
+    "errors": {
+      "saveFailed": "Dosya ayrıntıları kaydedilemedi."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Yeni bir dosya oluşturun veya filtreleri ayarlayın.",
+    "viewAria": "{{title}} görüntüle",
+    "filesAria": "{{title}} ({{count}}) için belgeler",
+    "columns": {
+      "type": "Tip",
+      "subject": "Ders",
+      "client": "Müşteri",
+      "incoming": "Gelen referans.",
+      "stage": "Sahne",
+      "deadline": "Anahtar tarih",
+      "actions": "Eylemler"
     }
   }
 }

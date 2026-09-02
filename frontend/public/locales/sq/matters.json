@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Matni rrugën",
+        "options": {
+          "national_bg": "Bullgaria (kombëtare)",
+          "eu_regulation": "Rregullorja e BE-së 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "E drejta e mbrojtur",
+        "options": {
+          "trademark": "Markë tregtare",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "copyright": "E drejta e autorit",
+          "gi": "Treguesi gjeografik"
+        }
+      },
+      "protectedRightRef": {
+        "label": "E drejta e mbrojtur ref."
+      },
       "customsOffice": {
         "label": "Zyra doganore"
+      },
+      "validFrom": {
+        "label": "E vlefshme nga"
+      },
+      "validUntil": {
+        "label": "E vlefshme deri në"
       },
       "infringingGoods": {
         "label": "Përshkrimi i mallrave me shkelje"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Data e krijimit"
-      },
       "workTitle": {
         "label": "Titulli i punës"
       },
       "workType": {
-        "label": "Lloji i punës"
+        "label": "Lloji i punës",
+        "options": {
+          "literary": "letrare",
+          "musical": "Muzikor",
+          "software": "Software",
+          "audiovisual": "Audiovizuale",
+          "graphic": "Grafike / vizuale",
+          "other": "Të tjera"
+        }
+      },
+      "creationDate": {
+        "label": "Data e krijimit"
+      },
+      "firstPublicationDate": {
+        "label": "Data e publikimit të parë"
+      },
+      "authorName": {
+        "label": "Autori"
+      },
+      "rightsBasis": {
+        "label": "Baza e të drejtave",
+        "options": {
+          "author": "Autori",
+          "employer": "Punëdhënësi (punë me qira)",
+          "assignment": "Detyrë",
+          "license": "Licenca"
+        }
+      },
+      "rightsHolder": {
+        "label": "Mbajtësi i të drejtave"
+      },
+      "infringementContext": {
+        "label": "Konteksti i shkeljes/zbatimit"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Gjykata"
+      },
+      "incomingNumber": {
+        "label": "Numri në hyrje"
+      },
+      "claimGrounds": {
+        "label": "Arsyet (lloji i kërkesës)"
+      },
+      "claimValue": {
+        "label": "Vlera e pretendimit"
+      },
+      "expertiseType": {
+        "label": "Lloji i ekspertizës"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Përmbledhja e bazës"
+      "disputeKind": {
+        "label": "Lloji i procedimit",
+        "options": {
+          "civil": "Civile",
+          "administrative": "Administrative",
+          "arbitration": "Arbitrazhi",
+          "mediation": "Ndërmjetësimi",
+          "other": "Të tjera"
+        }
       },
-      "disputeType": {
-        "label": "Lloji i mosmarrëveshjes"
+      "disputeSubject": {
+        "label": "Subjekti",
+        "options": {
+          "invalidity": "Invaliditeti",
+          "infringement": "Shkelje",
+          "ownership": "Pronësia",
+          "contract": "Kontrata",
+          "unfair_competition": "Konkurrenca e pandershme",
+          "other": "Të tjera"
+        }
       },
       "opponentName": {
-        "label": "Kundërshtari/pala kundërshtare"
+        "label": "Kundërshtari / pala tjetër"
+      },
+      "disputeType": {
+        "label": "Lloji i mosmarrëveshjes (shënime)"
+      },
+      "filingReference": {
+        "label": "Referenca e depozitimit"
+      },
+      "filingDate": {
+        "label": "Data e depozitimit"
+      },
+      "basisSummary": {
+        "label": "Përmbledhja e bazës"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Përmbledhja e fushëveprimit"
+      "projectName": {
+        "label": "Emri i projektit"
+      },
+      "productName": {
+        "label": "Emri i produktit"
       },
       "technologyArea": {
         "label": "Fusha e teknologjisë"
+      },
+      "analysisScope": {
+        "label": "Shtrirja e analizës"
+      },
+      "deliverableType": {
+        "label": "I dorëzueshëm",
+        "options": {
+          "written_report": "Raport me shkrim",
+          "memo": "Memo",
+          "oral_briefing": "Brifing gojor"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Data e synuar e përfundimit"
+      },
+      "scopeSummary": {
+        "label": "Përmbledhja e fushëveprimit"
+      },
+      "riskLevel": {
+        "label": "Niveli i rrezikut",
+        "options": {
+          "low": "E ulët",
+          "medium": "E mesme",
+          "high": "Lartë",
+          "pending": "Vlerësimi në pritje"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Lloji"
+      },
+      "giName": {
+        "label": "Emri i treguesit gjeografik"
+      },
       "productName": {
         "label": "Emri i produktit"
       },
       "region": {
         "label": "Rajoni gjeografik"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Territori"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Numri i aplikimit"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Numri i regjistrimit"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Klasa e Lokarnos"
       },
+      "locarnoSubclass": {
+        "label": "Nënklasa e Lokarnos"
+      },
       "productDescription": {
         "label": "Përshkrimi i produktit"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Përmbledhja e kërkesave"
+      },
+      "epApplicationNumber": {
+        "label": "Numri i aplikimit për PE"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Emri i patentës"
+      },
+      "patentProcedure": {
+        "label": "Procedura"
       },
       "pctNumber": {
         "label": "Numri i PCT"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Fusha teknike"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Ngjyrat e pretenduara"
       },
       "markDescription": {
-        "label": "Shënoni përshkrimin"
-      },
-      "markType": {
-        "label": "Shënoni llojin"
-      },
-      "niceClasses": {
-        "label": "Klasa të këndshme",
-        "placeholder": "p.sh. 12, 35"
+        "label": "Përshkrimi i mallrave/shërbimeve"
       },
       "markKind": {
         "label": "Shënoni kategorinë"
       },
+      "markType": {
+        "label": "Shënoni llojin"
+      },
       "markWords": {
         "label": "Fjalët e shenjës"
+      },
+      "niceClasses": {
+        "label": "Klasa të këndshme",
+        "placeholder": "p.sh. 12, 35"
       },
       "territory": {
         "label": "Territori"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Emri"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Numri i pretendimeve"
+      },
+      "applicationNumber": {
+        "label": "Numri i aplikimit"
+      },
+      "applicationDate": {
+        "label": "Data e aplikimit"
+      },
+      "registrationNumber": {
+        "label": "Numri i regjistrimit"
+      },
       "claimsSummary": {
         "label": "Përmbledhja e kërkesave"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Fusha teknike"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Lloji i aktivit",
+        "options": {
+          "trademark": "Markë tregtare",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "gi": "GI",
+          "mixed": "Portofoli i përzier",
+          "company_ip": "IP e kompanisë"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Qëllimi",
+        "options": {
+          "licensing": "Licencimi",
+          "m_and_a": "M&A",
+          "litigation": "Procesi gjyqësor",
+          "tax": "Taksa",
+          "internal": "E brendshme"
+        }
+      },
+      "valuationMethod": {
+        "label": "Metoda",
+        "options": {
+          "market": "Tregu",
+          "income": "Të ardhurat",
+          "cost": "Kostoja"
+        }
+      },
+      "valuationDate": {
+        "label": "Data e vlerësimit"
+      },
       "assetDescription": {
         "label": "Përshkrimi i pasurisë"
       },
-      "valuationPurpose": {
-        "label": "Qëllimi i vlerësimit"
+      "conclusionValue": {
+        "label": "Vlera e përfundimit"
+      },
+      "currency": {
+        "label": "Monedha",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Emri i domenit",
-        "placeholder": "p.sh. shembull.com"
+        "placeholder": "p.sh. shembull.bg"
+      },
+      "tldType": {
+        "label": "Lloji TLD",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "Të tjera"
+        }
       },
       "registrar": {
         "label": "Regjistrues"
+      },
+      "registrant": {
+        "label": "Regjistrues"
+      },
+      "registrationDate": {
+        "label": "Data e regjistrimit"
+      },
+      "expiryDate": {
+        "label": "Data e skadencës"
+      },
+      "disputeRoute": {
+        "label": "Rruga e mosmarrëveshjes",
+        "options": {
+          "none": "Asnjë",
+          "udrp": "UDRP",
+          "court": "Gjykata",
+          "negotiation": "Negocimi"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Marka tregtare e lidhur"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Referenca e rastit"
+      "engagementType": {
+        "label": "Lloji i fejesës",
+        "options": {
+          "patent": "Patent",
+          "trademark": "Markë tregtare",
+          "copyright": "E drejta e autorit",
+          "damages": "Dëmet",
+          "other": "Të tjera"
+        }
       },
       "courtOrAuthority": {
         "label": "Gjykata / autoriteti"
+      },
+      "caseReference": {
+        "label": "Referenca e rastit"
+      },
+      "appointingParty": {
+        "label": "Emërimi i partisë"
+      },
+      "reportDueDate": {
+        "label": "Raportoni datën e duhur"
+      },
+      "hearingDate": {
+        "label": "Data e seancës"
       },
       "reportScope": {
         "label": "Shtrirja e raportit"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Përmbledhja e fushëveprimit"
+      "consultationType": {
+        "label": "Lloji i konsultimit",
+        "options": {
+          "phone": "Telefoni",
+          "written": "e shkruar",
+          "meeting": "Takimi",
+          "due_diligence": "Due diligence (dritë)"
+        }
+      },
+      "topicCategory": {
+        "label": "Kategoria e temës",
+        "options": {
+          "trademark": "Markë tregtare",
+          "patent": "Patent",
+          "design": "Dizajn",
+          "contract": "Kontrata",
+          "strategy": "Strategjia",
+          "other": "Të tjera"
+        }
       },
       "topic": {
         "label": "Tema"
+      },
+      "requestedBy": {
+        "label": "Kërkuar nga"
+      },
+      "scopeSummary": {
+        "label": "Përmbledhja e fushëveprimit"
+      },
+      "timeSpentHours": {
+        "label": "Koha e kaluar (orë)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Autoriteti/zyra"
+        "label": "Autoriteti",
+        "options": {
+          "bpo": "BPO (Bullgari)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Të tjera"
+        }
+      },
+      "feeType": {
+        "label": "Lloji i tarifës",
+        "options": {
+          "filing": "Regjistrimi",
+          "publication": "Publikimi",
+          "examination": "Ekzaminimi",
+          "renewal": "Rinovimi",
+          "annuity": "Anuiteti",
+          "opposition": "Opozita",
+          "other": "Të tjera"
+        }
       },
       "feeReference": {
         "label": "Referenca e tarifës / pagesës"
       },
       "relatedApplication": {
         "label": "Aplikacioni/skedari përkatës"
+      },
+      "feeAmount": {
+        "label": "Shuma"
+      },
+      "currency": {
+        "label": "Monedha",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Afati i pagesës"
+      },
+      "paymentDate": {
+        "label": "Data e pagesës"
+      },
+      "paymentReference": {
+        "label": "Referenca e pagesës"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Kategoria e punës"
+      },
       "workSummary": {
         "label": "Përmbledhja e punës"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Rezultati i pritshëm"
       }
     }
   },
@@ -324,7 +593,7 @@
     "downloadTitle": "Shkarko {{fileName}}",
     "drawerTitle": "Regjistro korrespondencën",
     "empty": "Asnjë korrespondencë nuk është regjistruar ende.",
-    "emptyHint": "Regjistroni korrespondencën ose një email për të krijuar rekordin e kësaj çështjeje.",
+    "emptyHint": "Regjistro korrespondencën ose një email për të krijuar rekordin e kësaj çështjeje.",
     "emptyTitle": "Nuk ka ende korrespondencë",
     "error": "Ngarkimi i korrespondencës dështoi.",
     "errorLog": "Regjistrimi i korrespondencës dështoi",
@@ -470,6 +739,245 @@
     "viewOnEpo": "Shikoni në EPO",
     "viewOnEpoTitle": "Hapni rekordin zyrtar në Regjistrin EPO"
   },
+  "trademarkInfo": {
+    "addCountry": "Shto shtetin…",
+    "cancel": "Anulo",
+    "country": "Vendi",
+    "edit": "Redakto",
+    "errors": {
+      "country": "Zgjidh të paktën një shtet për këtë territor.",
+      "saveFailed": "Informacioni i markës tregtare nuk mund të ruhej."
+    },
+    "euFixed": "Bashkimi Evropian (EUIPO)",
+    "markKind": "Shënoni kategorinë",
+    "markType": "Shënoni llojin",
+    "noCountries": "Nuk është zgjedhur ende asnjë shtet.",
+    "save": "Ruaj ndryshimet",
+    "saved": "U ruajt.",
+    "saving": "Po ruan…",
+    "selectCountries": "Zgjidh shtetet",
+    "territory": "Territori",
+    "title": "Informacioni i markës tregtare",
+    "markImage": "Shënoni imazhin",
+    "uploadMarkImage": "Ngarko imazh",
+    "replaceMarkImage": "Zëvendësoni imazhin",
+    "removeMarkImage": "Hiq imazhin",
+    "markImageHint": "PNG ose JPEG - tregohet në listën e markave tregtare pranë emrit."
+  },
+  "patentInfo": {
+    "title": "Informacion për patentën",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Aplikimi nr. / datë",
+      "registration": "Reg. nr. / datë",
+      "bulletin": "Buletini / botim",
+      "ipc": "IPC",
+      "client": "Klienti / caktuesi",
+      "owner": "Pronari",
+      "contact": "Personi kontaktues",
+      "representatives": "përfaqësuesit",
+      "claims": "Pretendimet",
+      "territory": "Territori"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Informacioni i modelit të shërbimeve",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Aplikimi nr. / datë",
+      "registration": "Reg. nr. / datë",
+      "bulletin": "Buletini / publikimi i regjistrimit / data",
+      "ipc": "IPC",
+      "applicant": "Aplikanti",
+      "inventor": "Shpikësi",
+      "contact": "Personi kontaktues",
+      "representatives": "përfaqësuesit",
+      "claims": "Pretendimet",
+      "territory": "Territori"
+    }
+  },
+  "spcInfo": {
+    "title": "informacion SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Aplikimi nr. / datë",
+      "registration": "Reg. nr. / datë",
+      "bulletin": "Buletini / publikimi i regjistrimit / data",
+      "ipc": "IPC",
+      "applicant": "Aplikanti",
+      "inventor": "Shpikësi",
+      "contact": "Personi kontaktues",
+      "representatives": "përfaqësuesit",
+      "claims": "Pretendimet",
+      "medicinalProduct": "Produkt medicinal"
+    }
+  },
+  "designInfo": {
+    "title": "Informacioni i projektimit",
+    "subtitle": "{{territory}} dizajn · {{name}}",
+    "fields": {
+      "application": "Aplikimi nr. / datë",
+      "registration": "Reg. nr. / datë",
+      "bulletin": "Buletini / publikimi i regjistrimit / data",
+      "client": "Klienti / caktuesi",
+      "owner": "Pronari",
+      "contact": "Personi kontaktues",
+      "representatives": "përfaqësuesit",
+      "classification": "Klasifikimi",
+      "territory": "Territori"
+    }
+  },
+  "giInfo": {
+    "title": "Informacioni i treguesit gjeografik",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Aplikimi nr. / datë",
+      "registration": "Reg. nr. / datë",
+      "bulletin": "Buletini / publikimi i regjistrimit / data",
+      "client": "Klienti / caktuesi",
+      "owner": "Pronari",
+      "contact": "Personi kontaktues",
+      "representatives": "përfaqësuesit",
+      "classes": "Klasat",
+      "territory": "Territori"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Klienti i miratuar",
+    "clientStepHint": "Stafi konfirmon se klienti është pajtuar jashtë linje (telefonatë/email/takim). Klienti i portalit nuk ka nevojë të miratojë veten.",
+    "errors": {
+      "updateFailed": "Statusi i miratimit nuk mund të përditësohej."
+    },
+    "hint": "Vetëm miratimi i brendshëm: shënoni se klienti është dakord, më pas një Partner Menaxhues e pranon skedarin. Nuk kërkohet miratim dërgimi te klienti.",
+    "markClientApproved": "Shëno klientin të miratuar",
+    "partnerApprove": "Dosja e miratimit të partnerit",
+    "partnerOnly": "Vetëm Partneri Menaxhues mund ta përfundojë këtë hap",
+    "partnerStep": "2. Partneri Menaxhues pranon",
+    "partnerStepHint": "Pasi klienti shënohet i miratuar, Partneri Menaxhues e pranon dosjen dhe e lë draftin.",
+    "recordedBy": "Regjistruar nga {{name}} · {{date}}",
+    "title": "Miratimi i dosjes",
+    "waitForClient": "Shënoni klientin të miratuar fillimisht, më pas mund ta pranoni skedarin."
+  },
+  "prosecution": {
+    "cancelEdit": "Anulo",
+    "completeStage": "Faza e plotë",
+    "edit": "Redakto",
+    "editingNote": "Përdorni \"Ruaj\" për të mbajtur atë që keni futur në këtë fazë, ose \"Faza e plotë\" për të ecur përpara kur të plotësohen fushat e kërkuara.",
+    "gateHint": "Nuk mund të ecësh përpara derisa të plotësohen fushat e kërkuara për këtë fazë (njëlloj si portat e sistemit të tyre).",
+    "goBack": "Kthehu pas një skene",
+    "errors": {
+      "needAttachments": "Bashkangjit skedarët e kërkuar përpara se të vazhdosh: {{list}}",
+      "needInvoice": "Gjeneroni faturën nga tarifa shtetërore përpara se të përfundoni këtë fazë.",
+      "alreadyFinal": "Ky skedar është tashmë në fazën përfundimtare.",
+      "needApproval": "Përfundoni miratimin e skedarit (klient + Partner Menaxhues) përpara se të largoheni nga përgatitja.",
+      "needBulletin": "Shkruani numrin dhe datën e buletinit përpara se të dilni nga publikimi.",
+      "needFeePaid": "Shkruani datën e pagesës së tarifës shtetërore përpara se të largoheni nga provimi zyrtar.",
+      "needFilingFields": "Futni numrin e aplikimit dhe datën e paraqitjes për të përfunduar depozitimin.",
+      "needFormalFields": "Fut tarifën shtetërore dhe afatin e pagesës për të vazhduar.",
+      "needMol": "Ju lutemi shkruani MOL në detajet e skedarit (krijo-skedar / modifiko) përpara se të përfundoni depozitimin.",
+      "needOfficeActionDeadline": "Veprimi i zyrës ka një temë - caktoni afatin e tij përpara se të vazhdoni.",
+      "needPoaFiled": "Vendosni numrin dhe datën hyrëse të PoA-së përpara se të largoheni nga provimi zyrtar.",
+      "needRegFeePaid": "Vendosni datën e pagesës së tarifës së regjistrimit përpara se të vazhdoni.",
+      "needRepresentative": "Fut të paktën një përfaqësues ose vendos Shto përfaqësues në Nr.",
+      "saveBeforeNavigate": "Ruani ose anuloni modifikimet tuaja përpara se të ktheheni në një fazë.",
+      "saveFailed": "Të dhënat e prokurorisë nuk mund të ruheshin."
+    },
+    "fields": {
+      "addRepresentatives": "Dëshironi të shtoni përfaqësues?",
+      "applicationDate": "Data e aplikimit",
+      "applicationNumber": "Numri i aplikimit",
+      "bulletinDate": "Data e buletinit",
+      "bulletinNumber": "Numri i buletinit",
+      "feePaidDate": "Data e pagesës së tarifës shtetërore",
+      "generatePoa": "Krijo autorizim",
+      "officeAction": "Veprimi/kërkesa e zyrës",
+      "officeActionDeadline": "Afati i veprimit të zyrës",
+      "paymentDeadline": "Afati i pagesës",
+      "poaDate": "Data e PoA",
+      "poaDeadline": "Afati i dorëzimit të PoA",
+      "poaIncoming": "Numri i hyrjes PoA",
+      "regFeePaidDate": "Data e pagesës së tarifës së regjistrimit",
+      "remindDays": "Kujtoni ditë para afatit",
+      "representatives": "Përfaqësues(t)",
+      "sendPoaEmail": "Dërgo email automatik",
+      "stateFee": "Tarifa shtetërore (BGN)"
+    },
+    "molHint": "MOL duhet të vendoset në detajet e skedarit (nga krijimi i skedarit). Mungojnë blloqet MOL që përfundojnë këtë fazë.",
+    "no": "Nr",
+    "prepHint": "Faza përgatitore: së pari përfundoni miratimin e skedarit, më pas Pranimi i Partnerit Menaxhues ju zhvendos në Regjistrim.",
+    "registeredDone": "Arriti faza e regjistrimit.",
+    "saveChanges": "Ruaj ndryshimet",
+    "saveEntered": "Ruaj",
+    "saved": "U ruajt.",
+    "saveFields": "Ruaj fushat",
+    "saving": "Po ruan…",
+    "stages": {
+      "filing": "Regjistrimi",
+      "formal_exam": "Ekzaminimi formal",
+      "prep": "Përgatitore",
+      "publication": "Publikimi",
+      "reg_fee": "Tarifat e regjistrimit",
+      "registration": "Regjistrimi",
+      "substantive_exam": "Ekzaminimi përmbajtësor"
+    },
+    "territoryLabel": {
+      "eu": "Tubacioni: BE",
+      "international": "Tubacioni: Ndërkombëtar (WO)",
+      "national": "Tubacioni: Kombëtar"
+    },
+    "territoryLocked": "Territori u fiksua nga skedari i krijimit",
+    "territoryFromInfo": "Territori nga informacioni i markës tregtare",
+    "patentRouteFromInfo": "Rruga nga krijimi i skedarit",
+    "designRouteFromInfo": "Rruga nga krijimi i skedarit",
+    "utilityModelTerritoryFromInfo": "Territori nga vendi i paraqitjes",
+    "spcTerritoryFromInfo": "Territori nga vendi i paraqitjes",
+    "giTerritoryFromInfo": "Territori nga rruga e depozitimit",
+    "title": "Fazat e ndjekjes penale",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Është marrë vërtetimi",
+        "filing": "Detyrë",
+        "formal_exam": "Dorëzimi i kërkesës",
+        "substantive_exam": "Ekzaminimi përmbajtësor",
+        "publication": "Publikimi",
+        "reg_fee": "Tarifat e regjistrimit",
+        "registration": "Vendimi i vlefshmërisë"
+      }
+    },
+    "yes": "po",
+    "hub": {
+      "generateInvoice": "Gjeneroni faturë",
+      "invoiceIssuedShort": "Faturë e lëshuar",
+      "invoiceIssued": "Fatura {{number}} e lëshuar. Klienti mund ta shohë atë në portalin e tyre; është gjithashtu në skedën Faturimi.",
+      "invoiceAlreadyIssued": "Fatura {{number}} e lëshuar tashmë — e dukshme në portal dhe Faturim.",
+      "invoiceFailed": "Fatura nuk mund të krijohej. Kontrolloni detajet e faturimit të klientit.",
+      "invoiceNotes": "Tarifa zyrtare/shtetërore",
+      "uploadFailed": "Skedari nuk mund të ngarkohej.",
+      "needStateFee": "Futni së pari shumën e tarifës shtetërore.",
+      "feeDescription": "Tarifa shtetërore/zyrtare",
+      "deadlineFailed": "Nuk mund të krijohej afati(et).",
+      "deadlineTitles": {
+        "payment": "Pagesa e tarifës shtetërore",
+        "poa": "Dorëzimi i prokurës",
+        "oa": "Kërkesë për veprim/ekzaminim në zyrë",
+        "oaWithSubject": "Veprimi i zyrës: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Kujto {{days}} ditë(të) përpara afatit."
+      },
+      "attach": {
+        "search": "Bashkangjit skedarin e kërkimit",
+        "application": "Bashkangjit aplikacionin",
+        "feeSlip": "Bashkangjit fletën e tarifës",
+        "poa": "Bashkangjit PoA",
+        "officeAction": "Bashkangjit veprimin e zyrës",
+        "decision": "Bashkangjit vendimin",
+        "bulletin": "Bashkangjit buletinin",
+        "regFee": "Bashkangjit vërtetimin e pagesës",
+        "certificate": "Bashkangjit certifikatën"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Klient *",
     "creating": "Po krijohet…",
@@ -479,15 +987,367 @@
     "matterType": "Lloji i punës *",
     "open": "Hap skedarin",
     "responsibleAttorney": "Avokati përgjegjës",
-    "title": "Hap skedar të ri",
+    "title": "Hap skedarin e ri",
     "titleField": "Titulli *",
     "titlePlaceholder": "p.sh. Shenja e fjalës ACME – BE"
+  },
+  "createFile": {
+    "addClass": "Shto klasë",
+    "addClaim": "Shto pretendim",
+    "addIpc": "Shtoni klasën IPC",
+    "addBasisMark": "Shtoni shenjën bazë",
+    "basisMark": "Shenja bazë {{number}}",
+    "addAdditionalApplicant": "Shto aplikant shtesë",
+    "addAdditionalOwner": "Shto zotërues shtesë",
+    "additionalApplicant": "Aplikanti {{number}}",
+    "additionalOwner": "Pronari {{number}}",
+    "yes": "po",
+    "no": "Nr",
+    "none": "Asnjë",
+    "backToFiles": "Kthehu te skedarët",
+    "cancel": "Anulo",
+    "changeSubtype": "Ndrysho nënkategorinë",
+    "checkRegister": "Kontrolloni në regjistrin tregtar",
+    "clearClient": "Ndrysho klientin",
+    "clientOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e klientit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
+    "applicantOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e aplikantit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
+    "draftDescription": "Krijuar nëpërmjet Krijo skedarin ({{procedure}}) — draft",
+    "errors": {
+      "client": "Zgjidhni një klient për të vazhduar.",
+      "clientOrDetails": "Zgjidhni një klient CRM ose vendosni emrin e klientit dhe detajet për t'i krijuar ato.",
+      "applicantOrDetails": "Zgjidhni një aplikant në CRM, ose shkruani emrin e aplikantit dhe detajet për t'i krijuar ato.",
+      "jurisdiction": "Zgjidhni të paktën një territor / shtet.",
+      "markWords": "Futni emrin / fjalët e markës tregtare.",
+      "filingRoute": "Zgjidhni një procedurë.",
+      "ownerOrDetails": "Futni emrin dhe adresën e pronarit ose shënoni pronarin si të njëjtë me klientin.",
+      "designerOrDetails": "Futni emrin dhe adresën e projektuesit, ose shënoni projektuesin si të njëjtë me klientin.",
+      "inventorOrDetails": "Futni emrin dhe adresën e shpikësit ose shënoni shpikësi si klientin.",
+      "patentName": "Futni emrin e patentës.",
+      "designName": "Futni emrin e dizajnit.",
+      "utilityModelName": "Futni emrin e modelit të shërbimeve.",
+      "giKind": "Zgjidhni përcaktimin e origjinës ose treguesin gjeografik.",
+      "territory": "Zgjidhni një territor.",
+      "giName": "Shkruani emrin e treguesit gjeografik.",
+      "spcName": "Futni emrin e SPC.",
+      "caseClientRole": "Zgjidhni nëse klienti është paditës, i paditur ose palë e interesuar.",
+      "otherType": "Lloji i skedarit i panjohur. Zgjidhni një lloj nga lista.",
+      "patentSubtype": "Zgjidhni një nënkategori patentë.",
+      "saveFailed": "Skedari i draftit nuk mund të ruhej.",
+      "subtype": "Zgjidhni një nënkategori të markës tregtare."
+    },
+    "euHint": "Marka tregtare e Bashkimit Evropian (EUIPO) - juridiksion i caktuar në BE.",
+    "fields": {
+      "address": "Adresa",
+      "applicantClient": "Klienti aplikant",
+      "applicantClientOptional": "Aplikanti në CRM (opsionale)",
+      "city": "Qyteti",
+      "classNumber": "Numri i klasës",
+      "classes": "Klasat",
+      "country": "Vendi",
+      "eik": "UIC / EIK",
+      "email": "E-mail",
+      "fax": "Faks",
+      "goodsText": "Mallrat dhe shërbimet",
+      "legalName": "Emri dhe lloji i personit juridik",
+      "linkClient": "Zgjidhni klientin në CRM",
+      "linkClientOptional": "Klient CRM (opsionale)",
+      "fileTitleOptional": "Titulli (opsionale)",
+      "fileDescriptionOptional": "Përshkrimi (opsionale)",
+      "markKind": "Shënoni kategorinë",
+      "markType": "Shënoni llojin",
+      "markWords": "Emri i markës tregtare",
+      "mol": "MOL (nënshkrues)",
+      "name": "Emri",
+      "oppositionFiler": "Regjistrues i opozitës",
+      "requester": "Kërkuesi",
+      "requestFiler": "Skedari i kërkesës",
+      "againstClasses": "Kundër klasave",
+      "owner": "Pronari",
+      "phone": "Telefoni",
+      "postalCode": "Kodi postar",
+      "territory": "Territori",
+      "transliteration": "Transliterimi",
+      "viennaNumber": "Numri",
+      "applicationNumber": "Numri i aplikimit",
+      "applicationDate": "Data",
+      "conventionPriority": "Prioriteti i Konventës",
+      "exhibitionPriority": "Prioriteti i ekspozitës",
+      "transformationInternational": "Transformimi i regjistrimit ndërkombëtar",
+      "communityConversion": "Konvertimi i markës tregtare të Komunitetit",
+      "applicationBulletin": "Buletini/publikimi i aplikacionit",
+      "grounds": "Bazat",
+      "specimen": "Mostra",
+      "registrationNumber": "Nr Regjistrimi",
+      "registrationDate": "Data",
+      "registrationBulletin": "Buletini/publikimi i regjistrimit",
+      "certificate": "Bashkangjit certifikatën",
+      "attachDocument": "Bashkangjit dokumentin",
+      "representative": "Zgjidhni",
+      "selectRepresentative": "Zgjidhni përfaqësuesin",
+      "addMoreRepresentatives": "Shtoni më shumë përfaqësues",
+      "claimNumber": "Numri",
+      "claimText": "Pretendimi",
+      "epApplicationNumber": "Numri i aplikimit për PE",
+      "epBulletinNumber": "Numri i buletinit të PE",
+      "applicationPublication": "Publikimi i aplikacionit",
+      "applicationPublicationDate": "Data",
+      "epRegistrationNumber": "Numri i regjistrimit të PE",
+      "epRegistrationBulletin": "Buletini/publikimi i regjistrimit të PE",
+      "epRegistrationBulletinDate": "Data",
+      "ipc": "IPC",
+      "patentName": "Emri",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validimi i patentës evropiane",
+      "powerOfAttorney": "prokurë",
+      "selectProcedure": "Zgjidhni procedurën",
+      "validationCountry": "Zgjidh shtetin",
+      "priorityCountry": "Vendi i aplikimit të mëparshëm",
+      "priorityFromDate": "Nga data",
+      "priorityApplicationNumber": "Numri i aplikimit",
+      "priorityIncomingNumber": "Në. Nr.",
+      "internationalRegistrationNumber": "Regjistrimi ndërkombëtar Nr.",
+      "exhibitionFirstAppearance": "Data e paraqitjes së parë",
+      "exhibitionName": "Emri i ekspozitës",
+      "bulletinNumber": "Numri i buletinit",
+      "patentRegistrationNumber": "Numri i regjistrimit",
+      "validationNumber": "Numri",
+      "validationFilingDate": "Data e depozitimit",
+      "validationPriorityDate": "Data e prioritetit",
+      "addImage": "Shto imazh",
+      "addCountry": "Shto shtetin",
+      "removeImage": "Hiq imazhin",
+      "image": "Imazhi",
+      "designName": "Emri",
+      "locarnoClass": "Klasa",
+      "locarnoSubclass": "Nënklasa",
+      "classificationText": "Klasifikimi",
+      "vat": "ID e TVSH-së",
+      "utilityModelName": "Emri",
+      "conversionFromPatent": "Shndërrimi nga patentë në aplikim",
+      "conversionInvention": "Shpikje",
+      "conversionRequestNumber": "Kërkesa Nr.",
+      "conversionApplicationDate": "Data e aplikimit",
+      "conversionPriorityDate": "Data e prioritetit",
+      "giKind": "Lloji",
+      "giName": "Emri i treguesit gjeografik",
+      "spcName": "Emri",
+      "medicinalProduct": "Produkt medicinal",
+      "basicPatentNumber": "Patenta Nr.",
+      "effectStartDate": "Fillimi i efektit",
+      "effectEndDate": "Data e përfundimit",
+      "firstAuthorization": "Autorizimi i parë",
+      "theClientIs": "Klienti është",
+      "court": "Gjykata",
+      "authority": "Autoriteti",
+      "panel": "Paneli",
+      "division": "Divizioni",
+      "incomingNumber": "Numri në hyrje",
+      "claimGrounds": "Arsyet (lloji i kërkesës)",
+      "claimValue": "Vlera e pretendimit",
+      "other": "Të tjera",
+      "rightObject": "Objekti",
+      "selectObject": "Zgjidh objektin…",
+      "rightName": "Emri",
+      "rightApplicationDate": "Data e aplikimit",
+      "rightScope": "Fushëveprimi",
+      "expertiseType": "Lloji i ekspertizës",
+      "experts": "Ekspertët",
+      "expertiseQuestions": "Pyetjet për të cilat është pranuar ekspertiza"
+    },
+    "formTitle": "Krijo skedar: Markë tregtare",
+    "fullFormReady": "Formulari i plotë në dispozicion",
+    "goodsPlaceholder": "p.sh. shishe; shërbime me pakicë…",
+    "markKinds": {
+      "certification": "Certifikimi",
+      "collective": "Kolektive",
+      "individual": "Individuale"
+    },
+    "markTypes": {
+      "combination_of_colors": "Kombinimi i ngjyrave",
+      "combined": "Të kombinuara",
+      "figurative": "Figurative",
+      "sound": "Tingull",
+      "three_dimensional": "Tredimensionale",
+      "wordmark": "Shenjë fjalësh"
+    },
+    "noClients": "Nuk ka klientë që përputhen. Krijo klientin në CRM fillimisht, pastaj kthehu këtu.",
+    "optionalMark": "Shënoni / subjektin (opsionale)",
+    "partialSubtypeNote": "Fushat e plota të specializuara për këtë nënkategori do të zgjerohen më vonë. Ju ende mund të ruani një draft të lidhur me klientin; dokumentet dhe korrespondenca qëndrojnë në dosje.",
+    "preliminary": "Informacion paraprak",
+    "procedureHints": {
+      "cancellation": "Anulimi i një marke të regjistruar tregtare - formulari i plotë i krijimit",
+      "deletion": "Fshirja e një marke të regjistruar tregtare - formulari i plotë i krijimit",
+      "new": "Aplikim i ri për markën tregtare - formulari i plotë i krijimit",
+      "objection": "Kundërshtim kundër një aplikacioni për markë tregtare - formulari i plotë i krijimit",
+      "opposition": "Kundërshtimi kundër një aplikacioni për markë tregtare - formulari i plotë i krijimit",
+      "opposition_against_us": "Procedurat e opozitës",
+      "opposition_by_us": "Procedurat e opozitës",
+      "registered": "Markë ekzistuese e regjistruar tregtare",
+      "revocation": "Procedurat e fshirjes"
+    },
+    "procedures": {
+      "cancellation": "Anulimi",
+      "deletion": "Fshirja",
+      "new": "Markë e re",
+      "objection": "Kundërshtim",
+      "opposition": "Opozita",
+      "opposition_against_us": "Opozita",
+      "opposition_by_us": "Opozita",
+      "registered": "Markë e regjistruar tregtare",
+      "revocation": "Fshirja"
+    },
+    "kinds": {
+      "newPatent": "Patenta e re",
+      "registeredPatent": "Patenta e regjistruar",
+      "design": "Dizajn",
+      "registeredDesign": "Dizajn",
+      "utilityModel": "Modelet e shërbimeve",
+      "registeredGi": "GI i regjistruar",
+      "spc": "SPC",
+      "case": "Rasti"
+    },
+    "comingSoonTitle": "Krijo skedar: {{kind}}",
+    "comingSoonBody": "Formulari i specializuar për këtë lloj skedari do të shtohet më pas. Format e krijimit të skedarëve të markave tregtare janë tashmë të disponueshme nga e njëjta meny.",
+    "patentTitle": "Krijo skedar - Patent",
+    "patentSubtypeHint": "Së pari zgjidhni nënkategorinë e patentës.",
+    "patentFormTitle": "Krijo skedar: Patent",
+    "designFormTitle": "Krijo skedar: Dizajn",
+    "utilityModelFormTitle": "Krijo skedar: Modeli i shërbimeve",
+    "giFormTitle": "Krijo skedar: Treguesi gjeografik",
+    "spcFormTitle": "Krijo skedar: SPC",
+    "caseFormTitle": "Krijo skedar: Rasti",
+    "otherFilesTitle": "Skedarë të tjerë",
+    "otherFilesDescription": "Zgjidhni një lloj pune jashtë rafteve kryesore - të drejtat e autorit, domenet, konsultimet dhe më shumë.",
+    "otherFileFormTitle": "Krijo skedar: {{type}}",
+    "addParty": "Shto parti",
+    "caseClientRoles": {
+      "plaintiff": "Paditës/Apelues",
+      "defendant": "i pandehuri",
+      "interested": "Pala e interesuar"
+    },
+    "giKinds": {
+      "designation_of_origin": "Emërtimi i origjinës",
+      "geographical_indication": "Treguesi gjeografik"
+    },
+    "giTerritories": {
+      "national": "Kombëtare",
+      "eu": "BE",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Kombëtare",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Zgjidhni një procedurë",
+    "chooseCountry": "Zgjidh shtetin",
+    "patentFilingRoutes": {
+      "national": "Kombëtare",
+      "european": "EP",
+      "ep_validation": "EP-Vleresimi",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Shqipëria",
+      "BA": "Bosnjë dhe Hercegovinë",
+      "BG": "Bullgaria",
+      "EE": "Estonia",
+      "MK": "Maqedonia e Veriut",
+      "MD": "Moldavia",
+      "ME": "Mali i Zi",
+      "RO": "Rumania",
+      "RS": "Serbisë",
+      "SI": "Sllovenia",
+      "TR": "Turqia"
+    },
+    "patentHints": {
+      "new": "Aplikim i ri - Ndjekja penale kombëtare, PE ose PCT (rrjedha me 7 hapa në WorkPatent)",
+      "registered": "Granti ekzistues — Vleresimi kombëtar, EP, PCT ose EP (vlefshmëria me 4 hapa në WorkValPatent)"
+    },
+    "removeClass": "Hiq klasën",
+    "removeClaim": "Hiq pretendimin",
+    "removeIpc": "Hiq klasën IPC",
+    "removeApplicant": "Hiq aplikantin",
+    "removeBasisMark": "Hiqni shenjën bazë",
+    "sameApplicant": "Informacioni i aplikantit është i njëjtë me klientin",
+    "sameDesigner": "Informacioni i projektuesit është i njëjtë me klientin",
+    "sameInventor": "Informacioni i shpikësit është i njëjtë me klientin",
+    "sameCorrespondence": "Adresa e korrespondencës është e njëjtë me adresën e regjistruar",
+    "saveDraft": "Ruaje si draft",
+    "saving": "Po ruan…",
+    "searchClient": "Kërko klientët me emër ose kod…",
+    "sideUs": "Ana jonë - opozita",
+    "sideThem": "Pala tjetër — kundërshtoi kërkesën",
+    "sideUsCancellation": "Ana jonë - anulim",
+    "sideThemCancellation": "Pala tjetër - pronar",
+    "sideUsDeletion": "Ana jonë - fshirje",
+    "sections": {
+      "againstApplication": "Kundër një aplikacioni për markë tregtare",
+      "againstBrand": "Kundër një marke tregtare",
+      "applicant": "Aplikanti",
+      "applicantUser": "Aplikanti / Përdoruesi",
+      "application": "Aplikimi",
+      "attachments": "Shtojcat",
+      "additionalInfo": "Informacione shtese",
+      "basicInfo": "Informacion bazë",
+      "fileDetails": "Detajet e skedarit",
+      "basisMarks": "Shenjat mbi të cilat bazohet opozita",
+      "claims": "Pretendimet",
+      "classification": "Klasifikimi",
+      "designer": "Dizajneri",
+      "inventor": "Shpikësi",
+      "client": "Të dhënat e klientit",
+      "instructingClient": "Instruktimi i klientit",
+      "ipc": "IPC",
+      "contact": "Personi kontaktues",
+      "correspondence": "Adresa e korrespondencës",
+      "filing": "Paraqitja dhe regjistrimi",
+      "goods": "Lista e mallrave dhe shërbimeve",
+      "geographicalIndication": "Informacioni i treguesit gjeografik",
+      "spcBasic": "Informacioni bazë SPC",
+      "caseData": "Të dhënat e rastit",
+      "caseRights": "Të drejtat mbi të cilat bazohet çështja",
+      "expertise": "Ekspertiza",
+      "lawyers": "Juristë/Këshilltarë Juridik",
+      "caseParties": {
+        "plaintiff": "Paditësit/Apeluesit",
+        "defendant": "të pandehurit",
+        "interested": "Palët e interesuara"
+      },
+      "grounds": "Bazat",
+      "foundation": "Fondacioni",
+      "markName": "Emri i markës tregtare",
+      "oppositionFiler": "Regjistrues i opozitës",
+      "requester": "Kërkuesi",
+      "requestFiler": "Skedari i kërkesës",
+      "owner": "Pronari",
+      "registeredAddress": "Adresa e regjistruar",
+      "representative": "Përfaqësues",
+      "representatives": "përfaqësuesit",
+      "searchDocs": "Bashkangjit dokumentet e kërkimit",
+      "specimen": "Mostra",
+      "trademark": "Informacioni i markës tregtare",
+      "vienna": "Klasat e klasifikimit të Vjenës"
+    },
+    "selectCountries": "Zgjidh shtetet",
+    "subtypeHint": "Së pari zgjidhni nënkategorinë e markës tregtare. Marka e re hap formularin e plotë.",
+    "territories": {
+      "eu": "Bashkimi Evropian",
+      "international": "Ndërkombëtare (WO)",
+      "national": "Kombëtare"
+    },
+    "trademarkTitle": "Krijo skedar - Markë tregtare"
   },
   "deadlines": {
     "complete": "Kompletuar",
     "daysLeft": "{{count}} ditë të mbetura",
     "daysOverdue": "{{count}} ditë të vonuara",
     "dueToday": "Afati sot",
+    "summary": {
+      "open": "Afatet e hapura",
+      "overdue": "I vonuar"
+    },
     "empty": "Nuk ka afate për këtë çështje.",
     "error": "Ngarkimi i afateve dështoi.",
     "loading": "Afatet po ngarkohen…",
@@ -523,11 +1383,11 @@
     "generateDescription": "Zgjidhni një shabllon letre. Detajet e çështjes dhe klientit plotësohen automatikisht dhe ruhen në këtë dosje.",
     "generatePdf": "Gjeneroni PDF",
     "generateWord": "Krijo Word",
-    "generating": "Po gjenerohet…",
-    "loading": "Po ngarkon dokumentet…",
+    "generating": "Po gjeneron…",
+    "loading": "Dokumentet po ngarkohen…",
     "noTemplates": "Nuk ka shabllone të disponueshme.",
     "notAvailable": "- nuk disponohet",
-    "search": "Kërko emrin ose etiketat…",
+    "search": "Kërkoni emrin ose etiketat…",
     "table": {
       "category": "Kategoria",
       "displayName": "Emri i shfaqur",
@@ -568,7 +1428,7 @@
     "confirmRegistration": "Konfirmo regjistrimin",
     "cycleDue": "Cikli {{n}} · afati {{date}}",
     "cycleLabel": "Cikli {{n}}",
-    "description": "Paraqisni të drejtat e draftit pasi klienti të konfirmojë dhe paketa e depozitimit të jetë gati.",
+    "description": "Dosja e të drejtave të draftit sapo klienti të konfirmojë dhe paketa e depozitimit të jetë gati.",
     "editSplit": "Redakto ndarjen",
     "empty": "Nuk ka ende të drejta IP. Një draft krijohet automatikisht kur një hyrje konvertohet; shtoni më shumë të drejta manualisht pas ndjekjes penale.",
     "epoCheckFailed": "Kontrolli i statusit të EPO dështoi",
@@ -594,7 +1454,7 @@
       "filingPackage": "Paketa e depozitimit",
       "filingPackageHint": "Zgjidhni versionin e dokumentit të ngarkuar për këtë skedar (zakonisht nën Aplikacionin).",
       "jurisdictionHint": "Zgjidhni EPO (EP) për të mundësuar kontrollet e statusit të prokurorisë kundër OPS.",
-      "noDocuments": "Ende nuk ka dokumente për këtë çështje. Fillimisht ngarkoni skedarin PDF në skedën \"Dokumentet\".",
+      "noDocuments": "Ende nuk ka dokumente për këtë çështje. Fillimisht ngarkoni skedarin PDF të skedarit në skedën \"Dokumentet\".",
       "selectDocument": "Zgjidh versionin e dokumentit…"
     },
     "filing": "Po depoziton…",
@@ -611,7 +1471,7 @@
     "proceed": "Regjistro të vazhdojë",
     "register": "Regjistrohu",
     "registerDrawerHint": "Hap dritaren e rinovimit të ciklit 1 dhe gjeneron afatet e rinovimit.",
-    "registerTitle": "Regjistroni IP të drejtë",
+    "registerTitle": "Regjistro IP të drejtë",
     "registering": "Po regjistrohet…",
     "registrationDate": "Data e regjistrimit",
     "registrationNumber": "Numri i regjistrimit",
@@ -720,7 +1580,7 @@
   },
   "layout": {
     "backToMatters": "← Kthehu te skedarët",
-    "loading": "Duke ngarkuar skedarin…",
+    "loading": "Skedari po ngarkohet…",
     "notFound": "Skedari nuk u gjet.",
     "archivedBadge": "Arkivuar",
     "archive": "Arkivi",
@@ -728,34 +1588,943 @@
     "restore": "Rivendos",
     "restoring": "Po restaurohet…",
     "archiveFailed": "Arkivimi i skedarit dështoi",
-    "restoreFailed": "Rikthimi i skedarit dështoi",
-    "archiveConfirm": "Ta arkivoni këtë skedar? Do të dalë nga lista aktive, por mbetet i kërkueshëm te Arkivuar."
+    "restoreFailed": "Rivendosja e skedarit dështoi",
+    "archiveConfirm": "Të arkivohet ky skedar? Do të largohet nga lista aktive, por do të mbetet e kërkueshme nën Arkivuar."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Veprimet dytësore",
+      "editScope": "Redakto fushëveprimin / klasat"
+    },
+    "kinds": {
+      "name_address_change": "Ndryshimi i emrit dhe adresës",
+      "transfer": "Transferimi / Caktimi i Markës Tregtare",
+      "license": "Marrëveshja e Licencës",
+      "pledge": "Betim special",
+      "injunction": "Masa e Përkohshme / Urdhër",
+      "surrender": "Dorëzimi i plotë / Mohim përgjegjësie",
+      "limitation": "Kufizimi i Aplikimit",
+      "insolvency": "Falimentimi / Falimentimi"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Zgjidhja e Opozitës",
+      "office_action_response": "Përgjigja e veprimit të zyrës",
+      "voluntary_limitation": "Kufizimi Vullnetar",
+      "correction_of_error": "Korrigjimi i gabimit",
+      "other": "Të tjera"
+    },
+    "scope": {
+      "title": "Redakto klasat dhe shtrirjen",
+      "description": "Ndryshoni klasat e Nice dhe përshkrimet e mallrave/shërbimeve, më pas regjistroni detajet e dosjes së zyrës.",
+      "cardTitle": "Klasa dhe mallra/shërbime",
+      "cardHint": "Klasat Active Nice në këtë skedar të markës tregtare.",
+      "empty": "Nuk është regjistruar ende asnjë klasë.",
+      "classLabel": "Klasa {{n}}",
+      "noDescription": "Asnjë përshkrim",
+      "classes": "Redaktori i klasës dhe mallrave",
+      "incomingNumber": "Numri i referencës në hyrje (ВХ. НОМЕР)",
+      "incomingPlaceholder": "ID e gjurmimit të zyrës",
+      "filingDate": "Data e depozitimit (DATA)",
+      "legalBasis": "Baza ligjore (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Zgjidh një arsye…",
+      "legalBasisOther": "Baza tjetër ligjore",
+      "attachment": "Dokument mbështetës",
+      "errors": {
+        "classRequired": "Mbani të paktën një klasë Nice, ose përdorni Full Surrender për të hequr dorë nga nota.",
+        "incomingRequired": "Futni numrin e referencës në hyrje.",
+        "dateRequired": "Shkruani datën e paraqitjes.",
+        "basisRequired": "Zgjidhni një bazë ligjore.",
+        "saveFailed": "Korrigjimi i fushës nuk mund të ruhej."
+      }
+    },
+    "secondary": {
+      "description": "Regjistro këtë veprim administrativ, tarifën fakultative të qeverisë dhe afatet rikujtuese.",
+      "generateProforma": "Gjeneroni proformatura",
+      "governmentFee": "Tarifa qeveritare (€)",
+      "paymentDueDate": "Afati i pagesës",
+      "paymentReminder": "Kujtoje përpara pagesës",
+      "filingDeadline": "Afati i paraqitjes / veprimit",
+      "filingReminder": "Kujtoni përpara se të depozitoni",
+      "reminderUnit": "Njësia",
+      "months": "Muaj më parë",
+      "days": "Ditë më parë",
+      "titles": {
+        "name_address_change": "Ndryshimi i emrit dhe adresës së regjistrit",
+        "transfer": "Regjistri i transferimit të markës tregtare",
+        "license": "Marrëveshja e licencës së regjistrit",
+        "pledge": "Premtimi special i logit",
+        "injunction": "log Masa e Përkohshme / Urdhër",
+        "surrender": "Identifikohu për dorëzimin e plotë / mohim përgjegjësie",
+        "limitation": "Kufizimi i aplikacionit të regjistrit",
+        "insolvency": "Regjistro Falimentimi / Falimentimi"
+      },
+      "errors": {
+        "feeRequired": "Fut një tarifë qeveritare për të krijuar një faturë proforma.",
+        "saveFailed": "Ky veprim nuk mund të ruhej."
+      }
+    },
+    "table": {
+      "title": "Veprimet dytësore",
+      "description": "Procedurat e regjistruara për këtë markë tregtare. Hapni dosjen për të parë ose ngarkuar skedarë të lidhur.",
+      "empty": "Nuk ka ende veprime dytësore. Përdorni Veprimet dytësore në kokë për të regjistruar një.",
+      "procedure": "Procedura",
+      "action": "Veprimi",
+      "loggedAt": "I identifikuar",
+      "viewAria": "Shikoni detajet e veprimit",
+      "filesAria": "Hap arkivin e skedarëve ({{count}} skedarë)"
+    },
+    "archive": {
+      "title": "Arkivi i skedarëve",
+      "empty": "Asnjë skedar i bashkangjitur ende këtij veprimi.",
+      "date": "Data",
+      "regarding": "Në lidhje me",
+      "regardingPlaceholder": "p.sh. Vendim, proforma, letër mbështetëse",
+      "document": "Dokumenti",
+      "user": "Përdoruesi",
+      "attach": "Bashkangjit dokumentin",
+      "upload": "Ngarko skedarin",
+      "download": "Shkarkoni",
+      "regardingRequired": "Shkruani se për çfarë ka të bëjë skedari.",
+      "fileRequired": "Zgjidhni një skedar për të ngarkuar.",
+      "uploadFailed": "Skedari nuk mund të ngarkohej."
+    }
   },
   "list": {
-    "description": "Pamje e të gjithë skedarëve — kërkoni sipas titullit, klientit ose nr. aplikimit.",
-    "descriptionPortal": "Skedarë të hapur për organizatën tuaj pas konvertimit të kërkesës.",
-    "descriptionArchived": "Skedarë të përfunduar ose joaktivë të ruajtur për referencë.",
+    "description": "Pamja e portofolit të të gjithë skedarëve — kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
+    "descriptionPortal": "Skedarët u hapën për organizatën tuaj pas konvertimit të marrjes.",
+    "descriptionArchived": "Skedarët e plotësuar ose joaktivë të mbajtur për referencë.",
+    "descriptionOthers": "Skedarët jashtë gjashtë rafteve kryesore — filtro sipas llojit të punës më poshtë.",
+    "descriptionType": "Skedarët {{type}} — kërkoni sipas titullit, klientit ose numrit të aplikacionit.",
     "filters": {
       "allStatuses": "Të gjitha statuset",
       "allTypes": "Të gjitha llojet e punës",
+      "allOtherTypes": "Të gjitha llojet e tjera",
       "active": "Aktiv",
-      "archived": "Arkivuar",
-      "allOtherTypes": "Të gjitha llojet e tjera"
+      "archived": "Arkivuar"
     },
     "intakeQueue": "Radha e marrjes",
     "pagination": {
       "ofTotal": "nga {{total}}"
     },
     "perPage": "{{count}} për faqe",
-    "searchPlaceholder": "Kërko titull, klient, nr. aplikimi…",
+    "searchPlaceholder": "Kërkoni titullin, klientin, aplikacionin nr…",
     "title": "Skedarët",
-    "titleArchived": "Skedarë të arkivuar",
-    "titlePortal": "Skedarët e mi",
-    "descriptionOthers": "Skedarë jashtë gjashtë kategorive kryesore — filtroni sipas llojit më poshtë.",
-    "descriptionType": "Skedarë {{type}} — kërkoni sipas titullit, klientit ose nr. aplikimit.",
-    "titleOthers": "Skedarë të tjerë",
+    "titleArchived": "Skedarët e arkivuar",
     "titleDrafts": "Draftet",
-    "descriptionDrafts": "Draftet që presin miratim ose depozitim — të ndara nga markat aktive dhe raftet e tjera."
+    "titleOthers": "Skedarë të tjerë",
+    "titlePortal": "Skedarët e mi",
+    "descriptionDrafts": "Draft skedarët që presin për miratim ose depozitim — veçmas nga Markat tregtare aktive dhe raftet e tjera."
+  },
+  "trademarkList": {
+    "description": "Portofoli i markës tregtare - faza e ndjekjes penale, klasat, aplikanti dhe afatet me një shikim.",
+    "descriptionMarks": "Markat e reja dhe të regjistruara - faza e ndjekjes penale, klasat, aplikanti dhe afatet me një shikim.",
+    "descriptionProcedure": "{{procedure}} dosjet e markave tregtare — faza e ndjekjes penale, klasat dhe afatet me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri të markës tregtare.",
+    "columns": {
+      "name": "Emri i markës tregtare",
+      "territory": "Territori",
+      "incomingRef": "Nr. aplikimi/arrit.",
+      "stage": "Faza e ndjekjes penale",
+      "classes": "Klasa të këndshme",
+      "applicant": "Aplikanti / pronari",
+      "markType": "Shënoni llojin",
+      "registration": "Reg. nr. / datë",
+      "deadline": "Afati i fundit"
+    },
+    "deadlineOpen": "{{count}} hapur",
+    "deadlineOverdue": "{{count}} i vonuar",
+    "deadlineNext": "Tjetra: {{date}}",
+    "filters": {
+      "title": "Shenjat e filtrit",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, klasës dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose aplikantit…",
+      "markName": "Emri i markës tregtare",
+      "markNamePlaceholder": "Shënoni titullin…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Reg. nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "markType": "Shënoni llojin",
+      "markKind": "Shënoni llojin",
+      "territory": "Territori",
+      "representative": "Përfaqësues",
+      "representativePlaceholder": "Emri i përfaqësuesit…",
+      "applicationDateFrom": "Data e aplikimit nga",
+      "applicationDateTo": "Data e aplikimit për",
+      "registrationDateFrom": "Data e regjistrimit nga",
+      "registrationDateTo": "Data e regjistrimit deri në",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "markStatus": "Shënoni statusin",
+      "niceClass": "Klasa e bukur",
+      "country": "Vendi",
+      "hasCertificate": "Ka të bashkangjitur certifikatën",
+      "choose": "Zgjidhni",
+      "chooseClass": "Zgjidhni klasën",
+      "chooseCountry": "Zgjidhni vendin",
+      "all": "Të gjitha",
+      "classOption": "Klasa {{number}}",
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "utilityModelList": {
+    "description": "Modelet e shërbimeve - territori, pretendimet, pronari dhe regjistrimi me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri të modelit të shërbimeve.",
+    "searchResults": "Rezultatet e kërkimit: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "I regjistruar"
+    },
+    "columns": {
+      "name": "Emri",
+      "territory": "Territori",
+      "incomingRef": "Nr hyrës. / datë",
+      "status": "Statusi",
+      "classes": "Klasat",
+      "owner": "Pronari",
+      "kind": "E sjellshme",
+      "registration": "Reg. nr. / datë"
+    },
+    "filters": {
+      "title": "Modelet e shërbimeve të filtrit",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, territorit dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose pronarit…",
+      "name": "Emri",
+      "namePlaceholder": "Emri i modelit të shërbimeve…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Regjistrimi nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "territory": "Territori",
+      "choose": "Zgjidhni",
+      "chooseTerritory": "Zgjidhni territorin",
+      "representative": "Përfaqësues",
+      "chooseRepresentative": "Zgjidhni përfaqësues",
+      "applicationDate": "Data e aplikimit",
+      "registrationDate": "Data e regjistrimit",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "status": "Statusi",
+      "certificate": "Certifikata",
+      "certificateOptions": {
+        "with": "Me certifikate",
+        "without": "Pa certifikate"
+      },
+      "statusOptions": {
+        "registered": "I regjistruar"
+      },
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "spcList": {
+    "description": "Certifikatat shtesë të mbrojtjes - territori, pretendimet, pronari dhe regjistrimi me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri SPC.",
+    "searchResults": "Rezultatet e kërkimit: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "I regjistruar"
+    },
+    "columns": {
+      "name": "Emri",
+      "territory": "Territori",
+      "incomingRef": "Nr hyrës. / datë",
+      "status": "Statusi",
+      "classes": "Klasat",
+      "owner": "Pronari",
+      "kind": "E sjellshme",
+      "registration": "Reg. nr. / datë"
+    },
+    "filters": {
+      "title": "Filtro skedarët SPC",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, territorit dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose pronarit…",
+      "name": "Emri i patentës",
+      "namePlaceholder": "Emri SPC…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Regjistrimi nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "territory": "Territori",
+      "choose": "Zgjidhni",
+      "chooseTerritory": "Zgjidhni territorin",
+      "representative": "Përfaqësues",
+      "chooseRepresentative": "Zgjidhni përfaqësues",
+      "applicationDate": "Data e aplikimit",
+      "registrationDate": "Data e regjistrimit",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "status": "Statusi i patentës",
+      "certificate": "Certifikata",
+      "certificateOptions": {
+        "with": "Me certifikate",
+        "without": "Pa certifikate"
+      },
+      "statusOptions": {
+        "registered": "I regjistruar"
+      },
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Çështjet gjyqësore - palët, numri i çështjes, gjykata dhe statusi me një shikim.",
+    "emptyDescription": "Krijo një dosje të re rasti për të filluar.",
+    "searchResults": "Rezultatet e kërkimit: {{count}}",
+    "incomingSuffix": "hyrëse",
+    "vrs": "vrs.",
+    "viewAria": "Shiko {{title}}",
+    "filesAria": "Dokumentet për {{title}} ({{count}})",
+    "columns": {
+      "parties": "Partitë",
+      "caseNumber": "Rasti nr.",
+      "court": "Gjykata",
+      "status": "Statusi",
+      "actions": "Veprimet"
+    },
+    "statusOptions": {
+      "suspended": "I pezulluar",
+      "scheduled": "I planifikuar",
+      "inactive": "Joaktiv",
+      "appealed": "Apeluar"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Klienti",
+    "caseNumberLabel": "Rasti nr.",
+    "statusTitle": "Statusi",
+    "chooseStatus": "Zgjidhni statusin",
+    "saveStatus": "Ruaj statusin",
+    "edit": "Redakto",
+    "save": "Ruaj",
+    "cancel": "Anulo",
+    "saving": "Po ruan…",
+    "editHint": "Përditësoni palët, detajet e gjykatës, subjektin dhe të dhënat e tjera të çështjes.",
+    "subjectTitle": "Objekti i çështjes",
+    "instanceTitle": "Rasti nr. {{number}} ({{court}})",
+    "eventsTitle": "Ngjarjet",
+    "reminderTitle": "Krijo kujtesë shtesë",
+    "addReminder": "Shtoni",
+    "openArchive": "Arkivi i skedarëve",
+    "saved": "U ruajt.",
+    "events": {
+      "date": "Data",
+      "deadline": "Afati i fundit",
+      "regarding": "Në lidhje me",
+      "info": "Informacione shtese"
+    },
+    "actions": {
+      "decision": "Vendimi",
+      "agreement": "Marrëveshja",
+      "ruling": "Vendimi"
+    },
+    "errors": {
+      "saveFailed": "Detajet e rastit nuk mund të ruheshin."
+    }
+  },
+  "giList": {
+    "description": "Treguesit gjeografikë - territori, klasat e produkteve, pronari dhe regjistrimi me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri tregues gjeografik.",
+    "searchResults": "Rezultatet e kërkimit: {{count}}",
+    "territoryEu": "BE",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "I regjistruar"
+    },
+    "columns": {
+      "name": "Emri",
+      "territory": "Territori",
+      "incomingRef": "Nr hyrës. / datë",
+      "status": "Statusi",
+      "classification": "Klasifikimi",
+      "owner": "Pronari",
+      "registration": "Reg. nr. / datë"
+    },
+    "filters": {
+      "title": "Filtro treguesit gjeografikë",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, rrugës së territorit dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose pronarit…",
+      "name": "Emri",
+      "namePlaceholder": "Emri GI…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Regjistrimi nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "territory": "Territori",
+      "choose": "Zgjidhni",
+      "chooseTerritory": "Zgjidhni rrugën e territorit",
+      "representative": "Përfaqësues",
+      "chooseRepresentative": "Zgjidhni përfaqësues",
+      "applicationDate": "Data e aplikimit",
+      "registrationDate": "Data e regjistrimit",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "status": "Statusi",
+      "certificate": "Certifikata",
+      "certificateOptions": {
+        "with": "Me certifikate",
+        "without": "Pa certifikate"
+      },
+      "country": "Vendi",
+      "chooseCountry": "Zgjidhni vendin",
+      "statusOptions": {
+        "registered": "I regjistruar"
+      },
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "designList": {
+    "description": "Modelet e regjistruara - territori, klasifikimi i Lokarnos, pronari dhe regjistrimi me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri dizajni.",
+    "searchResults": "Rezultatet e kërkimit: {{count}}",
+    "territoryEu": "BE",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "I regjistruar"
+    },
+    "columns": {
+      "name": "Emri",
+      "territory": "Territori",
+      "incomingRef": "Nr hyrës. / datë",
+      "status": "Statusi",
+      "classification": "Klasifikimi",
+      "owner": "Pronari",
+      "registration": "Reg. nr. / datë"
+    },
+    "filters": {
+      "title": "Dizajni i filtrave",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, procedurës dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose pronarit…",
+      "name": "Emri",
+      "namePlaceholder": "Emri i dizajnit…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Regjistrimi nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "territory": "Territori",
+      "procedure": "Procedura",
+      "choose": "Zgjidhni",
+      "chooseTerritory": "Zgjidhni territorin",
+      "representative": "Përfaqësues",
+      "chooseRepresentative": "Zgjidhni përfaqësues",
+      "applicationDate": "Data e aplikimit",
+      "registrationDate": "Data e regjistrimit",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "status": "Statusi",
+      "certificate": "Certifikata",
+      "certificateOptions": {
+        "with": "Me certifikate",
+        "without": "Pa certifikate"
+      },
+      "country": "Vendi",
+      "statusOptions": {
+        "registered": "I regjistruar"
+      },
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "patentList": {
+    "description": "Patentat e reja dhe të regjistruara së bashku - faza e ndjekjes penale, pretendimet, pronari dhe afatet me një shikim.",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri patente.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Emri i patentës",
+      "territory": "Territori",
+      "incomingRef": "Nr. aplikimi/arrit.",
+      "stage": "Statusi",
+      "claims": "Pretendimet",
+      "owner": "Pronari",
+      "registration": "Reg. nr. / datë",
+      "deadline": "Afati i fundit"
+    },
+    "deadlineOpen": "{{count}} hapur",
+    "deadlineOverdue": "{{count}} i vonuar",
+    "deadlineNext": "Tjetra: {{date}}",
+    "filters": {
+      "title": "Filtro patentat",
+      "subtitle": "Kufizoni portofolin sipas aplikantit, numrave, datave, territorit dhe më shumë.",
+      "activeCount": "{{count}} aktiv",
+      "applicant": "Aplikanti / pronari",
+      "applicantPlaceholder": "Emri i klientit ose pronarit…",
+      "patentName": "Emri i patentës",
+      "patentNamePlaceholder": "Titulli i patentës…",
+      "incomingNo": "Nr hyrës.",
+      "incomingPlaceholder": "Aplikimi / në hyrje…",
+      "regNo": "Reg. nr.",
+      "regNoPlaceholder": "Numri i regjistrimit…",
+      "territory": "Territori",
+      "choose": "Zgjidhni",
+      "chooseTerritory": "Zgjidhni territorin",
+      "representative": "Përfaqësues",
+      "chooseRepresentative": "Zgjidhni përfaqësues",
+      "applicationDateFrom": "Data e aplikimit nga",
+      "applicationDateTo": "Data e aplikimit për",
+      "registrationDateFrom": "Data e regjistrimit nga",
+      "registrationDateTo": "Data e regjistrimit deri në",
+      "contact": "Personi kontaktues",
+      "contactPlaceholder": "Emri i kontaktit, emaili ose telefoni…",
+      "patentStatus": "Statusi i patentës",
+      "certificate": "Certifikata",
+      "certificateOptions": {
+        "with": "Me certifikate",
+        "without": "Pa certifikate"
+      },
+      "country": "Vendi",
+      "chooseCountry": "Zgjidhni vendin",
+      "annualFees": "Pagesa vjetore e tarifës",
+      "annualFeesOptions": {
+        "yes": "po",
+        "no": "Nr"
+      },
+      "statusOptions": {
+        "validation_received": "Është marrë vërtetimi",
+        "assignment": "Detyrë",
+        "translation_assigned": "Përkthim i caktuar",
+        "filing_entry": "Regjistrimi/hyrja",
+        "validation_decision": "Vendimi i vlefshmërisë",
+        "registered": "I regjistruar"
+      },
+      "all": "Të gjitha",
+      "clear": "Pastro filtrat",
+      "apply": "Aplikoni filtra"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Shenjat"
+  },
+  "objectionList": {
+    "view": "Shiko",
+    "fileArchive": "Arkivi i skedarëve",
+    "viewAria": "Shiko kundërshtimin {{title}}",
+    "filesAria": "Hap arkivin e skedarëve për {{title}} ({{count}} skedarë)",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri kundërshtimesh.",
+    "columns": {
+      "againstMark": "Kundër shenjës",
+      "grounds": "Bazat",
+      "client": "Klienti",
+      "status": "Statusi",
+      "actions": "Veprimet"
+    }
+  },
+  "oppositionList": {
+    "view": "Shiko",
+    "fileArchive": "Arkivi i skedarëve",
+    "viewAria": "Shiko opozitën {{title}}",
+    "filesAria": "Hap arkivin e skedarëve të opozitës për {{title}} ({{count}} skedarë)",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri kundërshtimi.",
+    "columns": {
+      "againstMark": "Kundër shenjës",
+      "client": "Klienti",
+      "status": "Statusi",
+      "actions": "Veprimet"
+    },
+    "stages": {
+      "disputes_division": "Opozita në ndarjen e mosmarrëveshjeve",
+      "opposition_decision": "Vendimi i opozitës",
+      "disputes_department_decision": "Vendimi i departamentit të mosmarrëveshjeve",
+      "case": "Rasti",
+      "stopped": "Ndaloi",
+      "closed": "Mbyllur"
+    },
+    "stageLegend": {
+      "disputes_division": "Blu - në shqyrtim në ndarjen e mosmarrëveshjeve",
+      "opposition_decision": "Qelibar - vendim i nxjerrë ose në pritje",
+      "disputes_department_decision": "Portokalli - vendim në nivel departamenti",
+      "case": "E kuqe - u përshkallëzua në çështje gjyqësore",
+      "stopped": "Gri - procedurat u ndërprenë",
+      "closed": "E gjelbër - opozita përfundoi"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Kundërshtim",
+    "basicInfo": "Informacion bazë",
+    "foundation": "Fondacioni",
+    "archiveTitle": "Arkivi i skedarit të kundërshtimeve",
+    "nav": {
+      "view": "Shiko",
+      "archive": "Arkivi i skedarëve"
+    },
+    "markName": "Emri i markës tregtare",
+    "applicationNumber": "Numri i aplikimit",
+    "applicationDate": "Data e aplikimit",
+    "classes": "Klasat",
+    "markType": "Lloji i markës tregtare",
+    "applicant": "Aplikanti",
+    "noMarkImage": "Marka tregtare nuk ka imazh",
+    "grounds": "Fondacioni",
+    "submissionDate": "Data e dorëzimit",
+    "incomingNumber": "Numri në hyrje",
+    "poaIncomingNumber": "Numri i autorizimit në hyrje",
+    "poaDate": "Data",
+    "edit": "Redakto",
+    "cancel": "Anulo",
+    "save": "Ruaj ndryshimet",
+    "saving": "Po ruan…",
+    "errors": {
+      "markNameRequired": "Kërkohet emri i markës tregtare.",
+      "saveFailed": "Kundërshtimi nuk mund të ruhej."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Opozita",
+    "subjectMark": "Subjekti i markës tregtare",
+    "opposingMarks": "Kundërshtimi i markave tregtare",
+    "archiveTitle": "Arkivi i dosjes së opozitës",
+    "nav": {
+      "view": "Shiko",
+      "archive": "Arkivi i skedarëve",
+      "notes": "Shënime"
+    },
+    "markName": "Emri i markës tregtare",
+    "applicationNumber": "Numri i aplikimit",
+    "applicationDate": "Data e aplikimit",
+    "classes": "Klasat",
+    "markType": "Lloji i markës tregtare",
+    "applicant": "Aplikanti",
+    "representative": "Përfaqësues",
+    "noMarkImage": "Marka tregtare nuk ka imazh",
+    "noBasisMarks": "Nuk u regjistruan marka të kundërta.",
+    "basisMarkName": "Emri i markës tregtare",
+    "basisTerritory": "Territori",
+    "basisMarkNo": "Shenja nr.",
+    "basisAppDate": "Data e aplikimit",
+    "basisClasses": "Klasat",
+    "againstClasses": "Kundër klasave",
+    "submittedBy": "Dorëzuar nga",
+    "statusHistory": "Historia e statusit",
+    "stage": "Statusi",
+    "stagePlaceholder": "Zgjidh statusin…",
+    "stageNone": "Nuk është vendosur",
+    "stageChangeHint": "Ruajtja e një statusi të ri përditëson distinktivin me ngjyrë në listën e kundërshtimeve, shton një rresht në historikun e statusit dhe e cakton çështjen në pritje (të ndaluar) ose të mbyllura kur është e aplikueshme.",
+    "decisionNumber": "Numri i vendimit",
+    "decisionDate": "Data e vendimit",
+    "actions": {
+      "stop": "Ndalo",
+      "print": "Printoni PDF",
+      "printing": "Po gjeneron…",
+      "stopFailed": "Opozita nuk e ndaloi dot.",
+      "printFailed": "PDF-ja nuk mund të gjenerohej."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Opozita po shqyrtohet nga divizioni i mosmarrëveshjeve.",
+      "opposition_decision": "Është nxjerrë apo pritet një vendim për opozitën.",
+      "disputes_department_decision": "Departamenti i mosmarrëveshjeve ka nxjerrë ose po shqyrton vendimin e tij.",
+      "case": "Çështja është përshkallëzuar në një çështje gjyqësore.",
+      "stopped": "Procedurat e kundërshtimit janë ndërprerë; çështja është vendosur në pritje.",
+      "closed": "Opozita ka mbaruar; çështja është vendosur në Mbyllur."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Opozita në ndarjen e mosmarrëveshjeve",
+      "opposition_decision": "Vendimi për kundërshtim nr. {{number}} / {{date}}",
+      "disputes_department_decision": "Vendimi i departamentit të mosmarrëveshjeve nr. {{number}} / {{date}}",
+      "case": "Vendimi i ankimuar për kundërshtimin nr. {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Opozita ndaloi",
+      "closed": "{{markRef}} — Opozita u mbyll"
+    },
+    "timeline": {
+      "decision": "Vendimi për kundërshtim",
+      "department_decision": "Vendimi i departamentit të mosmarrëveshjeve",
+      "second_decision": "Vendimi i dytë për opozitën",
+      "appealedBy": "Apeluar nga {{name}}",
+      "appealedInCourtBy": "Apeluar në gjykatë nga {{name}}",
+      "decisionRef": "Nr. {{number}} / {{date}}",
+      "appealFiled": "Apelimi i paraqitur",
+      "courtAppealFiled": "Apeli në gjykatë"
+    },
+    "workflow": {
+      "appealTitle": "Apelimi - numri në hyrje",
+      "correspondenceTitle": "Korrespondencë",
+      "solutionTitle": "Zgjidhje",
+      "incomingNumber": "Numri në hyrje",
+      "date": "Data",
+      "attachAppeal": "Bashkangjit ankesën",
+      "attachDocument": "Bashkangjit dokumentin",
+      "regarding": "Në lidhje me",
+      "deadline": "Afati i fundit",
+      "additionalInfo": "Informacione shtese",
+      "correspondence": "Korrespondencë",
+      "submit": "Paraqisni",
+      "solutionSubmit": "Zgjidhje",
+      "caseDraft": "Drafti i rastit",
+      "courtAppeal": "Apelim në gjykatë",
+      "saveFailed": "Nuk u ruajt dot."
+    },
+    "edit": "Redakto",
+    "cancel": "Anulo",
+    "save": "Ruaj ndryshimet",
+    "saving": "Po ruan…",
+    "errors": {
+      "markNameRequired": "Kërkohet emri i markës tregtare.",
+      "saveFailed": "Nuk shpëtoi dot opozitën."
+    },
+    "notes": {
+      "title": "Opozita vëren",
+      "empty": "Ende nuk ka shënime.",
+      "date": "Data",
+      "regarding": "Në lidhje me",
+      "details": "Informacione shtese",
+      "submit": "Shtoni",
+      "regardingRequired": "Futni një temë për shënimin.",
+      "saveFailed": "Shënimi nuk mund të ruhej.",
+      "editAria": "Redakto shënimin",
+      "deleteAria": "Fshi shënimin"
+    }
+  },
+  "cancellationList": {
+    "view": "Vështrim i përgjithshëm",
+    "fileArchive": "Skedarët",
+    "viewAria": "Shiko anulimin {{title}}",
+    "filesAria": "Hap arkivin e skedarit të anulimit për {{title}} ({{count}} skedarë)",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri anulimi.",
+    "stageNone": "Nuk është vendosur",
+    "columns": {
+      "againstMark": "Kundër një marke",
+      "client": "Klienti",
+      "status": "Statusi",
+      "actions": "Veprimet"
+    },
+    "stages": {
+      "waiting_for_login": "Në pritje të hyrjes",
+      "in_correspondence": "Në korrespondencë",
+      "case": "Rasti",
+      "stopped": "Ndaloi",
+      "closed": "Mbyllur"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Anulimi",
+    "subjectMark": "Subjekti i markës tregtare",
+    "cancellationSide": "Detajet e anulimit",
+    "archiveTitle": "Arkivi i skedarit të anulimit",
+    "nav": {
+      "view": "Shiko",
+      "archive": "Arkivi i skedarëve",
+      "notes": "Shënime"
+    },
+    "markName": "Emri i markës tregtare",
+    "applicationNumber": "Numri i aplikimit",
+    "applicationDate": "Data e aplikimit",
+    "registrationNumber": "Numri i regjistrimit",
+    "classes": "Klasat",
+    "markType": "Shënoni llojin",
+    "applicant": "Aplikanti",
+    "representative": "Përfaqësues",
+    "againstClasses": "Kundër klasave",
+    "submittedBy": "Dorëzuar nga",
+    "foundation": "Fondacioni",
+    "stage": "Statusi",
+    "stagePlaceholder": "Zgjidh statusin…",
+    "stageNone": "Nuk është vendosur",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Anulim",
+      "in_correspondence": "Nr. anulimi {{number}} / {{date}}",
+      "case": "Anulimi nr. {{number}} / {{date}} - Rasti",
+      "stopped": "{{markRef}} — Anulimi u ndal",
+      "closed": "{{markRef}} — Anulimi u mbyll"
+    },
+    "deadlines": {
+      "date": "Data",
+      "deadline": "Afati i fundit",
+      "regarding": "Në lidhje me",
+      "details": "Informacione shtese"
+    },
+    "workflow": {
+      "feeTitle": "Tarifa shtetërore - data e pagesës",
+      "poaTitle": "prokurë",
+      "filingTitle": "Dorëzimi i anulimit",
+      "correspondenceTitle": "Korrespondencë",
+      "feeAmount": "Shuma (BGN)",
+      "feeDate": "Data e pagesës",
+      "poaNumber": "Numri POA",
+      "poaDate": "Data e marrjes",
+      "cancellationNumber": "Numri i anulimit",
+      "filingDate": "Data e depozitimit",
+      "attachDocument": "Bashkangjit dokumentin",
+      "attachPoa": "Bashkangjit POA",
+      "regarding": "Në lidhje me",
+      "deadline": "Afati i fundit",
+      "additionalInfo": "Informacione shtese",
+      "submit": "Paraqisni",
+      "decision": "Vendimi",
+      "feePaid": "Tarifa shtetërore e regjistruar",
+      "poaReceived": "Prokura e regjistruar",
+      "filingRecorded": "Regjistrimi i anulimit",
+      "correspondence": "Korrespondencë",
+      "saveFailed": "Nuk u ruajt dot."
+    },
+    "actions": {
+      "stop": "Ndalo",
+      "stopFailed": "Anulimi nuk mund të ndalohej."
+    },
+    "edit": "Redakto",
+    "cancel": "Anulo",
+    "save": "Ruaj ndryshimet",
+    "saving": "Po ruan…",
+    "errors": {
+      "markNameRequired": "Kërkohet emri i markës tregtare.",
+      "saveFailed": "Anulimi nuk mund të ruhej."
+    },
+    "notes": {
+      "title": "Shënime anulimi",
+      "empty": "Ende nuk ka shënime.",
+      "date": "Data",
+      "regarding": "Në lidhje me",
+      "details": "Informacione shtese",
+      "submit": "Shtoni",
+      "regardingRequired": "Futni një temë për shënimin.",
+      "saveFailed": "Shënimi nuk mund të ruhej.",
+      "editAria": "Redakto shënimin",
+      "deleteAria": "Fshi shënimin"
+    }
+  },
+  "deletionList": {
+    "view": "Vështrim i përgjithshëm",
+    "fileArchive": "Skedarët",
+    "viewAria": "Shiko fshirjen {{title}}",
+    "filesAria": "Hap arkivin e skedarit të fshirjes për {{title}} ({{count}} skedarë)",
+    "emptyDescription": "Provoni të rregulloni filtrat ose krijoni një skedar të ri fshirjeje.",
+    "stageNone": "Nuk është vendosur",
+    "columns": {
+      "againstMark": "Kundër një marke",
+      "client": "Klienti",
+      "status": "Statusi",
+      "actions": "Veprimet"
+    },
+    "stages": {
+      "waiting_for_login": "Paraqisni fshirjen",
+      "in_correspondence": "Në korrespondencë",
+      "decision": "Vendimi",
+      "case": "Rasti",
+      "stopped": "Ndaloi",
+      "closed": "Mbyllur"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Fshirja",
+    "subjectMark": "Subjekti i markës tregtare",
+    "deletionSide": "Detajet e fshirjes",
+    "archiveTitle": "Arkivi i skedarit të fshirjes",
+    "archivedStamp": "Arkivuar",
+    "noMarkImage": "Marka tregtare nuk ka imazh",
+    "nav": {
+      "view": "Shiko",
+      "archive": "Arkivi i skedarëve"
+    },
+    "markName": "Emri i markës tregtare",
+    "applicationNumber": "Numri i aplikimit",
+    "applicationDate": "Data e aplikimit",
+    "registrationNumber": "Numri i regjistrimit",
+    "classes": "Klasat",
+    "markType": "Shënoni llojin",
+    "applicant": "Aplikanti",
+    "representative": "Përfaqësues",
+    "againstClasses": "Kundër klasave",
+    "submittedBy": "Dorëzuar nga",
+    "foundation": "Fondacioni",
+    "stage": "Statusi",
+    "stagePlaceholder": "Zgjidh statusin…",
+    "stageNone": "Nuk është vendosur",
+    "headers": {
+      "waiting_for_login": "{{markRef}} - Fshirje",
+      "in_correspondence": "Fshirja nr. {{number}} / {{date}}",
+      "decision": "Vendimi i fshirjes nr. {{number}} / {{date}}",
+      "case": "Vendimi i fshirjes nr. {{number}} / {{date}} — Rasti",
+      "stopped": "{{markRef}} — Ndaluar (deri {{stopUntil}})",
+      "closed": "{{markRef}} — Fshirja u mbyll"
+    },
+    "deadlines": {
+      "date": "Data e kujtesës",
+      "deadline": "Afati i fundit",
+      "regarding": "Në lidhje me",
+      "details": "Informacione shtese",
+      "appealTitle": "Afati për ankim"
+    },
+    "stopped": {
+      "title": "Ndaloi",
+      "until": "(deri {{date}})",
+      "reason": "Arsyeja: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Gjeneroni proforma",
+      "stateFee": "Tarifa shtetërore",
+      "feePaymentDeadline": "Afati i pagesës",
+      "poaSendDeadline": "Afati i fundit për dërgimin e prokurës",
+      "filingDeadlineLabel": "Afati i fundit për paraqitjen",
+      "remindBefore": "Kujto më parë",
+      "reminderDays": "Ditët",
+      "reminderMonths": "muaj",
+      "feeDeadlineRegarding": "Afati i pagesës së tarifës shtetërore",
+      "poaDeadlineRegarding": "Afati i fundit për dërgimin e prokurës",
+      "filingDeadlineRegarding": "Afati i fundit për paraqitjen e fshirjes",
+      "proformaRecorded": "Proforma dhe afatet e regjistruara",
+      "feeTitle": "Tarifa shtetërore - data e pagesës",
+      "poaTitle": "prokurë",
+      "filingTitle": "Regjistrimi i fshirjes",
+      "correspondenceTitle": "Korrespondencë",
+      "decisionTitle": "Vendimi për fshirje",
+      "feeAmount": "Shuma (BGN)",
+      "feeDate": "Data e pagesës",
+      "poaNumber": "Numri POA",
+      "poaDate": "Data e marrjes",
+      "deletionNumber": "Numri i fshirjes",
+      "filingDate": "Data e depozitimit",
+      "decisionNumber": "Numri i vendimit",
+      "decisionDate": "Data e vendimit",
+      "attachDocument": "Bashkangjit dokumentin",
+      "attachPoa": "Bashkangjit POA",
+      "regarding": "Në lidhje me",
+      "deadline": "Afati i fundit",
+      "additionalInfo": "Informacione shtese",
+      "submit": "Paraqisni",
+      "decision": "Vendimi",
+      "caseDraft": "Drafti i rastit",
+      "notAppealed": "I pa apeluar",
+      "appealed": "Apeluar",
+      "feePaid": "Tarifa shtetërore e regjistruar",
+      "poaReceived": "Prokura e regjistruar",
+      "filingRecorded": "Dosja e fshirjes është regjistruar",
+      "decisionRecorded": "Vendimi i fshirjes është regjistruar",
+      "correspondence": "Korrespondencë",
+      "decisionNumberRequired": "Shkruani numrin e vendimit.",
+      "saveFailed": "Nuk u ruajt dot."
+    },
+    "actions": {
+      "stop": "Ndalo",
+      "stopReason": "Arsyeja",
+      "stopUntil": "U ndal deri në",
+      "restore": "Rivendos",
+      "restored": "E restauruar",
+      "archive": "Arkivi",
+      "archiveConfirm": "Të arkivohet ky skedar fshirjeje?",
+      "archiveFailed": "Fshirja nuk mund të arkivohej.",
+      "stopFailed": "Fshirja nuk mund të ndalohej.",
+      "restoreFailed": "Fshirja nuk mund të rivendosej."
+    },
+    "edit": "Redakto",
+    "cancel": "Anulo",
+    "save": "Ruaj ndryshimet",
+    "saving": "Po ruan…",
+    "errors": {
+      "markNameRequired": "Kërkohet emri i markës tregtare.",
+      "saveFailed": "Fshirja nuk mund të ruhej."
+    }
   },
   "ipRightsRegister": {
     "description": "Regjistri gjithëpërfshirës i të drejtave IP me filtra sipas klientit, juridiksionit, llojit, statusit dhe skadimit.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Të kombinuara",
+    "combination_of_colors": "Kombinimi i ngjyrave",
     "figurative": "Figurative",
     "sound": "Tingull",
     "three_dimensional": "3D",
-    "wordmark": "Shenjë fjalësh",
-    "combination_of_colors": "Kombinimi i ngjyrave"
+    "wordmark": "Shenjë fjalësh"
   },
   "overview": {
     "assignedTo": "Avokati kryesor",
@@ -801,18 +2570,6 @@
     "clientHint": "Pala udhëzuese — merr fatura",
     "intermediary": "Ndërmjetësues",
     "description": "Përshkrimi",
-    "jurisdictions": "Juridiksionet",
-    "jurisdictionsEmpty": "Nuk janë regjistruar juridiksione.",
-    "openedBy": "U hap nga",
-    "status": "Statusi",
-    "table": {
-      "country": "Vendi",
-      "localRef": "Ref lokal.",
-      "status": "Statusi"
-    },
-    "title": "Detajet e skedarit",
-    "type": "Lloji i punës",
-    "typeSpecific": "Atributet specifike të tipit",
     "edit": {
       "cancel": "Anulo",
       "edit": "Redakto",
@@ -829,7 +2586,19 @@
       "saved": "U ruajt.",
       "saving": "Po ruan…",
       "title": "Detajet e skedarit"
-    }
+    },
+    "jurisdictions": "Juridiksionet",
+    "jurisdictionsEmpty": "Nuk janë regjistruar juridiksione.",
+    "openedBy": "U hap nga",
+    "status": "Statusi",
+    "table": {
+      "country": "Vendi",
+      "localRef": "Ref lokal.",
+      "status": "Statusi"
+    },
+    "title": "Detajet e skedarit",
+    "type": "Lloji i punës",
+    "typeSpecific": "Atributet specifike të tipit"
   },
   "parties": {
     "title": "Partitë",
@@ -874,11 +2643,12 @@
     "instructions": "Udhëzimet",
     "approvals": "Miratimet",
     "ipRights": "Të drejtat e IP",
+    "secondaryActions": "Veprimet dytësore",
     "customs": "Doganat",
     "overview": "Vështrim i përgjithshëm",
     "tasks": "Shënime",
     "timeline": "Afati kohor",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} më {{tab}}"
   },
   "approvals": {
     "title": "Miratimet e klientëve",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Shto detyrë",
+    "add": "Shto shënim",
     "assignedTo": "Caktuar për",
     "assignedToUser": "Caktuar për {{name}}",
     "completed": "E përfunduar",
     "completedByUser": "Përfunduar nga {{name}}",
-    "confirmComplete": "Të shënohet kjo detyrë si e përfunduar?",
-    "confirmDelete": "Të fshihet kjo detyrë?",
+    "confirmComplete": "Të shënohet ky shënim si i përfunduar?",
+    "confirmDelete": "Të fshihet ky shënim?",
     "delete": "Fshije",
-    "deleteMessage": "Kjo detyrë do të hiqet përgjithmonë.",
-    "deleteTitle": "Të fshihet detyra?",
-    "description": "Puna për t'u bërë për këtë çështje - veçmas nga afatet e gjeneruara nga sistemi.",
-    "drawerTitle": "Shto detyrë",
+    "deleteMessage": "Ky shënim do të hiqet përgjithmonë.",
+    "deleteTitle": "Të fshihet shënimi?",
+    "description": "Shënime të brendshme për këtë çështje - të ndara nga afatet e gjeneruara nga sistemi.",
+    "drawerTitle": "Shto shënim",
     "dueOn": "Afati {{date}}",
-    "empty": "Nuk ka detyra për këtë çështje.",
-    "emptyOpen": "Asnjë detyrë e hapur. Shto një kur ka punë për të gjurmuar për këtë çështje.",
-    "error": "Ngarkimi i detyrave dështoi.",
-    "errorCreate": "Krijimi i detyrës dështoi",
+    "empty": "Asnjë shënim për këtë çështje.",
+    "emptyOpen": "Asnjë shënim i hapur. Shto një kur ka diçka për të gjurmuar për këtë çështje.",
+    "error": "Ngarkimi i shënimeve dështoi.",
+    "errorCreate": "Krijimi i shënimit dështoi",
     "form": {
       "assigneeLabel": "Caktuar për",
-      "assigneeRequired": "Zgjidhni kush duhet ta bëjë këtë detyrë",
+      "assigneeRequired": "Zgjidhni për kë është ky shënim",
       "dueDateOptional": "Data e skadimit (opsionale)",
       "notesOptional": "Shënime (opsionale)",
       "notesPlaceholder": "Çdo kontekst shtesë për të caktuarin",
@@ -946,15 +2716,15 @@
       "titlePlaceholder": "p.sh. Telefononi klientin re: Përgjigja e BPO",
       "titleRequired": "Kërkohet titulli"
     },
-    "loading": "Po ngarkon detyrat…",
-    "markComplete": "Shënoni të plotë",
+    "loading": "Po ngarkon shënimet…",
+    "markComplete": "Shëno të plotë",
     "noDueDate": "Asnjë datë afati",
     "open": "Hapur",
     "priority": {
       "high": "Lartë",
       "normal": "Normale"
     },
-    "title": "Detyrat"
+    "title": "Shënime"
   },
   "timeline": {
     "description": "Historia kronologjike e ndjekjes penale dhe korrespondencës për këtë çështje.",
@@ -979,12 +2749,12 @@
     "dispute_opposition": "Mosmarrëveshje / kundërshtim",
     "domain": "Domenet",
     "fto_analysis": "Analiza FTO",
-    "geographical_indication": "Treguesi gjeografik",
-    "industrial_design": "Dizajni industrial",
+    "geographical_indication": "Treguesit gjeografikë",
+    "industrial_design": "Dizajn",
     "litigation_expert_report": "Raportet e ekspertëve të çështjeve gjyqësore",
     "official_fee_payment": "Pagesat zyrtare të tarifave",
     "other": "Të tjera",
-    "patent": "Patenta",
+    "patent": "Patent",
     "trademark": "Markë tregtare",
     "utility_model": "Modeli i shërbimeve",
     "valuation": "Vlerësimi"
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Zgjidh…",
     "title": "Detaje specifike për llojin"
   },
-  "createFile": {
-    "addClass": "Shto klasë",
-    "backToFiles": "Kthehu te skedarët",
-    "cancel": "Anulo",
-    "changeSubtype": "Ndrysho nënkategorinë",
-    "checkRegister": "Kontrolloni në regjistrin tregtar",
-    "clearClient": "Ndrysho klientin",
-    "clientOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e klientit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
-    "applicantOptionalHint": "Nuk ka përputhje CRM? Plotësoni detajet e aplikantit më poshtë - ruajtja e draftit do t'i krijojë ato automatikisht te Klientët.",
-    "draftDescription": "Krijuar nëpërmjet Krijo skedarin ({{procedure}}) — draft",
-    "errors": {
-      "client": "Zgjidhni një klient për të vazhduar.",
-      "clientOrDetails": "Zgjidhni një klient CRM ose vendosni emrin e klientit dhe detajet për t'i krijuar ato.",
-      "applicantOrDetails": "Zgjidhni një aplikant në CRM, ose shkruani emrin e aplikantit dhe detajet për t'i krijuar ato.",
-      "jurisdiction": "Zgjidhni të paktën një territor / shtet.",
-      "markWords": "Futni emrin / fjalët e markës tregtare.",
-      "saveFailed": "Skedari draft nuk mund të ruhej.",
-      "subtype": "Zgjidhni një nënkategori të markës tregtare.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Referenca dhe statusi i skedarit",
+    "incomingNumber": {
+      "label": "Nr hyrës."
     },
-    "euHint": "Marka tregtare e Bashkimit Evropian (EUIPO) - juridiksion i caktuar në BE.",
-    "fields": {
-      "address": "Adresa",
-      "applicantClient": "Klienti aplikant",
-      "applicantClientOptional": "Aplikanti në CRM (opsionale)",
-      "city": "Qyteti",
-      "classNumber": "Numri i klasës",
-      "country": "Vendi",
-      "eik": "UIC / EIK",
-      "email": "E-mail",
-      "fax": "Faks",
-      "goodsText": "Mallrat dhe shërbimet",
-      "legalName": "Emri dhe lloji i personit juridik",
-      "linkClient": "Zgjidhni klientin në CRM",
-      "linkClientOptional": "Klient CRM (opsionale)",
-      "markKind": "Shënoni kategorinë",
-      "markType": "Shënoni llojin",
-      "markWords": "Fjalët e shenjës",
-      "mol": "MOL (nënshkrues)",
-      "name": "Emri",
-      "phone": "Telefoni",
-      "postalCode": "Kodi postar",
-      "territory": "Territori",
-      "vat": "ID e TVSH-së",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Data e hyrjes"
     },
-    "formTitle": "Krijo skedar: Markë tregtare",
-    "fullFormReady": "Formulari i plotë në dispozicion",
-    "goodsPlaceholder": "p.sh. shishe; shërbime me pakicë…",
-    "markKinds": {
-      "certification": "Certifikimi",
-      "collective": "Kolektive",
-      "individual": "Individuale"
+    "territoryRoute": {
+      "label": "Rruga e territorit",
+      "options": {
+        "national_bg": "Bullgaria (kombëtare)",
+        "eu": "Bashkimi Evropian",
+        "wipo": "WIPO / ndërkombëtare",
+        "international": "Të tjera ndërkombëtare"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Kombinimi i ngjyrave",
-      "combined": "Të kombinuara",
-      "figurative": "Figurative",
-      "sound": "Tingull",
-      "three_dimensional": "Tredimensionale",
-      "wordmark": "Shenjë fjalësh"
+    "authorityOffice": {
+      "label": "Autoriteti/zyra"
     },
-    "noClients": "Nuk ka klientë që përputhen. Krijo klientin në CRM fillimisht, pastaj kthehu këtu.",
-    "optionalMark": "Shënoni / subjektin (opsionale)",
-    "partialSubtypeNote": "Fushat e plota të specializuara për këtë nënkategori do të zgjerohen më vonë. Ju ende mund të ruani një draft të lidhur me klientin; dokumentet dhe korrespondenca qëndrojnë në dosje.",
-    "preliminary": "Informacion paraprak",
-    "procedureHints": {
-      "new": "Aplikim për markë të re — formulari i plotë",
-      "registered": "Markë tashmë e regjistruar",
-      "objection": "Procedura e kundërshtimit",
-      "opposition": "Procedura e opozitës",
-      "cancellation": "Procedura e anulimit",
-      "deletion": "Procedura e fshirjes",
-      "opposition_against_us": "Procedura e opozitës",
-      "opposition_by_us": "Procedura e opozitës",
-      "revocation": "Procedura e fshirjes"
+    "relatedApplicationNumber": {
+      "label": "Aplikacioni përkatës nr."
     },
-    "procedures": {
-      "new": "Markë e re",
-      "registered": "Markë e regjistruar",
-      "objection": "Kundërshtim",
-      "opposition": "Opozitë",
-      "cancellation": "Anulim",
-      "deletion": "Fshirje",
-      "opposition_against_us": "Opozitë",
-      "opposition_by_us": "Opozitë",
-      "revocation": "Fshirje"
-    },
-    "removeClass": "Hiq klasën",
-    "sameApplicant": "Informacioni i aplikantit është i njëjtë me klientin",
-    "sameCorrespondence": "Adresa e korrespondencës është e njëjtë me adresën e regjistruar",
-    "saveDraft": "Ruaje si draft",
-    "saving": "Po ruan…",
-    "searchClient": "Kërko klientët me emër ose kod…",
-    "sections": {
-      "applicant": "Aplikanti",
-      "client": "Të dhënat e klientit",
-      "contact": "Personi kontaktues",
-      "correspondence": "Adresa e korrespondencës",
-      "goods": "Lista e mallrave dhe shërbimeve",
-      "markName": "Emri i markës tregtare",
-      "registeredAddress": "Adresa e regjistruar",
-      "searchDocs": "Bashkangjit dokumentet e kërkimit",
-      "trademark": "Informacioni i markës tregtare",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Zgjidh shtetet",
-    "subtypeHint": "Së pari zgjidhni nënkategorinë. Marka e re hap formularin e plotë.",
-    "territories": {
-      "eu": "Bashkimi Evropian",
-      "international": "Ndërkombëtare (WO)",
-      "national": "Kombëtare"
-    },
-    "trademarkTitle": "Krijo skedar - Markë tregtare",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Shto shtetin…",
-    "cancel": "Anulo",
-    "country": "Vendi",
-    "edit": "Redakto",
-    "errors": {
-      "country": "Zgjidh të paktën një shtet për këtë territor.",
-      "saveFailed": "Informacioni i markës tregtare nuk mund të ruhej."
-    },
-    "euFixed": "Bashkimi Evropian (EUIPO)",
-    "markKind": "Shënoni kategorinë",
-    "markType": "Shënoni llojin",
-    "noCountries": "Nuk është zgjedhur ende asnjë shtet.",
-    "save": "Ruaj ndryshimet",
-    "saved": "U ruajt.",
-    "saving": "Po ruan…",
-    "selectCountries": "Zgjidh shtetet",
-    "territory": "Territori",
-    "title": "Informacioni i markës tregtare"
-  },
-  "fileApproval": {
-    "clientStep": "1. Klienti i miratuar",
-    "clientStepHint": "Stafi konfirmon se klienti është pajtuar jashtë linje (telefonatë/email/takim). Klienti i portalit nuk ka nevojë të miratojë veten.",
-    "errors": {
-      "updateFailed": "Statusi i miratimit nuk mund të përditësohej."
-    },
-    "hint": "Vetëm miratimi i brendshëm: shënoni se klienti është dakord, më pas një Partner Menaxhues e pranon skedarin. Nuk kërkohet miratim dërgimi te klienti.",
-    "markClientApproved": "Shëno klientin të miratuar",
-    "partnerApprove": "Dosja e miratimit të partnerit",
-    "partnerOnly": "Vetëm Partneri Menaxhues mund ta përfundojë këtë hap",
-    "partnerStep": "2. Partneri Menaxhues pranon",
-    "partnerStepHint": "Pasi klienti shënohet i miratuar, Partneri Menaxhues e pranon dosjen dhe e lë draftin.",
-    "recordedBy": "Regjistruar nga {{name}} · {{date}}",
-    "title": "Miratimi i dosjes",
-    "waitForClient": "Shënoni klientin të miratuar fillimisht, më pas mund ta pranoni skedarin."
-  },
-  "prosecution": {
-    "cancelEdit": "Anulo",
-    "completeStage": "Faza e plotë",
-    "edit": "Redakto",
-    "editingNote": "Përdorni \"Ruaj\" për të mbajtur atë që keni futur në këtë fazë, ose \"Faza e plotë\" për të ecur përpara kur të plotësohen fushat e kërkuara.",
-    "gateHint": "Nuk mund të ecësh përpara derisa të plotësohen fushat e kërkuara për këtë fazë (njëlloj si portat e sistemit të tyre).",
-    "goBack": "Kthehu pas një skene",
-    "errors": {
-      "needAttachments": "Bashkangjit skedarët e kërkuar përpara se të vazhdosh: {{list}}",
-      "needInvoice": "Gjeneroni faturën nga tarifa shtetërore përpara se të përfundoni këtë fazë.",
-      "alreadyFinal": "Ky skedar është tashmë në fazën përfundimtare.",
-      "needApproval": "Përfundoni miratimin e skedarit (klient + Partner Menaxhues) përpara se të largoheni nga përgatitja.",
-      "needBulletin": "Shkruani numrin dhe datën e buletinit përpara se të dilni nga publikimi.",
-      "needFeePaid": "Shkruani datën e pagesës së tarifës shtetërore përpara se të largoheni nga provimi zyrtar.",
-      "needFilingFields": "Futni numrin e aplikimit dhe datën e paraqitjes për të përfunduar depozitimin.",
-      "needFormalFields": "Fut tarifën shtetërore dhe afatin e pagesës për të vazhduar.",
-      "needMol": "Ju lutemi shkruani MOL në detajet e skedarit (krijo-skedar / modifiko) përpara se të përfundoni depozitimin.",
-      "needOfficeActionDeadline": "Veprimi i zyrës ka një temë - caktoni afatin e tij përpara se të vazhdoni.",
-      "needPoaFiled": "Vendosni numrin dhe datën hyrëse të PoA përpara se të largoheni nga provimi zyrtar.",
-      "needRegFeePaid": "Vendosni datën e pagesës së tarifës së regjistrimit përpara se të vazhdoni.",
-      "needRepresentative": "Fut të paktën një përfaqësues ose vendos Shto përfaqësues në Nr.",
-      "saveBeforeNavigate": "Ruani ose anuloni modifikimet tuaja përpara se të ktheheni në një fazë.",
-      "saveFailed": "Të dhënat e prokurorisë nuk mund të ruheshin."
-    },
-    "fields": {
-      "addRepresentatives": "Dëshironi të shtoni përfaqësues?",
-      "applicationDate": "Data e aplikimit",
-      "applicationNumber": "Numri i aplikimit",
-      "bulletinDate": "Data e buletinit",
-      "bulletinNumber": "Numri i buletinit",
-      "feePaidDate": "Data e pagesës së tarifës shtetërore",
-      "generatePoa": "Krijo autorizim",
-      "officeAction": "Veprimi/kërkesa e zyrës",
-      "officeActionDeadline": "Afati i veprimit të zyrës",
-      "paymentDeadline": "Afati i pagesës",
-      "poaDate": "Data e PoA",
-      "poaDeadline": "Afati i dorëzimit të PoA",
-      "poaIncoming": "Numri i hyrjes PoA",
-      "regFeePaidDate": "Data e pagesës së tarifës së regjistrimit",
-      "remindDays": "Kujtoni ditë para afatit",
-      "representatives": "Përfaqësues(t)",
-      "sendPoaEmail": "Dërgo email automatik",
-      "stateFee": "Tarifa shtetërore (BGN)"
-    },
-    "molHint": "MOL duhet të vendoset në detajet e skedarit (nga krijimi i skedarit). Mungojnë blloqet MOL që përfundojnë këtë fazë.",
-    "no": "Nr",
-    "prepHint": "Faza përgatitore: së pari përfundoni miratimin e skedarit, më pas Pranimi i Partnerit Menaxhues ju zhvendos në Regjistrim.",
-    "registeredDone": "Arriti faza e regjistrimit.",
-    "saveChanges": "Ruaj ndryshimet",
-    "saveEntered": "Ruaj",
-    "saved": "U ruajt.",
-    "saveFields": "Ruaj fushat",
-    "saving": "Po ruan…",
-    "stages": {
-      "filing": "Depozitim",
-      "formal_exam": "Ekzaminim formal",
-      "prep": "Përgatitor",
-      "publication": "Publikim",
-      "reg_fee": "Tarifat e regjistrimit",
-      "registration": "Regjistrim",
-      "substantive_exam": "Ekzaminim thelbësor"
-    },
-    "territoryLabel": {
-      "eu": "Tubacioni: BE",
-      "international": "Tubacioni: Ndërkombëtar (WO)",
-      "national": "Tubacioni: Kombëtar"
-    },
-    "territoryLocked": "Territori u fiksua nga skedari i krijimit",
-    "territoryFromInfo": "Territori nga informacioni i markës tregtare",
-    "title": "Fazat e procedurës",
-    "yes": "po",
-    "hub": {
-      "generateInvoice": "Gjeneroni faturë",
-      "invoiceIssuedShort": "Faturë e lëshuar",
-      "invoiceIssued": "Fatura {{number}} e lëshuar. Klienti mund ta shohë atë në portalin e tyre; është gjithashtu në skedën Faturimi.",
-      "invoiceAlreadyIssued": "Fatura {{number}} e lëshuar tashmë — e dukshme në portal dhe Faturim.",
-      "invoiceFailed": "Fatura nuk mund të krijohej. Kontrolloni detajet e faturimit të klientit.",
-      "invoiceNotes": "Tarifa zyrtare/shtetërore",
-      "uploadFailed": "Skedari nuk mund të ngarkohej.",
-      "needStateFee": "Futni së pari shumën e tarifës shtetërore.",
-      "feeDescription": "Tarifa shtetërore/zyrtare",
-      "deadlineFailed": "Nuk mund të krijohej afati(et).",
-      "deadlineTitles": {
-        "payment": "Pagesa e tarifës shtetërore",
-        "poa": "Dorëzimi i prokurës",
-        "oa": "Kërkesë për veprim/ekzaminim në zyrë",
-        "oaWithSubject": "Veprimi i zyrës: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Kujto {{days}} ditë(të) përpara afatit."
-      },
-      "attach": {
-        "search": "Bashkangjit skedarin e kërkimit",
-        "application": "Bashkangjit aplikacionin",
-        "feeSlip": "Bashkangjit fletën e tarifës",
-        "poa": "Bashkangjit PoA",
-        "officeAction": "Bashkangjit veprimin e zyrës",
-        "decision": "Bashkangjit vendimin",
-        "bulletin": "Bashkangjit buletinin",
-        "regFee": "Bashkangjit vërtetimin e pagesës",
-        "certificate": "Bashkangjit certifikatën"
+    "workflowStage": {
+      "label": "Faza e rrjedhës së punës",
+      "options": {
+        "intake": "Marrja",
+        "analysis": "Analiza",
+        "contract_draft": "Kontrata / draft",
+        "filed": "Paraqitur",
+        "closed": "Mbyllur",
+        "registration": "Regjistrimi",
+        "active": "Aktiv",
+        "seizure_pending": "Sekuestrimi në pritje",
+        "scoping": "Përcaktimi i fushëveprimit",
+        "search": "Kërko",
+        "draft_report": "Draft raporti",
+        "delivered": "Dorëzuar",
+        "archived": "Arkivuar",
+        "pre_dispute": "Parakontesti",
+        "hearing": "Dëgjimi",
+        "decision": "Vendimi",
+        "appeal": "Apelim",
+        "monitoring": "Monitorimi",
+        "dispute": "mosmarrëveshje",
+        "udrp": "UDRP",
+        "resolved": "E zgjidhur",
+        "engaged": "Të fejuar",
+        "draft": "Drafti",
+        "submitted": "dorëzuar",
+        "requested": "Kërkuar",
+        "in_progress": "Në vazhdim",
+        "invoiced": "Faturuar",
+        "pending": "Në pritje",
+        "paid": "I paguar",
+        "reimbursed": "rimbursohen",
+        "open": "Hapur"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Redakto",
+    "save": "Ruaj",
+    "cancel": "Anulo",
+    "saving": "Po ruan…",
+    "editHint": "Përditësoni referencën e skedarit, fazën e rrjedhës së punës dhe detajet specifike të llojit.",
+    "clientLabel": "Klienti",
+    "detailsTitle": "{{type}} detaje",
+    "errors": {
+      "saveFailed": "Detajet e skedarit nuk mund të ruheshin."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Krijoni një skedar tjetër të ri ose rregulloni filtrat.",
+    "viewAria": "Shiko {{title}}",
+    "filesAria": "Dokumentet për {{title}} ({{count}})",
+    "columns": {
+      "type": "Lloji",
+      "subject": "Subjekti",
+      "client": "Klienti",
+      "incoming": "Ref. hyrëse.",
+      "stage": "Skena",
+      "deadline": "Data kyçe",
+      "actions": "Veprimet"
     }
   }
 }

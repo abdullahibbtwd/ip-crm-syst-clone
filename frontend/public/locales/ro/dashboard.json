@@ -1,7 +1,7 @@
 {
   "comingSoon": {
     "title": "În curând",
-    "description": "Această caracteristică este în prezent creată de echipa noastră de ingineri și va fi disponibilă într-o viitoare actualizare de firmware.",
+    "description": "Această caracteristică este în prezent creată de echipa noastră de ingineri și va fi disponibilă într-o viitoare actualizare a firmware-ului.",
     "sectionUnavailable": "Această secțiune nu este încă disponibilă.",
     "sectionTitle": "{{label}} - în curând",
     "dashboardTitle": "Tabloul de bord va fi în curând"
@@ -11,14 +11,14 @@
     "activeDeadlines": "Termenele limită active",
     "assignedToYou": "Atribuit ție",
     "pendingTasks": "Sarcini în așteptare",
-    "awaitingCompletion": "Așteaptă finalizarea"
+    "awaitingCompletion": "Se așteaptă finalizarea"
   },
   "slider": {
     "carousel": "Carusel de bord",
     "kpiCarousel": "Valori cheie",
     "quickLinksCarousel": "Legături rapide",
     "previous": "Diapozitivul anterior",
-    "next": "Următorul slide",
+    "next": "Următorul diapozitiv",
     "dots": "Navigare cu diapozitive",
     "goToSlide": "Accesați diapozitivul {{index}}"
   },

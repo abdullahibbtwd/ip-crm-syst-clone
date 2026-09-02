@@ -250,7 +250,7 @@
     "byMatter": "Po materiji",
     "error": "Učitavanje podataka o naplati nije uspjelo.",
     "loading": "Učitavanje naplate...",
-    "noPermission": "Nemate dozvolu za pregled naplate za ovog klijenta.",
+    "noPermission": "Nemate dopuštenje za pregled naplate za ovog klijenta.",
     "title": "Naplata",
     "wipDescription": "Radovi u tijeku i nenaplaćeni iznosi za ovog klijenta.",
     "wipDescriptionLong": "Radovi u tijeku i naplativi ukupni iznosi za sva pitanja za ovog klijenta.",

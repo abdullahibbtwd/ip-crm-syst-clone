@@ -17,7 +17,7 @@
   },
   "allDeadlines": {
     "title": "Tüm son teslim tarihleri",
-    "description": "Her konu ve atanan kişi için firma çapında son teslim tarihi kaydı.",
+    "description": "Her konu ve atanan kişi için firma çapında son tarih kaydı.",
     "newDeadline": "Yeni son tarih",
     "firmDueToday_one": "Bugün tüm konularda 1 kesin son teslim tarihi doluyor.",
     "firmDueToday_other": "{{count}} tüm konularda kesin son teslim tarihleri ​​bugün sona erecek.",

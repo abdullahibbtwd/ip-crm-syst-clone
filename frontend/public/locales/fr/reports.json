@@ -56,7 +56,7 @@
   "filingVolumes": {
     "byJurisdiction": "Par juridiction",
     "byMonth": "Dépôts par mois",
-    "description": "Demandes déposées : regroupées à partir des événements de dépôt de la chronologie des affaires, regroupées par mois, type d'affaire et juridiction.",
+    "description": "Demandes déposées : regroupées à partir des événements de dépôt de la chronologie des dossiers, regroupées par mois, type de dossier et juridiction.",
     "error": "Impossible de charger les volumes de classement.",
     "filters": {
       "allJurisdictions": "Toutes les juridictions",

@@ -55,7 +55,7 @@
       "total": "Ukupno"
     },
     "title": "Fakture",
-    "listSubtitle": "Registar faktura u cijeloj tvrtki za sva pitanja. Izdajte fakture sa značajnih kartica naplate, a zatim ovdje zabilježite plaćanja.",
+    "listSubtitle": "Registar faktura u cijeloj tvrtki za sva pitanja. Izdajte fakture sa značajnih kartica za naplatu, a zatim ovdje zabilježite plaćanja.",
     "exportFrom": "Izvoz iz",
     "exportTo": "Izvezi u",
     "exportFormats": {
@@ -142,7 +142,7 @@
       "hourlyRate": "Unesite važeću satnicu",
       "internalCost": "Unesite važeći interni trošak ili ostavite prazno"
     },
-    "internalCostHint": "Neobavezno. Koristi se za stvarnu profitabilnost marže kada je postavljena na cjenicima.",
+    "internalCostHint": "Neobavezno. Koristi se za stvarnu profitabilnost marže kada je postavljeno na cjenicima.",
     "billableRate": "Naplativa stopa (EUR/sat)",
     "internalCostOptional": "Interni trošak (EUR/sat)",
     "internalCostPlaceholder": "Izborno - za izvješćivanje o marži",
@@ -185,7 +185,7 @@
     "rateCardsLabel": "Cjenici",
     "receivablesAging": "Starost potraživanja",
     "receivablesHint": "Koristite cijelo izvješće za tablice i detalje.",
-    "tip": "Savjet: Interni trošak na cjenicima kontrolira može li sustav izračunati stvarnu profitabilnost marže.",
+    "tip": "Savjet: interni trošak na cjenicima kontrolira može li sustav izračunati stvarnu profitabilnost marže.",
     "title": "Pregled naplate",
     "unratedHintBad": "Neki naplativi unosi imaju snimku tečaja od 0 €",
     "unratedHintGood": "dobro izgleda",

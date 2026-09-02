@@ -1,6 +1,6 @@
 {
   "title": "Saated",
-  "subtitle": "Saatke ettevõtte SMTP kaudu klientide kontaktmeilidele hulgiteatisi. Iga saatmist auditeeritakse kui hulgimärguannet. Asjade postkasti vastused jäävad e-posti järjekorda / kirjavahetusse.",
+  "subtitle": "Saatke kindla SMTP kaudu klientide kontaktmeilidele hulgiteatisi. Iga saatmist auditeeritakse kui hulgimärguannet. Asjade postkasti vastused jäävad e-posti järjekorda / kirjavahetusse.",
   "compose": {
     "title": "Saate koostada",
     "recipientGroup": "Saajate rühm",
@@ -36,7 +36,7 @@
     "audience": "Publik",
     "status": "Olek",
     "sent": "Saadetud",
-    "by": "Autor",
+    "by": "poolt",
     "loading": "Laadimine…",
     "empty": "Saateid pole veel.",
     "failedCount": "({{count}} ebaõnnestus)"
@@ -48,7 +48,7 @@
     },
     "pending_eu_renewals": {
       "label": "EL-i uuendamise ootel",
-      "description": "Aktiivsed kliendid, kellel on eelseisvad / juhendatud / esitatud EL-i uuendamised"
+      "description": "Aktiivsed kliendid eelseisvate / juhendatud / esitatud EL-i uuendamisega"
     },
     "trademark_matters": {
       "label": "Kaubamärk on oluline",

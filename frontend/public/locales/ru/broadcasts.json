@@ -22,7 +22,7 @@
     "sendBroadcast": "Отправить трансляцию"
   },
   "errors": {
-    "subjectAndMessageRequired": "Укажите тему и сообщение.",
+    "subjectAndMessageRequired": "Тема и сообщение обязательны.",
     "selectClient": "Выберите хотя бы один клиент",
     "queueFailed": "Не удалось поставить в очередь трансляцию"
   },

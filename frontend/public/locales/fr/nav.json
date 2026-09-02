@@ -34,6 +34,14 @@
     "clients": "Clientèle",
     "holdingGroups": "Groupes de maintien",
     "allMatters": "Tous les fichiers",
+    "workingFiles": "Fichiers",
+    "createFile": "Créer un fichier",
+    "createFileTrademark": "Marque déposée",
+    "createFilePatent": "Brevet",
+    "mattersAll": "Toute",
+    "mattersDrafts": "Brouillons",
+    "mattersOthers": "Autres",
+    "mattersArchived": "Archivé",
     "matters": "Fichiers",
     "intakeQueue": "File d'attente d'admission",
     "rightsRegister": "Registre des droits",
@@ -53,7 +61,7 @@
     "officeActions": "Actions de bureau",
     "documents": "Documents",
     "correspondence": "Correspondance",
-    "myTmMatters": "Mes fichiers marques",
+    "myTmMatters": "Mes fichiers MT",
     "oppositions": "Oppositions",
     "watchAlerts": "Regarder les alertes",
     "conflictCheck": "Vérification des conflits",
@@ -66,7 +74,7 @@
     "broadcasts": "Diffusions",
     "outgoingMail": "Courrier sortant",
     "myTasks": "Mes tâches",
-    "assignedMatters": "Fichiers assignés",
+    "assignedMatters": "Fichiers attribués",
     "financeDashboard": "Tableau de bord financier",
     "invoices": "Factures",
     "timeEntries": "Entrées de temps",
@@ -100,15 +108,7 @@
     "messages": "Messages",
     "approvals": "Approbations",
     "help": "Aide",
-    "myPortfolio": "Mon portefeuille",
-    "workingFiles": "Fichiers",
-    "mattersAll": "Tous",
-    "mattersOthers": "Autres",
-    "mattersArchived": "Archivés",
-    "mattersDrafts": "Brouillons",
-    "createFile": "Créer un fichier",
-    "createFileTrademark": "Marque",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Mon portefeuille"
   },
   "roles": {
     "managing_partner": "Associé gérant",
@@ -129,7 +129,7 @@
     "managing_partner": {
       "eyebrow": "Aperçu de l'entreprise",
       "title": "Aperçu de l'entreprise",
-      "description": "Risque lié aux échéances du portefeuille, volumes de dépôts, pipeline de renouvellements, revenus, charge de travail de l'équipe et rentabilité des clients : rapports à l'échelle de l'entreprise à partir d'un seul emplacement."
+      "description": "Risque lié aux échéances du portefeuille, volumes de dépôts, pipeline de renouvellements, revenus, charge de travail de l'équipe et rentabilité des clients : reporting à l'échelle de l'entreprise à partir d'un seul emplacement."
     },
     "coordinator": {
       "eyebrow": "Coordination",

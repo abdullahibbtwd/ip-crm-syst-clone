@@ -40,7 +40,7 @@
     "matterLabel": "Perkara:",
     "none": "tiada",
     "portalDescription": "Membuka perkara di bawah portal Akaun sedia ada Pelanggan — tiada rekod Pelanggan pendua.",
-    "standardDescription": "Mencipta Klien (pihak yang memberi arahan / invois) dan membuka perkara dalam satu langkah. Pilihan Pemohon / Pemegang Hak dan Pengantara yang berbeza diselesaikan pada langkah ini. Keizinan GDPR diperlukan untuk Klien.",
+    "standardDescription": "Mencipta Klien (memberi arahan / pihak yang diinvois) dan membuka perkara dalam satu langkah. Pilihan Pemohon / Pemegang Hak dan Pengantara yang berbeza diselesaikan pada langkah ini. Keizinan GDPR diperlukan untuk Klien.",
     "willCreate": "Akan mencipta",
     "converted": "Ditukarkan kepada jirim",
     "gdprConsent": "Saya mengesahkan persetujuan GDPR telah diperoleh daripada Pelanggan ini.",
@@ -159,7 +159,7 @@
     "domain": "Domain",
     "fto_analysis": "analisis FTO",
     "geographical_indication": "Petunjuk geografi",
-    "industrial_design": "Reka bentuk perindustrian",
+    "industrial_design": "Reka bentuk",
     "litigation_expert_report": "Litigasi / Laporan Pakar Mahkamah",
     "official_fee_payment": "Bayaran Yuran Rasmi",
     "other": "Lain-lain",
@@ -183,7 +183,7 @@
     "converted": "Ditukar",
     "new": "baru",
     "rejected": "ditolak",
-    "reviewing": "Mengkaji"
+    "reviewing": "Mengkaji semula"
   },
   "table": {
     "date": "Diterima",

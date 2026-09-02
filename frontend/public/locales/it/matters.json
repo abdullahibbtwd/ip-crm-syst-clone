@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Misurare il percorso",
+        "options": {
+          "national_bg": "Bulgaria (nazionale)",
+          "eu_regulation": "Regolamento UE 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Diritto protetto",
+        "options": {
+          "trademark": "Marchio",
+          "patent": "Brevetto",
+          "design": "Progetto",
+          "copyright": "Copyright",
+          "gi": "Indicazione geografica"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Diritto protetto rif."
+      },
       "customsOffice": {
         "label": "Ufficio doganale"
+      },
+      "validFrom": {
+        "label": "Valido dal"
+      },
+      "validUntil": {
+        "label": "Valido fino al"
       },
       "infringingGoods": {
         "label": "Descrizione della merce contraffatta"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Data di creazione"
-      },
       "workTitle": {
         "label": "Titolo dell'opera"
       },
       "workType": {
-        "label": "Tipo di lavoro"
+        "label": "Tipo di lavoro",
+        "options": {
+          "literary": "Letteraria",
+          "musical": "Musicale",
+          "software": "Software",
+          "audiovisual": "Audiovisiva",
+          "graphic": "Grafico/visivo",
+          "other": "Altra"
+        }
+      },
+      "creationDate": {
+        "label": "Data di creazione"
+      },
+      "firstPublicationDate": {
+        "label": "Data della prima pubblicazione"
+      },
+      "authorName": {
+        "label": "Autrice"
+      },
+      "rightsBasis": {
+        "label": "Base dei diritti",
+        "options": {
+          "author": "Autrice",
+          "employer": "Datore di lavoro (lavoro su commissione)",
+          "assignment": "Compito",
+          "license": "Licenza"
+        }
+      },
+      "rightsHolder": {
+        "label": "Titolare dei diritti"
+      },
+      "infringementContext": {
+        "label": "Contesto di violazione/applicazione"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Tribunale"
+      },
+      "incomingNumber": {
+        "label": "Numero in arrivo"
+      },
+      "claimGrounds": {
+        "label": "Motivi (tipo di reclamo)"
+      },
+      "claimValue": {
+        "label": "Rivendica valore"
+      },
+      "expertiseType": {
+        "label": "Tipo di competenza"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Riepilogo delle basi"
+      "disputeKind": {
+        "label": "Tipologia procedente",
+        "options": {
+          "civil": "Civile",
+          "administrative": "Amministrativa",
+          "arbitration": "Arbitrato",
+          "mediation": "Mediazione",
+          "other": "Altra"
+        }
       },
-      "disputeType": {
-        "label": "Tipo di controversia"
+      "disputeSubject": {
+        "label": "Soggetta",
+        "options": {
+          "invalidity": "Invalidità",
+          "infringement": "Violazione",
+          "ownership": "Proprietà",
+          "contract": "Contrarre",
+          "unfair_competition": "Concorrenza sleale",
+          "other": "Altra"
+        }
       },
       "opponentName": {
-        "label": "Avversario/parte avversa"
+        "label": "Avversario/controparte"
+      },
+      "disputeType": {
+        "label": "Tipologia controversia (note)"
+      },
+      "filingReference": {
+        "label": "Riferimento al deposito"
+      },
+      "filingDate": {
+        "label": "Data di deposito"
+      },
+      "basisSummary": {
+        "label": "Riepilogo delle basi"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Riepilogo dell'ambito"
+      "projectName": {
+        "label": "Nome del progetto"
+      },
+      "productName": {
+        "label": "Nome del prodotto"
       },
       "technologyArea": {
         "label": "Area tecnologica"
+      },
+      "analysisScope": {
+        "label": "Ambito di analisi"
+      },
+      "deliverableType": {
+        "label": "Consegnabile",
+        "options": {
+          "written_report": "Rapporto scritto",
+          "memo": "Promemoria",
+          "oral_briefing": "Briefing orale"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Data di completamento prevista"
+      },
+      "scopeSummary": {
+        "label": "Riepilogo dell'ambito"
+      },
+      "riskLevel": {
+        "label": "Livello di rischio",
+        "options": {
+          "low": "Basso",
+          "medium": "Medio",
+          "high": "Alto",
+          "pending": "In attesa di valutazione"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Tipa"
+      },
+      "giName": {
+        "label": "Nome dell'indicazione geografica"
+      },
       "productName": {
         "label": "Nome del prodotto"
       },
       "region": {
         "label": "Regione geografica"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Territorio"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Numero della domanda"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Numero di registrazione"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Lezione di Locarno"
       },
+      "locarnoSubclass": {
+        "label": "Sottoclasse locarnese"
+      },
       "productDescription": {
         "label": "Descrizione del prodotto"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Riepilogo dei reclami"
+      },
+      "epApplicationNumber": {
+        "label": "Numero della domanda PE"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Nome del brevetto"
+      },
+      "patentProcedure": {
+        "label": "Procedura"
       },
       "pctNumber": {
         "label": "numero PCT"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Campo tecnico"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Colori rivendicati"
       },
       "markDescription": {
-        "label": "Segna la descrizione"
-      },
-      "markType": {
-        "label": "Tipo di segno"
-      },
-      "niceClasses": {
-        "label": "Belle lezioni",
-        "placeholder": "per esempio. 12, 35"
+        "label": "Descrizione dei beni/servizi"
       },
       "markKind": {
         "label": "Segna categoria"
       },
+      "markType": {
+        "label": "Tipo di segno"
+      },
       "markWords": {
         "label": "Parole del segno"
+      },
+      "niceClasses": {
+        "label": "Belle lezioni",
+        "placeholder": "per esempio. 12, 35"
       },
       "territory": {
         "label": "Territorio"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Nome"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Numero di reclami"
+      },
+      "applicationNumber": {
+        "label": "Numero della domanda"
+      },
+      "applicationDate": {
+        "label": "Data della domanda"
+      },
+      "registrationNumber": {
+        "label": "Numero di registrazione"
+      },
       "claimsSummary": {
         "label": "Riepilogo dei reclami"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Campo tecnico"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Tipo di risorsa",
+        "options": {
+          "trademark": "Marchio",
+          "patent": "Brevetto",
+          "design": "Progetto",
+          "gi": "GI",
+          "mixed": "Portafoglio misto",
+          "company_ip": "IP aziendale"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Scopo",
+        "options": {
+          "licensing": "Licenza",
+          "m_and_a": "M&A",
+          "litigation": "Contenzioso",
+          "tax": "Tassare",
+          "internal": "Interna"
+        }
+      },
+      "valuationMethod": {
+        "label": "Metodo",
+        "options": {
+          "market": "Mercata",
+          "income": "Reddito",
+          "cost": "Costo"
+        }
+      },
+      "valuationDate": {
+        "label": "Data di valutazione"
+      },
       "assetDescription": {
         "label": "Descrizione dell'asset"
       },
-      "valuationPurpose": {
-        "label": "Scopo della valutazione"
+      "conclusionValue": {
+        "label": "Valore della conclusione"
+      },
+      "currency": {
+        "label": "Valuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EURA",
+          "USD": "Dollaro statunitense"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Nome di dominio",
-        "placeholder": "per esempio. esempio.com"
+        "placeholder": "per esempio. esempio.bg"
+      },
+      "tldType": {
+        "label": "Tipo TLD",
+        "options": {
+          "bg": ".bg",
+          "eu": ".Unione Europea",
+          "com": ".com/gTLD",
+          "other": "Altra"
+        }
       },
       "registrar": {
         "label": "Cancelliere"
+      },
+      "registrant": {
+        "label": "Registrante"
+      },
+      "registrationDate": {
+        "label": "Data di registrazione"
+      },
+      "expiryDate": {
+        "label": "Data di scadenza"
+      },
+      "disputeRoute": {
+        "label": "Percorso della controversia",
+        "options": {
+          "none": "Nessuno",
+          "udrp": "UDRP",
+          "court": "Tribunale",
+          "negotiation": "Negoziazione"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Marchio correlato"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Riferimento al caso"
+      "engagementType": {
+        "label": "Tipo di impegno",
+        "options": {
+          "patent": "Brevetto",
+          "trademark": "Marchio",
+          "copyright": "Copyright",
+          "damages": "Danni",
+          "other": "Altra"
+        }
       },
       "courtOrAuthority": {
         "label": "Tribunale/autorità"
+      },
+      "caseReference": {
+        "label": "Riferimento al caso"
+      },
+      "appointingParty": {
+        "label": "Nomina del partito"
+      },
+      "reportDueDate": {
+        "label": "Data di scadenza del rapporto"
+      },
+      "hearingDate": {
+        "label": "Data dell'udienza"
       },
       "reportScope": {
         "label": "Ambito del rapporto"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Riepilogo dell'ambito"
+      "consultationType": {
+        "label": "Tipologia di consultazione",
+        "options": {
+          "phone": "Telefono",
+          "written": "Scritta",
+          "meeting": "Incontro",
+          "due_diligence": "Due diligence (leggera)"
+        }
+      },
+      "topicCategory": {
+        "label": "Categoria argomento",
+        "options": {
+          "trademark": "Marchio",
+          "patent": "Brevetto",
+          "design": "Progetto",
+          "contract": "Contrarre",
+          "strategy": "Strategia",
+          "other": "Altra"
+        }
       },
       "topic": {
         "label": "Argomento"
+      },
+      "requestedBy": {
+        "label": "Richiesto da"
+      },
+      "scopeSummary": {
+        "label": "Riepilogo dell'ambito"
+      },
+      "timeSpentHours": {
+        "label": "Tempo impiegato (ore)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Autorità/ufficio"
+        "label": "Autorità",
+        "options": {
+          "bpo": "BPO (Bulgaria)",
+          "euipo": "EUIPO",
+          "wipo": "OMPI",
+          "other": "Altra"
+        }
+      },
+      "feeType": {
+        "label": "Tipo di tariffa",
+        "options": {
+          "filing": "Archiviazione",
+          "publication": "Pubblicazione",
+          "examination": "Esame",
+          "renewal": "Rinnovo",
+          "annuity": "Rendita",
+          "opposition": "Opposizione",
+          "other": "Altra"
+        }
       },
       "feeReference": {
         "label": "Riferimento tariffa/pagamento"
       },
       "relatedApplication": {
         "label": "Applicazione/file correlato"
+      },
+      "feeAmount": {
+        "label": "Quantità"
+      },
+      "currency": {
+        "label": "Valuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EURA"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Termine di pagamento"
+      },
+      "paymentDate": {
+        "label": "Data di pagamento"
+      },
+      "paymentReference": {
+        "label": "Riferimento al pagamento"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Categoria di lavoro"
+      },
       "workSummary": {
         "label": "Riepilogo del lavoro"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Risultato atteso"
       }
     }
   },
@@ -234,7 +503,7 @@
     "billableAria": "Fatturabile",
     "billableWithoutRate": "Fatturabile senza tariffa",
     "confirmDeleteFee": "Eliminare la tariffa fissa?",
-    "confirmDeleteFeeMessage": "Questa tassa verrà rimossa dalla questione.",
+    "confirmDeleteFeeMessage": "Questa commissione verrà rimossa dalla questione.",
     "confirmDeleteFeeTitle": "Eliminare la tariffa fissa?",
     "confirmDeleteTime": "Eliminare questa voce temporale?",
     "confirmDeleteTimeMessage": "Questa riga fatturabile verrà rimossa dalla pratica.",
@@ -470,10 +739,249 @@
     "viewOnEpo": "Visualizza su EPO",
     "viewOnEpoTitle": "Registro ufficiale aperto sul registro EPO"
   },
+  "trademarkInfo": {
+    "addCountry": "Aggiungi paese...",
+    "cancel": "Cancellare",
+    "country": "Paese",
+    "edit": "Modificare",
+    "errors": {
+      "country": "Seleziona almeno un paese per questo territorio.",
+      "saveFailed": "Impossibile salvare le informazioni sul marchio."
+    },
+    "euFixed": "Unione Europea (EUIPO)",
+    "markKind": "Segna categoria",
+    "markType": "Tipo di segno",
+    "noCountries": "Nessun paese ancora selezionato.",
+    "save": "Salva modifiche",
+    "saved": "Salvato.",
+    "saving": "Risparmio…",
+    "selectCountries": "Seleziona i paesi",
+    "territory": "Territorio",
+    "title": "Informazioni sui marchi",
+    "markImage": "Segna immagine",
+    "uploadMarkImage": "Carica immagine",
+    "replaceMarkImage": "Sostituisci l'immagine",
+    "removeMarkImage": "Rimuovi l'immagine",
+    "markImageHint": "PNG o JPEG: visualizzato nell'elenco dei marchi accanto al nome."
+  },
+  "patentInfo": {
+    "title": "Informazioni sui brevetti",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Domanda n. / data",
+      "registration": "Reg. NO. / data",
+      "bulletin": "Bollettino/pubblicazione",
+      "ipc": "IPC",
+      "client": "Cliente/cedente",
+      "owner": "Proprietaria",
+      "contact": "Referente",
+      "representatives": "Rappresentanti",
+      "claims": "Affermazioni",
+      "territory": "Territorio"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Informazioni sul modello di utilità",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Domanda n. / data",
+      "registration": "Reg. NO. / data",
+      "bulletin": "Bollettino/registrazione pubblicazione/data",
+      "ipc": "IPC",
+      "applicant": "Richiedente",
+      "inventor": "Inventrice",
+      "contact": "Referente",
+      "representatives": "Rappresentanti",
+      "claims": "Affermazioni",
+      "territory": "Territorio"
+    }
+  },
+  "spcInfo": {
+    "title": "Informazioni sull'SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Domanda n. / data",
+      "registration": "Reg. NO. / data",
+      "bulletin": "Bollettino/registrazione pubblicazione/data",
+      "ipc": "IPC",
+      "applicant": "Richiedente",
+      "inventor": "Inventrice",
+      "contact": "Referente",
+      "representatives": "Rappresentanti",
+      "claims": "Affermazioni",
+      "medicinalProduct": "Prodotto medicinale"
+    }
+  },
+  "designInfo": {
+    "title": "Informazioni sulla progettazione",
+    "subtitle": "{{territory}} design · {{name}}",
+    "fields": {
+      "application": "Domanda n. / data",
+      "registration": "Reg. NO. / data",
+      "bulletin": "Bollettino/registrazione pubblicazione/data",
+      "client": "Cliente/cedente",
+      "owner": "Proprietaria",
+      "contact": "Referente",
+      "representatives": "Rappresentanti",
+      "classification": "Classificazione",
+      "territory": "Territorio"
+    }
+  },
+  "giInfo": {
+    "title": "Informazioni sull'indicazione geografica",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Domanda n. / data",
+      "registration": "Reg. NO. / data",
+      "bulletin": "Bollettino/registrazione pubblicazione/data",
+      "client": "Cliente/cedente",
+      "owner": "Proprietaria",
+      "contact": "Referente",
+      "representatives": "Rappresentanti",
+      "classes": "Classi",
+      "territory": "Territorio"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Approvato dal cliente",
+    "clientStepHint": "Il personale conferma il cliente concordato offline (chiamata/e-mail/riunione). Non è necessario che il client del portale approvi autonomamente.",
+    "errors": {
+      "updateFailed": "Impossibile aggiornare lo stato di approvazione."
+    },
+    "hint": "Solo approvazione interna: contrassegnare che il cliente è d'accordo, quindi un socio amministratore accetta il file. Non è richiesta l'approvazione dell'invio al cliente.",
+    "markClientApproved": "Contrassegna il cliente come approvato",
+    "partnerApprove": "File di approvazione del partner",
+    "partnerOnly": "Solo il socio amministratore può completare questo passaggio",
+    "partnerStep": "2. Il socio amministratore accetta",
+    "partnerStepHint": "Dopo che il cliente è stato contrassegnato come approvato, il socio amministratore accetta il file e lascia la bozza.",
+    "recordedBy": "Registrato da {{name}} · {{date}}",
+    "title": "Approvazione del fascicolo",
+    "waitForClient": "Contrassegnare prima il cliente come approvato, quindi sarà possibile accettare il file."
+  },
+  "prosecution": {
+    "cancelEdit": "Cancellare",
+    "completeStage": "Fase completa",
+    "edit": "Modificare",
+    "editingNote": "Utilizza Salva per conservare ciò che hai inserito in questa fase oppure Completa fase per andare avanti una volta compilati i campi obbligatori.",
+    "gateHint": "Non puoi andare avanti finché i campi richiesti per questa fase non vengono riempiti (come i cancelli del sistema).",
+    "goBack": "Torna indietro di una tappa",
+    "errors": {
+      "needAttachments": "Allega i file richiesti prima di continuare: {{list}}",
+      "needInvoice": "Genera la fattura dalla tassa statale prima di completare questa fase.",
+      "alreadyFinal": "Questo file è già nella fase finale.",
+      "needApproval": "Terminare l'approvazione del file (cliente + socio amministratore) prima di lasciare la fase preparatoria.",
+      "needBulletin": "Inserire il numero e la data del bollettino prima di lasciare la pubblicazione.",
+      "needFeePaid": "Inserisci la data di pagamento della tassa statale prima di lasciare l'esame formale.",
+      "needFilingFields": "Inserisci il numero della domanda e la data di deposito per completare il deposito.",
+      "needFormalFields": "Inserisci la tassa statale e la scadenza del pagamento per continuare.",
+      "needMol": "Inserisci MOL nei dettagli del file (crea-file/modifica) prima di completare l'archiviazione.",
+      "needOfficeActionDeadline": "L'azione dell'Ufficio ha un oggetto: stabilisci la scadenza prima di continuare.",
+      "needPoaFiled": "Inserisci il numero e la data in entrata del PoA prima di lasciare l'esame formale.",
+      "needRegFeePaid": "Inserisci la data di pagamento della quota di iscrizione prima di continuare.",
+      "needRepresentative": "Inserisci almeno un rappresentante o imposta Aggiungi rappresentanti su No.",
+      "saveBeforeNavigate": "Salva o annulla le modifiche prima di tornare indietro di una fase.",
+      "saveFailed": "Impossibile salvare i dati dell'accusa."
+    },
+    "fields": {
+      "addRepresentatives": "Desideri aggiungere rappresentanti?",
+      "applicationDate": "Data della domanda",
+      "applicationNumber": "Numero della domanda",
+      "bulletinDate": "Data del bollettino",
+      "bulletinNumber": "Numero del bollettino",
+      "feePaidDate": "Data di pagamento della tassa statale",
+      "generatePoa": "Genera procura",
+      "officeAction": "Azione/richiesta dell'ufficio",
+      "officeActionDeadline": "Termine per l'azione dell'ufficio",
+      "paymentDeadline": "Termine di pagamento",
+      "poaDate": "Data del PoA",
+      "poaDeadline": "Scadenza per la presentazione della PoA",
+      "poaIncoming": "Numero in entrata PoA",
+      "regFeePaidDate": "Data di pagamento della quota di iscrizione",
+      "remindDays": "Ricordalo giorni prima della scadenza",
+      "representatives": "Rappresentante(i)",
+      "sendPoaEmail": "Invia e-mail automatica",
+      "stateFee": "Tassa statale (BGN)"
+    },
+    "molHint": "MOL deve essere impostato sui dettagli del file (dalla creazione del file). Blocchi MOL mancanti che completano questa fase.",
+    "no": "NO",
+    "prepHint": "Fase preparatoria: termina prima l'approvazione del file, poi l'accettazione del socio amministratore ti porta alla fase di archiviazione.",
+    "registeredDone": "Fase di registrazione raggiunta.",
+    "saveChanges": "Salva modifiche",
+    "saveEntered": "Salva",
+    "saved": "Salvato.",
+    "saveFields": "Salva campi",
+    "saving": "Risparmio…",
+    "stages": {
+      "filing": "Archiviazione",
+      "formal_exam": "Esame formale",
+      "prep": "Preparatoria",
+      "publication": "Pubblicazione",
+      "reg_fee": "Spese di registrazione",
+      "registration": "Registrazione",
+      "substantive_exam": "Esame sostanziale"
+    },
+    "territoryLabel": {
+      "eu": "Gasdotto: UE",
+      "international": "Gasdotto: internazionale (WO)",
+      "national": "Oleodotto: nazionale"
+    },
+    "territoryLocked": "Territorio corretto dal file di creazione",
+    "territoryFromInfo": "Territorio dalle informazioni sui marchi",
+    "patentRouteFromInfo": "Instradamento dal file di creazione",
+    "designRouteFromInfo": "Instradamento dal file di creazione",
+    "utilityModelTerritoryFromInfo": "Territorio del paese di presentazione",
+    "spcTerritoryFromInfo": "Territorio del paese di presentazione",
+    "giTerritoryFromInfo": "Territorio dal percorso di archiviazione",
+    "title": "Fasi dell'accusa",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Convalida ricevuta",
+        "filing": "Compito",
+        "formal_exam": "Richiesta di archiviazione",
+        "substantive_exam": "Esame sostanziale",
+        "publication": "Pubblicazione",
+        "reg_fee": "Spese di registrazione",
+        "registration": "Decisione di convalida"
+      }
+    },
+    "yes": "SÌ",
+    "hub": {
+      "generateInvoice": "Genera fattura",
+      "invoiceIssuedShort": "Fattura emessa",
+      "invoiceIssued": "Fattura {{number}} emessa. Il cliente può vederlo nel proprio portale; si trova anche nella scheda Fatturazione.",
+      "invoiceAlreadyIssued": "Fattura {{number}} già emessa: visibile nel portale e nella fatturazione.",
+      "invoiceFailed": "Impossibile generare la fattura. Controlla i dettagli di fatturazione del cliente.",
+      "invoiceNotes": "Tassa ufficiale/statale",
+      "uploadFailed": "Impossibile caricare il file.",
+      "needStateFee": "Inserisci prima l'importo della tassa statale.",
+      "feeDescription": "Tassa statale/ufficiale",
+      "deadlineFailed": "Impossibile creare scadenze.",
+      "deadlineTitles": {
+        "payment": "Pagamento della tassa statale",
+        "poa": "Presentazione della procura",
+        "oa": "Azione d'ufficio/richiesta di esame",
+        "oaWithSubject": "Azione dell'ufficio: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Ricordalo a {{days}} giorno/i prima della scadenza."
+      },
+      "attach": {
+        "search": "Allega file di ricerca",
+        "application": "Allega domanda",
+        "feeSlip": "Allegare bollettino tariffario",
+        "poa": "Allega PoA",
+        "officeAction": "Allega atto d'ufficio",
+        "decision": "Allega decisione",
+        "bulletin": "Allega bollettino",
+        "regFee": "Allega prova di pagamento",
+        "certificate": "Allega certificato"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Cliente *",
     "creating": "Creazione…",
-    "error": "Creazione file non riuscita",
+    "error": "Impossibile creare il file",
     "jurisdictionHelp": "Seleziona una o più giurisdizioni di deposito.",
     "jurisdictions": "Giurisdizioni",
     "matterType": "Tipologia lavoro *",
@@ -483,11 +991,363 @@
     "titleField": "Titolo *",
     "titlePlaceholder": "per esempio. Marchio denominativo ACME – UE"
   },
+  "createFile": {
+    "addClass": "Aggiungi classe",
+    "addClaim": "Aggiungi reclamo",
+    "addIpc": "Aggiungi classe IPC",
+    "addBasisMark": "Aggiungi il segno di base",
+    "basisMark": "Contrassegno base {{number}}",
+    "addAdditionalApplicant": "Aggiungi ulteriore richiedente",
+    "addAdditionalOwner": "Aggiungi ulteriore proprietario",
+    "additionalApplicant": "Richiedente {{number}}",
+    "additionalOwner": "Proprietario {{number}}",
+    "yes": "SÌ",
+    "no": "NO",
+    "none": "Nessuno",
+    "backToFiles": "Torniamo ai file",
+    "cancel": "Cancellare",
+    "changeSubtype": "Cambia sottocategoria",
+    "checkRegister": "Verifica nel registro delle imprese",
+    "clearClient": "Cambia cliente",
+    "clientOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del cliente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
+    "applicantOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del richiedente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
+    "draftDescription": "Creato tramite Crea file ({{procedure}}) — bozza",
+    "errors": {
+      "client": "Seleziona un cliente per continuare.",
+      "clientOrDetails": "Seleziona un cliente CRM o inserisci il nome e i dettagli del cliente per crearlo.",
+      "applicantOrDetails": "Seleziona un candidato in CRM o inserisci il nome e i dettagli del candidato per crearlo.",
+      "jurisdiction": "Seleziona almeno un territorio/paese.",
+      "markWords": "Inserisci il nome/le parole del marchio.",
+      "filingRoute": "Seleziona una procedura.",
+      "ownerOrDetails": "Inserisci il nome e l'indirizzo del proprietario oppure contrassegna il proprietario come uguale al cliente.",
+      "designerOrDetails": "Inserisci il nome e l'indirizzo del designer oppure contrassegna il designer come uguale al cliente.",
+      "inventorOrDetails": "Inserisci il nome e l'indirizzo dell'inventore oppure contrassegna l'inventore come uguale al cliente.",
+      "patentName": "Inserisci il nome del brevetto.",
+      "designName": "Inserisci il nome del disegno.",
+      "utilityModelName": "Immettere il nome del modello di utilità.",
+      "giKind": "Seleziona denominazione di origine o indicazione geografica.",
+      "territory": "Seleziona un territorio.",
+      "giName": "Immettere il nome dell'indicazione geografica.",
+      "spcName": "Immettere il nome dell'SPC.",
+      "caseClientRole": "Selezionare se il cliente è attore, convenuto o parte interessata.",
+      "otherType": "Tipo di file sconosciuto. Scegli un tipo dall'elenco.",
+      "patentSubtype": "Seleziona una sottocategoria di brevetto.",
+      "saveFailed": "Impossibile salvare la bozza del file.",
+      "subtype": "Seleziona una sottocategoria del marchio."
+    },
+    "euHint": "Marchio dell'Unione Europea (EUIPO): giurisdizione impostata su UE.",
+    "fields": {
+      "address": "Indirizzo",
+      "applicantClient": "Cliente richiedente",
+      "applicantClientOptional": "Candidato in CRM (facoltativo)",
+      "city": "Città",
+      "classNumber": "Numero di classe",
+      "classes": "Classi",
+      "country": "Paese",
+      "eik": "UIC/EIK",
+      "email": "E-mail",
+      "fax": "Fax",
+      "goodsText": "Beni e servizi",
+      "legalName": "Nome e tipo di persona giuridica",
+      "linkClient": "Seleziona il cliente nel CRM",
+      "linkClientOptional": "Client CRM (facoltativo)",
+      "fileTitleOptional": "Titolo (facoltativo)",
+      "fileDescriptionOptional": "Descrizione (facoltativa)",
+      "markKind": "Segna categoria",
+      "markType": "Tipo di segno",
+      "markWords": "Nome del marchio",
+      "mol": "MOL (firmatario)",
+      "name": "Nome",
+      "oppositionFiler": "Presentatore dell'opposizione",
+      "requester": "Richiedente",
+      "requestFiler": "Presentatore della richiesta",
+      "againstClasses": "Contro le classi",
+      "owner": "Proprietaria",
+      "phone": "Telefono",
+      "postalCode": "Codice Postale",
+      "territory": "Territorio",
+      "transliteration": "Traslitterazione",
+      "viennaNumber": "Numero",
+      "applicationNumber": "Numero della domanda",
+      "applicationDate": "Data",
+      "conventionPriority": "Priorità della Convenzione",
+      "exhibitionPriority": "Priorità espositiva",
+      "transformationInternational": "Trasformazione della registrazione internazionale",
+      "communityConversion": "Conversione del marchio comunitario",
+      "applicationBulletin": "Bollettino/pubblicazione della domanda",
+      "grounds": "Motivi",
+      "specimen": "Campionessa",
+      "registrationNumber": "N. di registrazione",
+      "registrationDate": "Data",
+      "registrationBulletin": "Bollettino/pubblicazione dell'iscrizione",
+      "certificate": "Allega certificato",
+      "attachDocument": "Allega documento",
+      "representative": "Selezionare",
+      "selectRepresentative": "Seleziona rappresentante",
+      "addMoreRepresentatives": "Aggiungi altri rappresentanti",
+      "claimNumber": "Numero",
+      "claimText": "Reclamo",
+      "epApplicationNumber": "Numero della domanda PE",
+      "epBulletinNumber": "Numero del bollettino del PE",
+      "applicationPublication": "Pubblicazione della domanda",
+      "applicationPublicationDate": "Data",
+      "epRegistrationNumber": "Numero di registrazione EP",
+      "epRegistrationBulletin": "Bollettino/pubblicazione della registrazione del PE",
+      "epRegistrationBulletinDate": "Data",
+      "ipc": "IPC",
+      "patentName": "Nome",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Validazione del brevetto europeo",
+      "powerOfAttorney": "Procura",
+      "selectProcedure": "Seleziona la procedura",
+      "validationCountry": "Seleziona il paese",
+      "priorityCountry": "Paese della domanda precedente",
+      "priorityFromDate": "Dalla data",
+      "priorityApplicationNumber": "Numero della domanda",
+      "priorityIncomingNumber": "In. NO.",
+      "internationalRegistrationNumber": "Registrazione internazionale n.",
+      "exhibitionFirstAppearance": "Data della prima apparizione",
+      "exhibitionName": "Nome della mostra",
+      "bulletinNumber": "Numero del bollettino",
+      "patentRegistrationNumber": "Numero di registrazione",
+      "validationNumber": "Numero",
+      "validationFilingDate": "Data di deposito",
+      "validationPriorityDate": "Data prioritaria",
+      "addImage": "Aggiungi immagine",
+      "addCountry": "Aggiungi paese",
+      "removeImage": "Rimuovi l'immagine",
+      "image": "Immagine",
+      "designName": "Nome",
+      "locarnoClass": "Classe",
+      "locarnoSubclass": "Sottoclasse",
+      "classificationText": "Classificazione",
+      "vat": "Partita IVA",
+      "utilityModelName": "Nome",
+      "conversionFromPatent": "Conversione da brevetto a domanda",
+      "conversionInvention": "Invenzione",
+      "conversionRequestNumber": "Richiesta n.",
+      "conversionApplicationDate": "Data della domanda",
+      "conversionPriorityDate": "Data prioritaria",
+      "giKind": "Tipa",
+      "giName": "Nome dell'indicazione geografica",
+      "spcName": "Nome",
+      "medicinalProduct": "Prodotto medicinale",
+      "basicPatentNumber": "Brevetto n.",
+      "effectStartDate": "Inizio dell'effetto",
+      "effectEndDate": "Data di fine",
+      "firstAuthorization": "Prima autorizzazione",
+      "theClientIs": "Il cliente è",
+      "court": "Tribunale",
+      "authority": "Autorità",
+      "panel": "Pannello",
+      "division": "Divisione",
+      "incomingNumber": "Numero in arrivo",
+      "claimGrounds": "Motivi (tipo di reclamo)",
+      "claimValue": "Rivendica valore",
+      "other": "Altra",
+      "rightObject": "Oggetto",
+      "selectObject": "Seleziona oggetto...",
+      "rightName": "Nome",
+      "rightApplicationDate": "Data della domanda",
+      "rightScope": "Ambito",
+      "expertiseType": "Tipo di competenza",
+      "experts": "Esperte",
+      "expertiseQuestions": "Domande su quali competenze sono state ammesse"
+    },
+    "formTitle": "Crea file: Marchio",
+    "fullFormReady": "Disponibile il modulo completo",
+    "goodsPlaceholder": "per esempio. bottiglie; servizi al dettaglio…",
+    "markKinds": {
+      "certification": "Certificazione",
+      "collective": "Collettiva",
+      "individual": "Individuale"
+    },
+    "markTypes": {
+      "combination_of_colors": "Combinazione di colori",
+      "combined": "Combinato",
+      "figurative": "Figurativa",
+      "sound": "Suono",
+      "three_dimensional": "Tridimensionale",
+      "wordmark": "Marchio denominativo"
+    },
+    "noClients": "Nessun cliente corrispondente. Crea prima il cliente in CRM, quindi torna qui.",
+    "optionalMark": "Segna/oggetto (facoltativo)",
+    "partialSubtypeNote": "I campi specializzati completi per questa sottocategoria verranno ampliati in seguito. Puoi comunque salvare una bozza collegata al cliente; i documenti e la corrispondenza restano in archivio.",
+    "preliminary": "Informazioni preliminari",
+    "procedureHints": {
+      "cancellation": "Cancellazione di un marchio registrato – modulo di creazione completo",
+      "deletion": "Cancellazione di un marchio registrato – modulo di creazione completo",
+      "new": "Nuova domanda di marchio: modulo di creazione completo",
+      "objection": "Obiezione contro una domanda di marchio: modulo di creazione completo",
+      "opposition": "Opposizione contro una domanda di marchio: modulo di creazione completo",
+      "opposition_against_us": "Procedimenti di opposizione",
+      "opposition_by_us": "Procedimenti di opposizione",
+      "registered": "Marchio registrato esistente",
+      "revocation": "Procedimenti di cancellazione"
+    },
+    "procedures": {
+      "cancellation": "Cancellazione",
+      "deletion": "Cancellazione",
+      "new": "Nuovo marchio",
+      "objection": "Obiezione",
+      "opposition": "Opposizione",
+      "opposition_against_us": "Opposizione",
+      "opposition_by_us": "Opposizione",
+      "registered": "Marchio registrato",
+      "revocation": "Cancellazione"
+    },
+    "kinds": {
+      "newPatent": "Nuovo brevetto",
+      "registeredPatent": "Brevetto registrato",
+      "design": "Progetto",
+      "registeredDesign": "Progetto",
+      "utilityModel": "Modelli di utilità",
+      "registeredGi": "GI registrato",
+      "spc": "SPC",
+      "case": "Caso"
+    },
+    "comingSoonTitle": "Crea file: {{kind}}",
+    "comingSoonBody": "Il modulo specializzato per questo tipo di file verrà aggiunto successivamente. I moduli per la creazione del file del marchio sono già disponibili nello stesso menu.",
+    "patentTitle": "Crea file - Brevetto",
+    "patentSubtypeHint": "Per prima cosa scegli la sottocategoria del brevetto.",
+    "patentFormTitle": "Crea file: Brevetto",
+    "designFormTitle": "Crea file: Progettazione",
+    "utilityModelFormTitle": "Crea file: modello di utilità",
+    "giFormTitle": "Crea file: Indicazione geografica",
+    "spcFormTitle": "Crea file: SPC",
+    "caseFormTitle": "Crea file: Caso",
+    "otherFilesTitle": "Altri file",
+    "otherFilesDescription": "Scegli un tipo di lavoro fuori dagli scaffali principali: copyright, domini, consulenze e altro ancora.",
+    "otherFileFormTitle": "Crea file: {{type}}",
+    "addParty": "Aggiungi festa",
+    "caseClientRoles": {
+      "plaintiff": "Querelante/ricorrente",
+      "defendant": "Convenuta",
+      "interested": "Parte interessata"
+    },
+    "giKinds": {
+      "designation_of_origin": "Denominazione d'origine",
+      "geographical_indication": "Indicazione geografica"
+    },
+    "giTerritories": {
+      "national": "Nazionale",
+      "eu": "Unione Europea",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "OMPI",
+      "national": "Nazionale",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Scegli una procedura",
+    "chooseCountry": "Seleziona il paese",
+    "patentFilingRoutes": {
+      "national": "Nazionale",
+      "european": "EP",
+      "ep_validation": "Convalida EP",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia ed Erzegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "Macedonia del Nord",
+      "MD": "Moldavia",
+      "ME": "Montenegro",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Tacchina"
+    },
+    "patentHints": {
+      "new": "Nuova domanda: procedimento giudiziario nazionale, PE o PCT (flusso in 7 fasi in WorkPatent)",
+      "registered": "Sovvenzione esistente: convalida nazionale, EP, PCT o EP (convalida in 4 passaggi in WorkValPatent)"
+    },
+    "removeClass": "Rimuovi classe",
+    "removeClaim": "Rimuovi reclamo",
+    "removeIpc": "Rimuovi la classe IPC",
+    "removeApplicant": "Rimuovere il richiedente",
+    "removeBasisMark": "Rimuovere il segno di base",
+    "sameApplicant": "Le informazioni del richiedente sono le stesse del cliente",
+    "sameDesigner": "Le informazioni del designer sono le stesse del client",
+    "sameInventor": "Le informazioni di Inventor sono le stesse del client",
+    "sameCorrespondence": "L'indirizzo di corrispondenza è lo stesso dell'indirizzo registrato",
+    "saveDraft": "Salva come bozza",
+    "saving": "Risparmio…",
+    "searchClient": "Cerca clienti per nome o codice...",
+    "sideUs": "La nostra parte: l'opposizione",
+    "sideThem": "L'altra parte si è opposta alla domanda",
+    "sideUsCancellation": "La nostra parte: cancellazione",
+    "sideThemCancellation": "Altra parte: proprietario",
+    "sideUsDeletion": "La nostra parte: cancellazione",
+    "sections": {
+      "againstApplication": "Contro una domanda di marchio",
+      "againstBrand": "Contro un marchio",
+      "applicant": "Richiedente",
+      "applicantUser": "Richiedente/Utente",
+      "application": "Applicazione",
+      "attachments": "Allegati",
+      "additionalInfo": "Ulteriori informazioni",
+      "basicInfo": "Informazioni di base",
+      "fileDetails": "Dettagli del file",
+      "basisMarks": "Marchi su cui si fonda l'opposizione",
+      "claims": "Affermazioni",
+      "classification": "Classificazione",
+      "designer": "Designer",
+      "inventor": "Inventrice",
+      "client": "Dati del cliente",
+      "instructingClient": "Istruire il cliente",
+      "ipc": "IPC",
+      "contact": "Referente",
+      "correspondence": "Indirizzo per la corrispondenza",
+      "filing": "Deposito e registrazione",
+      "goods": "Elenco di beni e servizi",
+      "geographicalIndication": "Informazioni sull'indicazione geografica",
+      "spcBasic": "Informazioni di base RCP",
+      "caseData": "Dati del caso",
+      "caseRights": "Diritti su cui si fonda la causa",
+      "expertise": "Competenza",
+      "lawyers": "Avvocati/Consulenti legali",
+      "caseParties": {
+        "plaintiff": "Querelanti/Ricorrenti",
+        "defendant": "Imputate",
+        "interested": "Parti interessate"
+      },
+      "grounds": "Motivi",
+      "foundation": "Fondazione",
+      "markName": "Nome del marchio",
+      "oppositionFiler": "Presentatore dell'opposizione",
+      "requester": "Richiedente",
+      "requestFiler": "Presentatore della richiesta",
+      "owner": "Proprietaria",
+      "registeredAddress": "Indirizzo registrato",
+      "representative": "Rappresentante",
+      "representatives": "Rappresentanti",
+      "searchDocs": "Allega i documenti di ricerca",
+      "specimen": "Campionessa",
+      "trademark": "Informazioni sui marchi",
+      "vienna": "Classi di classificazione di Vienna"
+    },
+    "selectCountries": "Seleziona i paesi",
+    "subtypeHint": "Scegli innanzitutto la sottocategoria del marchio. Il nuovo marchio apre il modulo completo.",
+    "territories": {
+      "eu": "Unione Europea",
+      "international": "Internazionale (WO)",
+      "national": "Nazionale"
+    },
+    "trademarkTitle": "Crea file: marchio"
+  },
   "deadlines": {
     "complete": "Completare",
     "daysLeft": "{{count}} giorni rimasti",
     "daysOverdue": "{{count}} giorni di ritardo",
     "dueToday": "Scadenza oggi",
+    "summary": {
+      "open": "Scadenze aperte",
+      "overdue": "In ritardo"
+    },
     "empty": "Nessuna scadenza su questo argomento.",
     "error": "Impossibile caricare le scadenze.",
     "loading": "Caricamento scadenze…",
@@ -509,7 +1369,7 @@
     "category": "Categoria",
     "chooseFile": "Scegli un file da caricare",
     "chooseTemplate": "Scegli un modello di lettera",
-    "description": "Schedario per questa questione: carica PDF, file Word e prove.",
+    "description": "Schedario per questa materia: carica PDF, file Word e prove.",
     "displayName": "Nome da visualizzare",
     "displayNamePlaceholder": "per esempio. Pacchetto di archiviazione BPO: finale",
     "dragDrop": "Trascina un file qui, oppure",
@@ -597,7 +1457,7 @@
       "noDocuments": "Nessun documento ancora su questo argomento. Carica prima il PDF di archiviazione nella scheda Documenti.",
       "selectDocument": "Seleziona la versione del documento…"
     },
-    "filing": "Archiviazione...",
+    "filing": "Archiviazione…",
     "filingDate": "Data di deposito",
     "filingOffice": "Ufficio di archiviazione/giurisdizione",
     "jurisdictionHint": "Utilizzare EPO (EP) per i brevetti europei, EUIPO (EU) per marchi/disegni UE, BPO (BG) per la Bulgaria, WIPO (WO) per PCT.",
@@ -681,7 +1541,7 @@
       "linkedMatter": "Materia contenziosa collegata",
       "loading": "Caricamento…",
       "saveChanges": "Salva modifiche",
-      "searchMatters": "Cerca argomenti da intensificare…",
+      "searchMatters": "Cerca argomenti da intensificare...",
       "seizedOn": "Sequestrato {{date}}",
       "title": "Particolare del sequestro",
       "updateFailed": "Impossibile aggiornare il sequestro"
@@ -720,7 +1580,7 @@
   },
   "layout": {
     "backToMatters": "← Torna ai file",
-    "loading": "Caricamento file…",
+    "loading": "Caricamento file...",
     "notFound": "File non trovato.",
     "archivedBadge": "Archiviata",
     "archive": "Archivio",
@@ -729,33 +1589,942 @@
     "restoring": "Ripristino…",
     "archiveFailed": "Impossibile archiviare il file",
     "restoreFailed": "Impossibile ripristinare il file",
-    "archiveConfirm": "Archiviare questo file? Uscirà dall’elenco attivo ma resterà cercabile in Archiviati."
+    "archiveConfirm": "Archiviare questo file? Lascerà l'elenco attivo ma rimarrà ricercabile in Archiviati."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Azioni secondarie",
+      "editScope": "Modifica ambito/classi"
+    },
+    "kinds": {
+      "name_address_change": "Modifica nome e indirizzo",
+      "transfer": "Trasferimento/cessione del marchio",
+      "license": "Contratto di licenza",
+      "pledge": "Impegno speciale",
+      "injunction": "Misura provvisoria/ingiunzione",
+      "surrender": "Resa completa/Esonero di responsabilità",
+      "limitation": "Limitazione dell'applicazione",
+      "insolvency": "Insolvenza/fallimento"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Soluzione dell'opposizione",
+      "office_action_response": "Risposta all'azione dell'Ufficio",
+      "voluntary_limitation": "Limitazione volontaria",
+      "correction_of_error": "Correzione dell'errore",
+      "other": "Altra"
+    },
+    "scope": {
+      "title": "Modifica classi e ambito",
+      "description": "Modificare le classi Nice e le descrizioni dei prodotti/servizi, quindi registrare i dettagli di archiviazione dell'ufficio.",
+      "cardTitle": "Classi e beni/servizi",
+      "cardHint": "Classi Nice attive su questo file di marchio.",
+      "empty": "Nessuna lezione ancora registrata.",
+      "classLabel": "Classe {{n}}",
+      "noDescription": "Nessuna descrizione",
+      "classes": "Redattore di classi e merci",
+      "incomingNumber": "Numero di riferimento in entrata (ВХ. НОМЕР)",
+      "incomingPlaceholder": "ID di tracciamento dell'ufficio",
+      "filingDate": "Data di deposito (ДАТА)",
+      "legalBasis": "Base giuridica (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Seleziona un motivo...",
+      "legalBasisOther": "Altra base giuridica",
+      "attachment": "Documento giustificativo",
+      "errors": {
+        "classRequired": "Mantieni almeno una lezione piacevole o usa la resa completa per rinunciare al voto.",
+        "incomingRequired": "Inserisci il numero di riferimento in entrata.",
+        "dateRequired": "Inserisci la data di deposito.",
+        "basisRequired": "Seleziona una base giuridica.",
+        "saveFailed": "Impossibile salvare la correzione dell'ambito."
+      }
+    },
+    "secondary": {
+      "description": "Registra questa azione amministrativa, la tassa governativa facoltativa e le scadenze dei solleciti.",
+      "generateProforma": "Genera fattura proforma",
+      "governmentFee": "Tassa governativa (€)",
+      "paymentDueDate": "Termine di pagamento",
+      "paymentReminder": "Ricordare prima del pagamento",
+      "filingDeadline": "Termine per la presentazione/azione",
+      "filingReminder": "Ricordare prima di archiviare",
+      "reminderUnit": "Unità",
+      "months": "Mesi prima",
+      "days": "Giorni prima",
+      "titles": {
+        "name_address_change": "Registra modifica nome e indirizzo",
+        "transfer": "Registra il trasferimento del marchio",
+        "license": "Contratto di licenza di registro",
+        "pledge": "Registra l'impegno speciale",
+        "injunction": "Registra provvedimento cautelare/ingiunzione",
+        "surrender": "Log Resa completa/Disclaimer",
+        "limitation": "Limitazione dell'applicazione di registro",
+        "insolvency": "Registrare insolvenza/fallimento"
+      },
+      "errors": {
+        "feeRequired": "Inserisci una tassa governativa per generare una fattura proforma.",
+        "saveFailed": "Impossibile salvare questa azione."
+      }
+    },
+    "table": {
+      "title": "Azioni secondarie",
+      "description": "Procedure registrate per questo marchio. Apri la cartella per visualizzare o caricare i file correlati.",
+      "empty": "Nessuna azione secondaria ancora. Utilizza Azioni secondarie nell'intestazione per registrarne una.",
+      "procedure": "Procedura",
+      "action": "Azione",
+      "loggedAt": "Effettuato l'accesso",
+      "viewAria": "Visualizza i dettagli dell'azione",
+      "filesAria": "Apri archivio file ({{count}} file)"
+    },
+    "archive": {
+      "title": "Archivio file",
+      "empty": "Nessun file ancora allegato a questa azione.",
+      "date": "Data",
+      "regarding": "Per quanto riguarda",
+      "regardingPlaceholder": "per esempio. Decisione, proforma, lettera di sostegno",
+      "document": "Documento",
+      "user": "Utente",
+      "attach": "Allega documento",
+      "upload": "Carica file",
+      "download": "Scaricamento",
+      "regardingRequired": "Inserisci l'oggetto del file.",
+      "fileRequired": "Scegli un file da caricare.",
+      "uploadFailed": "Impossibile caricare il file."
+    }
   },
   "list": {
-    "description": "Vista di tutti i file — cerca per titolo, cliente o n. domanda.",
-    "descriptionPortal": "File aperti per la vostra organizzazione dopo la conversione dell’intake.",
-    "descriptionArchived": "File conclusi o inattivi conservati per riferimento.",
+    "description": "Visualizzazione del portfolio di tutti i file: ricerca per titolo, cliente o numero di domanda.",
+    "descriptionPortal": "File aperti per la tua organizzazione dopo la conversione dell'assunzione.",
+    "descriptionArchived": "File completati o inattivi conservati per riferimento.",
+    "descriptionOthers": "File esterni ai sei scaffali principali: filtra in base al tipo di lavoro di seguito.",
+    "descriptionType": "{{type}} file: cerca per titolo, cliente o numero di domanda.",
     "filters": {
       "allStatuses": "Tutti gli stati",
       "allTypes": "Tutti i tipi di lavoro",
+      "allOtherTypes": "Tutti gli altri tipi",
       "active": "Attiva",
-      "archived": "Archiviati",
-      "allOtherTypes": "Tutti gli altri tipi"
+      "archived": "Archiviata"
     },
     "intakeQueue": "Coda di assunzione",
     "pagination": {
       "ofTotal": "di {{total}}"
     },
     "perPage": "{{count}} per pagina",
-    "searchPlaceholder": "Cerca titolo, cliente, n. domanda…",
+    "searchPlaceholder": "Cerca titolo, cliente, numero di domanda...",
     "title": "File",
     "titleArchived": "File archiviati",
-    "titlePortal": "I miei file",
-    "descriptionOthers": "File fuori dalle sei categorie principali — filtra per tipo sotto.",
-    "descriptionType": "File {{type}} — cerca per titolo, cliente o n. domanda.",
-    "titleOthers": "Altri file",
     "titleDrafts": "Bozze",
-    "descriptionDrafts": "Bozze in attesa di approvazione o deposito — separate dai marchi attivi e dagli altri scaffali."
+    "titleOthers": "Altri file",
+    "titlePortal": "I miei file",
+    "descriptionDrafts": "Bozze di file in attesa di approvazione o archiviazione, separate dai marchi attivi e da altri scaffali."
+  },
+  "trademarkList": {
+    "description": "Portafoglio marchi: fase del procedimento, classi, richiedente e scadenze in sintesi.",
+    "descriptionMarks": "Marchi nuovi e registrati: fase del procedimento, classi, richiedente e scadenze in sintesi.",
+    "descriptionProcedure": "{{procedure}} fascicoli relativi ai marchi: fase del procedimento giudiziario, classi e scadenze in sintesi.",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di marchio.",
+    "columns": {
+      "name": "Nome del marchio",
+      "territory": "Territorio",
+      "incomingRef": "Domanda/entrata n.",
+      "stage": "Fase dell'accusa",
+      "classes": "Belle lezioni",
+      "applicant": "Richiedente/proprietario",
+      "markType": "Tipo di segno",
+      "registration": "Reg. NO. / data",
+      "deadline": "Scadenza"
+    },
+    "deadlineOpen": "{{count}} aperto",
+    "deadlineOverdue": "{{count}} in ritardo",
+    "deadlineNext": "Successivo: {{date}}",
+    "filters": {
+      "title": "Segni di filtro",
+      "subtitle": "Restringi il portfolio per richiedente, numeri, date, classe e altro.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del richiedente...",
+      "markName": "Nome del marchio",
+      "markNamePlaceholder": "Segna titolo...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Reg. NO.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "markType": "Tipo di segno",
+      "markKind": "Marco gentile",
+      "territory": "Territorio",
+      "representative": "Rappresentante",
+      "representativePlaceholder": "Nome del rappresentante...",
+      "applicationDateFrom": "Data della domanda da",
+      "applicationDateTo": "Data della domanda a",
+      "registrationDateFrom": "Data di registrazione dal",
+      "registrationDateTo": "Data di registrazione a",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "markStatus": "Segna lo stato",
+      "niceClass": "Bella lezione",
+      "country": "Paese",
+      "hasCertificate": "Ha il certificato allegato",
+      "choose": "Scegliere",
+      "chooseClass": "Scegli la classe",
+      "chooseCountry": "Scegli il paese",
+      "all": "Tutto",
+      "classOption": "Classe {{number}}",
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "utilityModelList": {
+    "description": "Modelli di utilità: territorio, rivendicazioni, proprietario e registrazione in sintesi.",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file del modello di utilità.",
+    "searchResults": "Risultati della ricerca: {{count}}",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Registrata"
+    },
+    "columns": {
+      "name": "Nome",
+      "territory": "Territorio",
+      "incomingRef": "In arrivo n. / data",
+      "status": "Stato",
+      "classes": "Classi",
+      "owner": "Proprietaria",
+      "kind": "Tipa",
+      "registration": "Reg. NO. / data"
+    },
+    "filters": {
+      "title": "Filtra i modelli di utilità",
+      "subtitle": "Restringi il portfolio per richiedente, numeri, date, territorio e altro.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del proprietario...",
+      "name": "Nome",
+      "namePlaceholder": "Nome del modello di utilità...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Registrazione n.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "territory": "Territorio",
+      "choose": "Scegliere",
+      "chooseTerritory": "Scegli il territorio",
+      "representative": "Rappresentante",
+      "chooseRepresentative": "Scegli rappresentante",
+      "applicationDate": "Data della domanda",
+      "registrationDate": "Data di registrazione",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "status": "Stato",
+      "certificate": "Certificato",
+      "certificateOptions": {
+        "with": "Con certificato",
+        "without": "Senza certificato"
+      },
+      "statusOptions": {
+        "registered": "Registrata"
+      },
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "spcList": {
+    "description": "Certificati protettivi complementari: territorio, rivendicazioni, proprietario e registrazione in sintesi.",
+    "emptyDescription": "Prova a modificare i filtri o crea un nuovo file SPC.",
+    "searchResults": "Risultati della ricerca: {{count}}",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Registrata"
+    },
+    "columns": {
+      "name": "Nome",
+      "territory": "Territorio",
+      "incomingRef": "In arrivo n. / data",
+      "status": "Stato",
+      "classes": "Classi",
+      "owner": "Proprietaria",
+      "kind": "Tipa",
+      "registration": "Reg. NO. / data"
+    },
+    "filters": {
+      "title": "Filtra i file SPC",
+      "subtitle": "Restringi il portfolio per richiedente, numeri, date, territorio e altro.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del proprietario...",
+      "name": "Nome del brevetto",
+      "namePlaceholder": "Nome dell'SPC...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Registrazione n.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "territory": "Territorio",
+      "choose": "Scegliere",
+      "chooseTerritory": "Scegli il territorio",
+      "representative": "Rappresentante",
+      "chooseRepresentative": "Scegli rappresentante",
+      "applicationDate": "Data della domanda",
+      "registrationDate": "Data di registrazione",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "status": "Stato del brevetto",
+      "certificate": "Certificato",
+      "certificateOptions": {
+        "with": "Con certificato",
+        "without": "Senza certificato"
+      },
+      "statusOptions": {
+        "registered": "Registrata"
+      },
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Cause giudiziarie: parti, numero della causa, tribunale e status in sintesi.",
+    "emptyDescription": "Crea un nuovo fascicolo del caso per iniziare.",
+    "searchResults": "Risultati della ricerca: {{count}}",
+    "incomingSuffix": "in arrivo",
+    "vrs": "vs.",
+    "viewAria": "Visualizza {{title}}",
+    "filesAria": "Documenti per {{title}} ({{count}})",
+    "columns": {
+      "parties": "Parti",
+      "caseNumber": "Caso n.",
+      "court": "Tribunale",
+      "status": "Stato",
+      "actions": "Azioni"
+    },
+    "statusOptions": {
+      "suspended": "Sospesa",
+      "scheduled": "Programmata",
+      "inactive": "Inattiva",
+      "appealed": "Appello"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Cliente",
+    "caseNumberLabel": "Caso n.",
+    "statusTitle": "Stato",
+    "chooseStatus": "Scegli lo stato",
+    "saveStatus": "Salva stato",
+    "edit": "Modificare",
+    "save": "Salva",
+    "cancel": "Cancellare",
+    "saving": "Risparmio…",
+    "editHint": "Aggiorna parti, dettagli del tribunale, oggetto e altri dati del caso.",
+    "subjectTitle": "Oggetto del caso",
+    "instanceTitle": "Caso n. {{number}} ({{court}})",
+    "eventsTitle": "Eventi",
+    "reminderTitle": "Crea un promemoria aggiuntivo",
+    "addReminder": "Aggiungere",
+    "openArchive": "Archivio file",
+    "saved": "Salvato.",
+    "events": {
+      "date": "Data",
+      "deadline": "Scadenza",
+      "regarding": "Per quanto riguarda",
+      "info": "Ulteriori informazioni"
+    },
+    "actions": {
+      "decision": "Decisione",
+      "agreement": "Accordo",
+      "ruling": "Sentenza"
+    },
+    "errors": {
+      "saveFailed": "Impossibile salvare i dettagli del caso."
+    }
+  },
+  "giList": {
+    "description": "Indicazioni geografiche: territorio, classi di prodotto, titolare e registrazione in sintesi.",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di indicazioni geografiche.",
+    "searchResults": "Risultati della ricerca: {{count}}",
+    "territoryEu": "Unione Europea",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Registrata"
+    },
+    "columns": {
+      "name": "Nome",
+      "territory": "Territorio",
+      "incomingRef": "In arrivo n. / data",
+      "status": "Stato",
+      "classification": "Classificazione",
+      "owner": "Proprietaria",
+      "registration": "Reg. NO. / data"
+    },
+    "filters": {
+      "title": "Filtra le indicazioni geografiche",
+      "subtitle": "Restringi il portafoglio per richiedente, numeri, date, percorso territoriale e altro ancora.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del proprietario...",
+      "name": "Nome",
+      "namePlaceholder": "Nome GI...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Registrazione n.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "territory": "Territorio",
+      "choose": "Scegliere",
+      "chooseTerritory": "Scegli percorso territoriale",
+      "representative": "Rappresentante",
+      "chooseRepresentative": "Scegli rappresentante",
+      "applicationDate": "Data della domanda",
+      "registrationDate": "Data di registrazione",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "status": "Stato",
+      "certificate": "Certificato",
+      "certificateOptions": {
+        "with": "Con certificato",
+        "without": "Senza certificato"
+      },
+      "country": "Paese",
+      "chooseCountry": "Scegli il paese",
+      "statusOptions": {
+        "registered": "Registrata"
+      },
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "designList": {
+    "description": "Disegni e modelli registrati: territorio, classificazione di Locarno, titolare e registrazione in sintesi.",
+    "emptyDescription": "Prova a regolare i filtri o crea un nuovo file di progettazione.",
+    "searchResults": "Risultati della ricerca: {{count}}",
+    "territoryEu": "Unione Europea",
+    "territoryWipo": "OMPI",
+    "status": {
+      "registered": "Registrata"
+    },
+    "columns": {
+      "name": "Nome",
+      "territory": "Territorio",
+      "incomingRef": "In arrivo n. / data",
+      "status": "Stato",
+      "classification": "Classificazione",
+      "owner": "Proprietaria",
+      "registration": "Reg. NO. / data"
+    },
+    "filters": {
+      "title": "Filtra i disegni",
+      "subtitle": "Restringi il portfolio per richiedente, numeri, date, procedura e altro.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del proprietario...",
+      "name": "Nome",
+      "namePlaceholder": "Nome del disegno...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Registrazione n.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "territory": "Territorio",
+      "procedure": "Procedura",
+      "choose": "Scegliere",
+      "chooseTerritory": "Scegli il territorio",
+      "representative": "Rappresentante",
+      "chooseRepresentative": "Scegli rappresentante",
+      "applicationDate": "Data della domanda",
+      "registrationDate": "Data di registrazione",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "status": "Stato",
+      "certificate": "Certificato",
+      "certificateOptions": {
+        "with": "Con certificato",
+        "without": "Senza certificato"
+      },
+      "country": "Paese",
+      "statusOptions": {
+        "registered": "Registrata"
+      },
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "patentList": {
+    "description": "Brevetti nuovi e registrati insieme: fase del procedimento giudiziario, rivendicazioni, titolare e scadenze a colpo d'occhio.",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di brevetto.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Nome del brevetto",
+      "territory": "Territorio",
+      "incomingRef": "Domanda/entrata n.",
+      "stage": "Stato",
+      "claims": "Affermazioni",
+      "owner": "Proprietaria",
+      "registration": "Reg. NO. / data",
+      "deadline": "Scadenza"
+    },
+    "deadlineOpen": "{{count}} aperto",
+    "deadlineOverdue": "{{count}} in ritardo",
+    "deadlineNext": "Successivo: {{date}}",
+    "filters": {
+      "title": "Filtra i brevetti",
+      "subtitle": "Restringi il portfolio per richiedente, numeri, date, territorio e altro.",
+      "activeCount": "{{count}} attivo",
+      "applicant": "Richiedente/proprietario",
+      "applicantPlaceholder": "Nome del cliente o del proprietario...",
+      "patentName": "Nome del brevetto",
+      "patentNamePlaceholder": "Titolo del brevetto...",
+      "incomingNo": "In arrivo n.",
+      "incomingPlaceholder": "Domanda / in arrivo...",
+      "regNo": "Reg. NO.",
+      "regNoPlaceholder": "Numero di registrazione...",
+      "territory": "Territorio",
+      "choose": "Scegliere",
+      "chooseTerritory": "Scegli il territorio",
+      "representative": "Rappresentante",
+      "chooseRepresentative": "Scegli rappresentante",
+      "applicationDateFrom": "Data della domanda da",
+      "applicationDateTo": "Data della domanda a",
+      "registrationDateFrom": "Data di registrazione dal",
+      "registrationDateTo": "Data di registrazione a",
+      "contact": "Referente",
+      "contactPlaceholder": "Nome del contatto, email o telefono...",
+      "patentStatus": "Stato del brevetto",
+      "certificate": "Certificato",
+      "certificateOptions": {
+        "with": "Con certificato",
+        "without": "Senza certificato"
+      },
+      "country": "Paese",
+      "chooseCountry": "Scegli il paese",
+      "annualFees": "Pagamento quota annuale",
+      "annualFeesOptions": {
+        "yes": "SÌ",
+        "no": "NO"
+      },
+      "statusOptions": {
+        "validation_received": "Convalida ricevuta",
+        "assignment": "Compito",
+        "translation_assigned": "Traduzione assegnata",
+        "filing_entry": "Archiviazione/iscrizione",
+        "validation_decision": "Decisione di convalida",
+        "registered": "Registrata"
+      },
+      "all": "Tutto",
+      "clear": "Cancella filtri",
+      "apply": "Applica filtri"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Segni"
+  },
+  "objectionList": {
+    "view": "Visualizzazione",
+    "fileArchive": "Archivio file",
+    "viewAria": "Visualizza obiezione {{title}}",
+    "filesAria": "Apri archivio file per {{title}} (file {{count}})",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di obiezioni.",
+    "columns": {
+      "againstMark": "Contro Marco",
+      "grounds": "Motivi",
+      "client": "Cliente",
+      "status": "Stato",
+      "actions": "Azioni"
+    }
+  },
+  "oppositionList": {
+    "view": "Visualizzazione",
+    "fileArchive": "Archivio file",
+    "viewAria": "Visualizza l'opposizione {{title}}",
+    "filesAria": "Apri l'archivio dei fascicoli di opposizione per {{title}} (file {{count}})",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di opposizione.",
+    "columns": {
+      "againstMark": "Contro Marco",
+      "client": "Cliente",
+      "status": "Stato",
+      "actions": "Azioni"
+    },
+    "stages": {
+      "disputes_division": "Opposizione nella divisione delle controversie",
+      "opposition_decision": "Decisione dell'opposizione",
+      "disputes_department_decision": "Decisione del dipartimento delle controversie",
+      "case": "Caso",
+      "stopped": "Fermato",
+      "closed": "Chiusa"
+    },
+    "stageLegend": {
+      "disputes_division": "Blu: in fase di revisione nella divisione controversie",
+      "opposition_decision": "Ambra: decisione emessa o pendente",
+      "disputes_department_decision": "Arancione: decisione a livello di dipartimento",
+      "case": "Rosso: passato al tribunale",
+      "stopped": "Gray: il procedimento è stato sospeso",
+      "closed": "Verde: l'opposizione è finita"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Obiezione",
+    "basicInfo": "Informazioni di base",
+    "foundation": "Fondazione",
+    "archiveTitle": "Archivio file di opposizione",
+    "nav": {
+      "view": "Visualizzazione",
+      "archive": "Archivio file"
+    },
+    "markName": "Nome del marchio",
+    "applicationNumber": "Numero della domanda",
+    "applicationDate": "Data della domanda",
+    "classes": "Classi",
+    "markType": "Tipo di marchio",
+    "applicant": "Richiedente",
+    "noMarkImage": "Il marchio non ha immagine",
+    "grounds": "Fondazione",
+    "submissionDate": "Data di invio",
+    "incomingNumber": "Numero in arrivo",
+    "poaIncomingNumber": "Numero della procura in entrata",
+    "poaDate": "Data",
+    "edit": "Modificare",
+    "cancel": "Cancellare",
+    "save": "Salva modifiche",
+    "saving": "Risparmio…",
+    "errors": {
+      "markNameRequired": "Il nome del marchio è obbligatorio.",
+      "saveFailed": "Impossibile salvare l'obiezione."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Opposizione",
+    "subjectMark": "Marchio dell'oggetto",
+    "opposingMarks": "Marchi in opposizione",
+    "archiveTitle": "Archivio dei fascicoli di opposizione",
+    "nav": {
+      "view": "Visualizzazione",
+      "archive": "Archivio file",
+      "notes": "Note"
+    },
+    "markName": "Nome del marchio",
+    "applicationNumber": "Numero della domanda",
+    "applicationDate": "Data della domanda",
+    "classes": "Classi",
+    "markType": "Tipo di marchio",
+    "applicant": "Richiedente",
+    "representative": "Rappresentante",
+    "noMarkImage": "Il marchio non ha immagine",
+    "noBasisMarks": "Nessun marchio opposto registrato.",
+    "basisMarkName": "Nome del marchio",
+    "basisTerritory": "Territorio",
+    "basisMarkNo": "Segna n.",
+    "basisAppDate": "Data della domanda",
+    "basisClasses": "Classi",
+    "againstClasses": "Contro le classi",
+    "submittedBy": "Inserito da",
+    "statusHistory": "Cronologia dello stato",
+    "stage": "Stato",
+    "stagePlaceholder": "Seleziona lo stato...",
+    "stageNone": "Non impostato",
+    "stageChangeHint": "Il salvataggio di un nuovo stato aggiorna il badge colorato nell'elenco delle opposizioni, aggiunge una riga alla cronologia degli stati e imposta la pratica su In sospeso (interrotto) o Chiusa, se applicabile.",
+    "decisionNumber": "Numero della decisione",
+    "decisionDate": "Data della decisione",
+    "actions": {
+      "stop": "Fermare",
+      "print": "Stampa PDF",
+      "printing": "Generazione…",
+      "stopFailed": "Impossibile fermare l'opposizione.",
+      "printFailed": "Impossibile generare il PDF."
+    },
+    "stageDescriptions": {
+      "disputes_division": "L'opposizione è all'esame della divisione contese.",
+      "opposition_decision": "È stata emessa o è prevista una decisione sull'opposizione.",
+      "disputes_department_decision": "Il dipartimento delle controversie ha emesso o sta rivedendo la sua decisione.",
+      "case": "La questione è stata trasferita a un caso giudiziario.",
+      "stopped": "I procedimenti di opposizione sono sospesi; la pratica è impostata su In attesa.",
+      "closed": "L'opposizione è finita; la pratica è impostata su Chiusa."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Divisione opposizione nelle controversie",
+      "opposition_decision": "Decisione sull'opposizione n. {{number}} / {{date}}",
+      "disputes_department_decision": "Decisione del dipartimento contenzioso n. {{number}} / {{date}}",
+      "case": "Decisione impugnata sull'opposizione n. {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Fermata l'opposizione",
+      "closed": "{{markRef}} — Opposizione chiusa"
+    },
+    "timeline": {
+      "decision": "Decisione sull'opposizione",
+      "department_decision": "Decisione del dipartimento delle controversie",
+      "second_decision": "Seconda decisione sull'opposizione",
+      "appealedBy": "Presentato ricorso da {{name}}",
+      "appealedInCourtBy": "Presentato ricorso in tribunale da {{name}}",
+      "decisionRef": "N. {{number}} / {{date}}",
+      "appealFiled": "Presentato ricorso",
+      "courtAppealFiled": "Presentato ricorso in tribunale"
+    },
+    "workflow": {
+      "appealTitle": "Ricorso: numero in entrata",
+      "correspondenceTitle": "Corrispondenza",
+      "solutionTitle": "Soluzione",
+      "incomingNumber": "Numero in arrivo",
+      "date": "Data",
+      "attachAppeal": "Allega appello",
+      "attachDocument": "Allega documento",
+      "regarding": "Per quanto riguarda",
+      "deadline": "Scadenza",
+      "additionalInfo": "Ulteriori informazioni",
+      "correspondence": "Corrispondenza",
+      "submit": "Invia",
+      "solutionSubmit": "Soluzione",
+      "caseDraft": "Bozza del caso",
+      "courtAppeal": "Ricorso in tribunale",
+      "saveFailed": "Impossibile salvare."
+    },
+    "edit": "Modificare",
+    "cancel": "Cancellare",
+    "save": "Salva modifiche",
+    "saving": "Risparmio…",
+    "errors": {
+      "markNameRequired": "Il nome del marchio è obbligatorio.",
+      "saveFailed": "Impossibile salvare l'opposizione."
+    },
+    "notes": {
+      "title": "Note dell'opposizione",
+      "empty": "Nessuna nota ancora.",
+      "date": "Data",
+      "regarding": "Per quanto riguarda",
+      "details": "Ulteriori informazioni",
+      "submit": "Aggiungere",
+      "regardingRequired": "Inserisci un oggetto per la nota.",
+      "saveFailed": "Impossibile salvare la nota.",
+      "editAria": "Modifica nota",
+      "deleteAria": "Elimina nota"
+    }
+  },
+  "cancellationList": {
+    "view": "Panoramica",
+    "fileArchive": "File",
+    "viewAria": "Visualizza cancellazione {{title}}",
+    "filesAria": "Apri archivio file di annullamento per {{title}} (file {{count}})",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di cancellazione.",
+    "stageNone": "Non impostato",
+    "columns": {
+      "againstMark": "Contro un marchio",
+      "client": "Cliente",
+      "status": "Stato",
+      "actions": "Azioni"
+    },
+    "stages": {
+      "waiting_for_login": "In attesa di accesso",
+      "in_correspondence": "In corrispondenza",
+      "case": "Caso",
+      "stopped": "Fermato",
+      "closed": "Chiusa"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Cancellazione",
+    "subjectMark": "Marchio dell'oggetto",
+    "cancellationSide": "Dettagli di cancellazione",
+    "archiveTitle": "Archivio file di cancellazione",
+    "nav": {
+      "view": "Visualizzazione",
+      "archive": "Archivio file",
+      "notes": "Note"
+    },
+    "markName": "Nome del marchio",
+    "applicationNumber": "Numero della domanda",
+    "applicationDate": "Data della domanda",
+    "registrationNumber": "Numero di registrazione",
+    "classes": "Classi",
+    "markType": "Tipo di segno",
+    "applicant": "Richiedente",
+    "representative": "Rappresentante",
+    "againstClasses": "Contro le classi",
+    "submittedBy": "Inserito da",
+    "foundation": "Fondazione",
+    "stage": "Stato",
+    "stagePlaceholder": "Seleziona lo stato...",
+    "stageNone": "Non impostato",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Cancellazione",
+      "in_correspondence": "N. annullamento {{number}} / {{date}}",
+      "case": "Annullamento n. {{number}} / {{date}} — Caso",
+      "stopped": "{{markRef}}: annullamento interrotto",
+      "closed": "{{markRef}} — Cancellazione chiusa"
+    },
+    "deadlines": {
+      "date": "Data",
+      "deadline": "Scadenza",
+      "regarding": "Per quanto riguarda",
+      "details": "Ulteriori informazioni"
+    },
+    "workflow": {
+      "feeTitle": "Tassa statale: data del pagamento",
+      "poaTitle": "Procura",
+      "filingTitle": "Dichiarazione di cancellazione",
+      "correspondenceTitle": "Corrispondenza",
+      "feeAmount": "Importo (BGN)",
+      "feeDate": "Data del pagamento",
+      "poaNumber": "Numero del POA",
+      "poaDate": "Data di ricezione",
+      "cancellationNumber": "Numero di cancellazione",
+      "filingDate": "Data di deposito",
+      "attachDocument": "Allega documento",
+      "attachPoa": "Allega POA",
+      "regarding": "Per quanto riguarda",
+      "deadline": "Scadenza",
+      "additionalInfo": "Ulteriori informazioni",
+      "submit": "Invia",
+      "decision": "Decisione",
+      "feePaid": "Tassa statale registrata",
+      "poaReceived": "Procura registrata",
+      "filingRecorded": "Domanda di annullamento registrata",
+      "correspondence": "Corrispondenza",
+      "saveFailed": "Impossibile salvare."
+    },
+    "actions": {
+      "stop": "Fermare",
+      "stopFailed": "Impossibile fermare la cancellazione."
+    },
+    "edit": "Modificare",
+    "cancel": "Cancellare",
+    "save": "Salva modifiche",
+    "saving": "Risparmio…",
+    "errors": {
+      "markNameRequired": "Il nome del marchio è obbligatorio.",
+      "saveFailed": "Impossibile salvare l'annullamento."
+    },
+    "notes": {
+      "title": "Note di cancellazione",
+      "empty": "Nessuna nota ancora.",
+      "date": "Data",
+      "regarding": "Per quanto riguarda",
+      "details": "Ulteriori informazioni",
+      "submit": "Aggiungere",
+      "regardingRequired": "Inserisci un oggetto per la nota.",
+      "saveFailed": "Impossibile salvare la nota.",
+      "editAria": "Modifica nota",
+      "deleteAria": "Elimina nota"
+    }
+  },
+  "deletionList": {
+    "view": "Panoramica",
+    "fileArchive": "File",
+    "viewAria": "Visualizza eliminazione {{title}}",
+    "filesAria": "Apri l'archivio file di eliminazione per {{title}} (file {{count}})",
+    "emptyDescription": "Prova a modificare i filtri o a creare un nuovo file di eliminazione.",
+    "stageNone": "Non impostato",
+    "columns": {
+      "againstMark": "Contro un marchio",
+      "client": "Cliente",
+      "status": "Stato",
+      "actions": "Azioni"
+    },
+    "stages": {
+      "waiting_for_login": "Invia eliminazione",
+      "in_correspondence": "In corrispondenza",
+      "decision": "Decisione",
+      "case": "Caso",
+      "stopped": "Fermato",
+      "closed": "Chiusa"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Cancellazione",
+    "subjectMark": "Marchio dell'oggetto",
+    "deletionSide": "Dettagli sulla cancellazione",
+    "archiveTitle": "Eliminazione archivio file",
+    "archivedStamp": "Archiviata",
+    "noMarkImage": "Il marchio non ha immagine",
+    "nav": {
+      "view": "Visualizzazione",
+      "archive": "Archivio file"
+    },
+    "markName": "Nome del marchio",
+    "applicationNumber": "Numero della domanda",
+    "applicationDate": "Data della domanda",
+    "registrationNumber": "Numero di registrazione",
+    "classes": "Classi",
+    "markType": "Tipo di segno",
+    "applicant": "Richiedente",
+    "representative": "Rappresentante",
+    "againstClasses": "Contro le classi",
+    "submittedBy": "Inserito da",
+    "foundation": "Fondazione",
+    "stage": "Stato",
+    "stagePlaceholder": "Seleziona lo stato...",
+    "stageNone": "Non impostato",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Eliminazione",
+      "in_correspondence": "Cancellazione n. {{number}} / {{date}}",
+      "decision": "Decisione di cancellazione n. {{number}} / {{date}}",
+      "case": "Decisione di cancellazione n. {{number}} / {{date}} — Caso",
+      "stopped": "{{markRef}}: interrotto (fino al {{stopUntil}})",
+      "closed": "{{markRef}}: eliminazione chiusa"
+    },
+    "deadlines": {
+      "date": "Data del promemoria",
+      "deadline": "Scadenza",
+      "regarding": "Per quanto riguarda",
+      "details": "Ulteriori informazioni",
+      "appealTitle": "Termine per il ricorso"
+    },
+    "stopped": {
+      "title": "Fermato",
+      "until": "(fino al {{date}})",
+      "reason": "Motivo: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Genera proforma",
+      "stateFee": "Tassa statale",
+      "feePaymentDeadline": "Termine ultimo per il pagamento",
+      "poaSendDeadline": "Termine per l'invio della procura",
+      "filingDeadlineLabel": "Termine per il deposito",
+      "remindBefore": "Ricordalo prima",
+      "reminderDays": "Giorni",
+      "reminderMonths": "Mesi",
+      "feeDeadlineRegarding": "Termine per il pagamento della tassa statale",
+      "poaDeadlineRegarding": "Termine per l'invio della procura",
+      "filingDeadlineRegarding": "Termine ultimo per presentare la cancellazione",
+      "proformaRecorded": "Proforma e scadenze registrate",
+      "feeTitle": "Tassa statale: data del pagamento",
+      "poaTitle": "Procura",
+      "filingTitle": "Archiviazione di cancellazione",
+      "correspondenceTitle": "Corrispondenza",
+      "decisionTitle": "Decisione di cancellazione",
+      "feeAmount": "Importo (BGN)",
+      "feeDate": "Data del pagamento",
+      "poaNumber": "Numero del POA",
+      "poaDate": "Data di ricezione",
+      "deletionNumber": "Numero di cancellazione",
+      "filingDate": "Data di deposito",
+      "decisionNumber": "Numero della decisione",
+      "decisionDate": "Data della decisione",
+      "attachDocument": "Allega documento",
+      "attachPoa": "Allega POA",
+      "regarding": "Per quanto riguarda",
+      "deadline": "Scadenza",
+      "additionalInfo": "Ulteriori informazioni",
+      "submit": "Invia",
+      "decision": "Decisione",
+      "caseDraft": "Bozza del caso",
+      "notAppealed": "Non presentato ricorso",
+      "appealed": "Appello",
+      "feePaid": "Tassa statale registrata",
+      "poaReceived": "Procura registrata",
+      "filingRecorded": "Archiviazione di cancellazione registrata",
+      "decisionRecorded": "Decisione di cancellazione registrata",
+      "correspondence": "Corrispondenza",
+      "decisionNumberRequired": "Immettere il numero della decisione.",
+      "saveFailed": "Impossibile salvare."
+    },
+    "actions": {
+      "stop": "Fermare",
+      "stopReason": "Motivo",
+      "stopUntil": "Mi sono fermato fino a",
+      "restore": "Ripristinare",
+      "restored": "Restaurata",
+      "archive": "Archivio",
+      "archiveConfirm": "Archiviare questo file di eliminazione?",
+      "archiveFailed": "Impossibile archiviare l'eliminazione.",
+      "stopFailed": "Impossibile interrompere l'eliminazione.",
+      "restoreFailed": "Impossibile ripristinare l'eliminazione."
+    },
+    "edit": "Modificare",
+    "cancel": "Cancellare",
+    "save": "Salva modifiche",
+    "saving": "Risparmio…",
+    "errors": {
+      "markNameRequired": "Il nome del marchio è obbligatorio.",
+      "saveFailed": "Impossibile salvare l'eliminazione."
+    }
   },
   "ipRightsRegister": {
     "description": "Registro dei diritti di proprietà intellettuale a livello aziendale con filtri per cliente, giurisdizione, tipologia, stato e scadenza.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Combinato",
+    "combination_of_colors": "Combinazione di colori",
     "figurative": "Figurativa",
     "sound": "Suono",
     "three_dimensional": "3D",
-    "wordmark": "Marchio denominativo",
-    "combination_of_colors": "Combinazione di colori"
+    "wordmark": "Marchio denominativo"
   },
   "overview": {
     "assignedTo": "Avvocato principale",
@@ -801,18 +2570,6 @@
     "clientHint": "Parte ordinante: riceve le fatture",
     "intermediary": "Intermediaria",
     "description": "Descrizione",
-    "jurisdictions": "Giurisdizioni",
-    "jurisdictionsEmpty": "Nessuna giurisdizione registrata.",
-    "openedBy": "Aperto da",
-    "status": "Stato",
-    "table": {
-      "country": "Paese",
-      "localRef": "Rif. locale",
-      "status": "Stato"
-    },
-    "title": "Dettagli file",
-    "type": "Tipo di lavoro",
-    "typeSpecific": "Attributi specifici del tipo",
     "edit": {
       "cancel": "Cancellare",
       "edit": "Modificare",
@@ -829,7 +2586,19 @@
       "saved": "Salvato.",
       "saving": "Risparmio…",
       "title": "Dettagli del file"
-    }
+    },
+    "jurisdictions": "Giurisdizioni",
+    "jurisdictionsEmpty": "Nessuna giurisdizione registrata.",
+    "openedBy": "Aperto da",
+    "status": "Stato",
+    "table": {
+      "country": "Paese",
+      "localRef": "Rif. locale",
+      "status": "Stato"
+    },
+    "title": "Dettagli del file",
+    "type": "Tipo di lavoro",
+    "typeSpecific": "Attributi specifici del tipo"
   },
   "parties": {
     "title": "Parti",
@@ -874,11 +2643,12 @@
     "instructions": "Istruzioni",
     "approvals": "Approvazioni",
     "ipRights": "Diritti di proprietà intellettuale",
+    "secondaryActions": "Azioni secondarie",
     "customs": "Dogana",
     "overview": "Panoramica",
     "tasks": "Note",
     "timeline": "Cronologia",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} il {{tab}}"
   },
   "approvals": {
     "title": "Approvazioni del cliente",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Aggiungi attività",
+    "add": "Aggiungi nota",
     "assignedTo": "Assegnato a",
     "assignedToUser": "Assegnato a {{name}}",
     "completed": "Completato",
     "completedByUser": "Completato da {{name}}",
-    "confirmComplete": "Contrassegnare questa attività come completata?",
-    "confirmDelete": "Eliminare questa attività?",
+    "confirmComplete": "Contrassegnare questa nota come completata?",
+    "confirmDelete": "Eliminare questa nota?",
     "delete": "Eliminare",
-    "deleteMessage": "Questa attività verrà rimossa definitivamente.",
-    "deleteTitle": "Eliminare l'attività?",
-    "description": "Lavoro da svolgere su questo argomento, separato dalle scadenze generate dal sistema.",
-    "drawerTitle": "Aggiungi attività",
+    "deleteMessage": "Questa nota verrà rimossa definitivamente.",
+    "deleteTitle": "Eliminare la nota?",
+    "description": "Note interne su questo argomento: separate dalle scadenze generate dal sistema.",
+    "drawerTitle": "Aggiungi nota",
     "dueOn": "Scadenza {{date}}",
-    "empty": "Nessun compito su questo argomento.",
-    "emptyOpen": "Nessuna attività aperta. Aggiungine uno quando c'è lavoro da monitorare su questo argomento.",
-    "error": "Impossibile caricare le attività.",
-    "errorCreate": "Impossibile creare l'attività",
+    "empty": "Nessuna nota su questo argomento.",
+    "emptyOpen": "Nessuna nota aperta. Aggiungine uno quando c'è qualcosa da tenere traccia su questo argomento.",
+    "error": "Impossibile caricare le note.",
+    "errorCreate": "Impossibile creare la nota",
     "form": {
       "assigneeLabel": "Assegnato a",
-      "assigneeRequired": "Seleziona chi dovrebbe svolgere questa attività",
+      "assigneeRequired": "Seleziona a chi è destinata questa nota",
       "dueDateOptional": "Data di scadenza (facoltativa)",
       "notesOptional": "Note (facoltativo)",
       "notesPlaceholder": "Qualsiasi contesto aggiuntivo per l'assegnatario",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "per esempio. Chiamare il client in riferimento: risposta BPO",
       "titleRequired": "Il titolo è obbligatorio"
     },
-    "loading": "Caricamento attività…",
+    "loading": "Caricamento note...",
     "markComplete": "Segna come completato",
     "noDueDate": "Nessuna data di scadenza",
     "open": "Aprire",
@@ -954,7 +2724,7 @@
       "high": "Alto",
       "normal": "Normale"
     },
-    "title": "Compiti"
+    "title": "Note"
   },
   "timeline": {
     "description": "Storia cronologica dell'accusa e della corrispondenza su questo argomento.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Controversia/opposizione",
     "domain": "Domini",
     "fto_analysis": "Analisi FTO",
-    "geographical_indication": "Indicazione geografica",
-    "industrial_design": "Progettazione industriale",
+    "geographical_indication": "Indicazioni geografiche",
+    "industrial_design": "Progetto",
     "litigation_expert_report": "Contenzioso/Perizie del tribunale",
     "official_fee_payment": "Pagamenti delle tariffe ufficiali",
     "other": "Altra",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Selezionare…",
     "title": "Dettagli specifici del tipo"
   },
-  "createFile": {
-    "addClass": "Aggiungi classe",
-    "backToFiles": "Torniamo ai file",
-    "cancel": "Cancellare",
-    "changeSubtype": "Cambia sottocategoria",
-    "checkRegister": "Verifica nel registro delle imprese",
-    "clearClient": "Cambia cliente",
-    "clientOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del cliente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
-    "applicantOptionalHint": "Nessuna corrispondenza CRM? Compila i dettagli del richiedente di seguito: il salvataggio della bozza li creerà automaticamente in Clienti.",
-    "draftDescription": "Creato tramite Crea file ({{procedure}}) — bozza",
-    "errors": {
-      "client": "Seleziona un cliente per continuare.",
-      "clientOrDetails": "Seleziona un cliente CRM o inserisci il nome e i dettagli del cliente per crearlo.",
-      "applicantOrDetails": "Seleziona un candidato in CRM o inserisci il nome e i dettagli del candidato per crearlo.",
-      "jurisdiction": "Seleziona almeno un territorio/paese.",
-      "markWords": "Inserisci il nome/le parole del marchio.",
-      "saveFailed": "Impossibile salvare la bozza del file.",
-      "subtype": "Seleziona una sottocategoria del marchio.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Riferimento e stato del file",
+    "incomingNumber": {
+      "label": "In arrivo n."
     },
-    "euHint": "Marchio dell'Unione Europea (EUIPO): giurisdizione impostata su UE.",
-    "fields": {
-      "address": "Indirizzo",
-      "applicantClient": "Cliente richiedente",
-      "applicantClientOptional": "Candidato in CRM (facoltativo)",
-      "city": "Città",
-      "classNumber": "Numero di classe",
-      "country": "Paese",
-      "eik": "UIC/EIK",
-      "email": "E-mail",
-      "fax": "Fax",
-      "goodsText": "Beni e servizi",
-      "legalName": "Nome e tipo di persona giuridica",
-      "linkClient": "Seleziona il cliente nel CRM",
-      "linkClientOptional": "Client CRM (facoltativo)",
-      "markKind": "Segna categoria",
-      "markType": "Tipo di segno",
-      "markWords": "Parole del segno",
-      "mol": "MOL (firmatario)",
-      "name": "Nome",
-      "phone": "Telefono",
-      "postalCode": "Codice Postale",
-      "territory": "Territorio",
-      "vat": "Partita IVA",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Data di arrivo"
     },
-    "formTitle": "Crea file: Marchio",
-    "fullFormReady": "Disponibile il modulo completo",
-    "goodsPlaceholder": "per esempio. bottiglie; servizi al dettaglio…",
-    "markKinds": {
-      "certification": "Certificazione",
-      "collective": "Collettiva",
-      "individual": "Individuale"
+    "territoryRoute": {
+      "label": "Itinerario del territorio",
+      "options": {
+        "national_bg": "Bulgaria (nazionale)",
+        "eu": "Unione Europea",
+        "wipo": "OMPI/internazionale",
+        "international": "Altro internazionale"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Combinazione di colori",
-      "combined": "Combinato",
-      "figurative": "Figurativa",
-      "sound": "Suono",
-      "three_dimensional": "Tridimensionale",
-      "wordmark": "Marchio denominativo"
+    "authorityOffice": {
+      "label": "Autorità/ufficio"
     },
-    "noClients": "Nessun cliente corrispondente. Crea prima il cliente in CRM, quindi torna qui.",
-    "optionalMark": "Segna/oggetto (facoltativo)",
-    "partialSubtypeNote": "I campi specializzati completi per questa sottocategoria verranno ampliati in seguito. Puoi comunque salvare una bozza collegata al cliente; i documenti e la corrispondenza restano in archivio.",
-    "preliminary": "Informazioni preliminari",
-    "procedureHints": {
-      "new": "Domanda di nuovo marchio — modulo completo",
-      "registered": "Marchio già registrato",
-      "objection": "Procedimento di obiezione",
-      "opposition": "Procedimento di opposizione",
-      "cancellation": "Procedimento di annullamento",
-      "deletion": "Procedimento di cancellazione",
-      "opposition_against_us": "Procedimento di opposizione",
-      "opposition_by_us": "Procedimento di opposizione",
-      "revocation": "Procedimento di cancellazione"
+    "relatedApplicationNumber": {
+      "label": "Domanda correlata n."
     },
-    "procedures": {
-      "new": "Nuovo marchio",
-      "registered": "Marchio registrato",
-      "objection": "Obiezione",
-      "opposition": "Opposizione",
-      "cancellation": "Annullamento",
-      "deletion": "Cancellazione",
-      "opposition_against_us": "Opposizione",
-      "opposition_by_us": "Opposizione",
-      "revocation": "Cancellazione"
-    },
-    "removeClass": "Rimuovi classe",
-    "sameApplicant": "Le informazioni del richiedente sono le stesse del cliente",
-    "sameCorrespondence": "L'indirizzo di corrispondenza è lo stesso dell'indirizzo registrato",
-    "saveDraft": "Salva come bozza",
-    "saving": "Risparmio…",
-    "searchClient": "Cerca clienti per nome o codice...",
-    "sections": {
-      "applicant": "Richiedente",
-      "client": "Dati del cliente",
-      "contact": "Referente",
-      "correspondence": "Indirizzo per la corrispondenza",
-      "goods": "Elenco di beni e servizi",
-      "markName": "Nome del marchio",
-      "registeredAddress": "Indirizzo registrato",
-      "searchDocs": "Allega i documenti di ricerca",
-      "trademark": "Informazioni sui marchi",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Seleziona i paesi",
-    "subtypeHint": "Scegli prima la sottocategoria. Nuovo marchio apre il modulo completo.",
-    "territories": {
-      "eu": "Unione Europea",
-      "international": "Internazionale (WO)",
-      "national": "Nazionale"
-    },
-    "trademarkTitle": "Crea file: marchio",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Aggiungi paese...",
-    "cancel": "Cancellare",
-    "country": "Paese",
-    "edit": "Modificare",
-    "errors": {
-      "country": "Seleziona almeno un paese per questo territorio.",
-      "saveFailed": "Impossibile salvare le informazioni sul marchio."
-    },
-    "euFixed": "Unione Europea (EUIPO)",
-    "markKind": "Segna categoria",
-    "markType": "Tipo di segno",
-    "noCountries": "Nessun paese ancora selezionato.",
-    "save": "Salva modifiche",
-    "saved": "Salvato.",
-    "saving": "Risparmio…",
-    "selectCountries": "Seleziona i paesi",
-    "territory": "Territorio",
-    "title": "Informazioni sui marchi"
-  },
-  "fileApproval": {
-    "clientStep": "1. Approvato dal cliente",
-    "clientStepHint": "Il personale conferma il cliente concordato offline (chiamata/e-mail/riunione). Non è necessario che il client del portale approvi autonomamente.",
-    "errors": {
-      "updateFailed": "Impossibile aggiornare lo stato di approvazione."
-    },
-    "hint": "Solo approvazione interna: contrassegnare che il cliente è d'accordo, quindi un socio amministratore accetta il file. Non è richiesta l'approvazione dell'invio al cliente.",
-    "markClientApproved": "Contrassegna il cliente come approvato",
-    "partnerApprove": "File di approvazione del partner",
-    "partnerOnly": "Solo il socio amministratore può completare questo passaggio",
-    "partnerStep": "2. Il socio amministratore accetta",
-    "partnerStepHint": "Dopo che il cliente è stato contrassegnato come approvato, il socio amministratore accetta il file e lascia la bozza.",
-    "recordedBy": "Registrato da {{name}} · {{date}}",
-    "title": "Approvazione del fascicolo",
-    "waitForClient": "Contrassegnare prima il cliente come approvato, quindi sarà possibile accettare il file."
-  },
-  "prosecution": {
-    "cancelEdit": "Cancellare",
-    "completeStage": "Fase completa",
-    "edit": "Modificare",
-    "editingNote": "Utilizza Salva per conservare ciò che hai inserito in questa fase oppure Completa fase per andare avanti una volta compilati i campi obbligatori.",
-    "gateHint": "Non puoi andare avanti finché i campi richiesti per questa fase non vengono riempiti (come i cancelli del sistema).",
-    "goBack": "Torna indietro di una tappa",
-    "errors": {
-      "needAttachments": "Allega i file richiesti prima di continuare: {{list}}",
-      "needInvoice": "Genera la fattura dalla tassa statale prima di completare questa fase.",
-      "alreadyFinal": "Questo file è già nella fase finale.",
-      "needApproval": "Terminare l'approvazione del file (cliente + socio amministratore) prima di lasciare la fase preparatoria.",
-      "needBulletin": "Inserire il numero e la data del bollettino prima di lasciare la pubblicazione.",
-      "needFeePaid": "Inserisci la data di pagamento della tassa statale prima di lasciare l'esame formale.",
-      "needFilingFields": "Inserisci il numero della domanda e la data di deposito per completare il deposito.",
-      "needFormalFields": "Inserisci la tassa statale e la scadenza del pagamento per continuare.",
-      "needMol": "Inserisci MOL nei dettagli del file (crea-file/modifica) prima di completare l'archiviazione.",
-      "needOfficeActionDeadline": "L'azione dell'Ufficio ha un oggetto: stabilisci la scadenza prima di continuare.",
-      "needPoaFiled": "Inserisci il numero e la data in entrata del PoA prima di lasciare l'esame formale.",
-      "needRegFeePaid": "Inserisci la data di pagamento della quota di iscrizione prima di continuare.",
-      "needRepresentative": "Inserisci almeno un rappresentante o imposta Aggiungi rappresentanti su No.",
-      "saveBeforeNavigate": "Salva o annulla le modifiche prima di tornare indietro di una fase.",
-      "saveFailed": "Impossibile salvare i dati dell'accusa."
-    },
-    "fields": {
-      "addRepresentatives": "Desideri aggiungere rappresentanti?",
-      "applicationDate": "Data della domanda",
-      "applicationNumber": "Numero della domanda",
-      "bulletinDate": "Data del bollettino",
-      "bulletinNumber": "Numero del bollettino",
-      "feePaidDate": "Data di pagamento della tassa statale",
-      "generatePoa": "Genera procura",
-      "officeAction": "Azione/richiesta dell'ufficio",
-      "officeActionDeadline": "Termine per l'azione dell'ufficio",
-      "paymentDeadline": "Termine di pagamento",
-      "poaDate": "Data del PoA",
-      "poaDeadline": "Scadenza per la presentazione della PoA",
-      "poaIncoming": "Numero in entrata PoA",
-      "regFeePaidDate": "Data di pagamento della quota di iscrizione",
-      "remindDays": "Ricordalo giorni prima della scadenza",
-      "representatives": "Rappresentante(i)",
-      "sendPoaEmail": "Invia e-mail automatica",
-      "stateFee": "Tassa statale (BGN)"
-    },
-    "molHint": "MOL deve essere impostato sui dettagli del file (dalla creazione del file). Blocchi MOL mancanti che completano questa fase.",
-    "no": "NO",
-    "prepHint": "Fase preparatoria: termina prima l'approvazione del file, poi l'accettazione del socio amministratore ti porta alla fase di archiviazione.",
-    "registeredDone": "Fase di registrazione raggiunta.",
-    "saveChanges": "Salva modifiche",
-    "saveEntered": "Salva",
-    "saved": "Salvato.",
-    "saveFields": "Salva campi",
-    "saving": "Risparmio…",
-    "stages": {
-      "filing": "Deposito",
-      "formal_exam": "Esame formale",
-      "prep": "Preparatorio",
-      "publication": "Pubblicazione",
-      "reg_fee": "Tasse di registrazione",
-      "registration": "Registrazione",
-      "substantive_exam": "Esame di merito"
-    },
-    "territoryLabel": {
-      "eu": "Gasdotto: UE",
-      "international": "Gasdotto: internazionale (WO)",
-      "national": "Oleodotto: nazionale"
-    },
-    "territoryLocked": "Territorio corretto dal file di creazione",
-    "territoryFromInfo": "Territorio dalle informazioni sui marchi",
-    "title": "Fasi della procedura",
-    "yes": "SÌ",
-    "hub": {
-      "generateInvoice": "Genera fattura",
-      "invoiceIssuedShort": "Fattura emessa",
-      "invoiceIssued": "Fattura {{number}} emessa. Il cliente può vederlo nel proprio portale; si trova anche nella scheda Fatturazione.",
-      "invoiceAlreadyIssued": "Fattura {{number}} già emessa: visibile nel portale e nella fatturazione.",
-      "invoiceFailed": "Impossibile generare la fattura. Controlla i dettagli di fatturazione del cliente.",
-      "invoiceNotes": "Tassa ufficiale/statale",
-      "uploadFailed": "Impossibile caricare il file.",
-      "needStateFee": "Inserisci prima l'importo della tassa statale.",
-      "feeDescription": "Tassa statale/ufficiale",
-      "deadlineFailed": "Impossibile creare scadenze.",
-      "deadlineTitles": {
-        "payment": "Pagamento della tassa statale",
-        "poa": "Presentazione della procura",
-        "oa": "Azione d'ufficio/richiesta di esame",
-        "oaWithSubject": "Azione dell'ufficio: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Ricordalo a {{days}} giorno/i prima della scadenza."
-      },
-      "attach": {
-        "search": "Allega file di ricerca",
-        "application": "Allega domanda",
-        "feeSlip": "Allegare bollettino tariffario",
-        "poa": "Allega PoA",
-        "officeAction": "Allega atto d'ufficio",
-        "decision": "Allega decisione",
-        "bulletin": "Allega bollettino",
-        "regFee": "Allega prova di pagamento",
-        "certificate": "Allega certificato"
+    "workflowStage": {
+      "label": "Fase del flusso di lavoro",
+      "options": {
+        "intake": "Assunzione",
+        "analysis": "Analisi",
+        "contract_draft": "Contratto/bozza",
+        "filed": "Archiviata",
+        "closed": "Chiusa",
+        "registration": "Registrazione",
+        "active": "Attiva",
+        "seizure_pending": "Sequestro in attesa",
+        "scoping": "Ambito",
+        "search": "Ricerca",
+        "draft_report": "Bozza di rapporto",
+        "delivered": "Consegnato",
+        "archived": "Archiviata",
+        "pre_dispute": "Precontenzioso",
+        "hearing": "Udito",
+        "decision": "Decisione",
+        "appeal": "Appello",
+        "monitoring": "Monitoraggio",
+        "dispute": "Controversia",
+        "udrp": "UDRP",
+        "resolved": "Risolta",
+        "engaged": "Impegnata",
+        "draft": "Bozza",
+        "submitted": "Inviato",
+        "requested": "Richiesto",
+        "in_progress": "In corso",
+        "invoiced": "Fatturato",
+        "pending": "In attesa di",
+        "paid": "Pagata",
+        "reimbursed": "Rimborsata",
+        "open": "Aprire"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Modificare",
+    "save": "Salva",
+    "cancel": "Cancellare",
+    "saving": "Risparmio…",
+    "editHint": "Aggiorna il riferimento al file, la fase del flusso di lavoro e i dettagli specifici del tipo.",
+    "clientLabel": "Cliente",
+    "detailsTitle": "{{type}} dettagli",
+    "errors": {
+      "saveFailed": "Impossibile salvare i dettagli del file."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Crea un nuovo altro file o regola i filtri.",
+    "viewAria": "Visualizza {{title}}",
+    "filesAria": "Documenti per {{title}} ({{count}})",
+    "columns": {
+      "type": "Tipa",
+      "subject": "Soggetta",
+      "client": "Cliente",
+      "incoming": "Rif. in arrivo",
+      "stage": "Palcoscenico",
+      "deadline": "Data chiave",
+      "actions": "Azioni"
     }
   }
 }

@@ -177,7 +177,7 @@
     "noPermissionInvoice": "Դուք հաշիվ-ապրանքագրի տվյալները դիտելու թույլտվություն չունեք:",
     "openFullReport": "Բացեք ամբողջական զեկույցը",
     "outstandingHint": "{{count}} բաց դեբիտորական պարտքեր",
-    "outstandingLabel": "Ակնառու",
+    "outstandingLabel": "Աչքի ընկնող",
     "rateCardHealth": "Գնահատման քարտի առողջություն",
     "rateCardHealthDescription": "Արդյո՞ք հաշվարկային դրույքաչափերը կազմաձևված են և պատրա՞ստ են մարժաները:",
     "rateCardsHintConfigured": "Գները մատչելի են",
@@ -194,7 +194,7 @@
   "summary": {
     "billable": "Վճարովի",
     "billableAmount": "Վճարման ենթակա գումար",
-    "fixedFees": "Հաստատագրված վճարներ",
+    "fixedFees": "Հաստատուն վճարներ",
     "total": "Ընդամենը",
     "totalHours": "Ընդհանուր ժամեր",
     "unbilled": "Չվճարված"

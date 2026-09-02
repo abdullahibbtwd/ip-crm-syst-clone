@@ -77,7 +77,7 @@
     },
     "systemHealth": {
       "title": "Süsteemi tervis",
-      "description": "Andmebaasi, Redise ja objektide salvestusruumi reaalajas kontroll.",
+      "description": "Andmebaasi, Redise ja objektide salvestamise reaalajas kontroll.",
       "action": "Vaadake süsteemi tervist"
     }
   },
@@ -137,7 +137,7 @@
   },
   "systemHealth": {
     "title": "Süsteemi tervis",
-    "subtitle": "Andmebaasi, Redise ja objektide salvestusruumi reaalajas kontroll.",
+    "subtitle": "Andmebaasi, Redise ja objektide salvestamise reaalajas kontroll.",
     "noPermission": "Teil pole luba süsteemi seisukorra vaatamiseks.",
     "loading": "Teenuste kontrollimine…",
     "error": "Tervisliku seisundi laadimine ebaõnnestus.",
@@ -349,7 +349,7 @@
     },
     "errors": {
       "required": "Nimi ja HTML-i keha on nõutavad",
-      "slugRequired": "Nälkjas on nõutav",
+      "slugRequired": "Nälkjas on vajalik",
       "saveFailed": "Dokumendimalli salvestamine ebaõnnestus",
       "previewFailed": "PDF-i eelvaate genereerimine ebaõnnestus",
       "docxUploadFailed": "Wordi malli üleslaadimine ebaõnnestus",
@@ -399,7 +399,7 @@
   },
   "jurisdictions": {
     "title": "Jurisdiktsioonid",
-    "subtitle": "Avage arhiivibüroo, et hallata tähtaegade ja pühade reegleid ühes kohas. Prioriteetsed kontorid ilmuvad korjajates esimesena.",
+    "subtitle": "Avage arhiivibüroo, et hallata tähtaegade ja pühade aegu ühes kohas. Prioriteetsed kontorid ilmuvad korjajates esimesena.",
     "newJurisdiction": "Lisage jurisdiktsioon",
     "noPermission": "Teil pole jurisdiktsioonide haldamise luba.",
     "loading": "Jurisdiktsioonide laadimine…",
@@ -506,7 +506,7 @@
     "filters": {
       "all": "Kõik",
       "consented": "Nõustunud",
-      "missing": "Kadunud"
+      "missing": "Puudub"
     },
     "failedToLoad": "Nõusolekukirjete laadimine ebaõnnestus.",
     "noClientsFound": "Kliente ei leitud.",

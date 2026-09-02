@@ -89,7 +89,7 @@
     "intakePipeline": "Conduttura di aspirazione",
     "intakePipelineDesc": "Richieste, controlli dei conflitti e conversione della materia",
     "openMatters": "Questioni aperte",
-    "openMattersDesc": "Gestisci i casi e deposita nuove domande",
+    "openMattersDesc": "Gestire i casi e presentare nuove domande",
     "clientDeck": "Mazzo clienti",
     "clientDeckDesc": "Monitoraggio del portafoglio e contatti chiave"
   },

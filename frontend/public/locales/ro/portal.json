@@ -63,7 +63,7 @@
     "approve": "Aproba",
     "reject": "Respinge",
     "notePlaceholder": "Notă opțională…",
-    "due": "Datorită {{date}}",
+    "due": "Data scadentă {{date}}",
     "pendingSection": "Astept decizia ta",
     "historySection": "Deciziile anterioare",
     "empty": {
@@ -157,7 +157,7 @@
     "saveChanges": "Salvați modificările",
     "statusHints": {
       "approved": "Solicitarea dvs. a fost acceptată și este în curs de configurare.",
-      "conflictFlagged": "Un coordonator examinează solicitarea dumneavoastră înainte de a putea fi acceptată.",
+      "conflictFlagged": "Un coordonator examinează solicitarea dvs. înainte de a putea fi acceptată.",
       "converted": "S-a deschis o chestiune. Îl puteți urmări în chestiunile mele.",
       "new": "Primit. O verificare a conflictului a fost efectuată automat și un coordonator o va revizui în scurt timp.",
       "rejected": "Această anchetă nu a fost acceptată. Contactați-ne dacă aveți întrebări.",
@@ -184,7 +184,7 @@
     "domain": "Domenii",
     "fto_analysis": "Analiza FTO",
     "geographical_indication": "Indicație geografică",
-    "industrial_design": "Design industrial",
+    "industrial_design": "Proiecta",
     "litigation_expert_report": "Litigii / Rapoarte de expertiză judecătorească",
     "official_fee_payment": "Plățile taxelor oficiale",
     "other": "Alte",
@@ -198,9 +198,9 @@
     "cycle": "ciclu {{number}}",
     "decline": "Declin",
     "description": "Reînnoiri viitoare de mărci comerciale și design pentru drepturile dvs. de proprietate intelectuală.",
-    "due": "Datorită {{date}}",
+    "due": "Data scadentă {{date}}",
     "empty": {
-      "description": "Reînnoirile apar aici după ce firma dvs. înregistrează un drept de proprietate asupra uneia dintre problemele dvs. Vi se va cere să continuați sau să refuzați înainte de fiecare dată scadentă de reînnoire.",
+      "description": "Reînnoirile apar aici după ce firma dvs. înregistrează un drept de IP pentru una dintre problemele dvs. Vi se va cere să continuați sau să refuzați înainte de fiecare dată limită de reînnoire.",
       "title": "Nicio reînnoire nu necesită atenția dvs",
       "viewDeadlines": "Vezi termenele mele limită",
       "viewMatters": "Vezi problemele mele"

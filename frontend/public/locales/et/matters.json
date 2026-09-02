@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Mõõtke marsruuti",
+        "options": {
+          "national_bg": "Bulgaaria (riiklik)",
+          "eu_regulation": "EL määrus 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Kaitstud õigus",
+        "options": {
+          "trademark": "Kaubamärk",
+          "patent": "Patent",
+          "design": "Disain",
+          "copyright": "Autoriõigus",
+          "gi": "Geograafiline tähis"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Kaitstud õigus ref."
+      },
       "customsOffice": {
         "label": "Tolliasutus"
+      },
+      "validFrom": {
+        "label": "Kehtib alates"
+      },
+      "validUntil": {
+        "label": "Kehtib kuni"
       },
       "infringingGoods": {
         "label": "Rikkuva kauba kirjeldus"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Loomise kuupäev"
-      },
       "workTitle": {
         "label": "Töö pealkiri"
       },
       "workType": {
-        "label": "Töö tüüp"
+        "label": "Töö tüüp",
+        "options": {
+          "literary": "Kirjanduslik",
+          "musical": "Muusikaline",
+          "software": "Tarkvara",
+          "audiovisual": "Audiovisuaalne",
+          "graphic": "Graafiline / visuaalne",
+          "other": "muud"
+        }
+      },
+      "creationDate": {
+        "label": "Loomise kuupäev"
+      },
+      "firstPublicationDate": {
+        "label": "Esimene avaldamiskuupäev"
+      },
+      "authorName": {
+        "label": "Autor"
+      },
+      "rightsBasis": {
+        "label": "Õiguste alus",
+        "options": {
+          "author": "Autor",
+          "employer": "Tööandja (palgatöö)",
+          "assignment": "Ülesandmine",
+          "license": "Litsents"
+        }
+      },
+      "rightsHolder": {
+        "label": "Õiguste valdaja"
+      },
+      "infringementContext": {
+        "label": "Rikkumise/jõustamise kontekst"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Kohus"
+      },
+      "incomingNumber": {
+        "label": "Sissetulev number"
+      },
+      "claimGrounds": {
+        "label": "Põhjused (nõude liik)"
+      },
+      "claimValue": {
+        "label": "Nõude väärtus"
+      },
+      "expertiseType": {
+        "label": "Ekspertiisi tüüp"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Aluse kokkuvõte"
+      "disputeKind": {
+        "label": "Edasine tüüp",
+        "options": {
+          "civil": "Tsiviil",
+          "administrative": "Administratiivne",
+          "arbitration": "Vahekohus",
+          "mediation": "Vahendus",
+          "other": "muud"
+        }
       },
-      "disputeType": {
-        "label": "Vaidluse tüüp"
+      "disputeSubject": {
+        "label": "Teema",
+        "options": {
+          "invalidity": "Invaliidsus",
+          "infringement": "Rikkumine",
+          "ownership": "Omandiõigus",
+          "contract": "Leping",
+          "unfair_competition": "Ebaaus konkurents",
+          "other": "muud"
+        }
       },
       "opponentName": {
         "label": "Vastane / vastaspool"
+      },
+      "disputeType": {
+        "label": "Vaidluse tüüp (märkmed)"
+      },
+      "filingReference": {
+        "label": "Viide esitamisele"
+      },
+      "filingDate": {
+        "label": "Esitamise kuupäev"
+      },
+      "basisSummary": {
+        "label": "Aluse kokkuvõte"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Ulatuse kokkuvõte"
+      "projectName": {
+        "label": "Projekti nimi"
+      },
+      "productName": {
+        "label": "Toote nimi"
       },
       "technologyArea": {
         "label": "Tehnoloogia valdkond"
+      },
+      "analysisScope": {
+        "label": "Analüüsi ulatus"
+      },
+      "deliverableType": {
+        "label": "Tarnitav",
+        "options": {
+          "written_report": "Kirjalik aruanne",
+          "memo": "Memo",
+          "oral_briefing": "Suuline infotund"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Eesmärgi täitmise kuupäev"
+      },
+      "scopeSummary": {
+        "label": "Ulatuse kokkuvõte"
+      },
+      "riskLevel": {
+        "label": "Riski tase",
+        "options": {
+          "low": "Madal",
+          "medium": "Keskmine",
+          "high": "Kõrge",
+          "pending": "Ootel hindamine"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "Tüüp"
+      },
+      "giName": {
+        "label": "Geograafilise tähise nimi"
+      },
       "productName": {
         "label": "Toote nimi"
       },
       "region": {
         "label": "Geograafiline piirkond"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "Territoorium"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Taotluse number"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Registreerimisnumber"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Locarno klass"
       },
+      "locarnoSubclass": {
+        "label": "Locarno alamklass"
+      },
       "productDescription": {
         "label": "Toote kirjeldus"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Nõuete kokkuvõte"
+      },
+      "epApplicationNumber": {
+        "label": "EP taotluse number"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Patendi nimi"
+      },
+      "patentProcedure": {
+        "label": "Menetlus"
       },
       "pctNumber": {
         "label": "PCT number"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Tehniline valdkond"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Värvid väitsid"
       },
       "markDescription": {
-        "label": "Märgi kirjeldus"
-      },
-      "markType": {
-        "label": "Märgi tüüp"
-      },
-      "niceClasses": {
-        "label": "Toredad klassid",
-        "placeholder": "nt. 12, 35"
+        "label": "Kauba/teenuste kirjeldus"
       },
       "markKind": {
         "label": "Märgi kategooria"
       },
+      "markType": {
+        "label": "Märgi tüüp"
+      },
       "markWords": {
         "label": "Märgi sõnad"
+      },
+      "niceClasses": {
+        "label": "Toredad klassid",
+        "placeholder": "nt. 12, 35"
       },
       "territory": {
         "label": "Territoorium"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Nimi"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Nõuete arv"
+      },
+      "applicationNumber": {
+        "label": "Taotluse number"
+      },
+      "applicationDate": {
+        "label": "Taotlemise kuupäev"
+      },
+      "registrationNumber": {
+        "label": "Registreerimisnumber"
+      },
       "claimsSummary": {
         "label": "Nõuete kokkuvõte"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Tehniline valdkond"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Vara tüüp",
+        "options": {
+          "trademark": "Kaubamärk",
+          "patent": "Patent",
+          "design": "Disain",
+          "gi": "GI",
+          "mixed": "Segatud portfell",
+          "company_ip": "Ettevõtte IP"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Eesmärk",
+        "options": {
+          "licensing": "Litsentsi andmine",
+          "m_and_a": "M&A",
+          "litigation": "Kohtuvaidlused",
+          "tax": "Maksud",
+          "internal": "Sisemine"
+        }
+      },
+      "valuationMethod": {
+        "label": "meetod",
+        "options": {
+          "market": "Turg",
+          "income": "Sissetulekud",
+          "cost": "Maksumus"
+        }
+      },
+      "valuationDate": {
+        "label": "Hindamiskuupäev"
+      },
       "assetDescription": {
         "label": "Vara kirjeldus"
       },
-      "valuationPurpose": {
-        "label": "Hindamise eesmärk"
+      "conclusionValue": {
+        "label": "Järeldusväärtus"
+      },
+      "currency": {
+        "label": "Valuuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Domeeni nimi",
-        "placeholder": "nt. example.com"
+        "placeholder": "nt. näide.bg"
+      },
+      "tldType": {
+        "label": "TLD tüüp",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "muud"
+        }
       },
       "registrar": {
         "label": "Registripidaja"
+      },
+      "registrant": {
+        "label": "Registreerija"
+      },
+      "registrationDate": {
+        "label": "Registreerimise kuupäev"
+      },
+      "expiryDate": {
+        "label": "Aegumiskuupäev"
+      },
+      "disputeRoute": {
+        "label": "Vaidluse marsruut",
+        "options": {
+          "none": "Mitte ühtegi",
+          "udrp": "UDRP",
+          "court": "Kohus",
+          "negotiation": "Läbirääkimised"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Seotud kaubamärk"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Juhtumi viide"
+      "engagementType": {
+        "label": "Kihlumise tüüp",
+        "options": {
+          "patent": "Patent",
+          "trademark": "Kaubamärk",
+          "copyright": "Autoriõigus",
+          "damages": "Kahjud",
+          "other": "muud"
+        }
       },
       "courtOrAuthority": {
         "label": "Kohus / asutus"
+      },
+      "caseReference": {
+        "label": "Juhtumi viide"
+      },
+      "appointingParty": {
+        "label": "Partei määramine"
+      },
+      "reportDueDate": {
+        "label": "Teatage tähtaeg"
+      },
+      "hearingDate": {
+        "label": "Kuulamise kuupäev"
       },
       "reportScope": {
         "label": "Aruande ulatus"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Ulatuse kokkuvõte"
+      "consultationType": {
+        "label": "Konsultatsiooni tüüp",
+        "options": {
+          "phone": "Telefon",
+          "written": "Kirjutatud",
+          "meeting": "Koosolek",
+          "due_diligence": "Nõuetekohane hoolsus (kerge)"
+        }
+      },
+      "topicCategory": {
+        "label": "Teema kategooria",
+        "options": {
+          "trademark": "Kaubamärk",
+          "patent": "Patent",
+          "design": "Disain",
+          "contract": "Leping",
+          "strategy": "strateegia",
+          "other": "muud"
+        }
       },
       "topic": {
         "label": "Teema"
+      },
+      "requestedBy": {
+        "label": "Taotlenud"
+      },
+      "scopeSummary": {
+        "label": "Ulatuse kokkuvõte"
+      },
+      "timeSpentHours": {
+        "label": "Kulutatud aeg (tunnid)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Asutus / kontor"
+        "label": "Asutus",
+        "options": {
+          "bpo": "BPO (Bulgaaria)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "muud"
+        }
+      },
+      "feeType": {
+        "label": "Tasu tüüp",
+        "options": {
+          "filing": "Viilimine",
+          "publication": "Väljaanne",
+          "examination": "Uurimine",
+          "renewal": "Uuendamine",
+          "annuity": "Annuiteedi",
+          "opposition": "Opositsioon",
+          "other": "muud"
+        }
       },
       "feeReference": {
         "label": "Tasu/makse viide"
       },
       "relatedApplication": {
         "label": "Seotud rakendus/fail"
+      },
+      "feeAmount": {
+        "label": "Summa"
+      },
+      "currency": {
+        "label": "Valuuta",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Maksetähtaeg"
+      },
+      "paymentDate": {
+        "label": "Maksekuupäev"
+      },
+      "paymentReference": {
+        "label": "Makse viide"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Töö kategooria"
+      },
       "workSummary": {
         "label": "Töö kokkuvõte"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Oodatud tulemus"
       }
     }
   },
@@ -236,7 +505,7 @@
     "confirmDeleteFee": "Kas kustutada püsitasu?",
     "confirmDeleteFeeMessage": "See tasu võetakse asjast maha.",
     "confirmDeleteFeeTitle": "Kas kustutada püsitasu?",
-    "confirmDeleteTime": "Kas kustutada see kellaaeg?",
+    "confirmDeleteTime": "Kas kustutada see ajakirje?",
     "confirmDeleteTimeMessage": "See arveldatav rida eemaldatakse asjast.",
     "confirmDeleteTimeTitle": "Kas kustutada ajakirje?",
     "description": "Selle asja aja kanded, fikseeritud tasud ja arved.",
@@ -374,7 +643,7 @@
       "errors": {
         "requiredFields": "Vajalikud on saatja, saaja ja teema",
         "selectScope": "Valige, kuhu see kirjavahetus salvestada",
-        "chooseFile": "Valige üleslaaditav fail või muutke manuseks mitte ühtegi / linkige",
+        "chooseFile": "Valige üleslaaditav fail või muutke manus valikuks Puudub / linkige",
         "selectDocument": "Valige loendist dokument või muutke manustamisrežiimi",
         "linkFailed": "Üleslaadimine õnnestus, kuid dokumenti ei õnnestunud linkida",
         "saveFailed": "Kirjavahetuse logimine ebaõnnestus"
@@ -442,8 +711,8 @@
     "replyTitle": "Vasta ühendatud postkasti kaudu",
     "replaceFile": "Asenda fail",
     "replaceFileTitle": "Asenda lisatud fail",
-    "saveAsPrecedent": "Salvesta pretsedendina",
-    "saveAsPrecedentTitle": "Salvesta pretsedendina",
+    "saveAsPrecedent": "Salvestage pretsedendina",
+    "saveAsPrecedentTitle": "Salvesta pretsedendina mustand",
     "savedUnder": "Salvestatud alloleva kirjavahetuse teema alla",
     "sendToClient": "Saada kliendi postkasti",
     "showInClientTitle": "Kuva kliendiportaalis",
@@ -470,6 +739,245 @@
     "viewOnEpo": "Vaata EPO-st",
     "viewOnEpoTitle": "Avatud ametlik rekord EPO registris"
   },
+  "trademarkInfo": {
+    "addCountry": "Lisa riik…",
+    "cancel": "Tühista",
+    "country": "Riik",
+    "edit": "Muuda",
+    "errors": {
+      "country": "Valige selle territooriumi jaoks vähemalt üks riik.",
+      "saveFailed": "Kaubamärgiteavet ei saanud salvestada."
+    },
+    "euFixed": "Euroopa Liit (EUIPO)",
+    "markKind": "Märgi kategooria",
+    "markType": "Märgi tüüp",
+    "noCountries": "Ühtegi riiki pole veel valitud.",
+    "save": "Salvestage muudatused",
+    "saved": "Salvestatud.",
+    "saving": "Salvestamine…",
+    "selectCountries": "Valige riigid",
+    "territory": "Territoorium",
+    "title": "Kaubamärgi teave",
+    "markImage": "Märgi pilt",
+    "uploadMarkImage": "Laadi pilt üles",
+    "replaceMarkImage": "Asenda pilt",
+    "removeMarkImage": "Eemalda pilt",
+    "markImageHint": "PNG või JPEG – kuvatakse kaubamärkide loendis nime kõrval."
+  },
+  "patentInfo": {
+    "title": "Patendi teave",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Taotlus nr. / kuupäev",
+      "registration": "Reg. ei. / kuupäev",
+      "bulletin": "Bülletään / väljaanne",
+      "ipc": "IPC",
+      "client": "Klient / loovutaja",
+      "owner": "Omanik",
+      "contact": "Kontaktisik",
+      "representatives": "esindajad",
+      "claims": "Nõuded",
+      "territory": "Territoorium"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Kasuliku mudeli teave",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Taotlus nr. / kuupäev",
+      "registration": "Reg. ei. / kuupäev",
+      "bulletin": "Bülletään / registreerimise avaldamine / kuupäev",
+      "ipc": "IPC",
+      "applicant": "Taotleja",
+      "inventor": "Leiutaja",
+      "contact": "Kontaktisik",
+      "representatives": "esindajad",
+      "claims": "Nõuded",
+      "territory": "Territoorium"
+    }
+  },
+  "spcInfo": {
+    "title": "SPC teave",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Taotlus nr. / kuupäev",
+      "registration": "Reg. ei. / kuupäev",
+      "bulletin": "Bülletään / registreerimise avaldamine / kuupäev",
+      "ipc": "IPC",
+      "applicant": "Taotleja",
+      "inventor": "Leiutaja",
+      "contact": "Kontaktisik",
+      "representatives": "esindajad",
+      "claims": "Nõuded",
+      "medicinalProduct": "Ravim"
+    }
+  },
+  "designInfo": {
+    "title": "Disaini teave",
+    "subtitle": "{{territory}} disain · {{name}}",
+    "fields": {
+      "application": "Taotlus nr. / kuupäev",
+      "registration": "Reg. ei. / kuupäev",
+      "bulletin": "Bülletään / registreerimise avaldamine / kuupäev",
+      "client": "Klient / loovutaja",
+      "owner": "Omanik",
+      "contact": "Kontaktisik",
+      "representatives": "esindajad",
+      "classification": "Klassifikatsioon",
+      "territory": "Territoorium"
+    }
+  },
+  "giInfo": {
+    "title": "Geograafilise tähise teave",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Taotlus nr. / kuupäev",
+      "registration": "Reg. ei. / kuupäev",
+      "bulletin": "Bülletään / registreerimise avaldamine / kuupäev",
+      "client": "Klient / loovutaja",
+      "owner": "Omanik",
+      "contact": "Kontaktisik",
+      "representatives": "esindajad",
+      "classes": "klassid",
+      "territory": "Territoorium"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Klient on heaks kiitnud",
+    "clientStepHint": "Töötajad kinnitavad kliendiga kokkulepitud võrguühenduseta (kõne/e-kiri/kohtumine). Portaali klient ei pea ennast kinnitama.",
+    "errors": {
+      "updateFailed": "Kinnitusolekut ei saanud värskendada."
+    },
+    "hint": "Ainult sisemine kinnitus: märkige, et klient nõustus, seejärel aktsepteerib juhtivpartner faili. Kliendile saatmise heakskiitu pole vaja.",
+    "markClientApproved": "Märkige klient heaks",
+    "partnerApprove": "Partneri heakskiidu fail",
+    "partnerOnly": "Selle sammu saab teha ainult juhtivpartner",
+    "partnerStep": "2. Juhtpartneri nõustumine",
+    "partnerStepHint": "Kui klient on heaks kiidetud, aktsepteerib juhtivpartner faili ja see jätab mustandi.",
+    "recordedBy": "Salvestas {{name}} · {{date}}",
+    "title": "Faili kinnitamine",
+    "waitForClient": "Märkige esmalt klient heakskiidetuks, seejärel saate faili vastu võtta."
+  },
+  "prosecution": {
+    "cancelEdit": "Tühista",
+    "completeStage": "Täielik etapp",
+    "edit": "Muuda",
+    "editingNote": "Kasutage käsku Salvesta, et säilitada selles etapis sisestatud teave, või etappi Lõpeta, et liikuda edasi, kui nõutud väljad on täidetud.",
+    "gateHint": "Te ei saa edasi liikuda enne, kui selle etapi kohustuslikud väljad on täidetud (sama, mis nende süsteemiväravad).",
+    "goBack": "Mine lava tagasi",
+    "errors": {
+      "needAttachments": "Enne jätkamist lisage vajalikud failid: {{list}}",
+      "needInvoice": "Enne selle etapi läbimist koostage riigilõivust arve.",
+      "alreadyFinal": "See fail on juba viimases etapis.",
+      "needApproval": "Lõpetage faili kinnitamine (klient + juhtivpartner) enne ettevalmistustöö lõpetamist.",
+      "needBulletin": "Enne avaldamisest lahkumist sisestage bülletääni number ja kuupäev.",
+      "needFeePaid": "Enne ametliku eksami sooritamist sisestage riigilõivu tasumise kuupäev.",
+      "needFilingFields": "Esitamise lõpetamiseks sisestage taotluse number ja esitamise kuupäev.",
+      "needFormalFields": "Jätkamiseks sisestage riigilõiv ja tasumise tähtaeg.",
+      "needMol": "Enne esitamise lõpetamist sisestage faili üksikasjadesse MOL (loo-fail / redigeeri).",
+      "needOfficeActionDeadline": "Kontoritoimingul on teema – määrake enne jätkamist selle tähtaeg.",
+      "needPoaFiled": "Enne ametliku läbivaatuse lahkumist sisestage PoA sissetuleva number ja kuupäev.",
+      "needRegFeePaid": "Enne jätkamist sisestage registreerimistasu tasumise kuupäev.",
+      "needRepresentative": "Sisestage vähemalt üks esindaja või määrake Lisa esindajad väärtuseks Ei.",
+      "saveBeforeNavigate": "Enne etapile naasmist salvestage või tühistage oma muudatused.",
+      "saveFailed": "Süüdistusandmeid ei saanud salvestada."
+    },
+    "fields": {
+      "addRepresentatives": "Kas soovite esindajaid lisada?",
+      "applicationDate": "Taotlemise kuupäev",
+      "applicationNumber": "Taotluse number",
+      "bulletinDate": "Bülletääni kuupäev",
+      "bulletinNumber": "Bülletääni number",
+      "feePaidDate": "Riigilõivu tasumise kuupäev",
+      "generatePoa": "Koostage volikiri",
+      "officeAction": "Kontori tegevus/taotlus",
+      "officeActionDeadline": "Kontori tegevuse tähtaeg",
+      "paymentDeadline": "Maksetähtaeg",
+      "poaDate": "PoA kuupäev",
+      "poaDeadline": "PoA esitamise tähtaeg",
+      "poaIncoming": "PoA sissetulev number",
+      "regFeePaidDate": "Registreerimistasu tasumise kuupäev",
+      "remindDays": "Tuletage meelde päevi enne tähtaega",
+      "representatives": "esindaja(d)",
+      "sendPoaEmail": "Saada automaatne e-kiri",
+      "stateFee": "Riigilõiv (BGN)"
+    },
+    "molHint": "MOL tuleb määrata faili üksikasjadele (faili loomisest). Selle etapi lõpuleviimiseks puuduvad MOL-plokid.",
+    "no": "Ei",
+    "prepHint": "Ettevalmistav etapp: esmalt viige faili kinnitamine lõpule, seejärel suunab juhtivpartneri nõustumine teid esitamisse.",
+    "registeredDone": "Registreerimise etapp on saavutatud.",
+    "saveChanges": "Salvestage muudatused",
+    "saveEntered": "Salvesta",
+    "saved": "Salvestatud.",
+    "saveFields": "Salvestage väljad",
+    "saving": "Salvestamine…",
+    "stages": {
+      "filing": "Viilimine",
+      "formal_exam": "Ametlik eksam",
+      "prep": "Ettevalmistav",
+      "publication": "Väljaanne",
+      "reg_fee": "Registreerimistasud",
+      "registration": "Registreerimine",
+      "substantive_exam": "Sisuline läbivaatamine"
+    },
+    "territoryLabel": {
+      "eu": "Torujuhe: EL",
+      "international": "Torujuhe: rahvusvaheline (WO)",
+      "national": "Torujuhe: riiklik"
+    },
+    "territoryLocked": "Loomisfailist fikseeritud territoorium",
+    "territoryFromInfo": "Territoorium kaubamärgi teabest",
+    "patentRouteFromInfo": "Marsruut faili loomisest",
+    "designRouteFromInfo": "Marsruut faili loomisest",
+    "utilityModelTerritoryFromInfo": "Territoorium esitanud riigist",
+    "spcTerritoryFromInfo": "Territoorium esitanud riigist",
+    "giTerritoryFromInfo": "Territoorium esitamise teelt",
+    "title": "Süüdistuse esitamise etapid",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Kinnitus saadud",
+        "filing": "Ülesandmine",
+        "formal_exam": "Taotluse esitamine",
+        "substantive_exam": "Sisuline läbivaatamine",
+        "publication": "Väljaanne",
+        "reg_fee": "Registreerimistasud",
+        "registration": "Valideerimisotsus"
+      }
+    },
+    "yes": "Jah",
+    "hub": {
+      "generateInvoice": "Loo arve",
+      "invoiceIssuedShort": "Arve väljastatud",
+      "invoiceIssued": "Arve {{number}} väljastatud. Klient näeb seda oma portaalis; see on ka vahekaardil Arveldamine.",
+      "invoiceAlreadyIssued": "Arve {{number}} juba väljastatud — nähtav portaalis ja Arvelduses.",
+      "invoiceFailed": "Arvet ei saanud luua. Kontrollige kliendi arvelduse üksikasju.",
+      "invoiceNotes": "Ametlik/riigilõiv",
+      "uploadFailed": "Faili ei saanud üles laadida.",
+      "needStateFee": "Esmalt sisestage riigilõivu summa.",
+      "feeDescription": "Riigi/ametilõiv",
+      "deadlineFailed": "Tähtaega/tähtaegu ei saanud luua.",
+      "deadlineTitles": {
+        "payment": "Riigilõivu tasumine",
+        "poa": "Volikirja esitamine",
+        "oa": "Büroo toimingu / ekspertiisitaotlus",
+        "oaWithSubject": "Kontoritoiming: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Tuletage meelde {{days}} päeva enne tähtaega."
+      },
+      "attach": {
+        "search": "Manustage otsingufail",
+        "application": "Manustage rakendus",
+        "feeSlip": "Lisage tasutõend",
+        "poa": "Kinnitage PoA",
+        "officeAction": "Manustage kontoritoiming",
+        "decision": "Lisa otsus",
+        "bulletin": "Lisa bülletään",
+        "regFee": "Lisa maksetõend",
+        "certificate": "Lisage sertifikaat"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Klient*",
     "creating": "Loomine…",
@@ -483,11 +991,363 @@
     "titleField": "Pealkiri *",
     "titlePlaceholder": "nt. ACME sõnamärk – EU"
   },
+  "createFile": {
+    "addClass": "Lisa klass",
+    "addClaim": "Lisa nõue",
+    "addIpc": "Lisa IPC klass",
+    "addBasisMark": "Lisage alusmärk",
+    "basisMark": "Alusmärk {{number}}",
+    "addAdditionalApplicant": "Lisage täiendav taotleja",
+    "addAdditionalOwner": "Lisage täiendav omanik",
+    "additionalApplicant": "Taotleja {{number}}",
+    "additionalOwner": "Omanik {{number}}",
+    "yes": "Jah",
+    "no": "Ei",
+    "none": "Mitte ühtegi",
+    "backToFiles": "Tagasi failide juurde",
+    "cancel": "Tühista",
+    "changeSubtype": "Muuda alamkategooriat",
+    "checkRegister": "Tutvu äriregistris",
+    "clearClient": "Vahetage klienti",
+    "clientOptionalHint": "Kas CRM-i vastet pole? Täitke allolevad kliendi andmed – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
+    "applicantOptionalHint": "Kas CRM-i vastet pole? Täitke allpool taotleja üksikasjad – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
+    "draftDescription": "Loodud faili loomise kaudu ({{procedure}}) – mustand",
+    "errors": {
+      "client": "Jätkamiseks valige klient.",
+      "clientOrDetails": "Valige CRM-i klient või sisestage nende loomiseks kliendi nimi ja andmed.",
+      "applicantOrDetails": "Valige CRM-is taotleja või sisestage taotleja nimi ja andmed nende loomiseks.",
+      "jurisdiction": "Valige vähemalt üks territoorium/riik.",
+      "markWords": "Sisestage kaubamärgi nimi/sõnad.",
+      "filingRoute": "Valige protseduur.",
+      "ownerOrDetails": "Sisestage omaniku nimi ja aadress või märkige omanik kliendiga samaks.",
+      "designerOrDetails": "Sisestage kujundaja nimi ja aadress või märkige disainer kliendiga samaks.",
+      "inventorOrDetails": "Sisestage leiutaja nimi ja aadress või märkige leiutaja kliendiga samaks.",
+      "patentName": "Sisestage patendi nimi.",
+      "designName": "Sisestage kujunduse nimi.",
+      "utilityModelName": "Sisestage kasuliku mudeli nimi.",
+      "giKind": "Valige päritolunimetus või geograafiline tähis.",
+      "territory": "Valige territoorium.",
+      "giName": "Sisestage geograafilise tähise nimi.",
+      "spcName": "Sisestage SPC nimi.",
+      "caseClientRole": "Valige, kas klient on hageja, kostja või huvitatud pool.",
+      "otherType": "Tundmatu failitüüp. Valige loendist tüüp.",
+      "patentSubtype": "Valige patendi alamkategooria.",
+      "saveFailed": "Mustandifaili ei saanud salvestada.",
+      "subtype": "Valige kaubamärgi alamkategooria."
+    },
+    "euHint": "Euroopa Liidu kaubamärk (EUIPO) – jurisdiktsioon on määratud EL-ile.",
+    "fields": {
+      "address": "Aadress",
+      "applicantClient": "Taotleja klient",
+      "applicantClientOptional": "CRM-i taotleja (valikuline)",
+      "city": "Linn",
+      "classNumber": "Klassi number",
+      "classes": "klassid",
+      "country": "Riik",
+      "eik": "UIC / EIK",
+      "email": "E-post",
+      "fax": "Faks",
+      "goodsText": "Kaubad ja teenused",
+      "legalName": "Nimi ja juriidilise isiku liik",
+      "linkClient": "Valige CRM-is klient",
+      "linkClientOptional": "CRM-i klient (valikuline)",
+      "fileTitleOptional": "Pealkiri (valikuline)",
+      "fileDescriptionOptional": "Kirjeldus (valikuline)",
+      "markKind": "Märgi kategooria",
+      "markType": "Märgi tüüp",
+      "markWords": "Kaubamärgi nimi",
+      "mol": "MOL (allakirjutanu)",
+      "name": "Nimi",
+      "oppositionFiler": "Vastulause esitaja",
+      "requester": "Taotleja",
+      "requestFiler": "Taotluse esitaja",
+      "againstClasses": "Klasside vastu",
+      "owner": "Omanik",
+      "phone": "Telefon",
+      "postalCode": "Postiindeks",
+      "territory": "Territoorium",
+      "transliteration": "Transliteratsioon",
+      "viennaNumber": "Number",
+      "applicationNumber": "Taotluse number",
+      "applicationDate": "Kuupäev",
+      "conventionPriority": "Konventsiooni prioriteet",
+      "exhibitionPriority": "Näituse prioriteet",
+      "transformationInternational": "Rahvusvahelise registreeringu ümberkujundamine",
+      "communityConversion": "Ühenduse kaubamärgi muutmine",
+      "applicationBulletin": "Bülletään / taotluse avaldamine",
+      "grounds": "Põhjused",
+      "specimen": "Näidis",
+      "registrationNumber": "Registreerimisnumber",
+      "registrationDate": "Kuupäev",
+      "registrationBulletin": "Bülletään / registreeringu avaldamine",
+      "certificate": "Lisage sertifikaat",
+      "attachDocument": "Manustage dokument",
+      "representative": "Valige",
+      "selectRepresentative": "Valige esindaja",
+      "addMoreRepresentatives": "Lisage rohkem esindajaid",
+      "claimNumber": "Number",
+      "claimText": "Nõue",
+      "epApplicationNumber": "EP taotluse number",
+      "epBulletinNumber": "EP bülletääni number",
+      "applicationPublication": "Taotluse avaldamine",
+      "applicationPublicationDate": "Kuupäev",
+      "epRegistrationNumber": "EP registreerimisnumber",
+      "epRegistrationBulletin": "EP registreerimise bülletään / avaldamine",
+      "epRegistrationBulletinDate": "Kuupäev",
+      "ipc": "IPC",
+      "patentName": "Nimi",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Euroopa patendi kinnitamine",
+      "powerOfAttorney": "Volikiri",
+      "selectProcedure": "Valige protseduur",
+      "validationCountry": "Valige riik",
+      "priorityCountry": "Eelmise taotluse riik",
+      "priorityFromDate": "Alates kuupäevast",
+      "priorityApplicationNumber": "Taotluse number",
+      "priorityIncomingNumber": "sisse. Ei.",
+      "internationalRegistrationNumber": "Rahvusvaheline registreerimisnr.",
+      "exhibitionFirstAppearance": "Esmaesinemise kuupäev",
+      "exhibitionName": "Näituse nimi",
+      "bulletinNumber": "Bülletääni number",
+      "patentRegistrationNumber": "Registreerimisnumber",
+      "validationNumber": "Number",
+      "validationFilingDate": "Esitamise kuupäev",
+      "validationPriorityDate": "Prioriteetne kuupäev",
+      "addImage": "Lisa pilt",
+      "addCountry": "Lisa riik",
+      "removeImage": "Eemalda pilt",
+      "image": "Pilt",
+      "designName": "Nimi",
+      "locarnoClass": "Klass",
+      "locarnoSubclass": "Alamklass",
+      "classificationText": "Klassifikatsioon",
+      "vat": "KMKR ID",
+      "utilityModelName": "Nimi",
+      "conversionFromPatent": "Üleminek patendilt taotlusele",
+      "conversionInvention": "Leiutis",
+      "conversionRequestNumber": "Taotlus nr",
+      "conversionApplicationDate": "Taotlemise kuupäev",
+      "conversionPriorityDate": "Prioriteetne kuupäev",
+      "giKind": "Tüüp",
+      "giName": "Geograafilise tähise nimi",
+      "spcName": "Nimi",
+      "medicinalProduct": "Ravim",
+      "basicPatentNumber": "Patent nr.",
+      "effectStartDate": "Mõju algus",
+      "effectEndDate": "Lõppkuupäev",
+      "firstAuthorization": "Esimene luba",
+      "theClientIs": "Klient on",
+      "court": "Kohus",
+      "authority": "Asutus",
+      "panel": "Paneel",
+      "division": "Jaoskond",
+      "incomingNumber": "Sissetulev number",
+      "claimGrounds": "Põhjused (nõude liik)",
+      "claimValue": "Nõude väärtus",
+      "other": "muud",
+      "rightObject": "Objekt",
+      "selectObject": "Vali objekt…",
+      "rightName": "Nimi",
+      "rightApplicationDate": "Taotlemise kuupäev",
+      "rightScope": "Ulatus",
+      "expertiseType": "Ekspertiisi tüüp",
+      "experts": "Eksperdid",
+      "expertiseQuestions": "Küsimused, milliste ekspertiiside kohta lubati"
+    },
+    "formTitle": "Loo fail: kaubamärk",
+    "fullFormReady": "Täielik vorm saadaval",
+    "goodsPlaceholder": "nt. pudelid; jaemüügiteenused…",
+    "markKinds": {
+      "certification": "Sertifitseerimine",
+      "collective": "Kollektiivne",
+      "individual": "Individuaalne"
+    },
+    "markTypes": {
+      "combination_of_colors": "Värvide kombinatsioon",
+      "combined": "Kombineeritud",
+      "figurative": "Kujundlik",
+      "sound": "Heli",
+      "three_dimensional": "Kolmemõõtmeline",
+      "wordmark": "Sõnamärk"
+    },
+    "noClients": "Sobivaid kliente pole. Esmalt looge klient CRM-is ja seejärel naaske siia.",
+    "optionalMark": "Märgi / teema (valikuline)",
+    "partialSubtypeNote": "Selle alamkategooria täielikke eriväljasid laiendatakse hiljem. Saate ikkagi salvestada kliendiga lingitud mustandi; dokumendid ja kirjavahetus jäävad toimikusse.",
+    "preliminary": "Eelinfo",
+    "procedureHints": {
+      "cancellation": "Registreeritud kaubamärgi tühistamine – täielik loomisvorm",
+      "deletion": "Registreeritud kaubamärgi kustutamine – täielik loomisvorm",
+      "new": "Uus kaubamärgitaotlus — täielik loomisvorm",
+      "objection": "Kaubamärgitaotluse vastuväide – täielik loomisvorm",
+      "opposition": "Vastulause kaubamärgitaotlusele – täielik loomisvorm",
+      "opposition_against_us": "Vastulause menetlemine",
+      "opposition_by_us": "Vastulause menetlemine",
+      "registered": "Olemasolev registreeritud kaubamärk",
+      "revocation": "Kustutamismenetlus"
+    },
+    "procedures": {
+      "cancellation": "Tühistamine",
+      "deletion": "Kustutamine",
+      "new": "Uus bränd",
+      "objection": "Vastulause",
+      "opposition": "Opositsioon",
+      "opposition_against_us": "Opositsioon",
+      "opposition_by_us": "Opositsioon",
+      "registered": "Registreeritud kaubamärk",
+      "revocation": "Kustutamine"
+    },
+    "kinds": {
+      "newPatent": "Uus patent",
+      "registeredPatent": "Registreeritud patent",
+      "design": "Disain",
+      "registeredDesign": "Disain",
+      "utilityModel": "Kasulikud mudelid",
+      "registeredGi": "Registreeritud GI",
+      "spc": "SPC",
+      "case": "Juhtum"
+    },
+    "comingSoonTitle": "Loo fail: {{kind}}",
+    "comingSoonBody": "Järgmisena lisatakse selle failitüübi spetsiaalne vorm. Kaubamärgi loomise faili vormid on samast menüüst juba saadaval.",
+    "patentTitle": "Loo fail — patent",
+    "patentSubtypeHint": "Esmalt valige patendi alamkategooria.",
+    "patentFormTitle": "Loo fail: Patent",
+    "designFormTitle": "Loo fail: Kujundus",
+    "utilityModelFormTitle": "Loo fail: Kasulik mudel",
+    "giFormTitle": "Loo fail: Geograafiline tähis",
+    "spcFormTitle": "Loo fail: SPC",
+    "caseFormTitle": "Loo fail: Case",
+    "otherFilesTitle": "Muud failid",
+    "otherFilesDescription": "Valige töötüüp väljaspool põhiriiuleid – autoriõigused, domeenid, konsultatsioonid ja palju muud.",
+    "otherFileFormTitle": "Loo fail: {{type}}",
+    "addParty": "Lisa pidu",
+    "caseClientRoles": {
+      "plaintiff": "Hageja / apellant",
+      "defendant": "Kostja",
+      "interested": "Huviline"
+    },
+    "giKinds": {
+      "designation_of_origin": "Päritolunimetus",
+      "geographical_indication": "Geograafiline tähis"
+    },
+    "giTerritories": {
+      "national": "Rahvuslik",
+      "eu": "EL",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Rahvuslik",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Valige protseduur",
+    "chooseCountry": "Valige riik",
+    "patentFilingRoutes": {
+      "national": "Rahvuslik",
+      "european": "EP",
+      "ep_validation": "EP-valideerimine",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albaania",
+      "BA": "Bosnia ja Hertsegoviina",
+      "BG": "Bulgaaria",
+      "EE": "Eesti",
+      "MK": "Põhja-Makedoonia",
+      "MD": "Moldova",
+      "ME": "Montenegro",
+      "RO": "Rumeenia",
+      "RS": "Serbia",
+      "SI": "Sloveenia",
+      "TR": "Türgi"
+    },
+    "patentHints": {
+      "new": "Uus rakendus – riiklik, EP või PCT süüdistus (7-astmeline voog WorkPatendis)",
+      "registered": "Olemasolev toetus – riiklik, EP, PCT või EP-valideerimine (4-astmeline valideerimine WorkValPatentis)"
+    },
+    "removeClass": "Eemalda klass",
+    "removeClaim": "Eemalda nõue",
+    "removeIpc": "Eemalda IPC klass",
+    "removeApplicant": "Eemalda taotleja",
+    "removeBasisMark": "Eemaldage alusmärk",
+    "sameApplicant": "Taotleja teave on sama, mis kliendil",
+    "sameDesigner": "Disaineri teave on sama, mis kliendil",
+    "sameInventor": "Leiutaja teave on sama, mis kliendil",
+    "sameCorrespondence": "Kirjavahetuse aadress on sama mis registreeritud aadress",
+    "saveDraft": "Salvesta mustandina",
+    "saving": "Salvestamine…",
+    "searchClient": "Otsige kliente nime või koodi järgi…",
+    "sideUs": "Meie pool — opositsioon",
+    "sideThem": "Teine pool – taotlusele vastu",
+    "sideUsCancellation": "Meie pool — tühistamine",
+    "sideThemCancellation": "Teine osapool — omanik",
+    "sideUsDeletion": "Meie pool – kustutamine",
+    "sections": {
+      "againstApplication": "Kaubamärgitaotluse vastu",
+      "againstBrand": "Kaubamärgi vastu",
+      "applicant": "Taotleja",
+      "applicantUser": "Taotleja/kasutaja",
+      "application": "Rakendus",
+      "attachments": "Manused",
+      "additionalInfo": "Lisainfo",
+      "basicInfo": "Põhiteave",
+      "fileDetails": "Faili üksikasjad",
+      "basisMarks": "Märgid, millel vastulause põhineb",
+      "claims": "Nõuded",
+      "classification": "Klassifikatsioon",
+      "designer": "Disainer",
+      "inventor": "Leiutaja",
+      "client": "Kliendi andmed",
+      "instructingClient": "Kliendi juhendamine",
+      "ipc": "IPC",
+      "contact": "Kontaktisik",
+      "correspondence": "Kirjavahetuse aadress",
+      "filing": "Esitamine ja registreerimine",
+      "goods": "Kaupade ja teenuste loetelu",
+      "geographicalIndication": "Geograafilise tähise teave",
+      "spcBasic": "Põhiteave SPC",
+      "caseData": "Juhtumi andmed",
+      "caseRights": "Õigused, millel kohtuasi põhineb",
+      "expertise": "Ekspertiis",
+      "lawyers": "Juristid / Õigusnõustajad",
+      "caseParties": {
+        "plaintiff": "Hagejad/kaebajad",
+        "defendant": "Kostjad",
+        "interested": "Huvilised"
+      },
+      "grounds": "Põhjused",
+      "foundation": "Sihtasutus",
+      "markName": "Kaubamärgi nimi",
+      "oppositionFiler": "Vastulause esitaja",
+      "requester": "Taotleja",
+      "requestFiler": "Taotluse esitaja",
+      "owner": "Omanik",
+      "registeredAddress": "Registreeritud aadress",
+      "representative": "Esindaja",
+      "representatives": "esindajad",
+      "searchDocs": "Lisage otsingudokumendid",
+      "specimen": "Näidis",
+      "trademark": "Kaubamärgi teave",
+      "vienna": "Viini klassifikatsiooniklassid"
+    },
+    "selectCountries": "Valige riigid",
+    "subtypeHint": "Esmalt valige kaubamärgi alamkategooria. Uus bränd avab täieliku vormi.",
+    "territories": {
+      "eu": "Euroopa Liit",
+      "international": "Rahvusvaheline (WO)",
+      "national": "Rahvuslik"
+    },
+    "trademarkTitle": "Loo fail — kaubamärk"
+  },
   "deadlines": {
     "complete": "Täielik",
     "daysLeft": "{{count}} päeva jäänud",
     "daysOverdue": "{{count}} päeva hilinenud",
     "dueToday": "Tähtaeg täna",
+    "summary": {
+      "open": "Avatud tähtajad",
+      "overdue": "Tähtaja ületanud"
+    },
     "empty": "Sellel teemal pole tähtaegu.",
     "error": "Tähtaegade laadimine ebaõnnestus.",
     "loading": "Laadimistähtajad…",
@@ -682,7 +1542,7 @@
       "loading": "Laadimine…",
       "saveChanges": "Salvestage muudatused",
       "searchMatters": "Otsinguküsimused eskaleeruvad…",
-      "seizedOn": "Konfiskeeritud {{date}}",
+      "seizedOn": "Arestitud {{date}}",
       "title": "Konfiskeerimise detail",
       "updateFailed": "Krambi ei saanud värskendada"
     },
@@ -727,35 +1587,944 @@
     "archiving": "Arhiveerimine…",
     "restore": "Taasta",
     "restoring": "Taastamine…",
-    "archiveFailed": "Faili arhiveerimine ebaõnnestus",
+    "archiveFailed": "Faili arhiivimine ebaõnnestus",
     "restoreFailed": "Faili taastamine ebaõnnestus",
-    "archiveConfirm": "Arhiveerida see fail? See lahkub aktiivsest nimekirjast, kuid jääb Arhiivis otsitavaks."
+    "archiveConfirm": "Arhiveerida see fail? See lahkub aktiivsest loendist, kuid jääb otsitavaks jaotises Arhiveeritud."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Teisesed toimingud",
+      "editScope": "Redigeeri ulatust / klasse"
+    },
+    "kinds": {
+      "name_address_change": "Nime ja aadressi muutmine",
+      "transfer": "Kaubamärgi üleandmine / loovutamine",
+      "license": "Litsentsileping",
+      "pledge": "Eriline pant",
+      "injunction": "Ajutine meede / ettekirjutus",
+      "surrender": "Täielik alistumine / lahtiütlemine",
+      "limitation": "Rakenduse piirang",
+      "insolvency": "Maksejõuetus / pankrot"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Opositsiooni asula",
+      "office_action_response": "Office'i toimingu vastus",
+      "voluntary_limitation": "Vabatahtlik piiramine",
+      "correction_of_error": "Vea parandus",
+      "other": "muud"
+    },
+    "scope": {
+      "title": "Redigeeri klasse ja ulatust",
+      "description": "Muutke Nice'i klasse ja kaupade/teenuste kirjeldusi, seejärel salvestage kontoritoimiku üksikasjad.",
+      "cardTitle": "Klassid ja kaubad/teenused",
+      "cardHint": "Active Nice klassid sellel kaubamärgifailil.",
+      "empty": "Ühtegi tundi pole veel salvestatud.",
+      "classLabel": "Klass {{n}}",
+      "noDescription": "Kirjeldust pole",
+      "classes": "Klassi ja kauba toimetaja",
+      "incomingNumber": "Sissetulev viitenumber (ВХ. НОМЕР)",
+      "incomingPlaceholder": "Office'i jälgimise ID",
+      "filingDate": "Esitamise kuupäev (ДАТА)",
+      "legalBasis": "Õiguslik alus (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Valige põhjus…",
+      "legalBasisOther": "Muu õiguslik alus",
+      "attachment": "Toetav dokument",
+      "errors": {
+        "classRequired": "Hoidke vähemalt üks Nice'i klass või kasutage märgist loobumiseks Full Surrenderit.",
+        "incomingRequired": "Sisestage sissetulev viitenumber.",
+        "dateRequired": "Sisestage esitamise kuupäev.",
+        "basisRequired": "Valige õiguslik alus.",
+        "saveFailed": "Ulatuse parandust ei saanud salvestada."
+      }
+    },
+    "secondary": {
+      "description": "Logige see haldustoiming, valikuline riigilõiv ja meeldetuletuse tähtajad.",
+      "generateProforma": "Esitage arve",
+      "governmentFee": "Riigilõiv (€)",
+      "paymentDueDate": "Maksetähtaeg",
+      "paymentReminder": "Enne maksmist meelde tuletada",
+      "filingDeadline": "Esitamise/toimingu tähtaeg",
+      "filingReminder": "Enne esitamist tuletage meelde",
+      "reminderUnit": "Üksus",
+      "months": "Kuud enne",
+      "days": "Päevi enne",
+      "titles": {
+        "name_address_change": "Logi nime ja aadressi muutmine",
+        "transfer": "Logi Kaubamärgi ülekandmine",
+        "license": "Logi litsentsileping",
+        "pledge": "Palgi eripant",
+        "injunction": "Logige ajutine meede / ettekirjutus",
+        "surrender": "Logi täielik allaandmine / lahtiütlemine",
+        "limitation": "Logirakenduse piirang",
+        "insolvency": "Logi maksejõuetus / pankrot"
+      },
+      "errors": {
+        "feeRequired": "Proforma arve koostamiseks sisestage riigilõiv.",
+        "saveFailed": "Seda toimingut ei saanud salvestada."
+      }
+    },
+    "table": {
+      "title": "Teisesed toimingud",
+      "description": "Selle kaubamärgi logitud protseduurid. Seotud failide vaatamiseks või üleslaadimiseks avage kaust.",
+      "empty": "Teiseseid toiminguid veel pole. Selle logimiseks kasutage päises sekundaarseid toiminguid.",
+      "procedure": "Menetlus",
+      "action": "Tegevus",
+      "loggedAt": "Sisse logitud",
+      "viewAria": "Vaadake toimingu üksikasju",
+      "filesAria": "Ava failiarhiiv ({{count}} failid)"
+    },
+    "archive": {
+      "title": "Faili arhiiv",
+      "empty": "Sellele toimingule pole veel faile lisatud.",
+      "date": "Kuupäev",
+      "regarding": "Seoses",
+      "regardingPlaceholder": "nt. Otsus, proform, toetav kiri",
+      "document": "Dokument",
+      "user": "Kasutaja",
+      "attach": "Manustage dokument",
+      "upload": "Laadi fail üles",
+      "download": "Laadi alla",
+      "regardingRequired": "Sisestage, mida fail puudutab.",
+      "fileRequired": "Valige üleslaaditav fail.",
+      "uploadFailed": "Faili ei saanud üles laadida."
+    }
   },
   "list": {
-    "description": "Kõigi failide ülevaade — otsi pealkirja, kliendi või taotlusnr järgi.",
-    "descriptionPortal": "Teie organisatsiooni jaoks avatud failid pärast päringu teisendamist.",
-    "descriptionArchived": "Lõpetatud või mitteaktiivsed failid viiteks.",
+    "description": "Kõigi failide portfellivaade – otsige pealkirja, kliendi või rakenduse numbri järgi.",
+    "descriptionPortal": "Teie organisatsiooni jaoks avatud failid pärast sissevõtu teisendamist.",
+    "descriptionArchived": "Lõpetatud või passiivsed failid säilitatakse viitamiseks.",
+    "descriptionOthers": "Failid väljaspool kuut peamist riiulit – filtreerige allpool töötüübi järgi.",
+    "descriptionType": "{{type}} failid – otsige pealkirja, kliendi või rakenduse numbri järgi.",
     "filters": {
       "allStatuses": "Kõik olekud",
       "allTypes": "Kõik töötüübid",
+      "allOtherTypes": "Kõik muud liigid",
       "active": "Aktiivne",
-      "archived": "Arhiveeritud",
-      "allOtherTypes": "Kõik muud tüübid"
+      "archived": "Arhiveeritud"
     },
     "intakeQueue": "Vastuvõtu järjekord",
     "pagination": {
       "ofTotal": "{{total}}"
     },
     "perPage": "{{count}} lehekülje kohta",
-    "searchPlaceholder": "Otsi pealkiri, klient, taotlusnr…",
+    "searchPlaceholder": "Otsingu pealkiri, klient, rakenduse nr…",
     "title": "Failid",
     "titleArchived": "Arhiveeritud failid",
-    "titlePortal": "Minu failid",
-    "descriptionOthers": "Failid väljaspool kuut põhikategooriat — filtreeri tüübi järgi allpool.",
-    "descriptionType": "{{type}} failid — otsi pealkirja, kliendi või taotlusnr järgi.",
-    "titleOthers": "Muud failid",
     "titleDrafts": "Mustandid",
-    "descriptionDrafts": "Mustandid enne kinnitust või esitamist — eraldi aktiivsetest kaubamärkidest ja teistest riiulitest."
+    "titleOthers": "Muud failid",
+    "titlePortal": "Minu failid",
+    "descriptionDrafts": "Mustandid ootavad kinnitamist või esitamist – eraldi aktiivsetest kaubamärkidest ja muudest riiulitest."
+  },
+  "trademarkList": {
+    "description": "Kaubamärkide portfell – kohtu alla andmise etapp, klassid, taotleja ja tähtajad lühidalt.",
+    "descriptionMarks": "Uued ja registreeritud kaubamärgid – süüdistuse esitamise staadium, klassid, taotleja ja tähtajad lühidalt.",
+    "descriptionProcedure": "{{procedure}} kaubamärgifailid – süüdistuse esitamise etapp, klassid ja tähtajad lühidalt.",
+    "emptyDescription": "Proovige filtreid kohandada või luua uus kaubamärgifail.",
+    "columns": {
+      "name": "Kaubamärgi nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Taotlus / sissetulev nr.",
+      "stage": "Süüdistuse esitamise etapp",
+      "classes": "Toredad klassid",
+      "applicant": "Taotleja/omanik",
+      "markType": "Märgi tüüp",
+      "registration": "Reg. ei. / kuupäev",
+      "deadline": "Tähtaeg"
+    },
+    "deadlineOpen": "{{count}} avatud",
+    "deadlineOverdue": "{{count}} hilinenud",
+    "deadlineNext": "Järgmine: {{date}}",
+    "filters": {
+      "title": "Filtri märgid",
+      "subtitle": "Kitsendage portfooliot taotleja, numbrite, kuupäevade, klasside ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või taotleja nimi…",
+      "markName": "Kaubamärgi nimi",
+      "markNamePlaceholder": "Märgi pealkiri…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Reg. ei.",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "markType": "Märgi tüüp",
+      "markKind": "Märgi lahke",
+      "territory": "Territoorium",
+      "representative": "Esindaja",
+      "representativePlaceholder": "Esindaja nimi…",
+      "applicationDateFrom": "Taotlemise kuupäev alates",
+      "applicationDateTo": "Taotlemise kuupäev kuni",
+      "registrationDateFrom": "Registreerimise kuupäev alates",
+      "registrationDateTo": "Registreerimise kuupäev kuni",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "markStatus": "Märkige olek",
+      "niceClass": "Kena klass",
+      "country": "Riik",
+      "hasCertificate": "Tunnistus on lisatud",
+      "choose": "Vali",
+      "chooseClass": "Valige klass",
+      "chooseCountry": "Valige riik",
+      "all": "Kõik",
+      "classOption": "Klass {{number}}",
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "utilityModelList": {
+    "description": "Kasulikud mudelid – territoorium, nõuded, omanik ja registreerimine lühidalt.",
+    "emptyDescription": "Proovige filtreid reguleerida või looge uus kasuliku mudeli fail.",
+    "searchResults": "Otsingutulemused: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registreeritud"
+    },
+    "columns": {
+      "name": "Nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Sissetulev nr. / kuupäev",
+      "status": "Olek",
+      "classes": "klassid",
+      "owner": "Omanik",
+      "kind": "Lahke",
+      "registration": "Reg. ei. / kuupäev"
+    },
+    "filters": {
+      "title": "Kasulike mudelite filtrid",
+      "subtitle": "Kitsendage portfelli taotleja, numbrite, kuupäevade, territooriumi ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või omaniku nimi…",
+      "name": "Nimi",
+      "namePlaceholder": "Kasuliku mudeli nimi…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Registreerimisnumber",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "territory": "Territoorium",
+      "choose": "Vali",
+      "chooseTerritory": "Valige territoorium",
+      "representative": "Esindaja",
+      "chooseRepresentative": "Valige esindaja",
+      "applicationDate": "Taotlemise kuupäev",
+      "registrationDate": "Registreerimise kuupäev",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "status": "Olek",
+      "certificate": "tunnistus",
+      "certificateOptions": {
+        "with": "Sertifikaadiga",
+        "without": "Ilma sertifikaadita"
+      },
+      "statusOptions": {
+        "registered": "Registreeritud"
+      },
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "spcList": {
+    "description": "Täiendavad kaitsetunnistused – territoorium, nõuded, omanik ja registreerimine lühidalt.",
+    "emptyDescription": "Proovige filtreid reguleerida või luua uus SPC-fail.",
+    "searchResults": "Otsingutulemused: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registreeritud"
+    },
+    "columns": {
+      "name": "Nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Sissetulev nr. / kuupäev",
+      "status": "Olek",
+      "classes": "klassid",
+      "owner": "Omanik",
+      "kind": "Lahke",
+      "registration": "Reg. ei. / kuupäev"
+    },
+    "filters": {
+      "title": "SPC-failide filtreerimine",
+      "subtitle": "Kitsendage portfelli taotleja, numbrite, kuupäevade, territooriumi ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või omaniku nimi…",
+      "name": "Patendi nimi",
+      "namePlaceholder": "SPC nimi…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Registreerimisnumber",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "territory": "Territoorium",
+      "choose": "Vali",
+      "chooseTerritory": "Valige territoorium",
+      "representative": "Esindaja",
+      "chooseRepresentative": "Valige esindaja",
+      "applicationDate": "Taotlemise kuupäev",
+      "registrationDate": "Registreerimise kuupäev",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "status": "Patendi staatus",
+      "certificate": "tunnistus",
+      "certificateOptions": {
+        "with": "Sertifikaadiga",
+        "without": "Ilma sertifikaadita"
+      },
+      "statusOptions": {
+        "registered": "Registreeritud"
+      },
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Kohtuasjad – pooled, kohtuasja number, kohus ja staatus lühidalt.",
+    "emptyDescription": "Alustamiseks looge uus juhtumitoimik.",
+    "searchResults": "Otsingutulemused: {{count}}",
+    "incomingSuffix": "sissetulevad",
+    "vrs": "vrs.",
+    "viewAria": "Kuva {{title}}",
+    "filesAria": "Dokumendid {{title}} ({{count}}) jaoks",
+    "columns": {
+      "parties": "Peod",
+      "caseNumber": "Juhtum nr.",
+      "court": "Kohus",
+      "status": "Olek",
+      "actions": "Tegevused"
+    },
+    "statusOptions": {
+      "suspended": "Peatatud",
+      "scheduled": "Planeeritud",
+      "inactive": "Mitteaktiivne",
+      "appealed": "Kaebas edasi"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Klient",
+    "caseNumberLabel": "Juhtum nr.",
+    "statusTitle": "Olek",
+    "chooseStatus": "Valige olek",
+    "saveStatus": "Salvesta olek",
+    "edit": "Muuda",
+    "save": "Salvesta",
+    "cancel": "Tühista",
+    "saving": "Salvestamine…",
+    "editHint": "Värskendage osapooli, kohtu üksikasju, teemat ja muid juhtumi andmeid.",
+    "subjectTitle": "Juhtumi teema",
+    "instanceTitle": "Juhtum nr. {{number}} ({{court}})",
+    "eventsTitle": "Sündmused",
+    "reminderTitle": "Loo täiendav meeldetuletus",
+    "addReminder": "Lisa",
+    "openArchive": "Faili arhiiv",
+    "saved": "Salvestatud.",
+    "events": {
+      "date": "Kuupäev",
+      "deadline": "Tähtaeg",
+      "regarding": "Seoses",
+      "info": "Lisainfo"
+    },
+    "actions": {
+      "decision": "Otsus",
+      "agreement": "Kokkulepe",
+      "ruling": "Otsus"
+    },
+    "errors": {
+      "saveFailed": "Juhtumi üksikasju ei saanud salvestada."
+    }
+  },
+  "giList": {
+    "description": "Geograafilised tähised – territoorium, tooteklassid, omanik ja registreerimine lühidalt.",
+    "emptyDescription": "Proovige filtreid kohandada või luua uus geograafilise tähise fail.",
+    "searchResults": "Otsingutulemused: {{count}}",
+    "territoryEu": "EL",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registreeritud"
+    },
+    "columns": {
+      "name": "Nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Sissetulev nr. / kuupäev",
+      "status": "Olek",
+      "classification": "Klassifikatsioon",
+      "owner": "Omanik",
+      "registration": "Reg. ei. / kuupäev"
+    },
+    "filters": {
+      "title": "Geograafiliste tähiste filtreerimine",
+      "subtitle": "Kitsendage portfelli taotleja, numbrite, kuupäevade, territooriumi marsruudi ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või omaniku nimi…",
+      "name": "Nimi",
+      "namePlaceholder": "GI nimi…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Registreerimisnumber",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "territory": "Territoorium",
+      "choose": "Vali",
+      "chooseTerritory": "Valige territooriumi marsruut",
+      "representative": "Esindaja",
+      "chooseRepresentative": "Valige esindaja",
+      "applicationDate": "Taotlemise kuupäev",
+      "registrationDate": "Registreerimise kuupäev",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "status": "Olek",
+      "certificate": "tunnistus",
+      "certificateOptions": {
+        "with": "Sertifikaadiga",
+        "without": "Ilma sertifikaadita"
+      },
+      "country": "Riik",
+      "chooseCountry": "Valige riik",
+      "statusOptions": {
+        "registered": "Registreeritud"
+      },
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "designList": {
+    "description": "Registreeritud disainilahendused – territoorium, Locarno klassifikatsioon, omanik ja registreerimine lühidalt.",
+    "emptyDescription": "Proovige filtreid reguleerida või luua uus kujundusfail.",
+    "searchResults": "Otsingutulemused: {{count}}",
+    "territoryEu": "EL",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Registreeritud"
+    },
+    "columns": {
+      "name": "Nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Sissetulev nr. / kuupäev",
+      "status": "Olek",
+      "classification": "Klassifikatsioon",
+      "owner": "Omanik",
+      "registration": "Reg. ei. / kuupäev"
+    },
+    "filters": {
+      "title": "Filtri kujundused",
+      "subtitle": "Kitsendage portfelli taotleja, numbrite, kuupäevade, protseduuride ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või omaniku nimi…",
+      "name": "Nimi",
+      "namePlaceholder": "Disaini nimi…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Registreerimisnumber",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "territory": "Territoorium",
+      "procedure": "Menetlus",
+      "choose": "Vali",
+      "chooseTerritory": "Valige territoorium",
+      "representative": "Esindaja",
+      "chooseRepresentative": "Valige esindaja",
+      "applicationDate": "Taotlemise kuupäev",
+      "registrationDate": "Registreerimise kuupäev",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "status": "Olek",
+      "certificate": "tunnistus",
+      "certificateOptions": {
+        "with": "Sertifikaadiga",
+        "without": "Ilma sertifikaadita"
+      },
+      "country": "Riik",
+      "statusOptions": {
+        "registered": "Registreeritud"
+      },
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "patentList": {
+    "description": "Uued ja registreeritud patendid üheskoos – süüdistuse esitamise etapp, nõuded, omanik ja tähtajad lühidalt.",
+    "emptyDescription": "Proovige filtreid reguleerida või luua uus patendifail.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Patendi nimi",
+      "territory": "Territoorium",
+      "incomingRef": "Taotlus / sissetulev nr.",
+      "stage": "Olek",
+      "claims": "Nõuded",
+      "owner": "Omanik",
+      "registration": "Reg. ei. / kuupäev",
+      "deadline": "Tähtaeg"
+    },
+    "deadlineOpen": "{{count}} avatud",
+    "deadlineOverdue": "{{count}} hilinenud",
+    "deadlineNext": "Järgmine: {{date}}",
+    "filters": {
+      "title": "Filtri patendid",
+      "subtitle": "Kitsendage portfelli taotleja, numbrite, kuupäevade, territooriumi ja muu järgi.",
+      "activeCount": "{{count}} aktiivne",
+      "applicant": "Taotleja/omanik",
+      "applicantPlaceholder": "Kliendi või omaniku nimi…",
+      "patentName": "Patendi nimi",
+      "patentNamePlaceholder": "Patendi pealkiri…",
+      "incomingNo": "Sissetulev nr.",
+      "incomingPlaceholder": "Taotlus / sissetulev…",
+      "regNo": "Reg. ei.",
+      "regNoPlaceholder": "Registreerimisnumber…",
+      "territory": "Territoorium",
+      "choose": "Vali",
+      "chooseTerritory": "Valige territoorium",
+      "representative": "Esindaja",
+      "chooseRepresentative": "Valige esindaja",
+      "applicationDateFrom": "Taotlemise kuupäev alates",
+      "applicationDateTo": "Taotlemise kuupäev kuni",
+      "registrationDateFrom": "Registreerimise kuupäev alates",
+      "registrationDateTo": "Registreerimise kuupäev kuni",
+      "contact": "Kontaktisik",
+      "contactPlaceholder": "Kontaktisiku nimi, e-posti aadress või telefon…",
+      "patentStatus": "Patendi staatus",
+      "certificate": "tunnistus",
+      "certificateOptions": {
+        "with": "Sertifikaadiga",
+        "without": "Ilma sertifikaadita"
+      },
+      "country": "Riik",
+      "chooseCountry": "Valige riik",
+      "annualFees": "Aastatasu maksmine",
+      "annualFeesOptions": {
+        "yes": "Jah",
+        "no": "Ei"
+      },
+      "statusOptions": {
+        "validation_received": "Kinnitus saadud",
+        "assignment": "Ülesandmine",
+        "translation_assigned": "Määratud tõlge",
+        "filing_entry": "Esitamine / sisestamine",
+        "validation_decision": "Valideerimisotsus",
+        "registered": "Registreeritud"
+      },
+      "all": "Kõik",
+      "clear": "Selge filtrid",
+      "apply": "Rakenda filtreid"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Märgid"
+  },
+  "objectionList": {
+    "view": "Vaade",
+    "fileArchive": "Faili arhiiv",
+    "viewAria": "Vaata vastuväidet {{title}}",
+    "filesAria": "Ava failiarhiiv {{title}} ({{count}} faili) jaoks",
+    "emptyDescription": "Proovige filtreid kohandada või looge uus vastulausefail.",
+    "columns": {
+      "againstMark": "Märgi vastu",
+      "grounds": "Põhjused",
+      "client": "Klient",
+      "status": "Olek",
+      "actions": "Tegevused"
+    }
+  },
+  "oppositionList": {
+    "view": "Vaade",
+    "fileArchive": "Faili arhiiv",
+    "viewAria": "Vaata vastulauset {{title}}",
+    "filesAria": "Ava vastulausefailide arhiiv {{title}} ({{count}} faili) jaoks",
+    "emptyDescription": "Proovige filtreid kohandada või looge uus vastulause fail.",
+    "columns": {
+      "againstMark": "Märgi vastu",
+      "client": "Klient",
+      "status": "Olek",
+      "actions": "Tegevused"
+    },
+    "stages": {
+      "disputes_division": "Vastuseis vaidluste jagamisel",
+      "opposition_decision": "Opositsiooni otsus",
+      "disputes_department_decision": "Vaidluste osakonna otsus",
+      "case": "Juhtum",
+      "stopped": "Peatatud",
+      "closed": "Suletud"
+    },
+    "stageLegend": {
+      "disputes_division": "Sinine – läbivaatamisel vaidluste osakonnas",
+      "opposition_decision": "Merevaigukollane – otsus tehtud või menetluses",
+      "disputes_department_decision": "Oranž — osakonna tasandi otsus",
+      "case": "Punane — eskaleerus kohtusse",
+      "stopped": "Hall – menetlus peatatud",
+      "closed": "Roheline — vastuseis on lõppenud"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Vastulause",
+    "basicInfo": "Põhiteave",
+    "foundation": "Sihtasutus",
+    "archiveTitle": "Vastulause faili arhiiv",
+    "nav": {
+      "view": "Vaade",
+      "archive": "Faili arhiiv"
+    },
+    "markName": "Kaubamärgi nimi",
+    "applicationNumber": "Taotluse number",
+    "applicationDate": "Taotlemise kuupäev",
+    "classes": "klassid",
+    "markType": "Kaubamärgi tüüp",
+    "applicant": "Taotleja",
+    "noMarkImage": "Kaubamärgil puudub kujutis",
+    "grounds": "Sihtasutus",
+    "submissionDate": "Esitamise kuupäev",
+    "incomingNumber": "Sissetulev number",
+    "poaIncomingNumber": "Sissetuleva volikirja number",
+    "poaDate": "Kuupäev",
+    "edit": "Muuda",
+    "cancel": "Tühista",
+    "save": "Salvestage muudatused",
+    "saving": "Salvestamine…",
+    "errors": {
+      "markNameRequired": "Kaubamärgi nimi on kohustuslik.",
+      "saveFailed": "Vastulauset ei õnnestunud salvestada."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Opositsioon",
+    "subjectMark": "Teema kaubamärk",
+    "opposingMarks": "Vastulaused kaubamärgid",
+    "archiveTitle": "Vastulause faili arhiiv",
+    "nav": {
+      "view": "Vaade",
+      "archive": "Faili arhiiv",
+      "notes": "Märkmed"
+    },
+    "markName": "Kaubamärgi nimi",
+    "applicationNumber": "Taotluse number",
+    "applicationDate": "Taotlemise kuupäev",
+    "classes": "klassid",
+    "markType": "Kaubamärgi tüüp",
+    "applicant": "Taotleja",
+    "representative": "Esindaja",
+    "noMarkImage": "Kaubamärgil puudub kujutis",
+    "noBasisMarks": "Vastuseisvaid kaubamärke pole registreeritud.",
+    "basisMarkName": "Kaubamärgi nimi",
+    "basisTerritory": "Territoorium",
+    "basisMarkNo": "Märk nr.",
+    "basisAppDate": "Taotlemise kuupäev",
+    "basisClasses": "klassid",
+    "againstClasses": "Klasside vastu",
+    "submittedBy": "Esitanud",
+    "statusHistory": "Oleku ajalugu",
+    "stage": "Olek",
+    "stagePlaceholder": "Valige olek…",
+    "stageNone": "Pole määratud",
+    "stageChangeHint": "Uue oleku salvestamine värskendab vastulausete loendis olevat värvilist märki, lisab olekuajalukku rea ja määrab asja olekuks Ootel (peatatud) või Suletud, kui see on asjakohane.",
+    "decisionNumber": "Otsuse number",
+    "decisionDate": "Otsuse kuupäev",
+    "actions": {
+      "stop": "Peatus",
+      "print": "Printige PDF",
+      "printing": "Loomine…",
+      "stopFailed": "Ei suutnud opositsiooni peatada.",
+      "printFailed": "PDF-i ei saanud luua."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Vastulauset vaatab läbi vaidluste osakond.",
+      "opposition_decision": "Vastulause otsus on välja antud või oodatakse.",
+      "disputes_department_decision": "Vaidluste osakond on teinud oma otsuse või vaatab seda läbi.",
+      "case": "Asi on eskaleeritud kohtusse.",
+      "stopped": "Vastulause menetlemine on peatatud; asi on seatud ootele.",
+      "closed": "Opositsioon on lõpetatud; asi on seatud suletuks."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Vastulause vaidluste jagamisel",
+      "opposition_decision": "Otsus vastulause kohta nr {{number}} / {{date}}",
+      "disputes_department_decision": "Vaidluste osakonna otsus nr {{number}} / {{date}}",
+      "case": "Vaidlustatud otsus vastulause kohta nr {{number}} / {{date}}",
+      "stopped": "{{markRef}} — vastuseis peatati",
+      "closed": "{{markRef}} — Vastulause on suletud"
+    },
+    "timeline": {
+      "decision": "Otsus vastulause kohta",
+      "department_decision": "Vaidluste osakonna otsus",
+      "second_decision": "Teine otsus vastuseisu kohta",
+      "appealedBy": "Apellatsiooni esitas {{name}}",
+      "appealedInCourtBy": "{{name}} kaebas kohtusse",
+      "decisionRef": "Nr {{number}} / {{date}}",
+      "appealFiled": "Esitatud kaebus",
+      "courtAppealFiled": "Kohtusse esitatud apellatsioonkaebus"
+    },
+    "workflow": {
+      "appealTitle": "Kaebus — sissetulev number",
+      "correspondenceTitle": "Kirjavahetus",
+      "solutionTitle": "Lahendus",
+      "incomingNumber": "Sissetulev number",
+      "date": "Kuupäev",
+      "attachAppeal": "Manustage apellatsioon",
+      "attachDocument": "Manustage dokument",
+      "regarding": "Seoses",
+      "deadline": "Tähtaeg",
+      "additionalInfo": "Lisainfo",
+      "correspondence": "Kirjavahetus",
+      "submit": "Esita",
+      "solutionSubmit": "Lahendus",
+      "caseDraft": "Juhtumi mustand",
+      "courtAppeal": "Kaebab kohtusse",
+      "saveFailed": "Ei saanud salvestada."
+    },
+    "edit": "Muuda",
+    "cancel": "Tühista",
+    "save": "Salvestage muudatused",
+    "saving": "Salvestamine…",
+    "errors": {
+      "markNameRequired": "Kaubamärgi nimi on kohustuslik.",
+      "saveFailed": "Opositsiooni päästa ei õnnestunud."
+    },
+    "notes": {
+      "title": "Opositsioon märgib",
+      "empty": "Märkmeid veel pole.",
+      "date": "Kuupäev",
+      "regarding": "Seoses",
+      "details": "Lisainfo",
+      "submit": "Lisa",
+      "regardingRequired": "Sisestage märkme teema.",
+      "saveFailed": "Märkust ei saanud salvestada.",
+      "editAria": "Redigeeri märkust",
+      "deleteAria": "Kustuta märge"
+    }
+  },
+  "cancellationList": {
+    "view": "Ülevaade",
+    "fileArchive": "Failid",
+    "viewAria": "Vaata tühistamist {{title}}",
+    "filesAria": "Ava tühistamisfailide arhiiv {{title}} jaoks ({{count}} failid)",
+    "emptyDescription": "Proovige filtreid kohandada või looge uus tühistamisfail.",
+    "stageNone": "Pole määratud",
+    "columns": {
+      "againstMark": "Kaubamärgi vastu",
+      "client": "Klient",
+      "status": "Olek",
+      "actions": "Tegevused"
+    },
+    "stages": {
+      "waiting_for_login": "Ootab sisselogimist",
+      "in_correspondence": "Kirjavahetuses",
+      "case": "Juhtum",
+      "stopped": "Peatatud",
+      "closed": "Suletud"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Tühistamine",
+    "subjectMark": "Teema kaubamärk",
+    "cancellationSide": "Tühistamise üksikasjad",
+    "archiveTitle": "Tühistamisfailide arhiiv",
+    "nav": {
+      "view": "Vaade",
+      "archive": "Faili arhiiv",
+      "notes": "Märkmed"
+    },
+    "markName": "Kaubamärgi nimi",
+    "applicationNumber": "Taotluse number",
+    "applicationDate": "Taotlemise kuupäev",
+    "registrationNumber": "Registreerimisnumber",
+    "classes": "klassid",
+    "markType": "Märgi tüüp",
+    "applicant": "Taotleja",
+    "representative": "Esindaja",
+    "againstClasses": "Klasside vastu",
+    "submittedBy": "Esitanud",
+    "foundation": "Sihtasutus",
+    "stage": "Olek",
+    "stagePlaceholder": "Valige olek…",
+    "stageNone": "Pole määratud",
+    "headers": {
+      "waiting_for_login": "{{markRef}} – tühistamine",
+      "in_correspondence": "Tühistamise nr {{number}} / {{date}}",
+      "case": "Tühistamise nr {{number}} / {{date}} – juhtum",
+      "stopped": "{{markRef}} — tühistamine on peatatud",
+      "closed": "{{markRef}} – tühistamine on suletud"
+    },
+    "deadlines": {
+      "date": "Kuupäev",
+      "deadline": "Tähtaeg",
+      "regarding": "Seoses",
+      "details": "Lisainfo"
+    },
+    "workflow": {
+      "feeTitle": "Riigilõiv — tasumise kuupäev",
+      "poaTitle": "Volikiri",
+      "filingTitle": "Tühistamisavaldus",
+      "correspondenceTitle": "Kirjavahetus",
+      "feeAmount": "Summa (BGN)",
+      "feeDate": "Tasumise kuupäev",
+      "poaNumber": "POA number",
+      "poaDate": "Vastuvõtmise kuupäev",
+      "cancellationNumber": "Tühistamise number",
+      "filingDate": "Esitamise kuupäev",
+      "attachDocument": "Manustage dokument",
+      "attachPoa": "Lisage POA",
+      "regarding": "Seoses",
+      "deadline": "Tähtaeg",
+      "additionalInfo": "Lisainfo",
+      "submit": "Esita",
+      "decision": "Otsus",
+      "feePaid": "Riigilõiv registreeritud",
+      "poaReceived": "Volikiri on salvestatud",
+      "filingRecorded": "Tühistamisavaldus salvestati",
+      "correspondence": "Kirjavahetus",
+      "saveFailed": "Ei saanud salvestada."
+    },
+    "actions": {
+      "stop": "Peatus",
+      "stopFailed": "Tühistamist ei saanud peatada."
+    },
+    "edit": "Muuda",
+    "cancel": "Tühista",
+    "save": "Salvestage muudatused",
+    "saving": "Salvestamine…",
+    "errors": {
+      "markNameRequired": "Kaubamärgi nimi on kohustuslik.",
+      "saveFailed": "Tühistamist ei õnnestunud salvestada."
+    },
+    "notes": {
+      "title": "Tühistamise märkmed",
+      "empty": "Märkmeid veel pole.",
+      "date": "Kuupäev",
+      "regarding": "Seoses",
+      "details": "Lisainfo",
+      "submit": "Lisa",
+      "regardingRequired": "Sisestage märkme teema.",
+      "saveFailed": "Märkust ei saanud salvestada.",
+      "editAria": "Redigeeri märkust",
+      "deleteAria": "Kustuta märge"
+    }
+  },
+  "deletionList": {
+    "view": "Ülevaade",
+    "fileArchive": "Failid",
+    "viewAria": "Vaata kustutamist {{title}}",
+    "filesAria": "Ava kustutamisfailide arhiiv {{title}} ({{count}} faili) jaoks",
+    "emptyDescription": "Proovige filtreid kohandada või looge uus kustutamisfail.",
+    "stageNone": "Pole määratud",
+    "columns": {
+      "againstMark": "Kaubamärgi vastu",
+      "client": "Klient",
+      "status": "Olek",
+      "actions": "Tegevused"
+    },
+    "stages": {
+      "waiting_for_login": "Esitage kustutamine",
+      "in_correspondence": "Kirjavahetuses",
+      "decision": "Otsus",
+      "case": "Juhtum",
+      "stopped": "Peatatud",
+      "closed": "Suletud"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Kustutamine",
+    "subjectMark": "Teema kaubamärk",
+    "deletionSide": "Kustutamise üksikasjad",
+    "archiveTitle": "Kustuta failiarhiiv",
+    "archivedStamp": "Arhiveeritud",
+    "noMarkImage": "Kaubamärgil puudub kujutis",
+    "nav": {
+      "view": "Vaade",
+      "archive": "Faili arhiiv"
+    },
+    "markName": "Kaubamärgi nimi",
+    "applicationNumber": "Taotluse number",
+    "applicationDate": "Taotlemise kuupäev",
+    "registrationNumber": "Registreerimisnumber",
+    "classes": "klassid",
+    "markType": "Märgi tüüp",
+    "applicant": "Taotleja",
+    "representative": "Esindaja",
+    "againstClasses": "Klasside vastu",
+    "submittedBy": "Esitanud",
+    "foundation": "Sihtasutus",
+    "stage": "Olek",
+    "stagePlaceholder": "Valige olek…",
+    "stageNone": "Pole määratud",
+    "headers": {
+      "waiting_for_login": "{{markRef}} – kustutamine",
+      "in_correspondence": "Kustutamise nr {{number}} / {{date}}",
+      "decision": "Kustutamisotsus nr {{number}} / {{date}}",
+      "case": "Kustutamisotsus nr {{number}} / {{date}} – Juhtum",
+      "stopped": "{{markRef}} — peatatud (kuni {{stopUntil}})",
+      "closed": "{{markRef}} – kustutamine on suletud"
+    },
+    "deadlines": {
+      "date": "Meeldetuletuse kuupäev",
+      "deadline": "Tähtaeg",
+      "regarding": "Seoses",
+      "details": "Lisainfo",
+      "appealTitle": "Kaebuse esitamise tähtaeg"
+    },
+    "stopped": {
+      "title": "Peatatud",
+      "until": "(kuni {{date}})",
+      "reason": "Põhjus: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Loo proforma",
+      "stateFee": "Riigilõiv",
+      "feePaymentDeadline": "Tasumise tähtaeg",
+      "poaSendDeadline": "Volikirja saatmise tähtaeg",
+      "filingDeadlineLabel": "Esitamise tähtaeg",
+      "remindBefore": "Tuleta enne meelde",
+      "reminderDays": "Päevad",
+      "reminderMonths": "Kuud",
+      "feeDeadlineRegarding": "Riigilõivu tasumise tähtaeg",
+      "poaDeadlineRegarding": "Volikirja saatmise tähtaeg",
+      "filingDeadlineRegarding": "Kustutusavalduse esitamise tähtaeg",
+      "proformaRecorded": "Proforma ja tähtajad salvestatud",
+      "feeTitle": "Riigilõiv — tasumise kuupäev",
+      "poaTitle": "Volikiri",
+      "filingTitle": "Kustutamise esitamine",
+      "correspondenceTitle": "Kirjavahetus",
+      "decisionTitle": "Kustutamise otsus",
+      "feeAmount": "Summa (BGN)",
+      "feeDate": "Tasumise kuupäev",
+      "poaNumber": "POA number",
+      "poaDate": "Vastuvõtmise kuupäev",
+      "deletionNumber": "Kustutamise number",
+      "filingDate": "Esitamise kuupäev",
+      "decisionNumber": "Otsuse number",
+      "decisionDate": "Otsuse kuupäev",
+      "attachDocument": "Manustage dokument",
+      "attachPoa": "Lisage POA",
+      "regarding": "Seoses",
+      "deadline": "Tähtaeg",
+      "additionalInfo": "Lisainfo",
+      "submit": "Esita",
+      "decision": "Otsus",
+      "caseDraft": "Juhtumi mustand",
+      "notAppealed": "Kaebamata",
+      "appealed": "Kaebas edasi",
+      "feePaid": "Riigilõiv registreeritud",
+      "poaReceived": "Volikiri on salvestatud",
+      "filingRecorded": "Kustutusfail on salvestatud",
+      "decisionRecorded": "Kustutamisotsus registreeriti",
+      "correspondence": "Kirjavahetus",
+      "decisionNumberRequired": "Sisestage otsuse number.",
+      "saveFailed": "Ei saanud salvestada."
+    },
+    "actions": {
+      "stop": "Peatus",
+      "stopReason": "Põhjus",
+      "stopUntil": "Peatus kuni",
+      "restore": "Taasta",
+      "restored": "Taastatud",
+      "archive": "Arhiiv",
+      "archiveConfirm": "Kas arhiveerida see kustutamisfail?",
+      "archiveFailed": "Kustutamist ei saanud arhiivida.",
+      "stopFailed": "Kustutamist ei saanud peatada.",
+      "restoreFailed": "Kustutamist ei saanud taastada."
+    },
+    "edit": "Muuda",
+    "cancel": "Tühista",
+    "save": "Salvestage muudatused",
+    "saving": "Salvestamine…",
+    "errors": {
+      "markNameRequired": "Kaubamärgi nimi on kohustuslik.",
+      "saveFailed": "Kustutamist ei saanud salvestada."
+    }
   },
   "ipRightsRegister": {
     "description": "Ettevõtteülene IP-õiguste register koos filtritega kliendi, jurisdiktsiooni, tüübi, oleku ja aegumise järgi.",
@@ -788,11 +2557,11 @@
   },
   "markType": {
     "combined": "Kombineeritud",
+    "combination_of_colors": "Värvide kombinatsioon",
     "figurative": "Kujundlik",
     "sound": "Heli",
     "three_dimensional": "3D",
-    "wordmark": "Sõnamärk",
-    "combination_of_colors": "Värvide kombinatsioon"
+    "wordmark": "Sõnamärk"
   },
   "overview": {
     "assignedTo": "Juhtivadvokaat",
@@ -801,18 +2570,6 @@
     "clientHint": "Instrueeriv pool — võtab vastu arveid",
     "intermediary": "Vahendaja",
     "description": "Kirjeldus",
-    "jurisdictions": "Jurisdiktsioonid",
-    "jurisdictionsEmpty": "Jurisdiktsioone pole salvestatud.",
-    "openedBy": "Avanud",
-    "status": "Olek",
-    "table": {
-      "country": "Riik",
-      "localRef": "Kohalik ref.",
-      "status": "Olek"
-    },
-    "title": "Faili üksikasjad",
-    "type": "Töö tüüp",
-    "typeSpecific": "Tüübispetsiifilised atribuudid",
     "edit": {
       "cancel": "Tühista",
       "edit": "Muuda",
@@ -829,7 +2586,19 @@
       "saved": "Salvestatud.",
       "saving": "Salvestamine…",
       "title": "Faili üksikasjad"
-    }
+    },
+    "jurisdictions": "Jurisdiktsioonid",
+    "jurisdictionsEmpty": "Jurisdiktsioone pole salvestatud.",
+    "openedBy": "Avanud",
+    "status": "Olek",
+    "table": {
+      "country": "Riik",
+      "localRef": "Kohalik ref.",
+      "status": "Olek"
+    },
+    "title": "Faili üksikasjad",
+    "type": "Töö tüüp",
+    "typeSpecific": "Tüübispetsiifilised atribuudid"
   },
   "parties": {
     "title": "Peod",
@@ -874,11 +2643,12 @@
     "instructions": "Juhised",
     "approvals": "Heakskiidud",
     "ipRights": "IP õigused",
+    "secondaryActions": "Teisesed toimingud",
     "customs": "Toll",
     "overview": "Ülevaade",
     "tasks": "Märkmed",
     "timeline": "Ajaskaala",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} kuupäeval {{tab}}"
   },
   "approvals": {
     "title": "Klientide kinnitused",
@@ -887,7 +2657,7 @@
     "loading": "Kinnituste laadimine…",
     "loadError": "Kinnituste laadimine ebaõnnestus.",
     "empty": "Kinnitustaotlusi veel pole.",
-    "noPermission": "Teil pole luba selle asjaga seotud kinnitusi vaadata.",
+    "noPermission": "Teil ei ole luba selle asjaga seotud kinnitusi vaadata.",
     "decisionNote": "Kliendi märkus: {{note}}",
     "columns": {
       "title": "Pealkiri",
@@ -918,26 +2688,26 @@
     }
   },
   "tasks": {
-    "add": "Lisa ülesanne",
+    "add": "Lisa märkus",
     "assignedTo": "Määratud",
     "assignedToUser": "Määratud kasutajale {{name}}",
     "completed": "Lõpetatud",
     "completedByUser": "Lõpetanud {{name}}",
-    "confirmComplete": "Kas märkida see ülesanne lõpetatuks?",
-    "confirmDelete": "Kas kustutada see ülesanne?",
+    "confirmComplete": "Kas märkida see märge lõpetatuks?",
+    "confirmDelete": "Kas kustutada see märge?",
     "delete": "Kustuta",
-    "deleteMessage": "See ülesanne eemaldatakse jäädavalt.",
-    "deleteTitle": "Kas kustutada ülesanne?",
-    "description": "Selles küsimuses tuleb teha tööd – eraldi süsteemi loodud tähtaegadest.",
-    "drawerTitle": "Lisa ülesanne",
+    "deleteMessage": "See märge eemaldatakse jäädavalt.",
+    "deleteTitle": "Kas kustutada märge?",
+    "description": "Sisemised märkused selle teema kohta – eraldi süsteemi loodud tähtaegadest.",
+    "drawerTitle": "Lisa märkus",
     "dueOn": "Tähtaeg {{date}}",
-    "empty": "Selles küsimuses pole ülesandeid.",
-    "emptyOpen": "Avatud ülesandeid pole. Lisage üks, kui selles küsimuses on vaja jälgida.",
-    "error": "Ülesannete laadimine ebaõnnestus.",
-    "errorCreate": "Ülesande loomine ebaõnnestus",
+    "empty": "Selle teema kohta märkusi pole.",
+    "emptyOpen": "Avatud märkmeid pole. Lisage üks, kui on selles küsimuses midagi jälgida.",
+    "error": "Märkmete laadimine ebaõnnestus.",
+    "errorCreate": "Märkme loomine ebaõnnestus",
     "form": {
       "assigneeLabel": "Määratud",
-      "assigneeRequired": "Valige, kes peaks seda ülesannet tegema",
+      "assigneeRequired": "Valige, kellele see märge on mõeldud",
       "dueDateOptional": "Tähtaeg (valikuline)",
       "notesOptional": "Märkused (valikuline)",
       "notesPlaceholder": "Mis tahes lisakontekst volitatud isiku jaoks",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "nt. Helista kliendile re: BPO vastus",
       "titleRequired": "Pealkiri on kohustuslik"
     },
-    "loading": "Ülesannete laadimine…",
+    "loading": "Märkmete laadimine…",
     "markComplete": "Märgi lõpetatuks",
     "noDueDate": "Tähtaega pole",
     "open": "Avatud",
@@ -954,7 +2724,7 @@
       "high": "Kõrge",
       "normal": "Tavaline"
     },
-    "title": "Ülesanded"
+    "title": "Märkmed"
   },
   "timeline": {
     "description": "Süüdistuse kronoloogiline ajalugu ja selleteemaline kirjavahetus.",
@@ -979,8 +2749,8 @@
     "dispute_opposition": "Vaidlus / vastuseis",
     "domain": "Domeenid",
     "fto_analysis": "FTO analüüs",
-    "geographical_indication": "Geograafiline tähis",
-    "industrial_design": "Tööstusdisain",
+    "geographical_indication": "Geograafilised tähised",
+    "industrial_design": "Disain",
     "litigation_expert_report": "Kohtuvaidlused / kohtuekspertide aruanded",
     "official_fee_payment": "Ametlikud lõivud",
     "other": "muud",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Vali…",
     "title": "Tüübispetsiifilised üksikasjad"
   },
-  "createFile": {
-    "addClass": "Lisa klass",
-    "backToFiles": "Tagasi failide juurde",
-    "cancel": "Tühista",
-    "changeSubtype": "Muuda alamkategooriat",
-    "checkRegister": "Tutvu äriregistris",
-    "clearClient": "Vahetage klienti",
-    "clientOptionalHint": "Kas CRM-i vastet pole? Täitke allolevad kliendi andmed – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
-    "applicantOptionalHint": "Kas CRM-i vastet pole? Täitke allpool taotleja üksikasjad – mustandi salvestamisel luuakse need automaatselt kaustas Kliendid.",
-    "draftDescription": "Loodud faili loomise kaudu ({{procedure}}) – mustand",
-    "errors": {
-      "client": "Jätkamiseks valige klient.",
-      "clientOrDetails": "Valige CRM-i klient või sisestage nende loomiseks kliendi nimi ja andmed.",
-      "applicantOrDetails": "Valige CRM-is taotleja või sisestage taotleja nimi ja andmed nende loomiseks.",
-      "jurisdiction": "Valige vähemalt üks territoorium/riik.",
-      "markWords": "Sisestage kaubamärgi nimi/sõnad.",
-      "saveFailed": "Mustandifaili ei saanud salvestada.",
-      "subtype": "Valige kaubamärgi alamkategooria.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Faili viide ja olek",
+    "incomingNumber": {
+      "label": "Sissetulev nr."
     },
-    "euHint": "Euroopa Liidu kaubamärk (EUIPO) – jurisdiktsioon on määratud EL-ile.",
-    "fields": {
-      "address": "Aadress",
-      "applicantClient": "Taotleja klient",
-      "applicantClientOptional": "CRM-i taotleja (valikuline)",
-      "city": "Linn",
-      "classNumber": "Klassi number",
-      "country": "Riik",
-      "eik": "UIC / EIK",
-      "email": "E-post",
-      "fax": "Faks",
-      "goodsText": "Kaubad ja teenused",
-      "legalName": "Nimi ja juriidilise isiku liik",
-      "linkClient": "Valige CRM-is klient",
-      "linkClientOptional": "CRM-i klient (valikuline)",
-      "markKind": "Märgi kategooria",
-      "markType": "Märgi tüüp",
-      "markWords": "Märgi sõnad",
-      "mol": "MOL (allakirjutanu)",
-      "name": "Nimi",
-      "phone": "Telefon",
-      "postalCode": "Postiindeks",
-      "territory": "Territoorium",
-      "vat": "KMKR ID",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Saabumise kuupäev"
     },
-    "formTitle": "Loo fail: kaubamärk",
-    "fullFormReady": "Täielik vorm saadaval",
-    "goodsPlaceholder": "nt. pudelid; jaemüügiteenused…",
-    "markKinds": {
-      "certification": "Sertifitseerimine",
-      "collective": "Kollektiivne",
-      "individual": "Individuaalne"
+    "territoryRoute": {
+      "label": "Territooriumi marsruut",
+      "options": {
+        "national_bg": "Bulgaaria (riiklik)",
+        "eu": "Euroopa Liit",
+        "wipo": "WIPO / rahvusvaheline",
+        "international": "Muu rahvusvaheline"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Värvide kombinatsioon",
-      "combined": "Kombineeritud",
-      "figurative": "Kujundlik",
-      "sound": "Heli",
-      "three_dimensional": "Kolmemõõtmeline",
-      "wordmark": "Sõnamärk"
+    "authorityOffice": {
+      "label": "Asutus / kontor"
     },
-    "noClients": "Sobivaid kliente pole. Esmalt looge klient CRM-is ja seejärel naaske siia.",
-    "optionalMark": "Märgi / teema (valikuline)",
-    "partialSubtypeNote": "Selle alamkategooria täielikke eriväljasid laiendatakse hiljem. Saate ikkagi salvestada kliendiga lingitud mustandi; dokumendid ja kirjavahetus jäävad toimikusse.",
-    "preliminary": "Eelinfo",
-    "procedureHints": {
-      "new": "Uue kaubamärgi taotlus — täisvorm",
-      "registered": "Juba registreeritud kaubamärk",
-      "objection": "Vastuväitemenetlus",
-      "opposition": "Vastulausemenetlus",
-      "cancellation": "Tühistamismenetlus",
-      "deletion": "Kustutamismenetlus",
-      "opposition_against_us": "Vastulausemenetlus",
-      "opposition_by_us": "Vastulausemenetlus",
-      "revocation": "Kustutamismenetlus"
+    "relatedApplicationNumber": {
+      "label": "Seotud avaldus nr."
     },
-    "procedures": {
-      "new": "Uus kaubamärk",
-      "registered": "Registreeritud kaubamärk",
-      "objection": "Vastuväide",
-      "opposition": "Vastulause",
-      "cancellation": "Tühistamine",
-      "deletion": "Kustutamine",
-      "opposition_against_us": "Vastulause",
-      "opposition_by_us": "Vastulause",
-      "revocation": "Kustutamine"
-    },
-    "removeClass": "Eemalda klass",
-    "sameApplicant": "Taotleja teave on sama, mis kliendil",
-    "sameCorrespondence": "Kirjavahetuse aadress on sama mis registreeritud aadress",
-    "saveDraft": "Salvesta mustandina",
-    "saving": "Salvestamine…",
-    "searchClient": "Otsige kliente nime või koodi järgi…",
-    "sections": {
-      "applicant": "Taotleja",
-      "client": "Kliendi andmed",
-      "contact": "Kontaktisik",
-      "correspondence": "Kirjavahetuse aadress",
-      "goods": "Kaupade ja teenuste loetelu",
-      "markName": "Kaubamärgi nimi",
-      "registeredAddress": "Registreeritud aadress",
-      "searchDocs": "Lisage otsingudokumendid",
-      "trademark": "Kaubamärgi teave",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Valige riigid",
-    "subtypeHint": "Valige esmalt alamkategooria. Uus kaubamärk avab täisvormi.",
-    "territories": {
-      "eu": "Euroopa Liit",
-      "international": "Rahvusvaheline (WO)",
-      "national": "Rahvuslik"
-    },
-    "trademarkTitle": "Loo fail — kaubamärk",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Lisa riik…",
-    "cancel": "Tühista",
-    "country": "Riik",
-    "edit": "Muuda",
-    "errors": {
-      "country": "Valige selle territooriumi jaoks vähemalt üks riik.",
-      "saveFailed": "Kaubamärgiteavet ei saanud salvestada."
-    },
-    "euFixed": "Euroopa Liit (EUIPO)",
-    "markKind": "Märgi kategooria",
-    "markType": "Märgi tüüp",
-    "noCountries": "Ühtegi riiki pole veel valitud.",
-    "save": "Salvestage muudatused",
-    "saved": "Salvestatud.",
-    "saving": "Salvestamine…",
-    "selectCountries": "Valige riigid",
-    "territory": "Territoorium",
-    "title": "Kaubamärgi teave"
-  },
-  "fileApproval": {
-    "clientStep": "1. Klient on heaks kiitnud",
-    "clientStepHint": "Töötajad kinnitavad kliendiga kokkulepitud võrguühenduseta (kõne/e-kiri/kohtumine). Portaali klient ei pea ennast kinnitama.",
-    "errors": {
-      "updateFailed": "Kinnitusolekut ei saanud värskendada."
-    },
-    "hint": "Ainult sisemine kinnitus: märkige, et klient nõustus, seejärel aktsepteerib juhtivpartner faili. Kliendile saatmise heakskiitu pole vaja.",
-    "markClientApproved": "Märkige klient heaks",
-    "partnerApprove": "Partneri heakskiidu fail",
-    "partnerOnly": "Selle sammu saab teha ainult juhtivpartner",
-    "partnerStep": "2. Juhtpartneri nõustumine",
-    "partnerStepHint": "Kui klient on heaks kiidetud, aktsepteerib juhtivpartner faili ja see jätab mustandi.",
-    "recordedBy": "Salvestas {{name}} · {{date}}",
-    "title": "Faili kinnitamine",
-    "waitForClient": "Märkige esmalt klient heakskiidetuks, seejärel saate faili vastu võtta."
-  },
-  "prosecution": {
-    "cancelEdit": "Tühista",
-    "completeStage": "Täielik etapp",
-    "edit": "Muuda",
-    "editingNote": "Kasutage käsku Salvesta, et säilitada selles etapis sisestatud teave, või etappi Lõpeta, et liikuda edasi, kui nõutud väljad on täidetud.",
-    "gateHint": "Te ei saa edasi liikuda enne, kui selle etapi kohustuslikud väljad on täidetud (sama, mis nende süsteemiväravad).",
-    "goBack": "Mine lava tagasi",
-    "errors": {
-      "needAttachments": "Enne jätkamist lisage vajalikud failid: {{list}}",
-      "needInvoice": "Enne selle etapi läbimist koostage riigilõivust arve.",
-      "alreadyFinal": "See fail on juba viimases etapis.",
-      "needApproval": "Lõpetage faili kinnitamine (klient + juhtivpartner) enne ettevalmistustöö lõpetamist.",
-      "needBulletin": "Enne avaldamisest lahkumist sisestage bülletääni number ja kuupäev.",
-      "needFeePaid": "Enne ametliku eksami sooritamist sisestage riigilõivu tasumise kuupäev.",
-      "needFilingFields": "Esitamise lõpetamiseks sisestage taotluse number ja esitamise kuupäev.",
-      "needFormalFields": "Jätkamiseks sisestage riigilõiv ja tasumise tähtaeg.",
-      "needMol": "Enne esitamise lõpetamist sisestage faili üksikasjadesse MOL (loo-fail / redigeeri).",
-      "needOfficeActionDeadline": "Kontoritoimingul on teema – määrake enne jätkamist selle tähtaeg.",
-      "needPoaFiled": "Enne ametliku läbivaatuse lahkumist sisestage PoA sissetuleva number ja kuupäev.",
-      "needRegFeePaid": "Enne jätkamist sisestage registreerimistasu tasumise kuupäev.",
-      "needRepresentative": "Sisestage vähemalt üks esindaja või määrake Lisa esindajad väärtuseks Ei.",
-      "saveBeforeNavigate": "Enne etapile naasmist salvestage või tühistage oma muudatused.",
-      "saveFailed": "Süüdistusandmeid ei saanud salvestada."
-    },
-    "fields": {
-      "addRepresentatives": "Kas soovite esindajaid lisada?",
-      "applicationDate": "Taotlemise kuupäev",
-      "applicationNumber": "Taotluse number",
-      "bulletinDate": "Bülletääni kuupäev",
-      "bulletinNumber": "Bülletääni number",
-      "feePaidDate": "Riigilõivu tasumise kuupäev",
-      "generatePoa": "Koostage volikiri",
-      "officeAction": "Kontori tegevus/taotlus",
-      "officeActionDeadline": "Kontori tegevuse tähtaeg",
-      "paymentDeadline": "Maksetähtaeg",
-      "poaDate": "PoA kuupäev",
-      "poaDeadline": "PoA esitamise tähtaeg",
-      "poaIncoming": "PoA sissetulev number",
-      "regFeePaidDate": "Registreerimistasu tasumise kuupäev",
-      "remindDays": "Tuletage meelde päevi enne tähtaega",
-      "representatives": "esindaja(d)",
-      "sendPoaEmail": "Saada automaatne e-kiri",
-      "stateFee": "Riigilõiv (BGN)"
-    },
-    "molHint": "MOL tuleb määrata faili üksikasjadele (faili loomisest). Selle etapi lõpuleviimiseks puuduvad MOL-plokid.",
-    "no": "Ei",
-    "prepHint": "Ettevalmistav etapp: esmalt lõpetage faili kinnitamine, seejärel suunab juhtivpartneri nõustumine teid esitamisse.",
-    "registeredDone": "Registreerimise etapp on saavutatud.",
-    "saveChanges": "Salvestage muudatused",
-    "saveEntered": "Salvesta",
-    "saved": "Salvestatud.",
-    "saveFields": "Salvestage väljad",
-    "saving": "Salvestamine…",
-    "stages": {
-      "filing": "Esitamine",
-      "formal_exam": "Formaalne ekspertiis",
-      "prep": "Ettevalmistav",
-      "publication": "Avaldamine",
-      "reg_fee": "Registreerimistasud",
-      "registration": "Registreerimine",
-      "substantive_exam": "Sisuline ekspertiis"
-    },
-    "territoryLabel": {
-      "eu": "Torujuhe: EL",
-      "international": "Torujuhe: rahvusvaheline (WO)",
-      "national": "Torujuhe: riiklik"
-    },
-    "territoryLocked": "Loomisfailist fikseeritud territoorium",
-    "territoryFromInfo": "Territoorium kaubamärgi teabest",
-    "title": "Menetlusetapid",
-    "yes": "Jah",
-    "hub": {
-      "generateInvoice": "Loo arve",
-      "invoiceIssuedShort": "Arve väljastatud",
-      "invoiceIssued": "Arve {{number}} väljastatud. Klient näeb seda oma portaalis; see on ka vahekaardil Arveldamine.",
-      "invoiceAlreadyIssued": "Arve {{number}} juba väljastatud — nähtav portaalis ja Arvelduses.",
-      "invoiceFailed": "Arvet ei saanud luua. Kontrollige kliendi arvelduse üksikasju.",
-      "invoiceNotes": "Ametlik/riigilõiv",
-      "uploadFailed": "Faili ei saanud üles laadida.",
-      "needStateFee": "Esmalt sisestage riigilõivu summa.",
-      "feeDescription": "Riigi/ametilõiv",
-      "deadlineFailed": "Tähtaega/tähtaegu ei saanud luua.",
-      "deadlineTitles": {
-        "payment": "Riigilõivu tasumine",
-        "poa": "Volikirja esitamine",
-        "oa": "Büroo toimingu / ekspertiisitaotlus",
-        "oaWithSubject": "Kontoritoiming: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Tuletage meelde {{days}} päeva enne tähtaega."
-      },
-      "attach": {
-        "search": "Manustage otsingufail",
-        "application": "Manustage rakendus",
-        "feeSlip": "Lisage tasutõend",
-        "poa": "Kinnitage PoA",
-        "officeAction": "Manustage kontoritoiming",
-        "decision": "Lisa otsus",
-        "bulletin": "Lisa bülletään",
-        "regFee": "Lisa maksetõend",
-        "certificate": "Lisage sertifikaat"
+    "workflowStage": {
+      "label": "Töövoo etapp",
+      "options": {
+        "intake": "Sissevõtt",
+        "analysis": "Analüüs",
+        "contract_draft": "Leping/projekt",
+        "filed": "Esitatud",
+        "closed": "Suletud",
+        "registration": "Registreerimine",
+        "active": "Aktiivne",
+        "seizure_pending": "Arestimine on pooleli",
+        "scoping": "Ulatus",
+        "search": "Otsi",
+        "draft_report": "Aruande projekt",
+        "delivered": "Tarnitud",
+        "archived": "Arhiveeritud",
+        "pre_dispute": "Vaidluse eel",
+        "hearing": "Kuulmine",
+        "decision": "Otsus",
+        "appeal": "Apellatsioonkaebus",
+        "monitoring": "Järelevalve",
+        "dispute": "Vaidlus",
+        "udrp": "UDRP",
+        "resolved": "Lahendatud",
+        "engaged": "Kihlatud",
+        "draft": "Mustand",
+        "submitted": "Esitatud",
+        "requested": "Soovitud",
+        "in_progress": "Pooleli",
+        "invoiced": "Arve",
+        "pending": "Ootel",
+        "paid": "Tasuline",
+        "reimbursed": "Hüvitatud",
+        "open": "Avatud"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Muuda",
+    "save": "Salvesta",
+    "cancel": "Tühista",
+    "saving": "Salvestamine…",
+    "editHint": "Värskendage failiviite, töövoo etappi ja tüübispetsiifilisi üksikasju.",
+    "clientLabel": "Klient",
+    "detailsTitle": "{{type}} üksikasjad",
+    "errors": {
+      "saveFailed": "Faili üksikasju ei saanud salvestada."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Looge uus fail või kohandage filtreid.",
+    "viewAria": "Kuva {{title}}",
+    "filesAria": "Dokumendid {{title}} ({{count}}) jaoks",
+    "columns": {
+      "type": "Tüüp",
+      "subject": "Teema",
+      "client": "Klient",
+      "incoming": "Sissetulev ref.",
+      "stage": "Lava",
+      "deadline": "Võtme kuupäev",
+      "actions": "Tegevused"
     }
   }
 }

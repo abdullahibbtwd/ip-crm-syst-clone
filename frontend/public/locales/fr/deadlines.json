@@ -19,7 +19,7 @@
     "title": "Tous les délais",
     "description": "Enregistrez les délais à l’échelle de l’entreprise pour chaque dossier et chaque cessionnaire.",
     "newDeadline": "Nouveau délai",
-    "firmDueToday_one": "1 échéance ferme est due aujourd'hui sur tous les sujets.",
+    "firmDueToday_one": "1 échéance ferme est due aujourd'hui dans tous les domaines.",
     "firmDueToday_other": "{{count}} des délais fermes sont attendus aujourd'hui dans tous les domaines.",
     "filters": {
       "attorney": "Avocate",

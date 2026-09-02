@@ -184,7 +184,7 @@
     "domain": "Domeenid",
     "fto_analysis": "FTO analüüs",
     "geographical_indication": "Geograafiline tähis",
-    "industrial_design": "Tööstusdisain",
+    "industrial_design": "Disain",
     "litigation_expert_report": "Kohtuvaidlused / kohtuekspertide aruanded",
     "official_fee_payment": "Ametlikud lõivud",
     "other": "muud",
@@ -200,7 +200,7 @@
     "description": "Teie intellektuaalomandi õiguste eelseisvad kaubamärgi- ja disainiuuendused.",
     "due": "Tähtaeg {{date}}",
     "empty": {
-      "description": "Pikendamine ilmub siin pärast seda, kui teie ettevõte registreerib mõnes teie küsimuses IP-aadressi. Teil palutakse enne iga uuendamise tähtpäeva jätkata või keelduda.",
+      "description": "Pikendamine ilmub siin pärast seda, kui teie ettevõte registreerib mõne teie asja IP-aadressi. Teil palutakse enne iga uuendamise tähtpäeva jätkata või keelduda.",
       "title": "Ükski uuendamine ei nõua teie tähelepanu",
       "viewDeadlines": "Vaata minu tähtaegu",
       "viewMatters": "Vaadake minu asju"

@@ -44,7 +44,7 @@
   },
   "layout": {
     "accessRestricted": "Pristup ograničen",
-    "description": "Upravljajte internim članovima tima i vanjskim računima klijenata portala. SSO i prijava na temelju lozinke prikazani su po korisniku.",
+    "description": "Upravljajte internim članovima tima i računima vanjskih klijenata portala. SSO i prijava temeljena na lozinci prikazana su po korisniku.",
     "noPermission": "Nemate dozvolu za pregled korisnika i članova tima.",
     "title": "Korisnici i tim"
   },

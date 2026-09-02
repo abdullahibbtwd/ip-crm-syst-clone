@@ -3,7 +3,7 @@
   "subtitle": "E-mail non collegate estratte dalle caselle di posta connesse. Apri un'e-mail, quindi allegala al registro della corrispondenza di un argomento.",
   "fetchEmails": "Recupera 5 email",
   "mailboxSettings": "Impostazioni della casella di posta",
-  "fetchSuccess": "Recuperati fino a {{limit}} messaggio/i di posta in arrivo — {{ingested}} nuovo in coda{{emptyHint}}.",
+  "fetchSuccess": "Recuperati fino a {{limit}} messaggio/i in arrivo — {{ingested}} nuovo in coda{{emptyHint}}.",
   "fetchEmptyHint": "(già importato o casella di posta vuota)",
   "fetchFailed": "Impossibile recuperare le email",
   "columns": {

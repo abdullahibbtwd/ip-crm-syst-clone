@@ -77,7 +77,7 @@
     "title": "Notificări",
     "unread": "necitite",
     "markAllRead": "Marcați toate citite",
-    "couldNotLoad": "Nu s-au putut încărca notificările.",
+    "couldNotLoad": "Notificările nu au putut fi încărcate.",
     "noNotificationsYet": "Nicio notificare încă."
   },
   "yesNo": {

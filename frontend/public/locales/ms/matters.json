@@ -1,64 +1,192 @@
 {
   "attributes": {
     "border_measures": {
+      "measureRoute": {
+        "label": "Ukur laluan",
+        "options": {
+          "national_bg": "Bulgaria (kebangsaan)",
+          "eu_regulation": "Peraturan EU 608/2004"
+        }
+      },
+      "protectedRightType": {
+        "label": "Dilindungi betul",
+        "options": {
+          "trademark": "Tanda dagangan",
+          "patent": "Paten",
+          "design": "Reka bentuk",
+          "copyright": "Hak Cipta",
+          "gi": "Petunjuk geografi"
+        }
+      },
+      "protectedRightRef": {
+        "label": "Ruj kanan dilindungi."
+      },
       "customsOffice": {
         "label": "pejabat kastam"
+      },
+      "validFrom": {
+        "label": "Sah dari"
+      },
+      "validUntil": {
+        "label": "Sah sehingga"
       },
       "infringingGoods": {
         "label": "Perihalan barangan yang melanggar"
       }
     },
     "copyright": {
-      "creationDate": {
-        "label": "Tarikh penciptaan"
-      },
       "workTitle": {
         "label": "Tajuk kerja"
       },
       "workType": {
-        "label": "Jenis kerja"
+        "label": "Jenis kerja",
+        "options": {
+          "literary": "sastera",
+          "musical": "Muzikal",
+          "software": "Perisian",
+          "audiovisual": "Audiovisual",
+          "graphic": "Grafik / visual",
+          "other": "Lain-lain"
+        }
+      },
+      "creationDate": {
+        "label": "Tarikh penciptaan"
+      },
+      "firstPublicationDate": {
+        "label": "Tarikh penerbitan pertama"
+      },
+      "authorName": {
+        "label": "Pengarang"
+      },
+      "rightsBasis": {
+        "label": "Asas hak",
+        "options": {
+          "author": "Pengarang",
+          "employer": "Majikan (bekerja untuk disewa)",
+          "assignment": "Tugasan",
+          "license": "Lesen"
+        }
+      },
+      "rightsHolder": {
+        "label": "pemegang hak"
+      },
+      "infringementContext": {
+        "label": "Konteks pelanggaran / penguatkuasaan"
+      }
+    },
+    "cases": {
+      "court": {
+        "label": "Mahkamah"
+      },
+      "incomingNumber": {
+        "label": "Nombor masuk"
+      },
+      "claimGrounds": {
+        "label": "Alasan (jenis tuntutan)"
+      },
+      "claimValue": {
+        "label": "Nilai tuntutan"
+      },
+      "expertiseType": {
+        "label": "Jenis kepakaran"
       }
     },
     "dispute_opposition": {
-      "basisSummary": {
-        "label": "Ringkasan asas"
+      "disputeKind": {
+        "label": "Jenis prosiding",
+        "options": {
+          "civil": "Sivil",
+          "administrative": "Pentadbiran",
+          "arbitration": "Timbangtara",
+          "mediation": "Pengantaraan",
+          "other": "Lain-lain"
+        }
       },
-      "disputeType": {
-        "label": "Jenis pertikaian"
+      "disputeSubject": {
+        "label": "Subjek",
+        "options": {
+          "invalidity": "Ketaksahan",
+          "infringement": "Pelanggaran",
+          "ownership": "Pemilikan",
+          "contract": "Kontrak",
+          "unfair_competition": "Persaingan yang tidak adil",
+          "other": "Lain-lain"
+        }
       },
       "opponentName": {
         "label": "Lawan / pihak lawan"
+      },
+      "disputeType": {
+        "label": "Jenis pertikaian (nota)"
+      },
+      "filingReference": {
+        "label": "Rujukan pemfailan"
+      },
+      "filingDate": {
+        "label": "Tarikh pemfailan"
+      },
+      "basisSummary": {
+        "label": "Ringkasan asas"
       }
     },
     "fto_analysis": {
-      "scopeSummary": {
-        "label": "Ringkasan skop"
+      "projectName": {
+        "label": "Nama projek"
+      },
+      "productName": {
+        "label": "Nama produk"
       },
       "technologyArea": {
         "label": "Bidang teknologi"
+      },
+      "analysisScope": {
+        "label": "Skop analisis"
+      },
+      "deliverableType": {
+        "label": "Boleh dihantar",
+        "options": {
+          "written_report": "Laporan bertulis",
+          "memo": "Memo",
+          "oral_briefing": "Taklimat lisan"
+        }
+      },
+      "targetCompletionDate": {
+        "label": "Tarikh siap sasaran"
+      },
+      "scopeSummary": {
+        "label": "Ringkasan skop"
+      },
+      "riskLevel": {
+        "label": "Tahap risiko",
+        "options": {
+          "low": "rendah",
+          "medium": "Sederhana",
+          "high": "tinggi",
+          "pending": "Penilaian belum selesai"
+        }
       }
     },
     "geographical_indication": {
+      "giKind": {
+        "label": "taip"
+      },
+      "giName": {
+        "label": "Nama petunjuk geografi"
+      },
       "productName": {
         "label": "Nama produk"
       },
       "region": {
         "label": "Wilayah geografi"
       },
-      "giKind": {
-        "label": "Type"
-      },
-      "giName": {
-        "label": "Name of the geographical indication"
-      },
       "giTerritory": {
-        "label": "Territory"
+        "label": "wilayah"
       },
       "applicationNumber": {
-        "label": "Application number"
+        "label": "Nombor permohonan"
       },
       "registrationNumber": {
-        "label": "Registration number"
+        "label": "Nombor pendaftaran"
       }
     },
     "industrial_design": {
@@ -69,16 +197,28 @@
       "locarnoClass": {
         "label": "Kelas Locarno"
       },
+      "locarnoSubclass": {
+        "label": "Subkelas Locarno"
+      },
       "productDescription": {
         "label": "Penerangan produk"
-      },
-      "locarnoSubclass": {
-        "label": "Locarno subclass"
       }
     },
     "patent": {
       "claimsSummary": {
         "label": "Ringkasan tuntutan"
+      },
+      "epApplicationNumber": {
+        "label": "Nombor permohonan EP"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "patentName": {
+        "label": "Nama paten"
+      },
+      "patentProcedure": {
+        "label": "Prosedur"
       },
       "pctNumber": {
         "label": "nombor PCT"
@@ -88,18 +228,6 @@
       },
       "technicalField": {
         "label": "Bidang teknikal"
-      },
-      "epApplicationNumber": {
-        "label": "EP application number"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "patentName": {
-        "label": "Patent name"
-      },
-      "patentProcedure": {
-        "label": "Procedure"
       }
     },
     "trademark": {
@@ -107,20 +235,20 @@
         "label": "Warna dituntut"
       },
       "markDescription": {
-        "label": "Tandakan huraian"
-      },
-      "markType": {
-        "label": "Tandakan jenis"
-      },
-      "niceClasses": {
-        "label": "Kelas yang bagus",
-        "placeholder": "cth. 12, 35"
+        "label": "Penerangan barangan / perkhidmatan"
       },
       "markKind": {
         "label": "Tandakan kategori"
       },
+      "markType": {
+        "label": "Tandakan jenis"
+      },
       "markWords": {
         "label": "Kata-kata tanda"
+      },
+      "niceClasses": {
+        "label": "Kelas yang bagus",
+        "placeholder": "cth. 12, 35"
       },
       "territory": {
         "label": "wilayah"
@@ -130,6 +258,24 @@
       }
     },
     "utility_model": {
+      "utilityModelName": {
+        "label": "Nama"
+      },
+      "ipcClasses": {
+        "label": "IPC"
+      },
+      "claimsCount": {
+        "label": "Bilangan tuntutan"
+      },
+      "applicationNumber": {
+        "label": "Nombor permohonan"
+      },
+      "applicationDate": {
+        "label": "Tarikh permohonan"
+      },
+      "registrationNumber": {
+        "label": "Nombor pendaftaran"
+      },
       "claimsSummary": {
         "label": "Ringkasan tuntutan"
       },
@@ -138,93 +284,216 @@
       },
       "technicalField": {
         "label": "Bidang teknikal"
-      },
-      "utilityModelName": {
-        "label": "Name"
-      },
-      "ipcClasses": {
-        "label": "IPC"
-      },
-      "claimsCount": {
-        "label": "Number of claims"
-      },
-      "applicationNumber": {
-        "label": "Application number"
-      },
-      "applicationDate": {
-        "label": "Application date"
-      },
-      "registrationNumber": {
-        "label": "Registration number"
       }
     },
     "valuation": {
+      "assetType": {
+        "label": "Jenis aset",
+        "options": {
+          "trademark": "Tanda dagangan",
+          "patent": "Paten",
+          "design": "Reka bentuk",
+          "gi": "GI",
+          "mixed": "Portfolio bercampur",
+          "company_ip": "IP Syarikat"
+        }
+      },
+      "valuationPurpose": {
+        "label": "Tujuan",
+        "options": {
+          "licensing": "Pelesenan",
+          "m_and_a": "M&J",
+          "litigation": "Litigasi",
+          "tax": "Cukai",
+          "internal": "Dalaman"
+        }
+      },
+      "valuationMethod": {
+        "label": "Kaedah",
+        "options": {
+          "market": "Pasaran",
+          "income": "pendapatan",
+          "cost": "kos"
+        }
+      },
+      "valuationDate": {
+        "label": "Tarikh penilaian"
+      },
       "assetDescription": {
         "label": "Perihalan aset"
       },
-      "valuationPurpose": {
-        "label": "Tujuan penilaian"
+      "conclusionValue": {
+        "label": "Nilai kesimpulan"
+      },
+      "currency": {
+        "label": "mata wang",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR",
+          "USD": "USD"
+        }
       }
     },
     "domain": {
       "domainName": {
         "label": "Nama domain",
-        "placeholder": "cth. example.com"
+        "placeholder": "cth. contoh.bg"
+      },
+      "tldType": {
+        "label": "jenis TLD",
+        "options": {
+          "bg": ".bg",
+          "eu": ".eu",
+          "com": ".com / gTLD",
+          "other": "Lain-lain"
+        }
       },
       "registrar": {
         "label": "Pendaftar"
+      },
+      "registrant": {
+        "label": "Pendaftar"
+      },
+      "registrationDate": {
+        "label": "Tarikh pendaftaran"
+      },
+      "expiryDate": {
+        "label": "tarikh luput"
+      },
+      "disputeRoute": {
+        "label": "Laluan pertikaian",
+        "options": {
+          "none": "tiada",
+          "udrp": "UDRP",
+          "court": "Mahkamah",
+          "negotiation": "Rundingan"
+        }
+      },
+      "relatedTrademark": {
+        "label": "Tanda dagangan berkaitan"
       }
     },
     "litigation_expert_report": {
-      "caseReference": {
-        "label": "Rujukan kes"
+      "engagementType": {
+        "label": "Jenis pertunangan",
+        "options": {
+          "patent": "Paten",
+          "trademark": "Tanda dagangan",
+          "copyright": "Hak Cipta",
+          "damages": "Kerosakan",
+          "other": "Lain-lain"
+        }
       },
       "courtOrAuthority": {
         "label": "Mahkamah / pihak berkuasa"
+      },
+      "caseReference": {
+        "label": "Rujukan kes"
+      },
+      "appointingParty": {
+        "label": "Melantik parti"
+      },
+      "reportDueDate": {
+        "label": "Laporkan tarikh akhir"
+      },
+      "hearingDate": {
+        "label": "Tarikh pendengaran"
       },
       "reportScope": {
         "label": "Skop laporan"
       }
     },
     "consultation": {
-      "scopeSummary": {
-        "label": "Ringkasan skop"
+      "consultationType": {
+        "label": "Jenis perundingan",
+        "options": {
+          "phone": "telefon",
+          "written": "Ditulis",
+          "meeting": "Mesyuarat",
+          "due_diligence": "Ketekunan wajar (ringan)"
+        }
+      },
+      "topicCategory": {
+        "label": "Kategori topik",
+        "options": {
+          "trademark": "Tanda dagangan",
+          "patent": "Paten",
+          "design": "Reka bentuk",
+          "contract": "Kontrak",
+          "strategy": "Strategi",
+          "other": "Lain-lain"
+        }
       },
       "topic": {
         "label": "Topik"
+      },
+      "requestedBy": {
+        "label": "Diminta oleh"
+      },
+      "scopeSummary": {
+        "label": "Ringkasan skop"
+      },
+      "timeSpentHours": {
+        "label": "Masa yang dihabiskan (jam)"
       }
     },
     "official_fee_payment": {
       "authority": {
-        "label": "Pihak berkuasa / pejabat"
+        "label": "Kuasa",
+        "options": {
+          "bpo": "BPO (Bulgaria)",
+          "euipo": "EUIPO",
+          "wipo": "WIPO",
+          "other": "Lain-lain"
+        }
+      },
+      "feeType": {
+        "label": "Jenis yuran",
+        "options": {
+          "filing": "pemfailan",
+          "publication": "Penerbitan",
+          "examination": "Peperiksaan",
+          "renewal": "Pembaharuan",
+          "annuity": "Anuiti",
+          "opposition": "Pembangkang",
+          "other": "Lain-lain"
+        }
       },
       "feeReference": {
         "label": "Rujukan yuran / bayaran"
       },
       "relatedApplication": {
         "label": "Aplikasi / fail berkaitan"
+      },
+      "feeAmount": {
+        "label": "Jumlah"
+      },
+      "currency": {
+        "label": "mata wang",
+        "options": {
+          "BGN": "BGN",
+          "EUR": "EUR"
+        }
+      },
+      "paymentDeadline": {
+        "label": "Tarikh akhir pembayaran"
+      },
+      "paymentDate": {
+        "label": "Tarikh pembayaran"
+      },
+      "paymentReference": {
+        "label": "Rujukan pembayaran"
       }
     },
     "other": {
+      "workCategory": {
+        "label": "Kategori kerja"
+      },
       "workSummary": {
         "label": "Ringkasan kerja"
-      }
-    },
-    "cases": {
-      "court": {
-        "label": "Court"
       },
-      "incomingNumber": {
-        "label": "Incoming number"
-      },
-      "claimGrounds": {
-        "label": "Grounds (type of claim)"
-      },
-      "claimValue": {
-        "label": "Claim value"
-      },
-      "expertiseType": {
-        "label": "Type of expertise"
+      "expectedOutcome": {
+        "label": "Hasil yang dijangkakan"
       }
     }
   },
@@ -351,7 +620,7 @@
       "selectDocument": "Pilih dokumen daripada {{scope}} ini…",
       "dragFile": "Seret fail ke sini atau",
       "browse": "semak imbas",
-      "details": "Butiran surat menyurat",
+      "details": "Butiran surat-menyurat",
       "direction": "Arah",
       "category": "kategori",
       "date": "tarikh",
@@ -390,7 +659,7 @@
       "modeEml": "Muat naik .eml",
       "modeEmlDesc": "Seret fail yang disimpan daripada Outlook atau Gmail",
       "modePaste": "Tampal e-mel",
-      "modePasteDesc": "Salin teks e-mel penuh dari peti masuk anda",
+      "modePasteDesc": "Salin teks e-mel penuh daripada peti masuk anda",
       "readingFile": "Membaca fail e-mel…",
       "parsedReview": "Dikupas — semak butiran di bawah",
       "dropEml": "Lepaskan fail .eml anda di sini",
@@ -470,10 +739,249 @@
     "viewOnEpo": "Lihat pada EPO",
     "viewOnEpoTitle": "Buka rekod rasmi pada Daftar EPO"
   },
+  "trademarkInfo": {
+    "addCountry": "Tambahkan negara…",
+    "cancel": "Batal",
+    "country": "Negara",
+    "edit": "Sunting",
+    "errors": {
+      "country": "Pilih sekurang-kurangnya satu negara untuk wilayah ini.",
+      "saveFailed": "Tidak dapat menyimpan maklumat tanda dagangan."
+    },
+    "euFixed": "Kesatuan Eropah (EUIPO)",
+    "markKind": "Tandakan kategori",
+    "markType": "Tandakan jenis",
+    "noCountries": "Belum ada negara yang dipilih.",
+    "save": "Simpan perubahan",
+    "saved": "Disimpan.",
+    "saving": "Menyimpan…",
+    "selectCountries": "Pilih negara",
+    "territory": "wilayah",
+    "title": "Maklumat tanda dagangan",
+    "markImage": "Tandakan imej",
+    "uploadMarkImage": "Muat naik imej",
+    "replaceMarkImage": "Gantikan imej",
+    "removeMarkImage": "Alih keluar imej",
+    "markImageHint": "PNG atau JPEG — ditunjukkan dalam senarai tanda dagangan di sebelah nama."
+  },
+  "patentInfo": {
+    "title": "Maklumat paten",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Permohonan no. / tarikh",
+      "registration": "Reg. tidak. / tarikh",
+      "bulletin": "Buletin / penerbitan",
+      "ipc": "IPC",
+      "client": "Pelanggan / penyerah hak",
+      "owner": "Pemilik",
+      "contact": "Orang hubungan",
+      "representatives": "wakil rakyat",
+      "claims": "Tuntutan",
+      "territory": "wilayah"
+    }
+  },
+  "utilityModelInfo": {
+    "title": "Maklumat model utiliti",
+    "subtitle": "{{territory}} · {{name}}",
+    "fields": {
+      "application": "Permohonan no. / tarikh",
+      "registration": "Reg. tidak. / tarikh",
+      "bulletin": "Buletin / penerbitan pendaftaran / tarikh",
+      "ipc": "IPC",
+      "applicant": "Pemohon",
+      "inventor": "Pencipta",
+      "contact": "Orang hubungan",
+      "representatives": "wakil rakyat",
+      "claims": "Tuntutan",
+      "territory": "wilayah"
+    }
+  },
+  "spcInfo": {
+    "title": "maklumat SPC",
+    "subtitle": "{{territory}} SPC · {{name}}",
+    "fields": {
+      "application": "Permohonan no. / tarikh",
+      "registration": "Reg. tidak. / tarikh",
+      "bulletin": "Buletin / penerbitan pendaftaran / tarikh",
+      "ipc": "IPC",
+      "applicant": "Pemohon",
+      "inventor": "Pencipta",
+      "contact": "Orang hubungan",
+      "representatives": "wakil rakyat",
+      "claims": "Tuntutan",
+      "medicinalProduct": "Produk perubatan"
+    }
+  },
+  "designInfo": {
+    "title": "Maklumat reka bentuk",
+    "subtitle": "{{territory}} reka bentuk · {{name}}",
+    "fields": {
+      "application": "Permohonan no. / tarikh",
+      "registration": "Reg. tidak. / tarikh",
+      "bulletin": "Buletin / penerbitan pendaftaran / tarikh",
+      "client": "Pelanggan / penyerah hak",
+      "owner": "Pemilik",
+      "contact": "Orang hubungan",
+      "representatives": "wakil rakyat",
+      "classification": "Pengelasan",
+      "territory": "wilayah"
+    }
+  },
+  "giInfo": {
+    "title": "Maklumat petunjuk geografi",
+    "subtitle": "{{territory}} GI · {{name}}",
+    "fields": {
+      "application": "Permohonan no. / tarikh",
+      "registration": "Reg. tidak. / tarikh",
+      "bulletin": "Buletin / penerbitan pendaftaran / tarikh",
+      "client": "Pelanggan / penyerah hak",
+      "owner": "Pemilik",
+      "contact": "Orang hubungan",
+      "representatives": "wakil rakyat",
+      "classes": "Kelas",
+      "territory": "wilayah"
+    }
+  },
+  "fileApproval": {
+    "clientStep": "1. Pelanggan diluluskan",
+    "clientStepHint": "Kakitangan mengesahkan pelanggan bersetuju di luar talian (panggilan/e-mel/mesyuarat). Pelanggan portal tidak perlu meluluskan diri mereka sendiri.",
+    "errors": {
+      "updateFailed": "Tidak dapat mengemas kini status kelulusan."
+    },
+    "hint": "Kelulusan dalaman sahaja: tandakan bahawa pelanggan bersetuju, kemudian Rakan Kongsi Urusan menerima fail tersebut. Tiada kelulusan hantar kepada pelanggan diperlukan.",
+    "markClientApproved": "Tandakan pelanggan diluluskan",
+    "partnerApprove": "Rakan kongsi meluluskan fail",
+    "partnerOnly": "Hanya Rakan Kongsi Urusan boleh melengkapkan langkah ini",
+    "partnerStep": "2. Rakan Pengurusan menerima",
+    "partnerStepHint": "Selepas pelanggan ditandakan sebagai diluluskan, Rakan Kongsi Urusan menerima fail dan ia meninggalkan draf.",
+    "recordedBy": "Dirakam oleh {{name}} · {{date}}",
+    "title": "Kelulusan fail",
+    "waitForClient": "Tandai pelanggan diluluskan dahulu, kemudian anda boleh menerima fail tersebut."
+  },
+  "prosecution": {
+    "cancelEdit": "Batal",
+    "completeStage": "Tahap lengkap",
+    "edit": "Sunting",
+    "editingNote": "Gunakan Simpan untuk menyimpan perkara yang anda masukkan pada peringkat ini atau Selesaikan peringkat untuk bergerak ke hadapan apabila medan yang diperlukan diisi.",
+    "gateHint": "Anda tidak boleh bergerak ke hadapan sehingga medan yang diperlukan untuk peringkat ini diisi (sama seperti gerbang sistemnya).",
+    "goBack": "Balik satu pentas",
+    "errors": {
+      "needAttachments": "Lampirkan fail yang diperlukan sebelum meneruskan: {{list}}",
+      "needInvoice": "Jana invois daripada yuran negeri sebelum melengkapkan peringkat ini.",
+      "alreadyFinal": "Fail ini sudah berada di peringkat akhir.",
+      "needApproval": "Selesaikan kelulusan fail (pelanggan + Rakan Kongsi Urusan) sebelum meninggalkan persediaan.",
+      "needBulletin": "Masukkan nombor dan tarikh buletin sebelum meninggalkan penerbitan.",
+      "needFeePaid": "Masukkan tarikh pembayaran yuran negeri sebelum meninggalkan peperiksaan rasmi.",
+      "needFilingFields": "Masukkan nombor permohonan dan tarikh pemfailan untuk melengkapkan pemfailan.",
+      "needFormalFields": "Masukkan yuran negeri dan tarikh akhir pembayaran untuk meneruskan.",
+      "needMol": "Sila masukkan MOL pada butiran fail (create-file / edit) sebelum melengkapkan pemfailan.",
+      "needOfficeActionDeadline": "Tindakan pejabat mempunyai subjek — tetapkan tarikh akhir sebelum meneruskan.",
+      "needPoaFiled": "Masukkan nombor dan tarikh masuk PoA sebelum meninggalkan peperiksaan rasmi.",
+      "needRegFeePaid": "Masukkan tarikh pembayaran yuran pendaftaran sebelum meneruskan.",
+      "needRepresentative": "Masukkan sekurang-kurangnya seorang wakil, atau tetapkan Tambah wakil kepada No.",
+      "saveBeforeNavigate": "Simpan atau batalkan pengeditan anda sebelum kembali ke peringkat.",
+      "saveFailed": "Tidak dapat menyimpan data pendakwaan."
+    },
+    "fields": {
+      "addRepresentatives": "Adakah anda ingin menambah wakil?",
+      "applicationDate": "Tarikh permohonan",
+      "applicationNumber": "Nombor permohonan",
+      "bulletinDate": "tarikh buletin",
+      "bulletinNumber": "Nombor buletin",
+      "feePaidDate": "Tarikh pembayaran yuran negeri",
+      "generatePoa": "Menjana surat kuasa",
+      "officeAction": "Tindakan / permintaan pejabat",
+      "officeActionDeadline": "Tarikh akhir tindakan pejabat",
+      "paymentDeadline": "Tarikh akhir pembayaran",
+      "poaDate": "tarikh PoA",
+      "poaDeadline": "Tarikh akhir penyerahan PoA",
+      "poaIncoming": "Nombor masuk PoA",
+      "regFeePaidDate": "Tarikh pembayaran yuran pendaftaran",
+      "remindDays": "Ingatkan hari sebelum tarikh akhir",
+      "representatives": "Wakil",
+      "sendPoaEmail": "Hantar e-mel automatik",
+      "stateFee": "Yuran negeri (BGN)"
+    },
+    "molHint": "MOL mesti ditetapkan pada butiran fail (daripada mencipta fail). Tiada blok MOL yang melengkapkan peringkat ini.",
+    "no": "Tidak",
+    "prepHint": "Peringkat persediaan: selesaikan kelulusan fail dahulu, kemudian Rakan Kongsi Urusan menerima memindahkan anda ke Pemfailan.",
+    "registeredDone": "Tahap pendaftaran telah dicapai.",
+    "saveChanges": "Simpan perubahan",
+    "saveEntered": "Jimat",
+    "saved": "Disimpan.",
+    "saveFields": "Simpan medan",
+    "saving": "Menyimpan…",
+    "stages": {
+      "filing": "pemfailan",
+      "formal_exam": "Peperiksaan rasmi",
+      "prep": "Persediaan",
+      "publication": "Penerbitan",
+      "reg_fee": "Yuran pendaftaran",
+      "registration": "Pendaftaran",
+      "substantive_exam": "Peperiksaan substantif"
+    },
+    "territoryLabel": {
+      "eu": "Saluran paip: EU",
+      "international": "Saluran Paip: Antarabangsa (WO)",
+      "national": "Saluran paip: Kebangsaan"
+    },
+    "territoryLocked": "Wilayah ditetapkan daripada mencipta fail",
+    "territoryFromInfo": "Wilayah daripada maklumat Cap Dagangan",
+    "patentRouteFromInfo": "Laluan daripada mencipta fail",
+    "designRouteFromInfo": "Laluan daripada mencipta fail",
+    "utilityModelTerritoryFromInfo": "Wilayah dari negara pemfailan",
+    "spcTerritoryFromInfo": "Wilayah dari negara pemfailan",
+    "giTerritoryFromInfo": "Wilayah dari laluan pemfailan",
+    "title": "Peringkat pendakwaan",
+    "patentStages": {
+      "ep_validation": {
+        "prep": "Pengesahan diterima",
+        "filing": "Tugasan",
+        "formal_exam": "Memfailkan permintaan",
+        "substantive_exam": "Peperiksaan substantif",
+        "publication": "Penerbitan",
+        "reg_fee": "Yuran pendaftaran",
+        "registration": "Keputusan pengesahan"
+      }
+    },
+    "yes": "ya",
+    "hub": {
+      "generateInvoice": "Hasilkan invois",
+      "invoiceIssuedShort": "Invois dikeluarkan",
+      "invoiceIssued": "Invois {{number}} dikeluarkan. Pelanggan boleh melihatnya dalam portal mereka; ia juga terdapat pada tab Pengebilan.",
+      "invoiceAlreadyIssued": "Invois {{number}} sudah dikeluarkan — kelihatan dalam portal dan Pengebilan.",
+      "invoiceFailed": "Tidak dapat menjana invois. Semak butiran bil pelanggan.",
+      "invoiceNotes": "Bayaran rasmi / negeri",
+      "uploadFailed": "Tidak dapat memuat naik fail.",
+      "needStateFee": "Masukkan amaun yuran negeri dahulu.",
+      "feeDescription": "Bayaran negeri / rasmi",
+      "deadlineFailed": "Tidak dapat membuat tarikh akhir.",
+      "deadlineTitles": {
+        "payment": "Bayaran yuran negeri",
+        "poa": "Penyerahan surat kuasa",
+        "oa": "Permintaan tindakan / peperiksaan pejabat",
+        "oaWithSubject": "Tindakan pejabat: {{subject}}"
+      },
+      "deadlineNotes": {
+        "remindDays": "Ingatkan {{days}} hari sebelum tarikh akhir."
+      },
+      "attach": {
+        "search": "Lampirkan fail carian",
+        "application": "Lampirkan permohonan",
+        "feeSlip": "Lampirkan slip yuran",
+        "poa": "Lampirkan PoA",
+        "officeAction": "Lampirkan tindakan pejabat",
+        "decision": "Lampirkan keputusan",
+        "bulletin": "Lampirkan buletin",
+        "regFee": "Lampirkan bukti pembayaran",
+        "certificate": "Lampirkan sijil"
+      }
+    }
+  },
   "createDrawer": {
     "client": "Pelanggan *",
     "creating": "Mencipta…",
-    "error": "Gagal mencipta fail",
+    "error": "Gagal membuat fail",
     "jurisdictionHelp": "Pilih satu atau lebih bidang kuasa pemfailan.",
     "jurisdictions": "Bidang kuasa",
     "matterType": "Jenis kerja *",
@@ -483,11 +991,363 @@
     "titleField": "Tajuk *",
     "titlePlaceholder": "cth. Tanda perkataan ACME – EU"
   },
+  "createFile": {
+    "addClass": "Tambah kelas",
+    "addClaim": "Tambah tuntutan",
+    "addIpc": "Tambah kelas IPC",
+    "addBasisMark": "Tambah markah asas",
+    "basisMark": "Markah asas {{number}}",
+    "addAdditionalApplicant": "Tambah pemohon tambahan",
+    "addAdditionalOwner": "Tambah pemilik tambahan",
+    "additionalApplicant": "Pemohon {{number}}",
+    "additionalOwner": "Pemilik {{number}}",
+    "yes": "ya",
+    "no": "Tidak",
+    "none": "tiada",
+    "backToFiles": "Kembali ke fail",
+    "cancel": "Batal",
+    "changeSubtype": "Tukar subkategori",
+    "checkRegister": "Daftar masuk komersial",
+    "clearClient": "Tukar pelanggan",
+    "clientOptionalHint": "Tiada padanan CRM? Isikan butiran pelanggan di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
+    "applicantOptionalHint": "Tiada padanan CRM? Isikan butiran pemohon di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
+    "draftDescription": "Dicipta melalui Buat fail ({{procedure}}) — draf",
+    "errors": {
+      "client": "Pilih pelanggan untuk meneruskan.",
+      "clientOrDetails": "Pilih klien CRM, atau masukkan nama klien dan butiran untuk menciptanya.",
+      "applicantOrDetails": "Pilih pemohon dalam CRM, atau masukkan nama dan butiran pemohon untuk menciptanya.",
+      "jurisdiction": "Pilih sekurang-kurangnya satu wilayah / negara.",
+      "markWords": "Masukkan nama / perkataan tanda dagangan.",
+      "filingRoute": "Pilih prosedur.",
+      "ownerOrDetails": "Masukkan nama dan alamat pemilik, atau tandai pemilik sebagai sama dengan pelanggan.",
+      "designerOrDetails": "Masukkan nama dan alamat pereka bentuk, atau tandai pereka sebagai sama dengan pelanggan.",
+      "inventorOrDetails": "Masukkan nama dan alamat pencipta, atau tandakan pencipta sebagai sama dengan pelanggan.",
+      "patentName": "Masukkan nama paten.",
+      "designName": "Masukkan nama reka bentuk.",
+      "utilityModelName": "Masukkan nama model utiliti.",
+      "giKind": "Pilih penetapan asal atau petunjuk geografi.",
+      "territory": "Pilih wilayah.",
+      "giName": "Masukkan nama petunjuk geografi.",
+      "spcName": "Masukkan nama SPC.",
+      "caseClientRole": "Pilih sama ada klien ialah plaintif, defendan atau pihak yang berminat.",
+      "otherType": "Jenis fail tidak diketahui. Pilih jenis daripada senarai.",
+      "patentSubtype": "Pilih subkategori paten.",
+      "saveFailed": "Tidak dapat menyimpan fail draf.",
+      "subtype": "Pilih subkategori tanda dagangan."
+    },
+    "euHint": "Tanda dagangan Kesatuan Eropah (EUIPO) — bidang kuasa ditetapkan kepada EU.",
+    "fields": {
+      "address": "Alamat",
+      "applicantClient": "Pelanggan pemohon",
+      "applicantClientOptional": "Pemohon dalam CRM (pilihan)",
+      "city": "Bandar",
+      "classNumber": "Nombor kelas",
+      "classes": "Kelas",
+      "country": "Negara",
+      "eik": "UIC / EIK",
+      "email": "E-mel",
+      "fax": "Faks",
+      "goodsText": "Barangan dan perkhidmatan",
+      "legalName": "Nama dan jenis entiti undang-undang",
+      "linkClient": "Pilih pelanggan dalam CRM",
+      "linkClientOptional": "Pelanggan CRM (pilihan)",
+      "fileTitleOptional": "Tajuk (pilihan)",
+      "fileDescriptionOptional": "Penerangan (pilihan)",
+      "markKind": "Tandakan kategori",
+      "markType": "Tandakan jenis",
+      "markWords": "Nama tanda dagangan",
+      "mol": "MOL (penandatangan)",
+      "name": "Nama",
+      "oppositionFiler": "Pemfail pembangkang",
+      "requester": "Peminta",
+      "requestFiler": "Pemfail permintaan",
+      "againstClasses": "Terhadap kelas",
+      "owner": "Pemilik",
+      "phone": "telefon",
+      "postalCode": "Poskod",
+      "territory": "wilayah",
+      "transliteration": "Alih huruf",
+      "viennaNumber": "Nombor",
+      "applicationNumber": "Nombor permohonan",
+      "applicationDate": "tarikh",
+      "conventionPriority": "Keutamaan konvensyen",
+      "exhibitionPriority": "Keutamaan pameran",
+      "transformationInternational": "Transformasi pendaftaran antarabangsa",
+      "communityConversion": "Penukaran tanda dagangan Komuniti",
+      "applicationBulletin": "Buletin / penerbitan permohonan",
+      "grounds": "alasan",
+      "specimen": "spesimen",
+      "registrationNumber": "No Pendaftaran",
+      "registrationDate": "tarikh",
+      "registrationBulletin": "Buletin / penerbitan pendaftaran",
+      "certificate": "Lampirkan sijil",
+      "attachDocument": "Lampirkan dokumen",
+      "representative": "Pilih",
+      "selectRepresentative": "Pilih wakil",
+      "addMoreRepresentatives": "Tambah lagi wakil",
+      "claimNumber": "Nombor",
+      "claimText": "Tuntutan",
+      "epApplicationNumber": "Nombor permohonan EP",
+      "epBulletinNumber": "Nombor buletin EP",
+      "applicationPublication": "Penerbitan permohonan",
+      "applicationPublicationDate": "tarikh",
+      "epRegistrationNumber": "Nombor pendaftaran EP",
+      "epRegistrationBulletin": "Buletin / penerbitan pendaftaran EP",
+      "epRegistrationBulletinDate": "tarikh",
+      "ipc": "IPC",
+      "patentName": "Nama",
+      "pct": "PCT",
+      "pctNumber": "PCT",
+      "epValidation": "Pengesahan paten Eropah",
+      "powerOfAttorney": "Surat kuasa",
+      "selectProcedure": "Pilih prosedur",
+      "validationCountry": "Pilih negara",
+      "priorityCountry": "Negara permohonan sebelumnya",
+      "priorityFromDate": "Dari Tarikh",
+      "priorityApplicationNumber": "Nombor permohonan",
+      "priorityIncomingNumber": "Dalam. Tidak.",
+      "internationalRegistrationNumber": "Pendaftaran antarabangsa No.",
+      "exhibitionFirstAppearance": "Tarikh penampilan pertama",
+      "exhibitionName": "Nama pameran",
+      "bulletinNumber": "Nombor buletin",
+      "patentRegistrationNumber": "Nombor pendaftaran",
+      "validationNumber": "Nombor",
+      "validationFilingDate": "Tarikh pemfailan",
+      "validationPriorityDate": "Tarikh keutamaan",
+      "addImage": "Tambah imej",
+      "addCountry": "Tambah negara",
+      "removeImage": "Alih keluar imej",
+      "image": "Imej",
+      "designName": "Nama",
+      "locarnoClass": "Kelas",
+      "locarnoSubclass": "Subkelas",
+      "classificationText": "Pengelasan",
+      "vat": "ID VAT",
+      "utilityModelName": "Nama",
+      "conversionFromPatent": "Penukaran daripada paten kepada permohonan",
+      "conversionInvention": "Ciptaan",
+      "conversionRequestNumber": "Permintaan No.",
+      "conversionApplicationDate": "Tarikh permohonan",
+      "conversionPriorityDate": "Tarikh keutamaan",
+      "giKind": "taip",
+      "giName": "Nama petunjuk geografi",
+      "spcName": "Nama",
+      "medicinalProduct": "Produk perubatan",
+      "basicPatentNumber": "Paten No.",
+      "effectStartDate": "Permulaan kesan",
+      "effectEndDate": "Tarikh tamat",
+      "firstAuthorization": "Keizinan pertama",
+      "theClientIs": "Pelanggan ialah",
+      "court": "Mahkamah",
+      "authority": "Kuasa",
+      "panel": "Panel",
+      "division": "Pembahagian",
+      "incomingNumber": "Nombor masuk",
+      "claimGrounds": "Alasan (jenis tuntutan)",
+      "claimValue": "Nilai tuntutan",
+      "other": "Lain-lain",
+      "rightObject": "Objek",
+      "selectObject": "Pilih objek…",
+      "rightName": "Nama",
+      "rightApplicationDate": "Tarikh permohonan",
+      "rightScope": "Skop",
+      "expertiseType": "Jenis kepakaran",
+      "experts": "Pakar",
+      "expertiseQuestions": "Soalan mengenai kepakaran yang diterima"
+    },
+    "formTitle": "Cipta fail: Tanda dagangan",
+    "fullFormReady": "Borang penuh tersedia",
+    "goodsPlaceholder": "cth. botol; perkhidmatan runcit…",
+    "markKinds": {
+      "certification": "Pensijilan",
+      "collective": "Kolektif",
+      "individual": "individu"
+    },
+    "markTypes": {
+      "combination_of_colors": "Gabungan warna",
+      "combined": "digabungkan",
+      "figurative": "kiasan",
+      "sound": "Bunyi",
+      "three_dimensional": "tiga dimensi",
+      "wordmark": "Tanda perkataan"
+    },
+    "noClients": "Tiada pelanggan yang sepadan. Buat pelanggan dalam CRM dahulu, kemudian kembali ke sini.",
+    "optionalMark": "Tanda / subjek (pilihan)",
+    "partialSubtypeNote": "Medan khusus penuh untuk subkategori ini akan dikembangkan kemudian. Anda masih boleh menyimpan draf yang dipautkan kepada pelanggan; dokumen dan surat-menyurat kekal dalam fail.",
+    "preliminary": "Maklumat awal",
+    "procedureHints": {
+      "cancellation": "Pembatalan tanda dagangan berdaftar — borang cipta penuh",
+      "deletion": "Pemadaman tanda dagangan berdaftar — borang cipta penuh",
+      "new": "Permohonan tanda dagangan baharu — borang cipta penuh",
+      "objection": "Bantahan terhadap aplikasi tanda dagangan — borang cipta penuh",
+      "opposition": "Penentangan terhadap aplikasi tanda dagangan — borang cipta penuh",
+      "opposition_against_us": "Prosiding pembangkang",
+      "opposition_by_us": "Prosiding pembangkang",
+      "registered": "Tanda dagangan berdaftar sedia ada",
+      "revocation": "Prosiding pemadaman"
+    },
+    "procedures": {
+      "cancellation": "Pembatalan",
+      "deletion": "Pemadaman",
+      "new": "Jenama baru",
+      "objection": "Bantahan",
+      "opposition": "Pembangkang",
+      "opposition_against_us": "Pembangkang",
+      "opposition_by_us": "Pembangkang",
+      "registered": "Tanda dagangan berdaftar",
+      "revocation": "Pemadaman"
+    },
+    "kinds": {
+      "newPatent": "Paten baru",
+      "registeredPatent": "Paten berdaftar",
+      "design": "Reka bentuk",
+      "registeredDesign": "Reka bentuk",
+      "utilityModel": "Model utiliti",
+      "registeredGi": "GI berdaftar",
+      "spc": "SPC",
+      "case": "Kes"
+    },
+    "comingSoonTitle": "Cipta fail: {{kind}}",
+    "comingSoonBody": "Borang khusus untuk jenis fail ini akan ditambah seterusnya. Borang fail ciptaan tanda dagangan sudah tersedia daripada menu yang sama.",
+    "patentTitle": "Cipta fail — Paten",
+    "patentSubtypeHint": "Mula-mula pilih subkategori paten.",
+    "patentFormTitle": "Cipta fail: Paten",
+    "designFormTitle": "Cipta fail: Reka bentuk",
+    "utilityModelFormTitle": "Cipta fail: Model utiliti",
+    "giFormTitle": "Cipta fail: Petunjuk geografi",
+    "spcFormTitle": "Cipta fail: SPC",
+    "caseFormTitle": "Cipta fail: Case",
+    "otherFilesTitle": "Fail lain",
+    "otherFilesDescription": "Pilih jenis kerja di luar rak utama — hak cipta, domain, perundingan dan banyak lagi.",
+    "otherFileFormTitle": "Cipta fail: {{type}}",
+    "addParty": "Tambah parti",
+    "caseClientRoles": {
+      "plaintiff": "Plaintif / Perayu",
+      "defendant": "Defendan",
+      "interested": "Pihak yang berminat"
+    },
+    "giKinds": {
+      "designation_of_origin": "Penetapan asal usul",
+      "geographical_indication": "Petunjuk geografi"
+    },
+    "giTerritories": {
+      "national": "Kebangsaan",
+      "eu": "EU",
+      "wo": "WO"
+    },
+    "designFilingRoutes": {
+      "wipo": "WIPO",
+      "national": "Kebangsaan",
+      "euipo": "EUIPO"
+    },
+    "chooseProcedure": "Pilih prosedur",
+    "chooseCountry": "Pilih negara",
+    "patentFilingRoutes": {
+      "national": "Kebangsaan",
+      "european": "EP",
+      "ep_validation": "EP-Pengesahan",
+      "pct": "PCT"
+    },
+    "epValidationCountries": {
+      "AL": "Albania",
+      "BA": "Bosnia dan Herzegovina",
+      "BG": "Bulgaria",
+      "EE": "Estonia",
+      "MK": "Macedonia Utara",
+      "MD": "Moldavia",
+      "ME": "Montenegro",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "SI": "Slovenia",
+      "TR": "Turki"
+    },
+    "patentHints": {
+      "new": "Permohonan baharu — Pendakwaan Kebangsaan, EP atau PCT (aliran 7 langkah dalam WorkPatent)",
+      "registered": "Geran sedia ada — Kebangsaan, EP, PCT atau EP-Validation (pengesahan 4 langkah dalam WorkValPatent)"
+    },
+    "removeClass": "Alih keluar kelas",
+    "removeClaim": "Alih keluar tuntutan",
+    "removeIpc": "Alih keluar kelas IPC",
+    "removeApplicant": "Alih keluar pemohon",
+    "removeBasisMark": "Keluarkan tanda asas",
+    "sameApplicant": "Maklumat pemohon adalah sama dengan pelanggan",
+    "sameDesigner": "Maklumat pereka adalah sama dengan pelanggan",
+    "sameInventor": "Maklumat pencipta adalah sama dengan pelanggan",
+    "sameCorrespondence": "Alamat surat menyurat adalah sama dengan alamat berdaftar",
+    "saveDraft": "Simpan sebagai draf",
+    "saving": "Menyimpan…",
+    "searchClient": "Cari pelanggan mengikut nama atau kod…",
+    "sideUs": "Pihak kami - pembangkang",
+    "sideThem": "Pihak lain — permohonan yang ditentang",
+    "sideUsCancellation": "Pihak kami — pembatalan",
+    "sideThemCancellation": "Pihak lain — pemilik",
+    "sideUsDeletion": "Pihak kami - pemadaman",
+    "sections": {
+      "againstApplication": "Terhadap permohonan tanda dagangan",
+      "againstBrand": "Terhadap tanda dagangan",
+      "applicant": "Pemohon",
+      "applicantUser": "Pemohon / Pengguna",
+      "application": "Permohonan",
+      "attachments": "Lampiran",
+      "additionalInfo": "Maklumat tambahan",
+      "basicInfo": "Maklumat asas",
+      "fileDetails": "Butiran fail",
+      "basisMarks": "Tanda yang menjadi asas pembangkang",
+      "claims": "Tuntutan",
+      "classification": "Pengelasan",
+      "designer": "Pereka bentuk",
+      "inventor": "Pencipta",
+      "client": "Data pelanggan",
+      "instructingClient": "Mengarahkan klien",
+      "ipc": "IPC",
+      "contact": "Orang hubungan",
+      "correspondence": "Alamat surat menyurat",
+      "filing": "Pemfailan dan pendaftaran",
+      "goods": "Senarai barangan dan perkhidmatan",
+      "geographicalIndication": "Maklumat petunjuk geografi",
+      "spcBasic": "Maklumat asas SPC",
+      "caseData": "Data kes",
+      "caseRights": "Hak yang menjadi asas kes itu",
+      "expertise": "Kepakaran",
+      "lawyers": "Peguam / Penasihat undang-undang",
+      "caseParties": {
+        "plaintiff": "Plaintif / Perayu",
+        "defendant": "Defendan",
+        "interested": "Pihak yang berminat"
+      },
+      "grounds": "alasan",
+      "foundation": "Asas",
+      "markName": "Nama tanda dagangan",
+      "oppositionFiler": "Pemfail pembangkang",
+      "requester": "Peminta",
+      "requestFiler": "Pemfail permintaan",
+      "owner": "Pemilik",
+      "registeredAddress": "Alamat berdaftar",
+      "representative": "wakil rakyat",
+      "representatives": "wakil rakyat",
+      "searchDocs": "Lampirkan dokumen carian",
+      "specimen": "spesimen",
+      "trademark": "Maklumat tanda dagangan",
+      "vienna": "Kelas klasifikasi Vienna"
+    },
+    "selectCountries": "Pilih negara",
+    "subtypeHint": "Mula-mula pilih subkategori tanda dagangan. Jenama baharu membuka borang penuh.",
+    "territories": {
+      "eu": "Kesatuan Eropah",
+      "international": "Antarabangsa (WO)",
+      "national": "Kebangsaan"
+    },
+    "trademarkTitle": "Cipta fail — Tanda Dagangan"
+  },
   "deadlines": {
     "complete": "lengkap",
     "daysLeft": "{{count}} hari lagi",
     "daysOverdue": "{{count}} hari tertunggak",
     "dueToday": "Diperuntukkan hari ini",
+    "summary": {
+      "open": "Buka tarikh akhir",
+      "overdue": "Tertunggak"
+    },
     "empty": "Tiada tarikh akhir mengenai perkara ini.",
     "error": "Gagal memuatkan tarikh akhir.",
     "loading": "Memuatkan tarikh akhir…",
@@ -555,9 +1415,9 @@
   },
   "ipRights": {
     "abandon": "tinggalkan",
-    "add": "Tambahkan IP dengan betul",
+    "add": "Tambah IP dengan betul",
     "addRight": "Tambah betul",
-    "addTitle": "Tambahkan IP dengan betul",
+    "addTitle": "Tambah IP dengan betul",
     "annuitySchedule": "Jadual anuiti",
     "applicationNumber": "Nombor permohonan",
     "checkEpo": "Semak EPO",
@@ -710,7 +1570,7 @@
       "seizureDate": "Tarikh rampasan",
       "status": "Status"
     },
-    "wrongMatterType": "Rekod kastam hanya tersedia untuk urusan sempadan."
+    "wrongMatterType": "Rekod kastam hanya tersedia dalam hal-hal langkah sempadan."
   },
   "jurisdictionStatus": {
     "approved": "Diluluskan",
@@ -721,7 +1581,7 @@
   "layout": {
     "backToMatters": "← Kembali ke fail",
     "loading": "Memuatkan fail…",
-    "notFound": "Fail tidak dijumpai.",
+    "notFound": "Fail tidak ditemui.",
     "archivedBadge": "Diarkibkan",
     "archive": "Arkib",
     "archiving": "Mengarkibkan…",
@@ -729,33 +1589,942 @@
     "restoring": "Memulihkan…",
     "archiveFailed": "Gagal mengarkibkan fail",
     "restoreFailed": "Gagal memulihkan fail",
-    "archiveConfirm": "Arkibkan fail ini? Ia akan keluar dari senarai aktif tetapi kekal boleh dicari di Arkib."
+    "archiveConfirm": "Arkibkan fail ini? Ia akan meninggalkan senarai aktif tetapi kekal boleh dicari di bawah Arkib."
+  },
+  "trademarkActions": {
+    "menu": {
+      "label": "Tindakan Sekunder",
+      "editScope": "Edit Skop / Kelas"
+    },
+    "kinds": {
+      "name_address_change": "Tukar Nama & Alamat",
+      "transfer": "Pemindahan / Penyerahan Tanda Dagangan",
+      "license": "Perjanjian Lesen",
+      "pledge": "Ikrar Khas",
+      "injunction": "Langkah Interim / Injunksi",
+      "surrender": "Penyerahan Penuh / Penafian",
+      "limitation": "Had Permohonan",
+      "insolvency": "Insolvensi / Muflis"
+    },
+    "legalBasis": {
+      "opposition_settlement": "Penyelesaian Pembangkang",
+      "office_action_response": "Respons Tindakan Pejabat",
+      "voluntary_limitation": "Had Sukarela",
+      "correction_of_error": "Pembetulan Ralat",
+      "other": "Lain-lain"
+    },
+    "scope": {
+      "title": "Edit Kelas & Skop",
+      "description": "Pinda kelas Nice dan penerangan barangan/perkhidmatan, kemudian rekodkan butiran pemfailan pejabat.",
+      "cardTitle": "Kelas & barangan/perkhidmatan",
+      "cardHint": "Kelas Active Nice pada fail tanda dagangan ini.",
+      "empty": "Tiada kelas direkodkan lagi.",
+      "classLabel": "Kelas {{n}}",
+      "noDescription": "Tiada penerangan",
+      "classes": "Editor kelas & barangan",
+      "incomingNumber": "Nombor rujukan masuk (ВХ. НОМЕР)",
+      "incomingPlaceholder": "ID penjejakan pejabat",
+      "filingDate": "Tarikh pemfailan (ДАТА)",
+      "legalBasis": "Asas undang-undang (ОСНОВАНИЕ)",
+      "legalBasisPlaceholder": "Pilih sebab…",
+      "legalBasisOther": "Asas undang-undang lain",
+      "attachment": "Dokumen sokongan",
+      "errors": {
+        "classRequired": "Simpan sekurang-kurangnya satu kelas Nice, atau gunakan Penyerahan Penuh untuk melepaskan markah.",
+        "incomingRequired": "Masukkan nombor rujukan masuk.",
+        "dateRequired": "Masukkan tarikh pemfailan.",
+        "basisRequired": "Pilih asas undang-undang.",
+        "saveFailed": "Tidak dapat menyimpan pembetulan skop."
+      }
+    },
+    "secondary": {
+      "description": "Log tindakan pentadbiran ini, bayaran kerajaan pilihan dan tarikh akhir peringatan.",
+      "generateProforma": "Hasilkan invois proforma",
+      "governmentFee": "Yuran kerajaan (€)",
+      "paymentDueDate": "Tarikh akhir pembayaran",
+      "paymentReminder": "Ingatkan sebelum pembayaran",
+      "filingDeadline": "Tarikh akhir pemfailan / tindakan",
+      "filingReminder": "Ingatkan sebelum memfailkan",
+      "reminderUnit": "Unit",
+      "months": "Berbulan-bulan sebelum ini",
+      "days": "hari sebelum",
+      "titles": {
+        "name_address_change": "Perubahan Nama & Alamat Log",
+        "transfer": "Log Pemindahan Tanda Dagangan",
+        "license": "Perjanjian Lesen Log",
+        "pledge": "Ikrar Khas Log",
+        "injunction": "Log Langkah Interim / Injunksi",
+        "surrender": "Log Penyerahan Penuh / Penafian",
+        "limitation": "Had Permohonan Log",
+        "insolvency": "Log Insolvensi / Kebankrapan"
+      },
+      "errors": {
+        "feeRequired": "Masukkan yuran kerajaan untuk menjana invois proforma.",
+        "saveFailed": "Tidak dapat menyimpan tindakan ini."
+      }
+    },
+    "table": {
+      "title": "Tindakan sekunder",
+      "description": "Prosedur log untuk tanda dagangan ini. Buka folder untuk melihat atau memuat naik fail berkaitan.",
+      "empty": "Tiada tindakan kedua lagi. Gunakan Tindakan Sekunder dalam pengepala untuk log satu.",
+      "procedure": "Prosedur",
+      "action": "Tindakan",
+      "loggedAt": "Log masuk",
+      "viewAria": "Lihat butiran tindakan",
+      "filesAria": "Buka arkib fail ({{count}} fail)"
+    },
+    "archive": {
+      "title": "Arkib fail",
+      "empty": "Tiada fail dilampirkan pada tindakan ini lagi.",
+      "date": "tarikh",
+      "regarding": "berkenaan",
+      "regardingPlaceholder": "cth. Keputusan, proforma, surat sokongan",
+      "document": "Dokumen",
+      "user": "pengguna",
+      "attach": "Lampirkan dokumen",
+      "upload": "Muat naik fail",
+      "download": "Muat turun",
+      "regardingRequired": "Masukkan perkara yang berkaitan dengan fail.",
+      "fileRequired": "Pilih fail untuk dimuat naik.",
+      "uploadFailed": "Tidak dapat memuat naik fail."
+    }
   },
   "list": {
-    "description": "Paparan semua fail — cari mengikut tajuk, klien atau no. permohonan.",
-    "descriptionPortal": "Fail dibuka untuk organisasi anda selepas penukaran pertanyaan.",
-    "descriptionArchived": "Fail selesai atau tidak aktif disimpan untuk rujukan.",
+    "description": "Paparan portfolio semua fail — cari mengikut tajuk, pelanggan atau nombor aplikasi.",
+    "descriptionPortal": "Fail dibuka untuk organisasi anda selepas penukaran pengambilan.",
+    "descriptionArchived": "Fail yang lengkap atau tidak aktif disimpan untuk rujukan.",
+    "descriptionOthers": "Fail di luar enam rak utama — tapis mengikut jenis kerja di bawah.",
+    "descriptionType": "{{type}} fail — cari mengikut tajuk, pelanggan atau nombor aplikasi.",
     "filters": {
       "allStatuses": "Semua status",
       "allTypes": "Semua jenis kerja",
+      "allOtherTypes": "Semua jenis lain",
       "active": "Aktif",
-      "archived": "Diarkibkan",
-      "allOtherTypes": "Semua jenis lain"
+      "archived": "Diarkibkan"
     },
     "intakeQueue": "Barisan pengambilan",
     "pagination": {
       "ofTotal": "daripada {{total}}"
     },
     "perPage": "{{count}} setiap halaman",
-    "searchPlaceholder": "Cari tajuk, klien, no. permohonan…",
+    "searchPlaceholder": "Tajuk carian, pelanggan, no aplikasi…",
     "title": "Fail",
-    "titleArchived": "Fail diarkibkan",
-    "titlePortal": "Fail saya",
-    "descriptionOthers": "Fail di luar enam kategori utama — tapis mengikut jenis di bawah.",
-    "descriptionType": "Fail {{type}} — cari mengikut tajuk, klien atau no. permohonan.",
-    "titleOthers": "Fail lain",
+    "titleArchived": "Fail yang diarkibkan",
     "titleDrafts": "Draf",
-    "descriptionDrafts": "Draf menunggu kelulusan atau pemfailan — berasingan daripada jenama aktif dan rak lain."
+    "titleOthers": "Fail lain",
+    "titlePortal": "Fail saya",
+    "descriptionDrafts": "Fail draf menunggu kelulusan atau pemfailan — berasingan daripada Tanda Dagangan aktif dan rak lain."
+  },
+  "trademarkList": {
+    "description": "Portfolio tanda dagangan — peringkat pendakwaan, kelas, pemohon dan tarikh akhir sepintas lalu.",
+    "descriptionMarks": "Tanda dagangan baharu dan berdaftar — peringkat pendakwaan, kelas, pemohon dan tarikh akhir sepintas lalu.",
+    "descriptionProcedure": "{{procedure}} fail tanda dagangan — peringkat pendakwaan, kelas dan tarikh akhir sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail tanda dagangan baharu.",
+    "columns": {
+      "name": "Nama tanda dagangan",
+      "territory": "wilayah",
+      "incomingRef": "Permohonan / no masuk",
+      "stage": "Peringkat pendakwaan",
+      "classes": "Kelas yang bagus",
+      "applicant": "Pemohon / pemilik",
+      "markType": "Tandakan jenis",
+      "registration": "Reg. tidak. / tarikh",
+      "deadline": "Tarikh akhir"
+    },
+    "deadlineOpen": "{{count}} terbuka",
+    "deadlineOverdue": "{{count}} tertunggak",
+    "deadlineNext": "Seterusnya: {{date}}",
+    "filters": {
+      "title": "Tanda penapis",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, kelas dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemohon…",
+      "markName": "Nama tanda dagangan",
+      "markNamePlaceholder": "Tandakan tajuk…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "Reg. tidak.",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "markType": "Tandakan jenis",
+      "markKind": "Tandakan baik hati",
+      "territory": "wilayah",
+      "representative": "wakil rakyat",
+      "representativePlaceholder": "Nama wakil…",
+      "applicationDateFrom": "Tarikh permohonan dari",
+      "applicationDateTo": "Tarikh permohonan ke",
+      "registrationDateFrom": "Tarikh pendaftaran dari",
+      "registrationDateTo": "Tarikh pendaftaran ke",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "markStatus": "Tandakan status",
+      "niceClass": "Kelas yang bagus",
+      "country": "Negara",
+      "hasCertificate": "Mempunyai sijil dilampirkan",
+      "choose": "pilih",
+      "chooseClass": "Pilih kelas",
+      "chooseCountry": "Pilih negara",
+      "all": "Semua",
+      "classOption": "Kelas {{number}}",
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "utilityModelList": {
+    "description": "Model utiliti — wilayah, tuntutan, pemilik dan pendaftaran sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail model utiliti baharu.",
+    "searchResults": "Hasil carian: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Berdaftar"
+    },
+    "columns": {
+      "name": "Nama",
+      "territory": "wilayah",
+      "incomingRef": "No masuk / tarikh",
+      "status": "Status",
+      "classes": "Kelas",
+      "owner": "Pemilik",
+      "kind": "baik hati",
+      "registration": "Reg. tidak. / tarikh"
+    },
+    "filters": {
+      "title": "Model utiliti penapis",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, wilayah dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemilik…",
+      "name": "Nama",
+      "namePlaceholder": "Nama model utiliti…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "No pendaftaran",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "territory": "wilayah",
+      "choose": "pilih",
+      "chooseTerritory": "Pilih wilayah",
+      "representative": "wakil rakyat",
+      "chooseRepresentative": "Pilih wakil",
+      "applicationDate": "Tarikh permohonan",
+      "registrationDate": "Tarikh pendaftaran",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "status": "Status",
+      "certificate": "Sijil",
+      "certificateOptions": {
+        "with": "Dengan sijil",
+        "without": "Tanpa sijil"
+      },
+      "statusOptions": {
+        "registered": "Berdaftar"
+      },
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "spcList": {
+    "description": "Sijil Perlindungan Tambahan — wilayah, tuntutan, pemilik dan pendaftaran sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail SPC baharu.",
+    "searchResults": "Hasil carian: {{count}}",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Berdaftar"
+    },
+    "columns": {
+      "name": "Nama",
+      "territory": "wilayah",
+      "incomingRef": "No masuk / tarikh",
+      "status": "Status",
+      "classes": "Kelas",
+      "owner": "Pemilik",
+      "kind": "baik hati",
+      "registration": "Reg. tidak. / tarikh"
+    },
+    "filters": {
+      "title": "Tapis fail SPC",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, wilayah dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemilik…",
+      "name": "Nama paten",
+      "namePlaceholder": "nama SPC…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "No pendaftaran",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "territory": "wilayah",
+      "choose": "pilih",
+      "chooseTerritory": "Pilih wilayah",
+      "representative": "wakil rakyat",
+      "chooseRepresentative": "Pilih wakil",
+      "applicationDate": "Tarikh permohonan",
+      "registrationDate": "Tarikh pendaftaran",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "status": "Status paten",
+      "certificate": "Sijil",
+      "certificateOptions": {
+        "with": "Dengan sijil",
+        "without": "Tanpa sijil"
+      },
+      "statusOptions": {
+        "registered": "Berdaftar"
+      },
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "spcShelf": {
+    "title": "SPC"
+  },
+  "caseList": {
+    "description": "Kes mahkamah — pihak, nombor kes, mahkamah dan status sepintas lalu.",
+    "emptyDescription": "Buat fail kes baharu untuk bermula.",
+    "searchResults": "Hasil carian: {{count}}",
+    "incomingSuffix": "masuk",
+    "vrs": "vs.",
+    "viewAria": "Lihat {{title}}",
+    "filesAria": "Dokumen untuk {{title}} ({{count}})",
+    "columns": {
+      "parties": "parti",
+      "caseNumber": "kes no.",
+      "court": "Mahkamah",
+      "status": "Status",
+      "actions": "Tindakan"
+    },
+    "statusOptions": {
+      "suspended": "Digantung",
+      "scheduled": "Dijadualkan",
+      "inactive": "Tidak aktif",
+      "appealed": "Dirayu"
+    }
+  },
+  "caseView": {
+    "clientLabel": "Pelanggan",
+    "caseNumberLabel": "kes no.",
+    "statusTitle": "Status",
+    "chooseStatus": "Pilih status",
+    "saveStatus": "Simpan status",
+    "edit": "Sunting",
+    "save": "Jimat",
+    "cancel": "Batal",
+    "saving": "Menyimpan…",
+    "editHint": "Kemas kini pihak, butiran mahkamah, subjek dan data kes lain.",
+    "subjectTitle": "Subjek kes",
+    "instanceTitle": "kes no. {{number}} ({{court}})",
+    "eventsTitle": "Peristiwa",
+    "reminderTitle": "Buat peringatan tambahan",
+    "addReminder": "Tambah",
+    "openArchive": "Arkib fail",
+    "saved": "Disimpan.",
+    "events": {
+      "date": "tarikh",
+      "deadline": "Tarikh akhir",
+      "regarding": "berkenaan",
+      "info": "Maklumat tambahan"
+    },
+    "actions": {
+      "decision": "Keputusan",
+      "agreement": "Perjanjian",
+      "ruling": "ketetapan"
+    },
+    "errors": {
+      "saveFailed": "Tidak dapat menyimpan butiran kes."
+    }
+  },
+  "giList": {
+    "description": "Petunjuk geografi — wilayah, kelas produk, pemilik dan pendaftaran sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail petunjuk geografi baharu.",
+    "searchResults": "Hasil carian: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Berdaftar"
+    },
+    "columns": {
+      "name": "Nama",
+      "territory": "wilayah",
+      "incomingRef": "No masuk / tarikh",
+      "status": "Status",
+      "classification": "Pengelasan",
+      "owner": "Pemilik",
+      "registration": "Reg. tidak. / tarikh"
+    },
+    "filters": {
+      "title": "Tapis petunjuk geografi",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, laluan wilayah dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemilik…",
+      "name": "Nama",
+      "namePlaceholder": "nama GI…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "No pendaftaran",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "territory": "wilayah",
+      "choose": "pilih",
+      "chooseTerritory": "Pilih laluan wilayah",
+      "representative": "wakil rakyat",
+      "chooseRepresentative": "Pilih wakil",
+      "applicationDate": "Tarikh permohonan",
+      "registrationDate": "Tarikh pendaftaran",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "status": "Status",
+      "certificate": "Sijil",
+      "certificateOptions": {
+        "with": "Dengan sijil",
+        "without": "Tanpa sijil"
+      },
+      "country": "Negara",
+      "chooseCountry": "Pilih negara",
+      "statusOptions": {
+        "registered": "Berdaftar"
+      },
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "designList": {
+    "description": "Reka bentuk berdaftar — wilayah, klasifikasi Locarno, pemilik dan pendaftaran sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail reka bentuk baharu.",
+    "searchResults": "Hasil carian: {{count}}",
+    "territoryEu": "EU",
+    "territoryWipo": "WIPO",
+    "status": {
+      "registered": "Berdaftar"
+    },
+    "columns": {
+      "name": "Nama",
+      "territory": "wilayah",
+      "incomingRef": "No masuk / tarikh",
+      "status": "Status",
+      "classification": "Pengelasan",
+      "owner": "Pemilik",
+      "registration": "Reg. tidak. / tarikh"
+    },
+    "filters": {
+      "title": "Reka bentuk penapis",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, prosedur dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemilik…",
+      "name": "Nama",
+      "namePlaceholder": "Nama reka bentuk…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "No pendaftaran",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "territory": "wilayah",
+      "procedure": "Prosedur",
+      "choose": "pilih",
+      "chooseTerritory": "Pilih wilayah",
+      "representative": "wakil rakyat",
+      "chooseRepresentative": "Pilih wakil",
+      "applicationDate": "Tarikh permohonan",
+      "registrationDate": "Tarikh pendaftaran",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "status": "Status",
+      "certificate": "Sijil",
+      "certificateOptions": {
+        "with": "Dengan sijil",
+        "without": "Tanpa sijil"
+      },
+      "country": "Negara",
+      "statusOptions": {
+        "registered": "Berdaftar"
+      },
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "patentList": {
+    "description": "Paten baharu dan berdaftar bersama — peringkat pendakwaan, tuntutan, pemilik dan tarikh akhir sepintas lalu.",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail paten baharu.",
+    "territoryEp": "EP",
+    "columns": {
+      "name": "Nama paten",
+      "territory": "wilayah",
+      "incomingRef": "Permohonan / no masuk",
+      "stage": "Status",
+      "claims": "Tuntutan",
+      "owner": "Pemilik",
+      "registration": "Reg. tidak. / tarikh",
+      "deadline": "Tarikh akhir"
+    },
+    "deadlineOpen": "{{count}} terbuka",
+    "deadlineOverdue": "{{count}} tertunggak",
+    "deadlineNext": "Seterusnya: {{date}}",
+    "filters": {
+      "title": "Paten penapis",
+      "subtitle": "Kecilkan portfolio mengikut pemohon, nombor, tarikh, wilayah dan banyak lagi.",
+      "activeCount": "{{count}} aktif",
+      "applicant": "Pemohon / pemilik",
+      "applicantPlaceholder": "Nama pelanggan atau pemilik…",
+      "patentName": "Nama paten",
+      "patentNamePlaceholder": "Tajuk paten…",
+      "incomingNo": "No masuk",
+      "incomingPlaceholder": "Permohonan / masuk…",
+      "regNo": "Reg. tidak.",
+      "regNoPlaceholder": "Nombor pendaftaran…",
+      "territory": "wilayah",
+      "choose": "pilih",
+      "chooseTerritory": "Pilih wilayah",
+      "representative": "wakil rakyat",
+      "chooseRepresentative": "Pilih wakil",
+      "applicationDateFrom": "Tarikh permohonan dari",
+      "applicationDateTo": "Tarikh permohonan ke",
+      "registrationDateFrom": "Tarikh pendaftaran dari",
+      "registrationDateTo": "Tarikh pendaftaran ke",
+      "contact": "Orang hubungan",
+      "contactPlaceholder": "Nama kenalan, e-mel atau telefon…",
+      "patentStatus": "Status paten",
+      "certificate": "Sijil",
+      "certificateOptions": {
+        "with": "Dengan sijil",
+        "without": "Tanpa sijil"
+      },
+      "country": "Negara",
+      "chooseCountry": "Pilih negara",
+      "annualFees": "Bayaran yuran tahunan",
+      "annualFeesOptions": {
+        "yes": "ya",
+        "no": "Tidak"
+      },
+      "statusOptions": {
+        "validation_received": "Pengesahan diterima",
+        "assignment": "Tugasan",
+        "translation_assigned": "Terjemahan yang ditugaskan",
+        "filing_entry": "Pemfailan / kemasukan",
+        "validation_decision": "Keputusan pengesahan",
+        "registered": "Berdaftar"
+      },
+      "all": "Semua",
+      "clear": "Kosongkan penapis",
+      "apply": "Gunakan penapis"
+    }
+  },
+  "trademarkShelf": {
+    "marks": "Markah"
+  },
+  "objectionList": {
+    "view": "Lihat",
+    "fileArchive": "Arkib fail",
+    "viewAria": "Lihat bantahan {{title}}",
+    "filesAria": "Buka arkib fail untuk {{title}} ({{count}} fail)",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail bantahan baharu.",
+    "columns": {
+      "againstMark": "Terhadap markah",
+      "grounds": "alasan",
+      "client": "Pelanggan",
+      "status": "Status",
+      "actions": "Tindakan"
+    }
+  },
+  "oppositionList": {
+    "view": "Lihat",
+    "fileArchive": "Arkib fail",
+    "viewAria": "Lihat pembangkang {{title}}",
+    "filesAria": "Buka arkib fail pembangkang untuk {{title}} ({{count}} fail)",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail pembangkang baharu.",
+    "columns": {
+      "againstMark": "Terhadap markah",
+      "client": "Pelanggan",
+      "status": "Status",
+      "actions": "Tindakan"
+    },
+    "stages": {
+      "disputes_division": "Pembangkang dalam pertikaian perpecahan",
+      "opposition_decision": "keputusan pembangkang",
+      "disputes_department_decision": "Mempertikaikan keputusan jabatan",
+      "case": "Kes",
+      "stopped": "Berhenti",
+      "closed": "tertutup"
+    },
+    "stageLegend": {
+      "disputes_division": "Biru — dalam semakan dalam bahagian pertikaian",
+      "opposition_decision": "Amber — keputusan dikeluarkan atau belum selesai",
+      "disputes_department_decision": "Jingga — keputusan peringkat jabatan",
+      "case": "Merah — ditingkatkan ke kes mahkamah",
+      "stopped": "Kelabu - prosiding dijeda",
+      "closed": "Hijau - pembangkang selesai"
+    }
+  },
+  "objectionView": {
+    "pageTitle": "Bantahan",
+    "basicInfo": "Maklumat asas",
+    "foundation": "Asas",
+    "archiveTitle": "Arkib fail bantahan",
+    "nav": {
+      "view": "Lihat",
+      "archive": "Arkib fail"
+    },
+    "markName": "Nama tanda dagangan",
+    "applicationNumber": "Nombor permohonan",
+    "applicationDate": "Tarikh permohonan",
+    "classes": "Kelas",
+    "markType": "Jenis tanda dagangan",
+    "applicant": "Pemohon",
+    "noMarkImage": "Tanda dagangan tidak mempunyai imej",
+    "grounds": "Asas",
+    "submissionDate": "Tarikh penyerahan",
+    "incomingNumber": "Nombor masuk",
+    "poaIncomingNumber": "Nombor surat kuasa masuk",
+    "poaDate": "tarikh",
+    "edit": "Sunting",
+    "cancel": "Batal",
+    "save": "Simpan perubahan",
+    "saving": "Menyimpan…",
+    "errors": {
+      "markNameRequired": "Nama tanda dagangan diperlukan.",
+      "saveFailed": "Tidak dapat menyimpan bantahan."
+    }
+  },
+  "oppositionView": {
+    "pageTitle": "Pembangkang",
+    "subjectMark": "Tanda dagangan subjek",
+    "opposingMarks": "Tanda dagangan yang bertentangan",
+    "archiveTitle": "Arkib fail pembangkang",
+    "nav": {
+      "view": "Lihat",
+      "archive": "Arkib fail",
+      "notes": "Nota"
+    },
+    "markName": "Nama tanda dagangan",
+    "applicationNumber": "Nombor permohonan",
+    "applicationDate": "Tarikh permohonan",
+    "classes": "Kelas",
+    "markType": "Jenis tanda dagangan",
+    "applicant": "Pemohon",
+    "representative": "wakil rakyat",
+    "noMarkImage": "Tanda dagangan tidak mempunyai imej",
+    "noBasisMarks": "Tiada tanda dagangan bertentangan direkodkan.",
+    "basisMarkName": "Nama tanda dagangan",
+    "basisTerritory": "wilayah",
+    "basisMarkNo": "Tandakan tidak.",
+    "basisAppDate": "Tarikh permohonan",
+    "basisClasses": "Kelas",
+    "againstClasses": "Terhadap kelas",
+    "submittedBy": "Dihantar oleh",
+    "statusHistory": "Sejarah status",
+    "stage": "Status",
+    "stagePlaceholder": "Pilih status…",
+    "stageNone": "Tidak ditetapkan",
+    "stageChangeHint": "Menyimpan status baharu mengemas kini lencana berwarna dalam senarai pembangkang, menambah baris pada sejarah status dan menetapkan perkara itu kepada Ditahan (Dihentikan) atau Ditutup apabila berkenaan.",
+    "decisionNumber": "Nombor keputusan",
+    "decisionDate": "Tarikh keputusan",
+    "actions": {
+      "stop": "Berhenti",
+      "print": "Cetak PDF",
+      "printing": "Menjana…",
+      "stopFailed": "Tidak dapat menghalang pembangkang.",
+      "printFailed": "Tidak dapat menjana PDF."
+    },
+    "stageDescriptions": {
+      "disputes_division": "Pembangkang sedang diperiksa oleh bahagian pertikaian.",
+      "opposition_decision": "Keputusan mengenai pembangkang telah dikeluarkan atau dijangka.",
+      "disputes_department_decision": "Jabatan pertikaian telah mengeluarkan atau sedang menyemak keputusannya.",
+      "case": "Perkara itu telah dibawa ke mahkamah.",
+      "stopped": "Prosiding pembangkang dijeda; perkara itu ditetapkan kepada Ditahan.",
+      "closed": "Pembangkang sudah habis; perkara itu ditetapkan kepada Tertutup."
+    },
+    "headers": {
+      "disputes_division": "{{markRef}} — Pembangkang dalam perpecahan pertikaian",
+      "opposition_decision": "Keputusan mengenai pembangkang No. {{number}} / {{date}}",
+      "disputes_department_decision": "Keputusan jabatan mempertikaikan No. {{number}} / {{date}}",
+      "case": "Keputusan rayuan mengenai pembangkang No. {{number}} / {{date}}",
+      "stopped": "{{markRef}} — Pembangkang dihentikan",
+      "closed": "{{markRef}} — Pembangkang ditutup"
+    },
+    "timeline": {
+      "decision": "Keputusan mengenai pembangkang",
+      "department_decision": "Mempertikaikan keputusan jabatan",
+      "second_decision": "Keputusan kedua mengenai pembangkang",
+      "appealedBy": "Dirayu oleh {{name}}",
+      "appealedInCourtBy": "Dirayu di mahkamah oleh {{name}}",
+      "decisionRef": "No. {{number}} / {{date}}",
+      "appealFiled": "Rayuan difailkan",
+      "courtAppealFiled": "Rayuan mahkamah difailkan"
+    },
+    "workflow": {
+      "appealTitle": "Rayuan — nombor masuk",
+      "correspondenceTitle": "Surat-menyurat",
+      "solutionTitle": "Penyelesaian",
+      "incomingNumber": "Nombor masuk",
+      "date": "tarikh",
+      "attachAppeal": "Lampirkan rayuan",
+      "attachDocument": "Lampirkan dokumen",
+      "regarding": "berkenaan",
+      "deadline": "Tarikh akhir",
+      "additionalInfo": "Maklumat tambahan",
+      "correspondence": "Surat-menyurat",
+      "submit": "Hantar",
+      "solutionSubmit": "Penyelesaian",
+      "caseDraft": "Draf kes",
+      "courtAppeal": "Rayuan di mahkamah",
+      "saveFailed": "Tidak dapat menyimpan."
+    },
+    "edit": "Sunting",
+    "cancel": "Batal",
+    "save": "Simpan perubahan",
+    "saving": "Menyimpan…",
+    "errors": {
+      "markNameRequired": "Nama tanda dagangan diperlukan.",
+      "saveFailed": "Tidak dapat menyelamatkan pembangkang."
+    },
+    "notes": {
+      "title": "Nota pembangkang",
+      "empty": "Tiada nota lagi.",
+      "date": "tarikh",
+      "regarding": "berkenaan",
+      "details": "Maklumat tambahan",
+      "submit": "Tambah",
+      "regardingRequired": "Masukkan subjek untuk nota.",
+      "saveFailed": "Tidak dapat menyimpan nota.",
+      "editAria": "Edit nota",
+      "deleteAria": "Padam nota"
+    }
+  },
+  "cancellationList": {
+    "view": "Gambaran keseluruhan",
+    "fileArchive": "Fail",
+    "viewAria": "Lihat pembatalan {{title}}",
+    "filesAria": "Buka arkib fail pembatalan untuk {{title}} ({{count}} fail)",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail pembatalan baharu.",
+    "stageNone": "Tidak ditetapkan",
+    "columns": {
+      "againstMark": "Terhadap jenama",
+      "client": "Pelanggan",
+      "status": "Status",
+      "actions": "Tindakan"
+    },
+    "stages": {
+      "waiting_for_login": "Menunggu untuk log masuk",
+      "in_correspondence": "Dalam surat menyurat",
+      "case": "Kes",
+      "stopped": "Berhenti",
+      "closed": "tertutup"
+    }
+  },
+  "cancellationView": {
+    "pageTitle": "Pembatalan",
+    "subjectMark": "Tanda dagangan subjek",
+    "cancellationSide": "Butiran pembatalan",
+    "archiveTitle": "Arkib fail pembatalan",
+    "nav": {
+      "view": "Lihat",
+      "archive": "Arkib fail",
+      "notes": "Nota"
+    },
+    "markName": "Nama tanda dagangan",
+    "applicationNumber": "Nombor permohonan",
+    "applicationDate": "Tarikh permohonan",
+    "registrationNumber": "Nombor pendaftaran",
+    "classes": "Kelas",
+    "markType": "Tandakan jenis",
+    "applicant": "Pemohon",
+    "representative": "wakil rakyat",
+    "againstClasses": "Terhadap kelas",
+    "submittedBy": "Dihantar oleh",
+    "foundation": "Asas",
+    "stage": "Status",
+    "stagePlaceholder": "Pilih status…",
+    "stageNone": "Tidak ditetapkan",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Pembatalan",
+      "in_correspondence": "No. Pembatalan {{number}} / {{date}}",
+      "case": "No. Pembatalan {{number}} / {{date}} — Kes",
+      "stopped": "{{markRef}} — Pembatalan dihentikan",
+      "closed": "{{markRef}} — Pembatalan ditutup"
+    },
+    "deadlines": {
+      "date": "tarikh",
+      "deadline": "Tarikh akhir",
+      "regarding": "berkenaan",
+      "details": "Maklumat tambahan"
+    },
+    "workflow": {
+      "feeTitle": "Yuran negeri — tarikh pembayaran",
+      "poaTitle": "Surat kuasa",
+      "filingTitle": "Pemfailan pembatalan",
+      "correspondenceTitle": "Surat-menyurat",
+      "feeAmount": "Amaun (BGN)",
+      "feeDate": "Tarikh pembayaran",
+      "poaNumber": "Nombor POA",
+      "poaDate": "Tarikh penerimaan",
+      "cancellationNumber": "Nombor pembatalan",
+      "filingDate": "Tarikh pemfailan",
+      "attachDocument": "Lampirkan dokumen",
+      "attachPoa": "Lampirkan POA",
+      "regarding": "berkenaan",
+      "deadline": "Tarikh akhir",
+      "additionalInfo": "Maklumat tambahan",
+      "submit": "Hantar",
+      "decision": "Keputusan",
+      "feePaid": "Bayaran negeri direkodkan",
+      "poaReceived": "Surat kuasa direkodkan",
+      "filingRecorded": "Pemfailan pembatalan direkodkan",
+      "correspondence": "Surat-menyurat",
+      "saveFailed": "Tidak dapat menyimpan."
+    },
+    "actions": {
+      "stop": "Berhenti",
+      "stopFailed": "Tidak dapat menghentikan pembatalan."
+    },
+    "edit": "Sunting",
+    "cancel": "Batal",
+    "save": "Simpan perubahan",
+    "saving": "Menyimpan…",
+    "errors": {
+      "markNameRequired": "Nama tanda dagangan diperlukan.",
+      "saveFailed": "Tidak dapat menyimpan pembatalan."
+    },
+    "notes": {
+      "title": "Nota pembatalan",
+      "empty": "Tiada nota lagi.",
+      "date": "tarikh",
+      "regarding": "berkenaan",
+      "details": "Maklumat tambahan",
+      "submit": "Tambah",
+      "regardingRequired": "Masukkan subjek untuk nota.",
+      "saveFailed": "Tidak dapat menyimpan nota.",
+      "editAria": "Edit nota",
+      "deleteAria": "Padam nota"
+    }
+  },
+  "deletionList": {
+    "view": "Gambaran keseluruhan",
+    "fileArchive": "Fail",
+    "viewAria": "Lihat pemadaman {{title}}",
+    "filesAria": "Buka arkib fail pemadaman untuk {{title}} ({{count}} fail)",
+    "emptyDescription": "Cuba laraskan penapis atau buat fail pemadaman baharu.",
+    "stageNone": "Tidak ditetapkan",
+    "columns": {
+      "againstMark": "Terhadap jenama",
+      "client": "Pelanggan",
+      "status": "Status",
+      "actions": "Tindakan"
+    },
+    "stages": {
+      "waiting_for_login": "Serahkan pemadaman",
+      "in_correspondence": "Dalam surat menyurat",
+      "decision": "Keputusan",
+      "case": "Kes",
+      "stopped": "Berhenti",
+      "closed": "tertutup"
+    }
+  },
+  "deletionView": {
+    "pageTitle": "Pemadaman",
+    "subjectMark": "Tanda dagangan subjek",
+    "deletionSide": "Butiran pemadaman",
+    "archiveTitle": "Padamkan arkib fail",
+    "archivedStamp": "Diarkibkan",
+    "noMarkImage": "Tanda dagangan tidak mempunyai imej",
+    "nav": {
+      "view": "Lihat",
+      "archive": "Arkib fail"
+    },
+    "markName": "Nama tanda dagangan",
+    "applicationNumber": "Nombor permohonan",
+    "applicationDate": "Tarikh permohonan",
+    "registrationNumber": "Nombor pendaftaran",
+    "classes": "Kelas",
+    "markType": "Tandakan jenis",
+    "applicant": "Pemohon",
+    "representative": "wakil rakyat",
+    "againstClasses": "Terhadap kelas",
+    "submittedBy": "Dihantar oleh",
+    "foundation": "Asas",
+    "stage": "Status",
+    "stagePlaceholder": "Pilih status…",
+    "stageNone": "Tidak ditetapkan",
+    "headers": {
+      "waiting_for_login": "{{markRef}} — Pemadaman",
+      "in_correspondence": "No. Pemadaman {{number}} / {{date}}",
+      "decision": "Keputusan pemadaman No. {{number}} / {{date}}",
+      "case": "Keputusan pemadaman No. {{number}} / {{date}} — Kes",
+      "stopped": "{{markRef}} — Berhenti (sehingga {{stopUntil}})",
+      "closed": "{{markRef}} — Pemadaman ditutup"
+    },
+    "deadlines": {
+      "date": "Tarikh peringatan",
+      "deadline": "Tarikh akhir",
+      "regarding": "berkenaan",
+      "details": "Maklumat tambahan",
+      "appealTitle": "Tarikh akhir untuk rayuan"
+    },
+    "stopped": {
+      "title": "Berhenti",
+      "until": "(sehingga {{date}})",
+      "reason": "Sebab: {{reason}}"
+    },
+    "workflow": {
+      "generateProforma": "Menghasilkan proforma",
+      "stateFee": "Bayaran negeri",
+      "feePaymentDeadline": "Tarikh akhir pembayaran",
+      "poaSendDeadline": "Tarikh akhir untuk menghantar surat kuasa",
+      "filingDeadlineLabel": "Tarikh akhir untuk memfailkan",
+      "remindBefore": "Ingatkan dulu",
+      "reminderDays": "hari",
+      "reminderMonths": "berbulan-bulan",
+      "feeDeadlineRegarding": "Tarikh akhir pembayaran yuran negeri",
+      "poaDeadlineRegarding": "Tarikh akhir untuk menghantar surat kuasa",
+      "filingDeadlineRegarding": "Tarikh akhir untuk memfailkan pemadaman",
+      "proformaRecorded": "Proforma dan tarikh akhir direkodkan",
+      "feeTitle": "Yuran negeri — tarikh pembayaran",
+      "poaTitle": "Surat kuasa",
+      "filingTitle": "Pemfailan pemadaman",
+      "correspondenceTitle": "Surat-menyurat",
+      "decisionTitle": "Keputusan pemadaman",
+      "feeAmount": "Amaun (BGN)",
+      "feeDate": "Tarikh pembayaran",
+      "poaNumber": "Nombor POA",
+      "poaDate": "Tarikh penerimaan",
+      "deletionNumber": "Nombor pemadaman",
+      "filingDate": "Tarikh pemfailan",
+      "decisionNumber": "Nombor keputusan",
+      "decisionDate": "Tarikh keputusan",
+      "attachDocument": "Lampirkan dokumen",
+      "attachPoa": "Lampirkan POA",
+      "regarding": "berkenaan",
+      "deadline": "Tarikh akhir",
+      "additionalInfo": "Maklumat tambahan",
+      "submit": "Hantar",
+      "decision": "Keputusan",
+      "caseDraft": "Draf kes",
+      "notAppealed": "Tidak dirayu",
+      "appealed": "Dirayu",
+      "feePaid": "Bayaran negeri direkodkan",
+      "poaReceived": "Surat kuasa direkodkan",
+      "filingRecorded": "Pemfailan pemadaman direkodkan",
+      "decisionRecorded": "Keputusan pemadaman direkodkan",
+      "correspondence": "Surat-menyurat",
+      "decisionNumberRequired": "Masukkan nombor keputusan.",
+      "saveFailed": "Tidak dapat menyimpan."
+    },
+    "actions": {
+      "stop": "Berhenti",
+      "stopReason": "Sebab",
+      "stopUntil": "Berhenti sehingga",
+      "restore": "Pulihkan",
+      "restored": "Dipulihkan",
+      "archive": "Arkib",
+      "archiveConfirm": "Arkibkan fail pemadaman ini?",
+      "archiveFailed": "Tidak dapat mengarkibkan pemadaman.",
+      "stopFailed": "Tidak dapat menghentikan pemadaman.",
+      "restoreFailed": "Tidak dapat memulihkan pemadaman."
+    },
+    "edit": "Sunting",
+    "cancel": "Batal",
+    "save": "Simpan perubahan",
+    "saving": "Menyimpan…",
+    "errors": {
+      "markNameRequired": "Nama tanda dagangan diperlukan.",
+      "saveFailed": "Tidak dapat menyimpan pemadaman."
+    }
   },
   "ipRightsRegister": {
     "description": "Daftar seluruh firma hak IP dengan penapis mengikut pelanggan, bidang kuasa, jenis, status dan tamat tempoh.",
@@ -788,31 +2557,19 @@
   },
   "markType": {
     "combined": "digabungkan",
+    "combination_of_colors": "Gabungan warna",
     "figurative": "kiasan",
     "sound": "Bunyi",
     "three_dimensional": "3D",
-    "wordmark": "Tanda perkataan",
-    "combination_of_colors": "Gabungan warna"
+    "wordmark": "Tanda perkataan"
   },
   "overview": {
     "assignedTo": "Peguam utama",
     "applicant": "Pemohon / Pemegang Hak (Pemilik)",
     "client": "Pelanggan",
-    "clientHint": "Pihak yang mengarahkan — menerima invois",
+    "clientHint": "Pihak mengarahkan — menerima invois",
     "intermediary": "pengantara",
     "description": "Penerangan",
-    "jurisdictions": "Bidang kuasa",
-    "jurisdictionsEmpty": "Tiada bidang kuasa direkodkan.",
-    "openedBy": "Dibuka oleh",
-    "status": "Status",
-    "table": {
-      "country": "Negara",
-      "localRef": "Ruj tempatan",
-      "status": "Status"
-    },
-    "title": "Butiran fail",
-    "type": "Jenis kerja",
-    "typeSpecific": "Atribut khusus jenis",
     "edit": {
       "cancel": "Batal",
       "edit": "Sunting",
@@ -829,7 +2586,19 @@
       "saved": "Disimpan.",
       "saving": "Menyimpan…",
       "title": "Butiran fail"
-    }
+    },
+    "jurisdictions": "Bidang kuasa",
+    "jurisdictionsEmpty": "Tiada bidang kuasa direkodkan.",
+    "openedBy": "Dibuka oleh",
+    "status": "Status",
+    "table": {
+      "country": "Negara",
+      "localRef": "Ruj tempatan",
+      "status": "Status"
+    },
+    "title": "Butiran fail",
+    "type": "Jenis kerja",
+    "typeSpecific": "Atribut khusus jenis"
   },
   "parties": {
     "title": "parti",
@@ -874,11 +2643,12 @@
     "instructions": "Arahan",
     "approvals": "Kelulusan",
     "ipRights": "Hak IP",
+    "secondaryActions": "Tindakan sekunder",
     "customs": "Kastam",
     "overview": "Gambaran keseluruhan",
     "tasks": "Nota",
     "timeline": "Garis masa",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} pada {{tab}}"
   },
   "approvals": {
     "title": "Kelulusan pelanggan",
@@ -918,27 +2688,27 @@
     }
   },
   "tasks": {
-    "add": "Tambah tugasan",
+    "add": "Tambah nota",
     "assignedTo": "Ditugaskan untuk",
     "assignedToUser": "Ditugaskan kepada {{name}}",
     "completed": "Selesai",
     "completedByUser": "Diisi oleh {{name}}",
-    "confirmComplete": "Tandakan tugas ini sebagai selesai?",
-    "confirmDelete": "Padamkan tugasan ini?",
+    "confirmComplete": "Tandakan nota ini sebagai selesai?",
+    "confirmDelete": "Padamkan nota ini?",
     "delete": "Padam",
-    "deleteMessage": "Tugas ini akan dialih keluar secara kekal.",
-    "deleteTitle": "Padamkan tugasan?",
-    "description": "Kerja yang perlu dilakukan mengenai perkara ini — berasingan daripada tarikh akhir yang dijana sistem.",
-    "drawerTitle": "Tambah tugasan",
+    "deleteMessage": "Nota ini akan dialih keluar secara kekal.",
+    "deleteTitle": "Padam nota?",
+    "description": "Nota dalaman mengenai perkara ini — berasingan daripada tarikh akhir yang dijana sistem.",
+    "drawerTitle": "Tambah nota",
     "dueOn": "Perlu dibayar {{date}}",
-    "empty": "Tiada tugas mengenai perkara ini.",
-    "emptyOpen": "Tiada tugas terbuka. Tambah satu apabila ada kerja untuk menjejaki perkara ini.",
-    "error": "Gagal memuatkan tugasan.",
-    "errorCreate": "Gagal membuat tugasan",
+    "empty": "Tiada nota mengenai perkara ini.",
+    "emptyOpen": "Tiada nota terbuka. Tambah satu apabila ada sesuatu untuk dijejaki mengenai perkara ini.",
+    "error": "Gagal memuatkan nota.",
+    "errorCreate": "Gagal membuat nota",
     "form": {
       "assigneeLabel": "Ditugaskan untuk",
-      "assigneeRequired": "Pilih siapa yang patut melakukan tugas ini",
-      "dueDateOptional": "Tarikh tamat (pilihan)",
+      "assigneeRequired": "Pilih untuk siapa nota ini",
+      "dueDateOptional": "Tarikh akhir (pilihan)",
       "notesOptional": "Nota (pilihan)",
       "notesPlaceholder": "Sebarang konteks tambahan untuk penerima serah hak",
       "priorityLabel": "Keutamaan",
@@ -946,7 +2716,7 @@
       "titlePlaceholder": "cth. Hubungi semula pelanggan: respons BPO",
       "titleRequired": "Tajuk diperlukan"
     },
-    "loading": "Memuatkan tugas…",
+    "loading": "Memuatkan nota…",
     "markComplete": "Tandakan selesai",
     "noDueDate": "Tiada tarikh akhir",
     "open": "Buka",
@@ -954,7 +2724,7 @@
       "high": "tinggi",
       "normal": "Biasalah"
     },
-    "title": "Tugasan"
+    "title": "Nota"
   },
   "timeline": {
     "description": "Sejarah kronologi pendakwaan dan surat-menyurat mengenai perkara ini.",
@@ -980,7 +2750,7 @@
     "domain": "Domain",
     "fto_analysis": "analisis FTO",
     "geographical_indication": "Petunjuk geografi",
-    "industrial_design": "Reka bentuk perindustrian",
+    "industrial_design": "Reka bentuk",
     "litigation_expert_report": "Litigasi / Laporan Pakar Mahkamah",
     "official_fee_payment": "Bayaran Yuran Rasmi",
     "other": "Lain-lain",
@@ -993,555 +2763,90 @@
     "selectPlaceholder": "Pilih…",
     "title": "Butiran khusus jenis"
   },
-  "createFile": {
-    "addClass": "Tambah kelas",
-    "backToFiles": "Kembali ke fail",
-    "cancel": "Batal",
-    "changeSubtype": "Tukar subkategori",
-    "checkRegister": "Daftar masuk komersial",
-    "clearClient": "Tukar pelanggan",
-    "clientOptionalHint": "Tiada padanan CRM? Isikan butiran pelanggan di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
-    "applicantOptionalHint": "Tiada padanan CRM? Isikan butiran pemohon di bawah — menyimpan draf akan mewujudkannya dalam Pelanggan secara automatik.",
-    "draftDescription": "Dicipta melalui Buat fail ({{procedure}}) — draf",
-    "errors": {
-      "client": "Pilih pelanggan untuk meneruskan.",
-      "clientOrDetails": "Pilih klien CRM, atau masukkan nama klien dan butiran untuk menciptanya.",
-      "applicantOrDetails": "Pilih pemohon dalam CRM, atau masukkan nama dan butiran pemohon untuk menciptanya.",
-      "jurisdiction": "Pilih sekurang-kurangnya satu wilayah / negara.",
-      "markWords": "Masukkan nama / perkataan tanda dagangan.",
-      "saveFailed": "Tidak dapat menyimpan fail draf.",
-      "subtype": "Pilih subkategori tanda dagangan.",
-      "filingRoute": "Select a procedure.",
-      "ownerOrDetails": "Enter the owner name and address, or mark owner as the same as the client.",
-      "designerOrDetails": "Enter the designer name and address, or mark designer as the same as the client.",
-      "inventorOrDetails": "Enter the inventor name and address, or mark inventor as the same as the client.",
-      "patentName": "Enter the patent name.",
-      "designName": "Enter the design name.",
-      "utilityModelName": "Enter the utility model name.",
-      "giKind": "Select designation of origin or geographical indication.",
-      "territory": "Select a territory.",
-      "giName": "Enter the name of the geographical indication.",
-      "spcName": "Enter the SPC name.",
-      "caseClientRole": "Select whether the client is plaintiff, defendant, or interested party.",
-      "patentSubtype": "Select a patent subcategory."
+  "otherMatterSpine": {
+    "sectionTitle": "Rujukan & status fail",
+    "incomingNumber": {
+      "label": "No masuk"
     },
-    "euHint": "Tanda dagangan Kesatuan Eropah (EUIPO) — bidang kuasa ditetapkan kepada EU.",
-    "fields": {
-      "address": "Alamat",
-      "applicantClient": "Pelanggan pemohon",
-      "applicantClientOptional": "Pemohon dalam CRM (pilihan)",
-      "city": "Bandar",
-      "classNumber": "Nombor kelas",
-      "country": "Negara",
-      "eik": "UIC / EIK",
-      "email": "E-mel",
-      "fax": "Faks",
-      "goodsText": "Barangan dan perkhidmatan",
-      "legalName": "Nama dan jenis entiti undang-undang",
-      "linkClient": "Pilih pelanggan dalam CRM",
-      "linkClientOptional": "Pelanggan CRM (pilihan)",
-      "markKind": "Tandakan kategori",
-      "markType": "Tandakan jenis",
-      "markWords": "Kata-kata tanda",
-      "mol": "MOL (penandatangan)",
-      "name": "Nama",
-      "phone": "telefon",
-      "postalCode": "Poskod",
-      "territory": "wilayah",
-      "vat": "ID VAT",
-      "classes": "Classes",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "againstClasses": "Against classes",
-      "owner": "Owner",
-      "transliteration": "Transliteration",
-      "viennaNumber": "Number",
-      "applicationNumber": "Application number",
-      "applicationDate": "Date",
-      "conventionPriority": "Convention priority",
-      "exhibitionPriority": "Exhibition priority",
-      "transformationInternational": "Transformation of international registration",
-      "communityConversion": "Conversion of Community trademark",
-      "applicationBulletin": "Bulletin / publication of the application",
-      "grounds": "Grounds",
-      "specimen": "Specimen",
-      "registrationNumber": "Registration No.",
-      "registrationDate": "Date",
-      "registrationBulletin": "Bulletin / publication of the registration",
-      "certificate": "Attach certificate",
-      "attachDocument": "Attach document",
-      "representative": "Select",
-      "selectRepresentative": "Select representative",
-      "addMoreRepresentatives": "Add more representatives",
-      "claimNumber": "Number",
-      "claimText": "Claim",
-      "epApplicationNumber": "EP application number",
-      "epBulletinNumber": "EP bulletin number",
-      "applicationPublication": "Publication of the application",
-      "applicationPublicationDate": "Date",
-      "epRegistrationNumber": "EP registration number",
-      "epRegistrationBulletin": "Bulletin / publication of the EP registration",
-      "epRegistrationBulletinDate": "Date",
-      "ipc": "IPC",
-      "patentName": "Name",
-      "pct": "PCT",
-      "pctNumber": "PCT",
-      "epValidation": "Validation of European patent",
-      "powerOfAttorney": "Power of attorney",
-      "selectProcedure": "Select procedure",
-      "validationCountry": "Select country",
-      "priorityCountry": "Country of previous application",
-      "priorityFromDate": "From Date",
-      "priorityApplicationNumber": "Application number",
-      "exhibitionFirstAppearance": "Date of first appearance",
-      "exhibitionName": "Exhibition name",
-      "bulletinNumber": "Bulletin number",
-      "patentRegistrationNumber": "Registration number",
-      "validationNumber": "Number",
-      "validationFilingDate": "Filing date",
-      "validationPriorityDate": "Priority date",
-      "addImage": "Add image",
-      "addCountry": "Add country",
-      "removeImage": "Remove image",
-      "image": "Image",
-      "designName": "Name",
-      "locarnoClass": "Class",
-      "locarnoSubclass": "Subclass",
-      "classificationText": "Classification",
-      "utilityModelName": "Name",
-      "conversionFromPatent": "Conversion from patent to application",
-      "conversionInvention": "Invention",
-      "conversionRequestNumber": "Request No.",
-      "conversionApplicationDate": "Application date",
-      "conversionPriorityDate": "Priority date",
-      "giKind": "Type",
-      "giName": "Name of the geographical indication",
-      "spcName": "Name",
-      "medicinalProduct": "Medicinal product",
-      "basicPatentNumber": "Patent No.",
-      "effectStartDate": "Start of effect",
-      "effectEndDate": "End date",
-      "firstAuthorization": "First authorization",
-      "theClientIs": "The client is",
-      "court": "Court",
-      "authority": "Authority",
-      "panel": "Panel",
-      "division": "Division",
-      "incomingNumber": "Incoming number",
-      "claimGrounds": "Grounds (type of claim)",
-      "claimValue": "Claim value",
-      "other": "Other",
-      "rightObject": "Object",
-      "selectObject": "Select object…",
-      "rightName": "Name",
-      "rightApplicationDate": "Application date",
-      "rightScope": "Scope",
-      "expertiseType": "Type of expertise",
-      "experts": "Experts",
-      "expertiseQuestions": "Questions on which expertise was admitted"
+    "incomingDate": {
+      "label": "Tarikh masuk"
     },
-    "formTitle": "Cipta fail: Tanda dagangan",
-    "fullFormReady": "Borang penuh tersedia",
-    "goodsPlaceholder": "cth. botol; perkhidmatan runcit…",
-    "markKinds": {
-      "certification": "Pensijilan",
-      "collective": "Kolektif",
-      "individual": "individu"
+    "territoryRoute": {
+      "label": "Laluan wilayah",
+      "options": {
+        "national_bg": "Bulgaria (kebangsaan)",
+        "eu": "Kesatuan Eropah",
+        "wipo": "WIPO / antarabangsa",
+        "international": "antarabangsa lain"
+      }
     },
-    "markTypes": {
-      "combination_of_colors": "Gabungan warna",
-      "combined": "digabungkan",
-      "figurative": "kiasan",
-      "sound": "Bunyi",
-      "three_dimensional": "tiga dimensi",
-      "wordmark": "Tanda perkataan"
+    "authorityOffice": {
+      "label": "Pihak berkuasa / pejabat"
     },
-    "noClients": "Tiada pelanggan yang sepadan. Buat pelanggan dalam CRM dahulu, kemudian kembali ke sini.",
-    "optionalMark": "Tanda / subjek (pilihan)",
-    "partialSubtypeNote": "Medan khusus penuh untuk subkategori ini akan dikembangkan kemudian. Anda masih boleh menyimpan draf yang dipautkan kepada pelanggan; dokumen dan surat-menyurat kekal dalam fail.",
-    "preliminary": "Maklumat awal",
-    "procedureHints": {
-      "new": "Permohonan jenama baharu — borang penuh",
-      "registered": "Tanda dagangan yang sudah berdaftar",
-      "objection": "Prosiding bantahan",
-      "opposition": "Prosiding pembangkangan",
-      "cancellation": "Prosiding pembatalan",
-      "deletion": "Prosiding penghapusan",
-      "opposition_against_us": "Prosiding pembangkangan",
-      "opposition_by_us": "Prosiding pembangkangan",
-      "revocation": "Prosiding penghapusan"
+    "relatedApplicationNumber": {
+      "label": "Permohonan berkaitan no."
     },
-    "procedures": {
-      "new": "Jenama baharu",
-      "registered": "Tanda dagangan berdaftar",
-      "objection": "Bantahan",
-      "opposition": "Pembangkangan",
-      "cancellation": "Pembatalan",
-      "deletion": "Penghapusan",
-      "opposition_against_us": "Pembangkangan",
-      "opposition_by_us": "Pembangkangan",
-      "revocation": "Penghapusan"
-    },
-    "removeClass": "Alih keluar kelas",
-    "sameApplicant": "Maklumat pemohon adalah sama dengan pelanggan",
-    "sameCorrespondence": "Alamat surat menyurat adalah sama dengan alamat berdaftar",
-    "saveDraft": "Simpan sebagai draf",
-    "saving": "Menyimpan…",
-    "searchClient": "Cari pelanggan mengikut nama atau kod…",
-    "sections": {
-      "applicant": "Pemohon",
-      "client": "Data pelanggan",
-      "contact": "Orang hubungan",
-      "correspondence": "Alamat surat menyurat",
-      "goods": "Senarai barangan dan perkhidmatan",
-      "markName": "Nama tanda dagangan",
-      "registeredAddress": "Alamat berdaftar",
-      "searchDocs": "Lampirkan dokumen carian",
-      "trademark": "Maklumat tanda dagangan",
-      "againstApplication": "Against a trademark application",
-      "againstBrand": "Against a trademark",
-      "applicantUser": "Applicant / User",
-      "application": "Application",
-      "attachments": "Attachments",
-      "additionalInfo": "Additional information",
-      "basicInfo": "Basic information",
-      "basisMarks": "Marks on which the opposition is based",
-      "claims": "Claims",
-      "classification": "Classification",
-      "designer": "Designer",
-      "inventor": "Inventor",
-      "instructingClient": "Instructing client",
-      "ipc": "IPC",
-      "filing": "Filing and registration",
-      "geographicalIndication": "Geographical indication information",
-      "spcBasic": "Basic information SPC",
-      "caseData": "Case data",
-      "caseRights": "Rights on which the case is based",
-      "expertise": "Expertise",
-      "lawyers": "Lawyers / Legal advisers",
-      "caseParties": {
-        "plaintiff": "Plaintiffs / Appellants",
-        "defendant": "Defendants",
-        "interested": "Interested parties"
-      },
-      "grounds": "Grounds",
-      "foundation": "Foundation",
-      "oppositionFiler": "Opposition filer",
-      "requester": "Requester",
-      "requestFiler": "Filer of the request",
-      "owner": "Owner",
-      "representative": "Representative",
-      "representatives": "Representatives",
-      "specimen": "Specimen",
-      "vienna": "Vienna classification classes"
-    },
-    "selectCountries": "Pilih negara",
-    "subtypeHint": "Pilih subkategori dahulu. Jenama baharu membuka borang penuh.",
-    "territories": {
-      "eu": "Kesatuan Eropah",
-      "international": "Antarabangsa (WO)",
-      "national": "Kebangsaan"
-    },
-    "trademarkTitle": "Cipta fail — Tanda Dagangan",
-    "addClaim": "Add claim",
-    "addIpc": "Add IPC class",
-    "addBasisMark": "Add basis mark",
-    "basisMark": "Basis mark {{number}}",
-    "addAdditionalApplicant": "Add additional applicant",
-    "addAdditionalOwner": "Add additional owner",
-    "additionalApplicant": "Applicant {{number}}",
-    "additionalOwner": "Owner {{number}}",
-    "yes": "Yes",
-    "no": "No",
-    "none": "None",
-    "kinds": {
-      "newPatent": "New patent",
-      "registeredPatent": "Registered patent",
-      "registeredDesign": "Registered design",
-      "utilityModel": "Utility models",
-      "registeredGi": "Registered GI",
-      "spc": "SPC",
-      "case": "Case"
-    },
-    "comingSoonTitle": "Create file: {{kind}}",
-    "comingSoonBody": "The specialized form for this file type will be added next. Trademark create-file forms are already available from the same menu.",
-    "patentTitle": "Create file — Patent",
-    "patentSubtypeHint": "First choose the patent subcategory.",
-    "patentFormTitle": "Create file: Patent",
-    "designFormTitle": "Create file: Design",
-    "utilityModelFormTitle": "Create file: Utility model",
-    "giFormTitle": "Create file: Geographical indication",
-    "spcFormTitle": "Create file: SPC",
-    "caseFormTitle": "Create file: Case",
-    "addParty": "Add party",
-    "caseClientRoles": {
-      "plaintiff": "Plaintiff / Appellant",
-      "defendant": "Defendant",
-      "interested": "Interested party"
-    },
-    "giKinds": {
-      "designation_of_origin": "Designation of origin",
-      "geographical_indication": "Geographical indication"
-    },
-    "giTerritories": {
-      "national": "National",
-      "eu": "EU",
-      "wo": "WO"
-    },
-    "designFilingRoutes": {
-      "wipo": "WIPO",
-      "national": "National",
-      "euipo": "EUIPO"
-    },
-    "chooseProcedure": "Choose a procedure",
-    "chooseCountry": "Select country",
-    "patentFilingRoutes": {
-      "national": "National",
-      "european": "EP",
-      "ep_validation": "EP-Validation",
-      "pct": "PCT"
-    },
-    "epValidationCountries": {
-      "AL": "Albania",
-      "BA": "Bosnia and Herzegovina",
-      "BG": "Bulgaria",
-      "EE": "Estonia",
-      "MK": "North Macedonia",
-      "MD": "Moldavia",
-      "ME": "Montenegro",
-      "RO": "Romania",
-      "RS": "Serbia",
-      "SI": "Slovenia",
-      "TR": "Turkey"
-    },
-    "patentHints": {
-      "new": "New patent application — full create form",
-      "registered": "Existing registered patent — full create form"
-    },
-    "removeClaim": "Remove claim",
-    "removeIpc": "Remove IPC class",
-    "removeApplicant": "Remove applicant",
-    "removeBasisMark": "Remove basis mark",
-    "sameDesigner": "Designer information is the same as the client",
-    "sameInventor": "Inventor information is the same as the client",
-    "sideUs": "Our side — opposition",
-    "sideThem": "Other party — opposed application",
-    "sideUsCancellation": "Our side — cancellation",
-    "sideThemCancellation": "Other party — owner",
-    "sideUsDeletion": "Our side — deletion"
-  },
-  "trademarkInfo": {
-    "addCountry": "Tambahkan negara…",
-    "cancel": "Batal",
-    "country": "Negara",
-    "edit": "Sunting",
-    "errors": {
-      "country": "Pilih sekurang-kurangnya satu negara untuk wilayah ini.",
-      "saveFailed": "Tidak dapat menyimpan maklumat tanda dagangan."
-    },
-    "euFixed": "Kesatuan Eropah (EUIPO)",
-    "markKind": "Tandakan kategori",
-    "markType": "Tandakan jenis",
-    "noCountries": "Belum ada negara yang dipilih.",
-    "save": "Simpan perubahan",
-    "saved": "Disimpan.",
-    "saving": "Menyimpan…",
-    "selectCountries": "Pilih negara",
-    "territory": "wilayah",
-    "title": "Maklumat tanda dagangan"
-  },
-  "fileApproval": {
-    "clientStep": "1. Pelanggan diluluskan",
-    "clientStepHint": "Kakitangan mengesahkan pelanggan bersetuju di luar talian (panggilan/e-mel/mesyuarat). Pelanggan portal tidak perlu meluluskan diri mereka sendiri.",
-    "errors": {
-      "updateFailed": "Tidak dapat mengemas kini status kelulusan."
-    },
-    "hint": "Kelulusan dalaman sahaja: tandakan bahawa pelanggan bersetuju, kemudian Rakan Kongsi Urusan menerima fail tersebut. Tiada kelulusan hantar kepada pelanggan diperlukan.",
-    "markClientApproved": "Tandakan pelanggan diluluskan",
-    "partnerApprove": "Rakan kongsi meluluskan fail",
-    "partnerOnly": "Hanya Rakan Kongsi Urusan boleh melengkapkan langkah ini",
-    "partnerStep": "2. Rakan Pengurusan menerima",
-    "partnerStepHint": "Selepas pelanggan ditandakan sebagai diluluskan, Rakan Kongsi Urusan menerima fail dan ia meninggalkan draf.",
-    "recordedBy": "Dirakam oleh {{name}} · {{date}}",
-    "title": "Kelulusan fail",
-    "waitForClient": "Tandai pelanggan diluluskan dahulu, kemudian anda boleh menerima fail tersebut."
-  },
-  "prosecution": {
-    "cancelEdit": "Batal",
-    "completeStage": "Tahap lengkap",
-    "edit": "Sunting",
-    "editingNote": "Gunakan Simpan untuk menyimpan perkara yang anda masukkan pada peringkat ini atau Selesaikan peringkat untuk bergerak ke hadapan apabila medan yang diperlukan diisi.",
-    "gateHint": "Anda tidak boleh bergerak ke hadapan sehingga medan yang diperlukan untuk peringkat ini diisi (sama seperti gerbang sistemnya).",
-    "goBack": "Balik satu pentas",
-    "errors": {
-      "needAttachments": "Lampirkan fail yang diperlukan sebelum meneruskan: {{list}}",
-      "needInvoice": "Jana invois daripada yuran negeri sebelum melengkapkan peringkat ini.",
-      "alreadyFinal": "Fail ini sudah berada di peringkat akhir.",
-      "needApproval": "Selesaikan kelulusan fail (pelanggan + Rakan Kongsi Urusan) sebelum meninggalkan persediaan.",
-      "needBulletin": "Masukkan nombor dan tarikh buletin sebelum meninggalkan penerbitan.",
-      "needFeePaid": "Masukkan tarikh pembayaran yuran negeri sebelum meninggalkan peperiksaan rasmi.",
-      "needFilingFields": "Masukkan nombor permohonan dan tarikh pemfailan untuk melengkapkan pemfailan.",
-      "needFormalFields": "Masukkan yuran negeri dan tarikh akhir pembayaran untuk meneruskan.",
-      "needMol": "Sila masukkan MOL pada butiran fail (create-file / edit) sebelum melengkapkan pemfailan.",
-      "needOfficeActionDeadline": "Tindakan pejabat mempunyai subjek — tetapkan tarikh akhir sebelum meneruskan.",
-      "needPoaFiled": "Masukkan nombor dan tarikh masuk PoA sebelum meninggalkan peperiksaan rasmi.",
-      "needRegFeePaid": "Masukkan tarikh pembayaran yuran pendaftaran sebelum meneruskan.",
-      "needRepresentative": "Masukkan sekurang-kurangnya satu wakil, atau tetapkan Tambah wakil kepada No.",
-      "saveBeforeNavigate": "Simpan atau batalkan pengeditan anda sebelum kembali ke peringkat.",
-      "saveFailed": "Tidak dapat menyimpan data pendakwaan."
-    },
-    "fields": {
-      "addRepresentatives": "Adakah anda ingin menambah wakil?",
-      "applicationDate": "Tarikh permohonan",
-      "applicationNumber": "Nombor permohonan",
-      "bulletinDate": "tarikh buletin",
-      "bulletinNumber": "Nombor buletin",
-      "feePaidDate": "Tarikh pembayaran yuran negeri",
-      "generatePoa": "Menjana surat kuasa",
-      "officeAction": "Tindakan / permintaan pejabat",
-      "officeActionDeadline": "Tarikh akhir tindakan pejabat",
-      "paymentDeadline": "Tarikh akhir pembayaran",
-      "poaDate": "tarikh PoA",
-      "poaDeadline": "Tarikh akhir penyerahan PoA",
-      "poaIncoming": "Nombor masuk PoA",
-      "regFeePaidDate": "Tarikh pembayaran yuran pendaftaran",
-      "remindDays": "Ingatkan hari sebelum tarikh akhir",
-      "representatives": "Wakil",
-      "sendPoaEmail": "Hantar e-mel automatik",
-      "stateFee": "Yuran negeri (BGN)"
-    },
-    "molHint": "MOL mesti ditetapkan pada butiran fail (daripada mencipta fail). Tiada blok MOL yang melengkapkan peringkat ini.",
-    "no": "Tidak",
-    "prepHint": "Peringkat persediaan: selesaikan kelulusan fail dahulu, kemudian Rakan Urusan terima akan memindahkan anda ke Pemfailan.",
-    "registeredDone": "Tahap pendaftaran telah dicapai.",
-    "saveChanges": "Simpan perubahan",
-    "saveEntered": "Jimat",
-    "saved": "Disimpan.",
-    "saveFields": "Simpan medan",
-    "saving": "Menyimpan…",
-    "stages": {
-      "filing": "Pemfailan",
-      "formal_exam": "Pemeriksaan formal",
-      "prep": "Persediaan",
-      "publication": "Penerbitan",
-      "reg_fee": "Yuran pendaftaran",
-      "registration": "Pendaftaran",
-      "substantive_exam": "Pemeriksaan substantif"
-    },
-    "territoryLabel": {
-      "eu": "Saluran paip: EU",
-      "international": "Saluran Paip: Antarabangsa (WO)",
-      "national": "Saluran paip: Kebangsaan"
-    },
-    "territoryLocked": "Wilayah ditetapkan daripada mencipta fail",
-    "territoryFromInfo": "Wilayah daripada maklumat Cap Dagangan",
-    "title": "Peringkat prosedur",
-    "yes": "ya",
-    "hub": {
-      "generateInvoice": "Hasilkan invois",
-      "invoiceIssuedShort": "Invois dikeluarkan",
-      "invoiceIssued": "Invois {{number}} dikeluarkan. Pelanggan boleh melihatnya dalam portal mereka; ia juga terdapat pada tab Pengebilan.",
-      "invoiceAlreadyIssued": "Invois {{number}} sudah dikeluarkan — kelihatan dalam portal dan Pengebilan.",
-      "invoiceFailed": "Tidak dapat menjana invois. Semak butiran bil pelanggan.",
-      "invoiceNotes": "Bayaran rasmi / negeri",
-      "uploadFailed": "Tidak dapat memuat naik fail.",
-      "needStateFee": "Masukkan amaun yuran negeri dahulu.",
-      "feeDescription": "Bayaran negeri / rasmi",
-      "deadlineFailed": "Tidak dapat membuat tarikh akhir.",
-      "deadlineTitles": {
-        "payment": "Bayaran yuran negeri",
-        "poa": "Penyerahan surat kuasa",
-        "oa": "Permintaan tindakan / peperiksaan pejabat",
-        "oaWithSubject": "Tindakan pejabat: {{subject}}"
-      },
-      "deadlineNotes": {
-        "remindDays": "Ingatkan {{days}} hari sebelum tarikh akhir."
-      },
-      "attach": {
-        "search": "Lampirkan fail carian",
-        "application": "Lampirkan permohonan",
-        "feeSlip": "Lampirkan slip yuran",
-        "poa": "Lampirkan PoA",
-        "officeAction": "Lampirkan tindakan pejabat",
-        "decision": "Lampirkan keputusan",
-        "bulletin": "Lampirkan buletin",
-        "regFee": "Lampirkan bukti pembayaran",
-        "certificate": "Lampirkan sijil"
+    "workflowStage": {
+      "label": "Peringkat aliran kerja",
+      "options": {
+        "intake": "Pengambilan",
+        "analysis": "Analisis",
+        "contract_draft": "Kontrak / draf",
+        "filed": "Difailkan",
+        "closed": "tertutup",
+        "registration": "Pendaftaran",
+        "active": "Aktif",
+        "seizure_pending": "Penyitaan belum selesai",
+        "scoping": "Skop",
+        "search": "Cari",
+        "draft_report": "Draf laporan",
+        "delivered": "Dihantar",
+        "archived": "Diarkibkan",
+        "pre_dispute": "Pra-pertikaian",
+        "hearing": "Pendengaran",
+        "decision": "Keputusan",
+        "appeal": "Rayuan",
+        "monitoring": "Pemantauan",
+        "dispute": "Pertikaian",
+        "udrp": "UDRP",
+        "resolved": "Selesai",
+        "engaged": "Bertunang",
+        "draft": "Draf",
+        "submitted": "diserahkan",
+        "requested": "Diminta",
+        "in_progress": "Sedang berlangsung",
+        "invoiced": "Diinvois",
+        "pending": "Belum selesai",
+        "paid": "Dibayar",
+        "reimbursed": "Dibayar balik",
+        "open": "Buka"
       }
     }
   },
-  "trademarkActions": {
-    "menu": {
-      "label": "Secondary Actions",
-      "editScope": "Edit Scope / Classes"
-    },
-    "kinds": {
-      "name_address_change": "Name & Address Change",
-      "transfer": "Trademark Transfer / Assignment",
-      "license": "License Agreement",
-      "pledge": "Special Pledge",
-      "injunction": "Interim Measure / Injunction",
-      "surrender": "Full Surrender / Disclaimer",
-      "limitation": "Application Limitation",
-      "insolvency": "Insolvency / Bankruptcy"
-    },
-    "legalBasis": {
-      "opposition_settlement": "Opposition Settlement",
-      "office_action_response": "Office Action Response",
-      "voluntary_limitation": "Voluntary Limitation",
-      "correction_of_error": "Correction of Error",
-      "other": "Other"
-    },
-    "scope": {
-      "title": "Edit Classes & Scope",
-      "description": "Amend Nice classes and goods/services descriptions, then record the office filing details.",
-      "cardTitle": "Classes & goods/services",
-      "cardHint": "Active Nice classes on this trademark file.",
-      "empty": "No classes recorded yet.",
-      "classLabel": "Class {{n}}",
-      "noDescription": "No description",
-      "classes": "Class & goods editor",
-      "incomingNumber": "Incoming reference number (ВХ. НОМЕР)",
-      "incomingPlaceholder": "Office tracking ID",
-      "filingDate": "Filing date (ДАТА)",
-      "legalBasis": "Legal basis (ОСНОВАНИЕ)",
-      "legalBasisPlaceholder": "Select a reason…",
-      "legalBasisOther": "Other legal basis",
-      "attachment": "Supporting document",
-      "errors": {
-        "classRequired": "Keep at least one Nice class, or use Full Surrender to give up the mark.",
-        "incomingRequired": "Enter the incoming reference number.",
-        "dateRequired": "Enter the filing date.",
-        "basisRequired": "Select a legal basis.",
-        "saveFailed": "Could not save the scope correction."
-      }
-    },
-    "secondary": {
-      "description": "Log this administrative action, optional government fee, and reminder deadlines.",
-      "generateProforma": "Generate proforma invoice",
-      "governmentFee": "Government fee (€)",
-      "paymentDueDate": "Payment deadline",
-      "paymentReminder": "Remind before payment",
-      "filingDeadline": "Filing / action deadline",
-      "filingReminder": "Remind before filing",
-      "reminderUnit": "Unit",
-      "months": "Months before",
-      "days": "Days before",
-      "titles": {
-        "name_address_change": "Log Name & Address Change",
-        "transfer": "Log Trademark Transfer",
-        "license": "Log License Agreement",
-        "pledge": "Log Special Pledge",
-        "injunction": "Log Interim Measure / Injunction",
-        "surrender": "Log Full Surrender / Disclaimer",
-        "limitation": "Log Application Limitation",
-        "insolvency": "Log Insolvency / Bankruptcy"
-      },
-      "errors": {
-        "feeRequired": "Enter a government fee to generate a proforma invoice.",
-        "saveFailed": "Could not save this action."
-      }
+  "otherMatterView": {
+    "edit": "Sunting",
+    "save": "Jimat",
+    "cancel": "Batal",
+    "saving": "Menyimpan…",
+    "editHint": "Kemas kini rujukan fail, peringkat aliran kerja dan butiran khusus jenis.",
+    "clientLabel": "Pelanggan",
+    "detailsTitle": "{{type}} butiran",
+    "errors": {
+      "saveFailed": "Tidak dapat menyimpan butiran fail."
+    }
+  },
+  "otherList": {
+    "emptyDescription": "Buat fail lain baharu atau laraskan penapis.",
+    "viewAria": "Lihat {{title}}",
+    "filesAria": "Dokumen untuk {{title}} ({{count}})",
+    "columns": {
+      "type": "taip",
+      "subject": "Subjek",
+      "client": "Pelanggan",
+      "incoming": "Ruj masuk.",
+      "stage": "pentas",
+      "deadline": "Tarikh kunci",
+      "actions": "Tindakan"
     }
   }
 }

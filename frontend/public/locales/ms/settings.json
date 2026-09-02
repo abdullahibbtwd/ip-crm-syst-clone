@@ -460,7 +460,7 @@
       "editTitle": "Edit bidang kuasa",
       "code": "Kod",
       "codeHint": "Kod pejabat 2–4 aksara (cth. AS, EU, WO). Tidak boleh diubah kemudian.",
-      "officeName": "Nama pejabat",
+      "officeName": "nama pejabat",
       "name": "Nama negara / wilayah",
       "type": "taip",
       "priority": "Penyenaraian keutamaan",

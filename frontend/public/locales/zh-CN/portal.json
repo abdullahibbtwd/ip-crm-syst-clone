@@ -12,7 +12,7 @@
       "overdue": "逾期",
       "overdueCurrent": "所有当前",
       "overdueUrgent": "紧急关注",
-      "renewals": "续订",
+      "renewals": "续约",
       "renewalsCurrent": "维持电流",
       "renewalsNeedAction_one": "{{count}} 需要采取行动",
       "renewalsNeedAction_other": "{{count}} 需要采取行动"
@@ -184,7 +184,7 @@
     "domain": "域名",
     "fto_analysis": "FTO分析",
     "geographical_indication": "地理标志",
-    "industrial_design": "工业设计",
+    "industrial_design": "设计",
     "litigation_expert_report": "诉讼/法庭专家报告",
     "official_fee_payment": "官方费用支付",
     "other": "其他",
@@ -210,7 +210,7 @@
     "loading": "加载中…",
     "proceed": "继续",
     "retry": "重试",
-    "title": "续订"
+    "title": "续约"
   },
   "renewalStatus": {
     "completed": "完全的",

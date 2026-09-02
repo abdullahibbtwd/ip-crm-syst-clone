@@ -1,6 +1,6 @@
 {
   "title": "Strani partneri",
-  "subtitle": "Lokalni agenti i pridruženi savjetnici koji se koriste za podnošenje dokumenata i uputstva.",
+  "subtitle": "Lokalni agenti i pridruženi savjetnici koji se koriste za podneske i upute za pitanja.",
   "newPartner": "Novi partner",
   "noPermission": "Nemate dozvolu za pregled partnera.",
   "loading": "Učitavanje partnera…",
@@ -43,7 +43,7 @@
   },
   "errors": {
     "nameRequired": "Ime je obavezno",
-    "saveFailed": "Nije uspjelo pohranjivanje partnera"
+    "saveFailed": "Pohranjivanje partnera nije uspjelo"
   },
   "instructions": {
     "title": "Uputstva partnera",

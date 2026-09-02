@@ -34,6 +34,14 @@
     "clients": "Pelanggan",
     "holdingGroups": "Mengadakan kumpulan",
     "allMatters": "Semua fail",
+    "workingFiles": "Fail",
+    "createFile": "Buat fail",
+    "createFileTrademark": "Tanda dagangan",
+    "createFilePatent": "Paten",
+    "mattersAll": "Semua",
+    "mattersDrafts": "Draf",
+    "mattersOthers": "Lain-lain",
+    "mattersArchived": "Diarkibkan",
     "matters": "Fail",
     "intakeQueue": "Barisan pengambilan",
     "rightsRegister": "Daftar hak",
@@ -100,15 +108,7 @@
     "messages": "Mesej",
     "approvals": "Kelulusan",
     "help": "Tolong",
-    "myPortfolio": "Portfolio saya",
-    "workingFiles": "Fail",
-    "mattersAll": "Semua",
-    "mattersOthers": "Lain-lain",
-    "mattersArchived": "Diarkibkan",
-    "mattersDrafts": "Draf",
-    "createFile": "Cipta fail",
-    "createFileTrademark": "Cap dagangan",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Portfolio saya"
   },
   "roles": {
     "managing_partner": "Rakan Kongsi Urusan",
@@ -129,7 +129,7 @@
     "managing_partner": {
       "eyebrow": "Gambaran keseluruhan firma",
       "title": "Gambaran keseluruhan firma",
-      "description": "Risiko tarikh akhir portfolio, volum pemfailan, saluran paip pembaharuan, hasil, beban kerja pasukan dan keuntungan pelanggan - pelaporan seluruh firma dari satu rumah."
+      "description": "Risiko tarikh akhir portfolio, volum pemfailan, saluran pembaharuan, hasil, beban kerja pasukan dan keuntungan pelanggan - pelaporan seluruh firma dari satu rumah."
     },
     "coordinator": {
       "eyebrow": "Penyelarasan",
@@ -149,7 +149,7 @@
     "portal_client": {
       "eyebrow": "Portal pelanggan",
       "title": "Selamat kembali",
-      "description": "Hantar pertanyaan pemfailan dan jejaki perkara untuk organisasi anda."
+      "description": "Serahkan pertanyaan pemfailan dan jejaki perkara untuk organisasi anda."
     },
     "myDashboard": {
       "title": "papan pemuka saya"

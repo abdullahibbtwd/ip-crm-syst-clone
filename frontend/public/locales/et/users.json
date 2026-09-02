@@ -44,7 +44,7 @@
   },
   "layout": {
     "accessRestricted": "Juurdepääs piiratud",
-    "description": "Hallake sisemisi meeskonnaliikmeid ja välisportaali kliendikontosid. SSO- ja paroolipõhine sisselogimine kuvatakse kasutaja kohta.",
+    "description": "Hallake meeskonnasiseseid liikmeid ja välisportaali kliendikontosid. SSO- ja paroolipõhine sisselogimine kuvatakse kasutaja kohta.",
     "noPermission": "Teil pole luba kasutajate ja meeskonnaliikmete vaatamiseks.",
     "title": "Kasutajad ja meeskond"
   },

@@ -7,7 +7,7 @@
     "dashboardTitle": "仪表板即将推出"
   },
   "defaultStaff": {
-    "verifiedSession": "已验证会话",
+    "verifiedSession": "已验证的会话",
     "activeDeadlines": "有效期限",
     "assignedToYou": "分配给您",
     "pendingTasks": "待处理任务",
@@ -51,7 +51,7 @@
     "quickDeadlineRiskDesc": "委托人×司法管辖区×代理人",
     "quickFilingVolumes": "归档量",
     "quickFilingVolumesDesc": "每月申请趋势",
-    "quickRenewals": "续订",
+    "quickRenewals": "续约",
     "quickRenewalsDesc": "管道和紧急程度",
     "quickWorklist": "工作清单",
     "quickWorklistDesc": "过滤并分配截止日期",
@@ -126,7 +126,7 @@
     "crossTabDesc": "客户×司法管辖区×律师明细",
     "firmDeadlines": "严格的期限",
     "firmDeadlinesDesc": "过滤、分配和更新状态",
-    "renewals": "续订",
+    "renewals": "续约",
     "renewalsDesc": "即将更新的 Windows 管道"
   }
 }

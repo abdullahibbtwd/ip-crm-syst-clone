@@ -10,7 +10,7 @@
     "notifications": "通知"
   },
   "empty": {
-    "notifications": "没有通知",
+    "notifications": "无通知",
     "urgent": "没有紧急物品",
     "overdue": "无逾期物品",
     "today": "今天没有到期的物品"

@@ -178,7 +178,7 @@
     "openFullReport": "Raporun tamamını aç",
     "outstandingHint": "{{count}} açık alacaklar",
     "outstandingLabel": "Üstün",
-    "rateCardHealth": "Ücret listesi durumu",
+    "rateCardHealth": "Ücret listesi sağlığı",
     "rateCardHealthDescription": "Faturalandırma oranları yapılandırılmış mı ve marjlar hazır mı?",
     "rateCardsHintConfigured": "Mevcut fiyatlar",
     "rateCardsHintMissing": "Hiçbir ücret listesi yapılandırılmadı",

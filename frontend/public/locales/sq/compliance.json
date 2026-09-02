@@ -85,7 +85,7 @@
     "errors": {
       "invalidDays": "Fut një periudhë të vlefshme ruajtjeje në ditë",
       "saveFailed": "Ruajtja e rregullit të ruajtjes dështoi",
-      "confirmSave": "Rregullat e mbajtjes zbatohen në punën e skanimit të natës (parazgjedhja në orën 3:00 të mëngjesit). Të vazhdohet me kursim?"
+      "confirmSave": "Rregullat e mbajtjes zbatohen në punën e skanimit të natës (parazgjedhja 3:00 e mëngjesit). Vazhdoni të ruani?"
     },
     "duration": {
       "days": "{{days}} ditë",

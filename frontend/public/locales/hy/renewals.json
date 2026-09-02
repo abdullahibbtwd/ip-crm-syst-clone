@@ -50,7 +50,7 @@
     "table": {
       "ipAsset": "IP ակտիվ",
       "client": "Հաճախորդ",
-      "dueStatus": "Ժամկետային / կարգավիճակ"
+      "dueStatus": "Ժամկետանց / Կարգավիճակ"
     },
     "cycle": "Ցիկլ {{number}}"
   }

@@ -72,8 +72,8 @@
     "new": "Nuovi avvisi",
     "accepted": "Accettata",
     "rejected": "Respinto",
-    "hintAwaitingTriage": "In attesa di triage",
-    "hintMattersCreated": "Pratiche create",
+    "hintAwaitingTriage": "In attesa del triage",
+    "hintMattersCreated": "Questioni create",
     "hintFalsePositives": "Falsi positivi"
   },
   "profileStatus": {

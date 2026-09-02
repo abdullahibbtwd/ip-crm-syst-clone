@@ -34,6 +34,14 @@
     "clients": "Հաճախորդներ",
     "holdingGroups": "Անցկացման խմբեր",
     "allMatters": "Բոլոր ֆայլերը",
+    "workingFiles": "Ֆայլեր",
+    "createFile": "Ստեղծել ֆայլ",
+    "createFileTrademark": "Ապրանքային նշան",
+    "createFilePatent": "Արտոնագիր",
+    "mattersAll": "Բոլորը",
+    "mattersDrafts": "Սևագրեր",
+    "mattersOthers": "Մյուսները",
+    "mattersArchived": "Արխիվացված",
     "matters": "Ֆայլեր",
     "intakeQueue": "Ընդունման հերթ",
     "rightsRegister": "Իրավունքների գրանցամատյան",
@@ -53,7 +61,7 @@
     "officeActions": "Գրասենյակային գործողություններ",
     "documents": "Փաստաթղթեր",
     "correspondence": "Նամակագրություն",
-    "myTmMatters": "Իմ ապրանքանիշային ֆայլերը",
+    "myTmMatters": "Իմ TM ֆայլերը",
     "oppositions": "Ընդդիմություններ",
     "watchAlerts": "Դիտեք ահազանգերը",
     "conflictCheck": "Կոնֆլիկտի ստուգում",
@@ -100,15 +108,7 @@
     "messages": "Հաղորդագրություններ",
     "approvals": "Հաստատումներ",
     "help": "Օգնություն",
-    "myPortfolio": "Իմ պորտֆոլիոն",
-    "workingFiles": "Ֆայլեր",
-    "mattersAll": "Բոլորը",
-    "mattersOthers": "Այլ",
-    "mattersArchived": "Արխիվ",
-    "mattersDrafts": "Սևագրեր",
-    "createFile": "Ստեղծել ֆայլ",
-    "createFileTrademark": "Ապրանքանիշ",
-    "createFilePatent": "Patent"
+    "myPortfolio": "Իմ պորտֆոլիոն"
   },
   "roles": {
     "managing_partner": "Կառավարող գործընկեր",
@@ -129,7 +129,7 @@
     "managing_partner": {
       "eyebrow": "Ֆիրմային ակնարկ",
       "title": "Ֆիրմային ակնարկ",
-      "description": "Պորտֆոլիոյի վերջնաժամկետի ռիսկը, ներկայացման ծավալները, նորացման խողովակաշարը, եկամուտը, թիմային ծանրաբեռնվածությունը և հաճախորդի շահութաբերությունը՝ մեկ տանից ամբողջ ընկերության հաշվետվությունը:"
+      "description": "Պորտֆոլիոյի վերջնաժամկետի ռիսկը, փաստաթղթերի ներկայացման ծավալները, նորացման խողովակաշարը, եկամուտը, թիմային ծանրաբեռնվածությունը և հաճախորդի շահութաբերությունը. ընկերությունում հաշվետվություններ մեկ տանից:"
     },
     "coordinator": {
       "eyebrow": "Համակարգում",

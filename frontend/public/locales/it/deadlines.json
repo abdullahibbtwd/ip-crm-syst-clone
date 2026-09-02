@@ -77,7 +77,7 @@
   "widget": {
     "title": "Le mie scadenze",
     "viewAll": "Visualizza tutto",
-    "loading": "Elaborazione dei dati sulle scadenze…",
+    "loading": "Elaborazione dei dati sulle scadenze...",
     "error": "Impossibile caricare le scadenze.",
     "empty": "Nessuna scadenza imminente assegnata a te.",
     "table": {
@@ -90,6 +90,6 @@
     "title": "Scadenza oggi",
     "view": "Visualizzazione",
     "personal_one": "Hai 1 scadenza in scadenza oggi.",
-    "personal_other": "Hai delle scadenze {{count}} in scadenza oggi."
+    "personal_other": "Hai scadenze {{count}} in scadenza oggi."
   }
 }
