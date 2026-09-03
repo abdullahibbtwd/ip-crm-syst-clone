@@ -99,10 +99,12 @@ export function useGenerateDocument(matterId: string, filters?: DocumentFilters)
     mutationFn: ({
       templateId,
       format = 'pdf',
+      fields,
     }: {
-      templateId: string
+      templateId?: string
       format?: 'pdf' | 'docx'
-    }) => documentsApi.generateFromTemplate(matterId, templateId, format),
+      fields?: Record<string, string>
+    }) => documentsApi.generateFromTemplate(matterId, { templateId, format, fields }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId, filters) })
       qc.invalidateQueries({ queryKey: documentKeys.matter(matterId) })

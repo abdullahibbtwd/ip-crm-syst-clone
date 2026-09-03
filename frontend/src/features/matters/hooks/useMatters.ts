@@ -16,10 +16,11 @@ import type {
   UpdateMatterInput,
 } from '../types'
 
-export function useMatters(filters?: MatterFilters) {
+export function useMatters(filters?: MatterFilters, options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: matterKeys.list(filters ?? {}),
     queryFn: () => mattersApi.list(filters),
+    enabled: options?.enabled ?? true,
   })
 }
 

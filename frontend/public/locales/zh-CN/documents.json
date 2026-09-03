@@ -31,5 +31,9 @@
     "displayName": "显示名称",
     "displayNamePlaceholder": "例如 授权委托书模板",
     "category": "类别"
+  },
+  "actions": {
+    "view": "View",
+    "download": "下载"
   }
 }

@@ -72,7 +72,9 @@
     "filters": {
       "allPayments": "所有付款",
       "allStatuses": "所有状态"
-    }
+    },
+    "proformasTitle": "Proformas",
+    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
   },
   "payment": {
     "amount": "数量 *",

@@ -9,7 +9,8 @@
     "allStatuses": "Tüm durumlar",
     "inactiveOnly": "Yalnızca etkin değil",
     "searchPortal": "Portal kullanıcılarını arayın…",
-    "searchTeam": "Ekip üyelerini arayın…"
+    "searchTeam": "Ekip üyelerini arayın…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Kullanıcıyı davet et",

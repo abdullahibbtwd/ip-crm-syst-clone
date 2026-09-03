@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Armatuurlaud",
     "deadlines": "Tähtajad",
-    "alerts": "Märguanded",
+    "alerts": "Meeldetuletused",
     "clients": "Kliendid",
     "holdingGroups": "Hoidmisrühmad",
     "allMatters": "Kõik failid",
@@ -108,7 +108,12 @@
     "messages": "Sõnumid",
     "approvals": "Heakskiidud",
     "help": "Abi",
-    "myPortfolio": "Minu portfell"
+    "myPortfolio": "Minu portfell",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Juhtiv partner",

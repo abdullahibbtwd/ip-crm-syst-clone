@@ -1,4 +1,5 @@
 import {
+  IsBoolean,
   IsDateString,
   IsEnum,
   IsIn,
@@ -9,6 +10,7 @@ import {
   MaxLength,
   Min,
 } from 'class-validator';
+import { Transform } from 'class-transformer';
 import { InvoiceStatus, PaymentStatus } from '../../../generated/prisma/client';
 
 export const ACCOUNTING_EXPORT_FORMATS = [
@@ -96,6 +98,11 @@ export class ListInvoicesQueryDto {
   @IsString()
   @MaxLength(200)
   search?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true)
+  @IsBoolean()
+  proformaOnly?: boolean;
 
   @IsOptional()
   @IsString()

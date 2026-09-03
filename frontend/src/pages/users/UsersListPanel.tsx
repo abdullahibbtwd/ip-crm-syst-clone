@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/select'
 import { useUsers } from '@/features/users/hooks/useUsers'
 import type { UserFilters, UserSegment } from '@/features/users/types'
+import { TEAM_ASSIGNABLE_ROLES, formatUserRole } from '@/features/users/utils'
 
 const ALL_STATUSES = 'all'
 
@@ -26,6 +27,7 @@ export function UsersListPanel({ segment, title, description }: UsersListPanelPr
   const [searchInput, setSearchInput] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<boolean | undefined>()
+  const [roleFilter, setRoleFilter] = useState<string | undefined>()
   const [pageIndex, setPageIndex] = useState(0)
   const [cursors, setCursors] = useState<(string | undefined)[]>([undefined])
 
@@ -37,12 +39,13 @@ export function UsersListPanel({ segment, title, description }: UsersListPanelPr
   useEffect(() => {
     setPageIndex(0)
     setCursors([undefined])
-  }, [debouncedSearch, statusFilter, segment])
+  }, [debouncedSearch, statusFilter, roleFilter, segment])
 
   const filters: UserFilters = {
     segment,
     search: debouncedSearch || undefined,
     isActive: statusFilter,
+    role: segment === 'team' ? roleFilter : undefined,
     limit: USERS_PAGE_SIZE,
     cursor: cursors[pageIndex],
   }
@@ -106,6 +109,24 @@ export function UsersListPanel({ segment, title, description }: UsersListPanelPr
             <SelectItem value="inactive">{t('filters.inactiveOnly')}</SelectItem>
           </SelectContent>
         </Select>
+        {segment === 'team' ? (
+          <Select
+            value={roleFilter ?? ALL_STATUSES}
+            onValueChange={(v) => setRoleFilter(v === ALL_STATUSES || !v ? undefined : v)}
+          >
+            <SelectTrigger className="w-[200px] bg-background">
+              <SelectValue placeholder={t('filters.allRoles')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value={ALL_STATUSES}>{t('filters.allRoles')}</SelectItem>
+              {TEAM_ASSIGNABLE_ROLES.map((role) => (
+                <SelectItem key={role} value={role}>
+                  {formatUserRole(role)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        ) : null}
       </div>
 
       <UsersTable

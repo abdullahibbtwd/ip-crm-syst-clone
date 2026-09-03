@@ -6,7 +6,9 @@ import { LoginPage } from './pages/LoginPage'
 import { ResetPasswordPage } from './pages/ResetPasswordPage'
 import { AcceptInvitePage } from './pages/AcceptInvitePage'
 import { ClientListPage } from './pages/crm/ClientListPage'
+import { CreateClientPage } from './pages/crm/CreateClientPage'
 import { CreateHoldingGroupPage } from './pages/crm/CreateHoldingGroupPage'
+import { GlobalContactsPage } from './pages/crm/GlobalContactsPage'
 import { HoldingGroupDetailPage } from './pages/crm/HoldingGroupDetailPage'
 import { HoldingGroupListPage } from './pages/crm/HoldingGroupListPage'
 import { ClientLayout } from './pages/crm/clients/ClientLayout'
@@ -19,6 +21,7 @@ import { ClientDocumentsTab } from './pages/crm/clients/tabs/ClientDocumentsTab'
 import { ClientCorrespondenceTab } from './pages/crm/clients/tabs/ClientCorrespondenceTab'
 import { ClientWatchTab } from './pages/crm/clients/tabs/ClientWatchTab'
 import { ClientAccessHistoryTab } from './pages/crm/clients/tabs/ClientAccessHistoryTab'
+import { ClientNotesTab } from './pages/crm/clients/tabs/ClientNotesTab'
 import { RelatedCompaniesTab } from './pages/crm/clients/tabs/RelatedCompaniesTab'
 import { RelationshipHistoryTab } from './pages/crm/clients/tabs/RelationshipHistoryTab'
 import { SettingsPage } from './pages/settings/SettingsPage'
@@ -37,6 +40,7 @@ import { TimeEntriesPage } from './pages/billing/TimeEntriesPage'
 import { DisbursementsPage } from './pages/billing/DisbursementsPage'
 import { ConsentRegisterPage } from './pages/compliance/ConsentRegisterPage'
 import { StaffDocumentsPage } from './pages/documents/StaffDocumentsPage'
+import { GeneratePoaPage } from './pages/documents/GeneratePoaPage'
 import { PortalHelpPage } from './pages/portal/PortalHelpPage'
 import { EmailQueuePage } from './pages/email-queue/EmailQueuePage'
 import { BroadcastsPage } from './pages/broadcasts/BroadcastsPage'
@@ -98,6 +102,7 @@ import { BillingOverviewPage } from './pages/finance/BillingOverviewPage'
 import { DeadlineRiskReportPage } from './pages/reports/DeadlineRiskReportPage'
 import { RevenueSummaryReportPage } from './pages/reports/RevenueSummaryReportPage'
 import { FilingVolumesReportPage } from './pages/reports/FilingVolumesReportPage'
+import { BpoOwnersPage } from './pages/reports/BpoOwnersPage'
 import { RenewalsSummaryReportPage } from './pages/reports/RenewalsSummaryReportPage'
 import { AuditTrailPage } from './pages/compliance/AuditTrailPage'
 import { DataExportsPage } from './pages/compliance/DataExportsPage'
@@ -131,7 +136,8 @@ export default function App() {
           <Route path="/portal/approvals" element={<PortalApprovalsPage />} />
 
           <Route path="/clients" element={<ClientListPage />} />
-          <Route path="/clients/new" element={<Navigate to="/intake/new" replace />} />
+          <Route path="/clients/new" element={<CreateClientPage />} />
+          <Route path="/contacts" element={<GlobalContactsPage />} />
           <Route path="/clients/:id" element={<ClientLayout />}>
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<ClientOverviewTab />} />
@@ -143,8 +149,9 @@ export default function App() {
             <Route path="documents" element={<ClientDocumentsTab />} />
             <Route path="correspondence" element={<ClientCorrespondenceTab />} />
             <Route path="watch" element={<ClientWatchTab />} />
-            <Route path="access" element={<ClientAccessHistoryTab />} />
             <Route path="billing" element={<ClientBillingTab />} />
+            <Route path="notes" element={<ClientNotesTab />} />
+            <Route path="access" element={<ClientAccessHistoryTab />} />
           </Route>
 
           <Route path="/holding-groups" element={<HoldingGroupListPage />} />
@@ -171,6 +178,7 @@ export default function App() {
           <Route path="/time-entries" element={<TimeEntriesPage />} />
           <Route path="/disbursements" element={<DisbursementsPage />} />
           <Route path="/documents" element={<StaffDocumentsPage />} />
+          <Route path="/documents/generate-poa" element={<GeneratePoaPage />} />
           <Route path="/compliance/consent" element={<ConsentRegisterPage />} />
           <Route path="/portal/help" element={<PortalHelpPage />} />
           <Route path="/users" element={<UsersLayout />}>
@@ -209,6 +217,7 @@ export default function App() {
           <Route path="/reports/revenue-summary" element={<RevenueSummaryReportPage />} />
           <Route path="/reports/filing-volumes" element={<FilingVolumesReportPage />} />
           <Route path="/reports/renewals-summary" element={<RenewalsSummaryReportPage />} />
+          <Route path="/reports/bpo-owners" element={<BpoOwnersPage />} />
           <Route path="/compliance/audit-trail" element={<AuditTrailPage />} />
           <Route path="/compliance/data-exports" element={<DataExportsPage />} />
           <Route path="/compliance/retention" element={<RetentionRulesPage />} />

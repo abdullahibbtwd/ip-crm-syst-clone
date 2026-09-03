@@ -11,6 +11,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { MinioStorageService } from '../storage/minio-storage.service';
 import { MAX_UPLOAD_BYTES } from '../storage/storage.constants';
 import {
+  applyFieldOverrides,
   applyMergeFields,
   buildDocumentMergeContext,
   DOCUMENT_MERGE_FIELD_KEYS,
@@ -18,6 +19,11 @@ import {
   sampleDocumentMergeContext,
 } from './document-merge.util';
 import { renderLetterDocument } from './document-template-renderer';
+import {
+  isPoaTemplate,
+  POA_TEMPLATE_SEED,
+  renderPoaDocument,
+} from './poa-document';
 import { DocxTemplateService } from './docx-template.service';
 import {
   CreateDocumentTemplateDto,
@@ -97,6 +103,44 @@ export class DocumentTemplatesService {
 
   mergeFieldKeys() {
     return [...DOCUMENT_MERGE_FIELD_KEYS];
+  }
+
+  async ensurePoaTemplate() {
+    const existing = await this.prisma.documentTemplate.findUnique({
+      where: { slug: POA_TEMPLATE_SEED.slug },
+    });
+    if (existing?.isActive) return existing;
+    if (existing) {
+      return this.prisma.documentTemplate.update({
+        where: { id: existing.id },
+        data: { isActive: true },
+      });
+    }
+    try {
+      return await this.prisma.documentTemplate.create({
+        data: {
+          id: POA_TEMPLATE_SEED.id,
+          slug: POA_TEMPLATE_SEED.slug,
+          name: POA_TEMPLATE_SEED.name,
+          category: POA_TEMPLATE_SEED.category,
+          description: POA_TEMPLATE_SEED.description,
+          referenceLine: POA_TEMPLATE_SEED.referenceLine,
+          htmlBody: POA_TEMPLATE_SEED.htmlBody,
+          isActive: true,
+        },
+      });
+    } catch (err) {
+      if (
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === 'P2002'
+      ) {
+        const raced = await this.prisma.documentTemplate.findUnique({
+          where: { slug: POA_TEMPLATE_SEED.slug },
+        });
+        if (raced) return raced;
+      }
+      throw err;
+    }
   }
 
   async findById(id: string, opts?: { requireActive?: boolean }) {
@@ -228,11 +272,22 @@ export class DocumentTemplatesService {
     };
   }
 
-  async renderForMatter(templateId: string, matterId: string): Promise<string> {
+  async renderForMatter(
+    templateId: string,
+    matterId: string,
+    fieldOverrides?: Record<string, string>,
+  ): Promise<string> {
     const template = await this.findById(templateId);
 
     const matter = await this.loadMatterForMerge(matterId);
-    const fields = buildDocumentMergeContext(matter);
+    const fields = applyFieldOverrides(
+      buildDocumentMergeContext(matter),
+      fieldOverrides,
+    );
+
+    if (isPoaTemplate(template.slug)) {
+      return renderPoaDocument(fields);
+    }
 
     return renderLetterDocument({
       referenceLine: template.referenceLine ?? '',
@@ -244,6 +299,7 @@ export class DocumentTemplatesService {
   async renderDocxForMatter(
     templateId: string,
     matterId: string,
+    fieldOverrides?: Record<string, string>,
   ): Promise<Buffer> {
     const template = await this.findById(templateId);
     if (!template.docxStorageKey) {
@@ -253,7 +309,10 @@ export class DocumentTemplatesService {
     }
 
     const matter = await this.loadMatterForMerge(matterId);
-    const fields = buildDocumentMergeContext(matter);
+    const fields = applyFieldOverrides(
+      buildDocumentMergeContext(matter),
+      fieldOverrides,
+    );
     if (template.referenceLine) {
       fields.referenceLine = applyPlainMergeFields(
         template.referenceLine,
@@ -273,9 +332,11 @@ export class DocumentTemplatesService {
   ): Promise<StreamableFile> {
     let htmlBody = input.htmlBody;
     let referenceLine = input.referenceLine ?? '';
+    let slug: string | undefined;
 
     if (input.id) {
       const template = await this.findByIdAdmin(input.id);
+      slug = template.slug;
       htmlBody = htmlBody ?? template.htmlBody;
       if (input.referenceLine === undefined) {
         referenceLine = template.referenceLine ?? '';
@@ -293,11 +354,13 @@ export class DocumentTemplatesService {
       fields.referenceLine = applyMergeFields(referenceLine, fields);
     }
 
-    const html = renderLetterDocument({
-      referenceLine: referenceLine || fields.referenceLine,
-      htmlBody,
-      fields,
-    });
+    const html = isPoaTemplate(slug)
+      ? renderPoaDocument(fields)
+      : renderLetterDocument({
+          referenceLine: referenceLine || fields.referenceLine,
+          htmlBody,
+          fields,
+        });
 
     const pdf = await this.pdfRenderer.renderHtmlToPdf(html);
     return new StreamableFile(pdf, {
@@ -313,8 +376,10 @@ export class DocumentTemplatesService {
         client: {
           include: {
             offices: { orderBy: [{ isPrimary: 'desc' }, { createdAt: 'asc' }] },
+            holdingGroup: { select: { name: true } },
           },
         },
+        attributes: true,
         assignedTo: { select: { fullName: true, email: true } },
         jurisdictions: { orderBy: { countryCode: 'asc' } },
         ipRights: { orderBy: { createdAt: 'desc' }, take: 1 },

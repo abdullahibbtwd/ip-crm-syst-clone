@@ -31,5 +31,9 @@
     "displayName": "Отображаемое имя",
     "displayNamePlaceholder": "например Образец доверенности",
     "category": "Категория"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Скачать"
   }
 }

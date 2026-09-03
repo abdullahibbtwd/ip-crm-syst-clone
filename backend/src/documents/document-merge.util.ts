@@ -24,7 +24,24 @@ export const DOCUMENT_MERGE_FIELD_KEYS = [
   'ipRightTitle',
   'attorneyName',
   'attorneyTitle',
+  'legalEntityName',
+  'legalEntityType',
+  'mol',
+  'representativeName',
+  'representativeAddress',
+  'poaObject',
 ] as const;
+
+export const POA_OBJECT_LABELS: Record<string, { bg: string; en: string }> = {
+  trademark: { bg: 'Марка', en: 'Trademark' },
+  patent: { bg: 'Патент', en: 'Patent' },
+  utility_model: { bg: 'Полезен модел', en: 'Utility model' },
+  industrial_design: { bg: 'Промишлен дизайн', en: 'Industrial design' },
+  geographical_indication: { bg: 'Географско указание', en: 'Geographical indication' },
+  copyright: { bg: 'Авторско право', en: 'Copyright' },
+  domain: { bg: 'Домейн', en: 'Domain' },
+  cases: { bg: 'Дело', en: 'Case' },
+};
 
 export type DocumentMergeFieldKey = (typeof DOCUMENT_MERGE_FIELD_KEYS)[number];
 
@@ -66,6 +83,13 @@ export function sampleDocumentMergeContext(): DocumentMergeContext {
     ipRightTitle: 'ACME Mark',
     attorneyName: 'Jane Attorney',
     attorneyTitle: 'European Trademark & Patent Attorney',
+    legalEntityName: 'Acme Holdings Ltd, EOOD',
+    legalEntityType: 'EOOD',
+    mol: 'Ivan Ivanov',
+    representativeName: 'IP Consulting',
+    representativeAddress: '76A James Bourchier Blvd., 1407 Sofia, Bulgaria',
+    poaObject:
+      'Марка no. EU-012345678 - ACME Mark Trademark no. EU-012345678 - ACME Mark',
   };
 }
 
@@ -85,13 +109,16 @@ const ATTORNEY_TITLE =
 type MatterForMerge = {
   title: string;
   matterType: string;
+  attributes?: { attributes?: unknown } | null;
   client: {
     type: ClientType;
     companyName: string | null;
+    legalForm?: string | null;
     firstName: string | null;
     lastName: string | null;
     country: string | null;
     offices: ClientOffice[];
+    holdingGroup?: { name: string } | null;
   };
   assignedTo: { fullName: string } | null;
   jurisdictions: Array<{ countryCode: string; localRefNumber: string | null }>;
@@ -135,6 +162,34 @@ function registeredLegalOffice(offices: ClientOffice[]): ClientOffice | undefine
   );
 }
 
+export function formatPoaObjectLine(
+  matterType: string,
+  number: string | null | undefined,
+  title: string | null | undefined,
+): string {
+  const labels = POA_OBJECT_LABELS[matterType] ?? {
+    bg: 'Обект',
+    en: 'Object',
+  };
+  const num = number?.trim() || '—';
+  const name = title?.trim() || '—';
+  return `${labels.bg} no. ${num} - ${name} ${labels.en} no. ${num} - ${name}`;
+}
+
+export function applyFieldOverrides(
+  fields: DocumentMergeContext,
+  overrides?: Record<string, string> | null,
+): DocumentMergeContext {
+  if (!overrides) return fields;
+  const allowed = new Set<string>(DOCUMENT_MERGE_FIELD_KEYS);
+  const next = { ...fields };
+  for (const [key, value] of Object.entries(overrides)) {
+    if (!allowed.has(key) || typeof value !== 'string') continue;
+    next[key] = value;
+  }
+  return next;
+}
+
 export function buildDocumentMergeContext(
   matter: MatterForMerge,
 ): DocumentMergeContext {
@@ -143,8 +198,27 @@ export function buildDocumentMergeContext(
     ip?.jurisdiction ??
     (matter.jurisdictions.map((j) => j.countryCode).join(', ') || '—');
   const office = registeredLegalOffice(matter.client.offices);
+  const attrs = asRecord(matter.attributes?.attributes);
   const clientName = clientDisplayName(matter.client);
   const attorneyName = matter.assignedTo?.fullName ?? FIRM_NAME;
+  const legalEntityType = readString(matter.client.legalForm) ?? '';
+  const fromCompany = [matter.client.companyName, legalEntityType]
+    .map((part) => part?.trim())
+    .filter(Boolean)
+    .join(', ');
+  const legalEntityName =
+    readString(attrs?.clientLegalName) || fromCompany || clientName;
+  const applicationNumber =
+    ip?.applicationNumber ?? matter.jurisdictions[0]?.localRefNumber ?? '—';
+  const ipRightTitle = ip?.title ?? matter.title;
+  const officeAddress = formatOfficeAddress(office, matter.client.country);
+  const attrAddress = formatUnknownAddress(attrs?.registeredAddress);
+  const clientAddress = attrAddress ?? officeAddress;
+  const representativeName =
+    matter.client.holdingGroup?.name?.trim() || attorneyName;
+  const representativeAddress = [FIRM_ADDRESS_LINE1, FIRM_ADDRESS_LINE2]
+    .filter((line) => line.trim())
+    .join(', ');
 
   return {
     firmName: FIRM_NAME,
@@ -159,18 +233,29 @@ export function buildDocumentMergeContext(
       year: 'numeric',
     }),
     clientName,
-    clientAddress: formatOfficeAddress(office, matter.client.country),
+    clientAddress,
     matterTitle: matter.title,
     matterType: matter.matterType.replace(/_/g, ' '),
     referenceLine: '',
-    applicationNumber:
-      ip?.applicationNumber ?? matter.jurisdictions[0]?.localRefNumber ?? '—',
+    applicationNumber,
     registrationNumber: ip?.registrationNumber ?? '—',
     filingDate: formatDate(ip?.filingDate),
     jurisdiction,
-    ipRightTitle: ip?.title ?? matter.title,
+    ipRightTitle,
     attorneyName,
     attorneyTitle: ATTORNEY_TITLE,
+    legalEntityName: legalEntityName || clientName,
+    legalEntityType,
+    mol: readString(attrs?.mol) ?? '',
+    representativeName,
+    representativeAddress,
+    poaObject: formatPoaObjectLine(
+      matter.matterType,
+      ip?.registrationNumber ||
+        ip?.applicationNumber ||
+        matter.jurisdictions[0]?.localRefNumber,
+      ipRightTitle,
+    ),
   };
 }
 
@@ -190,4 +275,33 @@ function escapeHtml(value: string) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : null;
+}
+
+function readString(value: unknown): string | undefined {
+  return typeof value === 'string' && value.trim() ? value.trim() : undefined;
+}
+
+function formatUnknownAddress(value: unknown): string | undefined {
+  const address = asRecord(value);
+  if (!address) return undefined;
+  const street =
+    readString(address.addressLine1) ?? readString(address.address);
+  const cityLine = [readString(address.postalCode), readString(address.city)]
+    .filter(Boolean)
+    .join(' ');
+  const formatted = [
+    street,
+    readString(address.addressLine2),
+    cityLine,
+    readString(address.country),
+  ]
+    .filter(Boolean)
+    .join(', ');
+  return formatted || undefined;
 }

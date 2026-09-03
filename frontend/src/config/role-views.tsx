@@ -255,6 +255,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: Users, labelKey: 'clients', path: '/clients' },
           { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
+          { icon: UsersRound, labelKey: 'contacts', path: '/contacts' },
         ],
       },
       {
@@ -281,7 +282,9 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'finance',
         items: [
           { icon: Receipt, labelKey: 'invoices', path: '/invoices' },
+          { icon: FileSpreadsheet, labelKey: 'proformas', path: '/invoices?proforma=1' },
           { icon: CircleDollarSign, labelKey: 'billingOverview', path: '/billing-overview' },
+          { icon: CreditCard, labelKey: 'rateCards', path: '/rate-cards' },
         ],
       },
       {
@@ -291,6 +294,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
           { icon: FileOutput, labelKey: 'filingVolumes', path: '/reports/filing-volumes' },
           { icon: RefreshCw, labelKey: 'renewalsSummary', path: '/reports/renewals-summary' },
           { icon: PieChart, labelKey: 'revenueReceivables', path: '/reports/revenue-summary' },
+          { icon: Search, labelKey: 'bpoOwners', path: '/reports/bpo-owners' },
         ],
       },
       {
@@ -305,6 +309,8 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'communication',
         items: [
           { icon: FileText, labelKey: 'documents', path: '/documents' },
+          { icon: FileOutput, labelKey: 'generatePoa', path: '/documents/generate-poa' },
+          { icon: Shield, labelKey: 'gdprRegister', path: '/compliance/consent' },
           { icon: Mail, labelKey: 'emailQueue', path: '/email-queue' },
           { icon: Megaphone, labelKey: 'broadcasts', path: '/broadcasts' },
         ],
@@ -425,6 +431,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         items: [
           { icon: Users, labelKey: 'clients', path: '/clients' },
           { icon: Building2, labelKey: 'holdingGroups', path: '/holding-groups' },
+          { icon: UsersRound, labelKey: 'contacts', path: '/contacts' },
           createFileNavItem(),
           workingFilesNavItem(),
           { icon: Handshake, labelKey: 'partners', path: '/partners' },
@@ -545,6 +552,7 @@ const ROLE_VIEWS: Record<SystemRole, RoleView> = {
         sectionKey: 'billing',
         items: [
           { icon: Receipt, labelKey: 'invoices', path: '/invoices' },
+          { icon: FileSpreadsheet, labelKey: 'proformas', path: '/invoices?proforma=1' },
           { icon: CircleDollarSign, labelKey: 'timeEntries', path: '/time-entries' },
           { icon: Banknote, labelKey: 'payments', path: '/invoices?paymentStatus=unpaid' },
           { icon: CreditCard, labelKey: 'rateCards', path: '/rate-cards' },

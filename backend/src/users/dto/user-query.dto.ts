@@ -1,6 +1,7 @@
 import { Transform } from 'class-transformer';
-import { IsBoolean, IsEnum, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsEnum, IsIn, IsOptional, IsString } from 'class-validator';
 import { PaginationQueryDto } from '../../crm/dto/pagination.dto';
+import { TEAM_ASSIGNABLE_ROLES } from './update-user-role.dto';
 
 export enum UserSegment {
   team = 'team',
@@ -23,4 +24,9 @@ export class UserQueryDto extends PaginationQueryDto {
   })
   @IsBoolean()
   isActive?: boolean;
+
+  /** Filter team users by a single staff role. Ignored for portal segment. */
+  @IsOptional()
+  @IsIn(TEAM_ASSIGNABLE_ROLES)
+  role?: (typeof TEAM_ASSIGNABLE_ROLES)[number];
 }

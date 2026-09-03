@@ -31,5 +31,9 @@
     "displayName": "Прикажано име",
     "displayNamePlaceholder": "на пр. Шаблон за полномошно",
     "category": "Категорија"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Преземи"
   }
 }

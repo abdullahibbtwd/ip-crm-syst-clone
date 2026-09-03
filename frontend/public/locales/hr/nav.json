@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Nadzorna ploča",
     "deadlines": "Rokovi",
-    "alerts": "upozorenja",
+    "alerts": "Podsjetnici",
     "clients": "Klijenti",
     "holdingGroups": "Držanje grupa",
     "allMatters": "Sve datoteke",
@@ -108,7 +108,12 @@
     "messages": "Poruke",
     "approvals": "Odobrenja",
     "help": "Pomoć",
-    "myPortfolio": "Moj portfelj"
+    "myPortfolio": "Moj portfelj",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Managing Partner",

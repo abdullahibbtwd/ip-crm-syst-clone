@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
+import { ClientRegisteredCorrespondenceFields } from '@/components/crm/ClientRegisteredCorrespondenceFields'
 import {
+  correspondenceAddressPayload,
   emptyClientAddressInput,
   toClientAddressPayload,
 } from '@/features/crm/addressInput'
@@ -122,6 +123,7 @@ function SignupForm({
   const [correspondenceAddress, setCorrespondenceAddress] = useState(
     emptyClientAddressInput(),
   )
+  const [correspondenceSameAsRegistered, setCorrespondenceSameAsRegistered] = useState(true)
 
   const {
     register,
@@ -201,7 +203,11 @@ function SignupForm({
     registerMutation.mutate({
       ...parsed.data,
       registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
-      correspondenceAddress: toClientAddressPayload(correspondenceAddress),
+      correspondenceAddress: correspondenceAddressPayload(
+        registeredLegalAddress,
+        correspondenceAddress,
+        correspondenceSameAsRegistered,
+      ),
     })
   })
 
@@ -403,19 +409,15 @@ function SignupForm({
               {t('signup.addressesTitle', { ns: 'auth' })}
               <span className="ml-1 text-brand-green/50">{t('signup.optional')}</span>
             </p>
-            <ClientAddressFields
-              idPrefix="registered"
-              title={t('offices.addresses.registeredLegal', { ns: 'crm' })}
-              value={registeredLegalAddress}
-              onChange={setRegisteredLegalAddress}
+            <ClientRegisteredCorrespondenceFields
+              idPrefix="signup"
               variant="auth"
-            />
-            <ClientAddressFields
-              idPrefix="correspondence"
-              title={t('offices.addresses.correspondence', { ns: 'crm' })}
-              value={correspondenceAddress}
-              onChange={setCorrespondenceAddress}
-              variant="auth"
+              registered={registeredLegalAddress}
+              correspondence={correspondenceAddress}
+              onRegisteredChange={setRegisteredLegalAddress}
+              onCorrespondenceChange={setCorrespondenceAddress}
+              sameAsRegistered={correspondenceSameAsRegistered}
+              onSameAsRegisteredChange={setCorrespondenceSameAsRegistered}
             />
           </div>
 

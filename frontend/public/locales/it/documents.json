@@ -31,5 +31,9 @@
     "displayName": "Nome da visualizzare",
     "displayNamePlaceholder": "per esempio. Modello di procura",
     "category": "Categoria"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Scaricamento"
   }
 }

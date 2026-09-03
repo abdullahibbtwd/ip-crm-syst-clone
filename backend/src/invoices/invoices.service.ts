@@ -145,10 +145,17 @@ export class InvoicesService {
       ...(query.status ? { status: query.status } : { status: { not: InvoiceStatus.void } }),
       ...(query.paymentStatus ? { paymentStatus: query.paymentStatus } : {}),
       ...(query.clientId ? { clientId: query.clientId } : {}),
+      ...(query.proformaOnly
+        ? {
+            status: InvoiceStatus.draft,
+            notes: { contains: 'Proforma', mode: 'insensitive' },
+          }
+        : {}),
       ...(search
         ? {
             OR: [
               { invoiceNumber: { contains: search, mode: 'insensitive' } },
+              { notes: { contains: search, mode: 'insensitive' } },
               { matter: { title: { contains: search, mode: 'insensitive' } } },
               {
                 client: {

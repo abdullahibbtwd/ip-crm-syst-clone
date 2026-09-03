@@ -6,6 +6,7 @@ import {
 import {
   ClientStatus,
   ClientType,
+  DeadlineStatus,
   Prisma,
   RelationshipEventType,
 } from '../../../generated/prisma/client';
@@ -32,6 +33,10 @@ import {
   UpdateClientDto,
 } from './dto/client.dto';
 import { assessBillingReadiness } from './client-billing.utils';
+import {
+  EMPTY_CLIENT_TAB_COUNTS,
+  loadClientTabCounts,
+} from './client-tab-counts';
 
 function buildClientOrderBy(
   sortBy: ClientSortBy,
@@ -212,11 +217,16 @@ export class ClientsService {
     ]);
 
     const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
+    const tabCounts = await loadClientTabCounts(
+      this.prisma,
+      rows.map((c) => c.id),
+    );
 
     return {
       items: rows.map((c) => ({
         ...c,
         displayName: clientDisplayName(c),
+        tabCounts: tabCounts.get(c.id) ?? { ...EMPTY_CLIENT_TAB_COUNTS },
       })),
       total,
       page,
@@ -224,6 +234,62 @@ export class ClientsService {
       pageCount,
       nextCursor: null,
     };
+  }
+
+  async tabCounts(id: string) {
+    const exists = await this.prisma.client.findUnique({
+      where: { id },
+      select: { id: true },
+    });
+    if (!exists) throw new NotFoundException('Client not found');
+    const counts = await loadClientTabCounts(this.prisma, [id]);
+    return counts.get(id) ?? { ...EMPTY_CLIENT_TAB_COUNTS };
+  }
+
+  async listDeadlines(id: string) {
+    const exists = await this.prisma.client.findUnique({
+      where: { id },
+      select: { id: true },
+    });
+    if (!exists) throw new NotFoundException('Client not found');
+    return this.prisma.deadline.findMany({
+      where: {
+        matter: { clientId: id },
+        status: { not: DeadlineStatus.superseded },
+      },
+      orderBy: [{ dueDate: 'asc' }],
+      include: {
+        assignedTo: { select: { id: true, fullName: true, email: true } },
+        rule: {
+          select: {
+            id: true,
+            jurisdiction: true,
+            eventType: true,
+            triggerType: true,
+            daysOffset: true,
+            priority: true,
+            description: true,
+          },
+        },
+        matter: {
+          select: {
+            id: true,
+            title: true,
+            matterType: true,
+            client: {
+              select: {
+                id: true,
+                internalCode: true,
+                companyName: true,
+                firstName: true,
+                lastName: true,
+                type: true,
+              },
+            },
+          },
+        },
+      },
+    });
   }
 
   async findOne(id: string) {

@@ -31,5 +31,9 @@
     "displayName": "Име за приказ",
     "displayNamePlaceholder": "нпр. Шаблон пуномоћја",
     "category": "Категорија"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Преузми"
   }
 }

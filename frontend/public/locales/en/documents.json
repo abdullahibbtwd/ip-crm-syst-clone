@@ -19,6 +19,10 @@
     "by": "By",
     "actions": "Actions"
   },
+  "actions": {
+    "view": "View",
+    "download": "Download"
+  },
   "shared": {
     "upload": "Upload shared document",
     "uploading": "Uploading…",

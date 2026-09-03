@@ -31,5 +31,9 @@
     "displayName": "Ցուցադրվող անուն",
     "displayNamePlaceholder": "օր. Լիազորագրի ձևանմուշ",
     "category": "Կարգավիճակ"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Բեռնել"
   }
 }

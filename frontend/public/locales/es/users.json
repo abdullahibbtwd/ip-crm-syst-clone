@@ -9,7 +9,8 @@
     "allStatuses": "Todos los estados",
     "inactiveOnly": "Solo inactiva",
     "searchPortal": "Buscar usuarios del portal…",
-    "searchTeam": "Buscar miembros del equipo..."
+    "searchTeam": "Buscar miembros del equipo...",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Invitar usuario",

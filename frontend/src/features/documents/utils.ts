@@ -26,3 +26,20 @@ export function formatDocumentDate(iso: string) {
     minute: '2-digit',
   }).format(new Date(iso))
 }
+
+export function openDocumentResponse(
+  data: { url: string; fileName: string },
+  mode: 'view' | 'download',
+) {
+  if (mode === 'view') {
+    window.open(data.url, '_blank', 'noopener,noreferrer')
+    return
+  }
+  const link = document.createElement('a')
+  link.href = data.url
+  link.download = data.fileName || 'document'
+  link.rel = 'noopener'
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+}

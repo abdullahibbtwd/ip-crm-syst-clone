@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { Input } from '@/components/ui/input'
@@ -12,6 +13,8 @@ type ClientAddressFieldsProps = {
   idPrefix: string
   variant?: 'default' | 'auth'
   className?: string
+  header?: ReactNode
+  fieldsHidden?: boolean
 }
 
 export function ClientAddressFields({
@@ -21,6 +24,8 @@ export function ClientAddressFields({
   idPrefix,
   variant = 'default',
   className,
+  header,
+  fieldsHidden = false,
 }: ClientAddressFieldsProps) {
   const { t } = useTranslation(['crm', 'common'])
   const isAuth = variant === 'auth'
@@ -32,7 +37,9 @@ export function ClientAddressFields({
   return (
     <div className={cn('space-y-3', className)}>
       <p className={cn(isAuth ? 'auth-label' : 'text-sm font-medium')}>{title}</p>
-
+      {header}
+      {fieldsHidden ? null : (
+        <>
       <Field
         id={`${idPrefix}-line1`}
         label={t('offices.addresses.addressLine1')}
@@ -196,6 +203,8 @@ export function ClientAddressFields({
           )}
         </Field>
       </div>
+        </>
+      )}
     </div>
   )
 }

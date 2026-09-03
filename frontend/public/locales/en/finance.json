@@ -55,7 +55,9 @@
       "total": "Total"
     },
     "title": "Invoices",
+    "proformasTitle": "Proformas",
     "listSubtitle": "Firm-wide invoice register across all matters. Issue invoices from matter billing tabs, then record payments here.",
+    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures.",
     "exportFrom": "Export from",
     "exportTo": "Export to",
     "exportFormats": {

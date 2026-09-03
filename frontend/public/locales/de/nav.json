@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Armaturenbrett",
     "deadlines": "Fristen",
-    "alerts": "Warnungen",
+    "alerts": "Erinnerungen",
     "clients": "Kunden",
     "holdingGroups": "Gruppen halten",
     "allMatters": "Alle Dateien",
@@ -108,7 +108,12 @@
     "messages": "Nachrichten",
     "approvals": "Zulassungen",
     "help": "Helfen",
-    "myPortfolio": "Mein Portfolio"
+    "myPortfolio": "Mein Portfolio",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Geschäftsführender Gesellschafter",

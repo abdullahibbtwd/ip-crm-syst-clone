@@ -44,6 +44,7 @@ export type MatterClientSummary = {
   firstName: string | null
   lastName: string | null
   type: string
+  holdingGroupId?: string | null
 }
 
 export type TrademarkListSummary = {
@@ -361,6 +362,7 @@ export type MatterFilters = {
   giStage?: string
   giCountry?: string
   giCertificate?: string
+  withoutRepresentative?: boolean
   page?: number
   limit?: number
   cursor?: string

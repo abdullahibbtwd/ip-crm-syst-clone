@@ -32,6 +32,21 @@ export type HoldingGroupDetail = HoldingGroup & {
   clients: ClientListItem[]
 }
 
+export type ClientTabCounts = {
+  offices: number
+  contacts: number
+  related: number
+  history: number
+  matters: number
+  documents: number
+  correspondence: number
+  watch: number
+  billing: number
+  access: number
+  notes: number
+  deadlines: number
+}
+
 export type ClientListItem = {
   id: string
   type: ClientType
@@ -47,6 +62,7 @@ export type ClientListItem = {
   displayName: string
   assignedUser: { id: string; fullName: string } | null
   holdingGroup: { id: string; name: string } | null
+  tabCounts?: ClientTabCounts
 }
 
 export type ClientOfficeAddressType =
@@ -89,6 +105,23 @@ export type Contact = {
   createdAt: string
   updatedAt: string
   office?: { id: string; label: string } | null
+  client?: {
+    id: string
+    type: ClientType
+    internalCode: string | null
+    companyName: string | null
+    firstName: string | null
+    lastName: string | null
+    displayName?: string
+  }
+}
+
+export type GlobalContactFilters = {
+  search?: string
+  role?: ContactRole
+  clientId?: string
+  cursor?: string
+  limit?: number
 }
 
 export type RelatedCompany = {
@@ -197,6 +230,16 @@ export type ClientDetail = ClientListItem & {
   offices: ClientOffice[]
   contacts: Contact[]
   relatedCompanies: RelatedCompany[]
+}
+
+export type ClientNote = {
+  id: string
+  clientId: string
+  body: string
+  createdById: string | null
+  createdAt: string
+  updatedAt: string
+  createdBy: { id: string; fullName: string } | null
 }
 
 export type ClientFilters = {

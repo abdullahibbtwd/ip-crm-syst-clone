@@ -43,6 +43,7 @@ export function InvoicesListPage() {
 
   const paymentFilter = searchParams.get('paymentStatus') ?? 'all'
   const statusFilter = searchParams.get('status') ?? 'all'
+  const proformaOnly = searchParams.get('proforma') === '1'
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)
@@ -50,7 +51,11 @@ export function InvoicesListPage() {
   }, [searchInput])
 
   const filters = {
-    ...(statusFilter !== 'all' ? { status: statusFilter as InvoiceStatus } : {}),
+    ...(proformaOnly
+      ? { proformaOnly: true }
+      : statusFilter !== 'all'
+        ? { status: statusFilter as InvoiceStatus }
+        : {}),
     ...(paymentFilter !== 'all' ? { paymentStatus: paymentFilter as PaymentStatus } : {}),
     ...(debouncedSearch ? { search: debouncedSearch } : {}),
     limit: 100,
@@ -119,10 +124,10 @@ export function InvoicesListPage() {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h1 className="font-serif text-2xl text-foreground md:text-3xl">
-              {t('invoices.title')}
+              {proformaOnly ? t('invoices.proformasTitle') : t('invoices.title')}
             </h1>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              {t('invoices.listSubtitle')}
+              {proformaOnly ? t('invoices.proformasSubtitle') : t('invoices.listSubtitle')}
             </p>
           </div>
         </div>
@@ -204,7 +209,11 @@ export function InvoicesListPage() {
             onChange={(e) => setSearchInput(e.target.value)}
             className="max-w-xs"
           />
-          <Select value={statusFilter} onValueChange={(v) => setFilter('status', v ?? 'all')}>
+          <Select
+            value={proformaOnly ? 'draft' : statusFilter}
+            onValueChange={(v) => setFilter('status', v ?? 'all')}
+            disabled={proformaOnly}
+          >
             <SelectTrigger className="w-[160px]">
               <SelectValue />
             </SelectTrigger>

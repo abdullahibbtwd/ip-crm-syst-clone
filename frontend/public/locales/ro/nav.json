@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Bord",
     "deadlines": "Termenele limită",
-    "alerts": "Alerte",
+    "alerts": "Mementouri",
     "clients": "Clienții",
     "holdingGroups": "Grupuri de exploatare",
     "allMatters": "Toate fișierele",
@@ -108,7 +108,12 @@
     "messages": "Mesaje",
     "approvals": "Aprobari",
     "help": "Ajutor",
-    "myPortfolio": "Portofoliul meu"
+    "myPortfolio": "Portofoliul meu",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Partener director",

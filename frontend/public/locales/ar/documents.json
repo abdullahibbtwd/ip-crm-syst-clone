@@ -31,5 +31,9 @@
     "displayName": "اسم العرض",
     "displayNamePlaceholder": "على سبيل المثال نموذج التوكيل",
     "category": "فئة"
+  },
+  "actions": {
+    "view": "View",
+    "download": "تحميل"
   }
 }

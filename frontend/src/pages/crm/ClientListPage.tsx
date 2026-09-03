@@ -67,10 +67,10 @@ export function ClientListPage() {
           <h1 className="font-serif text-2xl text-foreground md:text-3xl">{t('clients.title')}</h1>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t('clients.description')}</p>
         </div>
-        <PermissionGate resource="intake" action="create">
-          <Link to="/intake/new" className={buttonVariants({ variant: 'default' })}>
+        <PermissionGate resource="client" action="create">
+          <Link to="/clients/new" className={buttonVariants({ variant: 'default' })}>
             <Plus className="size-4" />
-            {t('clients.newViaIntake')}
+            {t('clients.new')}
           </Link>
         </PermissionGate>
       </div>

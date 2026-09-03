@@ -72,7 +72,9 @@
     "filters": {
       "allPayments": "Toate plățile",
       "allStatuses": "Toate stările"
-    }
+    },
+    "proformasTitle": "Proformas",
+    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
   },
   "payment": {
     "amount": "Suma *",

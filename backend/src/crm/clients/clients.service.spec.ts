@@ -29,6 +29,9 @@ describe('ClientsService', () => {
       update: jest.Mock;
       updateMany: jest.Mock;
     };
+    matter: { findMany: jest.Mock };
+    auditLog: { groupBy: jest.Mock };
+    deadline: { findMany: jest.Mock };
     $transaction: jest.Mock;
     $executeRaw: jest.Mock;
   };
@@ -51,6 +54,9 @@ describe('ClientsService', () => {
         update: jest.fn(),
         updateMany: jest.fn(),
       },
+      matter: { findMany: jest.fn().mockResolvedValue([]) },
+      auditLog: { groupBy: jest.fn().mockResolvedValue([]) },
+      deadline: { findMany: jest.fn().mockResolvedValue([]) },
       $transaction: jest.fn(async (fn) => fn(prisma)),
       $executeRaw: jest.fn(),
     };
@@ -146,6 +152,9 @@ describe('ClientsService', () => {
 
       expect(result.items).toHaveLength(2);
       expect(result.items[0].displayName).toBe('Acme');
+      expect(result.items[0].tabCounts).toEqual(
+        expect.objectContaining({ offices: 0, notes: 0, deadlines: 0 }),
+      );
       expect(result.total).toBe(3);
       expect(result.page).toBe(1);
       expect(result.limit).toBe(2);

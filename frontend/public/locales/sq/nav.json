@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Paneli",
     "deadlines": "Afatet",
-    "alerts": "Alarmet",
+    "alerts": "Kujtesa",
     "clients": "Klientët",
     "holdingGroups": "Grupet mbajtëse",
     "allMatters": "Të gjithë skedarët",
@@ -108,7 +108,12 @@
     "messages": "Mesazhet",
     "approvals": "Miratimet",
     "help": "Ndihmë",
-    "myPortfolio": "Portofoli im"
+    "myPortfolio": "Portofoli im",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Partner Menaxhues",

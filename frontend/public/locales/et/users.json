@@ -9,7 +9,8 @@
     "allStatuses": "Kõik olekud",
     "inactiveOnly": "Ainult passiivne",
     "searchPortal": "Otsi portaali kasutajaid…",
-    "searchTeam": "Otsi meeskonnaliikmeid…"
+    "searchTeam": "Otsi meeskonnaliikmeid…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Kutsu kasutaja",

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
+import { ClientRegisteredCorrespondenceFields } from '@/components/crm/ClientRegisteredCorrespondenceFields'
 import { CounterpartiesEditor } from '@/components/intake/CounterpartiesEditor'
 import { IntakePartyFields } from '@/components/intake/IntakePartyFields'
 import { AttorneyAssigneeSelect } from '@/components/users/AttorneyAssigneeSelect'
@@ -25,6 +25,7 @@ import {
 } from '@/features/intake/schemas'
 import { getApiErrorMessage } from '@/lib/api-client'
 import {
+  correspondenceAddressPayload,
   emptyClientAddressInput,
   toClientAddressPayload,
 } from '@/features/crm/addressInput'
@@ -109,6 +110,7 @@ export function CreateIntakeForm({
   const [correspondenceAddress, setCorrespondenceAddress] = useState(
     emptyClientAddressInput(),
   )
+  const [correspondenceSameAsRegistered, setCorrespondenceSameAsRegistered] = useState(true)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [formError, setFormError] = useState<string | null>(null)
 
@@ -116,6 +118,13 @@ export function CreateIntakeForm({
     e.preventDefault()
     setFormError(null)
     setFieldErrors({})
+
+    const registeredPayload = toClientAddressPayload(registeredLegalAddress)
+    const correspondencePayload = correspondenceAddressPayload(
+      registeredLegalAddress,
+      correspondenceAddress,
+      correspondenceSameAsRegistered,
+    )
 
     const payload =
       enquirerType === 'company'
@@ -135,8 +144,8 @@ export function CreateIntakeForm({
             counterparties: counterparties.length ? counterparties : undefined,
             applicant,
             intermediary,
-            registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
-            correspondenceAddress: toClientAddressPayload(correspondenceAddress),
+            registeredLegalAddress: registeredPayload,
+            correspondenceAddress: correspondencePayload,
           }
         : {
             enquirerType: 'individual' as const,
@@ -154,8 +163,8 @@ export function CreateIntakeForm({
             counterparties: counterparties.length ? counterparties : undefined,
             applicant,
             intermediary,
-            registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
-            correspondenceAddress: toClientAddressPayload(correspondenceAddress),
+            registeredLegalAddress: registeredPayload,
+            correspondenceAddress: correspondencePayload,
           }
 
     const parsed = createIntakeSchema.safeParse(payload)
@@ -243,20 +252,15 @@ export function CreateIntakeForm({
 
         <div className="space-y-4 border-t pt-4 sm:col-span-2">
           <p className="text-sm font-medium">{t('offices.addresses.title', { ns: 'crm' })}</p>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <ClientAddressFields
-              idPrefix="intake-registered"
-              title={t('offices.addresses.registeredLegal', { ns: 'crm' })}
-              value={registeredLegalAddress}
-              onChange={setRegisteredLegalAddress}
-            />
-            <ClientAddressFields
-              idPrefix="intake-correspondence"
-              title={t('offices.addresses.correspondence', { ns: 'crm' })}
-              value={correspondenceAddress}
-              onChange={setCorrespondenceAddress}
-            />
-          </div>
+          <ClientRegisteredCorrespondenceFields
+            idPrefix="intake"
+            registered={registeredLegalAddress}
+            correspondence={correspondenceAddress}
+            onRegisteredChange={setRegisteredLegalAddress}
+            onCorrespondenceChange={setCorrespondenceAddress}
+            sameAsRegistered={correspondenceSameAsRegistered}
+            onSameAsRegisteredChange={setCorrespondenceSameAsRegistered}
+          />
         </div>
 
         <Field label={t('form.matterType')} error={fieldErrors.matterType}>

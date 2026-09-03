@@ -5,7 +5,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 import { getApiErrorMessage } from '@/lib/api-client'
-import { clientsApi, historyApi } from '../api'
+import { clientsApi, clientNotesApi, historyApi } from '../api'
 import { clientKeys } from '../queryKeys'
 import type { ClientFilters } from '../types'
 
@@ -39,6 +39,55 @@ export function useClientAddressInsights(id: string) {
     queryKey: clientKeys.addressInsights(id),
     queryFn: () => clientsApi.addressInsights(id),
     enabled: Boolean(id),
+  })
+}
+
+export function useClientTabCounts(id: string) {
+  return useQuery({
+    queryKey: clientKeys.tabCounts(id),
+    queryFn: () => clientsApi.tabCounts(id),
+    enabled: Boolean(id),
+  })
+}
+
+export function useClientDeadlines(id: string) {
+  return useQuery({
+    queryKey: clientKeys.deadlines(id),
+    queryFn: () => clientsApi.listDeadlines(id),
+    enabled: Boolean(id),
+  })
+}
+
+export function useClientNotes(clientId: string) {
+  return useQuery({
+    queryKey: clientKeys.notes(clientId),
+    queryFn: () => clientNotesApi.list(clientId),
+    enabled: Boolean(clientId),
+  })
+}
+
+export function useCreateClientNote(clientId: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (body: string) => clientNotesApi.create(clientId, { body }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: clientKeys.notes(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.tabCounts(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.history(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.lists() })
+    },
+  })
+}
+
+export function useDeleteClientNote(clientId: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (noteId: string) => clientNotesApi.remove(clientId, noteId),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: clientKeys.notes(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.tabCounts(clientId) })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.lists() })
+    },
   })
 }
 

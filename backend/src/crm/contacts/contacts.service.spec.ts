@@ -212,4 +212,46 @@ describe('ContactsService', () => {
       expect(prisma.contact.updateMany).not.toHaveBeenCalled();
     });
   });
+
+  describe('findAllGlobal', () => {
+    it('returns paginated contacts with client display names', async () => {
+      prisma.contact.findMany.mockResolvedValue([
+        {
+          id: 'ct1',
+          firstName: 'Ada',
+          lastName: 'Lovelace',
+          role: ContactRole.primary,
+          email: 'ada@example.com',
+          client: {
+            id: 'c1',
+            type: 'company',
+            internalCode: 'CL-1',
+            companyName: 'Acme',
+            firstName: null,
+            lastName: null,
+          },
+        },
+        {
+          id: 'ct2',
+          firstName: 'Eve',
+          lastName: 'Doe',
+          role: ContactRole.general,
+          client: {
+            id: 'c2',
+            type: 'individual',
+            internalCode: 'CL-2',
+            companyName: null,
+            firstName: 'Eve',
+            lastName: 'Owner',
+          },
+        },
+      ]);
+
+      const result = await service.findAllGlobal({ limit: 1 });
+
+      expect(result.items).toHaveLength(1);
+      expect(result.nextCursor).toBe('ct1');
+      expect(result.items[0].client.displayName).toBe('Acme');
+    });
+  });
 });

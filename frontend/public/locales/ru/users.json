@@ -9,7 +9,8 @@
     "allStatuses": "Все статусы",
     "inactiveOnly": "Только неактивный",
     "searchPortal": "Поиск пользователей портала…",
-    "searchTeam": "Поиск членов команды…"
+    "searchTeam": "Поиск членов команды…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Пригласить пользователя",

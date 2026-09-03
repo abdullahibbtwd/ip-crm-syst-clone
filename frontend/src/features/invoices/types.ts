@@ -101,6 +101,7 @@ export type InvoiceListFilters = {
   paymentStatus?: PaymentStatus
   clientId?: string
   search?: string
+  proformaOnly?: boolean
   cursor?: string
   limit?: number
 }

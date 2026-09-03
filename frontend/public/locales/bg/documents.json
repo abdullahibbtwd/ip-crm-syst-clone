@@ -11,7 +11,11 @@
     "category": "Категория",
     "updated": "Обновено",
     "by": "От",
-    "actions": "Actions"
+    "actions": "Действия"
+  },
+  "actions": {
+    "view": "Преглед",
+    "download": "Изтегли"
   },
   "subtitleWorking": "Documents attached to working files across the firm.",
   "subtitleShared": "Firm-wide shared documents — templates, forms, and internal materials.",

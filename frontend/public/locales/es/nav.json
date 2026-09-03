@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Panel",
     "deadlines": "Plazos",
-    "alerts": "Alertas",
+    "alerts": "Recordatorios",
     "clients": "Clientas",
     "holdingGroups": "Grupos de tenencia",
     "allMatters": "Todos los archivos",
@@ -108,7 +108,12 @@
     "messages": "Mensajes",
     "approvals": "Aprobaciones",
     "help": "Ayuda",
-    "myPortfolio": "mi portafolio"
+    "myPortfolio": "mi portafolio",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Socia gerente",

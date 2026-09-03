@@ -31,5 +31,9 @@
     "displayName": "Ekran adı",
     "displayNamePlaceholder": "örneğin Vekaletname şablonu",
     "category": "Kategori"
+  },
+  "actions": {
+    "view": "View",
+    "download": "İndirmek"
   }
 }

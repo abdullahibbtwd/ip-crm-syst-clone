@@ -25,6 +25,7 @@ describe('DocumentsService', () => {
   let pdfRenderer: { renderHtmlToPdf: jest.Mock };
   let documentTemplates: {
     findById: jest.Mock;
+    ensurePoaTemplate: jest.Mock;
     renderForMatter: jest.Mock;
     renderDocxForMatter: jest.Mock;
   };
@@ -54,6 +55,7 @@ describe('DocumentsService', () => {
     };
     documentTemplates = {
       findById: jest.fn(),
+      ensurePoaTemplate: jest.fn(),
       renderForMatter: jest.fn().mockResolvedValue('<html>letter</html>'),
       renderDocxForMatter: jest.fn().mockResolvedValue(Buffer.from('docx')),
     };
@@ -255,9 +257,49 @@ describe('DocumentsService', () => {
 
     const result = await service.generateFromTemplate('m1', 'tpl-1', 'u1', 'pdf');
 
-    expect(documentTemplates.renderForMatter).toHaveBeenCalledWith('tpl-1', 'm1');
+    expect(documentTemplates.renderForMatter).toHaveBeenCalledWith(
+      'tpl-1',
+      'm1',
+      undefined,
+    );
     expect(pdfRenderer.renderHtmlToPdf).toHaveBeenCalled();
     expect(result.versionCount).toBe(1);
+  });
+
+  it('generateFromTemplate ensures the POA template when templateId is omitted', async () => {
+    prisma.matter.findUnique.mockResolvedValue({ id: 'm1' });
+    documentTemplates.ensurePoaTemplate.mockResolvedValue({
+      id: 'poa-1',
+      name: 'Power of Attorney',
+      slug: 'power-of-attorney',
+      category: DocumentCategory.application,
+      docxStorageKey: null,
+    });
+    prisma.matterDocument.create.mockResolvedValue({
+      id: 'd-poa',
+      matterId: 'm1',
+      displayName: 'Power of Attorney',
+      category: DocumentCategory.application,
+      tags: ['generated', 'power-of-attorney'],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    prisma.matterDocumentVersion.create.mockResolvedValue({
+      id: 'v1',
+      version: 1,
+      fileName: 'power-of-attorney-2025-01-01.pdf',
+      mimeType: 'application/pdf',
+      uploadedBy: { id: 'u1', fullName: 'Ada', email: 'a@x.com' },
+    });
+
+    await service.generateFromTemplate('m1', undefined, 'u1', 'pdf', {
+      legalEntityName: 'Acme EOOD',
+    });
+
+    expect(documentTemplates.ensurePoaTemplate).toHaveBeenCalled();
+    expect(documentTemplates.renderForMatter).toHaveBeenCalledWith('poa-1', 'm1', {
+      legalEntityName: 'Acme EOOD',
+    });
   });
 
   it('generateFromTemplate uses docx path when format is docx', async () => {
@@ -286,7 +328,11 @@ describe('DocumentsService', () => {
 
     await service.generateFromTemplate('m1', 'tpl-1', 'u1', 'docx');
 
-    expect(documentTemplates.renderDocxForMatter).toHaveBeenCalledWith('tpl-1', 'm1');
+    expect(documentTemplates.renderDocxForMatter).toHaveBeenCalledWith(
+      'tpl-1',
+      'm1',
+      undefined,
+    );
     expect(pdfRenderer.renderHtmlToPdf).not.toHaveBeenCalled();
   });
 

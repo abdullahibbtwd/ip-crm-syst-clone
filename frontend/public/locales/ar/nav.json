@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "لوحة القيادة",
     "deadlines": "المواعيد النهائية",
-    "alerts": "التنبيهات",
+    "alerts": "تذكيرات",
     "clients": "العملاء",
     "holdingGroups": "عقد المجموعات",
     "allMatters": "جميع الملفات",
@@ -108,7 +108,12 @@
     "messages": "رسائل",
     "approvals": "الموافقات",
     "help": "يساعد",
-    "myPortfolio": "محفظتي"
+    "myPortfolio": "محفظتي",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "الشريك الإداري",

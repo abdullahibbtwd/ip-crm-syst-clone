@@ -21,4 +21,13 @@ export const clientKeys = {
     [...clientKeys.detail(id), 'contacts', role ?? 'all'] as const,
   related: (id: string) => [...clientKeys.detail(id), 'related'] as const,
   history: (id: string) => [...clientKeys.detail(id), 'history'] as const,
+  notes: (id: string) => [...clientKeys.detail(id), 'notes'] as const,
+  tabCounts: (id: string) => [...clientKeys.detail(id), 'tab-counts'] as const,
+  deadlines: (id: string) => [...clientKeys.detail(id), 'deadlines'] as const,
+}
+
+export const globalContactKeys = {
+  all: ['contacts'] as const,
+  lists: () => [...globalContactKeys.all, 'list'] as const,
+  list: (filters: Record<string, unknown>) => [...globalContactKeys.lists(), filters] as const,
 }

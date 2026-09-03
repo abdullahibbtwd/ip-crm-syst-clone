@@ -3,9 +3,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AlertTriangle, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { CounterpartiesSection } from '@/components/intake/CounterpartiesSection'
-import { ClientAddressFields } from '@/components/crm/ClientAddressFields'
+import { ClientRegisteredCorrespondenceFields } from '@/components/crm/ClientRegisteredCorrespondenceFields'
 import { useAuth } from '@/features/auth/AuthProvider'
 import {
+  correspondenceAddressPayload,
   emptyClientAddressInput,
   toClientAddressPayload,
 } from '@/features/crm/addressInput'
@@ -60,6 +61,7 @@ export function IntakeDetailPage() {
   const [correspondenceAddress, setCorrespondenceAddress] = useState(
     emptyClientAddressInput(),
   )
+  const [correspondenceSameAsRegistered, setCorrespondenceSameAsRegistered] = useState(true)
   const [convertError, setConvertError] = useState<string | null>(null)
 
   const isManagingPartner = user?.roles.includes('managing_partner')
@@ -79,7 +81,11 @@ export function IntakeDetailPage() {
       gdprConsent: isPortalSubmission ? true : gdprConsent,
       holdingGroupId,
       registeredLegalAddress: toClientAddressPayload(registeredLegalAddress),
-      correspondenceAddress: toClientAddressPayload(correspondenceAddress),
+      correspondenceAddress: correspondenceAddressPayload(
+        registeredLegalAddress,
+        correspondenceAddress,
+        correspondenceSameAsRegistered,
+      ),
     })
     if (!parsed.success) {
       setConvertError(parsed.error.issues[0]?.message ?? t('intake:convert.invalidForm'))
@@ -382,20 +388,15 @@ export function IntakeDetailPage() {
             {!isPortalSubmission && (
               <div className="space-y-4 border-t pt-4">
                 <p className="text-sm font-medium">{t('crm:offices.addresses.title')}</p>
-                <div className="grid gap-4 lg:grid-cols-2">
-                  <ClientAddressFields
-                    idPrefix="convert-registered"
-                    title={t('crm:offices.addresses.registeredLegal')}
-                    value={registeredLegalAddress}
-                    onChange={setRegisteredLegalAddress}
-                  />
-                  <ClientAddressFields
-                    idPrefix="convert-correspondence"
-                    title={t('crm:offices.addresses.correspondence')}
-                    value={correspondenceAddress}
-                    onChange={setCorrespondenceAddress}
-                  />
-                </div>
+                <ClientRegisteredCorrespondenceFields
+                  idPrefix="convert"
+                  registered={registeredLegalAddress}
+                  correspondence={correspondenceAddress}
+                  onRegisteredChange={setRegisteredLegalAddress}
+                  onCorrespondenceChange={setCorrespondenceAddress}
+                  sameAsRegistered={correspondenceSameAsRegistered}
+                  onSameAsRegisteredChange={setCorrespondenceSameAsRegistered}
+                />
               </div>
             )}
 

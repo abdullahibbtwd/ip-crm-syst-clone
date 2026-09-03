@@ -31,5 +31,9 @@
     "displayName": "Nama paparan",
     "displayNamePlaceholder": "cth. Templat Surat Kuasa",
     "category": "kategori"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Muat turun"
   }
 }

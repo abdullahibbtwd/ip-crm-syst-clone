@@ -30,6 +30,36 @@ export function useCreateHoldingGroup() {
   })
 }
 
+export function useLinkClientsToHoldingGroup() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async ({
+      clientIds,
+      holdingGroupId,
+    }: {
+      clientIds: string[]
+      holdingGroupId: string
+      holdingGroupIdForInvalidate?: string
+    }) => {
+      await Promise.all(
+        clientIds.map((clientId) => clientsApi.update(clientId, { holdingGroupId })),
+      )
+    },
+    onSuccess: (_, { clientIds, holdingGroupIdForInvalidate }) => {
+      void queryClient.invalidateQueries({ queryKey: holdingGroupKeys.all })
+      void queryClient.invalidateQueries({ queryKey: clientKeys.lists() })
+      for (const clientId of clientIds) {
+        void queryClient.invalidateQueries({ queryKey: clientKeys.detail(clientId) })
+      }
+      if (holdingGroupIdForInvalidate) {
+        void queryClient.invalidateQueries({
+          queryKey: holdingGroupKeys.detail(holdingGroupIdForInvalidate),
+        })
+      }
+    },
+  })
+}
+
 export function useSetClientHoldingGroup() {
   const queryClient = useQueryClient()
   return useMutation({

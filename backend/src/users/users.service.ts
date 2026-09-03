@@ -84,9 +84,22 @@ export class UsersService {
             },
           }
         : {
-            userRoles: {
-              none: { role: { name: SYSTEM_ROLES.PORTAL_CLIENT } },
-            },
+            AND: [
+              {
+                userRoles: {
+                  none: { role: { name: SYSTEM_ROLES.PORTAL_CLIENT } },
+                },
+              },
+              ...(query.role
+                ? [
+                    {
+                      userRoles: {
+                        some: { role: { name: query.role } },
+                      },
+                    },
+                  ]
+                : []),
+            ],
           }),
       ...(search
         ? {

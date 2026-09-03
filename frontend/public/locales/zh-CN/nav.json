@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "仪表板",
     "deadlines": "截止日期",
-    "alerts": "警报",
+    "alerts": "提醒",
     "clients": "客户",
     "holdingGroups": "控股集团",
     "allMatters": "所有文件",
@@ -108,7 +108,12 @@
     "messages": "留言",
     "approvals": "批准",
     "help": "帮助",
-    "myPortfolio": "我的投资组合"
+    "myPortfolio": "我的投资组合",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "管理合伙人",

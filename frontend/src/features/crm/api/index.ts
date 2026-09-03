@@ -4,10 +4,13 @@ import type {
   ClientDetail,
   ClientFilters,
   ClientListItem,
+  ClientNote,
   ClientOffice,
   ClientSummary,
+  ClientTabCounts,
   Contact,
   ContactRole,
+  GlobalContactFilters,
   HoldingGroup,
   HoldingGroupDetail,
   Paginated,
@@ -46,6 +49,13 @@ export const clientsApi = {
     apiClient.post<ClientDetail>('/clients', data),
 
   archive: (id: string) => apiClient.delete<ClientDetail>(`/clients/${id}`),
+
+  tabCounts: (id: string) => apiClient.get<ClientTabCounts>(`/clients/${id}/tab-counts`),
+
+  listDeadlines: (id: string) =>
+    apiClient.get<import('@/features/deadlines/types').Deadline[]>(
+      `/clients/${id}/deadlines`,
+    ),
 }
 
 export const officesApi = {
@@ -84,6 +94,9 @@ export const contactsApi = {
 
   deactivate: (clientId: string, contactId: string) =>
     apiClient.delete<Contact>(`/clients/${clientId}/contacts/${contactId}`),
+
+  listGlobal: (filters: GlobalContactFilters = {}) =>
+    apiClient.get<Paginated<Contact>>('/contacts', filters as Record<string, unknown>),
 }
 
 export const relatedCompaniesApi = {
@@ -105,4 +118,18 @@ export const historyApi = {
       `/clients/${clientId}/history`,
       params,
     ),
+}
+
+export const clientNotesApi = {
+  list: (clientId: string) =>
+    apiClient.get<ClientNote[]>(`/clients/${clientId}/notes`),
+
+  create: (clientId: string, data: { body: string }) =>
+    apiClient.post<ClientNote>(`/clients/${clientId}/notes`, data),
+
+  update: (clientId: string, noteId: string, data: { body: string }) =>
+    apiClient.patch<ClientNote>(`/clients/${clientId}/notes/${noteId}`, data),
+
+  remove: (clientId: string, noteId: string) =>
+    apiClient.delete<{ deleted: boolean }>(`/clients/${clientId}/notes/${noteId}`),
 }

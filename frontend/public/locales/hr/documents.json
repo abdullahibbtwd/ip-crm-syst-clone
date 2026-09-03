@@ -31,5 +31,9 @@
     "displayName": "Ime za prikaz",
     "displayNamePlaceholder": "npr. Predložak punomoći",
     "category": "Kategorija"
+  },
+  "actions": {
+    "view": "View",
+    "download": "preuzimanje"
   }
 }

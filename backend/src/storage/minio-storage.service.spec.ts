@@ -154,5 +154,21 @@ describe('MinioStorageService', () => {
       );
       expect(getSignedUrl).toHaveBeenCalled();
     });
+
+    it('getPresignedDownloadUrl signs inline content disposition', async () => {
+      const { GetObjectCommand } = jest.requireMock('@aws-sdk/client-s3');
+      await service.getPresignedDownloadUrl('k', 60, {
+        disposition: 'inline',
+        fileName: 'poa.pdf',
+        contentType: 'application/pdf',
+      });
+      expect(GetObjectCommand).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: 'k',
+          ResponseContentDisposition: 'inline; filename="poa.pdf"',
+          ResponseContentType: 'application/pdf',
+        }),
+      );
+    });
   });
 });

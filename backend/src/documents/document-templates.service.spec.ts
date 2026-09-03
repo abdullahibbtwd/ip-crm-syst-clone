@@ -253,6 +253,43 @@ describe('DocumentTemplatesService', () => {
     expect(html).toContain('TM Matter');
   });
 
+  it('renderForMatter uses the official POA layout for the power-of-attorney template', async () => {
+    prisma.documentTemplate.findUnique.mockResolvedValue(
+      templateRow({ slug: 'power-of-attorney' }),
+    );
+    prisma.matter.findUnique.mockResolvedValue({
+      ...matterRow(),
+      attributes: {
+        attributes: { clientLegalName: 'Acme EOOD', mol: 'Ivan Ivanov' },
+      },
+      client: {
+        ...matterRow().client,
+        legalForm: 'EOOD',
+        country: 'BG',
+        holdingGroup: { name: 'TEST REP' },
+      },
+      ipRights: [
+        {
+          title: 'Test',
+          applicationNumber: '54434',
+          registrationNumber: null,
+          filingDate: null,
+          jurisdiction: 'BG',
+        },
+      ],
+    });
+
+    const html = await service.renderForMatter('tpl-1', 'm1', {
+      representativeAddress: '0, Test Str. Testville, Sofia, Bulgaria',
+    });
+
+    expect(html).toContain('ПЪЛНОМОЩНО');
+    expect(html).toContain('Acme EOOD');
+    expect(html).toContain('TEST REP');
+    expect(html.match(/TEST REP/g)).toHaveLength(1);
+    expect(html).not.toContain('To:');
+  });
+
   it('renderDocxForMatter loads template buffer and renders docx', async () => {
     prisma.documentTemplate.findUnique.mockResolvedValue(
       templateRow({ docxStorageKey: 'document-templates/tpl-1/template.docx' }),

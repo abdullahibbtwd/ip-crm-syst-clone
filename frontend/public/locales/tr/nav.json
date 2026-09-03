@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Kontrol Paneli",
     "deadlines": "Son teslim tarihleri",
-    "alerts": "Uyarılar",
+    "alerts": "Hatırlatmalar",
     "clients": "Müşteriler",
     "holdingGroups": "Holding grupları",
     "allMatters": "Tüm dosyalar",
@@ -108,7 +108,12 @@
     "messages": "Mesajlar",
     "approvals": "Onaylar",
     "help": "Yardım",
-    "myPortfolio": "Portföyüm"
+    "myPortfolio": "Portföyüm",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Yönetici Ortak",

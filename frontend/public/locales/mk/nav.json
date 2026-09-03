@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Контролна табла",
     "deadlines": "Рокови",
-    "alerts": "Известувања",
+    "alerts": "Потсетници",
     "clients": "Клиенти",
     "holdingGroups": "Холдинг групи",
     "allMatters": "Сите датотеки",
@@ -108,7 +108,12 @@
     "messages": "Пораки",
     "approvals": "Одобрувања",
     "help": "Помош",
-    "myPortfolio": "Моето портфолио"
+    "myPortfolio": "Моето портфолио",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Управен партнер",

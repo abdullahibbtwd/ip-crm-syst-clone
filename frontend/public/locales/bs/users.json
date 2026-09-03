@@ -9,7 +9,8 @@
     "allStatuses": "Svi statusi",
     "inactiveOnly": "Samo neaktivan",
     "searchPortal": "Pretražite korisnike portala…",
-    "searchTeam": "Traži članove tima…"
+    "searchTeam": "Traži članove tima…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Pozovi korisnika",

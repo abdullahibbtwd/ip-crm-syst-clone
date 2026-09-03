@@ -68,6 +68,30 @@ describe('UsersService', () => {
       expect(result.nextCursor).toBe('u2');
       expect(result.items[0].authMethod).toBe('sso');
     });
+
+    it('filters team users by role', async () => {
+      prisma.user.findMany.mockResolvedValue([]);
+
+      await service.findAll({
+        segment: 'team',
+        role: SYSTEM_ROLES.IP_ATTORNEY,
+        limit: 20,
+      } as never);
+
+      expect(prisma.user.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            AND: expect.arrayContaining([
+              {
+                userRoles: {
+                  some: { role: { name: SYSTEM_ROLES.IP_ATTORNEY } },
+                },
+              },
+            ]),
+          }),
+        }),
+      );
+    });
   });
 
   describe('listAttorneyAssignees', () => {

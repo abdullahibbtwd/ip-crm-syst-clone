@@ -5,9 +5,12 @@ import {
 } from '@nestjs/common';
 import {
   ContactRole,
+  Prisma,
   RelationshipEventType,
 } from '../../../generated/prisma/client';
 import { PrismaService } from '../../prisma/prisma.service';
+import { clientDisplayName } from '../crm.utils';
+import { parseLimit } from '../dto/pagination.dto';
 import { ClientsService } from '../clients/clients.service';
 import { HistoryService } from '../history/history.service';
 import {
@@ -65,6 +68,72 @@ export class ContactsService {
         office: { select: { id: true, label: true } },
       },
     });
+  }
+
+  async findAllGlobal(query: ContactQueryDto) {
+    const take = parseLimit(query.limit, 25);
+    const search = query.search?.trim();
+
+    const where: Prisma.ContactWhereInput = {
+      isActive: true,
+      ...(query.role ? { role: query.role } : {}),
+      ...(query.clientId ? { clientId: query.clientId } : {}),
+      ...(search
+        ? {
+            OR: [
+              { firstName: { contains: search, mode: 'insensitive' } },
+              { lastName: { contains: search, mode: 'insensitive' } },
+              { email: { contains: search, mode: 'insensitive' } },
+              { phone: { contains: search, mode: 'insensitive' } },
+              { position: { contains: search, mode: 'insensitive' } },
+              {
+                client: {
+                  OR: [
+                    { companyName: { contains: search, mode: 'insensitive' } },
+                    { firstName: { contains: search, mode: 'insensitive' } },
+                    { lastName: { contains: search, mode: 'insensitive' } },
+                    { internalCode: { contains: search, mode: 'insensitive' } },
+                  ],
+                },
+              },
+            ],
+          }
+        : {}),
+    };
+
+    const rows = await this.prisma.contact.findMany({
+      where,
+      orderBy: [{ lastName: 'asc' }, { firstName: 'asc' }, { id: 'asc' }],
+      take: take + 1,
+      ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}),
+      include: {
+        office: { select: { id: true, label: true } },
+        client: {
+          select: {
+            id: true,
+            type: true,
+            internalCode: true,
+            companyName: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+      },
+    });
+
+    const hasMore = rows.length > take;
+    const items = hasMore ? rows.slice(0, take) : rows;
+
+    return {
+      items: items.map((contact) => ({
+        ...contact,
+        client: {
+          ...contact.client,
+          displayName: clientDisplayName(contact.client),
+        },
+      })),
+      nextCursor: hasMore ? items[items.length - 1]?.id : null,
+    };
   }
 
   async update(

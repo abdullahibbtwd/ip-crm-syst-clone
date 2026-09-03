@@ -11,6 +11,8 @@ describe('ClientsController', () => {
     findAll: jest.fn(),
     findOne: jest.fn(),
     getSummary: jest.fn(),
+    tabCounts: jest.fn(),
+    listDeadlines: jest.fn(),
     update: jest.fn(),
     archive: jest.fn(),
   };
@@ -36,11 +38,15 @@ describe('ClientsController', () => {
     expect(clientsService.findAll).toHaveBeenCalledWith({ search: 'acme' });
   });
 
-  it('findOne / getSummary forward id', async () => {
+  it('findOne / getSummary / tabCounts / listDeadlines forward id', async () => {
     await controller.findOne('c1');
     await controller.getSummary('c1');
+    await controller.tabCounts('c1');
+    await controller.listDeadlines('c1');
     expect(clientsService.findOne).toHaveBeenCalledWith('c1');
     expect(clientsService.getSummary).toHaveBeenCalledWith('c1');
+    expect(clientsService.tabCounts).toHaveBeenCalledWith('c1');
+    expect(clientsService.listDeadlines).toHaveBeenCalledWith('c1');
   });
 
   it('getDataAccess parses limit', async () => {

@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Վահանակ",
     "deadlines": "Վերջնաժամկետներ",
-    "alerts": "Ահազանգեր",
+    "alerts": "Հիշեցումներ",
     "clients": "Հաճախորդներ",
     "holdingGroups": "Անցկացման խմբեր",
     "allMatters": "Բոլոր ֆայլերը",
@@ -108,7 +108,12 @@
     "messages": "Հաղորդագրություններ",
     "approvals": "Հաստատումներ",
     "help": "Օգնություն",
-    "myPortfolio": "Իմ պորտֆոլիոն"
+    "myPortfolio": "Իմ պորտֆոլիոն",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Կառավարող գործընկեր",

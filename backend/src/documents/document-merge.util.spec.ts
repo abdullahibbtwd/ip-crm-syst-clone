@@ -1,5 +1,6 @@
 import {
   applyMergeFields,
+  applyFieldOverrides,
   buildDocumentMergeContext,
   extractMergeFieldKeys,
   findUnknownMergeFields,
@@ -71,5 +72,64 @@ describe('document-merge.util', () => {
     expect(ctx.jurisdiction).toBe('EU');
     expect(ctx.attorneyName).toBe('Jane Attorney');
     expect(ctx.clientAddress).toContain('1 Main St');
+  });
+
+  it('builds POA fields from legal name, MOL, holding group, and IP object', () => {
+    const ctx = buildDocumentMergeContext({
+      title: 'Test',
+      matterType: 'trademark',
+      attributes: {
+        attributes: {
+          mol: 'Ivan Ivanov',
+          clientLegalName: 'Acme EOOD',
+          registeredAddress: {
+            address: '0, Test Str.',
+            city: 'Testville',
+            postalCode: '1000',
+            country: 'Bulgaria',
+          },
+        },
+      },
+      assignedTo: { fullName: 'Jane Attorney' },
+      client: {
+        type: 'company',
+        companyName: 'Acme Ltd',
+        legalForm: 'EOOD',
+        firstName: 'test',
+        lastName: 'test',
+        country: 'BG',
+        holdingGroup: { name: 'TEST REP' },
+        offices: [],
+      },
+      jurisdictions: [{ countryCode: 'BG', localRefNumber: '54434' }],
+      ipRights: [
+        {
+          title: 'Test',
+          applicationNumber: null,
+          registrationNumber: '54434',
+          filingDate: null,
+          jurisdiction: 'BG',
+        },
+      ],
+    });
+
+    expect(ctx.legalEntityName).toBe('Acme EOOD');
+    expect(ctx.mol).toBe('Ivan Ivanov');
+    expect(ctx.representativeName).toBe('TEST REP');
+    expect(ctx.clientAddress).toContain('0, Test Str.');
+    expect(ctx.poaObject).toBe(
+      'Марка no. 54434 - Test Trademark no. 54434 - Test',
+    );
+    expect(ctx.clientName).toBe('Acme Ltd');
+  });
+
+  it('applyFieldOverrides updates allowed keys only', () => {
+    const ctx = applyFieldOverrides(
+      { clientName: 'A', representativeName: 'Old' },
+      { representativeName: 'New', unknown: 'x', poaObject: 'Obj' },
+    );
+    expect(ctx.representativeName).toBe('New');
+    expect(ctx.poaObject).toBe('Obj');
+    expect(ctx).not.toHaveProperty('unknown');
   });
 });

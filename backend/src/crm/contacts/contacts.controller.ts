@@ -21,6 +21,18 @@ import {
 } from './dto/contact.dto';
 import { ContactsService } from './contacts.service';
 
+@Controller('contacts')
+@RequirePermissions('client:read')
+export class GlobalContactsController {
+  constructor(private readonly contactsService: ContactsService) {}
+
+  @Get()
+  @SkipAudit()
+  findAllGlobal(@Query() query: ContactQueryDto) {
+    return this.contactsService.findAllGlobal(query);
+  }
+}
+
 @Controller('clients/:clientId/contacts')
 @RequirePermissions('client:read')
 export class ContactsController {

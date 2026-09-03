@@ -9,7 +9,8 @@
     "allStatuses": "Բոլոր կարգավիճակները",
     "inactiveOnly": "Միայն ոչ ակտիվ",
     "searchPortal": "Որոնել պորտալի օգտատերերին…",
-    "searchTeam": "Որոնել թիմի անդամներին…"
+    "searchTeam": "Որոնել թիմի անդամներին…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Հրավիրել օգտվողին",

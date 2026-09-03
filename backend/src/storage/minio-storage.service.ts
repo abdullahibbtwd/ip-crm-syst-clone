@@ -117,8 +117,24 @@ export class MinioStorageService implements OnModuleInit {
     );
   }
 
-  async getPresignedDownloadUrl(key: string, expiresInSeconds = 3600) {
-    const command = new GetObjectCommand({ Bucket: this.bucket, Key: key });
+  async getPresignedDownloadUrl(
+    key: string,
+    expiresInSeconds = 3600,
+    extras?: {
+      disposition?: 'inline' | 'attachment';
+      fileName?: string;
+      contentType?: string | null;
+    },
+  ) {
+    const fileName = extras?.fileName?.replace(/[\r\n"]/g, '_').trim();
+    const command = new GetObjectCommand({
+      Bucket: this.bucket,
+      Key: key,
+      ResponseContentDisposition: extras?.disposition
+        ? `${extras.disposition}; filename="${fileName || 'document'}"`
+        : undefined,
+      ResponseContentType: extras?.contentType || undefined,
+    });
     return getSignedUrl(this.client, command, { expiresIn: expiresInSeconds });
   }
 

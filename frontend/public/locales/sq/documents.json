@@ -31,5 +31,9 @@
     "displayName": "Emri i shfaqur",
     "displayNamePlaceholder": "p.sh. Modeli i autorizimit",
     "category": "Kategoria"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Shkarkoni"
   }
 }

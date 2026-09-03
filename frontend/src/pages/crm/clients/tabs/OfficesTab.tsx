@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router-dom'
 import { Plus, Star } from 'lucide-react'
@@ -10,11 +10,13 @@ import { Button } from '@/components/ui/button'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { Input } from '@/components/ui/input'
 import { getCountryLabel } from '@/lib/countries'
+import { clientAddressesEqual } from '@/features/crm/addressInput'
 import {
   useCreateOffice,
   useDeleteOffice,
   useOffices,
   useSetOfficePrimary,
+  useUpsertTypedAddress,
 } from '@/features/crm/hooks/useOffices'
 import { getApiErrorMessage } from '@/lib/api-client'
 import type { ClientTabContext } from '../ClientLayout'
@@ -26,14 +28,27 @@ export function OfficesTab() {
   const { data: offices, isLoading } = useOffices(clientId)
   const setPrimary = useSetOfficePrimary(clientId)
   const deleteOffice = useDeleteOffice(clientId)
+  const upsertCorrespondence = useUpsertTypedAddress(clientId, 'correspondence')
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  if (isLoading) return <p className="text-sm text-muted-foreground">{t('offices.loading')}</p>
+  const [correspondenceSameAsRegistered, setCorrespondenceSameAsRegistered] = useState(true)
+  const sameAsInitialized = useRef(false)
 
   const registeredOffice = offices?.find((o) => o.addressType === 'registered_legal')
   const correspondenceOffice = offices?.find((o) => o.addressType === 'correspondence')
   const branchOffices = offices?.filter((o) => o.addressType === 'branch') ?? []
+
+  useEffect(() => {
+    if (isLoading || sameAsInitialized.current) return
+    sameAsInitialized.current = true
+    setCorrespondenceSameAsRegistered(
+      clientAddressesEqual(registeredOffice, correspondenceOffice),
+    )
+  }, [isLoading, registeredOffice, correspondenceOffice])
+
+  if (isLoading) {
+    return <p className="text-sm text-muted-foreground">{t('offices.loading')}</p>
+  }
 
   return (
     <div className="space-y-8">
@@ -46,11 +61,18 @@ export function OfficesTab() {
             clientId={clientId}
             addressType="registered_legal"
             office={registeredOffice}
+            onSaved={(payload) => {
+              if (!correspondenceSameAsRegistered) return
+              void upsertCorrespondence.mutateAsync(payload)
+            }}
           />
           <ClientTypedAddressForm
             clientId={clientId}
             addressType="correspondence"
             office={correspondenceOffice}
+            sourceOffice={registeredOffice}
+            sameAsRegistered={correspondenceSameAsRegistered}
+            onSameAsRegisteredChange={setCorrespondenceSameAsRegistered}
           />
         </div>
       </section>

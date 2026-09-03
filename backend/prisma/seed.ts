@@ -1274,6 +1274,21 @@ async function main() {
 <p>We remain at your disposal should any clarification be required.</p>
 <p>Yours faithfully,<br/>{{attorneyName}}<br/>{{attorneyTitle}}<br/>{{firmName}}</p>`,
     },
+    {
+      id: '00000000-0000-4000-a000-000000000005',
+      slug: 'power-of-attorney',
+      name: 'Power of Attorney',
+      category: 'application' as const,
+      description:
+        'Bilingual Bulgarian Patent Office power of attorney (пълномощно).',
+      referenceLine: 'POA — {{poaObject}}',
+      htmlBody: `<p>{{legalEntityName}}</p>
+<p>{{mol}}</p>
+<p>{{clientAddress}}</p>
+<p>{{representativeName}}</p>
+<p>{{representativeAddress}}</p>
+<p>{{poaObject}}</p>`,
+    },
   ];
 
   for (const template of documentTemplateSeeds) {

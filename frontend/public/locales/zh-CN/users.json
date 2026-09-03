@@ -9,7 +9,8 @@
     "allStatuses": "所有状态",
     "inactiveOnly": "仅不活动",
     "searchPortal": "搜索门户用户...",
-    "searchTeam": "搜索团队成员..."
+    "searchTeam": "搜索团队成员...",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "邀请用户",

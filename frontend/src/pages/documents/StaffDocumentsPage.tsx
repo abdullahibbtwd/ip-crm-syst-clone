@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Download, Plus, Search, Upload } from 'lucide-react'
+import { Download, Eye, Plus, Search, Upload } from 'lucide-react'
 import { Drawer } from '@/components/crm/Drawer'
 import { PermissionGate } from '@/components/permissions/PermissionGate'
 import { Button } from '@/components/ui/button'
@@ -29,7 +29,7 @@ import type {
   FirmDocument,
   SharedDocument,
 } from '@/features/documents/types'
-import { formatDocumentDate } from '@/features/documents/utils'
+import { formatDocumentDate, openDocumentResponse } from '@/features/documents/utils'
 import { getApiErrorMessage } from '@/lib/api-client'
 import { cn } from '@/lib/utils'
 
@@ -55,6 +55,8 @@ export function StaffDocumentsPage() {
   const [displayName, setDisplayName] = useState('')
   const [category, setCategory] = useState<DocumentCategory>('general')
   const [error, setError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
+  const [busyAction, setBusyAction] = useState<string | null>(null)
   const [dragOver, setDragOver] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -80,12 +82,40 @@ export function StaffDocumentsPage() {
   })
 
   const downloadShared = useMutation({
-    mutationFn: ({ documentId }: { documentId: string }) =>
-      documentsApi.getSharedDownloadUrl(documentId),
-    onSuccess: (data) => {
-      window.open(data.url, '_blank', 'noopener,noreferrer')
+    mutationFn: ({
+      documentId,
+      disposition,
+    }: {
+      documentId: string
+      disposition: 'inline' | 'attachment'
+    }) => documentsApi.getSharedDownloadUrl(documentId, undefined, disposition),
+    onSuccess: (data, variables) => {
+      openDocumentResponse(data, variables.disposition === 'inline' ? 'view' : 'download')
+    },
+    onError: (err) => {
+      setActionError(getApiErrorMessage(err, t('loadFailed')))
     },
   })
+
+  const openWorkingDocument = async (
+    documentId: string,
+    mode: 'view' | 'download',
+  ) => {
+    setActionError(null)
+    setBusyAction(`${mode}:${documentId}`)
+    try {
+      const data = await documentsApi.getDownloadUrl(
+        documentId,
+        undefined,
+        mode === 'view' ? 'inline' : 'attachment',
+      )
+      openDocumentResponse(data, mode)
+    } catch (err) {
+      setActionError(getApiErrorMessage(err, t('loadFailed')))
+    } finally {
+      setBusyAction(null)
+    }
+  }
 
   const isLoading = tab === 'working' ? workingQuery.isLoading : sharedQuery.isLoading
   const isError = tab === 'working' ? workingQuery.isError : sharedQuery.isError
@@ -175,6 +205,8 @@ export function StaffDocumentsPage() {
           />
         </div>
 
+        {actionError ? <p className="text-sm text-destructive">{actionError}</p> : null}
+
         {isLoading ? (
           <p className="text-sm text-muted-foreground">{t('loading')}</p>
         ) : isError ? (
@@ -189,12 +221,15 @@ export function StaffDocumentsPage() {
                   <TableHead>{t('columns.category')}</TableHead>
                   <TableHead>{t('columns.updated')}</TableHead>
                   <TableHead>{t('columns.by')}</TableHead>
+                  <TableHead className="w-[1%] whitespace-nowrap text-right">
+                    {t('columns.actions')}
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {workingDocs.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="py-10 text-center text-muted-foreground">
+                    <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
                       {t('empty')}
                     </TableCell>
                   </TableRow>
@@ -213,6 +248,17 @@ export function StaffDocumentsPage() {
                       <TableCell>{categoryLabel(doc.category)}</TableCell>
                       <TableCell>{formatDocumentDate(doc.updatedAt)}</TableCell>
                       <TableCell>{doc.createdBy?.fullName ?? '—'}</TableCell>
+                      <TableCell className="text-right">
+                        <DocumentRowActions
+                          viewLabel={t('actions.view')}
+                          downloadLabel={t('actions.download')}
+                          viewBusy={busyAction === `view:${doc.id}`}
+                          downloadBusy={busyAction === `download:${doc.id}`}
+                          disabled={Boolean(busyAction)}
+                          onView={() => void openWorkingDocument(doc.id, 'view')}
+                          onDownload={() => void openWorkingDocument(doc.id, 'download')}
+                        />
+                      </TableCell>
                     </TableRow>
                   ))
                 )}
@@ -228,7 +274,9 @@ export function StaffDocumentsPage() {
                   <TableHead>{t('columns.category')}</TableHead>
                   <TableHead>{t('columns.updated')}</TableHead>
                   <TableHead>{t('columns.by')}</TableHead>
-                  <TableHead className="w-24">{t('columns.actions')}</TableHead>
+                  <TableHead className="w-[1%] whitespace-nowrap text-right">
+                    {t('columns.actions')}
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -245,17 +293,34 @@ export function StaffDocumentsPage() {
                       <TableCell>{categoryLabel(doc.category)}</TableCell>
                       <TableCell>{formatDocumentDate(doc.updatedAt)}</TableCell>
                       <TableCell>{doc.createdBy?.fullName ?? '—'}</TableCell>
-                      <TableCell>
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
+                      <TableCell className="text-right">
+                        <DocumentRowActions
+                          viewLabel={t('actions.view')}
+                          downloadLabel={t('actions.download')}
+                          viewBusy={
+                            downloadShared.isPending &&
+                            downloadShared.variables?.documentId === doc.id &&
+                            downloadShared.variables.disposition === 'inline'
+                          }
+                          downloadBusy={
+                            downloadShared.isPending &&
+                            downloadShared.variables?.documentId === doc.id &&
+                            downloadShared.variables.disposition === 'attachment'
+                          }
                           disabled={downloadShared.isPending}
-                          onClick={() => downloadShared.mutate({ documentId: doc.id })}
-                        >
-                          <Download className="size-4" />
-                          {t('shared.download')}
-                        </Button>
+                          onView={() =>
+                            downloadShared.mutate({
+                              documentId: doc.id,
+                              disposition: 'inline',
+                            })
+                          }
+                          onDownload={() =>
+                            downloadShared.mutate({
+                              documentId: doc.id,
+                              disposition: 'attachment',
+                            })
+                          }
+                        />
                       </TableCell>
                     </TableRow>
                   ))
@@ -344,6 +409,53 @@ export function StaffDocumentsPage() {
           </div>
         </form>
       </Drawer>
+    </div>
+  )
+}
+
+function DocumentRowActions({
+  viewLabel,
+  downloadLabel,
+  viewBusy,
+  downloadBusy,
+  disabled,
+  onView,
+  onDownload,
+}: {
+  viewLabel: string
+  downloadLabel: string
+  viewBusy: boolean
+  downloadBusy: boolean
+  disabled: boolean
+  onView: () => void
+  onDownload: () => void
+}) {
+  return (
+    <div className="flex justify-end gap-1">
+      <Button
+        type="button"
+        size="sm"
+        variant="ghost"
+        disabled={disabled}
+        onClick={onView}
+        aria-label={viewLabel}
+        title={viewLabel}
+      >
+        <Eye className="size-4" />
+        {viewBusy ? '…' : viewLabel}
+      </Button>
+      <Button
+        type="button"
+        size="sm"
+        variant="ghost"
+        disabled={disabled}
+        onClick={onDownload}
+        aria-label={downloadLabel}
+        title={downloadLabel}
+      >
+        <Download className="size-4" />
+        {downloadBusy ? '…' : downloadLabel}
+      </Button>
     </div>
   )
 }

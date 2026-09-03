@@ -6,6 +6,10 @@
 #   docker compose -f docker-compose.dev.yml up -d
 #   cd backend && npm run start:dev
 #   cd frontend && npm run dev
+#
+# Install frontend deps on the Mac host, not inside a Linux container.
+# Vite/Rolldown binaries are OS-specific; Docker/Coolify installs Linux
+# copies during image build (frontend/node_modules is in .dockerignore).
 
 services:
   postgres:

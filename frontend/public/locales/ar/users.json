@@ -9,7 +9,8 @@
     "allStatuses": "جميع الحالات",
     "inactiveOnly": "غير نشط فقط",
     "searchPortal": "مستخدمي بوابة البحث...",
-    "searchTeam": "بحث عن أعضاء الفريق..."
+    "searchTeam": "بحث عن أعضاء الفريق...",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "دعوة المستخدم",

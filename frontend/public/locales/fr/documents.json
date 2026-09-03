@@ -31,5 +31,9 @@
     "displayName": "Nom d'affichage",
     "displayNamePlaceholder": "par ex. Modèle de procuration",
     "category": "Catégorie"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Télécharger"
   }
 }

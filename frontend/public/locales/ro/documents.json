@@ -31,5 +31,9 @@
     "displayName": "Numele de afișare",
     "displayNamePlaceholder": "de ex. Șablon de împuternicire",
     "category": "Categorie"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Descărcați"
   }
 }

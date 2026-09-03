@@ -328,6 +328,20 @@ describe('InvoicesService', () => {
         }),
       );
     });
+
+    it('filters proforma drafts by notes', async () => {
+      prisma.invoice.findMany.mockResolvedValue([]);
+      await service.listAll({ proformaOnly: true });
+
+      expect(prisma.invoice.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            status: InvoiceStatus.draft,
+            notes: { contains: 'Proforma', mode: 'insensitive' },
+          }),
+        }),
+      );
+    });
   });
 
   describe('listForPortalClient', () => {

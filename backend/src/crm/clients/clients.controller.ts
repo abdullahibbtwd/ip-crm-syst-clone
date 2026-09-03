@@ -46,16 +46,28 @@ export class ClientsController {
     return this.clientsService.create(dto, user.userId);
   }
 
-  @Get(':id')
-  @Audit({ action: 'client.read', resource: 'client', module: CRM_MODULE })
-  findOne(@Param('id') id: string) {
-    return this.clientsService.findOne(id);
+  @Get(':id/tab-counts')
+  @SkipAudit()
+  tabCounts(@Param('id') id: string) {
+    return this.clientsService.tabCounts(id);
+  }
+
+  @Get(':id/deadlines')
+  @SkipAudit()
+  listDeadlines(@Param('id') id: string) {
+    return this.clientsService.listDeadlines(id);
   }
 
   @Get(':id/summary')
   @Audit({ action: 'client.read', resource: 'client', module: CRM_MODULE })
   getSummary(@Param('id') id: string) {
     return this.clientsService.getSummary(id);
+  }
+
+  @Get(':id')
+  @Audit({ action: 'client.read', resource: 'client', module: CRM_MODULE })
+  findOne(@Param('id') id: string) {
+    return this.clientsService.findOne(id);
   }
 
   @Get(':id/address-insights')

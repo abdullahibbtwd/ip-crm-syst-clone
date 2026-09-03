@@ -626,4 +626,10 @@ export class MatterQueryDto extends PaginationQueryDto {
   @IsString()
   @MaxLength(16)
   giCertificate?: string;
+
+  /** Trademark/design files whose client has no representative holding group. */
+  @IsOptional()
+  @Transform(({ value }) => value === 'true' || value === true || value === '1')
+  @IsBoolean()
+  withoutRepresentative?: boolean;
 }

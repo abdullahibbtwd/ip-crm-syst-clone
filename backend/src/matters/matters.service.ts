@@ -78,7 +78,19 @@ const clientPartySelect = {
   firstName: true,
   lastName: true,
   type: true,
+  holdingGroupId: true,
 } as const;
+
+function matterHasNoRepresentative(row: {
+  client?: { holdingGroupId?: string | null } | null;
+  attributes?: { attributes?: unknown } | null;
+}): boolean {
+  if (row.client?.holdingGroupId) return false;
+  const attrs = row.attributes?.attributes;
+  if (!attrs || typeof attrs !== 'object' || Array.isArray(attrs)) return true;
+  const ids = (attrs as Record<string, unknown>).representativeHoldingGroupIds;
+  return !Array.isArray(ids) || ids.length === 0;
+}
 
 const matterListInclude = {
   assignedTo: { select: userSelect },
@@ -414,20 +426,31 @@ export class MattersService {
       ? { AND: [baseWhere, portfolioFilter] }
       : baseWhere;
 
-    const [total, rows] = await this.prisma.$transaction([
+    const [unfilteredTotal, fetchedRows] = await this.prisma.$transaction([
       this.prisma.matter.count({ where }),
       this.prisma.matter.findMany({
         where,
         orderBy: { createdAt: 'desc' },
-        skip,
-        take: limit,
-        include: isPortfolioList ? trademarkListInclude : matterListInclude,
+        skip: query.withoutRepresentative ? 0 : skip,
+        take: query.withoutRepresentative ? 500 : limit,
+        include:
+          isPortfolioList || query.withoutRepresentative
+            ? trademarkListInclude
+            : matterListInclude,
       }),
     ]);
 
+    const rows = query.withoutRepresentative
+      ? fetchedRows.filter((row) => matterHasNoRepresentative(row))
+      : fetchedRows;
+    const total = query.withoutRepresentative ? rows.length : unfilteredTotal;
+    const pagedRows = query.withoutRepresentative
+      ? rows.slice(skip, skip + limit)
+      : rows;
+
     const pageCount = total === 0 ? 0 : Math.ceil(total / limit);
 
-    const matterIds = rows.map((m) => m.id);
+    const matterIds = pagedRows.map((m) => m.id);
 
     const [upcomingCounts, openDeadlineSummaries, documentCounts] =
       await Promise.all([
@@ -450,7 +473,7 @@ export class MattersService {
     }
 
     return {
-      items: rows.map((m) => {
+      items: pagedRows.map((m) => {
         const deadlineSummary = openDeadlineSummaries.get(m.id);
         const base = {
           ...m,

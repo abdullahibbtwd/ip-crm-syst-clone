@@ -56,10 +56,17 @@ export class DocumentsController {
     @Param('id') id: string,
     @Req() req: Request,
     @Query('versionId') versionId?: string,
+    @Query('disposition') disposition?: string,
   ) {
     const user = req.user as AuthenticatedUser;
     await this.portalAccess.assertDocumentAccess(id, user);
-    return this.documentsService.getDownloadUrl(id, versionId);
+    return this.documentsService.getDownloadUrl(
+      id,
+      versionId,
+      disposition === 'inline' || disposition === 'attachment'
+        ? disposition
+        : undefined,
+    );
   }
 
   @Post(':id/versions')

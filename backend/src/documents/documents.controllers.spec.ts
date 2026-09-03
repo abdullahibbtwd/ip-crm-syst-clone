@@ -62,7 +62,11 @@ describe('Documents controllers', () => {
     });
     expect(portalAccess.assertDocumentAccess).toHaveBeenCalledWith('d1', user);
     expect(documentsService.listVersions).toHaveBeenCalledWith('d1');
-    expect(documentsService.getDownloadUrl).toHaveBeenCalledWith('d1', 'v1');
+    expect(documentsService.getDownloadUrl).toHaveBeenCalledWith(
+      'd1',
+      'v1',
+      undefined,
+    );
     expect(documentsService.uploadVersion).toHaveBeenCalledWith(
       'd1',
       file,
@@ -86,6 +90,7 @@ describe('Documents controllers', () => {
       't1',
       'u1',
       'pdf',
+      undefined,
     );
     expect(documentsService.upload).toHaveBeenCalledWith(
       'm1',

@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Панель управления",
     "deadlines": "Сроки",
-    "alerts": "Оповещения",
+    "alerts": "Напоминания",
     "clients": "Клиенты",
     "holdingGroups": "Холдинговые группы",
     "allMatters": "Все файлы",
@@ -108,7 +108,12 @@
     "messages": "Сообщения",
     "approvals": "Разрешения",
     "help": "Помощь",
-    "myPortfolio": "Мое портфолио"
+    "myPortfolio": "Мое портфолио",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Управляющий партнер",

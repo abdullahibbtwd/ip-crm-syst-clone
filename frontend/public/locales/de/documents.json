@@ -31,5 +31,9 @@
     "displayName": "Anzeigename",
     "displayNamePlaceholder": "z.B. Vorlage für eine Vollmacht",
     "category": "Kategorie"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Herunterladen"
   }
 }

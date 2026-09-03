@@ -97,4 +97,19 @@ export class ContactQueryDto {
   @IsOptional()
   @IsEnum(ContactRole)
   role?: ContactRole;
+
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @IsOptional()
+  @IsUUID()
+  clientId?: string;
+
+  @IsOptional()
+  @IsString()
+  cursor?: string;
+
+  @IsOptional()
+  limit?: number;
 }

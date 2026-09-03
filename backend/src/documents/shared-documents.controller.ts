@@ -63,8 +63,15 @@ export class SharedDocumentsController {
   download(
     @Param('documentId') documentId: string,
     @Query('versionId') versionId?: string,
+    @Query('disposition') disposition?: string,
   ) {
-    return this.documentsService.getSharedDownloadUrl(documentId, versionId);
+    return this.documentsService.getSharedDownloadUrl(
+      documentId,
+      versionId,
+      disposition === 'inline' || disposition === 'attachment'
+        ? disposition
+        : undefined,
+    );
   }
 
   @Post(':documentId/versions')

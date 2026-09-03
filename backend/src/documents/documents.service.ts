@@ -368,12 +368,15 @@ export class DocumentsService {
 
   async generateFromTemplate(
     matterId: string,
-    templateId: string,
+    templateId: string | undefined,
     userId: string,
     format: 'pdf' | 'docx' = 'pdf',
+    fieldOverrides?: Record<string, string>,
   ) {
     await this.assertMatterExists(matterId);
-    const template = await this.documentTemplates.findById(templateId);
+    const template = templateId
+      ? await this.documentTemplates.findById(templateId)
+      : await this.documentTemplates.ensurePoaTemplate();
 
     const stamp = new Date().toISOString().slice(0, 10);
     const displayName = template.name;
@@ -390,16 +393,18 @@ export class DocumentsService {
         );
       }
       buffer = await this.documentTemplates.renderDocxForMatter(
-        templateId,
+        templateId ?? template.id,
         matterId,
+        fieldOverrides,
       );
       fileName = `${template.slug}-${stamp}.docx`;
       mimeType =
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
     } else {
       const html = await this.documentTemplates.renderForMatter(
-        templateId,
+        templateId ?? template.id,
         matterId,
+        fieldOverrides,
       );
       buffer = await this.pdfRenderer.renderHtmlToPdf(html);
       fileName = `${template.slug}-${stamp}.pdf`;
@@ -464,7 +469,11 @@ export class DocumentsService {
     });
   }
 
-  async getDownloadUrl(documentId: string, versionId?: string) {
+  async getDownloadUrl(
+    documentId: string,
+    versionId?: string,
+    disposition?: 'inline' | 'attachment',
+  ) {
     const doc = await this.prisma.matterDocument.findUnique({
       where: { id: documentId },
       select: { matter: { select: { clientId: true } } },
@@ -482,7 +491,15 @@ export class DocumentsService {
 
     if (!version) throw new NotFoundException('Document version not found');
 
-    const url = await this.storage.getPresignedDownloadUrl(version.storageKey);
+    const url = await this.storage.getPresignedDownloadUrl(
+      version.storageKey,
+      3600,
+      {
+        disposition,
+        fileName: version.fileName,
+        contentType: version.mimeType,
+      },
+    );
     return {
       url,
       fileName: version.fileName,
@@ -781,7 +798,14 @@ export class DocumentsService {
 
     if (!version) throw new NotFoundException('Document version not found');
 
-    const url = await this.storage.getPresignedDownloadUrl(version.storageKey);
+    const url = await this.storage.getPresignedDownloadUrl(
+      version.storageKey,
+      3600,
+      {
+        fileName: version.fileName,
+        contentType: version.mimeType,
+      },
+    );
     return {
       url,
       fileName: version.fileName,
@@ -942,7 +966,11 @@ export class DocumentsService {
     });
   }
 
-  async getSharedDownloadUrl(documentId: string, versionId?: string) {
+  async getSharedDownloadUrl(
+    documentId: string,
+    versionId?: string,
+    disposition?: 'inline' | 'attachment',
+  ) {
     const doc = await this.prisma.sharedDocument.findUnique({
       where: { id: documentId },
       select: { id: true },
@@ -960,7 +988,15 @@ export class DocumentsService {
 
     if (!version) throw new NotFoundException('Document version not found');
 
-    const url = await this.storage.getPresignedDownloadUrl(version.storageKey);
+    const url = await this.storage.getPresignedDownloadUrl(
+      version.storageKey,
+      3600,
+      {
+        disposition,
+        fileName: version.fileName,
+        contentType: version.mimeType,
+      },
+    );
     return {
       url,
       fileName: version.fileName,

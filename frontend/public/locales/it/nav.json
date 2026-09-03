@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Pannello di controllo",
     "deadlines": "Scadenze",
-    "alerts": "Avvisi",
+    "alerts": "Promemoria",
     "clients": "Clienti",
     "holdingGroups": "Gruppi di partecipazione",
     "allMatters": "Tutti i file",
@@ -108,7 +108,12 @@
     "messages": "Messaggi",
     "approvals": "Approvazioni",
     "help": "Aiuto",
-    "myPortfolio": "Il mio portafoglio"
+    "myPortfolio": "Il mio portafoglio",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Socio amministratore",

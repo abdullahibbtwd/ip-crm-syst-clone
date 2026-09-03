@@ -3,7 +3,7 @@ import { AuditModule } from '../audit/audit.module';
 import { ComplianceModule } from '../compliance/compliance.module';
 import { ClientsController } from './clients/clients.controller';
 import { ClientsService } from './clients/clients.service';
-import { ContactsController } from './contacts/contacts.controller';
+import { ContactsController, GlobalContactsController } from './contacts/contacts.controller';
 import { ContactsService } from './contacts/contacts.service';
 import { HistoryService } from './history/history.service';
 import { HoldingGroupsController } from './holding-groups/holding-groups.controller';
@@ -12,6 +12,8 @@ import { OfficesController } from './offices/offices.controller';
 import { OfficesService } from './offices/offices.service';
 import { RelatedCompaniesController } from './related-companies/related-companies.controller';
 import { RelatedCompaniesService } from './related-companies/related-companies.service';
+import { ClientNotesController } from './notes/client-notes.controller';
+import { ClientNotesService } from './notes/client-notes.service';
 
 @Module({
   imports: [AuditModule, ComplianceModule],
@@ -19,8 +21,10 @@ import { RelatedCompaniesService } from './related-companies/related-companies.s
     HoldingGroupsController,
     ClientsController,
     OfficesController,
+    GlobalContactsController,
     ContactsController,
     RelatedCompaniesController,
+    ClientNotesController,
   ],
   providers: [
     HistoryService,
@@ -29,6 +33,7 @@ import { RelatedCompaniesService } from './related-companies/related-companies.s
     OfficesService,
     ContactsService,
     RelatedCompaniesService,
+    ClientNotesService,
   ],
   exports: [ClientsService, HistoryService],
 })

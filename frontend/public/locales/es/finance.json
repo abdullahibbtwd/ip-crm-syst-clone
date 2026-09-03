@@ -72,7 +72,9 @@
     "filters": {
       "allPayments": "Todos los pagos",
       "allStatuses": "Todos los estados"
-    }
+    },
+    "proformasTitle": "Proformas",
+    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
   },
   "payment": {
     "amount": "Cantidad *",

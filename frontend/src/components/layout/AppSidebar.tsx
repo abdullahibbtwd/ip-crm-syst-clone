@@ -199,7 +199,7 @@ function SidebarLink({
   const label = useNavLabel(item)
   const routeActive = isActive
   const isAlerts = item.path === '/alerts'
-  const badgeLabel = isAlerts ? 'alerts' : undefined
+  const badgeLabel = isAlerts ? 'reminders' : undefined
   const badgeTone = isAlerts ? ('warning' as const) : undefined
   const showTotal =
     totalCount != null && !(badge && badge > 0)

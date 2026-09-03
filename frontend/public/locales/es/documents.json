@@ -31,5 +31,9 @@
     "displayName": "Nombre para mostrar",
     "displayNamePlaceholder": "p.ej. Plantilla de poder notarial",
     "category": "Categoría"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Descargar"
   }
 }

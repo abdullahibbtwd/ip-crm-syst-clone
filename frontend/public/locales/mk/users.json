@@ -9,7 +9,8 @@
     "allStatuses": "Сите статуси",
     "inactiveOnly": "Само неактивни",
     "searchPortal": "Пребарувајте корисници на порталот…",
-    "searchTeam": "Пребарувајте членови на тимот…"
+    "searchTeam": "Пребарувајте членови на тимот…",
+    "allRoles": "All roles"
   },
   "invite": {
     "button": "Покани корисник",

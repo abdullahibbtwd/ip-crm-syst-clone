@@ -73,10 +73,17 @@ export const documentsApi = {
       .then((r) => r.data)
   },
 
-  getDownloadUrl: (documentId: string, versionId?: string) =>
+  getDownloadUrl: (
+    documentId: string,
+    versionId?: string,
+    disposition?: 'inline' | 'attachment',
+  ) =>
     api
       .get<DocumentDownloadResponse>(`/documents/${documentId}/download`, {
-        params: versionId ? { versionId } : undefined,
+        params: {
+          ...(versionId ? { versionId } : {}),
+          ...(disposition ? { disposition } : {}),
+        },
       })
       .then((r) => r.data),
 
@@ -88,10 +95,17 @@ export const documentsApi = {
       )
       .then((r) => r.data),
 
-  getSharedDownloadUrl: (documentId: string, versionId?: string) =>
+  getSharedDownloadUrl: (
+    documentId: string,
+    versionId?: string,
+    disposition?: 'inline' | 'attachment',
+  ) =>
     api
       .get<DocumentDownloadResponse>(`/shared-documents/${documentId}/download`, {
-        params: versionId ? { versionId } : undefined,
+        params: {
+          ...(versionId ? { versionId } : {}),
+          ...(disposition ? { disposition } : {}),
+        },
       })
       .then((r) => r.data),
 
@@ -125,13 +139,17 @@ export const documentsApi = {
 
   generateFromTemplate: (
     matterId: string,
-    templateId: string,
-    format: 'pdf' | 'docx' = 'pdf',
+    payload: {
+      templateId?: string
+      format?: 'pdf' | 'docx'
+      fields?: Record<string, string>
+    } = {},
   ) =>
     api
       .post<MatterDocument>(`/matters/${matterId}/documents/generate`, {
-        templateId,
-        format,
+        ...(payload.templateId ? { templateId: payload.templateId } : {}),
+        format: payload.format ?? 'pdf',
+        ...(payload.fields ? { fields: payload.fields } : {}),
       })
       .then((r) => r.data),
 }

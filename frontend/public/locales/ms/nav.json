@@ -30,7 +30,7 @@
   "items": {
     "dashboard": "Papan pemuka",
     "deadlines": "Tarikh akhir",
-    "alerts": "Makluman",
+    "alerts": "Peringatan",
     "clients": "Pelanggan",
     "holdingGroups": "Mengadakan kumpulan",
     "allMatters": "Semua fail",
@@ -108,7 +108,12 @@
     "messages": "Mesej",
     "approvals": "Kelulusan",
     "help": "Tolong",
-    "myPortfolio": "Portfolio saya"
+    "myPortfolio": "Portfolio saya",
+    "contacts": "Contacts",
+    "proformas": "Proformas",
+    "generatePoa": "Generate POA",
+    "gdprRegister": "GDPR",
+    "bpoOwners": "Owners without representative"
   },
   "roles": {
     "managing_partner": "Rakan Kongsi Urusan",

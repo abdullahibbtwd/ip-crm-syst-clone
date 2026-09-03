@@ -28,7 +28,8 @@
       "codeDesc": "Код (Z – A)"
     },
     "title": "Клиенты",
-    "viewAria": "Посмотреть {{name}}"
+    "viewAria": "Посмотреть {{name}}",
+    "new": "Add client"
   },
   "contacts": {
     "add": "Добавить контакт",
@@ -100,7 +101,13 @@
     "unlinkFailed": "Не удалось удалить клиента из группы.",
     "searchPlaceholder": "Поиск по имени или стране…",
     "title": "Холдинговые группы",
-    "viewAria": "Посмотреть {{name}}"
+    "viewAria": "Посмотреть {{name}}",
+    "linkSelected": "Link {{count}} clients",
+    "removeSelected": "Remove {{name}}",
+    "searchingClients": "Searching…",
+    "selectClients": "Select clients",
+    "selectClientsPlaceholder": "Select clients…",
+    "selectedCount": "{{count}} selected"
   },
   "addressInsights": {
     "crmRegistered": "Зарегистрированный / юридический адрес CRM",
@@ -137,7 +144,9 @@
       "registeredLegal": "Зарегистрированный/юридический адрес",
       "save": "Сохранить адрес",
       "saved": "Адрес сохранен.",
-      "title": "Адреса"
+      "title": "Адреса",
+      "sameAsRegistered": "Same as registered / legal address",
+      "sameAsRegisteredHint": "Correspondence will use the registered / legal address."
     },
     "city": "Город",
     "drawerTitle": "Добавить офис",
@@ -311,7 +320,10 @@
     "created": "Созданный",
     "holdingGroup": "Холдинговая группа",
     "status": "Статус",
-    "type": "Тип"
+    "type": "Тип",
+    "tabIconTitle": "{{tab}}: {{count}}",
+    "tabIconTitleNotes": "{{tab}}: {{count}} notes, {{deadlines}} open deadlines",
+    "tabs": "Tabs"
   },
   "tabs": {
     "accessHistory": "История доступа",
@@ -324,7 +336,9 @@
     "watch": "Смотреть",
     "offices": "Офисы",
     "overview": "Обзор",
-    "related": "Связанный"
+    "related": "Связанный",
+    "notes": "Notes",
+    "countAria": "{{count}} in {{tab}}"
   },
   "clientFiles": {
     "title": "Документы",
@@ -391,5 +405,92 @@
     "company": "Компания",
     "individual": "Индивидуальный"
   },
-  "unnamedClient": "Безымянный клиент"
+  "unnamedClient": "Безымянный клиент",
+  "createClient": {
+    "back": "← Back to clients",
+    "title": "Add client",
+    "description": "Create a full client record without going through intake. You can add a file later and update the profile at any time.",
+    "identity": "Client identity",
+    "assignment": "Assignment",
+    "addresses": "Addresses",
+    "primaryContact": "Primary contact",
+    "primaryContactHint": "Optional. Saved on the client after creation.",
+    "submit": "Create client",
+    "creating": "Creating…",
+    "error": "Failed to create client"
+  },
+  "globalContacts": {
+    "title": "Contacts",
+    "description": "All contacts across client records.",
+    "searchPlaceholder": "Search name, email, or client…",
+    "error": "Failed to load contacts.",
+    "selectClient": "Select a client",
+    "table": {
+      "client": "Client"
+    }
+  },
+  "generatePoa": {
+    "title": "Generate power of attorney",
+    "description": "Fill in the legal entity, representative, and IP object. The generated POA is saved on the file’s documents tab.",
+    "legalEntity": "Legal entity",
+    "company": "Company",
+    "legalNameAndType": "Name and type of legal entity",
+    "mol": "MOL",
+    "address": "Address",
+    "representative": "Representative",
+    "representativeName": "Representative",
+    "object": "Object",
+    "objectField": "Object",
+    "selectCompany": "Select company",
+    "selectRepresentative": "Select representative",
+    "selectObject": "Select object",
+    "noRepresentative": "No representative",
+    "selectRequired": "Select a company and an object",
+    "submit": "Generate POA",
+    "generating": "Generating…",
+    "error": "Failed to generate power of attorney"
+  },
+  "bpoOwners": {
+    "title": "Trademark owners without representative",
+    "description": "Trademark files whose owner has no representative assigned.",
+    "empty": "All listed trademark owners have a representative.",
+    "error": "Failed to load owners without representative.",
+    "table": {
+      "file": "File",
+      "owner": "Owner",
+      "type": "Type"
+    }
+  },
+  "clientNotes": {
+    "add": "Add note",
+    "columns": {
+      "deadline": "Deadline",
+      "due": "Due",
+      "file": "Working file",
+      "remaining": "Remaining",
+      "status": "Status"
+    },
+    "deadlinesCountAria": "{{count}} open deadlines",
+    "deadlinesDescription": "Open deadlines from this client's trademarks and remaining working files.",
+    "deadlinesEmpty": "No open deadlines for this client.",
+    "deadlinesError": "Failed to load deadlines.",
+    "deadlinesLoading": "Loading deadlines…",
+    "deadlinesTitle": "Deadlines",
+    "delete": "Delete note",
+    "description": "Notes linked to this client. Deadlines from trademarks and remaining files appear below.",
+    "dueToday": "Due today",
+    "empty": "No notes yet.",
+    "error": "Failed to save note",
+    "errorLoad": "Failed to load notes.",
+    "groupRemaining": "Remaining files",
+    "groupTrademark": "Trademarks",
+    "loading": "Loading notes…",
+    "overdueBy": "{{count}} days overdue",
+    "placeholder": "Write a note linked to this client…",
+    "remaining": "{{count}} days remaining",
+    "remainingType": "remaining",
+    "saving": "Saving…",
+    "title": "Notes",
+    "unknownAuthor": "Unknown"
+  }
 }

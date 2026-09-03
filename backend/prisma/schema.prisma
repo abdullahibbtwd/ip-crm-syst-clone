@@ -84,6 +84,7 @@ model User {
   customsSeizuresCreated CustomsSeizure[]       @relation("CustomsSeizureCreatedBy")
   customsApplicationsCreated CustomsApplication[] @relation("CustomsApplicationCreatedBy")
   custodyLogsActed       CustodyLog[]           @relation("CustodyLogActor")
+  clientNotesCreated     ClientNote[]           @relation("ClientNoteCreatedBy")
 
   @@map("users")
 }
@@ -323,6 +324,7 @@ model Client {
   portalUsers         User[]                @relation("PortalClient")
   offices             ClientOffice[]
   contacts            Contact[]
+  clientNotes         ClientNote[]
   relatedCompanies    RelatedCompany[]      @relation("ClientRelations")
   relatedTo           RelatedCompany[]      @relation("RelatedTo")
   relationshipHistory RelationshipHistory[]
@@ -352,6 +354,22 @@ model Client {
   @@index([holdingGroupId])
   @@index([assignedUserId])
   @@map("clients")
+}
+
+model ClientNote {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  clientId    String   @map("client_id") @db.Uuid
+  body        String
+  createdById String?  @map("created_by_id") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client    Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  createdBy User?  @relation("ClientNoteCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([clientId])
+  @@index([createdAt(sort: Desc)])
+  @@map("client_notes")
 }
 
 model ClientOffice {

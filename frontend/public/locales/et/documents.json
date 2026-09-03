@@ -31,5 +31,9 @@
     "displayName": "Kuvatav nimi",
     "displayNamePlaceholder": "nt. Volikirja mall",
     "category": "Kategooria"
+  },
+  "actions": {
+    "view": "View",
+    "download": "Laadi alla"
   }
 }

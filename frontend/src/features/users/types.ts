@@ -35,6 +35,7 @@ export type UserFilters = {
   segment: UserSegment
   search?: string
   isActive?: boolean
+  role?: string
   limit?: number
   cursor?: string
 }
