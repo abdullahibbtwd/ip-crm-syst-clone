@@ -1,13 +1,14 @@
 import {
   CreateBucketCommand,
   DeleteObjectCommand,
+  GetObjectCommand,
   HeadBucketCommand,
   PutBucketLifecycleConfigurationCommand,
   PutObjectCommand,
   S3Client,
+  type S3ClientConfig,
 } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
-import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
@@ -19,6 +20,8 @@ const DEFAULT_MAILBOX_STAGING_RETENTION_DAYS = 30;
 export class MinioStorageService implements OnModuleInit {
   private readonly logger = new Logger(MinioStorageService.name);
   private client!: S3Client;
+  /** Signs browser-facing URLs; may differ from the internal Docker hostname. */
+  private signingClient!: S3Client;
   private bucket!: string;
 
   constructor(private readonly config: ConfigService) {}
@@ -31,16 +34,49 @@ export class MinioStorageService implements OnModuleInit {
     const secretKey = this.config.get<string>('MINIO_SECRET_KEY', 'crm_minio_secret');
     this.bucket = this.config.get<string>('MINIO_BUCKET', 'ip-crm-documents');
 
-    const protocol = useSsl ? 'https' : 'http';
-    this.client = new S3Client({
-      region: this.config.get<string>('MINIO_REGION', 'us-east-1'),
-      endpoint: `${protocol}://${endpoint}:${port}`,
-      forcePathStyle: true,
-      credentials: { accessKeyId: accessKey, secretAccessKey: secretKey },
-    });
+    this.client = this.createS3Client(endpoint, port, useSsl, accessKey, secretKey);
+
+    const publicEndpoint =
+      this.config.get<string>('MINIO_PUBLIC_ENDPOINT')?.trim() || endpoint;
+    const publicPort =
+      this.config.get<string>('MINIO_PUBLIC_PORT')?.trim() || port;
+    const publicUseSsl =
+      this.config.get<string>('MINIO_PUBLIC_USE_SSL', useSsl ? 'true' : 'false') ===
+      'true';
+
+    this.signingClient =
+      publicEndpoint === endpoint && publicPort === port && publicUseSsl === useSsl
+        ? this.client
+        : this.createS3Client(
+            publicEndpoint,
+            publicPort,
+            publicUseSsl,
+            accessKey,
+            secretKey,
+          );
 
     await this.ensureBucket();
     await this.ensureMailboxStagingLifecycle();
+  }
+
+  private createS3Client(
+    host: string,
+    port: string,
+    useSsl: boolean,
+    accessKey: string,
+    secretKey: string,
+  ) {
+    const protocol = useSsl ? 'https' : 'http';
+    const config: S3ClientConfig = {
+      region: this.config.get<string>('MINIO_REGION', 'us-east-1'),
+      endpoint: `${protocol}://${host}:${port}`,
+      forcePathStyle: true,
+      credentials: { accessKeyId: accessKey, secretAccessKey: secretKey },
+      // MinIO often rejects AWS SDK v3 default checksum headers on GetObject.
+      requestChecksumCalculation: 'WHEN_REQUIRED',
+      responseChecksumValidation: 'WHEN_REQUIRED',
+    };
+    return new S3Client(config);
   }
 
   private async ensureBucket() {
@@ -135,7 +171,9 @@ export class MinioStorageService implements OnModuleInit {
         : undefined,
       ResponseContentType: extras?.contentType || undefined,
     });
-    return getSignedUrl(this.client, command, { expiresIn: expiresInSeconds });
+    return getSignedUrl(this.signingClient ?? this.client, command, {
+      expiresIn: expiresInSeconds,
+    });
   }
 
   async getObjectBuffer(key: string): Promise<Buffer> {

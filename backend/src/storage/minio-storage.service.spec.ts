@@ -83,6 +83,37 @@ describe('MinioStorageService', () => {
       expect(send.mock.calls[0][0].name).toBe('HeadBucket');
     });
 
+    it('signs browser URLs against the public MinIO host', async () => {
+      const { S3Client } = jest.requireMock('@aws-sdk/client-s3');
+      S3Client.mockClear();
+      configGet.mockImplementation((key: string, fallback?: string) => {
+        const values: Record<string, string> = {
+          MINIO_ENDPOINT: 'minio',
+          MINIO_PORT: '9000',
+          MINIO_USE_SSL: 'false',
+          MINIO_PUBLIC_ENDPOINT: 'localhost',
+          MINIO_PUBLIC_PORT: '9000',
+          MINIO_PUBLIC_USE_SSL: 'false',
+          MINIO_ACCESS_KEY: 'key',
+          MINIO_SECRET_KEY: 'secret',
+          MINIO_BUCKET: 'test-bucket',
+          MINIO_REGION: 'us-east-1',
+          MAILBOX_STAGING_RETENTION_DAYS: '0',
+        };
+        return values[key] ?? fallback;
+      });
+      send.mockResolvedValue({});
+
+      await service.onModuleInit();
+
+      expect(S3Client).toHaveBeenCalledWith(
+        expect.objectContaining({ endpoint: 'http://minio:9000' }),
+      );
+      expect(S3Client).toHaveBeenCalledWith(
+        expect.objectContaining({ endpoint: 'http://localhost:9000' }),
+      );
+    });
+
     it('tolerates lifecycle configuration failures', async () => {
       send.mockResolvedValueOnce({}).mockRejectedValueOnce(new Error('lifecycle denied'));
 
