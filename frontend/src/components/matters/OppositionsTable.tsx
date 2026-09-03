@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Eye, Folder, FolderOpen, Loader2 } from 'lucide-react'
 import { OppositionStageBadge } from '@/components/matters/OppositionStageBadge'
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/table'
 import { clientDisplayName } from '@/features/crm/utils'
 import type { MatterListItem } from '@/features/matters/types'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 import { cn } from '@/lib/utils'
 
@@ -64,7 +65,7 @@ export function OppositionsTable({
   onPageSizeChange,
 }: OppositionsTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter, linkState, onLinkClick } = useOpenMatter()
   const colCount = 4
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -135,7 +136,9 @@ export function OppositionsTable({
                   <TableCell className="whitespace-normal py-3 font-medium">
                     <Link
                       to={`/matters/${matter.id}/overview`}
+                      state={linkState}
                       className="text-primary hover:underline"
+                      onClick={onLinkClick}
                     >
                       {matter.title}
                     </Link>
@@ -152,7 +155,7 @@ export function OppositionsTable({
                         type="button"
                         variant="ghost"
                         size="icon-sm"
-                        onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                        onClick={() => openMatter(matter.id)}
                         aria-label={t('oppositionList.viewAria', { title: matter.title })}
                         title={t('oppositionList.view')}
                       >
@@ -164,7 +167,7 @@ export function OppositionsTable({
                         size="sm"
                         className="relative gap-1.5 px-2"
                         onClick={() =>
-                          navigate(`/matters/${matter.id}/opposition-archive`)
+                          openMatter(matter.id, 'opposition-archive')
                         }
                         aria-label={t('oppositionList.filesAria', {
                           title: matter.title,

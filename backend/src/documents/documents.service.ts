@@ -473,6 +473,7 @@ export class DocumentsService {
     documentId: string,
     versionId?: string,
     disposition?: 'inline' | 'attachment',
+    publicHost?: string,
   ) {
     const doc = await this.prisma.matterDocument.findUnique({
       where: { id: documentId },
@@ -498,6 +499,7 @@ export class DocumentsService {
         disposition,
         fileName: version.fileName,
         contentType: version.mimeType,
+        publicHost,
       },
     );
     return {
@@ -506,6 +508,33 @@ export class DocumentsService {
       mimeType: version.mimeType,
       version: version.version,
       clientId: doc.matter.clientId,
+    };
+  }
+
+  async getFileContents(documentId: string, versionId?: string) {
+    const doc = await this.prisma.matterDocument.findUnique({
+      where: { id: documentId },
+      select: { id: true },
+    });
+    if (!doc) throw new NotFoundException('Document not found');
+
+    const version = versionId
+      ? await this.prisma.matterDocumentVersion.findFirst({
+          where: { id: versionId, documentId },
+        })
+      : await this.prisma.matterDocumentVersion.findFirst({
+          where: { documentId },
+          orderBy: { version: 'desc' },
+        });
+
+    if (!version) throw new NotFoundException('Document version not found');
+
+    const buffer = await this.storage.getObjectBuffer(version.storageKey);
+    return {
+      buffer,
+      fileName: version.fileName,
+      mimeType: version.mimeType,
+      version: version.version,
     };
   }
 
@@ -780,7 +809,11 @@ export class DocumentsService {
     });
   }
 
-  async getClientDownloadUrl(documentId: string, versionId?: string) {
+  async getClientDownloadUrl(
+    documentId: string,
+    versionId?: string,
+    publicHost?: string,
+  ) {
     const doc = await this.prisma.clientDocument.findUnique({
       where: { id: documentId },
       select: { clientId: true },
@@ -804,6 +837,7 @@ export class DocumentsService {
       {
         fileName: version.fileName,
         contentType: version.mimeType,
+        publicHost,
       },
     );
     return {
@@ -970,6 +1004,7 @@ export class DocumentsService {
     documentId: string,
     versionId?: string,
     disposition?: 'inline' | 'attachment',
+    publicHost?: string,
   ) {
     const doc = await this.prisma.sharedDocument.findUnique({
       where: { id: documentId },
@@ -995,6 +1030,7 @@ export class DocumentsService {
         disposition,
         fileName: version.fileName,
         contentType: version.mimeType,
+        publicHost,
       },
     );
     return {

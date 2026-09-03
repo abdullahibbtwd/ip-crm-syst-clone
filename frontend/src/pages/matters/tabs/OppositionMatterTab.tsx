@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useQuery } from '@tanstack/react-query'
 import { Pencil } from 'lucide-react'
 import { MarkImageThumb } from '@/components/matters/MarkImageThumb'
 import { MarkImageUploadField } from '@/components/matters/MarkImageUploadField'
@@ -20,7 +19,7 @@ import {
 } from '@/components/ui/select'
 import { clientDisplayName } from '@/features/crm/utils'
 import { useAuth } from '@/features/auth/AuthProvider'
-import { documentsApi } from '@/features/documents/api'
+import { useDocumentImageSrc } from '@/features/documents/hooks/useDocumentImageSrc'
 import { getCountryLabel } from '@/lib/countries'
 import { useUpdateMatter } from '@/features/matters/hooks/useMatters'
 import {
@@ -141,21 +140,11 @@ export function OppositionMatterTab({ matter }: OppositionMatterTabProps) {
   const [decisionDate, setDecisionDate] = useState(decisionRef.date ?? '')
 
   const storedMarkImage = readMarkImageRefs(attrs)
-  const { data: markImageDownload } = useQuery({
-    queryKey: [
-      'opposition-mark-image',
-      matter.id,
-      storedMarkImage.documentId,
-      storedMarkImage.versionId,
-    ],
-    queryFn: () =>
-      documentsApi.getDownloadUrl(
-        storedMarkImage.documentId!,
-        storedMarkImage.versionId ?? undefined,
-      ),
-    enabled: Boolean(storedMarkImage.documentId) && !markImageFile && !clearMarkImage,
-    staleTime: 10 * 60 * 1000,
-  })
+  const { src: markImagePreviewUrl } = useDocumentImageSrc(
+    storedMarkImage.documentId,
+    storedMarkImage.versionId,
+    !markImageFile && !clearMarkImage,
+  )
 
   const applicantLabel = matter.applicantClient
     ? clientDisplayName(matter.applicantClient)
@@ -307,7 +296,7 @@ export function OppositionMatterTab({ matter }: OppositionMatterTabProps) {
   ) : null
 
   const previewUrl =
-    clearMarkImage || markImageFile ? null : markImageDownload?.url ?? null
+    clearMarkImage || markImageFile ? null : markImagePreviewUrl ?? null
 
   return (
     <div className="mx-auto max-w-5xl space-y-6">

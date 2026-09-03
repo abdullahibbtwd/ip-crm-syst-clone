@@ -11,6 +11,7 @@ import {
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { resolveMinioPublicHost } from './minio-public-host';
 
 /** Staging mailbox `.eml` prefix — keep in sync with email-sync ingest keys. */
 const MAILBOX_STAGING_PREFIX = 'mailbox/';
@@ -22,7 +23,16 @@ export class MinioStorageService implements OnModuleInit {
   private client!: S3Client;
   /** Signs browser-facing URLs; may differ from the internal Docker hostname. */
   private signingClient!: S3Client;
+  private readonly signingClients = new Map<string, S3Client>();
   private bucket!: string;
+  private accessKey = '';
+  private secretKey = '';
+  private internalEndpoint = 'localhost';
+  private internalPort = '9000';
+  private internalUseSsl = false;
+  private configuredPublicEndpoint = 'localhost';
+  private publicPort = '9000';
+  private publicUseSsl = false;
 
   constructor(private readonly config: ConfigService) {}
 
@@ -30,30 +40,46 @@ export class MinioStorageService implements OnModuleInit {
     const endpoint = this.config.get<string>('MINIO_ENDPOINT', 'localhost');
     const port = this.config.get<string>('MINIO_PORT', '9000');
     const useSsl = this.config.get<string>('MINIO_USE_SSL', 'false') === 'true';
-    const accessKey = this.config.get<string>('MINIO_ACCESS_KEY', 'crm_minio');
-    const secretKey = this.config.get<string>('MINIO_SECRET_KEY', 'crm_minio_secret');
+    this.accessKey = this.config.get<string>('MINIO_ACCESS_KEY', 'crm_minio');
+    this.secretKey = this.config.get<string>(
+      'MINIO_SECRET_KEY',
+      'crm_minio_secret',
+    );
     this.bucket = this.config.get<string>('MINIO_BUCKET', 'ip-crm-documents');
+    this.internalEndpoint = endpoint;
+    this.internalPort = port;
+    this.internalUseSsl = useSsl;
 
-    this.client = this.createS3Client(endpoint, port, useSsl, accessKey, secretKey);
+    this.client = this.createS3Client(
+      endpoint,
+      port,
+      useSsl,
+      this.accessKey,
+      this.secretKey,
+    );
 
     const publicEndpoint =
       this.config.get<string>('MINIO_PUBLIC_ENDPOINT')?.trim() || endpoint;
-    const publicPort =
+    this.configuredPublicEndpoint = publicEndpoint;
+    this.publicPort =
       this.config.get<string>('MINIO_PUBLIC_PORT')?.trim() || port;
-    const publicUseSsl =
+    this.publicUseSsl =
       this.config.get<string>('MINIO_PUBLIC_USE_SSL', useSsl ? 'true' : 'false') ===
       'true';
 
     this.signingClient =
-      publicEndpoint === endpoint && publicPort === port && publicUseSsl === useSsl
+      publicEndpoint === endpoint &&
+      this.publicPort === port &&
+      this.publicUseSsl === useSsl
         ? this.client
         : this.createS3Client(
             publicEndpoint,
-            publicPort,
-            publicUseSsl,
-            accessKey,
-            secretKey,
+            this.publicPort,
+            this.publicUseSsl,
+            this.accessKey,
+            this.secretKey,
           );
+    this.signingClients.set(this.signerCacheKey(publicEndpoint), this.signingClient);
 
     await this.ensureBucket();
     await this.ensureMailboxStagingLifecycle();
@@ -77,6 +103,39 @@ export class MinioStorageService implements OnModuleInit {
       responseChecksumValidation: 'WHEN_REQUIRED',
     };
     return new S3Client(config);
+  }
+
+  private signerCacheKey(host: string) {
+    return `${host}:${this.publicPort}:${this.publicUseSsl ? 'ssl' : 'plain'}`;
+  }
+
+  private signerFor(requestedHost?: string): S3Client {
+    if (!this.accessKey) {
+      return this.signingClient ?? this.client;
+    }
+    const host = resolveMinioPublicHost(
+      this.configuredPublicEndpoint,
+      requestedHost,
+    );
+    const cacheKey = this.signerCacheKey(host);
+    const cached = this.signingClients.get(cacheKey);
+    if (cached) return cached;
+
+    const sameAsInternal =
+      host === this.internalEndpoint &&
+      this.publicPort === this.internalPort &&
+      this.publicUseSsl === this.internalUseSsl;
+    const client = sameAsInternal
+      ? this.client
+      : this.createS3Client(
+          host,
+          this.publicPort,
+          this.publicUseSsl,
+          this.accessKey,
+          this.secretKey,
+        );
+    this.signingClients.set(cacheKey, client);
+    return client;
   }
 
   private async ensureBucket() {
@@ -160,6 +219,7 @@ export class MinioStorageService implements OnModuleInit {
       disposition?: 'inline' | 'attachment';
       fileName?: string;
       contentType?: string | null;
+      publicHost?: string;
     },
   ) {
     const fileName = extras?.fileName?.replace(/[\r\n"]/g, '_').trim();
@@ -171,7 +231,7 @@ export class MinioStorageService implements OnModuleInit {
         : undefined,
       ResponseContentType: extras?.contentType || undefined,
     });
-    return getSignedUrl(this.signingClient ?? this.client, command, {
+    return getSignedUrl(this.signerFor(extras?.publicHost), command, {
       expiresIn: expiresInSeconds,
     });
   }

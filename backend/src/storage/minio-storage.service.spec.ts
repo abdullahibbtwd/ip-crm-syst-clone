@@ -178,6 +178,37 @@ describe('MinioStorageService', () => {
       });
     });
 
+    it('getPresignedDownloadUrl signs with the browser host when public config is localhost', async () => {
+      configGet.mockImplementation((key: string, fallback?: string) => {
+        const values: Record<string, string> = {
+          MINIO_ENDPOINT: 'minio',
+          MINIO_PORT: '9000',
+          MINIO_USE_SSL: 'false',
+          MINIO_PUBLIC_ENDPOINT: 'localhost',
+          MINIO_PUBLIC_PORT: '9000',
+          MINIO_ACCESS_KEY: 'key',
+          MINIO_SECRET_KEY: 'secret',
+          MINIO_BUCKET: 'test-bucket',
+          MINIO_REGION: 'us-east-1',
+          MAILBOX_STAGING_RETENTION_DAYS: '0',
+        };
+        return values[key] ?? fallback;
+      });
+      send.mockResolvedValue({});
+      await service.onModuleInit();
+
+      const { S3Client } = jest.requireMock('@aws-sdk/client-s3');
+      S3Client.mockClear();
+      await service.getPresignedDownloadUrl('k', 60, {
+        publicHost: '187.127.233.163',
+      });
+      expect(S3Client).toHaveBeenCalledWith(
+        expect.objectContaining({
+          endpoint: 'http://187.127.233.163:9000',
+        }),
+      );
+    });
+
     it('getPresignedDownloadUrl uses signer', async () => {
       const { getSignedUrl } = jest.requireMock('@aws-sdk/s3-request-presigner');
       await expect(service.getPresignedDownloadUrl('k', 60)).resolves.toBe(

@@ -5,6 +5,7 @@ import {
   Post,
   Query,
   Req,
+  StreamableFile,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -45,6 +46,28 @@ export class DocumentsController {
     return this.documentsService.listVersions(id);
   }
 
+  @Get(':id/file')
+  @Audit({
+    action: 'document.download',
+    resource: 'document',
+    module: DOCUMENTS_MODULE,
+    personalDataExport: true,
+  })
+  async file(
+    @Param('id') id: string,
+    @Req() req: Request,
+    @Query('versionId') versionId?: string,
+  ) {
+    const user = req.user as AuthenticatedUser;
+    await this.portalAccess.assertDocumentAccess(id, user);
+    const file = await this.documentsService.getFileContents(id, versionId);
+    const safeName = file.fileName.replace(/[\r\n"]/g, '_') || 'document';
+    return new StreamableFile(file.buffer, {
+      type: file.mimeType || 'application/octet-stream',
+      disposition: `inline; filename="${safeName}"`,
+    });
+  }
+
   @Get(':id/download')
   @Audit({
     action: 'document.download',
@@ -57,6 +80,7 @@ export class DocumentsController {
     @Req() req: Request,
     @Query('versionId') versionId?: string,
     @Query('disposition') disposition?: string,
+    @Query('publicHost') publicHost?: string,
   ) {
     const user = req.user as AuthenticatedUser;
     await this.portalAccess.assertDocumentAccess(id, user);
@@ -66,6 +90,7 @@ export class DocumentsController {
       disposition === 'inline' || disposition === 'attachment'
         ? disposition
         : undefined,
+      publicHost,
     );
   }
 

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
   CalendarClock,
@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/table'
 import { clientDisplayName } from '@/features/crm/utils'
 import type { MatterListItem } from '@/features/matters/types'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import {
   MATTER_TYPE_LABELS,
   formatJurisdictions,
@@ -76,7 +77,7 @@ export function MattersTable({
   compact = false,
 }: MattersTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter, linkState, onLinkClick } = useOpenMatter()
   const colCount = compact ? 7 : 8
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -93,7 +94,7 @@ export function MattersTable({
                 <button
                   type="button"
                   className="w-full rounded-lg border p-4 text-left transition-colors hover:bg-muted/40"
-                  onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                  onClick={() => openMatter(matter.id)}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1 space-y-1">
@@ -202,19 +203,20 @@ export function MattersTable({
                 tabIndex={0}
                 role="link"
                 aria-label={`View ${matter.title}`}
-                onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                onClick={() => openMatter(matter.id)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    navigate(`/matters/${matter.id}/overview`)
+                    openMatter(matter.id)
                   }
                 }}
               >
                 <TableCell className="whitespace-normal py-4">
                   <Link
                     to={`/matters/${matter.id}/overview`}
+                    state={linkState}
                     className="font-medium text-primary hover:underline"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={onLinkClick}
                   >
                     {matter.title}
                   </Link>
@@ -253,7 +255,11 @@ export function MattersTable({
                 </TableCell>
                 <TableCell onClick={(e) => e.stopPropagation()}>
                   {(matter.upcomingDeadlineCount ?? 0) > 0 ? (
-                    <Link to={`/matters/${matter.id}/deadlines`}>
+                    <Link
+                      to={`/matters/${matter.id}/deadlines`}
+                      state={linkState}
+                      onClick={onLinkClick}
+                    >
                       <Badge
                         variant="outline"
                         className="gap-1 border-amber-500/50 bg-amber-500/10 font-medium normal-case text-amber-700 dark:text-amber-400"

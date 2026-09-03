@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { FolderOpen } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/table'
 import { clientDisplayName } from '@/features/crm/utils'
 import type { MatterListItem } from '@/features/matters/types'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import {
   formatRefNumberDate,
   formatSpcClaims,
@@ -77,7 +78,7 @@ export function SpcTable({
   onPageSizeChange,
 }: SpcTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter, linkState, onLinkClick } = useOpenMatter()
   const colCount = 8
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -150,19 +151,20 @@ export function SpcTable({
                   tabIndex={0}
                   role="link"
                   aria-label={t('table.viewAria', { title: matter.title })}
-                  onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                  onClick={() => openMatter(matter.id)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
-                      navigate(`/matters/${matter.id}/overview`)
+                      openMatter(matter.id)
                     }
                   }}
                 >
                   <TableCell className="whitespace-normal py-3 font-medium">
                     <Link
                       to={`/matters/${matter.id}/overview`}
+                      state={linkState}
                       className="text-primary hover:underline"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={onLinkClick}
                     >
                       {matter.title}
                     </Link>

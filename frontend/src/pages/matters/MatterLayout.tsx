@@ -40,8 +40,8 @@ import {
   oppositionStageConfig,
 } from '@/features/matters/opposition-workflow'
 import { matterTypeLabel } from '@/features/matters/utils'
+import { resolveMatterBackUrl } from '@/features/matters/matter-return'
 import {
-  procedureListUrl,
   procedurePageTitleKey,
   procedureViewRoutes,
   trademarkProcedureView,
@@ -258,13 +258,10 @@ export function MatterLayout() {
   return (
     <div className="space-y-6">
       <Link
-        to={
-          matter?.isArchived
-            ? '/matters?archived=1'
-            : procedureView
-              ? procedureListUrl(procedureView)
-              : '/matters'
-        }
+        to={resolveMatterBackUrl(
+          matter,
+          (location.state as { from?: string } | null)?.from,
+        )}
         className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }), 'px-0')}
       >
         {t('layout.backToMatters')}

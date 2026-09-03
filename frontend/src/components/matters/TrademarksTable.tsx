@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { CalendarClock, FolderOpen, Loader2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/table'
 import { clientDisplayName } from '@/features/crm/utils'
 import type { MatterListItem } from '@/features/matters/types'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import { MarkImageThumb } from '@/components/matters/MarkImageThumb'
 import {
   formatNiceClasses,
@@ -78,7 +79,7 @@ export function TrademarksTable({
   onPageSizeChange,
 }: TrademarksTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter, linkState, onLinkClick } = useOpenMatter()
   const colCount = 9
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -156,11 +157,11 @@ export function TrademarksTable({
                   tabIndex={0}
                   role="link"
                   aria-label={t('table.viewAria', { title: matter.title })}
-                  onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                  onClick={() => openMatter(matter.id)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
-                      navigate(`/matters/${matter.id}/overview`)
+                      openMatter(matter.id)
                     }
                   }}
                 >
@@ -172,8 +173,9 @@ export function TrademarksTable({
                       />
                       <Link
                         to={`/matters/${matter.id}/overview`}
+                        state={linkState}
                         className="min-w-0 text-primary hover:underline"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={onLinkClick}
                       >
                         {matter.title}
                       </Link>
@@ -210,7 +212,12 @@ export function TrademarksTable({
                   </TableCell>
                   <TableCell onClick={(e) => e.stopPropagation()}>
                     {hasDeadline ? (
-                      <Link to={`/matters/${matter.id}/deadlines`} className="block space-y-1">
+                      <Link
+                        to={`/matters/${matter.id}/deadlines`}
+                        state={linkState}
+                        onClick={onLinkClick}
+                        className="block space-y-1"
+                      >
                         <Badge
                           variant="destructive"
                           className="gap-1 normal-case font-bold tabular-nums"

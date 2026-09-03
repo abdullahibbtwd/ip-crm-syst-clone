@@ -21,7 +21,11 @@ describe('DocumentsService', () => {
       create: jest.Mock;
     };
   };
-  let storage: { getPresignedDownloadUrl: jest.Mock; putObject: jest.Mock };
+  let storage: {
+    getPresignedDownloadUrl: jest.Mock;
+    putObject: jest.Mock;
+    getObjectBuffer: jest.Mock;
+  };
   let pdfRenderer: { renderHtmlToPdf: jest.Mock };
   let documentTemplates: {
     findById: jest.Mock;
@@ -49,6 +53,7 @@ describe('DocumentsService', () => {
     storage = {
       getPresignedDownloadUrl: jest.fn().mockResolvedValue('https://dl'),
       putObject: jest.fn().mockResolvedValue(undefined),
+      getObjectBuffer: jest.fn().mockResolvedValue(Buffer.from('img')),
     };
     pdfRenderer = {
       renderHtmlToPdf: jest.fn().mockResolvedValue(Buffer.from('pdf')),
@@ -125,6 +130,11 @@ describe('DocumentsService', () => {
       url: 'https://dl',
       fileName: 'a.pdf',
     });
+    await expect(service.getFileContents('d1')).resolves.toMatchObject({
+      fileName: 'a.pdf',
+      mimeType: 'application/pdf',
+    });
+    expect(storage.getObjectBuffer).toHaveBeenCalledWith('k');
   });
 
   it('upload creates document and first version', async () => {

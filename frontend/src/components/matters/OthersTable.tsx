@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import { useTranslation } from 'react-i18next'
 import { Eye, Folder } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -71,7 +71,7 @@ export function OthersTable({
   onPageSizeChange,
 }: OthersTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter } = useOpenMatter()
   const colCount = 7
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -155,7 +155,7 @@ export function OthersTable({
                         size="icon"
                         className="size-8"
                         aria-label={t('otherList.viewAria', { title: matter.title })}
-                        onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                        onClick={() => openMatter(matter.id)}
                       >
                         <Eye className="size-4" />
                       </Button>
@@ -168,7 +168,7 @@ export function OthersTable({
                           title: matter.title,
                           count: matter.documentCount ?? 0,
                         })}
-                        onClick={() => navigate(`/matters/${matter.id}/documents`)}
+                        onClick={() => openMatter(matter.id, 'documents')}
                       >
                         <Folder className="size-4" />
                         {(matter.documentCount ?? 0) > 0 ? (

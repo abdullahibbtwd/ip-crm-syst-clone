@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
 import { ImageIcon } from 'lucide-react'
-import { documentsApi } from '@/features/documents/api'
+import { useDocumentImageSrc } from '@/features/documents/hooks/useDocumentImageSrc'
 import { cn } from '@/lib/utils'
 
 type MarkImageThumbProps = {
@@ -17,22 +15,9 @@ export function MarkImageThumb({
   size = 'sm',
   className,
 }: MarkImageThumbProps) {
-  const { data, isLoading } = useQuery({
-    queryKey: ['mark-image-thumb', documentId, versionId],
-    queryFn: () =>
-      documentsApi.getDownloadUrl(documentId!, versionId ?? undefined),
-    enabled: Boolean(documentId),
-    staleTime: 60 * 1000,
-  })
-
-  const [broken, setBroken] = useState(false)
-
-  useEffect(() => {
-    setBroken(false)
-  }, [documentId, versionId, data?.url])
-
+  const { src, blob, isLoading } = useDocumentImageSrc(documentId, versionId)
   const dim = size === 'sm' ? 'size-10' : 'size-14'
-  const isImage = Boolean(data?.mimeType?.startsWith('image/')) && !broken
+  const isImage = Boolean(src) && (!blob?.type || blob.type.startsWith('image/'))
 
   if (!documentId) return null
 
@@ -49,7 +34,7 @@ export function MarkImageThumb({
     )
   }
 
-  if (!data?.url || !isImage) {
+  if (!isImage || !src) {
     return (
       <span
         className={cn(
@@ -66,9 +51,8 @@ export function MarkImageThumb({
 
   return (
     <img
-      src={data.url}
+      src={src}
       alt=""
-      onError={() => setBroken(true)}
       className={cn(dim, 'shrink-0 rounded-md border object-contain bg-white', className)}
     />
   )

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useQuery } from '@tanstack/react-query'
 import { Pencil } from 'lucide-react'
 import { MarkImageUploadField } from '@/components/matters/MarkImageUploadField'
 import { MarkImageThumb } from '@/components/matters/MarkImageThumb'
@@ -9,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { clientDisplayName } from '@/features/crm/utils'
-import { documentsApi } from '@/features/documents/api'
+import { useDocumentImageSrc } from '@/features/documents/hooks/useDocumentImageSrc'
 import { useUpdateMatter } from '@/features/matters/hooks/useMatters'
 import {
   markImageAttributePatch,
@@ -69,21 +68,11 @@ export function ObjectionMatterTab({ matter }: ObjectionMatterTabProps) {
   const [poaDate, setPoaDate] = useState(initial.poaDate)
 
   const storedMarkImage = readMarkImageRefs(attrs)
-  const { data: markImageDownload } = useQuery({
-    queryKey: [
-      'objection-mark-image',
-      matter.id,
-      storedMarkImage.documentId,
-      storedMarkImage.versionId,
-    ],
-    queryFn: () =>
-      documentsApi.getDownloadUrl(
-        storedMarkImage.documentId!,
-        storedMarkImage.versionId ?? undefined,
-      ),
-    enabled: Boolean(storedMarkImage.documentId) && !markImageFile && !clearMarkImage,
-    staleTime: 10 * 60 * 1000,
-  })
+  const { src: markImagePreviewUrl } = useDocumentImageSrc(
+    storedMarkImage.documentId,
+    storedMarkImage.versionId,
+    !markImageFile && !clearMarkImage,
+  )
 
   const applicantLabel = matter.applicantClient
     ? clientDisplayName(matter.applicantClient)
@@ -199,7 +188,7 @@ export function ObjectionMatterTab({ matter }: ObjectionMatterTabProps) {
   const previewUrl =
     clearMarkImage || markImageFile
       ? null
-      : markImageDownload?.url ?? null
+      : markImagePreviewUrl ?? null
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">

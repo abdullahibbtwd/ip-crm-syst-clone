@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Eye, Folder, FolderOpen, Loader2 } from 'lucide-react'
 import { CancellationStageBadge } from '@/components/matters/CancellationStageBadge'
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/table'
 import { clientDisplayName } from '@/features/crm/utils'
 import type { MatterListItem } from '@/features/matters/types'
+import { useOpenMatter } from '@/features/matters/useOpenMatter'
 import { DEFAULT_PAGE_SIZE } from '@/lib/pagination'
 import { cn } from '@/lib/utils'
 
@@ -64,7 +65,7 @@ export function CancellationsTable({
   onPageSizeChange,
 }: CancellationsTableProps) {
   const { t } = useTranslation(['matters', 'common'])
-  const navigate = useNavigate()
+  const { open: openMatter, linkState, onLinkClick } = useOpenMatter()
   const colCount = 4
 
   const rangeStart = items.length === 0 ? 0 : (page - 1) * pageSize + 1
@@ -135,7 +136,9 @@ export function CancellationsTable({
                   <TableCell className="whitespace-normal py-3 font-medium">
                     <Link
                       to={`/matters/${matter.id}/overview`}
+                      state={linkState}
                       className="text-primary hover:underline"
+                      onClick={onLinkClick}
                     >
                       {matter.title}
                     </Link>
@@ -155,7 +158,7 @@ export function CancellationsTable({
                         type="button"
                         variant="ghost"
                         size="icon-sm"
-                        onClick={() => navigate(`/matters/${matter.id}/overview`)}
+                        onClick={() => openMatter(matter.id)}
                         aria-label={t('cancellationList.viewAria', { title: matter.title })}
                         title={t('cancellationList.view')}
                       >
@@ -167,7 +170,7 @@ export function CancellationsTable({
                         size="sm"
                         className="relative gap-1.5 px-2"
                         onClick={() =>
-                          navigate(`/matters/${matter.id}/cancellation-archive`)
+                          openMatter(matter.id, 'cancellation-archive')
                         }
                         aria-label={t('cancellationList.filesAria', {
                           title: matter.title,

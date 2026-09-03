@@ -69,8 +69,13 @@ export class ClientDocumentsController {
   download(
     @Param('documentId') documentId: string,
     @Query('versionId') versionId?: string,
+    @Query('publicHost') publicHost?: string,
   ) {
-    return this.documentsService.getClientDownloadUrl(documentId, versionId);
+    return this.documentsService.getClientDownloadUrl(
+      documentId,
+      versionId,
+      publicHost,
+    );
   }
 
   @Post(':documentId/versions')

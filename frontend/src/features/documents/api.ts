@@ -12,6 +12,22 @@ import type {
   UploadDocumentInput,
 } from './types'
 
+function browserPublicHost(): string | undefined {
+  if (typeof window === 'undefined') return undefined
+  const host = window.location.hostname.trim()
+  return host || undefined
+}
+
+function downloadParams(extra: Record<string, string | undefined> = {}) {
+  const publicHost = browserPublicHost()
+  const params: Record<string, string> = {}
+  if (publicHost) params.publicHost = publicHost
+  for (const [key, value] of Object.entries(extra)) {
+    if (value) params[key] = value
+  }
+  return params
+}
+
 export const documentsApi = {
   listFirmWide: (filters?: DocumentFilters) =>
     api.get<FirmDocument[]>('/documents', { params: filters }).then((r) => r.data),
@@ -80,10 +96,18 @@ export const documentsApi = {
   ) =>
     api
       .get<DocumentDownloadResponse>(`/documents/${documentId}/download`, {
-        params: {
-          ...(versionId ? { versionId } : {}),
-          ...(disposition ? { disposition } : {}),
-        },
+        params: downloadParams({
+          versionId,
+          disposition,
+        }),
+      })
+      .then((r) => r.data),
+
+  getFileBlob: (documentId: string, versionId?: string) =>
+    api
+      .get<Blob>(`/documents/${documentId}/file`, {
+        params: versionId ? { versionId } : undefined,
+        responseType: 'blob',
       })
       .then((r) => r.data),
 
@@ -91,7 +115,7 @@ export const documentsApi = {
     api
       .get<DocumentDownloadResponse>(
         `/clients/${clientId}/documents/${documentId}/download`,
-        { params: versionId ? { versionId } : undefined },
+        { params: downloadParams({ versionId }) },
       )
       .then((r) => r.data),
 
@@ -102,10 +126,10 @@ export const documentsApi = {
   ) =>
     api
       .get<DocumentDownloadResponse>(`/shared-documents/${documentId}/download`, {
-        params: {
-          ...(versionId ? { versionId } : {}),
-          ...(disposition ? { disposition } : {}),
-        },
+        params: downloadParams({
+          versionId,
+          disposition,
+        }),
       })
       .then((r) => r.data),
 

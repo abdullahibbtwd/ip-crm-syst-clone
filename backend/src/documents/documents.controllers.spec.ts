@@ -13,6 +13,7 @@ describe('Documents controllers', () => {
     listFirmWide: jest.fn(),
     listVersions: jest.fn(),
     getDownloadUrl: jest.fn(),
+    getFileContents: jest.fn(),
     uploadVersion: jest.fn(),
     listForMatter: jest.fn(),
     generateFromTemplate: jest.fn(),
@@ -65,6 +66,7 @@ describe('Documents controllers', () => {
     expect(documentsService.getDownloadUrl).toHaveBeenCalledWith(
       'd1',
       'v1',
+      undefined,
       undefined,
     );
     expect(documentsService.uploadVersion).toHaveBeenCalledWith(
