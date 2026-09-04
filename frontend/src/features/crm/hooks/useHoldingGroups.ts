@@ -1,14 +1,17 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { clientsApi, holdingGroupsApi } from '../api'
 import { clientKeys, holdingGroupKeys } from '../queryKeys'
 import type { HoldingGroupFilters } from '../types'
 import type { CreateHoldingGroupFormValues } from '../schemas'
 
 export function useHoldingGroups(filters?: HoldingGroupFilters) {
+  const authReady = useAuthReady()
   const resolved: HoldingGroupFilters = { limit: 50, ...filters }
   return useQuery({
     queryKey: holdingGroupKeys.list(resolved),
     queryFn: () => holdingGroupsApi.list(resolved),
+    enabled: authReady,
   })
 }
 

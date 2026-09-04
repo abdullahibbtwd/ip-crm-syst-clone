@@ -85,5 +85,20 @@
     "no": "NEIN",
     "none": "Keiner",
     "yes": "Ja"
+  },
+  "search": {
+    "placeholder": "Durchsuchen Sie Kunden, Angelegenheiten, E-Mails ...",
+    "ariaLabel": "Globale Suche",
+    "clear": "Suche löschen",
+    "failed": "Die Suche ist fehlgeschlagen. Versuchen Sie es erneut.",
+    "minChars": "Geben Sie mindestens 2 Zeichen ein.",
+    "noMatches": "Keine Treffer für „{{query}}“.",
+    "types": {
+      "client": "Kunde",
+      "matter": "Gegenstand",
+      "correspondence": "E-Mail / Korrespondenz",
+      "document": "Dokumentieren",
+      "unlinkedEmail": "E-Mail-Warteschlange"
+    }
   }
 }

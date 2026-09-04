@@ -32,7 +32,7 @@
     "deadlines": "Վերջնաժամկետներ",
     "alerts": "Հիշեցումներ",
     "clients": "Հաճախորդներ",
-    "holdingGroups": "Անցկացման խմբեր",
+    "holdingGroups": "ներկայացուցիչներ",
     "allMatters": "Բոլոր ֆայլերը",
     "workingFiles": "Ֆայլեր",
     "createFile": "Ստեղծել ֆայլ",
@@ -109,11 +109,11 @@
     "approvals": "Հաստատումներ",
     "help": "Օգնություն",
     "myPortfolio": "Իմ պորտֆոլիոն",
-    "contacts": "Contacts",
+    "contacts": "Կոնտակտներ",
     "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "generatePoa": "Ստեղծեք POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Սեփականատերեր առանց ներկայացուցչի"
   },
   "roles": {
     "managing_partner": "Կառավարող գործընկեր",

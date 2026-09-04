@@ -245,16 +245,16 @@
         "placeholder": "напр. 12, 35"
       },
       "markKind": {
-        "label": "Mark category"
+        "label": "Маркирайте категория"
       },
       "markWords": {
-        "label": "Words of the mark"
+        "label": "Думи на марката"
       },
       "territory": {
-        "label": "Territory"
+        "label": "Територия"
       },
       "trademarkProcedure": {
-        "label": "Trademark procedure"
+        "label": "Процедура за търговска марка"
       }
     },
     "utility_model": {
@@ -302,7 +302,7 @@
         "label": "Цел",
         "options": {
           "licensing": "Лицензиране",
-          "m_and_a": "M&A",
+          "m_and_a": "Сливания и придобивания",
           "litigation": "Съдебен спор",
           "tax": "Данъци",
           "internal": "Вътрешна"
@@ -328,8 +328,8 @@
       "currency": {
         "label": "Валута",
         "options": {
-          "BGN": "BGN",
-          "EUR": "EUR",
+          "BGN": "лв",
+          "EUR": "евро",
           "USD": "USD"
         }
       }
@@ -443,7 +443,7 @@
         "options": {
           "bpo": "ПВ (BPO)",
           "euipo": "EUIPO",
-          "wipo": "WIPO",
+          "wipo": "СОИС",
           "other": "Друго"
         }
       },
@@ -471,8 +471,8 @@
       "currency": {
         "label": "Валута",
         "options": {
-          "BGN": "BGN",
-          "EUR": "EUR"
+          "BGN": "лв",
+          "EUR": "евро"
         }
       },
       "paymentDeadline": {
@@ -758,11 +758,11 @@
     "selectCountries": "Изберете държави",
     "territory": "Територия",
     "title": "Информация за марка",
-    "markImage": "Mark image",
-    "uploadMarkImage": "Upload image",
-    "replaceMarkImage": "Replace image",
-    "removeMarkImage": "Remove image",
-    "markImageHint": "PNG or JPEG — shown in the trademark list beside the name."
+    "markImage": "Маркирайте изображението",
+    "uploadMarkImage": "Качване на изображение",
+    "replaceMarkImage": "Замяна на изображението",
+    "removeMarkImage": "Премахване на изображението",
+    "markImageHint": "PNG или JPEG — показва се в списъка на търговските марки до името."
   },
   "patentInfo": {
     "title": "Информация за патент",
@@ -1032,7 +1032,7 @@
       "classes": "Класове",
       "country": "Държава",
       "eik": "ЕИК",
-      "email": "E-mail",
+      "email": "Имейл",
       "fax": "Факс",
       "goodsText": "Стоки и услуги",
       "legalName": "Наименование и вид на юридическото лице",
@@ -1219,11 +1219,11 @@
     },
     "giTerritories": {
       "national": "Национална",
-      "eu": "EU",
+      "eu": "ЕС",
       "wo": "WO"
     },
     "designFilingRoutes": {
-      "wipo": "WIPO",
+      "wipo": "СОИС",
       "national": "Национална",
       "euipo": "EUIPO"
     },
@@ -1359,8 +1359,8 @@
     },
     "title": "Срокове",
     "summary": {
-      "open": "Open deadlines",
-      "overdue": "Overdue"
+      "open": "Отворени срокове",
+      "overdue": "Просрочени"
     }
   },
   "documents": {
@@ -1768,13 +1768,13 @@
       "clear": "Изчисти филтрите",
       "apply": "Приложи филтрите"
     },
-    "description": "Trademark portfolio — prosecution stage, classes, applicant, and deadlines at a glance."
+    "description": "Портфолио от търговски марки — етап на съдебно преследване, класове, кандидат и крайни срокове с един поглед."
   },
   "utilityModelList": {
     "description": "Полезни модели — територия, претенции, притежател и регистрация на един поглед.",
     "emptyDescription": "Опитайте да промените филтрите или създайте нов файл за полезен модел.",
     "searchResults": "Резултати от търсене: {{count}}",
-    "territoryWipo": "WIPO",
+    "territoryWipo": "СОИС",
     "status": {
       "registered": "Регистриран"
     },
@@ -1826,7 +1826,7 @@
     "description": "Допълнителни сертификати за защита (SPC) — територия, претенции, притежател и регистрация на един поглед.",
     "emptyDescription": "Опитайте да промените филтрите или създайте нов SPC файл.",
     "searchResults": "Резултати от търсене: {{count}}",
-    "territoryWipo": "WIPO",
+    "territoryWipo": "СОИС",
     "status": {
       "registered": "Регистриран"
     },
@@ -1936,8 +1936,8 @@
     "description": "Географски означения — територия, класове продукти, притежател и регистрация на един поглед.",
     "emptyDescription": "Опитайте да промените филтрите или създайте нов файл за географско означение.",
     "searchResults": "Резултати от търсене: {{count}}",
-    "territoryEu": "EU",
-    "territoryWipo": "WIPO",
+    "territoryEu": "ЕС",
+    "territoryWipo": "СОИС",
     "status": {
       "registered": "Регистриран"
     },
@@ -1990,8 +1990,8 @@
     "description": "Регистрирани дизайни — територия, класификация по Локарно, притежател и регистрация на един поглед.",
     "emptyDescription": "Опитайте да промените филтрите или създайте нов дизайн файл.",
     "searchResults": "Резултати от търсене: {{count}}",
-    "territoryEu": "EU",
-    "territoryWipo": "WIPO",
+    "territoryEu": "ЕС",
+    "territoryWipo": "СОИС",
     "status": {
       "registered": "Регистриран"
     },
@@ -2043,7 +2043,7 @@
   "patentList": {
     "description": "Нови и регистрирани патенти заедно — статус, претенции, притежател и срокове на един поглед.",
     "emptyDescription": "Опитайте да промените филтрите или създайте нов патентен файл.",
-    "territoryEp": "EP",
+    "territoryEp": "ЕП",
     "columns": {
       "name": "Име",
       "territory": "Територия",
@@ -2244,7 +2244,7 @@
       "second_decision": "Второ решение по опозиция",
       "appealedBy": "Обжалвано от {{name}}",
       "appealedInCourtBy": "Обжалвано в съд от {{name}}",
-      "decisionRef": "No. {{number}} / {{date}}",
+      "decisionRef": "№ {{number}} / {{date}}",
       "appealFiled": "Подадена жалба",
       "courtAppealFiled": "Подадена съдебна жалба"
     },
@@ -2561,7 +2561,7 @@
     "sound": "Звукова",
     "three_dimensional": "3D",
     "wordmark": "Думна марка",
-    "combination_of_colors": "Combination of colors"
+    "combination_of_colors": "Комбинация от цветове"
   },
   "overview": {
     "assignedTo": "Водещ адвокат",
@@ -2583,21 +2583,21 @@
     "type": "Вид работа",
     "typeSpecific": "Атрибути специфични за типа",
     "edit": {
-      "cancel": "Cancel",
-      "edit": "Edit",
+      "cancel": "Отказ",
+      "edit": "Редактиране",
       "errors": {
-        "saveFailed": "Could not save file details.",
-        "title": "Title is required."
+        "saveFailed": "Подробностите за файла не можаха да бъдат запазени.",
+        "title": "Заглавието е задължително."
       },
       "fields": {
-        "territory": "Territory (from create file)",
-        "title": "Title"
+        "territory": "Територия (от файл за създаване)",
+        "title": "Заглавие"
       },
-      "hint": "Click Edit to change file details, then Save changes. Territory stays as set when the file was created.",
-      "save": "Save changes",
-      "saved": "Saved.",
-      "saving": "Saving…",
-      "title": "File details"
+      "hint": "Щракнете върху Редактиране, за да промените подробностите за файла, след това върху Запазване на промените. Територията остава както е зададена при създаването на файла.",
+      "save": "Запазете промените",
+      "saved": "Запазено.",
+      "saving": "Запазва се...",
+      "title": "Подробности за файла"
     }
   },
   "parties": {
@@ -2648,7 +2648,7 @@
     "overview": "Преглед",
     "tasks": "Бележки",
     "timeline": "Хронология",
-    "countAria": "{{count}} on {{tab}}"
+    "countAria": "{{count}} на {{tab}}"
   },
   "approvals": {
     "title": "Клиентски одобрения",

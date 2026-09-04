@@ -32,7 +32,7 @@
     "deadlines": "Rokovi",
     "alerts": "Podsjetnici",
     "clients": "Klijenti",
-    "holdingGroups": "Držanje grupa",
+    "holdingGroups": "Predstavnici",
     "allMatters": "Svi fajlovi",
     "workingFiles": "Fajlovi",
     "createFile": "Kreirajte fajl",
@@ -109,11 +109,11 @@
     "approvals": "Odobrenja",
     "help": "Upomoć",
     "myPortfolio": "Moj portfolio",
-    "contacts": "Contacts",
+    "contacts": "Kontakti",
     "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "generatePoa": "Generiraj POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Vlasnici bez zastupnika"
   },
   "roles": {
     "managing_partner": "Managing Partner",

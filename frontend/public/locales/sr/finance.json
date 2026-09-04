@@ -73,8 +73,8 @@
       "allPayments": "Сва плаћања",
       "allStatuses": "Сви статуси"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Проформас",
+    "proformasSubtitle": "Нацрти фактура генерисани као проформе из поднесака и процедура."
   },
   "payment": {
     "amount": "Износ *",

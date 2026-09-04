@@ -32,7 +32,7 @@
     "deadlines": "Fristen",
     "alerts": "Erinnerungen",
     "clients": "Kunden",
-    "holdingGroups": "Gruppen halten",
+    "holdingGroups": "Vertreter",
     "allMatters": "Alle Dateien",
     "workingFiles": "Dateien",
     "createFile": "Datei erstellen",
@@ -109,11 +109,11 @@
     "approvals": "Zulassungen",
     "help": "Helfen",
     "myPortfolio": "Mein Portfolio",
-    "contacts": "Contacts",
+    "contacts": "Kontakte",
     "proformas": "Proformas",
-    "generatePoa": "Generate POA",
-    "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "generatePoa": "POA generieren",
+    "gdprRegister": "DSGVO",
+    "bpoOwners": "Eigentümer ohne Vertreter"
   },
   "roles": {
     "managing_partner": "Geschäftsführender Gesellschafter",

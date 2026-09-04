@@ -73,8 +73,8 @@
       "allPayments": "Toate plățile",
       "allStatuses": "Toate stările"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Proforme",
+    "proformasSubtitle": "Proiecte de facturi generate ca proforme din dosare și proceduri."
   },
   "payment": {
     "amount": "Suma *",

@@ -32,7 +32,7 @@
     "deadlines": "Scadenze",
     "alerts": "Promemoria",
     "clients": "Clienti",
-    "holdingGroups": "Gruppi di partecipazione",
+    "holdingGroups": "Rappresentanti",
     "allMatters": "Tutti i file",
     "workingFiles": "File",
     "createFile": "Crea file",
@@ -109,11 +109,11 @@
     "approvals": "Approvazioni",
     "help": "Aiuto",
     "myPortfolio": "Il mio portafoglio",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Contatti",
+    "proformas": "Proforma",
+    "generatePoa": "Genera POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Proprietari senza rappresentante"
   },
   "roles": {
     "managing_partner": "Socio amministratore",

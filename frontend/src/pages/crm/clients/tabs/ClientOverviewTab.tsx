@@ -266,12 +266,19 @@ function ClientOverviewCard({
                   onValueChange={(v) => setHoldingGroupId(v ?? NO_HOLDING_GROUP)}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder={t('overview.none')} />
+                    <SelectValue>
+                      {holdingGroupId === NO_HOLDING_GROUP
+                        ? t('overview.none')
+                        : holdingGroups?.items.find((g) => g.id === holdingGroupId)?.name ??
+                          t('overview.none')}
+                    </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value={NO_HOLDING_GROUP}>{t('overview.none')}</SelectItem>
+                    <SelectItem value={NO_HOLDING_GROUP} label={t('overview.none')}>
+                      {t('overview.none')}
+                    </SelectItem>
                     {holdingGroups?.items.map((g) => (
-                      <SelectItem key={g.id} value={g.id}>
+                      <SelectItem key={g.id} value={g.id} label={g.name}>
                         {g.name}
                       </SelectItem>
                     ))}

@@ -73,8 +73,8 @@
       "allPayments": "所有付款",
       "allStatuses": "所有状态"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "形式",
+    "proformasSubtitle": "根据备案和程序以形式形式生成的草稿发票。"
   },
   "payment": {
     "amount": "数量 *",

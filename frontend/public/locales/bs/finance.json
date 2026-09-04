@@ -74,7 +74,7 @@
       "allStatuses": "Svi statusi"
     },
     "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasSubtitle": "Nacrti faktura generisani kao proforme iz podnesaka i procedura."
   },
   "payment": {
     "amount": "iznos *",

@@ -32,7 +32,7 @@
     "deadlines": "Termenele limită",
     "alerts": "Mementouri",
     "clients": "Clienții",
-    "holdingGroups": "Grupuri de exploatare",
+    "holdingGroups": "Reprezentanți",
     "allMatters": "Toate fișierele",
     "workingFiles": "Fișiere",
     "createFile": "Creați fișier",
@@ -109,11 +109,11 @@
     "approvals": "Aprobari",
     "help": "Ajutor",
     "myPortfolio": "Portofoliul meu",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Contacte",
+    "proformas": "Proforme",
+    "generatePoa": "Generați POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Proprietari fara reprezentant"
   },
   "roles": {
     "managing_partner": "Partener director",

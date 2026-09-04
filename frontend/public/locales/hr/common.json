@@ -85,5 +85,20 @@
     "no": "Ne",
     "none": "Nijedan",
     "yes": "Da"
+  },
+  "search": {
+    "placeholder": "Pretražite klijente, predmete, e-poštu…",
+    "ariaLabel": "Globalna pretraga",
+    "clear": "Očisti pretragu",
+    "failed": "Pretraga nije uspjela. Pokušajte ponovno.",
+    "minChars": "Unesite najmanje 2 znaka.",
+    "noMatches": "Nema rezultata za “{{query}}”.",
+    "types": {
+      "client": "Klijent",
+      "matter": "Materija",
+      "correspondence": "E-pošta / dopisivanje",
+      "document": "Dokument",
+      "unlinkedEmail": "Red e-pošte"
+    }
   }
 }

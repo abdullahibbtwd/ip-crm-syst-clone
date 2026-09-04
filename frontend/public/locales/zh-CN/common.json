@@ -85,5 +85,20 @@
     "no": "不",
     "none": "没有任何",
     "yes": "是的"
+  },
+  "search": {
+    "placeholder": "搜索客户、事务、电子邮件...",
+    "ariaLabel": "全球搜索",
+    "clear": "清除搜索",
+    "failed": "搜索失败。 再试一次。",
+    "minChars": "输入至少 2 个字符。",
+    "noMatches": "没有匹配“{{query}}”。",
+    "types": {
+      "client": "客户",
+      "matter": "事情",
+      "correspondence": "电子邮件/信件",
+      "document": "文档",
+      "unlinkedEmail": "电子邮件队列"
+    }
   }
 }

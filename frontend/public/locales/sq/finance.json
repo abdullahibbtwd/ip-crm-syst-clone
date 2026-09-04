@@ -73,8 +73,8 @@
       "allPayments": "Të gjitha pagesat",
       "allStatuses": "Të gjitha statuset"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Proformat",
+    "proformasSubtitle": "Draft faturat e krijuara si proforma nga depozitimet dhe procedurat."
   },
   "payment": {
     "amount": "shuma *",

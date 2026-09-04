@@ -85,5 +85,20 @@
     "no": "Tidak",
     "none": "tiada",
     "yes": "ya"
+  },
+  "search": {
+    "placeholder": "Cari pelanggan, urusan, e-mel…",
+    "ariaLabel": "Carian global",
+    "clear": "Kosongkan carian",
+    "failed": "Carian gagal. Cuba lagi.",
+    "minChars": "Taip sekurang-kurangnya 2 aksara.",
+    "noMatches": "Tiada padanan untuk “{{query}}”.",
+    "types": {
+      "client": "Pelanggan",
+      "matter": "Perkara",
+      "correspondence": "E-mel / surat-menyurat",
+      "document": "Dokumen",
+      "unlinkedEmail": "Baris gilir e-mel"
+    }
   }
 }

@@ -73,8 +73,8 @@
       "allPayments": "Все платежи",
       "allStatuses": "Все статусы"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Проформы",
+    "proformasSubtitle": "Черновики счетов, созданные в виде проформ на основе документов и процедур."
   },
   "payment": {
     "amount": "Количество *",

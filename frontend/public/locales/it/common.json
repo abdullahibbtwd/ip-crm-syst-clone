@@ -85,5 +85,20 @@
     "no": "NO",
     "none": "Nessuno",
     "yes": "SÌ"
+  },
+  "search": {
+    "placeholder": "Cerca clienti, pratiche, e-mail...",
+    "ariaLabel": "Ricerca globale",
+    "clear": "Cancella ricerca",
+    "failed": "Ricerca fallita. Riprova.",
+    "minChars": "Digita almeno 2 caratteri.",
+    "noMatches": "Nessuna corrispondenza per \"{{query}}\".",
+    "types": {
+      "client": "Cliente",
+      "matter": "Questione",
+      "correspondence": "E-mail/corrispondenza",
+      "document": "Documento",
+      "unlinkedEmail": "Coda di posta elettronica"
+    }
   }
 }

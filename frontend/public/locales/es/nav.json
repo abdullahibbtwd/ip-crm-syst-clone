@@ -32,7 +32,7 @@
     "deadlines": "Plazos",
     "alerts": "Recordatorios",
     "clients": "Clientas",
-    "holdingGroups": "Grupos de tenencia",
+    "holdingGroups": "Representantes",
     "allMatters": "Todos los archivos",
     "workingFiles": "Archivos",
     "createFile": "crear archivo",
@@ -109,11 +109,11 @@
     "approvals": "Aprobaciones",
     "help": "Ayuda",
     "myPortfolio": "mi portafolio",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
-    "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "contacts": "Contactos",
+    "proformas": "formularios",
+    "generatePoa": "Generar POA",
+    "gdprRegister": "RGPD",
+    "bpoOwners": "Propietarias sin representante"
   },
   "roles": {
     "managing_partner": "Socia gerente",

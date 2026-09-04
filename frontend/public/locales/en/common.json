@@ -85,5 +85,20 @@
     "no": "No",
     "none": "None",
     "yes": "Yes"
+  },
+  "search": {
+    "placeholder": "Search clients, matters, emails…",
+    "ariaLabel": "Global search",
+    "clear": "Clear search",
+    "failed": "Search failed. Try again.",
+    "minChars": "Type at least 2 characters.",
+    "noMatches": "No matches for “{{query}}”.",
+    "types": {
+      "client": "Client",
+      "matter": "Matter",
+      "correspondence": "Email / correspondence",
+      "document": "Document",
+      "unlinkedEmail": "Email queue"
+    }
   }
 }

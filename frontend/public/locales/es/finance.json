@@ -73,8 +73,8 @@
       "allPayments": "Todos los pagos",
       "allStatuses": "Todos los estados"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "formularios",
+    "proformasSubtitle": "Borradores de facturas generados como proformas a partir de presentaciones y trámites."
   },
   "payment": {
     "amount": "Cantidad *",

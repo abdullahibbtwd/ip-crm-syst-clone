@@ -73,8 +73,8 @@
       "allPayments": "Tüm ödemeler",
       "allStatuses": "Tüm durumlar"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Proformalar",
+    "proformasSubtitle": "Başvurulardan ve prosedürlerden proforma olarak oluşturulan taslak faturalar."
   },
   "payment": {
     "amount": "Miktar *",

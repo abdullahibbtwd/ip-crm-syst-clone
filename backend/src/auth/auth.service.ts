@@ -13,6 +13,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import {
   ClientType,
   ContactRole,
+  Prisma,
   RelationshipEventType,
 } from '../../generated/prisma/client';
 import { ClientsService } from '../crm/clients/clients.service';
@@ -375,31 +376,40 @@ export class AuthService {
     refreshToken: string,
   ): Promise<{ user: PublicUser; tokens: TokenPair }> {
     const tokenHash = this.hashToken(refreshToken);
-    const stored = await this.prisma.refreshToken.findUnique({
-      where: { tokenHash },
-      include: { user: { include: userAccessInclude } },
+
+    const { user, tokens } = await this.prisma.$transaction(async (tx) => {
+      const stored = await tx.refreshToken.findUnique({
+        where: { tokenHash },
+        include: { user: { include: userAccessInclude } },
+      });
+
+      if (
+        !stored ||
+        stored.revoked ||
+        stored.expiresAt < new Date() ||
+        !stored.user.isActive
+      ) {
+        throw new UnauthorizedException('Invalid refresh token');
+      }
+
+      const nextTokens = await this.createTokenPair(stored.user, { db: tx });
+      const revoked = await tx.refreshToken.updateMany({
+        where: { id: stored.id, revoked: false },
+        data: { revoked: true },
+      });
+      if (revoked.count === 0) {
+        // Rolls back the newly created token with this transaction.
+        throw new UnauthorizedException('Invalid refresh token');
+      }
+
+      return { user: stored.user, tokens: nextTokens };
     });
 
-    if (
-      !stored ||
-      stored.revoked ||
-      stored.expiresAt < new Date() ||
-      !stored.user.isActive
-    ) {
-      throw new UnauthorizedException('Invalid refresh token');
-    }
-
-    await this.prisma.refreshToken.update({
-      where: { id: stored.id },
-      data: { revoked: true },
-    });
-
-    const tokens = await this.createTokenPair(stored.user);
     const mfaEnrollmentRequired = await this.mfaPolicy.requiresMfaEnrollment(
-      stored.user,
+      user,
     );
     return {
-      user: await this.toPublicUser(stored.user, mfaEnrollmentRequired),
+      user: await this.toPublicUser(user, mfaEnrollmentRequired),
       tokens,
     };
   }
@@ -779,8 +789,12 @@ export class AuthService {
 
   private async createTokenPair(
     user: UserWithAccess,
-    options?: { mfaEnrollmentRequired?: boolean },
+    options?: {
+      mfaEnrollmentRequired?: boolean;
+      db?: Prisma.TransactionClient | PrismaService;
+    },
   ): Promise<TokenPair> {
+    const db = options?.db ?? this.prisma;
     const authUser = buildAuthenticatedUser(user);
     const accessToken = await this.jwtService.signAsync(
       {
@@ -803,7 +817,7 @@ export class AuthService {
     const refreshExpiresIn = this.config.get('JWT_REFRESH_EXPIRES_IN', '7d');
     const expiresAt = this.addDuration(new Date(), refreshExpiresIn);
 
-    await this.prisma.refreshToken.create({
+    await db.refreshToken.create({
       data: {
         userId: user.id,
         tokenHash: this.hashToken(refreshToken),

@@ -32,7 +32,7 @@
     "deadlines": "Délais",
     "alerts": "Rappels",
     "clients": "Clientèle",
-    "holdingGroups": "Groupes de maintien",
+    "holdingGroups": "Représentantes",
     "allMatters": "Tous les fichiers",
     "workingFiles": "Fichiers",
     "createFile": "Créer un fichier",
@@ -110,10 +110,10 @@
     "help": "Aide",
     "myPortfolio": "Mon portefeuille",
     "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
-    "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "proformas": "Formulaires",
+    "generatePoa": "Générer un POA",
+    "gdprRegister": "RGPD",
+    "bpoOwners": "Propriétaires sans représentant"
   },
   "roles": {
     "managing_partner": "Associé gérant",

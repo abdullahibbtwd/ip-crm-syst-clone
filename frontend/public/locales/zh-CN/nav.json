@@ -32,7 +32,7 @@
     "deadlines": "截止日期",
     "alerts": "提醒",
     "clients": "客户",
-    "holdingGroups": "控股集团",
+    "holdingGroups": "代表",
     "allMatters": "所有文件",
     "workingFiles": "文件",
     "createFile": "创建文件",
@@ -109,11 +109,11 @@
     "approvals": "批准",
     "help": "帮助",
     "myPortfolio": "我的投资组合",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
-    "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "contacts": "联系方式",
+    "proformas": "形式",
+    "generatePoa": "生成POA",
+    "gdprRegister": "通用数据保护条例",
+    "bpoOwners": "无代表业主"
   },
   "roles": {
     "managing_partner": "管理合伙人",

@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { watchApi } from '../api'
 import { watchKeys } from '../queryKeys'
 import type {
@@ -46,9 +47,11 @@ export function useWatchAlerts(filters?: WatchAlertFilters) {
 }
 
 export function useWatchNewCount() {
+  const authReady = useAuthReady()
   return useQuery({
     queryKey: watchKeys.alertList({ status: 'new', limit: 1 }),
     queryFn: () => watchApi.listAlerts({ status: 'new', limit: 1 }),
+    enabled: authReady,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchInterval: 60_000,

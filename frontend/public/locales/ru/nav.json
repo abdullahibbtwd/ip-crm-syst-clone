@@ -32,7 +32,7 @@
     "deadlines": "Сроки",
     "alerts": "Напоминания",
     "clients": "Клиенты",
-    "holdingGroups": "Холдинговые группы",
+    "holdingGroups": "Представители",
     "allMatters": "Все файлы",
     "workingFiles": "Файлы",
     "createFile": "Создать файл",
@@ -109,11 +109,11 @@
     "approvals": "Разрешения",
     "help": "Помощь",
     "myPortfolio": "Мое портфолио",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Контакты",
+    "proformas": "Проформы",
+    "generatePoa": "Создать доверенность на доступ",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Владельцы без представителя"
   },
   "roles": {
     "managing_partner": "Управляющий партнер",

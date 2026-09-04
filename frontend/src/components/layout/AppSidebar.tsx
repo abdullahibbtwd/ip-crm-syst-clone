@@ -9,6 +9,7 @@ import { useIntakePendingCount } from '@/features/intake/hooks/useIntake'
 import { useMatterShelfCounts } from '@/features/matters/hooks/useMatters'
 import type { MatterShelfCounts } from '@/features/matters/api'
 import { useWatchNewCount } from '@/features/watch/hooks/useWatch'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { DueTodayCountBadge } from '@/components/deadlines/DueTodayBadge'
 import { usePermission } from '@/hooks/usePermission'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -620,6 +621,7 @@ export function AppSidebar({
   const canReadDeadlines = usePermission('deadline', 'read')
   const canReadIntake = usePermission('intake', 'read')
   const canReadMatters = usePermission('matter', 'read')
+  const authReady = useAuthReady()
   const { data: myToday } = useMyTodayDeadlineCount(canReadDeadlines)
   const { data: firmToday } = useFirmTodayDeadlineCount(canReadDeadlines)
   const { data: intakePending } = useIntakePendingCount(canReadIntake && !external)
@@ -638,7 +640,7 @@ export function AppSidebar({
   const { data: alertsSummary } = useQuery({
     queryKey: ['alerts', 'summary'],
     queryFn: () => apiClient.get<AlertsSummaryResponse>('/alerts/summary'),
-    enabled: !external,
+    enabled: authReady && !external,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchInterval: 60_000,
@@ -650,7 +652,7 @@ export function AppSidebar({
   const { data: messagesUnread } = useQuery({
     queryKey: ['portal-messages', 'unread-count'],
     queryFn: () => apiClient.get<{ count: number }>('/portal/messages/unread-count'),
-    enabled: Boolean(external),
+    enabled: authReady && Boolean(external),
     refetchInterval: 60_000,
   })
   const messagesUnreadCount = external ? (messagesUnread?.count ?? 0) : 0

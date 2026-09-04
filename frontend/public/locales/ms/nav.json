@@ -32,7 +32,7 @@
     "deadlines": "Tarikh akhir",
     "alerts": "Peringatan",
     "clients": "Pelanggan",
-    "holdingGroups": "Mengadakan kumpulan",
+    "holdingGroups": "wakil rakyat",
     "allMatters": "Semua fail",
     "workingFiles": "Fail",
     "createFile": "Buat fail",
@@ -109,11 +109,11 @@
     "approvals": "Kelulusan",
     "help": "Tolong",
     "myPortfolio": "Portfolio saya",
-    "contacts": "Contacts",
+    "contacts": "Kenalan",
     "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "generatePoa": "Hasilkan POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Pemilik tanpa wakil"
   },
   "roles": {
     "managing_partner": "Rakan Kongsi Urusan",

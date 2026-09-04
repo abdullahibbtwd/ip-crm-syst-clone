@@ -32,7 +32,7 @@
     "deadlines": "Tähtajad",
     "alerts": "Meeldetuletused",
     "clients": "Kliendid",
-    "holdingGroups": "Hoidmisrühmad",
+    "holdingGroups": "esindajad",
     "allMatters": "Kõik failid",
     "workingFiles": "Failid",
     "createFile": "Loo fail",
@@ -109,11 +109,11 @@
     "approvals": "Heakskiidud",
     "help": "Abi",
     "myPortfolio": "Minu portfell",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Kontaktid",
+    "proformas": "Eelvormid",
+    "generatePoa": "Loo POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Omanikud ilma esindajata"
   },
   "roles": {
     "managing_partner": "Juhtiv partner",

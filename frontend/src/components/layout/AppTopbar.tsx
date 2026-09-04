@@ -163,11 +163,11 @@ export function AppTopbar({
                   : 'bg-brand-green/5 hover:bg-brand-green/8 backdrop-blur-sm',
               )}
             >
-              <SelectValue />
+              <SelectValue>{getRoleLabel(activeRole)}</SelectValue>
             </SelectTrigger>
             <SelectContent>
               {availableRoles.map((role) => (
-                <SelectItem key={role} value={role}>
+                <SelectItem key={role} value={role} label={getRoleLabel(role)}>
                   {getRoleLabel(role)}
                 </SelectItem>
               ))}

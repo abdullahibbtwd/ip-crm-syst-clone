@@ -85,5 +85,20 @@
     "no": "Nu",
     "none": "Nici unul",
     "yes": "Da"
+  },
+  "search": {
+    "placeholder": "Căutați clienți, chestiuni, e-mailuri...",
+    "ariaLabel": "Căutare globală",
+    "clear": "Ștergeți căutarea",
+    "failed": "Căutarea a eșuat. Încearcă din nou.",
+    "minChars": "Introduceți cel puțin 2 caractere.",
+    "noMatches": "Nu există potriviri pentru „{{query}}”.",
+    "types": {
+      "client": "Client",
+      "matter": "materie",
+      "correspondence": "E-mail/corespondență",
+      "document": "Document",
+      "unlinkedEmail": "Coada de e-mailuri"
+    }
   }
 }

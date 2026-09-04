@@ -85,5 +85,20 @@
     "no": "Ei",
     "none": "Mitte ühtegi",
     "yes": "Jah"
+  },
+  "search": {
+    "placeholder": "Otsige kliente, asju, e-kirju…",
+    "ariaLabel": "Globaalne otsing",
+    "clear": "Tühjenda otsing",
+    "failed": "Otsing ebaõnnestus. Proovi uuesti.",
+    "minChars": "Sisestage vähemalt 2 tähemärki.",
+    "noMatches": "Päringule \"{{query}}\" ei leitud vasteid.",
+    "types": {
+      "client": "Klient",
+      "matter": "Asi",
+      "correspondence": "Meil/kirjavahetus",
+      "document": "Dokument",
+      "unlinkedEmail": "Meili järjekord"
+    }
   }
 }

@@ -73,8 +73,8 @@
       "allPayments": "جميع المدفوعات",
       "allStatuses": "جميع الحالات"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "النماذج الأولية",
+    "proformasSubtitle": "تم إنشاء مسودة الفواتير كنماذج أولية من الملفات والإجراءات."
   },
   "payment": {
     "amount": "كمية *",

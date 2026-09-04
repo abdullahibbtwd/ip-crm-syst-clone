@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { correspondenceKeys } from '@/features/correspondence/queryKeys'
 import { deadlinesApi } from '../api'
 import { deadlineKeys } from '../queryKeys'
@@ -36,20 +37,22 @@ export function useMyDeadlines(filters?: MyDeadlinesFilters) {
 }
 
 export function useMyTodayDeadlineCount(enabled = true) {
+  const authReady = useAuthReady()
   return useQuery({
     queryKey: deadlineKeys.myTodayCount(),
     queryFn: () => deadlinesApi.myTodayCount(),
-    enabled,
+    enabled: enabled && authReady,
     refetchInterval: 60_000,
     staleTime: 30_000,
   })
 }
 
 export function useFirmTodayDeadlineCount(enabled = true) {
+  const authReady = useAuthReady()
   return useQuery({
     queryKey: deadlineKeys.firmTodayCount(),
     queryFn: () => deadlinesApi.firmTodayCount(),
-    enabled,
+    enabled: enabled && authReady,
     refetchInterval: 60_000,
     staleTime: 30_000,
   })

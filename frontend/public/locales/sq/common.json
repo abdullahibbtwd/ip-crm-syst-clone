@@ -85,5 +85,20 @@
     "no": "Nr",
     "none": "Asnjë",
     "yes": "po"
+  },
+  "search": {
+    "placeholder": "Kërko klientët, çështjet, emailet…",
+    "ariaLabel": "Kërkimi global",
+    "clear": "Pastro kërkimin",
+    "failed": "Kërkimi dështoi. Provo sërish.",
+    "minChars": "Shkruani të paktën 2 karaktere.",
+    "noMatches": "Nuk ka përputhje për \"{{query}}\".",
+    "types": {
+      "client": "Klienti",
+      "matter": "Materie",
+      "correspondence": "Email / korrespondencë",
+      "document": "Dokumenti",
+      "unlinkedEmail": "Radha e postës elektronike"
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { Combobox } from '@base-ui/react/combobox'
 import { Check, ChevronDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { fieldVariants, focusRing } from '@/components/ui/shared'
 import { getCountryLabel, getCountryOptions } from '@/lib/countries'
 import { cn } from '@/lib/utils'
@@ -23,19 +24,23 @@ type CountrySelectProps = {
 export function CountrySelect({
   value,
   onValueChange,
-  placeholder = 'Select country',
+  placeholder,
   className,
   'aria-invalid': ariaInvalid,
   allowEmpty = true,
   disabled = false,
 }: CountrySelectProps) {
+  const { t } = useTranslation('crm')
+  const resolvedPlaceholder = placeholder ?? t('countrySelect.placeholder')
   const items = useMemo(() => {
     const countries = getCountryOptions().map((country) => ({
       value: country.code,
       label: country.name,
     }))
-    return allowEmpty ? [{ value: '', label: 'None' }, ...countries] : countries
-  }, [allowEmpty])
+    return allowEmpty
+      ? [{ value: '', label: t('countrySelect.none') }, ...countries]
+      : countries
+  }, [allowEmpty, t])
 
   const selected = useMemo((): CountryItem | null => {
     if (!value) return null
@@ -66,7 +71,7 @@ export function CountrySelect({
         aria-invalid={ariaInvalid}
       >
         <span className="flex-1 truncate">
-          <Combobox.Value placeholder={placeholder} />
+          <Combobox.Value placeholder={resolvedPlaceholder} />
         </span>
         <ChevronDown className="size-4 shrink-0 text-muted-foreground/80" />
       </Combobox.Trigger>
@@ -83,13 +88,13 @@ export function CountrySelect({
           >
             <div className="border-b border-border/80 p-2">
               <Combobox.Input
-                placeholder="Search countries…"
+                placeholder={t('countrySelect.search')}
                 className={cn(fieldVariants({ size: 'sm' }), 'w-full')}
               />
             </div>
 
             <Combobox.Empty className="px-3 py-6 text-center text-sm text-muted-foreground">
-              No countries found
+              {t('countrySelect.empty')}
             </Combobox.Empty>
 
             <Combobox.List className="max-h-64 overflow-y-auto p-1 shell-scrollbar">

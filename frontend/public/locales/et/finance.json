@@ -73,8 +73,8 @@
       "allPayments": "Kõik maksed",
       "allStatuses": "Kõik olekud"
     },
-    "proformasTitle": "Proformas",
-    "proformasSubtitle": "Draft invoices generated as proformas from filings and procedures."
+    "proformasTitle": "Eelvormid",
+    "proformasSubtitle": "Esitustest ja protseduuridest proformidena genereeritud arvete mustandid."
   },
   "payment": {
     "amount": "Summa *",

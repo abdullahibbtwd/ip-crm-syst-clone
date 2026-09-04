@@ -85,5 +85,20 @@
     "no": "Non",
     "none": "Aucune",
     "yes": "Oui"
+  },
+  "search": {
+    "placeholder": "Rechercher des clients, des dossiers, des e-mails…",
+    "ariaLabel": "Recherche globale",
+    "clear": "Effacer la recherche",
+    "failed": "La recherche a échoué. Essayer à nouveau.",
+    "minChars": "Tapez au moins 2 caractères.",
+    "noMatches": "Aucune correspondance pour « {{query}} ».",
+    "types": {
+      "client": "Cliente",
+      "matter": "Matière",
+      "correspondence": "Courriel/correspondance",
+      "document": "Document",
+      "unlinkedEmail": "File d'attente de courrier électronique"
+    }
   }
 }

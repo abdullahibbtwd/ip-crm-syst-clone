@@ -71,7 +71,7 @@ describe('AuthService', () => {
       refreshToken: {
         findUnique: jest.fn(),
         update: jest.fn(),
-        updateMany: jest.fn(),
+        updateMany: jest.fn().mockResolvedValue({ count: 1 }),
         create: jest.fn(),
       },
       passwordResetToken: {
@@ -293,17 +293,91 @@ describe('AuthService', () => {
         expiresAt: new Date(Date.now() + 60_000),
         user,
       });
-      prisma.refreshToken.update.mockResolvedValue({});
       prisma.refreshToken.create.mockResolvedValue({});
 
       const result = await service.refresh('raw-refresh');
       expect(result.tokens.accessToken).toBe('access-jwt');
-      expect(prisma.refreshToken.update).toHaveBeenCalledWith(
+      expect(prisma.refreshToken.create).toHaveBeenCalled();
+      expect(prisma.refreshToken.updateMany).toHaveBeenCalledWith(
         expect.objectContaining({
-          where: { id: 'rt1' },
+          where: { id: 'rt1', revoked: false },
           data: { revoked: true },
         }),
       );
+    });
+
+    it('rejects refresh when another request already rotated the token', async () => {
+      prisma.refreshToken.findUnique.mockResolvedValue({
+        id: 'rt1',
+        revoked: false,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: accessUser(),
+      });
+      prisma.refreshToken.create.mockResolvedValue({});
+      prisma.refreshToken.updateMany.mockResolvedValue({ count: 0 });
+
+      await expect(service.refresh('raw-refresh')).rejects.toBeInstanceOf(
+        UnauthorizedException,
+      );
+      expect(prisma.refreshToken.updateMany).toHaveBeenCalledTimes(1);
+    });
+
+    it('lets exactly one of two overlapping refresh calls win', async () => {
+      const stored = {
+        id: 'rt1',
+        revoked: false,
+        expiresAt: new Date(Date.now() + 60_000),
+        user: accessUser(),
+      };
+      let findStarted = 0;
+      let releaseFinds: () => void = () => undefined;
+      const findsReady = new Promise<void>((resolve) => {
+        releaseFinds = resolve;
+      });
+      let oldRevoked = false;
+      let updateChain = Promise.resolve();
+
+      prisma.refreshToken.findUnique.mockImplementation(async () => {
+        findStarted += 1;
+        if (findStarted >= 2) releaseFinds();
+        await findsReady;
+        return stored;
+      });
+      prisma.refreshToken.create.mockResolvedValue({});
+      prisma.refreshToken.updateMany.mockImplementation(
+        ({
+          where,
+        }: {
+          where: { id?: string; revoked?: boolean };
+        }) => {
+          const run = updateChain.then(async () => {
+            await new Promise<void>((resolve) => {
+              setImmediate(resolve);
+            });
+            if (where.id === 'rt1' && where.revoked === false) {
+              if (oldRevoked) return { count: 0 };
+              oldRevoked = true;
+              return { count: 1 };
+            }
+            return { count: 1 };
+          });
+          updateChain = run.then(() => undefined);
+          return run;
+        },
+      );
+
+      const results = await Promise.allSettled([
+        service.refresh('same-raw-token'),
+        service.refresh('same-raw-token'),
+      ]);
+
+      const fulfilled = results.filter((r) => r.status === 'fulfilled');
+      const rejected = results.filter((r) => r.status === 'rejected');
+      expect(fulfilled).toHaveLength(1);
+      expect(rejected).toHaveLength(1);
+      expect(
+        rejected[0]?.status === 'rejected' && rejected[0].reason,
+      ).toBeInstanceOf(UnauthorizedException);
     });
 
     it('logout no-ops without token and revokes when present', async () => {

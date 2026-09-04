@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { CountrySelect } from '@/components/crm/CountrySelect'
 import { Label } from '@/components/ui/label'
@@ -21,6 +22,7 @@ export function CreateHoldingGroupForm({
   onSubmit,
   isSubmitting,
 }: CreateHoldingGroupFormProps) {
+  const { t } = useTranslation('crm')
   const [name, setName] = useState('')
   const [country, setCountry] = useState('')
   const [description, setDescription] = useState('')
@@ -41,22 +43,22 @@ export function CreateHoldingGroupForm({
     try {
       await onSubmit(parsed.data)
     } catch (err) {
-      setFormError(getApiErrorMessage(err, 'Failed to create holding group'))
+      setFormError(getApiErrorMessage(err, t('holdingGroups.formError')))
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <Field label="Name *" error={fieldErrors.name}>
+      <Field label={t('holdingGroups.name')} error={fieldErrors.name}>
         <Input
           value={name}
           onChange={(e) => setName(e.target.value)}
           aria-invalid={Boolean(fieldErrors.name)}
-          placeholder="e.g. Acme Group BV"
+          placeholder={t('holdingGroups.namePlaceholder')}
         />
       </Field>
 
-      <Field label="Country" error={fieldErrors.country}>
+      <Field label={t('overview.country')} error={fieldErrors.country}>
         <CountrySelect
           value={country}
           onValueChange={setCountry}
@@ -64,12 +66,12 @@ export function CreateHoldingGroupForm({
         />
       </Field>
 
-      <Field label="Description" error={fieldErrors.description}>
+      <Field label={t('holdingGroups.descriptionField')} error={fieldErrors.description}>
         <Textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           aria-invalid={Boolean(fieldErrors.description)}
-          placeholder="Optional notes about this holding structure"
+          placeholder={t('holdingGroups.notesPlaceholder')}
           rows={4}
         />
       </Field>
@@ -81,7 +83,7 @@ export function CreateHoldingGroupForm({
       )}
 
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Creating…' : 'Create holding group'}
+        {isSubmitting ? t('holdingGroups.creating') : t('holdingGroups.create')}
       </Button>
     </form>
   )

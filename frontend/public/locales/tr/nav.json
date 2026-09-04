@@ -32,7 +32,7 @@
     "deadlines": "Son teslim tarihleri",
     "alerts": "Hatırlatmalar",
     "clients": "Müşteriler",
-    "holdingGroups": "Holding grupları",
+    "holdingGroups": "Temsilciler",
     "allMatters": "Tüm dosyalar",
     "workingFiles": "Dosyalar",
     "createFile": "Dosya oluştur",
@@ -109,11 +109,11 @@
     "approvals": "Onaylar",
     "help": "Yardım",
     "myPortfolio": "Portföyüm",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Kişiler",
+    "proformas": "Proformalar",
+    "generatePoa": "POA oluştur",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Temsilcisi olmayan sahipler"
   },
   "roles": {
     "managing_partner": "Yönetici Ortak",

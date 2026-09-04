@@ -17,7 +17,7 @@ const cacheDir = join(__dirname, '.i18n-translate-cache')
 const sourceLng = 'en'
 
 const TARGET_LOCALES = [
-  'ru', 'ro', 'mk', 'sr', 'hr', 'tr', 'es', 'sq', 'bs', 'hy', 'ar', 'et',
+  'bg', 'ru', 'ro', 'mk', 'sr', 'hr', 'tr', 'es', 'sq', 'bs', 'hy', 'ar', 'et',
   'zh-CN', 'ms', 'de', 'fr', 'it',
 ]
 
@@ -142,7 +142,9 @@ function parseNs() {
   if (args.includes('--ns')) {
     return args[args.indexOf('--ns') + 1].split(',').map((s) => s.trim())
   }
-  return ['matters', 'nav']
+  return readdirSync(join(localesRoot, sourceLng))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, ''))
 }
 
 const namespaces = parseNs()

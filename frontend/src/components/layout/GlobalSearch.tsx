@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Building2,
   FileText,
@@ -13,12 +14,12 @@ import { useGlobalSearch } from '@/features/search/hooks/useGlobalSearch'
 import type { SearchHit, SearchResultType } from '@/features/search/api'
 import { cn } from '@/lib/utils'
 
-const TYPE_LABEL: Record<SearchResultType, string> = {
-  client: 'Client',
-  matter: 'Matter',
-  correspondence: 'Email / correspondence',
-  document: 'Document',
-  unlinked_email: 'Email queue',
+const TYPE_LABEL_KEYS: Record<SearchResultType, string> = {
+  client: 'search.types.client',
+  matter: 'search.types.matter',
+  correspondence: 'search.types.correspondence',
+  document: 'search.types.document',
+  unlinked_email: 'search.types.unlinkedEmail',
 }
 
 function TypeIcon({ type }: { type: SearchResultType }) {
@@ -73,6 +74,7 @@ type GlobalSearchProps = {
 }
 
 export function GlobalSearch({ external }: GlobalSearchProps) {
+  const { t } = useTranslation('common')
   const navigate = useNavigate()
   const listId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
@@ -153,8 +155,8 @@ export function GlobalSearch({ external }: GlobalSearchProps) {
               if (hit) go(hit)
             }
           }}
-          placeholder="Search clients, matters, emails…"
-          aria-label="Global search"
+          placeholder={t('search.placeholder')}
+          aria-label={t('search.ariaLabel')}
           aria-autocomplete="list"
           aria-controls={listId}
           aria-expanded={showPanel}
@@ -169,7 +171,7 @@ export function GlobalSearch({ external }: GlobalSearchProps) {
           <button
             type="button"
             className="rounded p-0.5 text-muted-foreground hover:text-foreground"
-            aria-label="Clear search"
+            aria-label={t('search.clear')}
             onClick={() => {
               setQ('')
               inputRef.current?.focus()
@@ -201,11 +203,13 @@ export function GlobalSearch({ external }: GlobalSearchProps) {
           )}
         >
           {isError ? (
-            <p className="px-3 py-4 text-sm text-destructive">Search failed. Try again.</p>
+            <p className="px-3 py-4 text-sm text-destructive">{t('search.failed')}</p>
           ) : q.trim().length < 2 ? (
-            <p className="px-3 py-4 text-sm text-muted-foreground">Type at least 2 characters.</p>
+            <p className="px-3 py-4 text-sm text-muted-foreground">{t('search.minChars')}</p>
           ) : results.length === 0 && !isFetching ? (
-            <p className="px-3 py-4 text-sm text-muted-foreground">No matches for “{q.trim()}”.</p>
+            <p className="px-3 py-4 text-sm text-muted-foreground">
+              {t('search.noMatches', { query: q.trim() })}
+            </p>
           ) : (
             <ul className="py-1">
               {results.map((hit, index) => (
@@ -232,7 +236,7 @@ export function GlobalSearch({ external }: GlobalSearchProps) {
                       <span className="flex items-center gap-2">
                         <span className="truncate text-sm font-medium">{hit.title}</span>
                         <span className="shrink-0 text-[10px] uppercase tracking-wide text-muted-foreground">
-                          {TYPE_LABEL[hit.type]}
+                          {t(TYPE_LABEL_KEYS[hit.type])}
                         </span>
                       </span>
                       {hit.subtitle ? (

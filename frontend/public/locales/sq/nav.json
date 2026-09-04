@@ -32,7 +32,7 @@
     "deadlines": "Afatet",
     "alerts": "Kujtesa",
     "clients": "Klientët",
-    "holdingGroups": "Grupet mbajtëse",
+    "holdingGroups": "përfaqësuesit",
     "allMatters": "Të gjithë skedarët",
     "workingFiles": "Skedarët",
     "createFile": "Krijo skedar",
@@ -109,11 +109,11 @@
     "approvals": "Miratimet",
     "help": "Ndihmë",
     "myPortfolio": "Portofoli im",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
+    "contacts": "Kontaktet",
+    "proformas": "Proformat",
+    "generatePoa": "Gjeneroni POA",
     "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "bpoOwners": "Pronarët pa përfaqësues"
   },
   "roles": {
     "managing_partner": "Partner Menaxhues",

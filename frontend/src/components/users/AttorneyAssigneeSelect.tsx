@@ -1,14 +1,15 @@
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
+  SelectValue,
 } from '@/components/ui/select'
 import { useAttorneyAssignees } from '@/features/users/hooks/useAttorneyAssignees'
 import { formatAssigneeOption } from '@/features/users/utils'
 import type { AttorneyAssignee } from '@/features/users/api'
-import { cn } from '@/lib/utils'
 
 const UNASSIGNED_VALUE = '__unassigned__'
 
@@ -23,23 +24,26 @@ type AttorneyAssigneeSelectProps = {
 export function AttorneyAssigneeSelect({
   value,
   onValueChange,
-  placeholder = 'Select responsible attorney',
+  placeholder,
   allowUnassigned = true,
   'aria-invalid': ariaInvalid,
 }: AttorneyAssigneeSelectProps) {
+  const { t } = useTranslation('users')
   const { data: assignees, isLoading } = useAttorneyAssignees()
 
   const selectValue = value ?? (allowUnassigned ? UNASSIGNED_VALUE : '')
+  const unassignedLabel = t('assigneeSelect.unassigned')
+  const resolvedPlaceholder = isLoading
+    ? t('assigneeSelect.loading')
+    : (placeholder ?? t('assigneeSelect.placeholder'))
 
   const displayLabel = useMemo(() => {
     if (!value) {
-      return allowUnassigned ? 'Unassigned' : null
+      return allowUnassigned ? unassignedLabel : null
     }
     const assignee = assignees?.find((a) => a.id === value)
     return assignee ? formatAssigneeOption(assignee) : null
-  }, [value, assignees, allowUnassigned])
-
-  const resolvedPlaceholder = isLoading ? 'Loading attorneys…' : placeholder
+  }, [value, assignees, allowUnassigned, unassignedLabel])
 
   return (
     <Select
@@ -49,21 +53,22 @@ export function AttorneyAssigneeSelect({
       }
     >
       <SelectTrigger aria-invalid={ariaInvalid}>
-        <span
-          className={cn(
-            'flex-1 truncate text-left',
-            !displayLabel && 'text-muted-foreground/70',
-          )}
-        >
-          {displayLabel ?? resolvedPlaceholder}
-        </span>
+        <SelectValue placeholder={resolvedPlaceholder}>
+          {displayLabel}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         {allowUnassigned ? (
-          <SelectItem value={UNASSIGNED_VALUE}>Unassigned</SelectItem>
+          <SelectItem value={UNASSIGNED_VALUE} label={unassignedLabel}>
+            {unassignedLabel}
+          </SelectItem>
         ) : null}
         {assignees?.map((assignee: AttorneyAssignee) => (
-          <SelectItem key={assignee.id} value={assignee.id}>
+          <SelectItem
+            key={assignee.id}
+            value={assignee.id}
+            label={formatAssigneeOption(assignee)}
+          >
             {formatAssigneeOption(assignee)}
           </SelectItem>
         ))}

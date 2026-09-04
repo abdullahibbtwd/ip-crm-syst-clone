@@ -32,7 +32,7 @@
     "deadlines": "المواعيد النهائية",
     "alerts": "تذكيرات",
     "clients": "العملاء",
-    "holdingGroups": "عقد المجموعات",
+    "holdingGroups": "الممثلين",
     "allMatters": "جميع الملفات",
     "workingFiles": "ملفات",
     "createFile": "إنشاء ملف",
@@ -109,11 +109,11 @@
     "approvals": "الموافقات",
     "help": "يساعد",
     "myPortfolio": "محفظتي",
-    "contacts": "Contacts",
-    "proformas": "Proformas",
-    "generatePoa": "Generate POA",
-    "gdprRegister": "GDPR",
-    "bpoOwners": "Owners without representative"
+    "contacts": "اتصالات",
+    "proformas": "النماذج الأولية",
+    "generatePoa": "إنشاء التوكيل الرسمي",
+    "gdprRegister": "اللائحة العامة لحماية البيانات",
+    "bpoOwners": "أصحاب بدون ممثل"
   },
   "roles": {
     "managing_partner": "الشريك الإداري",

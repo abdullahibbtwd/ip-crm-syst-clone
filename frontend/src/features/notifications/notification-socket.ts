@@ -1,8 +1,8 @@
 import type { QueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { io, type Socket } from "socket.io-client";
 import { deadlineKeys } from "@/features/deadlines/queryKeys";
 import { notificationKeys } from "@/features/notifications/queryKeys";
+import { refreshSession } from "@/lib/authRefresh";
 
 const SOCKET_PATH = "/socket.io";
 const NOTIFICATIONS_NAMESPACE = "/notifications";
@@ -87,8 +87,7 @@ function attachSocketListeners(instance: Socket) {
     if (!isAuthFailure || refreshAttempted) return;
 
     refreshAttempted = true;
-    void axios
-      .post("/api/auth/refresh", {}, { withCredentials: true })
+    void refreshSession()
       .then(() => {
         refreshAttempted = false;
         instance.connect();

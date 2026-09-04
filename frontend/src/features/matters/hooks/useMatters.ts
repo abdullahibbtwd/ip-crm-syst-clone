@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { billingKeys } from '@/features/billing/queryKeys'
 import { correspondenceKeys } from '@/features/correspondence/queryKeys'
 import { deadlineKeys } from '@/features/deadlines/queryKeys'
@@ -25,10 +26,11 @@ export function useMatters(filters?: MatterFilters, options?: { enabled?: boolea
 }
 
 export function useMatterShelfCounts(enabled = true) {
+  const authReady = useAuthReady()
   return useQuery({
     queryKey: matterKeys.shelfCounts(),
     queryFn: () => mattersApi.shelfCounts(),
-    enabled,
+    enabled: enabled && authReady,
     staleTime: 30_000,
     refetchOnWindowFocus: true,
   })

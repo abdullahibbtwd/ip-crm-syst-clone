@@ -139,11 +139,17 @@ export function CreateClientPage() {
             <Field label={t('overview.type')}>
               <Select value={type} onValueChange={(v) => setType(v as ClientType)}>
                 <SelectTrigger>
-                  <SelectValue />
+                  <SelectValue>
+                    {type === 'individual' ? t('type.individual') : t('type.company')}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="company">{t('type.company')}</SelectItem>
-                  <SelectItem value="individual">{t('type.individual')}</SelectItem>
+                  <SelectItem value="company" label={t('type.company')}>
+                    {t('type.company')}
+                  </SelectItem>
+                  <SelectItem value="individual" label={t('type.individual')}>
+                    {t('type.individual')}
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </Field>
@@ -199,12 +205,19 @@ export function CreateClientPage() {
                 onValueChange={(v) => setHoldingGroupId(v ?? NO_HOLDING_GROUP)}
               >
                 <SelectTrigger>
-                  <SelectValue />
+                  <SelectValue>
+                    {holdingGroupId === NO_HOLDING_GROUP
+                      ? t('overview.none')
+                      : holdingGroups?.items.find((group) => group.id === holdingGroupId)
+                          ?.name ?? t('overview.none')}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={NO_HOLDING_GROUP}>{t('overview.none')}</SelectItem>
+                  <SelectItem value={NO_HOLDING_GROUP} label={t('overview.none')}>
+                    {t('overview.none')}
+                  </SelectItem>
                   {(holdingGroups?.items ?? []).map((group) => (
-                    <SelectItem key={group.id} value={group.id}>
+                    <SelectItem key={group.id} value={group.id} label={group.name}>
                       {group.name}
                     </SelectItem>
                   ))}

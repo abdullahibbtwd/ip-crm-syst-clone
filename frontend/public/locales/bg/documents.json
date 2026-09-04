@@ -17,23 +17,23 @@
     "view": "Преглед",
     "download": "Изтегли"
   },
-  "subtitleWorking": "Documents attached to working files across the firm.",
-  "subtitleShared": "Firm-wide shared documents — templates, forms, and internal materials.",
+  "subtitleWorking": "Документи, прикачени към работни файлове във фирмата.",
+  "subtitleShared": "Споделени документи за цялата фирма — шаблони, формуляри и вътрешни материали.",
   "tabs": {
-    "working": "Working file documents",
-    "shared": "Shared documents"
+    "working": "Работно досие документи",
+    "shared": "Споделени документи"
   },
   "shared": {
-    "upload": "Upload shared document",
-    "uploading": "Uploading…",
-    "uploadFailed": "Failed to upload shared document",
-    "uploadRequired": "Choose a file to upload",
-    "empty": "No shared documents yet. Upload templates, forms, or firm guidelines here.",
-    "download": "Download",
-    "dropHint": "Drop a file here or choose one",
-    "chooseFile": "Choose file",
-    "displayName": "Display name",
-    "displayNamePlaceholder": "e.g. Power of Attorney template",
-    "category": "Category"
+    "upload": "Качете споделен документ",
+    "uploading": "Качване...",
+    "uploadFailed": "Неуспешно качване на споделен документ",
+    "uploadRequired": "Изберете файл за качване",
+    "empty": "Все още няма споделени документи. Качвайте шаблони, формуляри или фирмени указания тук.",
+    "download": "Изтегляне",
+    "dropHint": "Пуснете файл тук или изберете такъв",
+    "chooseFile": "Изберете файл",
+    "displayName": "Екранно име",
+    "displayNamePlaceholder": "напр. Образец на пълномощно",
+    "category": "Категория"
   }
 }

@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useAuthReady } from '@/features/auth/AuthProvider'
 import { intakeApi } from '@/features/intake/api'
 import { intakeKeys } from '@/features/intake/queryKeys'
 import type { IntakeFilters } from '../types'
@@ -43,10 +44,11 @@ export function useUpdateMyIntake(id: string) {
 }
 
 export function useIntakePendingCount(enabled = true) {
+  const authReady = useAuthReady()
   return useQuery({
     queryKey: intakeKeys.pendingCount(),
     queryFn: () => intakeApi.pendingCount(),
-    enabled,
+    enabled: enabled && authReady,
     refetchInterval: 60_000,
     staleTime: 30_000,
   })

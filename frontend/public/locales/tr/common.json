@@ -85,5 +85,20 @@
     "no": "HAYIR",
     "none": "Hiçbiri",
     "yes": "Evet"
+  },
+  "search": {
+    "placeholder": "Müşterileri, konuları, e-postaları arayın…",
+    "ariaLabel": "Küresel arama",
+    "clear": "Aramayı temizle",
+    "failed": "Arama başarısız oldu. Tekrar deneyin.",
+    "minChars": "En az 2 karakter yazın.",
+    "noMatches": "“{{query}}” için eşleşme yok.",
+    "types": {
+      "client": "Müşteri",
+      "matter": "Konu",
+      "correspondence": "E-posta / yazışma",
+      "document": "Belge",
+      "unlinkedEmail": "E-posta kuyruğu"
+    }
   }
 }

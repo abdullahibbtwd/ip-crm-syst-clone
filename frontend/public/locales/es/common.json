@@ -85,5 +85,20 @@
     "no": "No",
     "none": "Ninguna",
     "yes": "Sí"
+  },
+  "search": {
+    "placeholder": "Busca clientes, asuntos, emails…",
+    "ariaLabel": "búsqueda global",
+    "clear": "Borrar búsqueda",
+    "failed": "La búsqueda falló. Intentar otra vez.",
+    "minChars": "Escriba al menos 2 caracteres.",
+    "noMatches": "No hay coincidencias para \"{{query}}\".",
+    "types": {
+      "client": "Cliente",
+      "matter": "Asunto",
+      "correspondence": "Correo electrónico / correspondencia",
+      "document": "Documento",
+      "unlinkedEmail": "Cola de correo electrónico"
+    }
   }
 }
