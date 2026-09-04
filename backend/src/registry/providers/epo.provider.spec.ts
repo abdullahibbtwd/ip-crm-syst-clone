@@ -310,6 +310,7 @@ describe('EpoProvider', () => {
       publicationNumber: 'EP3000000.A1',
       title: 'Widget Patent',
       applicant: 'Acme Corp',
+      applicantAddress: null,
       publicationDate: '2020-01-01',
     });
   });

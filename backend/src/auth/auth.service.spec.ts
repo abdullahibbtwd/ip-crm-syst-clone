@@ -214,6 +214,7 @@ describe('AuthService', () => {
       await expect(service.login(user)).resolves.toEqual({
         mfaRequired: true,
         pendingUserId: 'u1',
+        pendingMethod: 'password',
       });
     });
 
@@ -249,7 +250,7 @@ describe('AuthService', () => {
     it('signs mfa_pending JWT', async () => {
       await service.createMfaPendingToken('u1');
       expect(jwtService.signAsync).toHaveBeenCalledWith(
-        { sub: 'u1', type: 'mfa_pending' },
+        { sub: 'u1', type: 'mfa_pending', method: 'password' },
         expect.objectContaining({ expiresIn: '5m' }),
       );
     });

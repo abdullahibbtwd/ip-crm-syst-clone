@@ -29,6 +29,9 @@ export function spcMatterWhere(): Prisma.MatterWhereInput {
 }
 
 /** Exclude SPC files from the regular patent shelf. */
-export function excludeSpcMatterWhere(): Prisma.MatterWhereInput {
-  return { NOT: spcMatterWhere() };
+export function excludeSpcMatterWhere(
+  spcMatterIds: string[] = [],
+): Prisma.MatterWhereInput {
+  if (spcMatterIds.length === 0) return {};
+  return { id: { notIn: spcMatterIds } };
 }

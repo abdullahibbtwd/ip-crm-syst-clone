@@ -43,7 +43,7 @@ describe('MattersService', () => {
     };
     matterDocumentVersion: { findFirst: jest.Mock };
     matterTimelineEvent: { create: jest.Mock; count: jest.Mock };
-    matterDocument: { count: jest.Mock };
+    matterDocument: { count: jest.Mock; groupBy: jest.Mock };
     correspondence: { count: jest.Mock };
     deadline: { count: jest.Mock };
     task: { count: jest.Mock };
@@ -93,7 +93,7 @@ describe('MattersService', () => {
       },
       matterDocumentVersion: { findFirst: jest.fn() },
       matterTimelineEvent: { create: jest.fn(), count: jest.fn() },
-      matterDocument: { count: jest.fn() },
+      matterDocument: { count: jest.fn(), groupBy: jest.fn().mockResolvedValue([]) },
       correspondence: { count: jest.fn() },
       deadline: { count: jest.fn() },
       task: { count: jest.fn() },
@@ -250,6 +250,7 @@ describe('MattersService', () => {
             },
           },
           ipRights: [],
+          jurisdictions: [],
         },
       ]);
       deadlinesService.countUpcomingByMatterIds.mockResolvedValue(new Map());

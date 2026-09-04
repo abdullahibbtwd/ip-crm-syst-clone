@@ -16,6 +16,7 @@ function listUser(overrides: Record<string, unknown> = {}) {
     passwordHash: null,
     clientId: null,
     lastLoginAt: null,
+    lastSignInMethod: null,
     createdAt: new Date(),
     portalClient: null,
     userRoles: [{ role: { name: SYSTEM_ROLES.IP_ATTORNEY } }],
@@ -37,6 +38,7 @@ describe('UsersService', () => {
     userRole: { upsert: jest.Mock; deleteMany: jest.Mock };
     $transaction: jest.Mock;
   };
+  let userInvite: { sendInviteEmail: jest.Mock };
 
   beforeEach(() => {
     prisma = {
@@ -51,7 +53,13 @@ describe('UsersService', () => {
       userRole: { upsert: jest.fn(), deleteMany: jest.fn() },
       $transaction: jest.fn(async (fn) => fn(prisma)),
     };
-    service = new UsersService(prisma as unknown as PrismaService);
+    userInvite = {
+      sendInviteEmail: jest.fn().mockResolvedValue({ sent: true }),
+    };
+    service = new UsersService(
+      prisma as unknown as PrismaService,
+      userInvite as never,
+    );
   });
 
   describe('findAll', () => {
@@ -66,7 +74,7 @@ describe('UsersService', () => {
 
       expect(result.items).toHaveLength(2);
       expect(result.nextCursor).toBe('u2');
-      expect(result.items[0].authMethod).toBe('sso');
+      expect(result.items[0].authMethod).toBe('pending');
     });
 
     it('filters team users by role', async () => {

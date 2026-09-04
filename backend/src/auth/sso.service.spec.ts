@@ -200,7 +200,7 @@ describe('SsoService', () => {
 
       await service.handleCallback('microsoft', callbackReq, res as unknown as Response);
 
-      expect(authService.login).toHaveBeenCalledWith(user);
+      expect(authService.login).toHaveBeenCalledWith(user, { method: 'sso' });
       expect(cookies.setAuthCookies).toHaveBeenCalledWith(
         res,
         'access',

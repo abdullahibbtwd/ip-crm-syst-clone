@@ -42,6 +42,59 @@ export function readTrademarkProcedureFromAttributes(
   return typeof value === 'string' && value.trim() ? value.trim() : null;
 }
 
+export const SECONDARY_TRADEMARK_SHELVES = [
+  'objection',
+  'opposition',
+  'cancellation',
+  'deletion',
+] as const;
+
+/** Sidebar shelf for a stored procedure. Missing/legacy values land on Marks. */
+export function trademarkShelfCountKey(
+  stored: string | null | undefined,
+): 'marks' | (typeof SECONDARY_TRADEMARK_SHELVES)[number] {
+  const key = normalizeTrademarkProcedureShelfKey(stored);
+  if (
+    key === 'objection' ||
+    key === 'opposition' ||
+    key === 'cancellation' ||
+    key === 'deletion'
+  ) {
+    return key;
+  }
+  return 'marks';
+}
+
+export function secondaryTrademarkProcedureWhere(): Prisma.MatterWhereInput {
+  const values = SECONDARY_TRADEMARK_SHELVES.flatMap(
+    (shelf) => TRADEMARK_PROCEDURE_STORED_VALUES[shelf] ?? [],
+  );
+  return {
+    matterType: MatterType.trademark,
+    OR: values.map((value) => ({
+      attributes: {
+        is: {
+          attributes: {
+            path: ['trademarkProcedure'],
+            equals: value,
+          },
+        },
+      },
+    })),
+  };
+}
+
+export function marksShelfWhere(
+  secondaryMatterIds: string[],
+): Prisma.MatterWhereInput {
+  return {
+    matterType: MatterType.trademark,
+    ...(secondaryMatterIds.length > 0
+      ? { id: { notIn: secondaryMatterIds } }
+      : {}),
+  };
+}
+
 /** Map stored DB value to sidebar shelf key. */
 export function normalizeTrademarkProcedureShelfKey(
   stored: string | null | undefined,

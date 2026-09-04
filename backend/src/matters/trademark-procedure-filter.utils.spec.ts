@@ -1,6 +1,7 @@
 import {
   normalizeTrademarkProcedureShelfKey,
   trademarkProcedureFilter,
+  trademarkShelfCountKey,
 } from './trademark-procedure-filter.utils';
 
 describe('trademarkProcedureFilter', () => {
@@ -29,5 +30,14 @@ describe('trademarkProcedureFilter', () => {
 
   it('normalizes unknown to null shelf when empty', () => {
     expect(normalizeTrademarkProcedureShelfKey(null)).toBeNull();
+  });
+
+  it('puts missing and legacy procedures on the Marks shelf', () => {
+    expect(trademarkShelfCountKey(null)).toBe('marks');
+    expect(trademarkShelfCountKey('new')).toBe('marks');
+    expect(trademarkShelfCountKey('registered')).toBe('marks');
+    expect(trademarkShelfCountKey('madrid')).toBe('marks');
+    expect(trademarkShelfCountKey('objection')).toBe('objection');
+    expect(trademarkShelfCountKey('revocation')).toBe('deletion');
   });
 });

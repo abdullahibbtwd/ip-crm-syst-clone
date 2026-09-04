@@ -50,9 +50,11 @@ import { extractPatentListSummary } from './patent-list-summary.utils';
 import { extractDesignListSummary } from './design-list-summary.utils';
 import { extractTrademarkListSummary } from './trademark-list-summary.utils';
 import {
-  normalizeTrademarkProcedureShelfKey,
+  marksShelfWhere,
   readTrademarkProcedureFromAttributes,
+  secondaryTrademarkProcedureWhere,
   trademarkProcedureFilter,
+  trademarkShelfCountKey,
 } from './trademark-procedure-filter.utils';
 import { trademarkListFilterWhere } from './trademark-list-filter.utils';
 import { patentListFilterWhere } from './patent-list-filter.utils';
@@ -304,6 +306,42 @@ export class MattersService {
       statusFilter = { not: MatterStatus.draft };
     }
 
+    const isPatentList =
+      query.matterType === MatterType.patent && query.spcOnly !== true;
+
+    const [secondaryTrademarkIds, spcMatterIds] = await Promise.all([
+      query.trademarkProcedure === 'marks'
+        ? this.prisma.matter
+            .findMany({
+              where: {
+                clientId: scopeClientId ?? query.clientId,
+                ...secondaryTrademarkProcedureWhere(),
+              },
+              select: { id: true },
+            })
+            .then((rows) => rows.map((row) => row.id))
+        : Promise.resolve([] as string[]),
+      isPatentList
+        ? this.prisma.matter
+            .findMany({
+              where: {
+                clientId: scopeClientId ?? query.clientId,
+                matterType: MatterType.patent,
+                ...spcMatterWhere(),
+              },
+              select: { id: true },
+            })
+            .then((rows) => rows.map((row) => row.id))
+        : Promise.resolve([] as string[]),
+    ]);
+
+    const procedureWhere =
+      query.trademarkProcedure === 'marks'
+        ? marksShelfWhere(secondaryTrademarkIds)
+        : query.trademarkProcedure
+          ? trademarkProcedureFilter(query.trademarkProcedure)
+          : undefined;
+
     const baseWhere: Prisma.MatterWhereInput = {
       clientId: scopeClientId ?? query.clientId,
       status: statusFilter,
@@ -314,9 +352,7 @@ export class MattersService {
           : undefined,
       assignedToId: query.assignedToId,
       isArchived: query.archivedOnly === true,
-      ...(query.trademarkProcedure
-        ? trademarkProcedureFilter(query.trademarkProcedure)
-        : {}),
+      ...(procedureWhere ?? {}),
       ...(search
         ? {
             OR: [
@@ -351,9 +387,6 @@ export class MattersService {
     const isSpcList =
       query.matterType === MatterType.patent && query.spcOnly === true;
 
-    const isPatentList =
-      query.matterType === MatterType.patent && query.spcOnly !== true;
-
     const isDesignList = query.matterType === MatterType.industrial_design;
 
     const isUtilityModelList = query.matterType === MatterType.utility_model;
@@ -387,7 +420,7 @@ export class MattersService {
     const patentPortfolioFilter = isPatentList
       ? {
           AND: [
-            excludeSpcMatterWhere(),
+            excludeSpcMatterWhere(spcMatterIds),
             ...(patentListFilter ? [patentListFilter] : []),
           ],
         }
@@ -657,7 +690,7 @@ export class MattersService {
       status: { not: MatterStatus.draft },
     };
 
-    const [byTypeRows, spcCount, patentNonSpcCount, all, archived, drafts, trademarkAttrs] =
+    const [byTypeRows, spcCount, all, archived, drafts, trademarkAttrs] =
       await Promise.all([
       this.prisma.matter.groupBy({
         by: ['matterType'],
@@ -669,13 +702,6 @@ export class MattersService {
           ...activeScope,
           matterType: MatterType.patent,
           ...spcMatterWhere(),
-        },
-      }),
-      this.prisma.matter.count({
-        where: {
-          ...activeScope,
-          matterType: MatterType.patent,
-          ...excludeSpcMatterWhere(),
         },
       }),
       this.prisma.matter.count({
@@ -702,17 +728,15 @@ export class MattersService {
       const stored = readTrademarkProcedureFromAttributes(
         row.attributes?.attributes,
       );
-      const key = normalizeTrademarkProcedureShelfKey(stored) ?? 'unknown';
+      const key = trademarkShelfCountKey(stored);
       trademarkByProcedure[key] = (trademarkByProcedure[key] ?? 0) + 1;
     }
-    trademarkByProcedure.marks =
-      (trademarkByProcedure.new ?? 0) + (trademarkByProcedure.registered ?? 0);
 
     const byType: Record<string, number> = {};
     let others = 0;
     for (const row of byTypeRows) {
       if (row.matterType === MatterType.patent) {
-        byType.patent = patentNonSpcCount;
+        byType.patent = Math.max(0, row._count._all - spcCount);
       } else {
         byType[row.matterType] = row._count._all;
       }
